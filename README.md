@@ -41,6 +41,23 @@ The API defines several resource types:
 - Datastreams & Observations
 - Control Channels, Commands and Command Status
 
+A key objective of this API is to support, not only JSON based encodings, but also efficient binary encodings for observations and commands (e.g. protobuf). Initially, we plan to support the following formats:
+
+For feature data:
+- GeoJSON
+- JSON-FG
+- SensorML (JSON and XML)
+
+For datastreams, controls, observations and commands:
+- SWE Common schema (JSON and XML)
+- SWE Common data (JSON, text, binary, protobuf)
+- O&M (JSON and XML)
+
+In addition to well-know HTTP/REST CRUD operations, the following protocol bindings will be defined:
+
+- Websocket
+- MQTT
+
 
 ## Work Items
 
