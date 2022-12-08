@@ -9,7 +9,8 @@
 
 ## Overview
 
-The Connected Systems SWG is focused on modernization of the SensorML and related Sensor Web Enablement (SWE) Standards as an extension of the OGC API - Features Standard, with an inclusive eye toward all manner of connected systems. This work includes the maintenance and update of SensorML, including development of additional encodings (e.g., JSON), adapting modern, RESTful approaches to SWE Standards (for discovery, tasking, observation access, processing, and portrayal), and integration of these updated Standards with OGC APIs.
+The Connected Systems SWG is focused on modernization of the SensorML and related Sensor Web Enablement (SWE) Standards, with an inclusive eye toward all manner of connected systems. This work includes the maintenance and update of SensorML, including finalization of the JSON encodings, adapting modern, RESTful approaches to SWE Standards (for discovery, tasking, observation access, processing, and portrayal), and integration of these updated Standards with other OGC APIs.
+
 
 ## Background
 
@@ -23,7 +24,22 @@ One key piece to this was the development of a coherent set of standard semantic
 
 In the US, the National Institute for Standards and Technology launched its focus on [Smart Connected Systems](https://www.nist.gov/programs-projects/smart-and-connected-systems), recognizing that all of these various kinds of devices are ultimately systems that need to be connected in order to fulfill the tasks that we as users desire them to undertake on our behalf.  
 
-It is in this context that we propose a draft OGC API - Connected Systems specification.  It is built upon the information models, such as SensorML, Observations and Measurements (now called Observations, Measurements and Samples) and OGC SWE Common Data Model, the Semantic Sensor Network Ontology (SOSA/SSN), and the design patterns that have long underpinned the OGC SWE architecture, deployed within a modern RESTful API that follows the OGC API strategic guidance.  The OGC API - Connected Systems specification is intended to act as a bridge between static data (geographic and other domain features) and dynamic data (observations of these feature properties, and commands/actuations that change these feature properties). To this end, the API will be an extension of the [OGC API - Features](https://ogcapi.ogc.org/features) and, in addition to providing its own mechanism for retrieving static and dynamic data, the API will allow linking to other APIs from the OGC ecosystem, whenever it makes sense: OGC API - Features, 3D GeoVolumes/3D Tiles, Coverages, EDR, Processes, SensorThings.
+It is in this context that we propose a draft OGC API - Connected Systems specification.  It is built upon existing OGC information models, mainly [SensorML](https://www.ogc.org/standards/sensorml), [Observations and Measurements (O&M)](https://www.ogc.org/standards/om) (now called Observations, Measurements and Samples), the [SWE Common Data Model](https://www.ogc.org/standards/swecommon), and the [Semantic Sensor Network Ontology](https://www.w3.org/TR/vocab-ssn) (SOSA/SSN), and inherits from the design patterns that have long underpinned the OGC SWE architecture, incorporated within a modern RESTful API that follows the OGC API strategic guidance.
+
+
+## Connected Systems API
+
+The OGC API - Connected Systems specification is intended to act as a bridge between static data (geographic and other domain features) and dynamic data (observations of these feature properties, and commands/actuations that change these feature properties). To this end, the API will be an extension of the [OGC API - Features](https://ogcapi.ogc.org/features) and, in addition to providing its own mechanism for retrieving static and dynamic data, the API will allow linking to other APIs from the OGC ecosystem, such as [3D GeoVolumes](https://ogcapi.ogc.org/geovolumes/), [3D Tiles](https://github.com/CesiumGS/3d-tiles/tree/main/specification), [Coverages](https://ogcapi.ogc.org/coverages), [EDR](https://ogcapi.ogc.org/edr), [SensorThings](https://ogcapi.ogc.org/sensorthings), [Processes](https://ogcapi.ogc.org/processes), and other Features API instances.
+
+The API defines several resource types:
+
+- Systems (metadata of sensors, actuators, platforms, simulations, etc.)
+- Deployments (metadata of system deployments)
+- Procedures (metadata of procedures implemented by system, which includes automated system specs/datasheets and human driven activities)
+- Sampling Features (metadata about sampling geometries/methodologies used by observing systems)
+- Sampled Features (metadata about ultimate features of interest, observed or controlled by systems)
+- Datastreams & Observations
+- Control Channels, Commands and Command Status
 
 
 ## Work Items
