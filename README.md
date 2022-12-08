@@ -53,7 +53,7 @@ For datastreams, controls, observations and commands:
 - SWE Common data (JSON, text, binary, protobuf)
 - O&M (JSON and XML)
 
-In addition to well-know HTTP/REST CRUD operations, the following protocol bindings will be defined:
+In addition to classical HTTP/REST CRUD operations, the following protocol bindings will be defined:
 
 - Websocket
 - MQTT
