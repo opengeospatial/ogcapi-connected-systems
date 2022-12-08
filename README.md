@@ -1,4 +1,11 @@
+<img align="left" width="128" height="176" src="https://user-images.githubusercontent.com/9450210/206531935-dd3367e2-55a2-429f-af6f-8ef0980a49a5.png">
+
+<br/>
+
 # Connected Systems Standards Working Group
+
+<br/>
+<br/>
 
 ## Overview
 
