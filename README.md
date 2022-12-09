@@ -9,7 +9,7 @@
 
 ## Overview
 
-The Connected Systems SWG is focused on modernization of the SensorML and related Sensor Web Enablement (SWE) Standards, with an inclusive eye toward all manner of connected systems. This work includes the maintenance and update of SensorML, including finalization of the JSON encodings, adapting modern, RESTful approaches to SWE Standards (for discovery, tasking, observation access, processing, and portrayal), and integration of these updated Standards with other OGC APIs.
+The Connected Systems SWG is focused on modernization of the SensorML and related Sensor Web Enablement (SWE) Standards, with an inclusive eye toward all manner of connected systems. This work includes the maintenance and update of SensorML, including finalization of the JSON encodings, adapting modern, RESTful approaches to SWE Standards (for discovery, , observation access, tasking, and processing), and integration of these updated Standards with other OGC APIs.
 
 
 ## Background
