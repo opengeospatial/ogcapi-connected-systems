@@ -1,10 +1,7 @@
-<img align="left" width="128" height="176" src="https://user-images.githubusercontent.com/9450210/206568663-a00f68cf-4c9a-499d-bceb-847ab1496eed.png">
+<img align="left" width="96" height="132" src="https://user-images.githubusercontent.com/9450210/206568663-a00f68cf-4c9a-499d-bceb-847ab1496eed.png">
 
-<br/>
+# Connected Systems<br/>Standards Working Group
 
-# Connected Systems Standards Working Group
-
-<br/>
 <br/>
 
 ## Overview
