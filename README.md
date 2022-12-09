@@ -41,8 +41,8 @@ The API defines several resource types:
 A key objective of this API is to support, not only JSON based encodings, but also efficient binary encodings for observations and commands (e.g. protobuf). Initially, we plan to support the following formats:
 
 For feature data:
-- GeoJSON
-- JSON-FG
+- [GeoJSON](https://geojson.org/)
+- [JSON-FG](https://docs.ogc.org/DRAFTS/21-045.html)
 - SensorML (JSON and XML)
 
 For datastreams, controls, observations and commands:
