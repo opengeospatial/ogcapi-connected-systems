@@ -21,22 +21,34 @@ One key piece to this was the development of a coherent set of standard semantic
 
 In the US, the National Institute for Standards and Technology launched its focus on [Smart Connected Systems](https://www.nist.gov/programs-projects/smart-and-connected-systems), recognizing that all of these various kinds of devices are ultimately systems that need to be connected in order to fulfill the tasks that we as users desire them to undertake on our behalf.  
 
-It is in this context that we propose a draft OGC API - Connected Systems specification.  It is built upon accepted web formats such as GeoJSON as well as existing OGC information models, including [SensorML](https://www.ogc.org/standards/sensorml), [Observations and Measurements (O&M)](https://www.ogc.org/standards/om) (now called Observations, Measurements and Samples), [SWE Common Data Model](https://www.ogc.org/standards/swecommon), and the [Semantic Sensor Network Ontology](https://www.w3.org/TR/vocab-ssn) (SOSA/SSN). It also inherits from the design patterns that have long underpinned the OGC SWE architecture, and that will be incorporated within a modern RESTful API that follows the OGC API strategic guidance.
-
 
 ## Connected Systems API
 
-The OGC API - Connected Systems Standard is intended to act as a bridge between static data (geographic and other domain features) and dynamic data (observations of these feature properties, and commands/actuations that change these feature properties). To this end, the API will be an extension of the [OGC API - Features](https://ogcapi.ogc.org/features) and, in addition to providing its own mechanism for retrieving static and dynamic data, the API will allow linking to other APIs from the OGC ecosystem, such as [3D GeoVolumes](https://ogcapi.ogc.org/geovolumes/), [3D Tiles](https://github.com/CesiumGS/3d-tiles/tree/main/specification), [Coverages](https://ogcapi.ogc.org/coverages), [EDR](https://ogcapi.ogc.org/edr), [SensorThings](https://ogcapi.ogc.org/sensorthings), [Processes](https://ogcapi.ogc.org/processes), and other Features API instances.
+It is in this context that we propose a draft OGC API - Connected Systems Standard.  It is built upon accepted web formats such as GeoJSON as well as existing OGC information models, including [SensorML](https://www.ogc.org/standards/sensorml), [Observations and Measurements (O&M)](https://www.ogc.org/standards/om) (now called Observations, Measurements and Samples), [SWE Common Data Model](https://www.ogc.org/standards/swecommon), and the [Semantic Sensor Network Ontology](https://www.w3.org/TR/vocab-ssn) (SOSA/SSN). It also inherits from the design patterns that have long underpinned the OGC SWE architecture, and that will be incorporated within a modern RESTful API that follows the OGC API strategic guidance.
 
-The API defines several resource types:
+The API is intended to act as a bridge between static data (geographic and other domain features) and dynamic data (observations of these feature properties, and commands/actuations that change these feature properties). To this end, the API will be an extension of the [OGC API - Features](https://ogcapi.ogc.org/features) and, in addition to providing its own mechanism for retrieving static and dynamic data, the API will allow linking to other APIs from the OGC ecosystem, such as [3D GeoVolumes](https://ogcapi.ogc.org/geovolumes/), [3D Tiles](https://github.com/CesiumGS/3d-tiles/tree/main/specification), [Coverages](https://ogcapi.ogc.org/coverages), [EDR](https://ogcapi.ogc.org/edr), [SensorThings](https://ogcapi.ogc.org/sensorthings), [Processes](https://ogcapi.ogc.org/processes), and other Features API instances.
 
+The proposed API Standard consists of two parts and defines several resource types:
+
+Part 1 - Feature Types
 - Systems (metadata of sensors, actuators, platforms, simulations, etc.)
-- Deployments (metadata of system deployments)
 - Procedures (metadata of procedures implemented by system, which includes automated system specs/datasheets and human driven activities)
+- Deployments (metadata of system deployments)
 - Sampling Features (metadata about sampling geometries/methodologies used by observing systems)
-- Sampled Features (metadata about ultimate features of interest, observed or controlled by systems)
-- Datastreams & Observations
-- Control Channels, Commands and Command Status
+
+Part 2 - Dynamic Data
+- Datastreams
+- Observations
+- Control Channels
+- Commands and Command Status
+
+Beyond the above resource types, a few query parameters are added to the ones defined by OGC API - Features:
+- WKT geometry filter
+- Full-text search based on keywords and prefix
+- Filter on feature property values
+- Filter on associated resource IDs (e.g. find all systems implementing a given procedure, all datastreams for a certain observable, etc.)
+
+Certain types of join queries will be defined in a future extension.
 
 A key objective of this API is to support, not only JSON based encodings, but also efficient binary encodings for observations and commands (e.g. protobuf). Initially, we plan to support the following formats:
 
@@ -46,9 +58,9 @@ For feature data:
 - SensorML (JSON and XML)
 
 For datastreams, controls, observations and commands:
+- O&M (JSON and XML)
 - SWE Common schema (JSON and XML)
 - SWE Common data (JSON, text, binary, protobuf)
-- O&M (JSON and XML)
 
 In addition to classical HTTP/REST CRUD operations, the following protocol bindings will be defined:
 
@@ -57,6 +69,8 @@ In addition to classical HTTP/REST CRUD operations, the following protocol bindi
 
 
 ## Work Items
+
+This SWG will work on the following tasks:
 
 ### SensorML Update
 The SWG will undertake an update of the [SensorML Standard](https://www.ogc.org/standards/sensorml), including the needs of the Observations & Measurements (O&M) community, with a particular focus on JSON encodings.
