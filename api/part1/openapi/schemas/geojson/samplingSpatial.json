@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "allOf": [
+    { "$ref": "samplingFeature.json" },
+    {
+      "type": "object",
+      "required": [ "geometry" ],
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "validTime": {
+              "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
+            },
+            "hostedSystem@link": {
+              "$ref": "../common/commonDefs.json#/definitions/XLink"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

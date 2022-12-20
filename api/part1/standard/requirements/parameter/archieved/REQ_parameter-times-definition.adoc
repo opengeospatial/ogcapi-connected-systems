@@ -1,0 +1,13 @@
+[[req_mf_times-parameter-definition]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/movingfeatures/param-times-definition*
+^|A |The operation SHALL support a parameter `times` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
+
+[source,yaml]
+----
+include::../../../schema/times-parameter.yaml[]
+----
+^|B |The `times` parameter SHALL be a sequence of monotonic increasing instants with `date-time` strings.
+^|C |The syntax of `date-time` is specified by https://datatracker.ietf.org/doc/html/rfc3339#section-5.6[RFC 3339, 5.6].
+|===

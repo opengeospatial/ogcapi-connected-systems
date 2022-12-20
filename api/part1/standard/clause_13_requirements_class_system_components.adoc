@@ -1,0 +1,41 @@
+
+[[clause-system-components]]
+== Requirements Class "System Components"
+include::requirements/system/requirements_class_system_components.adoc[]
+
+
+=== Overview
+
+It is often useful to describe complex systems in terms of a hierarchy of components (or subsystems). This requirements class specifies how  such hierarchical systems are described and made discoverable using this API.
+
+System components are `System Features` that are made available through a sub-collection of a System resource. Components can be any kind of `System` and can be indefinitely nested.
+
+This requirements class defines the `components` sub-collection that allows exposing components of a parent system.
+
+
+=== System Component Resources
+
+Resources representing system components are just regular `System` resources.
+
+
+=== System Component Collections
+
+[[req_subsystem-collection]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/subsystem/collection*
+^| A |The server SHALL expose subsystems as a sub-collection of `System` resources at path `{systemResourceUrl}/components`. The content of the collection SHALL be the list of `System` resources that are the subsystems of the parent `System` resource.
+|===
+
+[[req_subsystem-search]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/system/collection*
+^| A |The server SHALL only expose the top-level systems in the catch-all system collection at URL `{api_root}/systems` by default.
+^| B |The server SHOULD expose the subsystems in the catch-all system collection at URL `{api_root}/systems` only if the query parameter `searchComponents` is used.
+|===
+
+
+=== Recursive System Search
+
+By default, system collections only present systems at the current level

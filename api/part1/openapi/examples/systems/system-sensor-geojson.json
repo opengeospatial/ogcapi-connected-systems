@@ -1,0 +1,35 @@
+
+{
+  "type": "Feature",
+  "id": "S001",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [41.8781, -87.6298]
+  },
+  "properties": {
+    "uid": "urn:x-ogc:systems:001",
+    "name": "Outdoor Thermometer 001",
+    "description": "Digital thermometer located on first floor window 1",
+    "featureType": "http://www.w3.org/ns/sosa/Sensor",
+    "assetType": "http://www.opengis.net/def/x-OGC/Equipment",
+    "procedure@link": {
+      "href": "https://data.example.org/procedures/P456/procedure?f=json",
+      "type" : "application/geo+json",
+      "uid": "urn:x-myorg:datasheets:ThermoPro:TP60S:v001",
+      "title": "Thermo Pro TP60S"
+    }
+  },
+  "links": [
+    {
+      "href" : "https://api.example.org/systems/S001?f=json",
+      "rel" : "self",
+      "type" : "application/geo+json",
+      "title" : "this document"
+    }, {
+      "href" : "https://api.example.org/systems/S001?f=sml",
+      "rel" : "alternate",
+      "type" : "application/sml+json",
+      "title" : "this resource as SensorML"
+    }
+  ]
+}

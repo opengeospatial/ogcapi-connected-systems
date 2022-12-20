@@ -1,0 +1,54 @@
+{
+  "type": "Feature",
+  "id": "PLT412",
+  "geometry": null,
+  "properties": {
+    "uid": "urn:x-ogc:systems:uav:solo154",
+    "name": "UAV System",
+    "description": "3DR Solo UAV ",
+    "featureType": "http://www.w3.org/ns/sosa/Platform",
+    "procedure@link": {
+      "uid": "urn:x-ogc:datasheets:uav:3dr-solo:v001",
+      "href": "https://data.example.org/collections/all_systems/items/123/procedure?f=json",
+      "type" : "application/geo+json"
+    }
+  },
+  "links": [
+    {
+      "href" : "https://api.example.org/systems/PLT412?f=json",
+      "rel" : "self",
+      "type" : "application/geo+json",
+      "title" : "this document"
+    }, {
+      "href" : "https://api.example.org/systems/PLT412?f=application/sml+json",
+      "rel" : "alternate",
+      "type" : "application/sml+json",
+      "title" : "this resource as SensorML"
+    }, {
+      "href" : "https://api.example.org/systems/PLT412/123?f=html",
+      "rel" : "alternate",
+      "type" : "text/html",
+      "title" : "this resource as HTML"
+    }, {
+      "href" : "https://api.example.org/systems/PLT412/components?f=json",
+      "rel" : "subsystems",
+      "type" : "application/geo+json",
+      "title" : "List of subsystems"
+    }, {
+      "href" : "https://api.example.org/systems/PLT412/samplingFeatures?f=json",
+      "rel" : "samplingFeatures",
+      "type" : "application/geo+json",
+      "title" : "List of sampling features attached to this system"
+    }, {
+      "href" : "https://api.example.org/systems/PLT412/procedure?f=json",
+      "rel" : "procedure",
+      "type" : "application/geo+json",
+      "title" : "Procedure implemented by this system"
+    }, {
+      "href" : "https://api.example.org/systems/PLT412/deployments?f=json",
+      "rel" : "deployments",
+      "type" : "application/geo+json",
+      "title" : "List of deployments of this system"
+    }
+  ]
+}

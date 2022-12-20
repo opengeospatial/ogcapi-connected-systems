@@ -1,0 +1,8 @@
+[[rc_system-components]]
+[cols="1,4",width="90%",options="header"]
+|===
+2+|*Requirements Class*
+2+|http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/req/system-components
+|Target type    |Web API
+|Dependency     |<<clause-system-features>>
+|===

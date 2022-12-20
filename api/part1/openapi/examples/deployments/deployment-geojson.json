@@ -1,0 +1,29 @@
+{
+  "type": "Feature",
+  "id": "kk8p16lbvqvdo",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [[
+      [53.76,-173.7],
+      [53.76,-155.07],
+      [75.03,-155.07],
+      [75.03,-173.7],
+      [53.76,-173.7]
+    ]]
+  },
+  "properties": {
+    "uid": "urn:x-ogc:deployments:D001",
+    "name": "Saildrone - 2017 Arctic Mission",
+    "featureType": "http://www.w3.org/ns/ssn/Deployment",
+    "description": "In July 2017, three saildrones were launched from Dutch Harbor, Alaska, in partnership with NOAA Research...",
+    "validTime": ["2017-07-17", "2017-09-29"]
+  },
+  "links": [
+    {
+      "href" : "https://api.example.org/deployments/kk8p16lbvqvdo/systems?f=json",
+      "rel" : "systems",
+      "type" : "application/geo+json",
+      "title" : "Deployed Systems"
+    }
+  ]
+}

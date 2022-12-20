@@ -1,0 +1,62 @@
+{
+  "type": "Deployment",
+  "id": "iv3f2kcq27gfi",
+  "definition": "http://www.w3.org/ns/ssn/Deployment",
+  "uniqueId": "urn:x-sd:mission:2025",
+  "name": "Saildrone - 2017 Arctic Mission",
+  "description": "In July 2017, three saildrones were launched from Dutch Harbor, Alaska, in partnership with NOAA Research...",
+  "classifiers": [
+    {
+      "type": "Term",
+      "definition": "https://schema.org/DefinedRegion",
+      "label": "Region",
+      "value": "Arctic"
+    }
+  ],
+  "contacts": [
+    {
+      "role": "http://sensorml.com/ont/swe/property/Operator",
+      "organisationName": "Saildrone, Inc.",
+      "contactInfo": {
+        "onlineResource": "https://www.saildrone.com/",
+        "address": {
+          "deliveryPoint": "1050 W. Tower Ave.",
+          "city": "Alameda",
+          "postalCode": "94501",
+          "administrativeArea": "CA",
+          "country": "USA"
+        }
+      }
+    },
+    {
+      "role": "http://sensorml.com/ont/swe/property/DataProvider",
+      "organisationName": "NOAA Pacific Marine Environmental Laboratory (PMEL)",
+      "contactInfo": {
+        "onlineResource": "https://www.pmel.noaa.gov"
+      }
+    }
+  ],
+  "location": {
+    "type": "Polygon",
+    "coordinates": [[
+      [53.76, -173.7],
+      [75.03, -173.7],
+      [75.03, -155.07],
+      [53.76, -155.07],
+      [53.76, -173.7]
+    ]]
+  },
+  "links": [
+    {
+      "href" : "https://api.example.org/procedures/iv3f2kcq27gfi?f=sml",
+      "rel" : "self",
+      "type" : "application/sml+json",
+      "title" : "this document"
+    }, {
+      "href" : "https://api.example.org/procedures/iv3f2kcq27gfi?f=json",
+      "rel" : "alternate",
+      "type" : "application/geo+json",
+      "title" : "this resource as GeoJSON"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "type": "PhysicalComponent",
+  "id": "iv3f2kcq27gfi",
+  "definition": "http://www.opengis.net/def/x-OGC/ObservingProcedure",
+  "uniqueId": "urn:osh:sensors:saildrone:S0004",
+  "name": "3D Ultrasonic Anemometer",
+  "description": "Precision 3-axis ultrasonic anemometer",
+  "identifiers": [
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/Manufacturer",
+      "label": "Manufacturer Name",
+      "value": "Gill"
+    },
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/ModelNumber",
+      "label": "Model Number",
+      "value": "WindMaster"
+    }
+  ],
+  "classifiers": [
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/SensorType",
+      "label": "Sensor Type",
+      "value": "Anemometer"
+    }
+  ],
+  "capabilities": [
+    {
+      "name": "speed_measurement",
+      "definition": "http://www.w3.org/ns/ssn/systems/SystemCapability",
+      "label": "Speed Measurement Capabilities",
+      "capabilities": [
+        {
+          "name": "range",
+          "type": "QuantityRange",
+          "definition": "http://www.w3.org/ns/ssn/systems/MeasurementRange",
+          "label": "Measurement Range",
+          "uom": {
+            "code": "m/s"
+          },
+          "value": [0.0,50.0]
+        },
+        {
+          "name": "resolution",
+          "type": "Quantity",
+          "definition": "http://www.w3.org/ns/ssn/systems/Resolution",
+          "label": "Resolution",
+          "uom": {
+            "code": "m/s"
+          },
+          "value": 0.01
+        },
+        {
+          "name": "accuracy",
+          "type": "Quantity",
+          "definition": "http://sensorml.com/ont/swe/property/RelativeAccuracy",
+          "label": "Relative Accuracy",
+          "uom": {
+            "code": "%"
+          },
+          "value": 1.5
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "href" : "https://api.example.org/procedures/iv3f2kcq27gfi?f=sml",
+      "rel" : "self",
+      "type" : "application/sml+json",
+      "title" : "this document"
+    }, {
+      "href" : "https://api.example.org/procedures/iv3f2kcq27gfi?f=json",
+      "rel" : "alternate",
+      "type" : "application/geo+json",
+      "title" : "this resource as GeoJSON"
+    }
+  ]
+}

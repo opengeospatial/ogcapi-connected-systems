@@ -1,0 +1,118 @@
+
+[[clause-deployment-features]]
+== Requirements Class "Deployment Features"
+include::requirements/deployment/requirements_class_deployment_features.adoc[]
+
+
+=== Overview
+
+This requirements class specifies how `Deployment` descriptions are provided using this API.
+
+The `Deployment` resource implements the _http://www.w3.org/ns/ssn/Deployment[Deployment]_ concept defined in the <<OGC-W3C-SSN,SSN Ontology>>.`Deployment` resources are used to provide information about the deployment of one or more `Systems` for a specific purpose (often at a specific location and time).
+
+NOTE: The deployment concept can be used even with systems that represent simulations or models. In this case, deployments can be used to model a particular model or simulation run.
+
+
+=== Deployment Resources
+
+In this API, `Deployment` resources are a special kind of feature resource. This section defines the properties and associations (links to other resources) that apply to this feature type.
+
+The exact way properties and associations are represented in the payload is defined by each encoding. Examples are provided in the respective encoding sections.
+
+==== Properties
+
+[[req_deployment-props]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/deployment/properties*
+^| A | A `Deployment` feature resource SHALL include all mandatory properties listed in <<deployment-properties>>.
+|===
+
+[#deployment-properties,reftext='{table-caption} {counter:table-num}']
+.Deployment Properties
+[width="100%",cols="4,10,3,3",options="header"]
+|====
+| *Name* | *Definition* | *Data Type* | *Usage*
+| Unique Identifier  | The unique identifier of the deployment in the form of a URI (preferably a URN). This identifier should be persistent and independent of the actual resource URL. | URI | Mandatory
+| Name               | The human readable name of the deployment. | String | Mandatory
+| Description        | A human readable description for the deployment. | String | Optional
+| Deployment Type    | The type of deployment (see <<deployment-types>>). | URI | Mandatory
+| Valid Time         | The time period during which the systems were deployed. | DateTime | Mandatory
+|====
+
+[[req_deployment-type]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/deployment/type*
+^| A | A `System` resource encoding SHALL use one of the URIs provided in <<deployment-types>> as the value of the `System Type` property.
+       If using a URI is not practical, the encoding SHALL define a mapping between all possible values used to encode feature types and the URIs defined in this Standard.
+|===
+
+[#deployment-types,reftext='{table-caption} {counter:table-num}']
+.Deployment Types
+[width="100%",cols="5,10,10",options="header"]
+|====
+| *Deployment Type* | *URI* | *Usage*
+| #TBD#     | #http://www.opengis.net/def/x-OGC/TBD1#     | 
+| #TBD#     | #http://www.opengis.net/def/x-OGC/TBD2#     | 
+|====
+
+==== Location
+
+[[rec_deployment-location]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Recommandation {counter:rec-id}* |*/rec/deployment/location*
+^| A | A `Deployment` feature resource SHOULD include the geographic area of the deployment.
+^| B | The geographic area SHOULD include the area observed by all deployed systems.
+|===
+
+NOTE: For simulations and models, the deployment location represents the geographic area where the simulated observations are produced.
+
+==== Associations
+
+In addition to the links defined in {ogcapi-features}, a `Deployment` resource is also required to include the following associations:
+
+[[req_deployment-links]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/deployment/links*
+^| A | A 200-response containing a single `Deployment` feature SHALL include the associations defined in <<deployment-links>>.
+|===
+
+[#deployment-links,reftext='{table-caption} {counter:table-num}']
+.Deployment Associations
+[width="100%",cols="5,10,10",options="header"]
+|====
+| *Relation Name* | *Definition* | *Target Content*
+| `systems`       | Link to the deployed `Systems` | A collection of `System` resources
+|====
+
+
+=== Deployment Collections
+
+`Deployment` feature collections are identified with the feature type `'deployment'`.
+
+[[req_deployment-collection]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/deployment/collection*
+^|A |The server SHALL expose at least one collection containing `Deployment` resources`.
+|===
+
+[[req_deployment-collection-type]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/deployment/collection-type*
+^|A |The server SHALL identify all collections containing `Deployment` features by setting the value of the `featureType` property to `'deployment'`.
+|===
+
+[[req_deployment-catchall-collection]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/deployment/catchall-collection*
+^|A |The server SHALL expose a collection containing all available `Deployment` features at URL `{api_root}/deployments`.
+|===
+
+
+See the <<clause-encoding-geojson,Encoding Requirements Classes>> for examples of `Deployment` features representations.

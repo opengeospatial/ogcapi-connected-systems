@@ -1,0 +1,153 @@
+:geojson-schema-root: ../openapi/schemas/geojson
+
+[[clause-encoding-geojson]]
+== Requirements Class "GeoJSON Format"
+include::requirements/encoding/geojson/requirements_class_geojson.adoc[]
+
+
+=== Overview
+
+This requirements class specifies how `Feature` descriptions provided through the API are encoded using the GeoJSON format.
+All feature types defined by this Standard can be encoded as GeoJSON.
+
+The server must also implement Requirements Class "GeoJSON" of {ogcapi-features-1}.
+
+
+
+=== System Encoding Rules
+
+[[req_geojson-system-schema]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/geojson/system-schema*
+^| Condition | Server implements <<clause-system-features>>.
+^| Condition | The request is made on a collection of `System Features` resources.
+^| A | A 200-response with the media type `application/geo+json` SHALL conform to one of the following schemas:
+
+       - link:{geojson-schema-root}/systemCollection.json[systemCollection.json] for a collection of systems, and
+       - link:{geojson-schema-root}/system.json[system.json] for a single system.
+|===
+
+[[example_geojson_sys1]]
+.A System Feature in GeoJSON format
+=================
+This is a simple description of a fixed in-situ sensor with a link to its alternate SensorML representation.
+
+[source%autofit,JSON]
+----
+include::../openapi/examples/systems/system-sensor-geojson.json[]
+----
+=================
+
+
+
+=== Procedure Encoding Rules
+
+[[req_geojson-procedure-schema]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/geojson/procedure-schema*
+^| Condition | Server implements <<clause-procedure-features>>.
+^| Condition | The request is made on a collection of `Procedure Features` resources.
+^| A | A 200-response with the media type `application/geo+json` SHALL conform to one of the following schemas:
+
+       - link:{geojson-schema-root}/procedureCollection.json[procedureCollection.json] for a collection of procedures, and
+       - link:{geojson-schema-root}/procedure.json[procedure.json] for a single procedure.
+|===
+
+[[example_geojson_proc1]]
+.A Procedure Feature in GeoJSON format
+=================
+[source%autofit,JSON]
+----
+include::../openapi/examples/procedures/sensor-datasheet-geojson.json[]
+----
+=================
+
+
+
+=== Deployment Encoding Rules
+
+[[req_geojson-deployment-schema]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/geojson/deployment-schema*
+^| Condition | Server implements <<clause-deployment-features>>.
+^| Condition | The request is made on a collection of `Deployment Features` resources.
+^| A | A 200-response with the media type `application/geo+json` SHALL conform to one of the following schemas:
+
+       - link:{geojson-schema-root}/deploymentCollection.json[deploymentCollection.json] for a collection of deployments, and
+       - link:{geojson-schema-root}/deployment.json[deployment.json] for a single procedure.
+|===
+
+[[example_geojson_dep1]]
+.A Deployment Feature in GeoJSON format
+=================
+[source%autofit,JSON]
+----
+include::../openapi/examples/deployments/deployment-geojson.json[]
+----
+=================
+
+
+
+=== SamplingFeature Encoding Rules
+
+[[req_geojson-sf-schema]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/geojson/sf-schema*
+^| Condition | Server implements <<clause-sampling-features>>.
+^| Condition | The request is made on a collection of `Sampling Features` resources.
+^| A | A 200-response with the media type `application/geo+json` SHALL conform to one of the following schemas:
+
+       - link:{geojson-schema-root}/samplingFeatureCollection.json[samplingFeatureCollection.json] for a collection of sampling features, and
+       - link:{geojson-schema-root}/anySamplingFeature.json[anySamplingFeature.json] for a single sampling feature.
+|===
+
+[[req_geojson-sf-spatial-schema]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/geojson/sf-spatial-schema*
+^| Condition | Server implements <<clause-sampling-features>>.
+^| Condition | The response contains <<clause-sf-spatial>>.
+^| A | A `Spatial Sampling Feature` SHALL be encoded according to the link:{geojson-schema-root}/samplingSpatial.json[samplingSpatial.json] schema.
+^| B | The GeoJSON `geometry` member SHALL be used to provide the value of the `shape` property of the feature.
+|===
+
+[[req_geojson-sf-specimen-schema]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/geojson/sf-specimen-schema*
+^| Condition | Server implements <<clause-sampling-features>>.
+^| Condition | The response contains <<clause-sf-specimen>>.
+^| A | A `Specimen Feature` SHALL be encoded according to the link:{geojson-schema-root}/samplingSpecimen.json[samplingSpecimen.json] schema.
+^| B | The GeoJSON `geometry` member SHALL be used to provide the value of the `samplingLocation` property of the feature, if provided.
+|===
+
+[[example_sf1]]
+.A Sampling Point Feature in GeoJSON format
+=================
+[source%autofit,JSON]
+----
+include::../openapi/examples/sampling/sampling-point-geojson.json[]
+----
+=================
+
+[[example_sf2]]
+.A Specimen Feature in GeoJSON format
+=================
+[source%autofit,JSON]
+----
+include::../openapi/examples/sampling/sampling-specimen-geojson.json[]
+----
+=================
+
+[[example_sf3]]
+.A System Part Feature in GeoJSON format
+=================
+[source%autofit,JSON]
+----
+include::../openapi/examples/sampling/sampling-part-geojson.json[]
+----
+=================

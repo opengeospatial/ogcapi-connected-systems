@@ -1,0 +1,7 @@
+description: A list of static data of moving feature.
+content:
+  application/json:
+    schema:
+      $ref: "../schemas/movingFeatureCollectionGeoJSON.yaml"
+    example:
+      $ref: "../examples/movingFeatureCollection.json"

@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "allOf": [
+    { "$ref": "https://geojson.org/schema/Feature.json" },
+    {
+      "type": "object",
+      "properties": {
+        "id": {
+          "oneOf": [
+            { "type": "string" },
+            { "type": "integer" }
+          ]
+        },
+        "properties": {
+          "type": "object",
+          "required": [ "featureType", "uid", "name" ],
+          "properties": {
+            "featureType": {
+              "type": "string"
+            },
+            "uid": {
+              "type": "string",
+              "format": "uri"
+            },
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          }
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "../common/link.json"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+....
+   Client                                                                     Server
+     |                                                                          |
+     | POST /collections/mfc-1/items/mf-1/tproperties/speed   HTTP/1.1          |
+     | Content-Type: application/json                                           |
+     |                                                                          |
+     | {                                                                        |
+     |    "datetimes": [                                                        |
+     |       "2011-07-14T22:01:09.000Z",                                        |
+     |       "2011-07-14T22:01:010.000Z",                                       |
+     |    ],                                                                    |
+     |    "values": [                                                           |
+     |       90.0,                                                              |
+     |       95.0,                                                              |
+     |    ],                                                                    |
+     |    "interpolation": "Linear"                                             |
+     | }                                                                        |
+     |------------------------------------------------------------------------->|
+     |                                                                          |
+     | HTTP/1.1 201 Created                                                     |
+     | Location: /collections/mfc-1/items/mf-1/tproperties/speed                |
+     |<-------------------------------------------------------------------------|
+....

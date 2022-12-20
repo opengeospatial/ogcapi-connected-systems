@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "allOf": [
+    { "$ref": "feature.json" },
+    {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "required": [ "uid", "name", "validTime" ],
+          "properties": {
+            "featureType": {
+              "const": "http://www.w3.org/ns/ssn/Deployment"
+            },
+            "uid": {
+              "type": "string",
+              "format": "uri"
+            },
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "validTime": {
+              "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

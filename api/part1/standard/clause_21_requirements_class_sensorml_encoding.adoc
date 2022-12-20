@@ -1,0 +1,117 @@
+:sensorml-schema-root: ../openapi/schemas/sensorml
+
+[[clause-encoding-sensorml]]
+== Requirements Class "SensorML Format"
+include::requirements/encoding/sensorml/requirements_class_sensorml.adoc[]
+
+
+=== Overview
+
+This requirements class specifies how `Feature` descriptions provided through the API are encoded using the SensorML format.
+
+All feature types defined by this Standard, except `Sampling Features`, can be encoded in SensorML to allow provision of more advanced metadata such as application specific identifiers and classifiers, security and legal constraints, characteristics and capabilities, contact information, attached documents, reference frames, etc.
+
+
+=== Media Type
+
+The media type used for SensorML encoded resource is `application/sml+json`.
+
+
+=== Common Feature Encoding Rules
+
+The following requirement provides the mapping between common feature properties and the corresponding JSON members when encoded in SensorML-JSON.
+
+[[req_sensorml-common-mapping]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/sensorml/property-mapping*
+^| A | The JSON member `uniqueId` SHALL be used to encode the `Unique Identifier` property.
+^| C | The JSON member `name` SHALL be used to encode the `Name` property.
+^| D | The JSON member `description` SHALL be used to encode the `Description` property.
+|===
+
+
+=== System Encoding Rules
+
+[[req_sensorml-system-schema]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/sensorml/system-schema*
+^| Condition | Server implements <<clause-system-features>>.
+^| Condition | The request is made on a collection of `System Features` resources.
+^| A | A 200-response with the media type `application/sml+json` SHALL conform to one of the following schemas:
+
+       - link:{sensorml-schema-root}/systemCollection.json[systemCollection.json] for a collection of systems, and
+       - link:{sensorml-schema-root}/system.json[system.json] for a single system.
+^| B | The JSON member `definition` SHALL be used to encode the `System Type` property.
+|===
+
+[[example_sensorml_sys1]]
+.A System Feature in SensorML format
+=================
+This is a simple description of a fixed in-situ sensor with identification and contact information.
+
+[source%autofit,JSON]
+----
+include::../openapi/examples/systems/system-sensor-sml.json[]
+----
+=================
+
+
+=== Procedure Encoding Rules
+
+[[req_sensorml-procedure-schema]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/sensorml/procedure-schema*
+^| Condition | Server implements <<clause-procedure-features>>.
+^| Condition | The request is made on a collection of `Procedure Features` resources.
+^| A | A 200-response with the media type `application/sml+json` SHALL conform to one of the following schemas:
+
+       - link:{sensorml-schema-root}/procedureCollection.json[procedureCollection.json] for a collection of procedures, and
+       - link:{sensorml-schema-root}/procedure.json[procedure.json] for a single procedure.
+^| B | The JSON member `definition` SHALL be used to encode the `Procedure Type` property.
+|===
+
+[[rec_sensorml-procedure-type]]
+[width="90%",cols="2,6a"]
+|===
+^|*Recommandation {counter:rec-id}* |*/rec/sensorml/procedure-type*
+^| A | SensorML class `PhysicalComponent` or `PhysicalSystem` SHOULD be used to describe hardware equipment specifications (i.e. datasheet).
+^| B | SensorML class `SimpleProcess` or `AggregateProcess` SHOULD be used to describe a procedure implemented by humans, such as a methodology or steps.
+^| C | No position information SHOULD be provided as part of the procedure description.
+|===
+
+[[example_sensorml_proc1]]
+.A Procedure Feature describing a sensor datasheet in SensorML format
+=================
+[source%autofit,JSON]
+----
+include::../openapi/examples/procedures/sensor-datasheet-sml.json[]
+----
+=================
+
+
+=== Deployment Encoding Rules
+
+[[req_sensorml-deployment-schema]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/sensorml/deployment-schema*
+^| Condition | Server implements <<clause-deployment-features>>.
+^| Condition | The request is made on a collection of `Deployment Features` resources.
+^| A | A 200-response with the media type `application/sml+json` SHALL conform to one of the following schemas:
+
+       - link:{sensorml-schema-root}/deploymentCollection.json[deploymentCollection.json] for a collection of deployments, and
+       - link:{sensorml-schema-root}/deployment.json[deployment.json] for a single procedure.
+|===
+
+[[example_sensorml_dep1]]
+.A Deployment Feature in SensorML format
+=================
+[source%autofit,JSON]
+----
+include::../openapi/examples/deployments/deployment-sml.json[]
+----
+=================
+

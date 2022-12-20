@@ -1,0 +1,265 @@
+
+[[clause-sampling-features]]
+== Requirements Class "Sampling Features"
+=== Overview
+include::requirements/sampling/requirements_class_sampling_features.adoc[]
+
+
+=== Overview
+
+This requirements class specifies how `Sampling Feature` descriptions are provided using this API.
+
+A `Sampling Feature` resource implements the _http://www.w3.org/ns/sosa/Sample[Sample]_ concept defined in the <<OGC-W3C-SSN,SSN Ontology>>. `Sampling Features` provide information about the sampling strategy used when observing the property of a larger feature (the feature of interest).
+
+By extension, this Standard also uses the concept of `Sampling Feature` to more precisely identify the part of a feature that is being affected by an actuator or process in response to a command.
+
+This requirements class defines several types of `Sampling Features` that can be used to document different sampling strategies.
+
+
+=== Features of Interest
+
+In this Standard, the term `Feature of Interest` is used to specifically mean the _Ultimate Feature of Interest_ whose properties are observed by a sensing system or changed by a controlling system. Features of interest are real-world features from an application domain and they exist independently from any sampling strategy.
+
+While many features of interest represent physical entities or are geospatial in nature, they can also be used to model more abstract concepts. Some examples of features of interest are:
+
+- Man-built entities (e.g. a building, a room, a window, a road, a bridge)
+- Natural bodies (e.g. a river, a water body, an aquifer, a geological layer, a forest)
+- Living organisms (e.g. a person, an amimal, a tree, a forest)
+- Technological systems (e.g. a vehicle, a robot, a computer, a tool or machine)
+- Conceptual things (e.g. an administrative area, a legal entity)
+
+[NOTE]
+====
+An important consequence of this definition is that a `System` feature hosted by this API can also take the role of the feature of interest of some observations.
+
+For example, an aircraft platform modeled as a System using the API may carry a GPS sensor to measure the platform's location. In such use case, the feature of interest of the resulting observations is the platform itself.
+====
+
+Application domain features of interest can be hosted at the same API endpoint as the other feature types defined in this Standard since they are just another type of feature, but in many cases they will be hosted by third party servers. This API is designed to allow linking to such external entities while allowing to run join queries on the local server.
+
+In this API, observations and commands are always associated to a `Sampling Feature`, never directly to the ultimate feature of interest.
+
+
+=== Sampling Feature Resources
+
+In this API, `Sampling Feature` resources are implemented as special kinds of feature resources. This section defines the properties and associations (links to other resources) that apply to the each sampling feature type.
+
+The exact way properties and associations are represented in the payload is defined by each encoding. Examples are provided in the respective encoding sections.
+
+
+==== Kinds of Sampling Features
+
+This requirements class defines the following sampling feature types:
+
+- _Spatial Sampling Features_ based on the O&M Sampling Spatial Schema
+- _Specimen Features_ based on the O&M Specimen Schema
+- _Feature Parts_
+- _Feature Proxies_
+
+More sampling feature types can be defined by extensions.
+
+==== Common Properties
+
+All sampling features must include some common properties.
+
+[[req_sf-props]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/sf/properties*
+^| A | A `Sampling Feature` resource SHALL include the properties listed in <<sf-properties>>.
+|===
+
+[#sf-properties,reftext='{table-caption} {counter:table-num}']
+.Common Sampling Feature Properties
+[width="100%",cols="4,10,3,3",options="header"]
+|====
+| *Name* | *Definition* | *Data Type* | *Usage*
+| Unique Identifier  | The unique identifier of the sampling feature in the form of a URI (preferably a URN). This identifier must be persistent and independent of the actual resource URL. | URI | Mandatory
+| Name               | The human readable name of the sampling feature. | String | Mandatory
+| Description        | A human readable description for the sampling feature. | String | Optional
+| Feature Type       | The type of sampling feature. | URI | Mandatory
+| Valid Time         | The validity period of the sampling feature. | DateTime | Optional
+|====
+
+[NOTE]
+====
+Valid time is used when the sampling feature is not meaningful outside of a given time period, for example:
+
+- Biological samples are usually analyzed during a short time window after being extracted from the patient.
+- Image footprints are synthetic features that are only valid at the time the image was collected.
+====
+
+==== Common Associations
+
+In addition to the links defined in {ogcapi-features}, all `Sampling Feature` resources are also required to include the following associations:
+
+[[req_sf-links]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/sf/links*
+^| A | A 200-response containing a single `Sampling Feature` resource SHALL include the associations defined in <<sf-links>>.
+|===
+
+[#sf-links,reftext='{table-caption} {counter:table-num}']
+.Sampling Features Associations
+[width="100%",cols="5,10,10,3",options="header"]
+|====
+| *Relation Name* | *Definition* | *Target Content* | *Usage*
+| `parentSystem`       | Link to the parent system that created or uses this sampling feature. | A `System` resource | Mandatory
+| `featureOfInterest`  | Link to the ultimate feature of interest that is being sampled or controlled. | Any `Feature` resource | Mandatory
+|====
+
+[[clause-sf-spatial]]
+==== Spatial Sampling Features
+
+Spatial sampling features are generic sampling features used to define a sampling location or geometry, in one, two or three dimensions. They are used when no physical sample is collected and observations are made directly on a spatial subset of the sampled feature (e.g. an in-situ measurement station, a profile through a gaseous or liquid medium, an image footprint, etc.).
+
+[[req_sf-spatial-om]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/sf-spatial/om*
+^| A | A `Spatial Sampling Feature` resource encoding SHALL implement the SF_SpatialSamplingFeature class defined in OGC 10-004r3.
+|===
+
+[[req_sf-spatial-types]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/sf-spatial/type*
+^| A | A `Spatial Sampling Feature` resource encoding SHALL use one of the URIs provided in <<sf-spatial-types>> as the value of the `Feature Type` property. If using a URI is not practical, the encoding SHALL define the mapping between the values used and these URIs.
+|===
+
+[#sf-spatial-types,reftext='{table-caption} {counter:table-num}']
+.Sampling Spatial Feature Types
+[width="100%",cols="5,10,10",options="header"]
+|====
+| *System Type* | *URI* | *Example Usage*
+| Sampling Point    | http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint   | Monitoring station location 
+| Sampling Curve    | http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingCurve   | Profile, Radial
+| Sampling Surface  | http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingSurface | Image footprint
+| Sampling Solid    | http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingSolid   | Camera frustum, Sphere of influence
+|====
+
+==== Location
+
+Spatial Sampling Features always include a shape (or geometry). For mobile sampling features, this shape must be the latest known location/geometry of the feature.
+
+[[rec_sf-location]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Recommandation {counter:rec-id}* |*/rec/sf/location*
+^| A | A `Sampling Feature` resource SHALL include the latest known location/geometry of the feature.
+|===
+
+[[req_sf-location-time]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/sf/location-time*
+^| A | If the implementation supports mobile sampling features, the location/geometry SHALL be reported according to the `datetime` request parameter.
+^| B | When the `datetime` parameter is ommitted, the server SHALL report the latest known geometry of the feature.
+^| C | When the `datetime` parameter is set to a time instant, the server SHALL report the latest geometry of the feature that was known at this point in time.
+^| D | When the `datetime` parameter is set to a time period, the server SHALL report the latest location of the feature that was known at the end of the specified time period.
+|===
+
+===== Relative Positioning
+
+While in many cases, the geometry of a spatial sampling feature will be provided using geographic coordinates, it is sometimes useful to provide the feature position relative to another feature, such as the platform carrying the instruments. This is especially useful for in-situ sensors carried by mobile platforms to avoid having to provide the platform location and the sampling location separately since they can be considered colocated for most practical purposes.
+
+This Standard thus explicitly allows the geometry of a spatial sampling feature to be expressed in a local engineering coordinate reference system that is attached to another feature. API clients should be ready to handle this case gracefully.
+
+[width="90%",cols="2,6"]
+|===
+^|*Permission {counter:per-id}* |*/per/sf-spatial/relative-pos*
+^| A | A `Spatial Sampling Feature` MAY include a location or geometry expressed with respect to a local engineering coordinate reference system.
+|===
+
+[[req_sf-spatial-relative-pos-encoding]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/sf-spatial/relative-pos-encoding*
+^| A | All `Spatial Sampling Feature` encodings SHALL specify how to encode relative position.
+|===
+
+[[clause-sf-specimen]]
+==== Specimen Features
+
+A `Specimen Feature` respresents a physical sample, obtained for observation(s) carried out ex-situ, sometimes in a laboratory.
+
+#This type of sampling feature is also referred to as _Material Sample_ in OMS#
+
+[[req_sf-specimen-type]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/sf-specimen/type*
+^| A | The `Feature Type` property of a `Specimen Feature` SHALL be set to `http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_Specimen`. If using a URI is not practical, the encoding SHALL unambiguously map one of the possible values used to encode feature types to this URI.
+|===
+
+[[req_sf-specimen-om]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/sf/type*
+^| A | A `Specimen Feature` encoding SHALL implement the SF_Specimen class defined in OGC 10-004r3.
+|===
+
+[[clause-sf-feature-parts]]
+==== Feature Parts
+
+`Feature Parts` are used to clearly identify the component or location that is being observed or controlled within a larger feature.
+
+[[req_sf-part-type]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/sf-part/type*
+^| A | The `Feature Type` property of a `Feature Part` resource SHALL be set to `http://www.opengis.net/def/samplingFeatureType/x-OGC-TBD/2.0/SF_FeaturePart`. If using a URI is not practical, the encoding SHALL unambiguously map one of the possible values used to encode feature types to this URI.
+|===
+
+Some examples of feature parts are:
+
+- The CPU in a computer or robot
+- The center of mass of a UAV
+- The antenna of a GPS receiver
+- The vent of an A/C system
+- A room or door in a building
+
+Feature parts are useful to provide more details about the sampling or control point when the part is not itself already described as a feature object. They are especially useful when referring to a feature of interest hosted on a third-party server where the original feature cannot be changed.
+
+This Standard does not specify any additional properties and associations for Feature Parts, but all encodings defined in this Standard allow for additional custom properties.
+
+[[clause-sf-feature-proxies]]
+==== Feature Proxies
+
+Since this API does not allow linking an observation to the ultimate feature of interest directly, `Feature Proxies` can be used to refer to an existing feature of interest as a whole. This is especially useful when referring to ultimate features of interest that are hosted on third party servers.
+
+[[req_sf-proxy-type]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/sf-proxy/type*
+^| A | The `Feature Type` property of a `Feature Proxy` resource SHALL be set to `http://www.opengis.net/def/samplingFeatureType/x-OGC-TBD/2.0/SF_FeatureProxy`. If using a URI is not practical, the encoding SHALL unambiguously map one of the possible values used to encode feature types to this URI.
+|===
+
+Feature proxies usually include a summary description of the proxied feature, and may or may not include a geometry.
+
+
+=== Sampling Feature Collections
+
+`Sampling Feature` collections are identified with the feature type `'samplingFeatures'`.
+
+[[req_sf-collection]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/sf/collection*
+^|A |The server SHALL expose at least one collection containing `Sampling Feature` resources`.
+|===
+
+[[req_sf-collection-type]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/sf/collection-type*
+^|A |The server SHALL identify all collections containing `Sampling Features` by setting the value of the `featureType` property to `'samplingFeatures'`.
+|===
+
+[[req_sf-catchall-collection]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/sf/catchall-collection*
+^|A |The server SHALL expose a collection containing all available `Sampling Features` at URL `{api_root}/samplingFeatures`.
+|===

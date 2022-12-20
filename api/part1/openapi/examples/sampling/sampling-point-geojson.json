@@ -1,0 +1,37 @@
+{
+  "type": "Feature",
+  "id": "SP001",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [ 12.31, -86.98]
+  },
+  "properties": {
+    "uid": "urn:x-usgs:sites:301244087575701",
+    "name": "USGS Site #301244087575701",
+    "description": "Well at MOBILE RIVER SAWMILL CORP",
+    "featureType": "http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint",
+    "sampledFeature@link": {
+      "href": "https://api.usgs.gov/collections/hydrological_features/items/112TRRC?f=json",
+      "type" : "application/geo+json",
+      "title": "Aquifer 112TRRC"
+    },
+    "hostedSystem@link": {
+      "href": "https://api.example.org/systems/447845?f=json",
+      "type" : "application/geo+json",
+      "uid": "urn:x-ogc:systems:hydro:WS454EAF25"
+    }
+  },
+  "links": [
+    {
+      "href" : "https://api.example.org/samplingFeatures/SP001?f=json",
+      "rel" : "self",
+      "type" : "application/geo+json",
+      "title" : "this document"
+    }, {
+      "href" : "https://api.example.org/samplingFeatures/SP001?f=html",
+      "rel" : "alternate",
+      "type" : "text/html",
+      "title" : "this resource as HTML"
+    }
+  ]
+}

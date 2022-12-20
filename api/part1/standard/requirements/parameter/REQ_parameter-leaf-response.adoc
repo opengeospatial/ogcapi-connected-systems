@@ -1,0 +1,9 @@
+[[req_mf_leaf-parameter-response]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/movingfeatures/param-leaf-response*
+^|A | If the `leaf` parameter is provided by the client and supported by the server, then only resources that have a temporal information (i.e., `datetimes` property) that intersects the temporal information in the `leaf` parameter SHALL be part of the result set.
+^|B | The `leaf` parameter SHALL match all resources in the moving feature that are associated with temporal information.
+^|C | If `leaf` parameter is provided by the client and supported by the server, the endpoint SHALL return only temporal geometry coordinate (or temporal property value) with the *_PointAtTime_* query at each time included in the `leaf` parameter, using interpolated trajectory according to the `interpolation` property.
+^|D | If `leaf` parameter is provided by the client and supported by the server, the `interpolation` property in the response SHALL be 'Discrete'.
+|===

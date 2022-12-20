@@ -1,0 +1,8 @@
+in: query
+required: false
+schema:
+  type: array
+  items:
+    type: string
+    description: must be a URI or a valid resource ID
+explode: false

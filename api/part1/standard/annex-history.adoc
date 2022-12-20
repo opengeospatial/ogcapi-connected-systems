@@ -1,0 +1,9 @@
+[appendix]
+:appendix-caption: Annex
+== Revision History
+
+[width="90%",options="header"]
+|===
+|Date |Release |Editor | Primary clauses modified |Description
+|2022-12-16 | 0.1 | Alex Robin | all |first draft version
+|===

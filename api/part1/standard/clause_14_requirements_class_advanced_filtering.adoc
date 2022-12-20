@@ -1,0 +1,452 @@
+
+[[clause-query-filters]]
+== Requirements Class "Advanced Filtering"
+include::requirements/query/requirements_class_advanced_filtering.adoc[]
+
+
+=== Overview
+
+This requirements class specifies additional filtering options that may be used to select only a subset of the features in a collection.
+
+All filters defined in this section are implemented using URL query parameters and can be used in addition to the ones defined in {ogcapi-features} and {ogcapi-common-2}.
+
+
+
+=== Definitions
+
+==== ID List Schema
+
+The following requirement defines a schema for an "identifier list" that is used by several query parameters.
+Identifiers in the list can be either local resource IDs or UIDs (URI).
+
+[[req_filter-idlist-schema]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/id-list-schema*
+^| A | A query parameter of type `ID_List` SHALL conform to the following OpenAPI 3.0 schema:
+
+[source,YAML]
+----
+include::../openapi/parameters/idlist.yaml[]
+----
+^| A | Each item in the list SHALL be a resource ID or a UID.
+|===
+
+
+==== URI List Schema
+
+The following requirement defines a schema for a "URI list" that is used by several query parameters.
+
+[[req_filter-urilist-schema]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/uri-list-schema*
+^| A | A query parameter of type `URI_List` SHALL conform to the following OpenAPI 3.0 schema:
+
+[source,YAML]
+----
+include::../openapi/parameters/urilist.yaml[]
+----
+|===
+
+
+
+=== Common Feature Filters
+
+The filtering options defined in this section are common to all feature types defined in this Standard, and may also be used with other feature types that are hosted at the same endpoint.
+
+When this requirements class is implemented, the requirements in this class are applicable to all HTTP GET operations used to retrieve items from any collection offered by the server (i.e. it is not allowed to implement this class only for certain collections).
+
+==== ID Filter
+
+The ID filter is used to select features that match one of the requested identifiers.
+
+[[req_filter-feature-uid-param]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/feature-uid/param*
+^| A | The operation SHALL support a parameter `uid` of type <<req_filter-idlist-schema,ID_List>>.
+|===
+
+[[req_filter-feature-uid-response]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/feature-uid/response*
+^| A |Only features that are assigned one of the specified identifiers SHALL be part of the result set.
+^| B |If a UID specified in the query ends with a trailing `*` character, all features that have a UID starting with the specified prefix SHALL be included in the result set.
+|===
+
+==== Geometry Filter
+
+The geometry filter is used to select features with a spatial geometry intersecting the query geometry.
+
+[[req_filter-feature-geom-param]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/feature-geom/param*
+^| A | The operation SHALL support a parameter `geom` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
+
+[source,YAML]
+----
+include::../openapi/parameters/geom.yaml[]
+----
+^| B |The parameter value SHALL be a string in WKT geometry format as defined by the BNF syntax provided in OGC 06-103r4.
+|===
+
+[[req_filter-feature-geom-response]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/feature-geom/response*
+^| A |Only features that have a spatial geometry that intersects the filter geometry SHALL be part of the result set.
+^| B |If a feature has multiple spatial geometry properties, it is the decision of the server whether only a single spatial geometry property is used to determine the extent or all relevant geometries.
+^| C |Features with no spatial geometry SHALL be excluded from the result set.
+^| D |The coordinate values SHALL be within the extent specified for the coordinate reference system.
+|===
+
+==== Keyword Filter
+
+This filter is used to do a full-text search on feature resources.
+
+[[req_filter-feature-keyword-param]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/feature-keyword/param*
+^| A | The operation SHALL support a parameter `q` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
+
+[source,YAML]
+----
+include::../openapi/parameters/keyword.yaml[]
+----
+|===
+
+[[req_filter-feature-keyword-response]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/feature-keyword/response*
+^| A |Only features that have human readable content that contains one the specified keywords SHALL be part of the result set.
+^| B |At least the `Name` and `Description` properties of the feature SHALL be included in the full-text search. It is the decision of the server to choose if other feature properties are also searched. 
+^| C |The server is allowed to run the search using the canonical form of the provided keywords rather than their exact value (lemmatization in full-text search engine).
+|===
+
+==== Simple Property Filter
+
+The property filter is used to select features that have specific property values.
+
+[[rec_filter-feature-prop-param]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Recommandation {counter:rec-id}* |*/rec/filter/feature-property/param*
+^| A | The operation SHOULD support filtering on feature properties as defined in {ogcapi-features} `/rec/core/fc-filters`.
+|===
+
+
+
+=== Queries on System Collections
+
+The query parameters defined in this section apply to HTTP GET operations used to list items of `System Feature` collections.
+
+==== Parent System Filter
+
+This filter is used to select systems that are components (subsystems) of a specific parent system.
+
+[[rec_filter-system-parent-param]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/system-parent/param*
+^| Condition | Server implements <<clause-system-features>>
+^| A | HTTP GET operations used to list `System Features` SHALL support a parameter `parent` of type <<req_filter-idlist-schema,ID_List>>.
+|===
+
+[[req_filter-system-parent-response]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/system-parent/response*
+^| Condition | Server implements <<clause-system-features>>
+^| A | Only systems that are components of a parent system that has one of the requested identifiers SHALL be part of the result set.
+|===
+
+==== Procedure Filter
+
+This filter is used to select systems that implement a specific procedure.
+
+[[rec_filter-system-procedure-param]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/system-procedure/param*
+^| Condition | Server implements <<clause-system-features>>
+^| A | HTTP GET operations used to list `System Features` SHALL support a parameter `procedure` of type <<req_filter-idlist-schema,ID_List>>.
+|===
+
+[[req_filter-system-procedure-response]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/system-procedure/response*
+^| Condition | Server implements <<clause-system-features>>
+^| A | Only systems that implement a procedure that has one of the requested identifiers SHALL be part of the result set.
+|===
+
+==== Feature of Interest Filter
+
+This filter is used to select systems that observe or control specific features of interest.
+
+[[rec_filter-system-foi-param]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/system-foi/param*
+^| Condition | Server implements <<clause-system-features>>
+^| A | HTTP GET operations used to list `System Features` SHALL support a parameter `foi` of type <<req_filter-idlist-schema,ID_List>>.
+|===
+
+[[req_filter-system-foi-response]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/system-foi/response*
+^| Condition | Server implements <<clause-system-features>>
+^| A | Only systems that observe or control a feature of interest that has one of the requested identifiers SHALL be part of the result set.
+^| B | Both sampling features and ultimate features of interest SHALL be included in the search.
+^| C | If a system has subsystems, it SHALL be included in the result set if any of its subsystems (evaluated recursively) observes or controls one of the listed features of interest.
+|===
+
+==== Observed Property Filter
+
+This filter is used to select systems that observe specific properties.
+
+[[rec_filter-system-obsprop-param]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/system-obsprop/param*
+^| Condition | Server implements <<clause-system-features>>
+^| A | HTTP GET operations used to list `System Features` SHALL support a parameter `observedProperty` of type <<req_filter-urilist-schema,URI_List>>.
+|===
+
+[[req_filter-system-obsprop-response]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/system-obsprop/response*
+^| Condition | Server implements <<clause-system-features>>
+^| A | Only systems that observe a property that has one of the requested URIs SHALL be part of the result set.
+^| B | If a system has subsystems, it SHALL be included in the result set if any of its subsystems (evaluated recursively) observes one of the listed properties.
+|===
+
+==== Controlled Property Filter
+
+This filter is used to select systems that control specific properties.
+
+[[rec_filter-system-controlprop-param]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/system-controlprop-param*
+^| Condition | Server implements <<clause-system-features>>
+^| A | HTTP GET operations used to list `System Features` SHALL support a parameter `controlledProperty` of type <<req_filter-urilist-schema,URI_List>>.
+|===
+
+[[req_filter-system-controlprop-response]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/system-controlprop/response*
+^| Condition | Server implements <<clause-system-features>>
+^| A | Only systems that control a property that has one of the requested URIs SHALL be part of the result set.
+^| B | If a system has subsystems, it SHALL be included in the result set if any of its subsystems (evaluated recursively) controls one of the listed properties.
+|===
+
+
+
+=== Queries on Deployment Collections
+
+The query parameters defined in this section apply to HTTP GET operations used to list items of `Deployment Feature` collections.
+
+==== Deployed System Filter
+
+This filter is used to select deployments during which certain systems are deployed.
+
+[[rec_filter-deployment-system-param]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/deployment-system/param*
+^| Condition | Server implements <<clause-deployment-features>>
+^| A | HTTP GET operations used to list `Deployment Features` SHALL support a parameter `system` of type <<req_filter-idlist-schema,ID_List>>.
+|===
+
+[[req_filter-deployment-system-response]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/deployment-system/response*
+^| Condition | Server implements <<clause-deployment-features>>
+^| A | Only deployments during which a system that has one of the requested identifiers is deployed SHALL be part of the result set.
+|===
+
+==== Feature of Interest Filter
+
+This filter is used to select deployments during which deployed systems observe or control specific features of interest.
+
+[[rec_filter-deployment-foi-param]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/deployment-foi/param*
+^| Condition | Server implements <<clause-deployment-features>>
+^| A | HTTP GET operations used to list `Deployment Features` SHALL support a parameter `foi` of type <<req_filter-idlist-schema,ID_List>>.
+|===
+
+[[req_filter-deployment-foi-response]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/deployment-foi/response*
+^| Condition | Server implements <<clause-deployment-features>>
+^| A | Only deployments during which a deployed system observe or control a feature of interest that has one of the reauested identifiers SHALL be part of the result set.
+|===
+
+==== Observed Property Filter
+
+This filter is used to select deployments during which certain properties are observed.
+
+[[rec_filter-deployment-obsprop-param]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/deployment-obsprop/param*
+^| Condition | Server implements <<clause-deployment-features>>
+^| A | HTTP GET operations used to list `Deployment Features` SHALL support a parameter `observedProperty` of type <<req_filter-urilist-schema,URI_List>>.
+|===
+
+[[req_filter-deployment-obsprop-response]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/deployment-obsprop/response*
+^| Condition | Server implements <<clause-deployment-features>>
+^| A | Only deployments during which a deployed system observes a property that has one of the requested URIs SHALL be part of the result set.
+|===
+
+==== Controlled Property Filter
+
+This filter is used to select deployments during which certain properties are controlled.
+
+[[rec_filter-deployment-controlprop-param]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/deployment-controlprop-param*
+^| Condition | Server implements <<clause-deployment-features>>
+^| A | HTTP GET operations used to list `Deployment Features` SHALL support a parameter `controlledProperty` of type <<req_filter-urilist-schema,URI_List>>.
+|===
+
+[[req_filter-deployment-controlprop-response]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/deployment-controlprop/response*
+^| Condition | Server implements <<clause-deployment-features>>
+^| A | Only deployments during which a deployed system controls a property that has one of the requested URIs SHALL be part of the result set.
+|===
+
+
+
+=== Queries on Procedure Collections
+
+The query parameters defined in this section apply to HTTP GET operations used to list items of `Procedure Feature` collections.
+
+==== Observed Property Filter
+
+This filter is used to select procedures that are designed to observe certain properties.
+
+[[rec_filter-procedure-obsprop-param]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/procedure-obsprop/param*
+^| Condition | Server implements <<clause-procedure-features>>
+^| A | HTTP GET operations used to list `Procedure Features` SHALL support a parameter `observedProperty` of type <<req_filter-urilist-schema,URI_List>>.
+|===
+
+[[req_filter-procedure-obsprop-response]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/procedure-obsprop/response*
+^| Condition | Server implements <<clause-procedure-features>>
+^| A | Only procedures that can observe a property that has one of the requested URIs SHALL be part of the result set.
+|===
+
+==== Controlled Property Filter
+
+This filter is used to select procedures that are designed to control certain properties.
+
+[[rec_filter-procedure-controlprop-param]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/procedure-controlprop/param*
+^| Condition | Server implements <<clause-procedure-features>>
+^| A | HTTP GET operations used to list `Procedure Features` SHALL support a parameter `controlledProperty` of type <<req_filter-urilist-schema,URI_List>>.
+|===
+
+[[req_filter-procedure-controlprop-response]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/procedure-controlprop/response*
+^| Condition | Server implements <<clause-procedure-features>>
+^| A | Only procedures that can control a property that has one of the requested URIs SHALL be part of the result set.
+|===
+
+
+
+=== Queries on Sampling Feature Collections
+
+The query parameters defined in this section apply to HTTP GET operations used to list items of `Sampling Feature` collections.
+
+==== Feature of Interest Filter
+
+This filter is used to select sampling features that sample specific features of interest.
+
+[[rec_filter-sf-foi-param]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/sf-foi/param*
+^| Condition | Server implements <<clause-sampling-features>>
+^| A | HTTP GET operations used to list `Sampling Features` SHALL support a parameter `foi` of type <<req_filter-idlist-schema,ID_List>>.
+|===
+
+[[req_filter-sf-foi-response]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/sf-foi/response*
+^| Condition | Server implements <<clause-sampling-features>>
+^| A | Only sampling features whose ultimate feature of interest has one of the requested identifiers SHALL be part of the result set.
+|===
+
+==== Observed Property Filter
+
+This filter is used to select sampling features that have associated observations of certain properties.
+
+[[rec_filter-sf-obsprop-param]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/sf-obsprop/param*
+^| Condition | Server implements <<clause-sampling-features>>
+^| A | HTTP GET operations used to list `Sampling Features` SHALL support a parameter `observedProperty` of type <<req_filter-urilist-schema,URI_List>>.
+|===
+
+[[req_filter-sf-obsprop-response]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/sf-obsprop/response*
+^| Condition | Server implements <<clause-sampling-features>>
+^| A | Only sampling features with associated observations of a property that has one of the requested URIs SHALL be part of the result set.
+|===
+
+
+
+=== Queries on Derived Properties
+
+not only if URIs are equal but also derived properties 
+Example, if querying on Location, anything reported SensorLocation and PlatformLocation should also be selected
+
+This is advanced behavior requiring semantic relationships and is this only a recommandation at this stage.
+
+=> Define property ontology in Part3
+
+
+=== Combination of Filter Parameters
+
+
+
+
+
+=== Recursive Search
+
+Recursive search allows discovery of subsystems within complex system hierarchies.
+
+

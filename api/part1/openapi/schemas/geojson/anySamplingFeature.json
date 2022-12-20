@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "oneOf": [
+    { "$ref": "samplingPoint.json" },
+    { "$ref": "samplingCurve.json" },
+    { "$ref": "samplingSurface.json" },
+    { "$ref": "samplingSolid.json" },
+    { "$ref": "samplingSpecimen.json" },
+    { "$ref": "samplingPart.json" },
+    { "$ref": "samplingProxy.json" },
+    {
+      "$comment": "or something else but it must have another URI",
+      "allOf": [
+        { "$ref": "samplingFeature.json" },
+        {
+          "type": "object",
+          "properties": {
+            "properties": {
+              "type": "object",
+              "properties": {
+                "featureType": {
+                  "type": "string",
+                  "not": {
+                    "enum": [
+                      "http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint",
+                      "http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingCurve",
+                      "http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingSurface",
+                      "http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingSolid",
+                      "http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_Specimen",
+                      "http://www.opengis.net/def/samplingFeatureType/x-OGC-TBD/2.0/SF_FeaturePart",
+                      "http://www.opengis.net/def/samplingFeatureType/x-OGC-TBD/2.0/SF_FeatureProxy"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

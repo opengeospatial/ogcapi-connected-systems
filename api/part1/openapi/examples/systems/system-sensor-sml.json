@@ -1,0 +1,45 @@
+{
+  "type": "PhysicalSystem",
+  "id": "F001",
+  "definition": "http://www.w3.org/ns/sosa/Sensor",
+  "uniqueId": "urn:x-ogc:systems:001",
+  "name": "Outdoor Thermometer 001",
+  "description": "Digital thermometer located on first floor window 1",
+  "typeOf": {
+    "href": "https://data.example.org/procedures/P456/procedure?f=json",
+    "type" : "application/geo+json",
+    "uid": "urn:x-myorg:datasheets:ThermoPro:TP60S:v001",
+    "title": "ThermoPro TP60S"
+  },
+  "identifiers": [
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/SerialNumber",
+      "label": "Serial Number",
+      "value": "0123456879"
+    }
+  ],
+  "contacts": [
+    {
+      "role": "http://sensorml.com/ont/swe/roles/Operator",
+      "organisationName": "Field Maintenance Corp."
+    }
+  ],
+  "position": {
+    "type": "Point",
+    "coordinates": [41.8781, -87.6298]
+  },
+  "links": [
+    {
+      "href" : "https://api.example.org/systems/123?f=sml",
+      "rel" : "self",
+      "type" : "application/sml+json",
+      "title" : "this document"
+    }, {
+      "href" : "https://api.example.org/systems/123?f=json",
+      "rel" : "alternate",
+      "type" : "application/geo+json",
+      "title" : "this resource as GeoJSON"
+    }
+  ]
+}

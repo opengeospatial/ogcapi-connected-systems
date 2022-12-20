@@ -1,0 +1,120 @@
+
+[[clause-procedure-features]]
+== Requirements Class "Procedure Features"
+include::requirements/procedure/requirements_class_procedure_features.adoc[]
+
+
+=== Overview
+
+This requirements class specifies how `Procedure` descriptions are provided using this API.
+
+A `Procedure` resource implements the _http://www.w3.org/ns/sosa/Procedure[Procedure]_ concept defined in the <<OGC-W3C-SSN,SSN Ontology>>.
+
+A `Procedure` resource provides information about the procedure implemented by a `System` to accomplish its task(s). For hardware equipment, it usually corresponds to the equipment's datasheet. For human sensing or sampling tasks, the procedure describes the steps or methodology that must be followed by the operator.
+
+NOTE: `Procedure` resources describe types of systems (e.g. a particular model of sensor, a well-defined procedure followed by a human operator, etc.) while `System` resources describe system instances (e.g. a sensor device, a human observer). Several `System` instances can implement the same `Procedure`.
+
+
+=== Procedure Resources
+
+In this API, `Procedure` resources are a special kind of feature resource. This section defines the properties and associations (links to other resources) that apply to this feature type.
+
+The exact way properties and associations are represented in the payload is defined by each encoding. Examples are provided in the respective encoding sections.
+
+==== Properties
+
+[[req_procedure-props]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/procedure/properties*
+^| A | A `Procedure` feature resource SHALL include all mandatory properties listed in <<procedure-properties>>.
+|===
+
+[#procedure-properties,reftext='{table-caption} {counter:table-num}']
+.Procedure Properties
+[width="100%",cols="4,10,3,3",options="header"]
+|====
+| *Name* | *Definition* | *Data Type* | *Usage*
+| Unique Identifier  | The unique identifier of the procedure in the form of a URI (preferably a URN). This identifier should be persistent and independent of the actual resource URL | URI | Mandatory
+| Name               | The human readable name of the procedure | String | Mandatory
+| Description        | A human readable description for the procedure | String | Optional
+| Procedure Type     | The type of procedure (see <<procedure-types>>) | URI | Mandatory
+| Valid Time         | The validity period of the procedure description. | DateTime | Optional
+|====
+
+NOTE: The validity time period of a `Procedure` description starts on the date that the model of the equipment was released. No `System` can implement the `Procedure` before this date. The end date should be set to a date after which no instance of the equipment is in use.
+
+
+Subclasses of _SSN System_ defined in the <<OGC-W3C-SSN,SSN Ontology>> are implemented by tagging `System` resources with a more specific concept URI. Specific procedure types are defined in this Standard and must be used when appropriate.
+
+[[req_procedure-type]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/procedure/type*
+^| A | A `Procedure` resource encoding SHALL use one of the URIs provided in <<procedure-types>> as the value of the `Procedure Type` property.
+       If using a URI is not practical, the encoding SHALL define a mapping between all possible values used to encode feature types and the URIs defined in this Standard.
+|===
+
+[#procedure-types,reftext='{table-caption} {counter:table-num}']
+.Procedure Types
+[width="100%",cols="5,10,2,10",options="header"]
+|====
+| *Procedure Type* | *URI*  | *Implemented By* | *Usage*
+| Observing           | http://www.opengis.net/def/x-OGC/ObservingProcedure   | Sensor   | To describe a 'sensing' process
+| Actuating           | http://www.opengis.net/def/x-OGC/ActuatingProcedure   | Actuator | To describe an 'actuating' process
+| Sampling            | http://www.opengis.net/def/x-OGC/SamplingProcedure    | Sampler  | To describe a 'sampling' process
+| Simulation          | http://www.opengis.net/def/x-OGC/SimulationProcedure  | Sensor or System   | To describe a model or simulation
+| Moving              | http://www.opengis.net/def/x-OGC/MobilityProcedure    | Platform | To describe a motion pattern
+|====
+
+==== Location
+
+A `Procedure` feature represents a datasheet or a methodology. It is thus a non-spatial entity.
+
+[[req_procedure-nolocation]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:rec-id}* |*/req/procedure/nolocation*
+^| A | A `Procedure` feature resource SHALL not include a location or geometry.
+|===
+
+==== Associations
+
+In addition to the links defined in {ogcapi-features}, a `Procedure` resource may also include the following associations:
+
+[#procedure-links,reftext='{table-caption} {counter:table-num}']
+.Procedure Associations
+[width="100%",cols="5,10,10",options="header"]
+|====
+| *Relation Name* | *Definition* | *Target Content*
+| `systems`        | Link to the `Systems` that implement the `Procedure` | A Collection of `System` resources
+|====
+
+
+=== Procedure Collections
+
+`Procedure` feature collections are identified with the feature type `'procedure'`.
+
+[[req_procedure-collection]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/procedure/collection*
+^|A |The server SHALL expose at least one collection containing `Procedure` resources`.
+|===
+
+[[req_procedure-collection-type]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/procedure/collection-type*
+^|A |The server SHALL identify all collections containing `Procedure` features by setting the value of the `featureType` property to `'procedure'`.
+|===
+
+[[req_procedure-catchall-collection]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/procedure/catchall-collection*
+^|A |The server SHALL expose a collection containing all available `Procedure` features at URL `{api_root}/procedures`.
+|===
+
+
+See the <<clause-encoding-geojson,Encoding Requirements Classes>> for examples of `Procedure` features representations.

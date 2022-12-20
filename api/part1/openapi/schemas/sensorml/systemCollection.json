@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "allOf": [
+    { "$ref": "../common/links.json" },
+    {"type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": { "$ref": "system.json" }
+        }
+      }
+    }
+  ]
+}

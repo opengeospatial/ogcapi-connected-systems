@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "allOf": [
+    { "$ref": "samplingSpatial.json" },
+    {
+      "type": "object",
+      "properties": {
+        "geometry": {
+          "$ref": "https://geojson.org/schema/Polygon.json"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "featureType": {
+              "type": "string",
+              "const": "http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingSurface"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "allOf": [
+    { 
+      "oneOf": [
+        { "$ref": "sensormlDefs.json#/definitions/SimpleProcess" },
+        { "$ref": "sensormlDefs.json#/definitions/AggregateProcess" },
+        { "$ref": "sensormlDefs.json#/definitions/PhysicalComponent" },
+        { "$ref": "sensormlDefs.json#/definitions/PhysicalSystem" }
+      ]  
+    },
+    {
+      "type": "object",
+      "properties": {
+        "definition": {
+          "enum": [
+            "http://www.w3.org/ns/ssn/System",
+            "http://www.w3.org/ns/sosa/Sensor",
+            "http://www.w3.org/ns/sosa/Actuator",
+            "http://www.w3.org/ns/sosa/Sampler",
+            "http://www.w3.org/ns/sosa/Platform"
+          ]
+        },
+        "links": {
+          "type": "array"
+        }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
+}

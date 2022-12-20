@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "DescribedObject": {
+      "$ref": "../../../../../sensorml/json_encodings/schemas/describedObject.json"
+    },
+    "PhysicalComponent": {
+      "$ref": "../../../../../sensorml/json_encodings/schemas/physicalComponent.json"
+    },
+    "PhysicalSystem": {
+      "$ref": "../../../../../sensorml/json_encodings/schemas/physicalSystem.json"
+    },
+    "SimpleProcess": {
+      "$ref": "../../../../../sensorml/json_encodings/schemas/simpleProcess.json"
+    },
+    "AggregateProcess": {
+      "$ref": "../../../../../sensorml/json_encodings/schemas/aggregateProcess.json"
+    }
+  }
+}
