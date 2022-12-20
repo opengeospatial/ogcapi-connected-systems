@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "abstractProcess.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "SimpleProcess"
+        },
+        "method": {
+          "$ref": "#/definitions/ProcessMethod"
+        }
+      }
+    }
+  ],
+  "definitions": {
+    "ProcessMethod": {
+
+    }
+  }
+}

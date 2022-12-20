@@ -1,0 +1,183 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "abstractFeature.json"
+    },
+    {
+      "properties": {
+        "lang": {
+          "type": "string"
+        },
+        "extensions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        },
+        "definition": {
+          "type": "string",
+          "format": "uri"
+        },
+        "keywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "identifiers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Term"
+          }
+        },
+        "classifiers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Term"
+          }
+        },
+        "validTime": {
+          "$ref": "commonDefs.json#/definitions/TimePeriod"
+        },
+        "securityConstraints": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        },
+        "legalConstraints": {
+          "type": "array",
+          "items": {
+            "$ref": "legalConstraint.json"
+          }
+        },
+        "characteristics": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CharacteristicList"
+          }
+        },
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CapabilityList"
+          }
+        },
+        "contacts": {
+          "type": "array",
+          "items": {
+            "$ref": "responsibleParty.json"
+          }
+        },
+        "documentation": {
+          "type": "array",
+          "items": {
+            "$ref": "document.json"
+          }
+        },
+        "history": {
+          "type": "array",
+          "items": {
+            "$ref": "event.json"
+          }
+        }
+      }
+    }
+  ],  
+  "definitions": {
+    "CharacteristicList": {
+      "allOf": [
+        {
+          "$ref": "sweCommonDefs.json#/definitions/AbstractSWEIdentifiable"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "definition": {
+              "type": "string",
+              "format": "uri"
+            },
+            "characteristics": {
+              "type": "array",
+              "items": {
+                "$ref": "sweCommonDefs.json#/definitions/AnyComponent"
+              }
+            }
+          },
+          "required": [ "name", "characteristics" ]
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "CapabilityList": {
+      "allOf": [
+        {
+          "$ref": "sweCommonDefs.json#/definitions/AbstractSWEIdentifiable"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "definition": {
+              "type": "string",
+              "format": "uri"
+            },
+            "capabilities": {
+              "type": "array",
+              "items": {
+                "$ref": "sweCommonDefs.json#/definitions/AnyComponent"
+              }
+            }
+          },
+          "required": [ "name", "capabilities" ]
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "Term": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "sweCommonDefs.json#/definitions/AbstractSWE"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "const": "Term"
+            },
+            "definition": {
+              "type": "string",
+              "format": "uri"
+            },
+            "label": {
+              "type": "string"
+            },
+            "codeSpace": {
+              "type": "string",
+              "format": "uri"
+            },
+            "value": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "label",
+            "value"
+          ]
+        }
+      ],
+      "unevaluatedProperties": false
+    }
+  }
+}

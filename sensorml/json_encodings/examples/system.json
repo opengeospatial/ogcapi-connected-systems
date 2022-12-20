@@ -1,0 +1,110 @@
+{
+  "$schema": "../schemas/physicalSystem.json",
+  "type": "PhysicalSystem",
+  "id": "g7qgqjt7276pa",
+  "uid": "urn:osh:sensor:simweather:0123456879",
+  "definition": "http://www.w3.org/ns/sosa/Sensor",
+  "name": "Simulated Weather Sensor",
+  "description": "Simulated weather station generating realistic pseudo-random measurements",
+  "identifiers": [
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/LongName",
+      "label": "Long Name",
+      "value": "Davis Vantage Pro2 Weather Station"
+    },
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/ShortName",
+      "label": "Short Name",
+      "value": "Vantage Pro2"
+    },
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/Manufacturer",
+      "label": "Manufacturer",
+      "value": "Davis Instruments"
+    },
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/SerialNumber",
+      "label": "Serial Number",
+      "value": "0123456879"
+    }
+  ],
+  "classifiers": [
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/Application",
+      "label": "Intended Application",
+      "value": "weather"
+    },
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/SensorType",
+      "label": "Instrument Type",
+      "codeSpace": "https://gcmd.earthdata.nasa.gov/kms/concepts/concept_scheme/instruments",
+      "value": "weather station"
+    }
+  ],
+  "validTime": [
+    "2015-08-02T20:00:00Z",
+    "now"
+  ],
+  "characteristics": [
+    {
+      "name": "operating_specs",
+      "definition": "http://www.w3.org/ns/ssn/systems/OperatingRange",
+      "label": "Operating Characteristics",
+      "characteristics": [
+        {
+          "name": "voltage",
+          "type": "QuantityRange",
+          "definition": "http://qudt.org/vocab/quantitykind/Voltage",
+          "label": "Operating Voltage Range",
+          "uom": {
+            "code": "V"
+          },
+          "value": [110.0,250.0]
+        },
+        {
+          "name": "temperature",
+          "type": "QuantityRange",
+          "definition": "http://qudt.org/vocab/quantitykind/Temperature",
+          "label": "Temperature Range",
+          "uom": {
+            "code": "Cel"
+          },
+          "value": [-20.0,90.0]
+        }
+      ]
+    }
+  ],
+  "contacts": [
+    {
+      "role": "http://sensorml.com/ont/swe/property/Manufacturer",
+      "organisationName": "Davis Instruments Corp.",
+      "contactInfo": {
+        "phone": {
+          "voice": "+1 (510) 732-7814"
+        },
+        "address": {
+          "deliveryPoint": "3465 Diablo Avenue",
+          "city": "Hayward",
+          "administrativeArea": "CA",
+          "postalCode": "94545",
+          "country": "USA"
+        }
+      }
+    }
+  ],
+  "positions": [
+    {
+      "type": "Point",
+      "id": "stationLocation",
+      "srsName": "http://www.opengis.net/def/crs/EPSG/0/4979",
+      "srsDimension": "3",
+      "pos": "34.8038 -86.7228 0"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "individualName": {
+      "type": "string"
+    },
+    "organisationName": {
+      "type": "string"
+    },
+    "positionName": {
+      "type": "string"
+    },
+    "contactInfo": {
+      "$ref": "#/definitions/Contact"
+    },
+    "role": {
+      "type": "string",
+      "format": "uri"
+    }
+  },
+  "unevaluatedProperties": false,
+  "required": [
+    "role"
+  ],
+  "oneOf": [
+    { "required": ["individualName"] },
+    { "required": ["organisationName"] }
+  ],
+  "definitions": {
+    "Contact": {
+      "type": "object",
+      "properties": {
+        "phone": {
+          "$ref": "#/definitions/Phone"
+        },
+        "address": {
+          "$ref": "#/definitions/Address"
+        },
+        "onlineResource": {
+          "type": "string"
+        },
+        "hoursOfService": {
+          "type": "string"
+        },
+        "contactInstructions": {
+          "type": "string"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "Phone": {
+      "type": "object",
+      "properties": {
+        "voice": {
+          "type": "string"
+        },
+        "facsimile": {
+          "type": "string"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "Address": {
+      "type": "object",
+      "properties": {
+        "deliveryPoint": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "administrativeArea": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "electronicMailAddress": {
+          "type": "string",
+          "format": "email"
+        }
+      },
+      "unevaluatedProperties": false
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "describedObject.json"
+    },
+    {
+      "properties": {
+        "definition": {
+          "description": "An optional property that allows one to reference the process instance in an online ontology or dictionary. The value of the property must be a resolvable URI.",
+          "type": "string",
+          "format": "uri"
+        },
+        "typeOf": {
+          "description": "A reference to a base process from which this process inherits properties and constraints (e.g. original equipment manufacturer's model description, generic equation, etc.). The uniqueID of the referenced process must be provided using the xlink:title attribute while the URL to the process description must be provided by the xlink:href attribute.",
+          "$ref": "commonDefs.json#/definitions/XLink"
+        },
+        "configuration": {
+          "description": "Value settings that further constrain the properties of the base process.",
+          "$ref": "settings.json"
+        },
+        "featuresOfInterest": {
+          "description": "A collection of features relevant to a process (e.g. the Gulf of Mexico, the White House, the set of all Fibonacci Numbers, etc.); can also support a sampling feature. The primary purpose of the Features of Interest is to support discovery.",
+          "$ref": "#/definitions/FeatureList"
+        },
+        "inputs": {
+          "description": "The list of data components (and their properties and semantics) that the process will accept as input; In the standard linear equation y=mx+b; x is the input, m and b are the parameters, and y is the output.",
+          "$ref": "#/definitions/InputList"
+        },
+        "outputs": {
+          "description": "The list of data components (and their properties and semantics) that the process will accept as output; In the standard linear equation y=mx+b; x is the input, m and b are the parameters, and y is the output.",
+          "$ref": "#/definitions/OutputList"
+        },
+        "parameters": {
+          "description": "The list of data components (and their properties and semantics) that the process will accept as parameters; In the standard linear equation y=mx+b; x is the input, m and b are the parameters, and y is the output.",
+          "$ref": "#/definitions/ParameterList"
+        },
+        "modes": {
+          "description": "A collection of parameters that can be set at once through the selection of a particular predefined mode.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ModeChoice"
+          }
+        }
+      }
+    }
+  ],
+  "definitions": {
+    "FeatureList": {
+
+    },
+    "InputList": {
+      "type": "array",
+      "items": {
+        "$ref": "sweCommonDefs.json#/definitions/AnyComponent"
+      }
+    },
+    "OutputList": {
+      "type": "array",
+      "items": {
+        "$ref": "sweCommonDefs.json#/definitions/AnyComponent"
+      }
+    },
+    "ParameterList": {
+      "type": "array",
+      "items": {
+        "$ref": "sweCommonDefs.json#/definitions/AnyComponent"
+      }
+    },
+    "ModeChoice": {
+
+    }
+  }
+}
