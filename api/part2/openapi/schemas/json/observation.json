@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "datastream@id": {
+      "type": "string"
+    },
+    "foi@id": {
+      "type": "string"
+    },
+    "phenomenonTime": {
+      "$ref": "../common/commonDefs.json#/definitions/TimeInstant"
+    },
+    "resultTime": {
+      "$ref": "../common/commonDefs.json#/definitions/TimeInstant"
+    },
+    "result": {
+    }
+  },
+  "required": [
+    "datastream@id", "phenomenonTime", "resultTime", "result"
+  ]
+}

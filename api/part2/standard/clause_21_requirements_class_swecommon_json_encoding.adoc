@@ -1,0 +1,14 @@
+
+[[clause-encoding-swejson]]
+=== Requirements Class "SWE Common JSON Encoding"
+include::requirements/encoding/swecommon/requirements_class_swecommon_json.adoc[]
+
+
+==== Overview
+
+This requirements class defines JSON encodings of `Observation` and `Command` resources based on <<SWECommon-JSON>>.
+
+
+==== Media Type
+
+The media type to use to advertise support for this encoding is `application/swe+json`.

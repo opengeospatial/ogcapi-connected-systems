@@ -1,0 +1,62 @@
+{
+  "id": "7dogt5gs8949s",
+  "name": "Radiological Sensor RADIO003 - Wireless Link Status",
+  "system@link": {
+    "href": "https://api.example.org/systems/958tf25kjm2f6",
+    "uid": "urn:x-ogc:systems:FF465",
+    "outputName": "radio"
+  },
+  "ultimateFeatureOfInterest@link": {
+    "href": "https://api.example.org/systems/4578",
+    "uid": "urn:x-ogc:systems:FF465"
+  },
+  "phenomenonTime": [
+    "2012-06-29T14:32:34Z",
+    "2012-06-29T14:37:34Z"
+  ],
+  "resultTime": [
+    "2012-06-29T14:32:34Z",
+    "2012-06-29T14:37:34Z"
+  ],
+  "observedProperties": [
+    {
+      "definition": "http://sensorml.com/ont/isa/property/Link_Loss",
+      "label": "Link Loss"
+    },
+    {
+      "definition": "http://sensorml.com/ont/isa/property/Link_State",
+      "label": "Link State"
+    },
+    {
+      "definition": "http://sensorml.com/ont/isa/property/Range",
+      "label": "Transmission Range"
+    },
+    {
+      "definition": "http://sensorml.com/ont/isa/property/Receive_Power"
+    },
+    {
+      "definition": "http://sensorml.com/ont/isa/property/Signal_Strength_Ratio"
+    },
+    {
+      "definition": "http://sensorml.com/ont/isa/property/Transmit_Power"
+    }
+  ],
+  "formats": [
+    "application/json",
+    "application/swe+json",
+    "application/swe+csv",
+    "application/swe+xml",
+    "application/swe+binary"
+  ],
+  "links": [
+    {
+      "rel" : "self",
+      "href" : "https://api.example.org/datastreams/7dogt5gs8949s",
+      "type" : "application/json"
+    }, {
+      "rel": "observations",
+      "href": "https://api.georobotix.io/ogc/t18/api/datastreams/7dogt5gs8949s/observations",
+      "type" : "application/json"
+    }
+  ]
+}

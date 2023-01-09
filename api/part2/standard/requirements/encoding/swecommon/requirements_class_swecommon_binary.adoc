@@ -1,0 +1,11 @@
+[[rc_encoding-swecommon-binary]]
+[cols="1,4",width="90%",options="header"]
+|===
+2+|*Requirements Class*
+2+|http://www.opengis.net/spec/ogcapi-connectedsystems-2/1.0/req/encoding/swecommon-binary
+|Target type              |Web API
+|Dependency               |<<SWECommon>>, Clause 7.7: Requirements Class: Advanced Encodings Package
+|Dependency               |<<SWECommon>>, Clause 9.4: Requirements Class: Binary Encoding Rules
+|Conditional Dependency   |<<clause-datastream-resources>>
+|Conditional Dependency   |<<clause-control-resources>>
+|===

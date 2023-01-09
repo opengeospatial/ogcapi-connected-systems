@@ -1,0 +1,13 @@
+{
+  "enum": [
+    "PENDING",
+    "ACCEPTED",
+    "REJECTED",
+    "SCHEDULED",
+    "UPDATED",
+    "CANCELED",
+    "EXECUTING",
+    "COMPLETED",
+    "FAILED"    
+  ]
+}

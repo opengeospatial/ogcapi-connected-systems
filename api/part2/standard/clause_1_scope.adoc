@@ -1,0 +1,16 @@
+== Scope
+
+This standard defines extensions to https://ogcapi.ogc.org/features[OGC API - Features] for exposing dynamic data flowing to and from observing systems and platforms. This standard also complies with https://ogcapi.ogc.org/common[OGC API - Common].
+
+The API provides an actionnable implementation of concepts defined in the https://www.w3.org/TR/vocab-ssn/[Semantic Sensor Network Ontology (SSN)].
+
+More specifically, Part 2 of the API implements additional SSN concepts (namely Observation, Actuation, Result and Sample).
+
+The following types of resources are made availables through this API:
+
+  - `Datastreams` 
+  - `Observations` 
+  - `Controls` 
+  - `Commands`
+  - `Sampling Features`
+  - `Events`

@@ -1,0 +1,37 @@
+
+[[clause-encoding-swebinary]]
+=== Requirements Class "SWE Common Binary Encoding"
+include::requirements/encoding/swecommon/requirements_class_swecommon_binary.adoc[]
+
+
+==== Overview
+
+This requirements class defines JSON encodings of `Observation` and `Command` resources based on the Binary Encoding defined in the <<SWECommon>> Standard.
+
+The main objective of this encoding is better data size efficiency than text or JSON, thus allowing for:
+
+- transfer of observations and commands over very low power / low bandwidth network links (e.g. LoRa,  etc.)
+- transfer high bandwidth data sets such as raster data (e.g. video, LiDAR, etc.)
+
+For even better efficiency, this encoding can be combined with a transport protocol such as <<clause-protocol-mqtt,MQTT>>.
+
+
+==== Media Type
+
+The media type to use to advertise support for this encoding is `application/swe+binary`.
+
+
+
+==== Encoding Rules
+
+#TODO: URI for phenomenonTime, resultTime, samplingFeatureID, obs result, obs parameters, etc.#
+
+
+
+==== Datastream Schema
+
+When using this encoding, the observation schema provided under the Datastream resource
+
+
+
+==== Control Channel Schema

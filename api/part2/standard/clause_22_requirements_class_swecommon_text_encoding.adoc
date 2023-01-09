@@ -1,0 +1,16 @@
+
+[[clause-encoding-swetext]]
+=== Requirements Class "SWE Common Text Encoding"
+include::requirements/encoding/swecommon/requirements_class_swecommon_text.adoc[]
+
+
+==== Overview
+
+This requirements class defines JSON encodings of `Observation` and `Command` resources based on the Text Encoding defined in the <<SWECommon>> Standard.
+
+
+==== Media Type
+
+The media type to use to advertise support for this encoding is `application/swe+csv`.
+
+Optionally the media type `text/plain` can be allowed by a server to retrieve content in this format.

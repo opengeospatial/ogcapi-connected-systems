@@ -1,0 +1,13 @@
+
+[[clause-query-filters]]
+== Requirements Class "Advanced Filtering"
+include::requirements/query/requirements_class_advanced_filtering.adoc[]
+
+
+=== Overview
+
+This requirements class specifies additional filtering options that may be used to select only a subset of the resources in a collection.
+
+All filters defined in this section are implemented using URL query parameters and can be used in addition to the ones defined in other requirements classes.
+
+#TODO#

@@ -1,0 +1,32 @@
+== References
+
+The following normative documents contain provisions that, through reference in this text, constitute provisions of this document.
+For dated references, subsequent amendments to, or revisions of, any of these publications do not apply. For undated references,
+the latest edition of the normative document referred to applies.
+
+[[OGC-API-CONSYS-1,OGC API - Connected Systems - Part 1]]
+- OGC: OGC 23-000, OGC API - Connected Systems - Part 1: Feature Resources, version 1.0, https://docs.ogc.org/DRAFTS/23-001.html
+
+[[OGC-API-COMMON-2,OGC API - Common - Part 2]]
+- OGC: OGC  20-024, OGC API - Common - Part 2: Geospatial Data, version 1.0, https://docs.ogc.org/DRAFTS/20-024.html
+
+[[SSN,Semantic Sensor Network Ontology]]
+- OGC: OGC/W3C Semantic Sensor Network Ontology, (October 19 2017), https://www.w3.org/TR/vocab-ssn
+
+[[OM,Observations & Measurements]]
+- OGC: OGC 10-004r3, Topic 20: Observations and Measurements, version 2.0
+
+[[SensorML,SensorML]]
+- OGC: OGC 12-000r2, OGC SensorML: Model and XML Encoding Standard, version 2.1
+
+[[SWECommon,SWE Common Data Model]]
+- OGC: OGC 08-094r1, OGC SWE Common Data Model Encoding Standard, version 2.0
+
+[[SWECommon-JSON,SWE Common Data Model - JSON Encodings]]
+- OGC: OGC 23-003, OGC SWE Common Data Model: JSON Encoding Standard, version 1.0, https://docs.ogc.org/DRAFTS/23-003.html
+
+[[Websocket,Websocket Protocol]]
+- IETF: RFC 6455: The WebSocket Protocol, December 2011, Proposed Standard, https://www.rfc-editor.org/rfc/rfc6455
+
+[[MQTT,MQTT Protocol v5.0]]
+- OASIS: MQTT Version 5.0, 07 March 2019, OASIS Standard, http://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html

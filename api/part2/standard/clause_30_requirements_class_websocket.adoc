@@ -1,0 +1,20 @@
+
+[[clause-protocol-websocket]]
+=== Requirements Class "Websocket Transport"
+include::requirements/protocol/websocket/requirements_class_websocket.adoc[]
+
+
+==== Overview
+
+This requirements class defines how the Websocket protocol can be used to interact with certain resource types.
+
+Websocket can be used for:
+
+- Streaming real-time observations from the server to the client
+- Streaming real-time observations from the client to the server (ingestion)
+- Streaming real-time commands from the client to the server
+- Streaming real-time commands from the server to the client (command dispatch)
+
+
+
+

@@ -1,0 +1,9 @@
+
+[[clause-resource-events]]
+== Requirements Class "Resource Events"
+include::requirements/events/requirements_class_resource_events.adoc[]
+
+
+=== Overview
+
+#TODO#

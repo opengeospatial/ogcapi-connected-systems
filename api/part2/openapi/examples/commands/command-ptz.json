@@ -1,0 +1,16 @@
+{
+  "id": "1125alnna75hafppknk9aefpvs",
+  "control@id": "hf62t0dotfd5k",
+  "userId": "user01",
+  "issueTime": "2021-03-15T04:53:34.248Z",
+  "executionTime": [
+    "2021-03-15T04:53:34.543Z",
+    "2021-03-15T04:53:36.021Z"
+  ],
+  "currentStatus": "COMPLETED",
+  "params": {
+    "pan": -10.0,
+    "tilt": 23.0,
+    "zoom": 0.4
+  }
+}

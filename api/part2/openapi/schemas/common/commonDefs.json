@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "TimeInstant": {
+      "$ref": "../../../../../common/timeInstant.json"
+    },
+    "TimePeriod": {
+      "$ref": "../../../../../common/timePeriod.json"
+    },
+    "XLink": {
+      "$ref": "../../../../../common/xlink.json"
+    },
+    "Link": {
+      "$ref": "../../../../part1/openapi/schemas/common/link.json"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+
+[[clause-system-events]]
+== Requirements Class "System Events"
+include::requirements/system/requirements_class_system_events.adoc[]
+
+=== Overview
+
+#TODO#
+
+
+
+=== System Events Collection
+
+System events are made available as a sub-collection of `System` resources.
+
+[[req_system-events-collection]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/system/events-collection*
+^|A |The server SHALL expose `System` events at URL `{systemResourceUrl}/events`.
+|===

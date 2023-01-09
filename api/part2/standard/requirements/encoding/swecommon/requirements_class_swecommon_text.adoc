@@ -1,0 +1,11 @@
+[[rc_encoding-swecommon-text]]
+[cols="1,4",width="90%",options="header"]
+|===
+2+|*Requirements Class*
+2+|http://www.opengis.net/spec/ogcapi-connectedsystems-2/1.0/req/encoding/swecommon-text
+|Target type              |Web API
+|Dependency               |<<SWECommon>>, Clause 8.5: Requirements Class: Simple Encodings Schema
+|Dependency               |<<SWECommon>>, Clause 9.2: Requirements Class: Text Encoding Rules
+|Conditional Dependency   |<<clause-datastream-resources>>
+|Conditional Dependency   |<<clause-control-resources>>
+|===

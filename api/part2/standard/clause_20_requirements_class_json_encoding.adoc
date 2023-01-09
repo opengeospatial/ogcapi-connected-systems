@@ -1,0 +1,178 @@
+:json-schema-root: ../openapi/schemas/json
+
+[[clause-encoding-json]]
+=== Requirements Class "JSON Encoding"
+include::requirements/encoding/json/requirements_class_json.adoc[]
+
+
+==== Overview
+
+This requirements class defines general JSON encodings for all resource types defined in part 2.
+This encoding must be supported by all implementations.
+
+
+==== Media Type
+
+The media type to use to advertise support for this encoding is `application/json`.
+
+
+==== Datastream Encoding Rules
+
+The `Datastream` resource is encoded as a JSON object. JSON members have the same names as the class properties and associations. Associations are implemented as links.
+
+[[req_json-schema-datastream]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/encoding/json/datastream-schema*
+^| Condition | Server implements <<clause-datastream-resources>>.
+^| A | A 200-response with the media type `application/json` containing `Datastream` resources SHALL conform to one of the following schemas:
+
+       - link:{json-schema-root}/datastreamCollection.json[datastreamCollection.json] for a collection of datastreams, and
+       - link:{json-schema-root}/datastream.json[datastream.json] for a single datastream.
+|===
+
+[[example_json_datastream1]]
+.A Datastream in JSON format
+=================
+This is a simple datastream with a single observed property and a single format.
+
+[source%autofit,JSON]
+----
+include::../openapi/examples/datastreams/datastream-simple.json[]
+----
+=================
+
+
+
+==== Datastream Schema Encoding Rules
+
+When using the plain `application/json` media type for retrieving observations, the following schema syntax is used:
+
+
+
+
+
+==== Observation Encoding Rules
+
+[[req_json-schema-observation]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/encoding/json/observation-schema*
+^| Condition | Server implements <<clause-datastream-resources>>.
+^| A | A 200-response with the media type `application/json` containing `Observation` resources SHALL conform to one of the following schemas:
+
+       - link:{json-schema-root}/observationCollection.json[observationCollection.json] for a collection of observations, and
+       - link:{json-schema-root}/observation.json[observation.json] for a single observation.
+|===
+
+[[example_json_obs]]
+.Observations in JSON format
+=================
+This is a simple observation with a scalar observed property, associated to the datastream of the example above.
+
+[source%autofit,JSON]
+----
+include::../openapi/examples/observations/obs-simple.json[]
+----
+
+This second observation has a vector result type:
+
+[source%autofit,JSON]
+----
+include::../openapi/examples/observations/obs-location.json[]
+----
+=================
+
+
+
+==== Control Stream Encoding Rules
+
+The `ControlStream` resource is encoded as a JSON object. JSON members have the same names as the class properties and associations. Associations are implemented as links.
+
+[[req_json-schema-controlstream]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/encoding/json/controlstream-schema*
+^| Condition | Server implements <<clause-control-resources>>.
+^| A | A 200-response with the media type `application/json` containing `ControlStream` resources SHALL conform to one of the following schemas:
+
+       - link:{json-schema-root}/controlStreamCollection.json[controlStreamCollection.json] for a collection of control streams, and
+       - link:{json-schema-root}/controlStream.json[controlStream.json] for a single control stream.
+|===
+
+[[example_json_controlstream1]]
+.A Control Stream in JSON format
+=================
+This is a simple control stream with a single controllable property and a single format.
+
+[source%autofit,JSON]
+----
+include::../openapi/examples/controlStreams/controlStream-ptz.json[]
+----
+=================
+
+
+
+==== Command Encoding Rules
+
+[[req_json-schema-command]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/encoding/json/command-schema*
+^| Condition | Server implements <<clause-control-resources>>.
+^| A | A 200-response with the media type `application/json` containing `Command` resources SHALL conform to one of the following schemas:
+
+       - link:{json-schema-root}/commandCollection.json[commandCollection.json] for a collection of commands, and
+       - link:{json-schema-root}/command.json[command.json] for a single command.
+|===
+
+[[example_json_command]]
+.Command in JSON format
+=================
+This is an example command used to task a PTZ camera, encoded in JSON format:
+
+[source%autofit,JSON]
+----
+include::../openapi/examples/commands/command-ptz.json[]
+----
+=================
+
+
+==== Command Status Encoding Rules
+
+[[req_json-schema-command-status]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/encoding/json/command-status-schema*
+^| Condition | Server implements <<clause-control-resources>>.
+^| A | A 200-response with the media type `application/json` containing `CommandStatus` resources SHALL conform to one of the following schemas:
+
+       - link:{json-schema-root}/commandStatusCollection.json[commandStatusCollection.json] for a collection of command status reports, and
+       - link:{json-schema-root}/commandStatus.json[commandStatus.json] for a single command status report.
+|===
+
+[[example_json_command_status]]
+.Command status in JSON format
+=================
+These are example command status reports, encoded in JSON format:
+
+[source%autofit,JSON]
+----
+include::../openapi/examples/commandStatus/command-status-accepted.json[]
+----
+
+[source%autofit,JSON]
+----
+include::../openapi/examples/commandStatus/command-status-completed.json[]
+----
+=================
+
+
+==== Resource Event Encoding Rules
+
+
+
+
+==== System Event Encoding Rules
+
+

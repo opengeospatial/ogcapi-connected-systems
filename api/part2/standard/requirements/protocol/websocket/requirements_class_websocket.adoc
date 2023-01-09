@@ -1,0 +1,12 @@
+[[rc_protocol-websocket]]
+[cols="1,4",width="90%",options="header"]
+|===
+2+|*Requirements Class*
+2+|http://www.opengis.net/spec/ogcapi-connectedsystems-2/1.0/req/protocol/websocket
+|Target type              |Web API
+|Dependency               |<<Websocket>>
+|Conditional Dependency   |<<clause-datastream-resources>>
+|Conditional Dependency   |<<clause-control-resources>>
+|Conditional Dependency   |<<clause-system-events>>
+|Conditional Dependency   |<<clause-resource-events>>
+|===

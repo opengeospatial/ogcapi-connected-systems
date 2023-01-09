@@ -1,0 +1,16 @@
+
+[[clause-resource-crud]]
+== Requirements Class "Create, Replace, Update and Delete"
+include::requirements/crud/requirements_class_crud.adoc[]
+
+
+=== Overview
+
+This requirements class specifies how instances of the resource types defined in this Standard are created, replaced, udpated and deleted using the API.
+
+
+=== Batch Mode
+
+#TODO#
+
+

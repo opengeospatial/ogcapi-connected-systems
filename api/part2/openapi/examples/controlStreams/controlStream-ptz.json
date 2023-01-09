@@ -1,0 +1,40 @@
+{
+  "id": "hf62t0dotfd5k",
+  "name": "Garage Video Camera 001 - PTZ Control",
+  "system@link": {
+    "href": "https://api.example.org/systems/4722256",
+    "uid": "urn:x-ogc:systems:CAM001",
+    "inputName": "ptz"
+  },
+  "issueTime": [
+    "2012-06-29T14:32:34Z",
+    "2012-06-29T14:37:34Z"
+  ],
+  "executionTime": [
+    "2012-06-29T14:32:34Z",
+    "2012-06-29T14:37:34Z"
+  ],
+  "controlledProperties": [
+    {
+      "definition": "http://sensorml.com/ont/swe/property/PanAngle",
+      "label": "Pan Angle"
+    },
+    {
+      "definition": "http://sensorml.com/ont/swe/property/TiltAngle",
+      "label": "Tilt Angle"
+    },
+    {
+      "definition": "http://sensorml.com/ont/swe/property/ZoomFactor",
+      "label": "Zoom Factor"
+    }
+  ],
+  "formats": [
+    "application/json"
+  ],
+  "links": [
+    {
+      "rel": "commands",
+      "href": "https://api.example.org/controls/hf62t0dotfd5k/commands"
+    }
+  ]
+}

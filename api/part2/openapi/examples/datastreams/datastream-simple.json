@@ -1,0 +1,41 @@
+{
+  "id": "958tf25kjm2f6",
+  "name": "Outdoor Thermometer 001 - Air Temperature",
+  "system@link": {
+    "href": "https://api.example.org/systems/123",
+    "uid": "urn:x-ogc:systems:001",
+    "outputName": "temp"
+  },
+  "ultimateFeatureOfInterest@link": {
+    "href": "https://api.example.org/collections/buildings/items/754",
+    "title": "My House"
+  },
+  "phenomenonTime": [
+    "2020-06-29T14:32:00Z",
+    "2022-06-29T19:37:00Z"
+  ],
+  "resultTime": [
+    "2020-06-29T14:32:00Z",
+    "2012-06-29T19:37:00Z"
+  ],
+  "observedProperties": [
+    {
+      "definition": "http://mmisw.org/ont/cf/parameter/air_temperature",
+      "label": "Air Temperature"
+    }
+  ],
+  "formats": [
+    "application/json"
+  ],
+  "links": [
+    {
+      "rel" : "self",
+      "href" : "https://api.example.org/datastreams/958tf25kjm2f6",
+      "type" : "application/json"
+    }, {
+      "rel": "observations",
+      "href": "https://api.example.org/datastreams/958tf25kjm2f6/observations",
+      "type" : "application/json"
+    }
+  ]
+}
