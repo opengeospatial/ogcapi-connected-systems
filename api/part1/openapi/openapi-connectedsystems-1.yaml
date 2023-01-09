@@ -1,12 +1,12 @@
 openapi: 3.0.2
 info:
-  title: "Building Blocks specified in OGC API - MovingFeatures - Part 1: Features Extension"
+  title: "Building Blocks specified in OGC API - Connected Systems - Part 1: Feature Resources"
   version: 0.0.1
   description: >-
-    This is the OpenAPI definition of Moving Features API specification that conforms to the OGC Moving Features Encoding Extension - JSON.
+    This is the OpenAPI definition of the Connected Systems API specification that also conforms to OGC API - Features.
   contact:
-    name: Taehoon Kim
-    email: kim.taehoon@aist.go.jp
+    name: Alex Robin
+    email: support@georobotix.com
   license:
     name: OGC License
     url: "https://www.ogc.org/ogc/Document"

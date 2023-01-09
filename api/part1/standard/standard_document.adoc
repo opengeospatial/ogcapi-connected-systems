@@ -119,7 +119,11 @@ include::clause_12_requirements_class_sampling_features.adoc[]
 
 include::clause_13_requirements_class_system_components.adoc[]
 
+// filtering
+
 include::clause_14_requirements_class_advanced_filtering.adoc[]
+
+// create/replace/update/delete
 
 include::clause_15_requirements_class_feature_cud.adoc[]
 

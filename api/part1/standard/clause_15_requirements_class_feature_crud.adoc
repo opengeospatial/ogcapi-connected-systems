@@ -1,0 +1,16 @@
+
+[[clause-feature-crud]]
+== Requirements Class "Create, Replace, Update and Delete"
+include::requirements/crud/requirements_class_crud.adoc[]
+
+
+=== Overview
+
+This requirements class specifies how instances of the feature types defined previously are created, replaced, udpated and deleted using the API.
+
+
+=== Batch Mode
+
+#TODO#
+
+

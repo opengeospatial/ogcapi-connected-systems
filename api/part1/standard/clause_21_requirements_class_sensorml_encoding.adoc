@@ -24,7 +24,7 @@ The following requirement provides the mapping between common feature properties
 [[req_sensorml-common-mapping]]
 [width="90%",cols="2,6a"]
 |===
-^|*Requirement {counter:req-id}* |*/req/sensorml/property-mapping*
+^|*Requirement {counter:req-id}* |*/req/encoding/sensorml/property-mapping*
 ^| A | The JSON member `uniqueId` SHALL be used to encode the `Unique Identifier` property.
 ^| C | The JSON member `name` SHALL be used to encode the `Name` property.
 ^| D | The JSON member `description` SHALL be used to encode the `Description` property.
@@ -36,7 +36,7 @@ The following requirement provides the mapping between common feature properties
 [[req_sensorml-system-schema]]
 [width="90%",cols="2,6a"]
 |===
-^|*Requirement {counter:req-id}* |*/req/sensorml/system-schema*
+^|*Requirement {counter:req-id}* |*/req/encoding/sensorml/system-schema*
 ^| Condition | Server implements <<clause-system-features>>.
 ^| Condition | The request is made on a collection of `System Features` resources.
 ^| A | A 200-response with the media type `application/sml+json` SHALL conform to one of the following schemas:
@@ -63,7 +63,7 @@ include::../openapi/examples/systems/system-sensor-sml.json[]
 [[req_sensorml-procedure-schema]]
 [width="90%",cols="2,6a"]
 |===
-^|*Requirement {counter:req-id}* |*/req/sensorml/procedure-schema*
+^|*Requirement {counter:req-id}* |*/req/encoding/sensorml/procedure-schema*
 ^| Condition | Server implements <<clause-procedure-features>>.
 ^| Condition | The request is made on a collection of `Procedure Features` resources.
 ^| A | A 200-response with the media type `application/sml+json` SHALL conform to one of the following schemas:
@@ -76,7 +76,7 @@ include::../openapi/examples/systems/system-sensor-sml.json[]
 [[rec_sensorml-procedure-type]]
 [width="90%",cols="2,6a"]
 |===
-^|*Recommandation {counter:rec-id}* |*/rec/sensorml/procedure-type*
+^|*Recommandation {counter:rec-id}* |*/rec/encoding/sensorml/procedure-type*
 ^| A | SensorML class `PhysicalComponent` or `PhysicalSystem` SHOULD be used to describe hardware equipment specifications (i.e. datasheet).
 ^| B | SensorML class `SimpleProcess` or `AggregateProcess` SHOULD be used to describe a procedure implemented by humans, such as a methodology or steps.
 ^| C | No position information SHOULD be provided as part of the procedure description.
@@ -97,7 +97,7 @@ include::../openapi/examples/procedures/sensor-datasheet-sml.json[]
 [[req_sensorml-deployment-schema]]
 [width="90%",cols="2,6a"]
 |===
-^|*Requirement {counter:req-id}* |*/req/sensorml/deployment-schema*
+^|*Requirement {counter:req-id}* |*/req/encoding/sensorml/deployment-schema*
 ^| Condition | Server implements <<clause-deployment-features>>.
 ^| Condition | The request is made on a collection of `Deployment Features` resources.
 ^| A | A 200-response with the media type `application/sml+json` SHALL conform to one of the following schemas:

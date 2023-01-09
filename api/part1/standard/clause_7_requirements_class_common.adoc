@@ -32,7 +32,7 @@ This API defines several feature types that are intended to be offered by the se
 |===
 ^|*Requirement {counter:req-id}* |*/req/collection/type*
 ^| A | All feature collections containing the feature types defined in this Standard SHALL have a `featureType` property.
-^| B | Any such collection SHALL also have their `itemType` property set to the value `feature`.
+^| B | Any such collection SHALL also have ites `itemType` property set to the value `feature`.
 |===
 
 [[req_collection-nomix]]
@@ -69,7 +69,7 @@ This leads to the following canonical URL templates for individual feature resou
 [width="90%",cols="2,6a",options="header"]
 |===
 ^|*Requirement {counter:req-id}* |*/req/links/canonical*
-^| A | All links to feature instances of a feature type defined by this Standard SHALL use the resource's canonical URL.
+^| A | All links to resources corresponding to instances of a feature type defined by this Standard SHALL use the resource's canonical URL.
 |===
 
 

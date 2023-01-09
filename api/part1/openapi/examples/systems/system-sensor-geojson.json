@@ -1,7 +1,7 @@
 
 {
   "type": "Feature",
-  "id": "S001",
+  "id": "123",
   "geometry": {
     "type": "Point",
     "coordinates": [41.8781, -87.6298]
@@ -21,15 +21,15 @@
   },
   "links": [
     {
-      "href" : "https://api.example.org/systems/S001?f=json",
       "rel" : "self",
-      "type" : "application/geo+json",
-      "title" : "this document"
+      "title" : "this document",
+      "href" : "https://api.example.org/systems/123?f=json",
+      "type" : "application/geo+json"
     }, {
-      "href" : "https://api.example.org/systems/S001?f=sml",
       "rel" : "alternate",
-      "type" : "application/sml+json",
-      "title" : "this resource as SensorML"
+      "title" : "this resource as SensorML",
+      "href" : "https://api.example.org/systems/123?f=sml",
+      "type" : "application/sml+json"
     }
   ]
 }

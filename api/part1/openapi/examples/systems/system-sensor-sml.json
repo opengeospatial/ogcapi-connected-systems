@@ -1,6 +1,6 @@
 {
   "type": "PhysicalSystem",
-  "id": "F001",
+  "id": "123",
   "definition": "http://www.w3.org/ns/sosa/Sensor",
   "uniqueId": "urn:x-ogc:systems:001",
   "name": "Outdoor Thermometer 001",
@@ -31,15 +31,15 @@
   },
   "links": [
     {
-      "href" : "https://api.example.org/systems/123?f=sml",
       "rel" : "self",
-      "type" : "application/sml+json",
-      "title" : "this document"
+      "title" : "this document",
+      "href" : "https://api.example.org/systems/123?f=sml",
+      "type" : "application/sml+json"
     }, {
-      "href" : "https://api.example.org/systems/123?f=json",
       "rel" : "alternate",
-      "type" : "application/geo+json",
-      "title" : "this resource as GeoJSON"
+      "title" : "this resource as GeoJSON",
+      "href" : "https://api.example.org/systems/123?f=json",
+      "type" : "application/geo+json"
     }
   ]
 }

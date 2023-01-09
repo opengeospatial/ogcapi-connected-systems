@@ -19,6 +19,8 @@ In this API, `System` resources are a special kind of feature resource. This sec
 
 The exact way properties and associations are represented in the payload is defined by each encoding. Examples are provided in the respective encoding sections.
 
+See the <<clause-encoding-geojson,Encoding Requirements Classes>> for examples of `System` features representations.
+
 ==== Properties
 
 [[req_system-props]]
@@ -123,11 +125,11 @@ In addition to the links defined in {ogcapi-features}, a `System` resource is al
 [width="100%",cols="5,10,10",options="header"]
 |====
 | *Relation Name* | *Definition* | *Target Content*
-| `procedure`        | Link to the `Procedure` implemented by the `System` | A `Procedure` resource
-| `deployments`      | Link to the `Deployments` that the `System` is part of, if any | A collection of `Deployment` resources
+| `procedure`        | Link to the `Procedure` implemented by the `System` | A single `Procedure` resource.
+| `deployments`      | Link to the `Deployments` that the `System` is part of, if any | A collection of `Deployment` resources.
 | `components` 
-  #or members?#      | Link to the components of the `System`, if any (i.e. subsystems)  | A collection of `System` resources
-| `samplingFeatures` | Link to the `Sampling Features` associated to the `System` | A collection of `SamplingFeature` resources
+  #or members?#      | Link to the components of the `System`, if any (i.e. subsystems)  | A collection of `System` resources.
+| `samplingFeatures` | Link to the `Sampling Features` associated to the `System` | A collection of `SamplingFeature` resources.
 |====
 
 NOTE: Links may be ommitted only if the target resource does not exist or is not available online.
@@ -159,6 +161,3 @@ NOTE: Links may be ommitted only if the target resource does not exist or is not
 ^|*Requirement {counter:req-id}* |*/req/system/catchall-collection*
 ^|A |The server SHALL expose a collection containing all available `System` features at URL `{api_root}/systems`.
 |===
-
-
-See the <<clause-encoding-geojson,Encoding Requirements Classes>> for examples of `System` features representations.

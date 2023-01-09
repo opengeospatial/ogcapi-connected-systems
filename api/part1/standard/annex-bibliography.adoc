@@ -28,9 +28,16 @@ Springer LNCS is widely used in technical and computer science journals and othe
 [2] Open Geospatial Consortium (OGC): **OGC 19-000: OGC Sensor Planning Service Implementation Standard, Version 2.0**. Available at https://www.ogc.org/standards/sps
 
 [[OGC-STA-1]]
-[3] Open Geospatial Consortium (OGC): **SensorThings API Part 1: Sensing, Version 1.1** [online]. Available at https://docs.ogc.org/is/18-088/18-088.html
+[3] Open Geospatial Consortium (OGC): **OGC 18-088: SensorThings API Part 1: Sensing, Version 1.1** [online]. Available at https://docs.ogc.org/is/18-088/18-088.html
 
 [[OGC-STA-2]]
-[4] Open Geospatial Consortium (OGC): **	SensorThings API Part 2: Tasking Core, Version 1.0** [online]. Available at http://docs.opengeospatial.org/is/17-079r1/17-079r1.html
+[4] Open Geospatial Consortium (OGC): **OGC 17-079r1: SensorThings API Part 2: Tasking Core, Version 1.0** [online]. Available at http://docs.opengeospatial.org/is/17-079r1/17-079r1.html
+
+[[OGC-OM-2]]
+[5] Open Geospatial Consortium (OGC): **OGC 10-004r3, Topic 20: Observations and Measurements, version 2.0**. Available at https://www.ogc.org/standards/om
+
+[[ISO-OMS-3]]
+[6] International Organization for Standardization (ISO): **ISO/DIS 19156:2022 Geographic information - Observations, measurements
+and samples (OMS)**
 
 

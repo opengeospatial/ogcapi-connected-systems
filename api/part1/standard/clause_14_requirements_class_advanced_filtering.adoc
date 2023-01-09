@@ -438,15 +438,19 @@ This is advanced behavior requiring semantic relationships and is this only a re
 
 => Define property ontology in Part3
 
+#TODO#
+
 
 === Combination of Filter Parameters
 
-
+#TODO#
 
 
 
 === Recursive Search
 
 Recursive search allows discovery of subsystems within complex system hierarchies.
+
+#TODO#
 
 

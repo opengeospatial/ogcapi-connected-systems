@@ -18,16 +18,20 @@ OGC API - Connected Systems supports all capabilities from these previous Standa
 
 The API is designed as an extension of {ogcapi-features} which makes it entirely compatible with Features API clients, while still allowing more advanced functionality to access dynamic data associated to features. A clear goal of this approach is to better integrate the GIS and sensor/IoT communities. 
 
-A key design decision was also to allow linking to other OGC APIs whenever possible, thus allowing a much better integration with the rest of the OGC API ecosystems.
+Another key design decision was also to allow linking to other OGC APIs whenever possible, thus allowing a much better integration with the rest of the OGC API ecosystems.
 
 Models from the {ogc-w3c-ssn} are the basis for the API design, with the help of more concrete models like O&M and SensorML.
 
 
 === Feature Types
 
-All resources defined in Part 1 of this Standard are features and are grouped into feature collections, as defined by {ogcapi-features-1}.
+All resources defined in Part 1 of this Standard are features and are grouped into feature collections. <<api-class-diagram>> shows a UML class diagram of the Connected Systems API resources (Part 2 resources are shown with a dashed outline).
 
-This Standard introduces several feature types, each of which is defined in its own requirements class. The table below provides an overview of these feature types:
+[#api-class-diagram,reftext='{figure-caption} {counter:figure-num}']
+.Class diagram of API resources
+image::figures/FIG001-resource-diagram.png[api-class-diagram, pdfwidth=100%, width=95%, align="center"]
+
+All resources defined in part 1 of this Standard are feature types, each of which is defined in its own requirements class. The table below provides an overview of these feature types:
 
 [#feature-types,reftext='{table-caption} {counter:table-num}']
 .Overview of feature types defined by this Standard
@@ -41,12 +45,6 @@ This Standard introduces several feature types, each of which is defined in its 
 |====
 
 NOTE: The listed encodings are the ones defined in this Standard but extensions can define additional encodings.
-
-<<api-class-diagram>> shows a UML class diagram for the Connected Systems API that represents the basic resources defined in this Standard (Part2 resources are shown with a dashed outline).
-
-[#api-class-diagram,reftext='{figure-caption} {counter:figure-num}']
-.Class diagram of API resources
-image::figures/FIG001-resource-diagram.png[api-class-diagram, pdfwidth=100%, width=95%, align="center"]
 
 
 === Collections
@@ -65,7 +63,7 @@ This is made possible thanks to the use of hyperlinks that don't require that al
 
 === Paged Responses
 
-All collections support paging via the `limit` query parameter and the `next` link, as specified by https://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_parameter_limit[OGC API - Features] and {ogcapi-common-2}
+All collections support paging via the `limit` query parameter and the `next` link, as specified by https://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_parameter_limit[OGC API - Features] and {ogcapi-common-2}.
 
 
 === Search & Filtering
@@ -80,7 +78,7 @@ This API extends these core search capabilities to include:
 
 * Geospatial searches using the `geom` parameter that takes a WKT geometry,
 * Full-text searches using the `q` parameter (prefix search only).
-* Search by feature UID
+* Search by feature UID using the `uid` parameter.
 
 Additional filters are defined on a per feature type basis, as shown in the following table:
 
@@ -95,4 +93,4 @@ Additional filters are defined on a per feature type basis, as shown in the foll
 | Sampling Features          | `sampledFeature`
 |====
 
-
+See <<clause-query-filters>> for more details.
