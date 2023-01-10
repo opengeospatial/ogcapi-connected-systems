@@ -45,9 +45,9 @@ image::figures/FIG004-controlstream-class.png[api-class-diagram, align="center"]
 | `name`                 | The human readable name of the control stream. | String | Mandatory
 | `description`          | A human readable description for the control stream. | String | Optional
 | `type`                 | The type of control stream (see <<controlstream-types>>). | Enum | Optional
-| `validTime`            | The validity period of the control stream's description. | TimePeriod | Optional
-| `issueTime`            | The time period spanned by the issue times of all commands in this datastream. | TimePeriod | Mandatory
-| `executionTime`        | The time period spanned by the execution times of all commands in this datastream. | TimePeriod | Mandatory
+| `validTime`            | The validity period of the control stream's description. | TimeExtent | Optional
+| `issueTime`            | The time period spanned by the issue times of all commands in this datastream. | TimeExtent | Mandatory
+| `executionTime`        | The time period spanned by the execution times of all commands in this datastream. | TimeExtent | Mandatory
 | `controlledProperties` | Properties whose value can be changed by commands in this control stream. | List<URI> | Mandatory
 | `formats`              | The list of formats that the commands in this datastream can be encoded to. | List<String> | Mandatory
 |====
@@ -170,7 +170,7 @@ The exact content of a schema resource is defined by each encoding. See section 
 
 `Command` resources are a generalization of the _http://www.w3.org/ns/sosa/Actuation[Actuation]_ concept defined in the <<OGC-W3C-SSN,SSN Ontology>>.
 
-`Command` resources exposed through the API are always part of a `CommandStream`, thus they don't have to include all mandatory properties as many of them can be factored at the command stream level.
+`Command` resources exposed through the API are always part of a `CommandStream`, thus they don't have to include all properties of an _Actuation_ as many of them can be factored at the command stream level.
 
 Thus, a `Command` resource is not directly associated to an `Actuator` and a `Procedure`. Instead, it is the `CommandStream` that the command is part of, that is attached to a parent `System`. And it is the `System` that is, in turn, associated to the `Procedure` that it implements.
 
@@ -197,7 +197,7 @@ image::figures/FIG005-command-class.png[api-class-diagram, align="center"]
 |====
 | *Name*               | *Definition* | *Data Type* | *Usage*
 | `issueTime`          | The time the command was received by the system. | DateTime | Mandatory*
-| `executionTime`      | The time period during which the command was executed. The time period ends when the effect of the command has modified all controlled properties of the feature of interest. | TimePeriod | Optional
+| `executionTime`      | The time period during which the command was executed. The time period ends when the effect of the command has modified all controlled properties of the feature of interest. | TimeExtent | Optional
 | `currentStatus`      | Current status code of the command (see <<command-status-codes>>). | Enum | Mandatory*
 | `userId`             | Identifier of the user who issued the command | String | Optional
 | `parameters`         | The value of the command parameters. | Any | Mandatory
@@ -300,7 +300,7 @@ image::figures/FIG006-commandstatus-class.png[api-class-diagram, align="center"]
 | `reportTime`          | The time when the status report was generated. | DateTime | Mandatory
 | `status`              | Code describing the state of the command (see <<command-status-codes>>). | Enum | Mandatory
 | `percentCompletion`   | Estimated progress as a percentage of total progress. | Number | Optional
-| `executionTime`       | The time period during which the command was executed. The time period ends when the effect of the command has modified all controlled properties of the feature of interest. | TimePeriod | Optional*
+| `executionTime`       | The time period during which the command was executed. The time period ends when the effect of the command has modified all controlled properties of the feature of interest. | TimeExtent | Optional*
 | `message`             | A human readable status message. | String | Optional
 |====
 

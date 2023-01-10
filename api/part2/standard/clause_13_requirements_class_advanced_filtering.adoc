@@ -1,5 +1,5 @@
 
-[[clause-query-filters]]
+[[clause-advanced-filtering]]
 == Requirements Class "Advanced Filtering"
 include::requirements/query/requirements_class_advanced_filtering.adoc[]
 

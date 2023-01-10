@@ -44,9 +44,9 @@ image::figures/FIG002-datastream-class.png[api-class-diagram, align="center"]
 | `name`               | The human readable name of the datastream. | String | Mandatory
 | `description`        | A human readable description for the datastream. | String | Optional
 | `type`               | The type of datastream (see <<datastream-types>>). | Enum | Optional
-| `validTime`          | The validity period of the datastream's description. | TimePeriod | Optional
-| `phenomenonTime`     | The time period spanned by the phenomenon times of all observations in this datastream. | TimePeriod | Mandatory
-| `resultTime`         | The time period spanned by the result times of all observations in this datastream. | TimePeriod | Mandatory
+| `validTime`          | The validity period of the datastream's description. | TimeExtent | Optional
+| `phenomenonTime`     | The time period spanned by the phenomenon times of all observations in this datastream. | TimeExtent | Mandatory
+| `resultTime`         | The time period spanned by the result times of all observations in this datastream. | TimeExtent | Mandatory
 | `observedProperties` | Properties for which the observations in this datastream provide measurements. | List<URI> | Mandatory
 | `formats`            | The list of formats that the observations in this datastream can be encoded to. | List<String> | Mandatory
 |====
@@ -115,8 +115,6 @@ Top level `Datastream` resource collections are identified with the item-type `'
 ^|*Requirement {counter:req-id}* |*/req/datastream/catchall-collection*
 ^|A |The server SHALL expose a collection containing all available `DataStream` resources at URL `{api_root}/datastreams`.
 |===
-
-In addition to top-level collections, each system exposes its own datastreams as a sub-collection.
 
 [[req_datastream-system-collection]]
 [width="90%",cols="2,6a",options="header"]
@@ -191,11 +189,14 @@ image::figures/FIG003-observation-class.png[api-class-diagram, align="center"]
 [width="100%",cols="4,10,3,3",options="header"]
 |====
 | *Name*              | *Definition* | *Data Type* | *Usage*
-| `phenomenonTime`    | The time the command was received by the system. | DateTime | Mandatory
-| `resultTime`        | The time period during which the command was executed. The time period ends when the effect of the command has modified all controlled properties of the feature of interest. | TimePeriod | Mandatory
-| `parameters`        | Observation parameters. | Any | Optional
-| `result`            | Observation result. | Any | Mandatory
+| `phenomenonTime`    | The time the measured property value applies to the feature of interest. | DateTime | Mandatory
+| `resultTime`        | The time the result value was obtained. | DateTime | Mandatory
+| `parameters`        | Observation parameters, providing information about how the procedure was used to produce this specific observation. | Any | Optional
+| `result`            | Observation result, carrying the estimated values of the observed properties. | Any | Mandatory
 |====
+
+[NOTE]
+The `phenomenonTime` can be in the past (e.g. geological or deep space observations) or future (e.g. weather forecast). However, the `resultTime` can never be in the future.
 
 ==== Associations
 
@@ -251,3 +252,13 @@ In addition to top-level collections, each datastream exposes its own observatio
 ^|*Requirement {counter:req-id}* |*/req/observation/datastream-collection*
 ^|A |The server SHALL expose a collection containing all `Observation` resources available from a given `Datastream` at URL `{datastreamResourceUrl}/observations`.
 |===
+
+
+=== Basic Observation Filters
+
+All observation collections support filtering using the query parameters described below.
+
+==== Phenomenon Time Filter
+
+
+==== Result Time Filter

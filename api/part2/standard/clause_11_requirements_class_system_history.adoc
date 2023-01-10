@@ -1,0 +1,66 @@
+
+[[clause-system-history]]
+== Requirements Class "System History"
+include::requirements/system/requirements_class_system_history.adoc[]
+
+
+=== Overview
+
+This requirements class specifies how a server can historize `System` feature descriptions and make the different versions available through the API.
+
+The history mechanism allows the server to retain older versions of a system's description, valid at different times. This is useful to capture the exact metadata of the system at a given point in time since it can be needed to properly process older observations (e.g. older calibration tables, etc.).
+
+Typically, a new entry would be added to the system history whenever a description with a newer valid time is created. History entries are also often correlated with system events. A new history entry is typically created when a system event results in important changes to the system's metadata (such as relocation, recalibration, etc. See <<clause-system-events>>).
+
+When history is supported, the `datetime` query parameter can be used to retrieve a system's description at a specific point in time.
+
+
+=== System History Collection
+
+A system's description history is made available as a sub-collection of `System` resources.
+
+[[req_system-history-collection]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/system-history/collection*
+^| A | The server SHALL expose the history of a `System` at URL `{systemResourceUrl}/history`.
+^| B | A 200-response to a request on the `history` collection URL shall include the list of all different versions of the `System` feature description.
+^| C | All `System` features in the response SHALL have non-overlapping time periods (as provided by their `validTime` property).
+|===
+
+
+=== System Temporal Filtering
+
+When system history is supported, the `datetime` query parameter used to filter system collections is used to determine what version of the system description(s) should be returned by the server.
+
+[[req_filter-system-time]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/system-time*
+^| Condition | The request is made on a top-level `System` collection.
+^| A | When the `datetime` parameter is ommitted, the server SHALL include only the latest* description of each systems in the result set.
+^| C | When the `datetime` parameter is set to a time instant, the server SHALL include only the system descriptions that were valid at the specified date and time.
+^| D | When the `datetime` parameter is set to a time period, the server SHALL include only the newest description of each system among all the ones valid during the specified time period.
+|===
+
+* The latest description is the one that is currently valid or, if none is currently valid, the last one valid before the current time.
+
+[[req_filter-system-components-time]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/system-components-time*
+^| Condition | The request is made on the `components` sub-collection of a `System`.
+^| A | When the `datetime` parameter is ommitted, the server SHALL include only sub-systems that are currently part of the parent system in the result set. The description of each subsystem SHALL be the one that is currently valid.
+^| C | When the `datetime` parameter is set to a time instant, the server SHALL include only sub-systems that were part of the parent system at the specified date and time, in the result set. The description of each subsystem SHALL be the one valid at the specified date and time.
+^| D | When the `datetime` parameter is set to a time period, the server SHALL include only sub-systems that were part of the parent system at any point during the specified time period. The description of each subsystem SHALL be the newest description valid during the specified time period.
+|===
+
+[[req_filter-system-history-time]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/system-history-time*
+^| Condition | The request is made on the `history` sub-collection of a `System`.
+^| A | When the `datetime` parameter is ommitted, the server SHALL include all versions of the system description in the result set.
+^| C | When the `datetime` parameter is set to a time instant, the server SHALL include only the system description that is valid at the specified date and time (there can be only one).
+^| D | When the `datetime` parameter is set to a time period, the server SHALL include all system descriptions with a `validTime` period that intersects the specified time period.
+|===

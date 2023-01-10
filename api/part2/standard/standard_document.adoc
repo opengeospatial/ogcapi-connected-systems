@@ -114,11 +114,11 @@ include::clause_8_requirements_class_datastreams.adoc[]
 
 include::clause_9_requirements_class_controls.adoc[]
 
-include::clause_10_requirements_class_resource_events.adoc[]
+include::clause_10_requirements_class_system_events.adoc[]
 
-include::clause_11_requirements_class_system_events.adoc[]
+include::clause_11_requirements_class_system_history.adoc[]
 
-include::clause_12_requirements_class_system_history.adoc[]
+include::clause_12_requirements_class_resource_events.adoc[]
 
 // filtering
 
