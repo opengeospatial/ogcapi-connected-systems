@@ -29,7 +29,7 @@ All resources defined in Part 1 of this Standard are features and are grouped in
 
 [#api-class-diagram,reftext='{figure-caption} {counter:figure-num}']
 .Class diagram of API resources
-image::figures/FIG001-resource-diagram.png[api-class-diagram, pdfwidth=100%, width=95%, align="center"]
+image::figures/FIG001-resource-diagram.png[api-class-diagram, align="center"]
 
 All resources defined in part 1 of this Standard are feature types, each of which is defined in its own requirements class. The table below provides an overview of these feature types:
 

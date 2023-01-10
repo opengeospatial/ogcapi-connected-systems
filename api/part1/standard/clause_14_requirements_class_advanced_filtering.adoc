@@ -8,7 +8,7 @@ include::requirements/query/requirements_class_advanced_filtering.adoc[]
 
 This requirements class specifies additional filtering options that may be used to select only a subset of the features in a collection.
 
-All filters defined in this section are implemented using URL query parameters and can be used in addition to the ones defined in {ogcapi-features} and {ogcapi-common-2}.
+All filters defined in this section are implemented using URL query parameters and can be used in addition to the ones required by <<clause-api-common>>.
 
 
 
@@ -17,7 +17,7 @@ All filters defined in this section are implemented using URL query parameters a
 ==== ID List Schema
 
 The following requirement defines a schema for an "identifier list" that is used by several query parameters.
-Identifiers in the list can be either local resource IDs or UIDs (URI).
+Identifiers in the list can be either local resource IDs or UIDs (URI) but the two types of identifiers cannot be mixed in the same request.
 
 [[req_filter-idlist-schema]]
 [width="90%",cols="2,6a",options="header"]
@@ -29,7 +29,8 @@ Identifiers in the list can be either local resource IDs or UIDs (URI).
 ----
 include::../openapi/parameters/idlist.yaml[]
 ----
-^| A | Each item in the list SHALL be a resource ID or a UID.
+^| A | Items in the list SHALL be valid resource IDs or resource UIDs.
+^| B | All items in the list SHALL be of the same ID type (either all resource IDs or all resource UIDs).
 |===
 
 
@@ -59,21 +60,62 @@ When this requirements class is implemented, the requirements in this class are 
 
 ==== ID Filter
 
-The ID filter is used to select features that match one of the requested identifiers.
+[[rm_filter-id]]
+[cols="1,4",width="90%"]
+|===
+2+|*Requirements Module*
+2+|http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/rm/filter-id
+|Target type |Web API Query Parameter
+|===
 
-[[req_filter-feature-uid-param]]
+The ID filter is used to select resources that match one of the requested identifiers.
+
+[[req_filter-feature-id-param]]
 [width="90%",cols="2,6a",options="header"]
 |===
-^|*Requirement {counter:req-id}* |*/req/filter/feature-uid/param*
-^| A | The operation SHALL support a parameter `uid` of type <<req_filter-idlist-schema,ID_List>>.
+^|*Requirement {counter:req-id}* |*/req/filter/feature-id/param*
+^| A | HTTP GET operations used to list resources SHALL support a parameter `id` of type <<req_filter-idlist-schema,ID_List>>.
 |===
 
-[[req_filter-feature-uid-response]]
+[[req_filter-feature-id-response]]
 [width="90%",cols="2,6a"]
 |===
-^|*Requirement {counter:req-id}* |*/req/filter/feature-uid/response*
-^| A |Only features that are assigned one of the specified identifiers SHALL be part of the result set.
-^| B |If a UID specified in the query ends with a trailing `*` character, all features that have a UID starting with the specified prefix SHALL be included in the result set.
+^|*Requirement {counter:req-id}* |*/req/filter/feature-id/response*
+^| A | Only resources that are assigned one of the specified identifiers SHALL be part of the result set.
+^| B | If a UID specified in the query ends with a trailing `*` character, all resources that have a UID starting with the specified prefix SHALL be included in the result set.
+|===
+
+==== Keyword Filter
+
+[[rm_filter-keyword]]
+[cols="1,4",width="90%"]
+|===
+2+|*Requirements Module*
+2+|http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/rm/filter-keyword
+|Target type |Web API Query Parameter
+|===
+
+This filter is used to do a full-text search on resources in a collection.
+
+[[req_filter-keyword-param]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/keyword/param*
+^| A | HTTP GET operations used to list resources SHALL support a parameter `q` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
+
+[source,YAML]
+----
+include::../openapi/parameters/keyword.yaml[]
+----
+|===
+
+[[req_filter-keyword-response]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/filter/keyword/response*
+^| A |Only resources that have human readable content that contains one the specified keywords SHALL be part of the result set.
+^| B |At least the `Name` and `Description` properties of the resource SHALL be included in the full-text search. It is the decision of the server to choose if other resource properties are also searched. 
+^| C |The server is allowed to run the search using the canonical form of the provided keywords rather than their exact value (lemmatization).
 |===
 
 ==== Geometry Filter
@@ -84,7 +126,7 @@ The geometry filter is used to select features with a spatial geometry intersect
 [width="90%",cols="2,6a",options="header"]
 |===
 ^|*Requirement {counter:req-id}* |*/req/filter/feature-geom/param*
-^| A | The operation SHALL support a parameter `geom` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
+^| A | HTTP GET operations used to list `Feature` resources SHALL support a parameter `geom` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
 
 [source,YAML]
 ----
@@ -103,31 +145,6 @@ include::../openapi/parameters/geom.yaml[]
 ^| D |The coordinate values SHALL be within the extent specified for the coordinate reference system.
 |===
 
-==== Keyword Filter
-
-This filter is used to do a full-text search on feature resources.
-
-[[req_filter-feature-keyword-param]]
-[width="90%",cols="2,6a",options="header"]
-|===
-^|*Requirement {counter:req-id}* |*/req/filter/feature-keyword/param*
-^| A | The operation SHALL support a parameter `q` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
-
-[source,YAML]
-----
-include::../openapi/parameters/keyword.yaml[]
-----
-|===
-
-[[req_filter-feature-keyword-response]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/filter/feature-keyword/response*
-^| A |Only features that have human readable content that contains one the specified keywords SHALL be part of the result set.
-^| B |At least the `Name` and `Description` properties of the feature SHALL be included in the full-text search. It is the decision of the server to choose if other feature properties are also searched. 
-^| C |The server is allowed to run the search using the canonical form of the provided keywords rather than their exact value (lemmatization in full-text search engine).
-|===
-
 ==== Simple Property Filter
 
 The property filter is used to select features that have specific property values.
@@ -136,7 +153,7 @@ The property filter is used to select features that have specific property value
 [width="90%",cols="2,6a",options="header"]
 |===
 ^|*Recommandation {counter:rec-id}* |*/rec/filter/feature-property/param*
-^| A | The operation SHOULD support filtering on feature properties as defined in {ogcapi-features} `/rec/core/fc-filters`.
+^| A | HTTP GET operations used to list `Feature` resources SHOULD support filtering on feature properties as defined in {ogcapi-features} `/rec/core/fc-filters`.
 |===
 
 
