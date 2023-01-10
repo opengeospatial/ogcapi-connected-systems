@@ -82,10 +82,10 @@ A `System` resource can also be tagged with an "asset type" property used to fur
 [width="100%",cols="5,10,10",options="header"]
 |====
 | *Asset Type* | *URI* | *Usage*
-| Equipment   | http://www.opengis.net/def/x-OGC/Equipment           | An automated hardware equipment is carrying the task and interacts directly with the real-world.
-| Human       | http://www.opengis.net/def/x-OGC/Human               | One or more human beings are carrying the task (e.g. polls, surveys, sample collections). They may be using equipment requiring manual intervention.
-| Simulation  | http://www.opengis.net/def/x-OGC/Simulation          | For simulations or models that have no direct interaction with the real-world.
-| Mixed       | http://www.opengis.net/def/x-OGC/Mixed               | The system is composed of several parts that can be human operators, automated equipment and/or simulations.
+| Equipment   | #http://www.opengis.net/def/x-OGC/TBD/Equipment#          | An automated hardware equipment is carrying the task and interacts directly with the real-world.
+| Human       | #http://www.opengis.net/def/x-OGC/TBD/Human#              | One or more human beings are carrying the task (e.g. polls, surveys, sample collections). They may be using equipment requiring manual intervention.
+| Simulation  | #http://www.opengis.net/def/x-OGC/TBD/Simulation#         | For simulations or models that have no direct interaction with the real-world.
+| Mixed       | #http://www.opengis.net/def/x-OGC/TBD/Mixed#              | The system is composed of several parts that can be human operators, automated equipment and/or simulations.
 |====
 
 ==== Location

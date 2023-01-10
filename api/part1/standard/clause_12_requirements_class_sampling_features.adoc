@@ -209,7 +209,7 @@ A `Specimen Feature` respresents a physical sample, obtained for observation(s) 
 [width="90%",cols="2,6a",options="header"]
 |===
 ^|*Requirement {counter:req-id}* |*/req/sf-part/type*
-^| A | The `Feature Type` property of a `Feature Part` resource SHALL be set to `http://www.opengis.net/def/samplingFeatureType/x-OGC-TBD/2.0/SF_FeaturePart`. If using a URI is not practical, the encoding SHALL unambiguously map one of the possible values used to encode feature types to this URI.
+^| A | The `Feature Type` property of a `Feature Part` resource SHALL be set to #http://www.opengis.net/def/samplingFeatureType/x-OGC-TBD/2.0/SF_FeaturePart#. If using a URI is not practical, the encoding SHALL unambiguously map one of the possible values used to encode feature types to this URI.
 |===
 
 Some examples of feature parts are:
@@ -233,7 +233,7 @@ Since this API does not allow linking an observation to the ultimate feature of 
 [width="90%",cols="2,6a",options="header"]
 |===
 ^|*Requirement {counter:req-id}* |*/req/sf-proxy/type*
-^| A | The `Feature Type` property of a `Feature Proxy` resource SHALL be set to `http://www.opengis.net/def/samplingFeatureType/x-OGC-TBD/2.0/SF_FeatureProxy`. If using a URI is not practical, the encoding SHALL unambiguously map one of the possible values used to encode feature types to this URI.
+^| A | The `Feature Type` property of a `Feature Proxy` resource SHALL be set to #http://www.opengis.net/def/samplingFeatureType/x-OGC-TBD/2.0/SF_FeatureProxy#. If using a URI is not practical, the encoding SHALL unambiguously map one of the possible values used to encode feature types to this URI.
 |===
 
 Feature proxies usually include a summary description of the proxied feature, and may or may not include a geometry.

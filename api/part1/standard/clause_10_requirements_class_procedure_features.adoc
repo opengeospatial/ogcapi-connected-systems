@@ -60,11 +60,11 @@ Subclasses of _SSN System_ defined in the <<OGC-W3C-SSN,SSN Ontology>> are imple
 [width="100%",cols="5,10,2,10",options="header"]
 |====
 | *Procedure Type* | *URI*  | *Implemented By* | *Usage*
-| Observing           | http://www.opengis.net/def/x-OGC/ObservingProcedure   | Sensor   | To describe a 'sensing' process
-| Actuating           | http://www.opengis.net/def/x-OGC/ActuatingProcedure   | Actuator | To describe an 'actuating' process
-| Sampling            | http://www.opengis.net/def/x-OGC/SamplingProcedure    | Sampler  | To describe a 'sampling' process
-| Simulation          | http://www.opengis.net/def/x-OGC/SimulationProcedure  | Sensor or System   | To describe a model or simulation
-| Moving              | http://www.opengis.net/def/x-OGC/MobilityProcedure    | Platform | To describe a motion pattern
+| Observing        | #http://www.opengis.net/def/x-OGC/TBD/ObservingProcedure#   | Sensor | To describe a 'sensing' process
+| Actuating        | #http://www.opengis.net/def/x-OGC/TBD/ActuatingProcedure#   | Actuator | To describe an 'actuating' process
+| Sampling         | #http://www.opengis.net/def/x-OGC/TBD/SamplingProcedure#    | Sampler | To describe a 'sampling' process
+| Simulation       | #http://www.opengis.net/def/x-OGC/TBD/SimulationProcedure#  | Sensor or System | To describe a model or simulation
+| Moving           | #http://www.opengis.net/def/x-OGC/TBD/MobilityProcedure#    | Platform | To describe a motion pattern
 |====
 
 ==== Location
