@@ -115,3 +115,5 @@ However, the server must ensure that IDs are unique within a given feature type.
 ^| A | When the `datetime` query parameter is used to filter a collection of feature types defined in this Standard, the server SHALL use the `validTime` property of the features to determine their temporal extent.
 ^| B | Only features with a `validTime` period that intersects the value of the `datetime` query parameter, or features that don't report any temporal validity, SHALL be included in the result set.
 |===
+
+See <<clause-advanced-filtering>> for more filtering options.

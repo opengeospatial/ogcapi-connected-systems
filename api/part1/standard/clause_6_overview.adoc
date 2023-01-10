@@ -93,4 +93,4 @@ Additional filters are defined on a per feature type basis, as shown in the foll
 | Sampling Features          | `sampledFeature`
 |====
 
-See <<clause-query-filters>> for more details.
+See <<clause-advanced-filtering>> for more details.
