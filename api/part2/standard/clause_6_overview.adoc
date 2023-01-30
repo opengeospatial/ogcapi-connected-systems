@@ -1,15 +1,11 @@
 == Overview
 === General
 
-OGC Web API Standards enable access to resources using the HTTP protocol and its associated operations (GET, PUT, POST, DELETE, etc.). 
-
-#TODO#
-
 All resources defined in Part 1 of this Standard are feature resources, among which the `System` resource. Part 2 (this document) defines additional resource types to describe and interact with the dynamic data that flows in and out of these systems.
 
-Flows carrying data coming out of a system are called `Datastreams` while flows carrying data sent to a system are called `Control Channels`. 
-
 Part 2 of this Standard defines resource types that allow the provision of dynamic data about all kinds of devices, hardware components or processes that can transmit and/or receive data via communication networks (a.k.a. connected systems), including sensors, platforms, robots, human observers, forecast models, computer simulations, etc.
+
+Flows carrying observation and status data coming out of a system are called `Datastreams` while flows carrying commands sent to a system are called `Control Streams` (note that the direction of the flow mentionned here is relative to the real system, which is different from the direction of the data flows going in and out of the API server). 
 
 
 === Design Considerations

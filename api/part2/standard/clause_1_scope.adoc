@@ -8,9 +8,10 @@ More specifically, Part 2 of the API implements additional SSN concepts (namely 
 
 The following types of resources are made availables through this API:
 
-  - `Datastreams` 
-  - `Observations` 
-  - `Controls` 
-  - `Commands`
-  - `Sampling Features`
-  - `Events`
+  - `Datastream` 
+  - `Observation` 
+  - `Control Stream` 
+  - `Command` 
+  - `Command Status`
+  - `System Event`
+  - `Resource Events`

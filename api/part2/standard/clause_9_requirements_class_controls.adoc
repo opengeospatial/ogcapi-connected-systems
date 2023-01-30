@@ -49,7 +49,7 @@ image::figures/FIG004-controlstream-class.png[api-class-diagram, align="center"]
 | `issueTime`            | The time period spanned by the issue times of all commands in this datastream. | TimeExtent | Mandatory
 | `executionTime`        | The time period spanned by the execution times of all commands in this datastream. | TimeExtent | Mandatory
 | `controlledProperties` | Properties whose value can be changed by commands in this control stream. | List<URI> | Mandatory
-| `formats`              | The list of formats that the commands in this datastream can be encoded to. | List<String> | Mandatory
+| `formats`              | The list of formats that the commands in this control stream can be encoded to. | List<String> | Mandatory
 |====
 
 [[req_controlstream-type]]
@@ -134,7 +134,7 @@ In addition to top-level collections, each system exposes its own control stream
 
 Multiple command formats can be offered for any given control stream. This API provides a way for the server to communicate the schema (_not necessarily a JSON schema_) corresponding to each command format.
 
-Note that a different schema is needed for each individual control stream because the exact content of the command `paramters` property changes according to the properties being controlled.
+Note that a different schema is needed for each individual control stream because the exact content of the command `parameters` property changes according to the properties being controlled.
 
 [[req_controlstream-schemas]]
 [width="90%",cols="2,6a",options="header"]
