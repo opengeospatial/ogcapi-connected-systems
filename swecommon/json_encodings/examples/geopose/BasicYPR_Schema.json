@@ -1,0 +1,20 @@
+{
+  "type": "DataRecord",
+  "label": "Basic YPR Pose",
+  "description": "Pose of platform (position + euler angles) in WGS84/ENU",
+  "definition": "http://www.opengis.net/spec/geopose/1.0/req/basic-ypr",
+  "fields": [
+    {
+      "name": "position",
+      "type": "Vector",
+      "label": "Tangent Point Position",
+      ...
+    },
+    {
+      "name": "angles",
+      "type": "Vector",
+      "label": "Yaw Pitch Roll Angles",
+      ...
+    }
+  ]
+}

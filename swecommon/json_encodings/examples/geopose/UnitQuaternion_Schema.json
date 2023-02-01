@@ -1,0 +1,48 @@
+{
+  "type": "Vector",
+  "label": "Unit Quaternion",
+  "description": "Unit quaternion giving orientation of inner frame relative to ENU local reference frame",
+  "definition": "http://sensorml.com/ont/swe/property/RotationQuaternion",
+  "referenceFrame": "http://www.opengis.net/def/cs/OGC/0/ENU",
+  "coordinates": [
+    {
+      "name": "x",
+      "type": "Quantity",
+      "label": "Q1",
+      "definition": "http://sensorml.com/ont/swe/property/QuaternionCoef",
+      "axisID": "x",
+      "uom": {
+        "code": "1"
+      }
+    },
+    {
+      "name": "y",
+      "type": "Quantity",
+      "label": "Q2",
+      "definition": "https://qudt.org/vocab/quantitykind/QuaternionCoef",
+      "axisID": "y",
+      "uom": {
+        "code": "1"
+      }
+    },
+    {
+      "name": "z",
+      "type": "Quantity",
+      "label": "Q3",
+      "definition": "https://qudt.org/vocab/quantitykind/QuaternionCoef",
+      "axisID": "z",
+      "uom": {
+        "code": "1"
+      }
+    },
+    {
+      "name": "w",
+      "type": "Quantity",
+      "label": "Q0",
+      "definition": "https://qudt.org/vocab/quantitykind/QuaternionCoef",
+      "uom": {
+        "code": "1"
+      }
+    }
+  ]
+}

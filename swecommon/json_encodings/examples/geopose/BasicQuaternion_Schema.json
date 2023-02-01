@@ -1,0 +1,20 @@
+{
+  "type": "DataRecord",
+  "label": "Basic Quaternion Pose",
+  "description": "Pose of platform (position + quaternion) in WGS84/ENU",
+  "definition": "http://www.opengis.net/spec/geopose/1.0/req/basic-quaternion",
+  "fields": [
+    {
+      "name": "position",
+      "type": "Vector",
+      "label": "Tangent Point Position",
+      ...
+    },
+    {
+      "name": "quaternion",
+      "type": "Vector",
+      "label": "Unit Quaternion",
+      ...
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "type": "Vector",
+  "label": "Tangent Point Position",
+  "definition": "http://sensorml.com/ont/swe/property/Location",
+  "referenceFrame": "http://www.opengis.net/def/crs/EPSG/0/4979",
+  "coordinates": [
+    {
+      "name": "lat",
+      "type": "Quantity",
+      "definition": "http://sensorml.com/ont/swe/property/GeodeticLatitude",
+      "axisID": "Lat",
+      "label": "Geodetic Latitude",
+      "uom": {
+        "code": "deg"
+      }
+    },
+    {
+      "name": "lon",
+      "type": "Quantity",
+      "definition": "http://sensorml.com/ont/swe/property/Longitude",
+      "axisID": "Lon",
+      "label": "Longitude",
+      "uom": {
+        "code": "deg"
+      }
+    },
+    {
+      "name": "h",
+      "type": "Quantity",
+      "definition": "http://sensorml.com/ont/swe/property/HeightAboveEllipsoid",
+      "axisID": "h",
+      "label": "Ellipsoidal Height",
+      "uom": {
+        "code": "m"
+      }
+    }
+  ]
+}
