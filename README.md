@@ -30,17 +30,19 @@ The API is intended to act as a bridge between static data (geographic and other
 
 The proposed API Standard consists of two parts and defines several resource types:
 
-Part 1 - Feature Types
+Part 1 - Feature Resources ([Current Draft Preview](https://htmlpreview.github.io/?https://github.com/opengeospatial/connected-systems/blob/master/api/part1/standard/standard_document.html))
 - Systems (metadata of sensors, actuators, platforms, simulations, etc.)
 - Procedures (metadata of procedures implemented by system, which includes automated system specs/datasheets and human driven activities)
 - Deployments (metadata of system deployments)
-- Sampling Features (metadata about sampling geometries/methodologies used by observing systems)
+- Sampling Features (metadata about sampling geometries/methodologies used by observing systems) 
+- Subsystems / Components
 
-Part 2 - Dynamic Data
-- Datastreams
+Part 2 - Dynamic Data ([Current Draft Preview](https://htmlpreview.github.io/?https://github.com/opengeospatial/connected-systems/blob/master/api/part2/standard/standard_document.html))
+- Data Streams
 - Observations
-- Control Channels
+- Control Streams
 - Commands and Command Status
+- MQTT Bindings
 
 Beyond the above resource types, a few query parameters are added to the ones defined by OGC API - Features:
 - WKT geometry filter
