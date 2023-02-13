@@ -9,7 +9,7 @@ These examples are based on a [Saildrone](https://www.saildrone.com) platform.
 
 ### Platform
 
-* [SensorML](systems/saildrone-platform-SD1021-sml.json)
+* Saildrone Platform [SensorML](systems/saildrone-platform-SD1021-sml.json)
 
 ### Sensors
 
@@ -31,15 +31,20 @@ These examples are based on a [Saildrone](https://www.saildrone.com) platform.
 
 * Atlantic 1021 Mission [SensorML](deployments/saildrone-mission-2131-sml.json)
 
-### Datastreams
+### Datastreams & Observations
 
+**Water Temp/Salinity** 
 * CTD Datastream [JSON](datastreams/saildrone-ctd-datastream.json)
 * CTD Obs Schema [JSON](datastreams/saildrone-ctd-obs-schema-omjson.json)
+* CTD Observation [OM-JSON](observations/saildrone-ctd-obs.json)
 
+**Weather**
 * Weather Datastream [JSON](datastreams/saildrone-weather-datastream.json)
 * Weather Obs Schema [JSON](datastreams/saildrone-weather-obs-schema-omjson.json)
-
-### Observations
-
-* CTD Observation [OM-JSON](observations/saildrone-ctd-obs.json)
 * Weather Observation [OM-JSON](observations/saildrone-weather-obs.json)
+
+**Navigation**
+* Navigation Datastream [JSON](datastreams/saildrone-nav-datastream.json)
+* Navigation Obs Schema [JSON](datastreams/saildrone-nav-obs-schema-omjson.json)
+* Navigation Observation [OM-JSON](observations/saildrone-nav-obs.json)
+

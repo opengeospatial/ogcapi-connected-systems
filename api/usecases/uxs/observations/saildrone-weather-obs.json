@@ -2,8 +2,8 @@
   "id": "1h6pmb3ntfmogfppknk9aefpvs",
   "datastream@id": "4e7lckktgdqq",
   "foi@id": "wkigzi6hv817",
-  "phenomenonTime": "2022-07-16T20:00:00Z",
-  "resultTime": "2022-07-16T20:00:00Z",
+  "phenomenonTime": "2019-05-25T20:00:00Z",
+  "resultTime": "2019-05-25T20:00:00Z",
   "result": {
     "TEMP_AIR_MEAN": 28.63,
     "BARO_PRES_MEAN": 1013.93,

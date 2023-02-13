@@ -1,0 +1,66 @@
+{
+  "id": "ff9g4lkez4ku",
+  "name": "SD1021 Navigation Data",
+  "description": "Navigation data of Saildrone 1021",
+  "system@link": {
+    "href": "https://data.example.org/api/systems/2f35ofoms2l6?f=json",
+    "uid": "urn:x-saildrone:platforms:SD1021",
+    "outputName": "nav_output"
+  },
+  "validTime": [
+    "2019-05-25T00:00:00Z",
+    "now"
+  ],
+  "phenomenonTime": [
+    "2019-05-25T00:00:00Z",
+    "2019-10-21T00:00:00Z"
+  ],
+  "resultTime": [
+    "2019-05-25T00:00:00Z",
+    "2019-10-21T00:00:00Z"
+  ],
+  "observedProperties": [
+    {
+      "definition": "http://sensorml.com/ont/swe/property/Location",
+      "label": "Vessel Location"
+    },
+    {
+      "definition": "http://sensorml.com/ont/swe/property/SpeedOverGround",
+      "label": "Speed Over Ground"
+    },
+    {
+      "definition": "http://sensorml.com/ont/swe/property/CourseOverGround",
+      "label": "Course Over Ground"
+    },
+    {
+      "definition": "http://sensorml.com/ont/swe/property/TrueHeading",
+      "label": "True Heading"
+    },
+    {
+      "definition": "http://sensorml.com/ont/swe/property/WingHeading",
+      "label": "Wing Heading"
+    },
+    {
+      "definition": "http://sensorml.com/ont/swe/property/WingAngle",
+      "label": "Wing Angle"
+    },
+    {
+      "definition": " http://sensorml.com/ont/swe/property/PitchAngle",
+      "label": "Pitch"
+    },
+    {
+      "definition": "http://sensorml.com/ont/swe/property/RollAngle",
+      "label": "Roll"
+    },
+    {
+      "definition": "http://sensorml.com/ont/ais/property/NavigationStatus",
+      "label": "Navigation Status"
+    }
+  ],
+  "formats": [
+    "application/om+json",
+    "application/swe+json",
+    "application/swe+csv",
+    "application/swe+binary"
+  ]
+}

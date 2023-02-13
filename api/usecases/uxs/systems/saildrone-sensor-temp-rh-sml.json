@@ -12,7 +12,7 @@
   },
   "attachedTo": {
     "href": "https://data.example.org/api/systems/2f35ofoms2l6?f=sml",
-    "uid": "urn:x-saildrone:platforms:SD-1021",
+    "uid": "urn:x-saildrone:platforms:SD1021",
     "type" : "application/sml+json"
   },
   "identifiers": [

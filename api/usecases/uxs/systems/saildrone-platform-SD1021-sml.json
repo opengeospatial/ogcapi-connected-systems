@@ -3,7 +3,7 @@
   "id": "2f35ofoms2l6",
   "definition": "http://www.w3.org/ns/sosa/Platform",
   "description": "Example Saildrone system with multiple sensor payloads and sampling features",
-  "uniqueId": "urn:x-saildrone:platforms:SD-1021",
+  "uniqueId": "urn:x-saildrone:platforms:SD1021",
   "name": "Saildrone Explorer 1021",
   "typeOf": {
     "href": "https://data.example.org/api/procedures/8cm8or1rj335?f=sml",

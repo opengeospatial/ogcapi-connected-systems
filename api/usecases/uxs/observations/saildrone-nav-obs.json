@@ -1,0 +1,18 @@
+{
+  "id": "kpq8a8dt01atfgr5k9pf58a9fs",
+  "datastream@id": "ff9g4lkez4ku",
+  "foi@id": "o35a8ufrmayt",
+  "phenomenonTime": "2019-05-25T00:00:00Z",
+  "resultTime": "2019-05-25T00:00:00Z",
+  "result": {
+    "location": {"lat": 32.3701696, "lon": -64.6955776},
+    "SOG": 0.023,
+    "COG": 143.6,
+    "HDG": 146.0,
+    "HDG_WING": 256.7,
+    "WING_ANGLE": -84.7,
+    "PITCH": -2.3,
+    "ROLL": 5.8,
+    "STATUS": "-1"
+  }
+}

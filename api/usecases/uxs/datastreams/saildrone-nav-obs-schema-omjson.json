@@ -1,0 +1,115 @@
+{
+  "obsFormat": "application/om+json",
+  "resultSchema": {
+    "type": "DataRecord",
+    "label": "Navigation Data",
+    "fields": [
+      {
+        "name": "location",
+        "type": "Vector",
+        "definition": "http://sensorml.com/ont/swe/property/Location",
+        "referenceFrame": "http://www.opengis.net/def/crs/EPSG/0/4326",
+        "label": "Vessel Location",
+        "coordinates": [
+          {
+            "name": "lat",
+            "type": "Quantity",
+            "definition": "http://sensorml.com/ont/swe/property/GeodeticLatitude",
+            "axisID": "Lat",
+            "label": "Geodetic Latitude",
+            "uom": {
+              "code": "deg"
+            }
+          },
+          {
+            "name": "lon",
+            "type": "Quantity",
+            "definition": "http://sensorml.com/ont/swe/property/Longitude",
+            "axisID": "Lon",
+            "label": "Longitude",
+            "uom": {
+              "code": "deg"
+            }
+          }
+        ]
+      },
+      {
+        "name": "SOG",
+        "type": "Quantity",
+        "definition": "http://sensorml.com/ont/swe/property/SpeedOverGround",
+        "label": "Speed Over Ground",
+        "description": "Vessel speed relative to ground",
+        "uom": {
+          "code": "[kn_i]"
+        }
+      },
+      {
+        "name": "COG",
+        "type": "Quantity",
+        "definition": "http://sensorml.com/ont/swe/property/CourseOverGround",
+        "label": "Course Over Ground",
+        "description": "Vessel travel direction relative to ground",
+        "uom": {
+          "code": "deg"
+        }
+      },
+      {
+        "name": "HDG",
+        "type": "Quantity",
+        "definition": "http://sensorml.com/ont/swe/property/TrueHeading",
+        "label": "True Heading",
+        "description": "Vessel heading direction relative to true north, measured clockwise",
+        "uom": {
+          "code": "deg"
+        }
+      },
+      {
+        "name": "HDG_WING",
+        "type": "Quantity",
+        "definition": "http://sensorml.com/ont/x-swe/property/WingHeading",
+        "label": "Wing Heading",
+        "description": "Direction of wing relative to true north, measured clockwise",
+        "uom": {
+          "code": "deg"
+        }
+      },
+      {
+        "name": "WING_ANGLE",
+        "type": "Quantity",
+        "definition": "http://sensorml.com/ont/x-swe/property/WingAngle",
+        "label": "Wing Angle",
+        "description": "Angle of the wing",
+        "uom": {
+          "code": "deg"
+        }
+      },
+      {
+        "name": "PITCH",
+        "type": "Quantity",
+        "definition": " http://sensorml.com/ont/swe/property/PitchAngle",
+        "label": "Pitch",
+        "description": "Vessel pitch angle w.r.t to the local horizontal plane",
+        "uom": {
+          "code": "deg"
+        }
+      },
+      {
+        "name": "ROLL",
+        "type": "Quantity",
+        "definition": "http://sensorml.com/ont/swe/property/RollAngle",
+        "label": "Roll",
+        "description": "Vessel roll angle w.r.t to the local horizontal plane",
+        "uom": {
+          "code": "deg"
+        }
+      },
+      {
+        "name": "STATUS",
+        "type": "Category",
+        "definition": "http://sensorml.com/ont/ais/property/NavigationStatus",
+        "label": "Navigation Status",
+        "description": "Vessel Status"
+      }
+    ]
+  }
+}
