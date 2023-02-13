@@ -13,7 +13,7 @@
     "featureType": "http://www.w3.org/ns/sosa/Sensor",
     "assetType": "http://www.opengis.net/def/x-OGC/Equipment",
     "procedure@link": {
-      "href": "https://data.example.org/procedures/P456/procedure?f=json",
+      "href": "https://data.example.org/api/procedures/P456/procedure?f=json",
       "type" : "application/geo+json",
       "uid": "urn:x-myorg:datasheets:ThermoPro:TP60S:v001",
       "title": "Thermo Pro TP60S"
@@ -23,12 +23,12 @@
     {
       "rel" : "self",
       "title" : "this document",
-      "href" : "https://api.example.org/systems/123?f=json",
+      "href" : "https://data.example.org/api/systems/123?f=json",
       "type" : "application/geo+json"
     }, {
       "rel" : "alternate",
       "title" : "this resource as SensorML",
-      "href" : "https://api.example.org/systems/123?f=sml",
+      "href" : "https://data.example.org/api/systems/123?f=sml",
       "type" : "application/sml+json"
     }
   ]

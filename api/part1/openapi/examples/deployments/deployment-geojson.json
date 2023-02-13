@@ -20,7 +20,7 @@
   },
   "links": [
     {
-      "href" : "https://api.example.org/deployments/kk8p16lbvqvdo/systems?f=json",
+      "href" : "https://data.example.org/api/deployments/kk8p16lbvqvdo/systems?f=json",
       "rel" : "systems",
       "type" : "application/geo+json",
       "title" : "Deployed Systems"

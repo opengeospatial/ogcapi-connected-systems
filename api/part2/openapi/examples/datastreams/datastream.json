@@ -2,12 +2,12 @@
   "id": "7dogt5gs8949s",
   "name": "Radiological Sensor RADIO003 - Wireless Link Status",
   "system@link": {
-    "href": "https://api.example.org/systems/958tf25kjm2f6",
+    "href": "https://data.example.org/api/systems/958tf25kjm2f6",
     "uid": "urn:x-ogc:systems:FF465",
     "outputName": "radio"
   },
   "ultimateFeatureOfInterest@link": {
-    "href": "https://api.example.org/systems/4578",
+    "href": "https://data.example.org/api/systems/4578",
     "uid": "urn:x-ogc:systems:FF465"
   },
   "phenomenonTime": [
@@ -51,7 +51,7 @@
   "links": [
     {
       "rel" : "self",
-      "href" : "https://api.example.org/datastreams/7dogt5gs8949s",
+      "href" : "https://data.example.org/api/datastreams/7dogt5gs8949s",
       "type" : "application/json"
     }, {
       "rel": "observations",

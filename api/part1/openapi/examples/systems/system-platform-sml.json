@@ -39,12 +39,12 @@
   ],
   "links": [
     {
-      "href" : "https://api.example.org/systems/123?f=sml",
+      "href" : "https://data.example.org/api/systems/PLT412?f=sml",
       "rel" : "self",
       "type" : "application/sml+json",
       "title" : "this document"
     }, {
-      "href" : "https://api.example.org/systems/123?f=json",
+      "href" : "https://data.example.org/api/systems/PLT412?f=json",
       "rel" : "alternate",
       "type" : "application/geo+json",
       "title" : "this resource as GeoJSON"

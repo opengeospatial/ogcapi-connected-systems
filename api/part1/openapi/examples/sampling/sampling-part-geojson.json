@@ -8,24 +8,24 @@
     "description": "CPU 2 located in the robot chassis",
     "featureType": "http://www.opengis.net/def/samplingFeatureType/x-OGC-TBD/2.0/SF_FeaturePart",
     "sampledFeature@link": {
-      "href": "https://api.example.org/systems/8624d054?f=json",
+      "href": "https://data.example.org/api/systems/8624d054?f=json",
       "type" : "application/geo+json",
       "uid": "urn:x-ogc:systems:robot445"
     }
   },
   "links": [
     {
-      "href" : "https://api.example.org/samplingFeatures/1a0f80f9?f=json",
+      "href" : "https://data.example.org/api/samplingFeatures/1a0f80f9?f=json",
       "rel" : "self",
       "type" : "application/geo+json",
       "title" : "this document"
     }, {
-      "href" : "https://api.example.org/samplingFeatures/1a0f80f9?f=html",
+      "href" : "https://data.example.org/api/samplingFeatures/1a0f80f9?f=html",
       "rel" : "alternate",
       "type" : "application/sensorml+json",
       "title" : "this resource as HTML"
     }, {
-      "href" : "https://api.example.org/samplingFeatures/1a0f80f9?f=html",
+      "href" : "https://data.example.org/api/samplingFeatures/1a0f80f9?f=html",
       "rel" : "alternate",
       "type" : "text/html",
       "title" : "this resource as HTML"

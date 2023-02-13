@@ -2,12 +2,12 @@
   "id": "958tf25kjm2f6",
   "name": "Outdoor Thermometer 001 - Air Temperature",
   "system@link": {
-    "href": "https://api.example.org/systems/123",
+    "href": "https://data.example.org/api/systems/123",
     "uid": "urn:x-ogc:systems:001",
     "outputName": "temp"
   },
   "ultimateFeatureOfInterest@link": {
-    "href": "https://api.example.org/collections/buildings/items/754",
+    "href": "https://data.example.org/api/collections/buildings/items/754",
     "title": "My House"
   },
   "phenomenonTime": [
@@ -30,11 +30,11 @@
   "links": [
     {
       "rel" : "self",
-      "href" : "https://api.example.org/datastreams/958tf25kjm2f6",
+      "href" : "https://data.example.org/api/datastreams/958tf25kjm2f6",
       "type" : "application/json"
     }, {
       "rel": "observations",
-      "href": "https://api.example.org/datastreams/958tf25kjm2f6/observations",
+      "href": "https://data.example.org/api/datastreams/958tf25kjm2f6/observations",
       "type" : "application/json"
     }
   ]

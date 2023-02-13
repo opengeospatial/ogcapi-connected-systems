@@ -19,12 +19,12 @@
   },
   "links": [
     {
-      "href" : "https://api.example.org/samplingFeatures/f6b464cf?f=json",
+      "href" : "https://data.example.org/api/samplingFeatures/f6b464cf?f=json",
       "rel" : "self",
       "type" : "application/geo+json",
       "title" : "this document"
     }, {
-      "href" : "https://api.example.org/samplingFeatures/f6b464cf?f=html",
+      "href" : "https://data.example.org/api/samplingFeatures/f6b464cf?f=html",
       "rel" : "alternate",
       "type" : "text/html",
       "title" : "this resource as HTML"

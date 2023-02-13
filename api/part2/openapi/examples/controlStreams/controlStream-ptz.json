@@ -2,7 +2,7 @@
   "id": "hf62t0dotfd5k",
   "name": "Garage Video Camera 001 - PTZ Control",
   "system@link": {
-    "href": "https://api.example.org/systems/4722256",
+    "href": "https://data.example.org/api/systems/4722256",
     "uid": "urn:x-ogc:systems:CAM001",
     "inputName": "ptz"
   },
@@ -34,7 +34,7 @@
   "links": [
     {
       "rel": "commands",
-      "href": "https://api.example.org/controls/hf62t0dotfd5k/commands"
+      "href": "https://data.example.org/api/controls/hf62t0dotfd5k/commands"
     }
   ]
 }

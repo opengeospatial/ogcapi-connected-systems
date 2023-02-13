@@ -2,7 +2,7 @@
   "type": "Deployment",
   "id": "iv3f2kcq27gfi",
   "definition": "http://www.w3.org/ns/ssn/Deployment",
-  "uniqueId": "urn:x-sd:mission:2025",
+  "uniqueId": "urn:x-saildrone:mission:2025",
   "name": "Saildrone - 2017 Arctic Mission",
   "description": "In July 2017, three saildrones were launched from Dutch Harbor, Alaska, in partnership with NOAA Research...",
   "classifiers": [
@@ -46,14 +46,31 @@
       [53.76, -173.7]
     ]]
   },
+  "members": [
+    {
+      "href": "https://data.example.org/api/systems/2f35ofoms2l6?f=sml",
+      "uid": "urn:x-saildrone:platforms:SD-1001",
+      "type": "application/sml+json"
+    },
+    {
+      "href": "https://data.example.org/api/systems/2f35ofoms2l6?f=sml",
+      "uid": "urn:x-saildrone:platforms:SD-1002",
+      "type": "application/sml+json"
+    },
+    {
+      "href": "https://data.example.org/api/systems/2f35ofoms2l6?f=sml",
+      "uid": "urn:x-saildrone:platforms:SD-1003",
+      "type": "application/sml+json"
+    }
+  ],
   "links": [
     {
-      "href" : "https://api.example.org/procedures/iv3f2kcq27gfi?f=sml",
+      "href" : "https://data.example.org/api/deployments/iv3f2kcq27gfi?f=sml",
       "rel" : "self",
       "type" : "application/sml+json",
       "title" : "this document"
     }, {
-      "href" : "https://api.example.org/procedures/iv3f2kcq27gfi?f=json",
+      "href" : "https://data.example.org/api/deployments/iv3f2kcq27gfi?f=json",
       "rel" : "alternate",
       "type" : "application/geo+json",
       "title" : "this resource as GeoJSON"
