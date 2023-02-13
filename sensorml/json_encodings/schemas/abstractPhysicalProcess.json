@@ -9,8 +9,7 @@
       "properties": {
         "attachedTo": {
           "description": "References the physical component or system (e.g. platform) to which to which this component or system is attached.",
-          "type": "string",
-          "format": "uri"
+          "$ref": "commonDefs.json#/definitions/XLink"
         },
         "localReferenceFrames": {
           "description": "A spatial reference frame of the physical component itself; this reference frame is absolute and defines the relationship of the reference frame to the physical body of the component; position of the component relates this reference frame to some external reference frame. Note that units are specified in the position so they are not specified as part of the SpatialFrame.",
@@ -105,6 +104,9 @@
       "oneOf": [
         {
           "$ref": "https://geojson.org/schema/Point.json"
+        },
+        {
+          "$ref": "sweCommonDefs.json#/definitions/Vector"
         }
       ]
     }

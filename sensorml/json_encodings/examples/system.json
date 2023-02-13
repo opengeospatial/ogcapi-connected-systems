@@ -2,7 +2,7 @@
   "$schema": "../schemas/physicalSystem.json",
   "type": "PhysicalSystem",
   "id": "g7qgqjt7276pa",
-  "uid": "urn:osh:sensor:simweather:0123456879",
+  "uniqueId": "urn:osh:sensor:simweather:0123456879",
   "definition": "http://www.w3.org/ns/sosa/Sensor",
   "name": "Simulated Weather Sensor",
   "description": "Simulated weather station generating realistic pseudo-random measurements",

@@ -9,6 +9,30 @@
     },
     "TimePeriod": {
       "$ref": "../../../common/timePeriod.json"
+    },
+    "ObservableProperty": {
+      "description": "A physical property that can be observed and possibly measured (e.g. temperature, color, position). An ObservableProperty has unambiguous definition, but does not have units of measure.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "sweCommonDefs.json#/definitions/AbstractSWEIdentifiable"
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "ObservableProperty"
+            },
+            "definition": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "type",
+            "definition"
+          ]
+        }
+      ]
     }
   }
 }

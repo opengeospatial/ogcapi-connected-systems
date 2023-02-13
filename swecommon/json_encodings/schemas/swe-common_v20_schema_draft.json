@@ -1,6 +1,69 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
+    "AnyComponent": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/AnySimpleComponent"
+        },
+        {
+          "$ref": "#/definitions/DataRecord"
+        },
+        {
+          "$ref": "#/definitions/Vector"
+        },
+        {
+          "$ref": "#/definitions/DataArray"
+        },
+        {
+          "$ref": "#/definitions/Matrix"
+        },
+        {
+          "$ref": "#/definitions/DataChoice"
+        }
+      ]
+    },
+    "AnySimpleComponent": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/AnyScalarComponent"
+        },
+        {
+          "$ref": "#/definitions/CountRange"
+        },
+        {
+          "$ref": "#/definitions/QuantityRange"
+        },
+        {
+          "$ref": "#/definitions/TimeRange"
+        },
+        {
+          "$ref": "#/definitions/CategoryRange"
+        }
+      ]
+    },
+    "AnyScalarComponent": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/Boolean"
+        },
+        {
+          "$ref": "#/definitions/Count"
+        },
+        {
+          "$ref": "#/definitions/Quantity"
+        },
+        {
+          "$ref": "#/definitions/Time"
+        },
+        {
+          "$ref": "#/definitions/Category"
+        },
+        {
+          "$ref": "#/definitions/Text"
+        }
+      ]
+    },
     "DataRecord": {
       "description": "Implementation of ISO-11404 Record datatype. This allows grouping (sequence) of data components which can themselves be simple types, records, arrays or choices",
       "type": "object",

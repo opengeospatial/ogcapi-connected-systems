@@ -53,13 +53,19 @@
     "InputList": {
       "type": "array",
       "items": {
-        "$ref": "sweCommonDefs.json#/definitions/AnyComponent"
+        "oneOf": [
+          { "$ref": "sweCommonDefs.json#/definitions/AnyComponent" },
+          { "$ref": "commonDefs.json#/definitions/ObservableProperty" }
+        ]
       }
     },
     "OutputList": {
       "type": "array",
       "items": {
-        "$ref": "sweCommonDefs.json#/definitions/AnyComponent"
+        "oneOf": [
+          { "$ref": "sweCommonDefs.json#/definitions/AnyComponent" },
+          { "$ref": "commonDefs.json#/definitions/ObservableProperty" }
+        ]
       }
     },
     "ParameterList": {

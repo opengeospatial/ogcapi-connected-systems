@@ -7,6 +7,9 @@
     "AbstractSWEIdentifiable": {
       "$ref": "../../../swecommon/json_encodings/schemas/swe-common_v20_schema_draft.json#/definitions/AbstractSWEIdentifiable"
     },
+    "Vector": {
+      "$ref": "../../../swecommon/json_encodings/schemas/swe-common_v20_schema_draft.json#/definitions/Vector"
+    },
     "AnyComponent": {
       "allOf": [
         {
@@ -18,53 +21,7 @@
           "required": [ "name" ]
         },
         {
-          "oneOf": [
-            {
-              "$ref": "../../../swecommon/json_encodings/schemas/swe-common_v20_schema_draft.json#/definitions/Boolean"
-            },
-            {
-              "$ref": "../../../swecommon/json_encodings/schemas/swe-common_v20_schema_draft.json#/definitions/Category"
-            },
-            {
-              "$ref": "../../../swecommon/json_encodings/schemas/swe-common_v20_schema_draft.json#/definitions/CategoryRange"
-            },
-            {
-              "$ref": "../../../swecommon/json_encodings/schemas/swe-common_v20_schema_draft.json#/definitions/Count"
-            },
-            {
-              "$ref": "../../../swecommon/json_encodings/schemas/swe-common_v20_schema_draft.json#/definitions/CountRange"
-            },
-            {
-              "$ref": "../../../swecommon/json_encodings/schemas/swe-common_v20_schema_draft.json#/definitions/DataArray"
-            },
-            {
-              "$ref": "../../../swecommon/json_encodings/schemas/swe-common_v20_schema_draft.json#/definitions/DataChoice"
-            },
-            {
-              "$ref": "../../../swecommon/json_encodings/schemas/swe-common_v20_schema_draft.json#/definitions/DataRecord"
-            },
-            {
-              "$ref": "../../../swecommon/json_encodings/schemas/swe-common_v20_schema_draft.json#/definitions/Matrix"
-            },
-            {
-              "$ref": "../../../swecommon/json_encodings/schemas/swe-common_v20_schema_draft.json#/definitions/Quantity"
-            },
-            {
-              "$ref": "../../../swecommon/json_encodings/schemas/swe-common_v20_schema_draft.json#/definitions/QuantityRange"
-            },
-            {
-              "$ref": "../../../swecommon/json_encodings/schemas/swe-common_v20_schema_draft.json#/definitions/Text"
-            },
-            {
-              "$ref": "../../../swecommon/json_encodings/schemas/swe-common_v20_schema_draft.json#/definitions/Time"
-            },
-            {
-              "$ref": "../../../swecommon/json_encodings/schemas/swe-common_v20_schema_draft.json#/definitions/TimeRange"
-            },
-            {
-              "$ref": "../../../swecommon/json_encodings/schemas/swe-common_v20_schema_draft.json#/definitions/Vector"
-            }
-          ]
+          "$ref": "../../../swecommon/json_encodings/schemas/swe-common_v20_schema_draft.json#/definitions/AnyComponent"
         }
       ]
     }
