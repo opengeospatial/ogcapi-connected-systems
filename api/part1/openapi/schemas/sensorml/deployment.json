@@ -4,15 +4,19 @@
     { "$ref": "sensormlDefs.json#/definitions/DescribedObject" },
     {
       "type": "object",
+      "required": [ "definition", "members" ],
       "properties": {
-        "type": {
-          "const": "Deployment"
-        },
         "definition": {
           "const": "http://www.w3.org/ns/ssn/Deployment"
         },
         "location": {
           "$ref": "https://geojson.org/schema/Geometry.json"
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "$ref": "../common/commonDefs.json#/definitions/XLink"
+          }
         }
       }
     }
