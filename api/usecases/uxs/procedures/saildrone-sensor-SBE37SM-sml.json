@@ -1,0 +1,179 @@
+{
+  "type": "PhysicalComponent",
+  "id": "ektvyr1o5tbt",
+  "definition": "http://www.opengis.net/def/x-OGC/ObservingProcedure",
+  "uniqueId": "urn:x-saildrone:datasheets:sensors:SBE37SM",
+  "name": "CTD Sensor - SBE37SM",
+  "description": "Combined sensor for water conductivity, depth and temperature (CTD)",
+  "identifiers": [
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/Manufacturer",
+      "label": "Manufacturer Name",
+      "value": "Sea-Bird Scientific"
+    },
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/ModelNumber",
+      "label": "Model Number",
+      "value": "SBE37SM"
+    }
+  ],
+  "classifiers": [
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/SensorType",
+      "label": "Sensor Type",
+      "value": "CTD"
+    }
+  ],
+  "capabilities": [
+    {
+      "name": "conductivity",
+      "definition": "http://www.w3.org/ns/ssn/systems/SystemCapability",
+      "label": "Conductivity Measurement Capabilities",
+      "capabilities": [
+        {
+          "name": "range",
+          "type": "QuantityRange",
+          "definition": "http://www.w3.org/ns/ssn/systems/MeasurementRange",
+          "label": "Measurement Range",
+          "uom": {
+            "code": "S/m"
+          },
+          "value": [0.0,7.0]
+        },
+        {
+          "name": "resolution",
+          "type": "Quantity",
+          "definition": "http://www.w3.org/ns/ssn/systems/Resolution",
+          "label": "Resolution",
+          "uom": {
+            "code": "S/m"
+          },
+          "value": 1.0E-5
+        },
+        {
+          "name": "accuracy",
+          "type": "Quantity",
+          "definition": "http://sensorml.com/ont/swe/property/AbsoluteAccuracy",
+          "label": "Absolute Accuracy",
+          "uom": {
+            "code": "S/m"
+          },
+          "value": 3.0E-4
+        }
+      ]
+    },
+    {
+      "name": "temperature",
+      "definition": "http://www.w3.org/ns/ssn/systems/SystemCapability",
+      "label": "Temperature Measurement Capabilities",
+      "capabilities": [
+        {
+          "name": "range",
+          "type": "QuantityRange",
+          "definition": "http://www.w3.org/ns/ssn/systems/MeasurementRange",
+          "label": "Measurement Range",
+          "uom": {
+            "code": "Cel"
+          },
+          "value": [-5.0,45.0]
+        },
+        {
+          "name": "resolution",
+          "type": "Quantity",
+          "definition": "http://www.w3.org/ns/ssn/systems/Resolution",
+          "label": "Resolution",
+          "uom": {
+            "code": "Cel"
+          },
+          "value": 1.0E-4
+        },
+        {
+          "name": "accuracy",
+          "type": "Quantity",
+          "definition": "http://sensorml.com/ont/swe/property/AbsoluteAccuracy",
+          "label": "Absolute Accuracy",
+          "uom": {
+            "code": "Cel"
+          },
+          "value": 0.002
+        }
+      ]
+    },
+    {
+      "name": "depth",
+      "definition": "http://www.w3.org/ns/ssn/systems/SystemCapability",
+      "label": "Depth Measurement Capabilities",
+      "capabilities": [
+        {
+          "name": "range",
+          "type": "QuantityRange",
+          "definition": "http://www.w3.org/ns/ssn/systems/MeasurementRange",
+          "label": "Measurement Range",
+          "uom": {
+            "code": "m"
+          },
+          "value": [0.0,100.0]
+        },
+        {
+          "name": "resolution",
+          "type": "Quantity",
+          "definition": "http://www.w3.org/ns/ssn/systems/Resolution",
+          "label": "Resolution",
+          "uom": {
+            "code": "m"
+          },
+          "value": 0.001
+        },
+        {
+          "name": "accuracy",
+          "type": "Quantity",
+          "definition": "http://sensorml.com/ont/swe/property/RelativeAccuracy",
+          "label": "Relative Accuracy",
+          "uom": {
+            "code": "%"
+          },
+          "value": 0.1
+        }
+      ]
+    }
+  ],
+  "contacts": [
+    {
+      "role": "http://sensorml.com/ont/swe/property/Manufacturer",
+      "organisationName": "Sea-Bird Scientific",
+      "contactInfo": {
+        "onlineResource": "https://www.seabird.com",
+        "address": {
+          "deliveryPoint": "13431 NE 20th St",
+          "city": "Bellevue",
+          "administrativeArea": "WA",
+          "postalCode": "98005",
+          "country": "USA"
+        }
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "name": "conductivity",
+      "type": "ObservableProperty",
+      "definition": "http://mmisw.org/ont/cf/parameter/sea_water_electrical_conductivity",
+      "label": "Water Conductivity"
+    },
+    {
+      "name": "temperature",
+      "type": "ObservableProperty",
+      "definition": "http://mmisw.org/ont/cf/parameter/sea_surface_temperature",
+      "label": "Water Temperature"
+    },
+    {
+      "name": "depth",
+      "type": "ObservableProperty",
+      "definition": "http://mmisw.org/ont/cf/parameter/depth_below_geoid",
+      "label": "Depth"
+    }
+  ]
+}

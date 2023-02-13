@@ -1,0 +1,14 @@
+{
+  "type": "Feature",
+  "id": "v9qn9dg30zh6",
+  "geometry": null,
+  "properties": {
+    "uid": "urn:x-saildrone:SD1021:sf:WATER",
+    "featureType": "http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint",
+    "name": "Saildrone 1021 - Water Sampling Point",
+    "description": "Sampling point for water sensors at 0.5 meters below surface",
+    "sampledFeature@link": {
+      "href": "http://sweetontology.net/realmHydroBody/SeaSurface"
+    }
+  }
+}

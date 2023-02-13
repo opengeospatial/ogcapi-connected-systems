@@ -1,0 +1,29 @@
+{
+  "obsFormat": "application/om+json",
+  "resultSchema": {
+    "type": "DataRecord",
+    "label": "CTD Measurements Record",
+    "fields": [
+      {
+        "name": "TEMP_SBE37_MEAN",
+        "type": "Quantity",
+        "definition": "http://mmisw.org/ont/cf/parameter/sea_surface_temperature",
+        "label": "Seawater temperature",
+        "description": "Temperature of the seawater at the surface",
+        "uom": {
+          "code": "Cel"
+        }
+      },
+      {
+        "name": "SAL_SBE37_MEAN",
+        "type": "Quantity",
+        "definition": "https://mmisw.org/ont/cf/parameter/sea_water_salinity",
+        "label": "Seawater salinity",
+        "description": "Seawater salinity at the surface",
+        "uom": {
+          "code": "psu"
+        }
+      }
+    ]
+  }
+}

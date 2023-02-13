@@ -1,0 +1,61 @@
+{
+  "obsFormat": "application/om+json",
+  "resultSchema": {
+    "type": "DataRecord",
+    "label": "Weather Measurements Record",
+    "fields": [
+      {
+        "name": "TEMP_AIR_MEAN",
+        "type": "Quantity",
+        "definition": "http://mmisw.org/ont/cf/parameter/air_temperature",
+        "label": "Air Temperature",
+        "description": "Mean Air Temperature",
+        "uom": {
+          "code": "Cel"
+        }
+      },
+      {
+        "name": "BARO_PRES_MEAN",
+        "type": "Quantity",
+        "definition": "http://mmisw.org/ont/cf/parameter/air_pressure",
+        "label": "Air Pressure",
+        "description": "Mean air pressure",
+        "uom": {
+          "code": "hPa"
+        }
+      },
+      {
+        "name": "WIND_FROM_MEAN",
+        "type": "Quantity",
+        "definition": "http://mmisw.org/ont/cf/parameter/wind_from_direction",
+        "label": "Wind Direction",
+        "description": "Direction the wind is blowing from, positive clockwise from true north",
+        "referenceFrame": "http://www.opengis.net/def/cs/OGC/0/NED",
+        "axisID": "z",
+        "uom": {
+          "code": "deg"
+        }
+      },
+      {
+        "name": "WIND_SPEED_MEAN",
+        "type": "Quantity",
+        "definition": "http://mmisw.org/ont/cf/parameter/wind_speed",
+        "label": "Wind Speed",
+        "description": "Average wind speed",
+        "uom": {
+          "code": "m/s"
+        }
+      },
+      {
+        "name": "RH_MEAN",
+        "type": "Quantity",
+        "definition": "http://mmisw.org/ont/cf/parameter/relative_humidity",
+        "label": "Relative Humidity",
+        "description": "Relative humidity",
+        "uom": {
+          "code": "%"
+        }
+      }
+    ]
+  }
+}

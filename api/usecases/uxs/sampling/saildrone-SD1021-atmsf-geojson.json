@@ -1,0 +1,14 @@
+{
+  "type": "Feature",
+  "id": "wkigzi6hv817",
+  "geometry": null,
+  "properties": {
+    "uid": "urn:x-saildrone:SD1021:sf:ATM",
+    "featureType": "http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint",
+    "name": "Saildrone 1021 - Atmospheric Sampling Point",
+    "description": "Sampling point for weather sensors at 2.2 meters above surface",
+    "sampledFeature@link": {
+      "href": "http://sweetontology.net/realm/Atmosphere"
+    }
+  }
+}

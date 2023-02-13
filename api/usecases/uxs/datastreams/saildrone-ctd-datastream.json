@@ -1,0 +1,38 @@
+{
+  "id": "1dmq8chce0j9",
+  "name": "SD1021 Water Observations",
+  "description": "Water observations of Saildrone 1021 along its trajectory",
+  "system@link": {
+    "href": "https://data.example.org/api/systems/8ewqgtmftd61?f=json",
+    "uid": "urn:x-saildrone:sensors:568",
+    "outputName": "ctd_output"
+  },
+  "validTime": [
+    "2022-07-16T20:00:00Z",
+    "now"
+  ],
+  "phenomenonTime": [
+    "2022-07-16T20:00:00Z",
+    "2022-07-16T22:28:00Z"
+  ],
+  "resultTime": [
+    "2022-07-16T20:00:00Z",
+    "2022-07-16T22:28:00Z"
+  ],
+  "observedProperties": [
+    {
+      "definition": "https://mmisw.org/ont/cf/parameter/sea_water_salinity",
+      "label": "Seawater Salinity"
+    },
+    {
+      "definition": "http://mmisw.org/ont/cf/parameter/sea_surface_temperature",
+      "label": "Seawater Temperature"
+    }
+  ],
+  "formats": [
+    "application/om+json",
+    "application/swe+json",
+    "application/swe+csv",
+    "application/swe+binary"
+  ]
+}

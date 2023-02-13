@@ -1,0 +1,126 @@
+{
+  "type": "PhysicalComponent",
+  "id": "9ucw0a3ol5e1",
+  "definition": "http://www.opengis.net/def/x-OGC/ObservingProcedure",
+  "uniqueId": "urn:x-saildrone:datasheets:sensors:HC2-IM402",
+  "name": "Air Temp/RH Sensor - Rotronic HC2",
+  "description": "Rotronic HC2 probe with humidity and temperature sensors",
+  "identifiers": [
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/Manufacturer",
+      "label": "Manufacturer Name",
+      "value": "Rotronic"
+    },
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/ModelNumber",
+      "label": "Model Number",
+      "value": "HC2-IM402"
+    }
+  ],
+  "classifiers": [
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/SensorType",
+      "label": "Sensor Type",
+      "value": "Thermometer"
+    },
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/SensorType",
+      "label": "Sensor Type",
+      "value": "Hygrometer"
+    }
+  ],
+  "capabilities": [
+    {
+      "name": "temp_measurement",
+      "definition": "http://www.w3.org/ns/ssn/systems/SystemCapability",
+      "label": "Temperature Measurement Capabilities",
+      "capabilities": [
+        {
+          "name": "range",
+          "type": "QuantityRange",
+          "definition": "http://www.w3.org/ns/ssn/systems/MeasurementRange",
+          "label": "Measurement Range",
+          "uom": {
+            "code": "Cel"
+          },
+          "value": [-100.0,200.0]
+        },
+        {
+          "name": "resolution",
+          "type": "Quantity",
+          "definition": "http://www.w3.org/ns/ssn/systems/Resolution",
+          "label": "Resolution",
+          "uom": {
+            "code": "Cel"
+          },
+          "value": 0.1
+        },
+        {
+          "name": "accuracy",
+          "type": "Quantity",
+          "definition": "http://sensorml.com/ont/swe/property/AbsoluteAccuracy",
+          "label": "Absolute Accuracy",
+          "uom": {
+            "code": "Cel"
+          },
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "name": "hum_measurement",
+      "definition": "http://www.w3.org/ns/ssn/systems/SystemCapability",
+      "label": "Humidity Measurement Capabilities",
+      "capabilities": [
+        {
+          "name": "range",
+          "type": "QuantityRange",
+          "definition": "http://www.w3.org/ns/ssn/systems/MeasurementRange",
+          "label": "Measurement Range",
+          "uom": {
+            "code": "%"
+          },
+          "value": [0.0,100.0]
+        },
+        {
+          "name": "resolution",
+          "type": "Quantity",
+          "definition": "http://www.w3.org/ns/ssn/systems/Resolution",
+          "label": "Resolution",
+          "uom": {
+            "code": "%"
+          },
+          "value": 0.1
+        },
+        {
+          "name": "accuracy",
+          "type": "Quantity",
+          "definition": "http://sensorml.com/ont/swe/property/AbsoluteAccuracy",
+          "label": "Absolute Accuracy",
+          "uom": {
+            "code": "%"
+          },
+          "value": 0.8
+        }
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "air_temp",
+      "type": "ObservableProperty",
+      "definition": "http://mmisw.org/ont/cf/parameter/air_temperature",
+      "label": "Air Temperature"
+    },
+    {
+      "name": "air_hum",
+      "type": "ObservableProperty",
+      "definition": "http://mmisw.org/ont/cf/parameter/relative_humidity",
+      "label": "Relative Humidity"
+    }
+  ]
+}

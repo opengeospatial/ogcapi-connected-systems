@@ -1,0 +1,70 @@
+{
+  "type": "PhysicalSystem",
+  "id": "2f35ofoms2l6",
+  "definition": "http://www.w3.org/ns/sosa/Platform",
+  "description": "Example Saildrone system with multiple sensor payloads and sampling features",
+  "uniqueId": "urn:x-saildrone:platforms:SD-1021",
+  "name": "Saildrone Explorer 1021",
+  "typeOf": {
+    "href": "https://data.example.org/api/procedures/8cm8or1rj335?f=sml",
+    "uid": "urn:x-saildrone:datasheets:explorer:v1",
+    "type" : "application/sml+json"
+  },
+  "identifiers": [
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/SerialNumber",
+      "label": "Serial Number",
+      "value": "SD-1021"
+    },
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/SoftwareVersion",
+      "label": "Software Version",
+      "value": "FW21.23.89"
+    }
+  ],
+  "classifiers": [
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/PlatformType",
+      "label": "Platform Type",
+      "value": "Unmanned Surface Vehicle"
+    }
+  ],
+  "contacts": [
+    {
+      "role": "http://sensorml.com/ont/swe/property/Operator",
+      "organisationName": "Saildrone"
+    }
+  ],
+  "validTime": [
+    "2021-05-20T11:56:43.444Z",
+    "now"
+  ],
+  "localReferenceFrames": [
+    {
+      "id": "PLATFORM_FRAME",
+      "label": "Platform Frame",
+      "origin": "Center of flotation of the vessel",
+      "axis": [
+        {
+          "name": "X",
+          "description": "Along the lateral axis, orthogonal to both y and z, positive starboard"
+        },
+        {
+          "name": "Y",
+          "description": "Along the longitudinal symmetry axis of the hull, positive forward"
+        },
+        {
+          "name": "Z",
+          "description": "Along the axis of rotation of the wing, positive in the up direction"
+        }
+      ]
+    }
+  ],
+  "position": {
+    "type": "Point",
+    "coordinates": [32.3, -71.36, 0.0]
+  }
+}

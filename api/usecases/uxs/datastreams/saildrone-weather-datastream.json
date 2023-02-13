@@ -1,0 +1,50 @@
+{
+  "id": "4e7lckktgdqq",
+  "name": "SD1021 Weather Observations",
+  "description": "Atmospheric observations of Saildrone 1021 along its trajectory",
+  "system@link": {
+    "href": "https://data.example.org/api/systems/8ewqgtmftd61?f=json",
+    "uid": "urn:x-saildrone:sensors:568",
+    "outputName": "weather_output"
+  },
+  "validTime": [
+    "2022-07-16T20:00:00Z",
+    "now"
+  ],
+  "phenomenonTime": [
+    "2022-07-16T20:00:00Z",
+    "2022-07-16T22:28:00Z"
+  ],
+  "resultTime": [
+    "2022-07-16T20:00:00Z",
+    "2022-07-16T22:28:00Z"
+  ],
+  "observedProperties": [
+    {
+      "definition": "http://mmisw.org/ont/cf/parameter/air_temperature",
+      "label": "Air Temperature"
+    },
+    {
+      "definition": "http://mmisw.org/ont/cf/parameter/air_pressure",
+      "label": "Air Pressure"
+    },
+    {
+      "definition": "http://mmisw.org/ont/cf/parameter/wind_from_direction",
+      "label": "Wind Direction"
+    },
+    {
+      "definition": "http://mmisw.org/ont/cf/parameter/wind_speed",
+      "label": "Wind Speed"
+    },
+    {
+      "definition": "http://mmisw.org/ont/cf/parameter/relative_humidity",
+      "label": "Relative Humidity"
+    }
+  ],
+  "formats": [
+    "application/om+json",
+    "application/swe+json",
+    "application/swe+csv",
+    "application/swe+binary"
+  ]
+}

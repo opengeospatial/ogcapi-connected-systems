@@ -1,0 +1,170 @@
+{
+  "type": "PhysicalSystem",
+  "id": "8cm8or1rj335",
+  "definition": "http://www.opengis.net/def/x-OGC/MobilityProcedure",
+  "uniqueId": "urn:x-saildrone:datasheets:explorer:v1",
+  "name": "Saildrone Explorer Platform Specs",
+  "description": "Datasheet for Saildrone Explorer system",
+  "identifiers": [
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/Manufacturer",
+      "label": "Manufacturer Name",
+      "value": "Saildrone, Inc."
+    },
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/ModelNumber",
+      "label": "Model Number",
+      "value": "Explorer"
+    }
+  ],
+  "classifiers": [
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/PlatformType",
+      "label": "Platform Type",
+      "value": "Unmanned Surface Vehicle"
+    }
+  ],
+  "characteristics": [
+    {
+      "name": "physical",
+      "definition": "http://www.w3.org/ns/ssn-x/systems/PhysicalCharacteristics",
+      "label": "Physical Characteristics",
+      "characteristics": [
+        {
+          "name": "length",
+          "type": "Quantity",
+          "definition": "http://qudt.org/vocab/quantitykind/Length",
+          "label": "Length",
+          "uom": {
+            "code": "[ft_i]"
+          },
+          "value": 19.0
+        },
+        {
+          "name": "breadth",
+          "type": "Quantity",
+          "definition": "http://qudt.org/vocab/quantitykind/Width",
+          "label": "Breadth",
+          "uom": {
+            "code": "[ft_i]"
+          },
+          "value": 7.0
+        },
+        {
+          "name": "height",
+          "type": "Quantity",
+          "definition": "http://qudt.org/vocab/quantitykind/Height",
+          "label": "Height",
+          "uom": {
+            "code": "[ft_i]"
+          },
+          "value": 21.0
+        }
+      ]
+    },
+    {
+      "name": "operating",
+      "definition": "http://www.w3.org/ns/ssn/systems/OperatingRange",
+      "label": "Operating Characteristics",
+      "characteristics": [
+        {
+          "name": "draft",
+          "type": "Quantity",
+          "definition": "http://sensorml.com/ont/swe-x/property/Draft",
+          "label": "Draft",
+          "uom": {
+            "code": "[ft_i]"
+          },
+          "value": 6.0
+        },
+        {
+          "name": "max_speed",
+          "type": "Quantity",
+          "definition": "http://sensorml.com/ont/swe/property/GroundSpeed",
+          "label": "Maximum Speed",
+          "uom": {
+            "code": "[kn_i]"
+          },
+          "value": 10.0
+        },
+        {
+          "name": "payload_capacity",
+          "type": "Quantity",
+          "definition": "http://qudt.org/vocab/quantitykind/Mass",
+          "label": "Payload Capacity",
+          "uom": {
+            "code": "[lb_av]"
+          },
+          "value": 200.0
+        },
+        {
+          "name": "payload_power",
+          "type": "QuantityRange",
+          "definition": "http://qudt.org/vocab/quantitykind/ElectricPower",
+          "label": "Payload Power",
+          "uom": {
+            "code": "W"
+          },
+          "value": [5.0,160.0]
+        }
+      ]
+    }
+  ],
+  "capabilities": [
+    {
+      "name": "platform",
+      "definition": "http://www.w3.org/ns/ssn/systems/SystemCapability",
+      "label": "System Capabilities",
+      "capabilities": [
+        {
+          "name": "avg_speed",
+          "type": "QuantityRange",
+          "definition": "http://sensorml.com/ont/swe/property/GroundSpeed",
+          "label": "Average Speed",
+          "uom": {
+            "code": "[kn_i]"
+          },
+          "value": [2.0,10.0]
+        },
+        {
+          "name": "deploy_duration",
+          "type": "QuantityRange",
+          "definition": "http://sensorml.com/ont/swe/property/Duration",
+          "label": "Deployment Duration",
+          "uom": {
+            "code": "d"
+          },
+          "value": [180.0,240.0]
+        }
+      ]
+    }
+  ],
+  "contacts": [
+    {
+      "role": "http://sensorml.com/ont/swe/property/Manufacturer",
+      "organisationName": "Saildrone",
+      "contactInfo": {
+        "onlineResource": "https://www.saildrone.com",
+        "address": {
+          "deliveryPoint": "1050 W. Tower Ave.",
+          "city": "Alameda",
+          "administrativeArea": "CA",
+          "postalCode": "94501",
+          "country": "USA"
+        }
+      }
+    }
+  ],
+  "documentation": [
+    {
+      "name": "Saildrone Explorer Product Card",
+      "linkage": {
+        "href": "https://indd.adobe.com/view/cb870469-0058-408d-828a-9d83e49c8d79",
+        "type": "application/pdf"
+      }
+    }
+  ]
+}

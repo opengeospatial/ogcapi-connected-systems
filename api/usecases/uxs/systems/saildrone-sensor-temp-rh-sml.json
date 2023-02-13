@@ -1,0 +1,74 @@
+{
+  "type": "PhysicalSystem",
+  "id": "chwdl3w50fwr",
+  "definition": "http://www.w3.org/ns/sosa/Sensor",
+  "uniqueId": "urn:x-saildrone:sensors:712",
+  "name": "Air Temp/RH Sensor #712",
+  "description": "Air temperature and humidity sensor mounted on the mast",
+  "typeOf": {
+    "href": "https://data.example.org/api/procedures/9ucw0a3ol5e1?f=sml",
+    "uid": "urn:x-saildrone:datasheets:sensors:HC2-IM402",
+    "type" : "application/sml+json"
+  },
+  "attachedTo": {
+    "href": "https://data.example.org/api/systems/2f35ofoms2l6?f=sml",
+    "uid": "urn:x-saildrone:platforms:SD-1021",
+    "type" : "application/sml+json"
+  },
+  "identifiers": [
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/SerialNumber",
+      "label": "Serial Number",
+      "value": "0123456879"
+    }
+  ],
+  "position": {
+    "type": "Vector",
+    "label": "Sensor Position",
+    "description": "Position of sensor relative to platform",
+    "referenceFrame": "urn:x-saildrone:platforms:SD-1021#PLATFORM_FRAME",
+    "coordinates": [
+      {
+        "name": "x",
+        "type": "Quantity",
+        "definition": "http://qudt.org/vocab/quantitykind/Distance",
+        "axisID": "X",
+        "label": "X Pos",
+        "uom": { "code": "m" },
+        "value": 0.0
+      },
+      {
+        "name": "y",
+        "type": "Quantity",
+        "definition": "http://qudt.org/vocab/quantitykind/Distance",
+        "axisID": "Y",
+        "label": "Y Pos",
+        "uom": { "code": "m" },
+        "value": 2.3
+      },
+      {
+        "name": "z",
+        "type": "Quantity",
+        "definition": "http://qudt.org/vocab/quantitykind/Distance",
+        "axisID": "Z",
+        "label": "Z Pos",
+        "uom": { "code": "m" },
+        "value": 2.4
+      }
+    ]
+  },
+  "links": [
+    {
+      "rel" : "self",
+      "title" : "this document",
+      "href" : "https://data.example.org/api/systems/chwdl3w50fwr?f=sml",
+      "type" : "application/sml+json"
+    }, {
+      "rel" : "alternate",
+      "title" : "this resource as GeoJSON",
+      "href" : "https://data.example.org/api/systems/chwdl3w50fwr?f=json",
+      "type" : "application/geo+json"
+    }
+  ]
+}

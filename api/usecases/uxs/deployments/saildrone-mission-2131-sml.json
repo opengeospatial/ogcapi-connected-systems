@@ -1,0 +1,72 @@
+{
+  "type": "Deployment",
+  "id": "hkhd7f43vjhy",
+  "definition": "http://www.w3.org/ns/ssn/Deployment",
+  "uniqueId": "urn:x-saildrone:mission:2131",
+  "name": "Saildrone - 1021 Atlantic Mission",
+  "description": "This data set was collected during the first Saildrone Atlantic crossing, from Bermuda to Lymington, UK, and the return trip from the UK to Newport, RI",
+  "classifiers": [
+    {
+      "type": "Term",
+      "definition": "https://schema.org/DefinedRegion",
+      "label": "Region",
+      "value": "Atlantic"
+    }
+  ],
+  "contacts": [
+    {
+      "role": "http://sensorml.com/ont/x-swe/property/MissionManager",
+      "organisationName": "Saildrone, Inc.",
+      "contactInfo": {
+        "onlineResource": "https://www.saildrone.com",
+        "address": {
+          "deliveryPoint": "1050 W. Tower Ave.",
+          "city": "Alameda",
+          "postalCode": "94501",
+          "administrativeArea": "CA",
+          "country": "USA"
+        }
+      }
+    }
+  ],
+  "documentation": [
+    {
+      "name": "Mission Web Page",
+      "description": "Mission description and access to data on saildrone website",
+      "linkage": {
+        "href": "https://data.saildrone.com/id/2131",
+        "type": "text/html"
+      }
+    }
+  ],
+  "location": {
+    "type": "Polygon",
+    "coordinates": [[
+      [32.3, -71.36],
+      [50.76, -71.36],
+      [50.76, -1.25],
+      [32.3, -1.25],
+      [32.3, -71.36]
+    ]]
+  },
+  "members": [
+    {
+      "href": "https://data.example.org/api/systems/2f35ofoms2l6?f=sml",
+      "uid": "urn:x-saildrone:platforms:SD-1021",
+      "type": "application/sml+json"
+    }
+  ],
+  "links": [
+    {
+      "href": "https://data.example.org/api/deployments/hkhd7f43vjhy?f=sml",
+      "rel": "self",
+      "type": "application/sml+json",
+      "title": "this document"
+    }, {
+      "href": "https://data.example.org/api/deployments/hkhd7f43vjhy?f=json",
+      "rel": "alternate",
+      "type": "application/geo+json",
+      "title": "this resource as GeoJSON"
+    }
+  ]
+}

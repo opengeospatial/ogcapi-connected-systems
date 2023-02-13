@@ -1,0 +1,19 @@
+{
+  "type": "Feature",
+  "id": "o35a8ufrmayt",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [32.3, -71.36]
+  },
+  "properties": {
+    "uid": "urn:x-saildrone:SD1021:sf:NAV",
+    "featureType": "http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint",
+    "name": "Saildrone 1021 - GPS Antenna",
+    "description": "Sampling point for navigation sensors located at the GPS antenna",
+    "sampledFeature@link": {
+      "href": "https://data.example.org/api/systems/2f35ofoms2l6?f=json",
+      "uid": "urn:x-saildrone:platforms:SD-1021",
+      "type": "application/geo+json"
+    }
+  }
+}

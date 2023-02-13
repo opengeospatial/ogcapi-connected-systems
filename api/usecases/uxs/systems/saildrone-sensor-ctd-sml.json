@@ -1,0 +1,74 @@
+{
+  "type": "PhysicalSystem",
+  "id": "8ewqgtmftd61",
+  "definition": "http://www.w3.org/ns/sosa/Sensor",
+  "uniqueId": "urn:x-saildrone:sensors:568",
+  "name": "CTD Sensor #568",
+  "description": "CTD Sensor mounted on the keel",
+  "typeOf": {
+    "href": "https://data.example.org/api/procedures/ektvyr1o5tbt?f=sml",
+    "uid": "urn:x-saildrone:datasheets:sensors:SBE37SM",
+    "type" : "application/sml+json"
+  },
+  "attachedTo": {
+    "href": "https://data.example.org/api/systems/2f35ofoms2l6?f=sml",
+    "uid": "urn:x-saildrone:platforms:SD-1021",
+    "type" : "application/sml+json"
+  },
+  "identifiers": [
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/SerialNumber",
+      "label": "Serial Number",
+      "value": "0123456879"
+    }
+  ],
+  "position": {
+    "type": "Vector",
+    "label": "Sensor Position",
+    "description": "Position of sensor relative to platform",
+    "referenceFrame": "urn:x-saildrone:platforms:SD-1021#PLATFORM_FRAME",
+    "coordinates": [
+      {
+        "name": "x",
+        "type": "Quantity",
+        "definition": "http://qudt.org/vocab/quantitykind/Distance",
+        "axisID": "X",
+        "label": "X Pos",
+        "uom": { "code": "m" },
+        "value": 0.0
+      },
+      {
+        "name": "y",
+        "type": "Quantity",
+        "definition": "http://qudt.org/vocab/quantitykind/Distance",
+        "axisID": "Y",
+        "label": "Y Pos",
+        "uom": { "code": "m" },
+        "value": -3.1
+      },
+      {
+        "name": "z",
+        "type": "Quantity",
+        "definition": "http://qudt.org/vocab/quantitykind/Distance",
+        "axisID": "Z",
+        "label": "Z Pos",
+        "uom": { "code": "m" },
+        "value": -0.53
+      }
+    ]
+  },
+  "links": [
+    {
+      "rel" : "self",
+      "title" : "this document",
+      "href" : "https://data.example.org/api/systems/8ewqgtmftd61?f=sml",
+      "type" : "application/sml+json"
+    }, {
+      "rel" : "alternate",
+      "title" : "this resource as GeoJSON",
+      "href" : "https://data.example.org/api/systems/8ewqgtmftd61?f=json",
+      "type" : "application/geo+json"
+    }
+  ]
+}
