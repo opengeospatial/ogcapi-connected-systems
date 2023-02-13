@@ -1,0 +1,27 @@
+{
+  "type": "Feature",
+  "id": "tqjswq53bha6",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [38.8067, -104.5571, 1927.0]
+  },
+  "properties": {
+    "featureType": "http://www.w3.org/ns/sosa/Platform",
+    "uid": "urn:x-usgs:sites:384824104332601",
+    "name": "Water Well SC01406428AAC KA6",
+    "description": "Groundwater monitoring location associated with a water well in the Denver Basin aquifer system"
+  },
+  "links": [
+    {
+      "href" : "https://data.example.org/api/systems/tqjswq53bha6?f=json",
+      "rel" : "self",
+      "type" : "application/geo+json",
+      "title" : "this document"
+    }, {
+      "href" : "https://data.example.org/api/systems/tqjswq53bha6?f=sml",
+      "rel" : "alternate",
+      "type" : "application/sml+json",
+      "title" : "this resource as SensorML"
+    }
+  ]
+}

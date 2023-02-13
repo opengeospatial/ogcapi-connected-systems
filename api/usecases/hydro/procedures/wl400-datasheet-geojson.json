@@ -1,0 +1,25 @@
+
+{
+  "type": "Feature",
+  "id": "otxtb9yvouo1",
+  "geometry": null,
+  "properties": {
+    "uid": "urn:x-usgs:datasheets:WL400",
+    "name": "Datasheet - WL400 Water Level Sensor",
+    "description": "Submersible Pressure Transducer For Level & Pressure",
+    "featureType": "http://www.opengis.net/def/x-OGC/ObservingProcedure"
+  },
+  "links": [
+    {
+      "rel" : "self",
+      "title" : "this document",
+      "href" : "https://data.example.org/api/systems/otxtb9yvouo1?f=json",
+      "type" : "application/geo+json"
+    }, {
+      "rel" : "alternate",
+      "title" : "this resource as SensorML",
+      "href" : "https://data.example.org/api/systems/otxtb9yvouo1?f=sml",
+      "type" : "application/sml+json"
+    }
+  ]
+}

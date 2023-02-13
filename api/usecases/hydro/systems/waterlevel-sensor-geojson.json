@@ -1,0 +1,36 @@
+
+{
+  "type": "Feature",
+  "id": "8ewqgtmftd61",
+  "geometry": null,
+  "properties": {
+    "uid": "urn:x-usgs:sensors:4001",
+    "name": "Water Level Sensor #4001",
+    "description": "Water level sensor mounted in ground water well",
+    "featureType": "http://www.w3.org/ns/sosa/Sensor",
+    "assetType": "http://www.opengis.net/def/x-OGC/Equipment",
+    "procedure@link": {
+      "href": "https://data.example.org/api/procedures/otxtb9yvouo1?f=json",
+      "type" : "application/geo+json",
+      "uid": "urn:x-usgs:datasheets:WL400"
+    },
+    "attachedTo@link": {
+      "href": "https://data.example.org/api/systems/tqjswq53bha6?f=json",
+      "type" : "application/geo+json",
+      "uid": "urn:x-usgs:platforms:well:384824104332601"
+    }
+  },
+  "links": [
+    {
+      "rel" : "self",
+      "title" : "this document",
+      "href" : "https://data.example.org/api/systems/8ewqgtmftd61?f=json",
+      "type" : "application/geo+json"
+    }, {
+      "rel" : "alternate",
+      "title" : "this resource as SensorML",
+      "href" : "https://data.example.org/api/systems/8ewqgtmftd61?f=sml",
+      "type" : "application/sml+json"
+    }
+  ]
+}

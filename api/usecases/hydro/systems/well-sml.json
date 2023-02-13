@@ -1,0 +1,131 @@
+{
+  "type": "PhysicalSystem",
+  "id": "tqjswq53bha6",
+  "definition": "http://www.w3.org/ns/sosa/Platform",
+  "uniqueId": "urn:x-usgs:sites:384824104332601",
+  "name": "Water Well SC01406428AAC KA6",
+  "description": "Groundwater monitoring location associated with a water well in the Denver Basin aquifer system",
+  "identifiers": [
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/x-hydro/def/SiteNumber",
+      "label": "Site Number",
+      "value": "384824104332601"
+    },
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/x-hydro/def/SiteName",
+      "label": "Site Name",
+      "value": "SC01406428AAC KA6"
+    }
+  ],
+  "classifiers": [
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/PlatformType",
+      "codeSpace": "http://sensorml.com/ont/x-hydro/def/SiteType",
+      "label": "Site Type",
+      "value": "Well"
+    },
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/x-hydro/def/GeologicalUnit",
+      "label": "Well Unit",
+      "value": "..."
+    },
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/x-hydro/def/FluidBody",
+      "label": "Well Body",
+      "value": "Denver Basin aquifer system (S300DNVRBS)"
+    }
+  ],
+  "contacts": [
+    {
+      "role": "http://sensorml.com/ont/swe/property/Operator",
+      "organisationName": "U.S. Geological Survey"
+    }
+  ],
+  "characteristics": [
+    {
+      "name": "physical_characteristics",
+      "label": "Well Physical Characteristics",
+      "characteristics": [
+        {
+          "name": "wellTotalLength",
+          "type": "Quantity",
+          "definition": "http://sensorml.com/ont/x-hydro/def/WellTotalLength",
+          "label": "Total Length",
+          "uom": {
+            "code": "[ft_i]"
+          },
+          "value": 255.0
+        },
+        {
+          "name": "wellDepth",
+          "type": "Quantity",
+          "definition": "http://sensorml.com/ont/x-hydro/def/WellConstructedDepth",
+          "label": "Constructed Depth",
+          "uom": {
+            "code": "[ft_i]"
+          },
+          "value": 240.0
+        }
+      ]
+    }
+  ],
+  "position": {
+    "type": "Vector",
+    "label": "Site Location",
+    "description": "Site location in NAD83+NAVD88 CRS",
+    "referenceFrame": "http://www.opengis.net/def/crs/EPSG/0/5498",
+    "coordinates": [
+      {
+        "name": "lat",
+        "type": "Quantity",
+        "definition": "http://sensorml.com/ont/swe/property/GeodeticLatitude",
+        "axisID": "Lat",
+        "label": "Geodetic Latitude (NAD83)",
+        "uom": {
+          "code": "deg"
+        },
+        "value": 38.8067
+      },
+      {
+        "name": "lon",
+        "type": "Quantity",
+        "definition": "http://sensorml.com/ont/swe/property/Longitude",
+        "axisID": "Lon",
+        "label": "Longitude (NAD83)",
+        "uom": {
+          "code": "deg"
+        },
+        "value": -104.5571
+      },
+      {
+        "name": "h",
+        "type": "Quantity",
+        "definition": "http://sensorml.com/ont/swe/property/HeightAboveEllipsoid",
+        "axisID": "H",
+        "label": "Ellipsoidal Height (NAVD88)",
+        "uom": {
+          "code": "[ft_i]"
+        },
+        "value": 6319.84
+      }
+    ]
+  },
+  "links": [
+    {
+      "href" : "https://data.example.org/api/systems/tqjswq53bha6?f=sml",
+      "rel" : "self",
+      "type" : "application/sml+json",
+      "title" : "this document"
+    }, {
+      "href" : "https://data.example.org/api/systems/tqjswq53bha6?f=json",
+      "rel" : "alternate",
+      "type" : "application/geo+json",
+      "title" : "this resource as GeoJSON"
+    }
+  ]
+}

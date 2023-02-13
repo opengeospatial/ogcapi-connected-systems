@@ -1,0 +1,164 @@
+{
+  "type": "PhysicalComponent",
+  "id": "otxtb9yvouo1",
+  "definition": "http://www.opengis.net/def/x-OGC/ObservingProcedure",
+  "uniqueId": "urn:x-usgs:datasheets:WL400",
+  "name": "Datasheet - WL400 Water Level Sensor",
+  "description": "Submersible Pressure Transducer For Level & Pressure",
+  "identifiers": [
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/Manufacturer",
+      "label": "Manufacturer Name",
+      "value": "Global Water"
+    },
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/ModelNumber",
+      "label": "Model Number",
+      "value": "WL400"
+    }
+  ],
+  "classifiers": [
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/SensorType",
+      "label": "Sensor Type",
+      "value": "Water Pressure Sensor"
+    }
+  ],
+  "contacts": [
+    {
+      "role": "http://sensorml.com/ont/swe/property/Manufacturer",
+      "organisationName": "Global Water",
+      "contactInfo": {
+        "address": {
+          "deliveryPoint": "11390 Amalgam Way",
+          "city": "Gold River",
+          "administrativeArea": "CA",
+          "postalCode": "95670"
+        },
+        "phone": {
+          "voice": "+1-800-876-1172"
+        }
+      }
+    }
+  ],
+  "capabilities": [
+    {
+      "name": "measurement",
+      "definition": "http://www.w3.org/ns/ssn/systems/SystemCapability",
+      "label": "Measurement Capabilities",
+      "capabilities": [
+        {
+          "name": "range",
+          "type": "QuantityRange",
+          "definition": "http://www.w3.org/ns/ssn/systems/MeasurementRange",
+          "label": "Measurement Range",
+          "uom": {
+            "code": "[ft_i]"
+          },
+          "value": [0.0, 250.0]
+        },
+        {
+          "name": "accuracy",
+          "type": "Quantity",
+          "definition": "http://sensorml.com/ont/swe/property/RelativeAccuracy",
+          "label": "Relative Accuracy",
+          "uom": {
+            "code": "%"
+          },
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "name": "operating",
+      "definition": "http://www.w3.org/ns/ssn/systems/OperatingRange",
+      "label": "Operating Range",
+      "capabilities": [
+        {
+          "name": "temp",
+          "type": "QuantityRange",
+          "definition": "http://qudt.org/vocab/quantitykind/Temperature",
+          "label": "Operating Temperature Range",
+          "uom": {
+            "code": "[degF]"
+          },
+          "value": [-40.0, 185.0]
+        },
+        {
+          "name": "voltage",
+          "type": "QuantityRange",
+          "definition": "http://qudt.org/vocab/quantitykind/Voltage",
+          "label": "Supply Voltage Range",
+          "uom": {
+            "code": "V"
+          },
+          "value": [10.0, 36.0]
+        }
+      ]
+    }
+  ],
+  "characteristics": [
+    {
+      "name": "physical",
+      "definition": "http://www.w3.org/ns/ssn-x/systems/PhysicalCharacteristics",
+      "label": "Physical Characteristics",
+      "characteristics": [
+        {
+          "name": "weight",
+          "type": "Quantity",
+          "definition": "http://qudt.org/vocab/quantitykind/Mass",
+          "label": "Weight",
+          "uom": {
+            "code": "g"
+          },
+          "value": 115.0
+        },
+        {
+          "name": "length",
+          "type": "Quantity",
+          "definition": "http://qudt.org/vocab/quantitykind/Length",
+          "label": "Length",
+          "uom": {
+            "code": "[in_i]"
+          },
+          "value": 5.5
+        },
+        {
+          "name": "diameter",
+          "type": "Quantity",
+          "definition": "http://qudt.org/vocab/quantitykind/Diameter",
+          "label": "Diameter",
+          "uom": {
+            "code": "[in_i]"
+          },
+          "value": 0.8125
+        }
+      ]
+    }
+  ],
+  "documentation": [
+    {
+      "name": "WL400 Datasheet",
+      "linkage": {
+        "href": "https://www.xylem.com/siteassets/brand/global-water/resources/specification/global-water-wl400-spec-sheet.pdf",
+        "type": "application/pdf"
+      }
+    }
+  ],
+  "links": [
+    {
+      "href" : "https://data.example.org/api/procedures/otxtb9yvouo1?f=sml",
+      "rel" : "self",
+      "type" : "application/sml+json",
+      "title" : "this document"
+    }, {
+      "href" : "https://data.example.org/api/procedures/otxtb9yvouo1?f=json",
+      "rel" : "alternate",
+      "type" : "application/geo+json",
+      "title" : "this resource as GeoJSON"
+    }
+  ]
+}

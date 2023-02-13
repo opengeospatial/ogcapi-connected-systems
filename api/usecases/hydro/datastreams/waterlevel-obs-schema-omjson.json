@@ -1,0 +1,11 @@
+{
+  "obsFormat": "application/om+json",
+  "resultSchema": {
+    "type": "Quantity",
+    "definition": "http://sensorml.com/ont/x-hydro/def/WaterLevel",
+    "label": "Water Level",
+    "uom": {
+      "code": "[ft_i]"
+    }
+  }
+}

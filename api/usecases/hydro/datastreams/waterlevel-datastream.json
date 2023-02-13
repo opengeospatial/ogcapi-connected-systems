@@ -1,0 +1,38 @@
+{
+  "id": "5cndsjwx10sa",
+  "name": "Water Level",
+  "system@link": {
+    "href": "https://data.example.org/api/systems/8ewqgtmftd61",
+    "uid": "urn:x-usgs:sensors:4001",
+    "title": "Water Level Sensor #4001",
+    "outputName": "water_level"
+  },
+  "phenomenonTime": [
+    "2020-06-29T14:32:00Z",
+    "2022-06-29T19:37:00Z"
+  ],
+  "resultTime": [
+    "2020-06-29T14:32:00Z",
+    "2012-06-29T19:37:00Z"
+  ],
+  "observedProperties": [
+    {
+      "definition": "http://sensorml.com/ont/x-waterml/def/WaterLevel",
+      "label": "Water Level"
+    }
+  ],
+  "formats": [
+    "application/json"
+  ],
+  "links": [
+    {
+      "rel" : "self",
+      "href" : "https://data.example.org/api/datastreams/5cndsjwx10sa",
+      "type" : "application/json"
+    }, {
+      "rel": "observations",
+      "href": "https://data.example.org/api/datastreams/5cndsjwx10sa/observations",
+      "type" : "application/json"
+    }
+  ]
+}

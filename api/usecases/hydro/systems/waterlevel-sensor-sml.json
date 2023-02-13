@@ -1,0 +1,72 @@
+{
+  "type": "PhysicalSystem",
+  "id": "8ewqgtmftd61",
+  "definition": "http://www.w3.org/ns/sosa/Sensor",
+  "uniqueId": "urn:x-usgs:sensors:4001",
+  "name": "Water Level Sensor 4001",
+  "description": "Water level sensor mounted in ground water well",
+  "typeOf": {
+    "href": "https://data.example.org/api/procedures/otxtb9yvouo1?f=sml",
+    "uid": "urn:x-usgs:datasheets:WL400",
+    "type" : "application/sml+json"
+  },
+  "attachedTo": {
+    "href": "https://data.example.org/api/systems/tqjswq53bha6?f=sml",
+    "type" : "application/sml+json",
+    "uid": "urn:x-usgs:platforms:well:384824104332601"
+  },
+  "identifiers": [
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/SerialNumber",
+      "label": "Serial Number",
+      "value": "0123456879"
+    }
+  ],
+  "contacts": [
+    {
+      "role": "http://sensorml.com/ont/x-swe/property/Owner",
+      "organisationName": "AgriFarm, Inc.",
+      "contactInfo": {
+        "address": {
+          "city": "Peyton",
+          "administrativeArea": "CO",
+          "postalCode": "80831",
+          "country": "USA"
+        },
+        "phone": {
+          "voice": "+1-800-876-1172"
+        }
+      }
+    },
+    {
+      "role": "http://sensorml.com/ont/swe/property/Operator",
+      "organisationName": "U.S. Geological Survey",
+      "contactInfo": {
+        "address": {
+          "deliveryPoint": "12201 Sunrise Valley Dr",
+          "city": "Reston",
+          "administrativeArea": "VA",
+          "postalCode": "20192",
+          "country": "USA"
+        },
+        "phone": {
+          "voice": "+1-888-392-8545"
+        }
+      }
+    }
+  ],
+  "links": [
+    {
+      "rel" : "self",
+      "title" : "this document",
+      "href" : "https://data.example.org/api/systems/8ewqgtmftd61?f=sml",
+      "type" : "application/sml+json"
+    }, {
+      "rel" : "alternate",
+      "title" : "this resource as GeoJSON",
+      "href" : "https://data.example.org/api/systems/8ewqgtmftd61?f=json",
+      "type" : "application/geo+json"
+    }
+  ]
+}
