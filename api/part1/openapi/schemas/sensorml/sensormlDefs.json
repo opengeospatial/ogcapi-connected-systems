@@ -4,6 +4,9 @@
     "DescribedObject": {
       "$ref": "../../../../../sensorml/json_encodings/schemas/describedObject.json"
     },
+    "AbstractProcess": {
+      "$ref": "../../../../../sensorml/json_encodings/schemas/abstractProcess.json"
+    },
     "PhysicalComponent": {
       "$ref": "../../../../../sensorml/json_encodings/schemas/physicalComponent.json"
     },

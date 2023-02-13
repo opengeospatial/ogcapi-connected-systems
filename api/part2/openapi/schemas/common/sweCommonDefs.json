@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "AnyComponent": {
+      "$ref": "../../../../../swecommon/json_encodings/schemas/swe-common_v20_schema_draft.json#/definitions/AnyComponent"
+    }
+  }
+}
