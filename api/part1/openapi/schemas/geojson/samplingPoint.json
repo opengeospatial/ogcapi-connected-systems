@@ -6,7 +6,10 @@
       "type": "object",
       "properties": {
         "geometry": {
-          "$ref": "https://geojson.org/schema/Point.json"
+          "oneOf": [
+            { "$ref": "https://geojson.org/schema/Point.json" },
+            { "type": "null" }
+          ]
         },
         "properties": {
           "type": "object",
