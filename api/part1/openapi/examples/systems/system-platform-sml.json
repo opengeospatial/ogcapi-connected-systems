@@ -1,15 +1,14 @@
 {
   "type": "PhysicalSystem",
-  "id": "F001",
+  "id": "PLT412",
   "definition": "http://www.w3.org/ns/sosa/Platform",
-  "uniqueId": "urn:x-ogc:systems:001",
-  "name": "Outdoor Thermometer 001",
-  "description": "Digital thermometer located on first floor window 1",
+  "uniqueId": "urn:x-ogc:systems:aircraft:101",
+  "name": "Global Hawk 101",
+  "description": "Example UAV platform",
   "typeOf": {
-    "href": "https://data.example.org/procedures/P456/procedure?f=json",
-    "type" : "application/geo+json",
-    "uid": "urn:x-myorg:datasheets:ThermoPro:TP60S:v001",
-    "title": "ThermoPro TP60S"
+    "href": "https://data.example.org/api/procedures/ge4pjqq0hq6y?f=json",
+    "uid": "urn:x-ogc:datasheets:uav:RQ-4",
+    "type" : "application/sml+json"
   },
   "identifiers": [
     {
@@ -21,18 +20,27 @@
   ],
   "contacts": [
     {
-      "role": "http://sensorml.com/ont/swe/roles/Operator",
+      "role": "http://sensorml.com/ont/swe/property/Operator",
       "organisationName": "Field Maintenance Corp."
     }
   ],
   "localReferenceFrames": [
     {
       "label": "Platform Frame",
-      "origin": "Center of mass of the aircraft",
+      "description": "The platform frame is defined as the aircraft principal axes",
+      "origin": "Center of gravity of the aircraft",
       "axis": [
         {
           "name": "x",
-          "description": ""
+          "description": "Longitudinal or roll axis, parallel to the fuselage reference line, directed forward"
+        },
+        {
+          "name": "y",
+          "description": "Transverse or pitch axis, parallel to the libne drawn from wingtop to wingtip, directed to the right"
+        },
+        {
+          "name": "z",
+          "description": "Vertical or yaw axis, perpendicular to the wings and to the fuselage reference line, directed toward the bottom of the aircraft"
         }
       ]
     }
