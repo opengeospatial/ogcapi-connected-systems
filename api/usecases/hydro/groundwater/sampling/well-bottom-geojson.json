@@ -1,0 +1,18 @@
+{
+  "type": "Feature",
+  "id": "fvx8y5jawqgt",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [38.8067, -104.5571, 1833.0]
+  },
+  "properties": {
+    "uid": "urn:x-usgs:sites:384824104332601:sf:well-bottom",
+    "featureType": "http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint",
+    "name": "Bottom Sampling Point",
+    "description": "Sampling point located at the bottom of the screen",
+    "sampledFeature@link": {
+      "href": "https://data.example.org/api/collections/hydro/items/S300DNVRBS",
+      "title": "Denver Basin aquifer system"
+    }
+  }
+}

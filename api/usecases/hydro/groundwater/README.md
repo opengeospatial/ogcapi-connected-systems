@@ -1,6 +1,6 @@
 # Groudwater Well Examples
 
-The following are examples of API resources used to model a groundwater well use case.
+The following are examples of API resources used to model a groundwater monitoring well use case.
 
 
 ## Well Monitoring Site (Platform)
@@ -13,6 +13,11 @@ The following are examples of API resources used to model a groundwater well use
 
 * [GeoJSON](systems/waterlevel-sensor-geojson.json)
 * [SensorML](systems/waterlevel-sensor-sml.json)
+
+
+## Sampling Features
+
+* Well Bottom [GeoJSON](sampling/well-bottom-geojson.json)
 
 
 ## WL400 Sensor Datasheet
