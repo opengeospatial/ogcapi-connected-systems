@@ -11,13 +11,13 @@
     "assetType": "http://www.opengis.net/def/x-OGC/Equipment",
     "procedure@link": {
       "href": "https://data.example.org/api/procedures/otxtb9yvouo1?f=json",
-      "type" : "application/geo+json",
-      "uid": "urn:x-usgs:datasheets:WL400"
+      "uid": "urn:x-usgs:datasheets:WL400",
+      "type" : "application/geo+json"
     },
     "attachedTo@link": {
       "href": "https://data.example.org/api/systems/tqjswq53bha6?f=json",
-      "type" : "application/geo+json",
-      "uid": "urn:x-usgs:platforms:well:384824104332601"
+      "uid": "urn:x-usgs:platforms:well:384824104332601",
+      "type" : "application/geo+json"
     }
   },
   "links": [

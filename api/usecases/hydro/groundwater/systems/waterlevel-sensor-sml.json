@@ -12,8 +12,8 @@
   },
   "attachedTo": {
     "href": "https://data.example.org/api/systems/tqjswq53bha6?f=sml",
-    "type" : "application/sml+json",
-    "uid": "urn:x-usgs:platforms:well:384824104332601"
+    "uid": "urn:x-usgs:platforms:well:384824104332601",
+    "type" : "application/sml+json"
   },
   "identifiers": [
     {
