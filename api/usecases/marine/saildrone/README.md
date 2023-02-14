@@ -1,37 +1,40 @@
-# Unammed Systems (UxS) Examples
+# Saildrone USV Examples
 
-The following are examples of API resources related to Unmanned Vehicles use cases.
+The following are examples of API resources related to [Saildrone](https://www.saildrone.com) use cases.
+
+Saildrone platforms are wind-powered Unmanned Surface Vehicles (USV) that can be deployed for long periods at sea. They can cross oceans in a fully autonomous manner.
 
 
-## Unmanned Surface Vehicle (USV)
+## Platform
 
-These examples are based on a [Saildrone](https://www.saildrone.com) platform.
+* Saildrone Explorer Platform [SensorML](systems/saildrone-platform-SD1021-sml.json)
 
-### Platform
 
-* Saildrone Platform [SensorML](systems/saildrone-platform-SD1021-sml.json)
+## Deployments
 
-### Sensors
+* Atlantic 1021 Mission [SensorML](deployments/saildrone-mission-2131-sml.json)
+
+
+## Sensors
 
 * CTD Sensor [SensorML](systems/saildrone-sensor-ctd-sml.json)
 * Temp/RH Sensor [SensorML](systems/saildrone-sensor-temp-rh-sml.json)
 
-### Datasheets
+
+## Datasheets
 
 * Seabird SBE37SM (CTD) [SensorML](procedures/saildrone-sensor-SBE37SM-sml.json)
 * Rotronic HC2 (Air Temp/RH) [SensorML](procedures/saildrone-sensor-HC2IM402-sml.json)
 
-### Sampling Features
+
+## Sampling Features
 
 * Water Sampling Point [GeoJSON](sampling/saildrone-SD1021-watersf-geojson.json)
 * Atmospheric Sampling Point [GeoJSON](sampling/saildrone-SD1021-atmsf-geojson.json)
 * Nav Sampling Point (GPS Antenna) [GeoJSON](sampling/saildrone-SD1021-navsf-geojson.json)
 
-### Deployments
 
-* Atlantic 1021 Mission [SensorML](deployments/saildrone-mission-2131-sml.json)
-
-### Datastreams & Observations
+## Datastreams & Observations
 
 **Water Temp/Salinity** 
 * CTD Datastream [JSON](datastreams/saildrone-ctd-datastream.json)
