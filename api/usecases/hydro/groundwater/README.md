@@ -1,6 +1,6 @@
-# Hydrology Examples
+# Groudwater Well Examples
 
-The following are examples of API resources related to hydrology use cases.
+The following are examples of API resources used to model a groundwater well use case.
 
 
 ## Well Monitoring Site (Platform)
@@ -25,8 +25,4 @@ The following are examples of API resources related to hydrology use cases.
 
 * Datastream Description [JSON](datastreams/waterlevel-datastream.json)
 * Observation Schema [JSON](datastreams/waterlevel-obs-schema-omjson.json)
-
-
-## Water Level Observations
-
-* [OM-JSON](observations/waterlevel-obs.json)
+* Observation [OM-JSON](observations/waterlevel-obs.json)

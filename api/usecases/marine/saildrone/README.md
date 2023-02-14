@@ -1,6 +1,6 @@
 # Saildrone USV Examples
 
-The following are examples of API resources related to [Saildrone](https://www.saildrone.com) use cases.
+The following are examples of API resources used to model the [Saildrone](https://www.saildrone.com) use case.
 
 Saildrone platforms are wind-powered Unmanned Surface Vehicles (USV) that can be deployed for long periods at sea. They can cross oceans in a fully autonomous manner.
 
