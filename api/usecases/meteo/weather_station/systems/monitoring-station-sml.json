@@ -1,0 +1,133 @@
+{
+  "type": "PhysicalSystem",
+  "id": "lvghdl3y18ip",
+  "definition": "http://www.w3.org/ns/sosa/Platform",
+  "uniqueId": "urn:x-meteofrance:stations:31069001",
+  "name": "Toulouse-Blagnac Weather Station",
+  "description": "Weather monitoring station located at Toulouse Blagnac Airport",
+  "identifiers": [
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/x-swe/property/SiteNumber",
+      "label": "Site Number",
+      "value": "31069001"
+    },
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/x-swe/property/SiteName",
+      "label": "Site Name",
+      "value": "Toulouse-Blagnac Airport"
+    },
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/x-swe/property/Manufacturer",
+      "label": "Manufacturer Name",
+      "value": "Sterela"
+    },
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/x-swe/property/ModelNumber",
+      "label": "Model Number",
+      "value": "OPALE UMB"
+    }
+  ],
+  "classifiers": [
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/PlatformType",
+      "codeSpace": "http://sensorml.com/ont/x-meteo/def/SiteType",
+      "label": "Site Type",
+      "value": "Surface Monitoring Station"
+    }
+  ],
+  "validTime": [
+    "2009-05-29T00:00:00Z",
+    "now"
+  ],
+  "contacts": [
+    {
+      "role": "http://sensorml.com/ont/swe/property/Manufacturer",
+      "organisationName": "Sterela",
+      "contactInfo": {
+        "onlineResource": "http://www.sterela-meteo.fr",
+        "address": {
+          "deliveryPoint": "5 Impasse Pédenau",
+          "city": "Pins-Justaret",
+          "postalCode": "31860",
+          "country": "France"
+        },
+        "phone": {
+          "voice": "+33 5 62 11 78 78",
+          "facsimile": "+33 5 61 76 21 21"
+        }
+      }
+    },
+    {
+      "role": "http://sensorml.com/ont/swe/property/Operator",
+      "organisationName": "Meteo France",
+      "contactInfo": {
+        "onlineResource": "https://meteofrance.com",
+        "address": {
+          "deliveryPoint": "42 av Gaspard Coriolis",
+          "city": "Toulouse",
+          "postalCode": "31000",
+          "country": "France"
+        }
+      }
+    }
+  ],
+  "position": {
+    "type": "Vector",
+    "label": "Site Location",
+    "description": "Site location in WGS84 CRS",
+    "referenceFrame": "http://www.opengis.net/def/crs/EPSG/0/4979",
+    "coordinates": [
+      {
+        "name": "lat",
+        "type": "Quantity",
+        "definition": "http://sensorml.com/ont/swe/property/GeodeticLatitude",
+        "axisID": "Lat",
+        "label": "Geodetic Latitude",
+        "uom": {
+          "code": "deg"
+        },
+        "value": 43.6211
+      },
+      {
+        "name": "lon",
+        "type": "Quantity",
+        "definition": "http://sensorml.com/ont/swe/property/Longitude",
+        "axisID": "Lon",
+        "label": "Longitude",
+        "uom": {
+          "code": "deg"
+        },
+        "value": 1.3789
+      },
+      {
+        "name": "h",
+        "type": "Quantity",
+        "definition": "http://sensorml.com/ont/swe/property/HeightAboveEllipsoid",
+        "axisID": "H",
+        "label": "Ellipsoidal Height",
+        "uom": {
+          "code": "m"
+        },
+        "value": 151.0
+      }
+    ]
+  },
+  "links": [
+    {
+      "href" : "https://data.example.org/api/systems/lvghdl3y18ip?f=sml",
+      "rel" : "self",
+      "type" : "application/sml+json",
+      "title" : "this document"
+    }, {
+      "href" : "https://data.example.org/api/systems/lvghdl3y18ip?f=json",
+      "rel" : "alternate",
+      "type" : "application/geo+json",
+      "title" : "this resource as GeoJSON"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "obsFormat": "application/om+json",
+  "resultSchema": {
+    "type": "DataRecord",
+    "label": "Weather Parameters",
+    "description": "Weather parameters measured by a static weather station",
+    "fields": [
+      {
+        "name": "temp",
+        "type": "Quantity",
+        "definition": "http://mmisw.org/ont/cf/parameter/air_temperature",
+        "label": "Air Temperature",
+        "description": "The bulk temperature of air, measured 2 m above the ground, under shelter",
+        "uom": {
+          "code": "Cel"
+        }
+      },
+      {
+        "name": "pressure",
+        "type": "Quantity",
+        "definition": "http://mmisw.org/ont/cf/parameter/air_pressure",
+        "label": "Atmospheric Pressure",
+        "description": "Barometric pressure reading",
+        "uom": {
+          "code": "hPa"
+        }
+      },
+      {
+        "name": "wind_speed",
+        "type": "Quantity",
+        "definition": "http://mmisw.org/ont/cf/parameter/wind_speed",
+        "label": "Wind Speed",
+        "description": "The magnitude of the wind speed vector",
+        "uom": {
+          "code": "m/s"
+        }
+      },
+      {
+        "name": "wind_dir",
+        "type": "Quantity",
+        "definition": "http://mmisw.org/ont/cf/parameter/wind_from_direction",
+        "referenceFrame": "http://www.opengis.net/def/cs/OGC/0/NED",
+        "axisID": "z",
+        "label": "Wind Direction",
+        "description": "The direction the wind is coming from, measured clockwise from north",
+        "uom": {
+          "code": "deg"
+        }
+      }
+    ]
+  }
+}

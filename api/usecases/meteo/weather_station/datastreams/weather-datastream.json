@@ -1,0 +1,46 @@
+{
+  "id": "cevcemyzasw8",
+  "name": "Weather Observations",
+  "description": "Weather observations of Saildrone 1021 along its trajectory",
+  "system@link": {
+    "href": "https://data.example.org/api/systems/lvghdl3y18ip?f=json",
+    "uid": "urn:x-meteofrance:stations:31069001",
+    "outputName": "weather_data"
+  },
+  "validTime": [
+    "2009-05-29T00:00:00Z",
+    "now"
+  ],
+  "phenomenonTime": [
+    "2009-05-29T00:00:00Z",
+    "2023-02-14T10:00:00Z"
+  ],
+  "resultTime": [
+    "2009-05-29T00:00:00Z",
+    "2023-02-14T10:00:00Z"
+  ],
+  "observedProperties": [
+    {
+      "definition": "http://mmisw.org/ont/cf/parameter/air_temperature",
+      "label": "Air Temperature"
+    },
+    {
+      "definition": "http://mmisw.org/ont/cf/parameter/air_pressure",
+      "label": "Atmospheric Pressure"
+    },
+    {
+      "definition": "http://mmisw.org/ont/cf/parameter/wind_speed",
+      "label": "Wind Speed"
+    },
+    {
+      "definition": "http://mmisw.org/ont/cf/parameter/wind_from_direction",
+      "label": "Wind Direction"
+    }
+  ],
+  "formats": [
+    "application/om+json",
+    "application/swe+json",
+    "application/swe+csv",
+    "application/swe+binary"
+  ]
+}

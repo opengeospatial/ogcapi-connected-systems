@@ -1,0 +1,13 @@
+{
+  "id": "1h6pmb3ntfmogfppknk9aefpvs",
+  "datastream@id": "cevcemyzasw8",
+  "foi@id": "8rtduhj5kawo",
+  "phenomenonTime": "2022-02-21T20:00:00Z",
+  "resultTime": "2022-02-21T20:00:00Z",
+  "result": {
+    "temp": 28.63,
+    "pressure": 1013.93,
+    "wind_speed": 7.01,
+    "wind_dir": 84.9
+  }
+}

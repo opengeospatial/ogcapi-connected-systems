@@ -1,0 +1,18 @@
+{
+  "type": "Feature",
+  "id": "8rtduhj5kawo",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [43.6211, 1.3789, 152.0]
+  },
+  "properties": {
+    "uid": "urn:x-meteofrance:stations:31069001:sf:default",
+    "featureType": "http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint",
+    "name": "Station Sampling Point",
+    "description": "Sampling point at the location of the station, 2m above ground",
+    "sampledFeature@link": {
+      "href": "http://sweetontology.net/realm/Atmosphere",
+      "title": "Ambient Air"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "Feature",
+  "id": "rf60laldy3z1",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [43.6211, 1.37891, 154.5]
+  },
+  "properties": {
+    "uid": "urn:x-meteofrance:stations:31069001:sf:wind",
+    "featureType": "http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint",
+    "name": "Wind Sampling Point",
+    "description": "Sampling point located at the top of the pole",
+    "sampledFeature@link": {
+      "href": "http://sweetontology.net/realm/Atmosphere",
+      "title": "Ambient Air"
+    }
+  }
+}

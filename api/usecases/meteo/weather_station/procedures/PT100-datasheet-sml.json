@@ -1,0 +1,156 @@
+{
+  "type": "PhysicalComponent",
+  "id": "uu0aqetxvfcz",
+  "definition": "http://www.opengis.net/def/x-OGC/ObservingProcedure",
+  "uniqueId": "urn:x-meteofrance:datasheets:PT100-AR003642",
+  "name": "Datasheet - Resistance thermometer PT100",
+  "description": "PT100 Temperature Probe, 3 wires, Class B, IP67",
+  "identifiers": [
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/Manufacturer",
+      "label": "Manufacturer Name",
+      "value": "Guilcor Sensors"
+    },
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/ModelNumber",
+      "label": "Model Number",
+      "value": "AR003642"
+    }
+  ],
+  "classifiers": [
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/SensorType",
+      "label": "Sensor Type",
+      "value": "Thermometer"
+    }
+  ],
+  "contacts": [
+    {
+      "role": "http://sensorml.com/ont/swe/property/Manufacturer",
+      "organisationName": "Guilcor Sensors",
+      "contactInfo": {
+        "onlineResource": "https://www.guilcor.com",
+        "address": {
+          "deliveryPoint": "Route de Carolles",
+          "city": "Sartilly",
+          "postalCode": "50530",
+          "country": "France"
+        },
+        "phone": {
+          "voice": "+33 2 33 61 16 70"
+        }
+      }
+    }
+  ],
+  "capabilities": [
+    {
+      "name": "measurement",
+      "definition": "http://www.w3.org/ns/ssn/systems/SystemCapability",
+      "label": "Measurement Capabilities",
+      "capabilities": [
+        {
+          "name": "range",
+          "type": "QuantityRange",
+          "definition": "http://www.w3.org/ns/ssn/systems/MeasurementRange",
+          "label": "Measurement Range",
+          "uom": {
+            "code": "Cel"
+          },
+          "value": [-20.0, 105.0]
+        },
+        {
+          "name": "accuracy",
+          "type": "Quantity",
+          "definition": "http://sensorml.com/ont/swe/property/AbsoluteAccuracy",
+          "label": "Absolute Accuracy",
+          "uom": {
+            "code": "Cel"
+          },
+          "value": 0.1
+        }
+      ]
+    }
+  ],
+  "characteristics": [
+    {
+      "name": "physical",
+      "definition": "http://www.w3.org/ns/ssn-x/systems/PhysicalCharacteristics",
+      "label": "Physical Characteristics",
+      "characteristics": [
+        {
+          "name": "weight",
+          "type": "Quantity",
+          "definition": "http://qudt.org/vocab/quantitykind/Mass",
+          "label": "Weight",
+          "uom": {
+            "code": "g"
+          },
+          "value": 29.3
+        },
+        {
+          "name": "length",
+          "type": "Quantity",
+          "definition": "http://qudt.org/vocab/quantitykind/Length",
+          "label": "Length",
+          "uom": {
+            "code": "mm"
+          },
+          "value": 50.0
+        },
+        {
+          "name": "diameter",
+          "type": "Quantity",
+          "definition": "http://qudt.org/vocab/quantitykind/Diameter",
+          "label": "Diameter",
+          "uom": {
+            "code": "mm"
+          },
+          "value": 6.0
+        },
+        {
+          "name": "material",
+          "type": "Category",
+          "definition": "http://sensorml.com/ont/swe/property/Material",
+          "label": "Casing Material",
+          "description": "Protective tube material",
+          "value": "Stainless Steel AISI 321"
+        },
+        {
+          "name": "cable_length",
+          "type": "Quantity",
+          "definition": "http://qudt.org/vocab/quantitykind/Length",
+          "label": "Cable Length",
+          "uom": {
+            "code": "mm"
+          },
+          "value": 2000.0
+        }
+      ]
+    }
+  ],
+  "documentation": [
+    {
+      "name": "Product Webpage",
+      "linkage": {
+        "href": "https://www.guilcor.com/sonde-pt100/2619-sonde-pt100-3-fils-classe-b-longueur-2000mm-ip67.html",
+        "type": "text/html"
+      }
+    }
+  ],
+  "links": [
+    {
+      "href" : "https://data.example.org/api/procedures/uu0aqetxvfcz?f=sml",
+      "rel" : "self",
+      "type" : "application/sml+json",
+      "title" : "this document"
+    }, {
+      "href" : "https://data.example.org/api/procedures/uu0aqetxvfcz?f=json",
+      "rel" : "alternate",
+      "type" : "application/geo+json",
+      "title" : "this resource as GeoJSON"
+    }
+  ]
+}
