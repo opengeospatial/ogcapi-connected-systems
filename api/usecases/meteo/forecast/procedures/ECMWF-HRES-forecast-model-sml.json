@@ -1,0 +1,58 @@
+{
+  "type": "AggregateProcess",
+  "id": "6ypg3ed8osbj",
+  "definition": "http://www.opengis.net/def/x-OGC/ObservingProcedure",
+  "uniqueId": "urn:x-ecmwf:models:HRES",
+  "name": "ECMWF High Resolution Forecast Model (HRES)",
+  "description": "Numerical weather prediction (NWP) model based on ECMWF Integrated Forecasting System (IFS)",
+  "keywords": [ "weather", "forecast", "europe" ],
+  "classifiers": [
+    {
+      "type": "Term",
+      "definition": "http://sensorml.com/ont/swe/property/IntendedApplication",
+      "label": "Application",
+      "value": "Weather"
+    }
+  ],
+  "contacts": [
+    {
+      "role": "http://sensorml.com/ont/x-swe/property/Developer",
+      "organisationName": "European Centre for Medium-Range Weather Forecasts",
+      "contactInfo": {
+        "onlineResource": "https://www.ecmwf.int",
+        "address": {
+          "deliveryPoint": "Shinfield Park",
+          "city": "Reading",
+          "postalCode": "RG2 9AX",
+          "country": "United Kingdom"
+        },
+        "phone": {
+          "voice": "+44 118 949 9000",
+          "facsimile": "+44 118 986 9450"
+        }
+      }
+    }
+  ],
+  "documentation": [
+    {
+      "name": "Forecast User Guide (web version)",
+      "linkage": {
+        "href": "https://confluence.ecmwf.int/display/FUG/HRES+-+High-Resolution+Forecast",
+        "type": "text/html"
+      }
+    }
+  ],
+  "links": [
+    {
+      "href" : "https://data.example.org/api/procedures/6ypg3ed8osbj?f=sml",
+      "rel" : "self",
+      "type" : "application/sml+json",
+      "title" : "this document"
+    }, {
+      "href" : "https://data.example.org/api/procedures/6ypg3ed8osbj?f=json",
+      "rel" : "alternate",
+      "type" : "application/geo+json",
+      "title" : "this resource as GeoJSON"
+    }
+  ]
+}

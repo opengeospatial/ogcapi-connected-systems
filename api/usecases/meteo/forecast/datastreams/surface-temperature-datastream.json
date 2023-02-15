@@ -1,0 +1,30 @@
+{
+  "id": "ihl24mr4unxu",
+  "name": "Surface Temperature Output (02/15 06:00 Run)",
+  "description": "Global coverage of forecasted surface temperatures. This parameter is the temperature of air at 2m above the surface of land, sea or in-land waters.",
+  "system@link": {
+    "href": "https://data.example.org/api/systems/ff998550fmfm?f=json",
+    "uid": "urn:x-ecmwf:forecasts:HRES"
+  },
+  "validTime": [
+    "2023-02-15T06:00:00Z",
+    "2023-02-15T11:59:59Z"
+  ],
+  "phenomenonTime": [
+    "2023-02-15T06:00:00Z",
+    "2023-02-25T00:00:00Z"
+  ],
+  "resultTime": [
+    "2023-02-15T06:00:00Z",
+    "2023-02-15T06:00:00Z"
+  ],
+  "observedProperties": [
+    {
+      "definition": "http://mmisw.org/ont/cf/parameter/air_temperature",
+      "label": "Air Temperature"
+    }
+  ],
+  "formats": [
+    "application/om+json"
+  ]
+}

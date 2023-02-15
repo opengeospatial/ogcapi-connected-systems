@@ -1,0 +1,24 @@
+{
+  "type": "Feature",
+  "id": "k1svjipaapo3",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [[
+      [-180,-90],
+      [-180,90],
+      [180,90],
+      [180,-90],
+      [-180,-90]
+    ]]
+  },
+  "properties": {
+    "uid": "urn:x-ecmwf:features:earth-surface",
+    "featureType": "http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingSurface",
+    "name": "Earth Surface",
+    "description": "Sampling geometry covering the entire surface of the earth",
+    "sampledFeature@link": {
+      "href": "http://sweetontology.net/realm/Atmosphere",
+      "title": "Earth Atmosphere"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "obsFormat": "application/om+json",
+  "externalResult": "true",
+  "resultSchema": {
+    "type": "DataArray",
+    "label": "Surface Pressure Coverage",
+    "description": "Surface pressure coverage on a global lat/lon grid",
+    "elementCount": {
+      "type": "Count",
+      "definition": "http://sensorml.com/ont/swe/property/GridWidth",
+      "label": "Grid Width",
+      "value": 3600
+    },
+    "elementType": {
+      "name": "row",
+      "type": "DataArray",
+      "label": "Sample Row",
+      "elementCount": {
+        "type": "Count",
+        "definition": "http://sensorml.com/ont/swe/property/GridHeight",
+        "label": "Grid Height",
+        "value": 1800
+      },
+      "elementType": {
+        "name": "cell",
+        "type": "Quantity",
+        "definition": "http://mmisw.org/ont/cf/parameter/surface_air_pressure",
+        "label": "Atmospheric Pressure",
+        "description": "Air pressure at the surface",
+        "uom": {
+          "code": "Pa"
+        }
+      }
+    }
+  }
+}

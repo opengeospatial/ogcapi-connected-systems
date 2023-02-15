@@ -1,0 +1,84 @@
+{
+  "type": "SimpleProcess",
+  "id": "ff998550fmfm",
+  "definition": "http://www.w3.org/ns/sosa/Sensor",
+  "uniqueId": "urn:x-ecmwf:forecasts:HRES",
+  "name": "ECMWF High Resolution Forecast (HRES)",
+  "description": "HRES is a global, high-resolution, medium-range, weather forecast",
+  "typeOf": {
+    "href": "https://data.example.org/api/procedures/6ypg3ed8osbj?f=sml",
+    "uid": "urn:x-ecmwf:models:HRES",
+    "type" : "application/sml+json"
+  },
+  "capabilities": [
+    {
+      "name": "forecast",
+      "definition": "http://www.w3.org/ns/ssn/systems/SystemCapability",
+      "label": "Forecast Capabilities",
+      "capabilities": [
+        {
+          "name": "run_period",
+          "type": "Quantity",
+          "definition": "http://sensorml.com/ont/x-swe/property/ForecastRunPeriod",
+          "label": "Run Period",
+          "description": "Time between two model runs",
+          "uom": {
+            "code": "h"
+          },
+          "value": 6.0
+        },
+        {
+          "name": "forecast_horizon",
+          "type": "Quantity",
+          "definition": "http://sensorml.com/ont/x-swe/property/ForecastTimeHorizon",
+          "label": "Temporal Horizon",
+          "uom": {
+            "code": "d"
+          },
+          "value": 10.0
+        },
+        {
+          "name": "forecast_time_step",
+          "type": "Quantity",
+          "definition": "http://sensorml.com/ont/x-swe/property/ForecastTimePeriod",
+          "label": "Forecast Period",
+          "description": "Time between forecasted time steps",
+          "uom": {
+            "code": "h"
+          },
+          "value": 1.0
+        },
+        {
+          "name": "horizontal_resolution",
+          "type": "Quantity",
+          "definition": "http://sensorml.com/ont/x-swe/property/SpatialResolution",
+          "label": "Horizontal Resolution",
+          "uom": {
+            "code": "km"
+          },
+          "value": 9.0
+        },
+        {
+          "name": "vertical_levels",
+          "type": "Count",
+          "definition": "http://sensorml.com/ont/x-meteo/def/ForecastVerticalLevels",
+          "label": "Vertical Levels",
+          "value": 137
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "rel" : "self",
+      "title" : "this document",
+      "href" : "https://data.example.org/api/systems/ff998550fmfm?f=sml",
+      "type" : "application/sml+json"
+    }, {
+      "rel" : "alternate",
+      "title" : "this resource as GeoJSON",
+      "href" : "https://data.example.org/api/systems/ff998550fmfm?f=json",
+      "type" : "application/geo+json"
+    }
+  ]
+}

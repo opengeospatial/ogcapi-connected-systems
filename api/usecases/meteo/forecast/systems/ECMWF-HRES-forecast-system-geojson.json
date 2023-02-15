@@ -1,0 +1,30 @@
+{
+  "type": "Feature",
+  "id": "ff998550fmfm",
+  "geometry": null,
+  "properties": {
+    "featureType": "http://www.w3.org/ns/sosa/Sensor",
+    "assetType": "http://www.opengis.net/def/x-OGC/TBD/Simulation",
+    "uid": "urn:x-ecmwf:forecasts:HRES",
+    "name": "ECMWF High Resolution Forecast (HRES)",
+    "description": "HRES is a global, high-resolution, medium-range, weather forecast",
+    "procedure@link": {
+      "href": "https://data.example.org/api/procedures/6ypg3ed8osbj?f=json",
+      "uid": "urn:x-ecmwf:models:HRES",
+      "type" : "application/geo+json"
+    }
+  },
+  "links": [
+    {
+      "href" : "https://data.example.org/api/systems/ff998550fmfm?f=json",
+      "rel" : "self",
+      "type" : "application/geo+json",
+      "title" : "this document"
+    }, {
+      "href" : "https://data.example.org/api/systems/ff998550fmfm?f=sml",
+      "rel" : "alternate",
+      "type" : "application/sml+json",
+      "title" : "this resource as SensorML"
+    }
+  ]
+}
