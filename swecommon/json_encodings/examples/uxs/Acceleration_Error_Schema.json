@@ -1,0 +1,40 @@
+{
+  "$schema": "../../schemas/swe-common_v20_schema_draft.json",
+  "type": "Vector",
+  "label": "Platform Acceleration Error",
+  "definition": "http://qudt.org/vocab/quantitykind/LinearAcceleration",
+  "objectDef": "http://www.w3.org/ns/sosa/Platform",
+  "referenceFrame": "http://www.opengis.net/def/cs/OGC/0/NED",
+  "coordinates": [
+    {
+      "name": "accuracy_n",
+      "type": "Quantity",
+      "definition": "http://qudt.org/vocab/quantitykind/LinearAcceleration",
+      "statistic": "http://sensorml.com/ont/swe/x-stat/StandardDeviation",
+      "axisID": "X",
+      "label": "North Acceleration Error",
+      "description": "North component of acceleration error",
+      "uom": { "code": "m/s2" }
+    },
+    {
+      "name": "accuracy_e",
+      "type": "Quantity",
+      "definition": "http://qudt.org/vocab/quantitykind/LinearAcceleration",
+      "statistic": "http://sensorml.com/ont/swe/x-stat/StandardDeviation",
+      "axisID": "Y",
+      "label": "East Acceleration Error",
+      "description": "East component of acceleration error",
+      "uom": { "code": "m/s2" }
+    },
+    {
+      "name": "accuracy_d",
+      "type": "Quantity",
+      "definition": "http://qudt.org/vocab/quantitykind/LinearAcceleration",
+      "statistic": "http://sensorml.com/ont/swe/x-stat/StandardDeviation",
+      "axisID": "Z",
+      "label": "Down Acceleration Error",
+      "description": "Down component of acceleration error",
+      "uom": { "code": "m/s2" }
+    }
+  ]
+}

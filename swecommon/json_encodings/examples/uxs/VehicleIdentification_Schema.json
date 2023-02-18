@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/swe-common_v20_schema_draft.json",
+  "type": "DataRecord",
+  "label": "Vehicle Identification",
+  "fields": [
+    {
+      "name": "vehicle_id",
+      "type": "Text",
+      "definition": "http://sensorml.com/ont/swe/property/Identifier",
+      "objectDef": "http://www.w3.org/ns/sosa/Platform",
+      "label": "Vehicle Identifier"
+    },
+    {
+      "name": "vehicle_name",
+      "type": "Text",
+      "definition": "http://sensorml.com/ont/swe/property/ShortName",
+      "objectDef": "http://www.w3.org/ns/sosa/Platform",
+      "label": "Vehicle Name"
+    },
+    {
+      "name": "vehicle_model",
+      "type": "Text",
+      "definition": "http://sensorml.com/ont/swe/property/ModelNumber",
+      "objectDef": "http://www.w3.org/ns/sosa/Platform",
+      "label": "Vehicle Model"
+    },
+    {
+      "name": "vehicle_make",
+      "type": "Text",
+      "definition": "http://sensorml.com/ont/swe/property/Manufacturer",
+      "objectDef": "http://www.w3.org/ns/sosa/Platform",
+      "label": "Vehicle Make"
+    }
+  ]
+}

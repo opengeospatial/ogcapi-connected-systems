@@ -1,0 +1,11 @@
+{
+  "$schema": "../../schemas/swe-common_v20_schema_draft.json",
+  "type": "Quantity",
+  "definition": "http://sensorml.com/ont/swe/property/TrueHeading",
+  "objectDef": "http://www.w3.org/ns/sosa/Platform",
+  "referenceFrame": "http://www.opengis.net/def/cs/OGC/0/NED",
+  "axisID": "Z",
+  "label": "Platform Heading",
+  "description": "Heading from true north, measured clockwise",
+  "uom": { "code": "deg" }
+}
