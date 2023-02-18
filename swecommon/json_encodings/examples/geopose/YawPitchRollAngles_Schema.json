@@ -1,4 +1,5 @@
 {
+  "$schema": "../../schemas/swe-common_v20_schema_draft.json",
   "type": "Vector",
   "label": "Yaw Pitch Roll Angles",
   "description": "Euler angles with order of rotation yaw/pitch/roll in rotating frame",

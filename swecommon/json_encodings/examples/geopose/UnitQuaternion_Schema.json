@@ -1,4 +1,5 @@
 {
+  "$schema": "../../schemas/swe-common_v20_schema_draft.json",
   "type": "Vector",
   "label": "Unit Quaternion",
   "description": "Unit quaternion giving orientation of inner frame relative to ENU local reference frame",
