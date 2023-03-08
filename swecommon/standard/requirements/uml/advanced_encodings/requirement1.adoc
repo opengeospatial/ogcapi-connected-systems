@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/uml-advanced-encodings/package-fully-implemented
+
+The encoding or software shall correctly implement all classes defined in the “Advanced Encodings” UML package.
+====

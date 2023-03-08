@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/core/boolean-rep-valid
+
+A boolean representation shall at least consist of a boolean value.
+====

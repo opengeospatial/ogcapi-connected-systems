@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/uml-block-components/matrix-element-type-valid
+
+The “elementType” attribute of an instance of the “Matrix” class can only be an instance of “Matrix” or of the classes listed in the “AnyNumerical” union.
+====

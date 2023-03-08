@@ -1,0 +1,15 @@
+[abstract_test]
+.A NIL value maps a reserved value to a reason
+====
+[%metadata]
+identifier:: /conf/core/nil-reasons-defined
+
+target:: /req/core/nil-reasons-defined
+
+test-purpose:: Verify that the target implementation allows providing a reason along with each NIL (reserved) value.
+
+[.component,class=test method]
+=====
+Inspect the target implementation.
+=====
+====

@@ -1,0 +1,53 @@
+[[uml_advanced_encodings]]
+=== Requirements Class: Advanced Encodings Package
+
+include::../requirements/uml/advanced_encodings/requirements_class.adoc[]
+
+This package defines an additional encoding method for packaging sensor data as raw or base 64 binary blocks. When this package is implemented, the binary encoding method is usable, as any other encoding method, within the “DataArray” and “DataStream” classes.
+
+include::../requirements/uml/advanced_encodings/requirement1.adoc[]
+
+
+[[uml_binaryencoding_class]]
+==== BinaryEncoding Class
+
+The “BinaryEncoding” class defines a method that allows encoding complex structured data using primitive data types encoded directly at the byte level, in the same way that they are usually represented in memory.
+
+The binary encoding method can lead to very compact streams that can be optimized for efficient parsing and fast random access. However this comes with the lack of human readability of the data and sometimes lack of compatibility with other software (i.e. software that is not SWE Common enabled).
+
+More information is needed to fully define a binary encoding, so the model is more complex than the other encodings. It is shown below:
+
+.BinaryEncoding Class
+image::figures/fig7.35.png[]
+
+The main class “BinaryEncoding” specifies overall characteristics of the encoded byte stream such as the byte order (big endian or little endian) and the byte encoding (raw or base64). The two corresponding attributes, respectively “byteOrder” and “byteEncoding” are mandatory. Base64 encoding is usually chosen to insert binary content within an XML document.
+
+The “byteLength” attribute is optional and can be used to specify the overall length of the encoded data as a total number of bytes. This should be indicated whenever possible if the data size is known in advance as it can be useful for efficient memory allocation.
+
+The “BinaryEncoding” class also has several “member” attributes that contain detailed information about parts of the data stream. This attribute can take a choice of instance of two classes: “Component” or “Block”.
+
+The “Component” class is used to specify binary encoding details of a given scalar component in the stream. The following information can be provided for each scalar field:
+
+- The “ref” attribute allows identifying the data component in the dataset structure for which we’re specifying the encoding parameters. Soft-typed property names are used to uniquely identify a given component in the tree.
+
+- The “dataType” attribute allows selecting a data type among commonly accepted ones such as ‘byte’, ‘short’, ‘int’, ‘long’, ‘double’, ‘float’, ‘string’, etc… 
+
+- The “byteLength” or “bitLength” attributes are mutually exclusive and used to further specify the length of the data type in the case where it is not a standard length (i.e. to encode integer numbers on more than 8 bytes or less than 8 bits for instance).
+
+- The “significantBits” can be used to signal that only some of the bits of the data type are actually used to carry the value (i.e. a value may be encoded as a byte but only use 4 bits to encode a value between 0 and 15). This is mostly informational.
+
+- The “encryption” attribute can be used to select the method with which the value is encrypted before being written to the stream.
+
+The “Block” class is used to specify binary encoding details of a given aggregate component representing a block of values in the data stream. This is used either to specify padding before and/or after a block of data or to enable compression or encryption of all or part of a dataset.
+
+- The “ref” attribute allows identifying the data component in the dataset structure for which we’re specifying the encoding parameters. Soft-typed property names are used to uniquely identify a given component in the tree.
+
+- The optional “byteLength” attribute allows indicating the overall length of the encoded block to facilitate memory allocation.
+
+- The “paddingBytes-before” and “paddingBytes-after” are used to specify the number of empty bytes (i.e. usually 0 bytes) that are inserted in the stream respectively before and after data for the referenced component. This is sometimes used to align data on N-bytes block for faster access.
+
+- The “encryption” attribute identifies the encryption method that is used to encrypt the block of data before it is inserted in the stream.
+
+- The “compression” attribute identifies the compression method that is used to compress the block of data before it is inserted in the stream.
+
+This standard does not define any concrete encryption and compression methods, so that software implementations of this requirement class are not required to support any value in the “encryption” and “compression” attributes of the “Component” and “Block” classes. Extensions of this standard that define binary encryption and compression methods shall describe how the encrypted or compressed data is inserted in the SWE Common data stream.

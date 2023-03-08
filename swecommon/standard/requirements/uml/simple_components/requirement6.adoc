@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/uml-simple-components/axis-defined
+
+The “axisID” attribute shall be specified by all instances of concrete classes derived from “AbstractSimpleComponent” and representing a property projected along a spatial axis.
+====

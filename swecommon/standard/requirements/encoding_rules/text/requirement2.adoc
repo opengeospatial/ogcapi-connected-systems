@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/text-encodings-rules/separators-valid
+
+Block and token separators used in the “TextEncoding” method shall be chosen as a sequence of characters that never occur in the data values themselves.
+====

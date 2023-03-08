@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/uml-record-components/vector-local-frame-valid
+
+The “localFrame” attribute of an instance of the “Vector” class shall have a different value than the “referenceFrame” attribute.
+====

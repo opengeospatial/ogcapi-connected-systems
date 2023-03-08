@@ -1,0 +1,10 @@
+[requirement,model=ogc]
+.General Encoding Rules
+====
+[%metadata]
+type:: class
+identifier:: /req/general-encoding-rules
+subject:: Encoded Values Instance
+inherit:: /req/core
+inherit:: /req/uml-simple-encodings
+====

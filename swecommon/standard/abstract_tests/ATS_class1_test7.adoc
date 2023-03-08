@@ -1,0 +1,15 @@
+[abstract_test]
+.A semantic definition of each property shall be provided
+====
+[%metadata]
+identifier:: /conf/core/semantics-defined
+
+target:: /req/core/semantics-defined
+
+test-purpose:: Verify that the target implementation allows attaching a semantic definition to all property representations.
+
+[.component,class=test method]
+=====
+Inspect the target implementation.
+=====
+====

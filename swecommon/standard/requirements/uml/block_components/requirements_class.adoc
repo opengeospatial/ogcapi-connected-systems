@@ -1,0 +1,10 @@
+[requirement,model=ogc]
+.Block Components UML Package
+====
+[%metadata]
+type:: class
+identifier:: /req/uml-block-components
+subject:: Software Implementation or Encoding of the Conceptual Models
+inherit:: /req/uml-simple-components
+inherit:: /req/uml-simple-encodings
+====

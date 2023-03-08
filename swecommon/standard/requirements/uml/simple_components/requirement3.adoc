@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/uml-simple-components/iso19108-implemented
+
+The encoding or software shall correctly implement all UML classes defined in ISO 19108 that are referenced directly or indirectly by this standard.
+====

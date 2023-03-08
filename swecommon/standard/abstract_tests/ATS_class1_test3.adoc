@@ -1,0 +1,15 @@
+[abstract_test]
+.A categorical representation consists of a token with a code space
+====
+[%metadata]
+identifier:: /conf/core/categorical-rep-valid
+
+target:: /req/core/categorical-rep-valid
+
+test-purpose:: Verify that the target implementation correctly implements the Categorical representation.
+
+[.component,class=test method]
+=====
+Inspect the target implementation.
+=====
+====

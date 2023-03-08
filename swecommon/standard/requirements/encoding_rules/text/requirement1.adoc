@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/text-encodings-rules/abnf-syntax-valid
+
+The encoded values block shall be formatted as defined by the ABNF grammar defined in this clause.
+====

@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/general-encoding-rules/choice-encoding-rule
+
+Encoded values for the selected item of a “DataChoice” shall be provided along with information that unambiguously identifies the selected item.
+====

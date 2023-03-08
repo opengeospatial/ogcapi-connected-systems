@@ -1,0 +1,10 @@
+[requirement,model=ogc]
+.Binary Encoding Rules
+====
+[%metadata]
+type:: class
+identifier:: /req/binary-encoding-rules
+subject:: Encoded Values Instance
+inherit:: /req/uml-advanced-encodings
+inherit:: /req/general-encoding-rules
+====

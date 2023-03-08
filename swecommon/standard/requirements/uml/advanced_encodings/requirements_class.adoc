@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+.Advanced Encodings UML Package
+====
+[%metadata]
+type:: class
+identifier:: /req/uml-advanced-encodings
+subject:: Software Implementation or Encoding of the Conceptual Models
+inherit:: /req/uml-simple-encodings
+====

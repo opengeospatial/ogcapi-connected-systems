@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/uml-record-components/package-fully-implemented
+
+The encoding or software shall correctly implement all classes defined in the “Record Components” UML package.
+====

@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/uml-simple-components/category-enum-defined
+
+An instance of the “Category” class shall either specify a code space or an enumerated list of allowed tokens, or both.
+====

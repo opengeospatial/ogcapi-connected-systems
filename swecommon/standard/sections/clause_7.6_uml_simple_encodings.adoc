@@ -1,0 +1,67 @@
+[[uml_simple_encodings]]
+=== Requirements Class: Simple Encodings Package
+
+include::../requirements/uml/simple_encodings/requirements_class.adoc[]
+
+Encoding methods describe how structured array and stream data is encoded into a low level byte stream (see related concepts in <<core_data_encoding>>). Once encoded as a sequence of bytes, the data can then be transmitted using various digital means such as files on a disk or network connections.
+
+This package includes two classes that provide definitions of simple encoding methods. They are used as descriptors of the method used to encode data component values wrapped by aggregate classes defined in the “Block Components” package. There model is shown on the diagram below:
+
+.Simple Encodings
+image::figures/fig7.32.png[]
+
+include::../requirements/uml/simple_encodings/requirement1.adoc[]
+
+All classes defining encoding methods derive from a common abstract class called “AbstractEncoding”. Extensions to this standard that define new encoding methods shall derive encoding classes from this abstract class.
+
+The intent of this standard is to provide a set of core encodings covering most common needs. Each encoding has specific benefits that match the needs of different applications. Sometimes several encodings of the same dataset can be offered in order to satisfy several types of consumers and/or use cases.
+
+In the model provided in this standard, the encoding specification is provided separately from the data component tree describing the dataset structure, thus enabling several encodings to be applied to the same data structure without changing it.
+
+
+[[uml_textencoding_class]]
+==== TextEncoding Class
+
+The “TextEncoding” class defines a method allowing encoding arbitrarily complex data using a text based delimiter separated values (DSV) format. The class used to specify this encoding method is shown below:
+
+.TextEncoding Class
+image::figures/fig7.33.png[]
+
+The “tokenSeparator” attribute specifies the characters to use for separating each scalar value from one another. Scalar values appear sequentially in the stream alternatively with the token separator characters, in an order unambiguously defined by the data component structure. The detailed rules are given in the implementation <<encoding_rules_text>>.
+
+The “blockSeparator” attribute specifies characters used to mark the end of a “block”, corresponding to the complete structure defined by the data component tree (in a “DataArray”, “Matrix” or “DataStream” one block corresponds to one element, that is to say the structure defined by the “elementType” property). Stream or array data can then be composed of several blocks of the same type separated by block separator characters.
+
+The “decimalSeparator” attribute specifies the character used as the decimal point in decimal number. This attribute is optional and the default is a period (‘.’).
+
+[example%unnumbered]
+====
+*Example*
+
+In the case of a “DataStream” with an element type that is a “DataRecord” containing three fields – one of type “Category” and two of type “Quantity” - a data stream encoded using the Text method would look like the following:
+
+`STATUS_OK,24.5,1022.5¶` +
+`STATUS_OK,24.5,1022.5¶` +
+`STATUS_OK,24.5,1022.5¶` +
+
+Where `,` (comma) is the token separator and `¶` (carriage return) is the block separator (i.e. this is the CSV format).
+Note that there could be many more values in a single block if the data set has a large number of fields, or if it contains an array of values.
+====
+
+The “collapseWhiteSpaces” attribute is a boolean flag used to specify if extra white spaces (including line feeds, tabs, spaces and carriage returns) surrounding the token and block separators should be ignored (skipped) when processing the stream. This is useful for encoded blocks of data that are embedded in an XML document, since formatting (indenting with spaces or tabs especially) is often done in XML content.
+
+This type of encoding is used when compactness is important but balanced by a desire of human readability. This type of encoding is easily readable (for debugging or manual usage) as well as easily imported in various spreadsheet, charting or scientific software.
+
+The main drawback of such an encoding is the impossibility of locating an error in the stream with certitude. Secondly, if only one expected value is missing, the whole block is usually lost since the parser cannot resynchronize correctly before the next block separator. This last issue can however be solved by transmitting this type of encoded stream using error resilient protocols when needed.
+
+
+[[uml_xmlencoding_class]]
+==== XMLEncoding Class
+
+The “XMLEncoding” class defines a method that allows encoding structured data into a stream of nested XML tags, which names are obtained from the data structure definition. The class is shown below in UML and does not contain any attribute:
+
+.XMLEncoding Class
+image::figures/fig7.34.png[]
+
+This encoding method is used when compactness is not an issue and a high level of readability and error detection is required. Furthermore, a data stream encoded in this way can be easily transformed and formatted using XSLT like languages.
+
+The main drawback of this method is the verbosity and high degree of redundancy of the information contained in the stream due to the repetitive XML tags. This problem can be minimized by compressing the XML data using well known techniques such as GZIP or BZIP, but such an approach may not be viable in the case of streaming (e.g. real time) data.

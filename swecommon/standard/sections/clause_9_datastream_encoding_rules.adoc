@@ -1,0 +1,75 @@
+[[encoding_rules]]
+== Data Blocks and Streams Encoding Rules (normative)
+
+=== Requirements Class: General Encoding Rules
+
+include::../requirements/encoding_rules/general/requirements_class.adoc[]
+
+All encodings defined in this standard follow general principles so that it is possible to implement them in a similar way.
+
+The way values are encoded is linked to the data structure specified using a hierarchy of data components. The values are included sequentially in the data stream by recursively processing all data components composing the dataset definition tree.
+
+
+==== Rules for Scalar Components
+
+The value of each scalar component is encoded as a single scalar value. The actual binary representation of this scalar value depends on the encoding method. For example, in “TextEncoding”, a numerical value is represented by its string representation that usually span several bytes (e.g. ‘1.2345’ spans 6 bytes), why with the “BinaryEncoding” encode a similar value would likely be encoded as an IEEE 754 single precision floating-point format.
+
+The value of a “Time” component is encoded either as a decimal value or as a string in the case where a calendar representation or indeterminate value is used.
+
+When the value of a scalar component is NIL, the appropriate nil value is used in the stream and replaces the actual measurement value. This is always possible because nil values are required to be expressed with a data type that is compatible with the representation of the corresponding field.
+
+
+==== Rules for Range Components
+
+The values of range components are encoded as a sequence of two successive values, first the lower bound of the range, then the upper bound. Each of these values is encoded exactly like the values of scalar components.
+
+
+==== Rules for DataRecord and Vector
+
+Both “DataRecord” and “Vector” components are aggregates consisting of an ordered sequence of child components. The values contained in these aggregates are encoded by successively encoding each child component in the order in which they are listed in the XML description and including the resulting values sequentially in the stream.
+
+The definition of a “DataRecord” (or “Vector”) structure composed of N fields (or coordinates for vectors) can be represented in the following way:
+
+[%unnumbered]
+image::figures/encoding_record.png[]
+
+The data block corresponding to such a structure would sequentially include all values for field 1, then all values for field 2, etc. until the last field is reached. Each field may consist of a single value if it is a scalar but may also consist of multiple values if it is itself an aggregate or a range component.
+
+include::../requirements/encoding_rules/general/requirement1.adoc[]
+
+
+==== Rules for DataChoice
+
+The “DataChoice” is an aggregate consisting of a choice of several child components called items. When values of a data choice are encoded, the resulting data block consists of two things: A token identifying the selecting item and the item values themselves. Only values of a single item can be encoded in each instance of a choice.
+
+[%unnumbered]
+image::figures/encoding_choice.png[]
+
+The data block corresponding to such a structure would then sequentially include the item identifier (i.e. the choice value) and then the value(s) for the selected item. The item may consist of a single value if it is a scalar or multiple values if it is itself an aggregate or a range component.
+
+include::../requirements/encoding_rules/general/requirement2.adoc[]
+
+
+==== Rules for DataArray and Matrix
+
+The “DataArray” is an aggregate consisting of a number of repeated elements, all of the same type as defined by the element type. Values contained by a “DataArray” are encoded by sequentially including the values of each element.
+
+The definition of a “DataArray” (“Matrix”) structure composed of the array dimension and size and the element type definition. This can be represented in the following way:
+
+[%unnumbered]
+image::figures/encoding_array.png[]
+
+The data block corresponding to such a structure would sequentially include the number representing the array size (only if it is variable) followed by one or more values corresponding to each array element. The number of values encoded for each element depends only on the array element definition, and the total number of values also depends on the array size.
+
+include::../requirements/encoding_rules/general/requirement3.adoc[]
+
+include::../requirements/encoding_rules/general/requirement4.adoc[]
+
+
+// other subsections
+
+include::clause_9.2_text_encoding_rules.adoc[]
+
+include::clause_9.3_xml_encoding_rules.adoc[]
+
+include::clause_9.4_binary_encoding_rules.adoc[]

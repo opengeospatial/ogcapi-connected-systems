@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/uml-simple-components/category-constraint-valid
+
+When an instance of the “Category” class specifies a code space, the list of allowed tokens provided by the “constraint” property of this instance shall be a subset of the values listed in this code space.
+====

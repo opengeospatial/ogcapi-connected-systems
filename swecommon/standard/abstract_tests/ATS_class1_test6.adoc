@@ -1,0 +1,15 @@
+[abstract_test]
+.A textual representation is implemented as a character string
+====
+[%metadata]
+identifier:: /conf/core/textual-rep-valid
+
+target:: /req/core/textual-rep-valid
+
+test-purpose:: Verify that the target implementation correctly implements the Textual representation.
+
+[.component,class=test method]
+=====
+Inspect the target implementation.
+=====
+====

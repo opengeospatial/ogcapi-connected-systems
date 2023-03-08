@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+.Simple Components UML Package
+====
+[%metadata]
+type:: class
+identifier:: /req/uml-simple-components
+subject:: Software Implementation or Encoding of the Conceptual Models
+inherit:: /req/core
+====

@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/uml-record-components/vector-component-no-ref-frame
+
+The “referenceFrame” attribute shall be ommited from all data components used to define coordinates of a “Vector” instance.
+====

@@ -1,0 +1,222 @@
+[[encoding_rules_xml]]
+=== Requirements Class: XML Encoding Rules
+
+include::../requirements/encoding_rules/xml/requirements_class.adoc[]
+
+The “XMLEncoding” method encodes field values by their text representation according to XML schema data type definitions and wraps them with XML tags carrying the name of the corresponding field. The hierarchy of components is fully represented by XML tags, which makes this encoding more verbose but also well suited for processing and validation with existing XML frameworks.
+
+
+==== XML element names
+
+Each data component of the tree is represented by an XML element whose local name corresponds to the “name” attribute of the soft-typed property containing the component description. This property is most often “field”, “coordinate” or “elementType”, depending on the parent aggregate.
+
+include::../requirements/encoding_rules/xml/requirement1.adoc[]
+
+Scalar components are thus encoded by an XML element with a text value whereas aggregate components are encoded by an XML element itself containing sub-elements representing the aggregate’s children. The namespace URI and namespace prefix can be freely defined by the application but it is recommended that they are different from the namespace defined in this standard.
+
+
+==== Rules for Scalar Components
+
+Scalar components are encoded by an XML element whose name corresponds to the soft-typed property containing the component.
+
+include::../requirements/encoding_rules/xml/requirement2.adoc[]
+
+Examples of scalar values encoded in XML are given below:
+
+[source%unnumbered,xml]
+----
+<ns:status>OFF</ns:status>
+
+<ns:time>2009-01-02T23:45:12Z</ns:time>
+
+<ns:temp>25.5</ns:temp>
+----
+
+NIL values are included as the text content of the XML element representing scalar components, in the same way regular scalar values would be included.
+
+
+==== Rules for Range Components
+
+Range components are encoded by an XML element whose name corresponds to the soft-typed property containing the component which itself contain two min/max elements carrying the range extreme values.
+
+include::../requirements/encoding_rules/xml/requirement3.adoc[]
+
+Let us consider the example of “TimeRange” below:
+
+[source%unnumbered,xml]
+----
+<swe:field name="SurveyPeriod">
+  <swe:TimeRange definition="http://www.opengis.net/def/property/EO/0/SurveyPeriod" referenceFrame=”…”>
+    <swe:uom xlink:href="http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"/>
+  </swe:TimeRange>
+</swe:field>
+----
+
+Following Req 96, this component values are encoded as XML as shown below:
+
+[source%unnumbered,xml]
+----
+<ns:SurveyPeriod>
+  <ns:min>2009-01-02T23:45:12Z</ns:min>
+  <ns:max>2009-01-02T23:45:12Z</ns:max>
+</ns:SurveyPeriod>
+----
+
+
+==== Rules for DataRecord and Vector
+
+Aggregate components are encoded by using a parent element with the proper local name as enforced by Req 94 to which elements for sub-components are appended (recursively). Elements normally corresponding to record fields marked as optional can be completely omitted since parsers can use element names to unambiguously know the ones that are missing.
+
+include::../requirements/encoding_rules/xml/requirement4.adoc[]
+
+include::../requirements/encoding_rules/xml/requirement5.adoc[]
+
+The <<enc_curve_example,curve data example>> introduced in the Text Encoding section would be encoded in XML as shown below:
+
+[source%unnumbered,xml]
+----
+<swe:encoding>
+  <swe:XMLEncoding/>
+</swe:encoding>
+
+<swe:values xmlns:ns="http://www.myorg.com/datasets/id">
+  <ns:point>
+    <ns:temp>0</ns:temp>
+    <ns:error>5</ns:error>
+  </ns:point>
+  <ns:point>
+    <ns:temp>10</ns:temp>
+    <ns:error>2</ns:error>
+  </ns:point>
+  <ns:point>
+    <ns:temp>50</ns:temp>
+    <ns:error>2</ns:error>
+  </ns:point>
+  <ns:point>
+    <ns:temp>80</ns:temp>
+    <ns:error>5</ns:error>
+  </ns:point>
+  <ns:point>
+    <ns:temp>100</ns:temp>
+    <ns:error>15</ns:error>
+  </ns:point>
+</swe:values>
+----
+
+In this example, the array element type is called ‘point’ and is defined as a “DataRecord” that contains two scalar fields called ‘temp’ and ‘error’. These soft-typed property names are thus used as the element local names of encoded values.
+
+The following example shows how the <<enc_optional_fields_example,record dataset with optional fields>> from the Text Encoding section is encoded with the “XMLEncoding” method:
+
+[source%unnumbered,xml]
+----
+<swe:encoding>
+  <swe:XMLEncoding/>
+</swe:encoding>
+
+<swe:values xmlns:ns="urn:myorg:dataset:X156822">
+  <ns:navData>
+    <ns:time>2007-10-23T15:46:12Z</ns:time>
+    <ns:speed>15.3</ns:speed>
+    <ns:location>
+      <ns:lat>45.3</ns:lat>
+      <ns:lon>-90.5</ns:lon>
+      <ns:alt>311</ns:alt>
+    </ns:location>
+  </ns:navData>
+  <ns:navData>
+    <ns:time>2007-10-23T15:46:22Z</ns:time>
+    <ns:speed>25.3</ns:speed>
+  </ns:navData>
+  <ns:navData>
+    <ns:time>2007-10-23T15:46:32Z</ns:time>
+    <ns:speed>20.6</ns:speed>
+    <ns:location>
+      <ns:lat>45.3</ns:lat>
+      <ns:lon>-90.6</ns:lon>
+      <ns:alt>312</ns:alt>
+    </ns:location>
+  </ns:navData>
+</swe:values>
+----
+
+Notice that the optional ‘location’ field in the second stream element has been completely omitted.
+
+
+==== Rules for DataArray, Matrix and DataStream
+
+Block components are slightly different because they can either include the encoded data block in their “values” element or be nested into another block component which includes the encoded data block.
+
+In the case of all “DataStream” instances or when the “DataArray” or “Matrix” includes its own encoded values, only the array elements are actually encoded within the “values” XML element. The two previous examples of this section illustrate this case.
+
+include::../requirements/encoding_rules/xml/requirement6.adoc[]
+
+When a “DataArray” or “Matrix” is nested in a parent block component (and thus does not encapsulate encoded values itself), array elements are encoded as defined above but are also wrapped in an element carrying the array name.
+
+include::../requirements/encoding_rules/xml/requirement7.adoc[]
+
+The following example builds on the <<profile_series_example,profile series dataset>> introduced in the Text Encoding section and shows how the same values could be encoded with the “XMLEncoding” method:
+
+[source%unnumbered,xml]
+----
+<swe:encoding>
+  <swe:XMLEncoding/>
+</swe:encoding>
+
+<swe:values xmlns:ns="urn:myorg:dataset:PS3658">
+  <ns:profileData>
+    <ns:time>2005-05-16T21:47:12Z</ns:time>
+    <ns:profilePoints elementCount="5">
+      <ns:point>
+        <ns:depth>0</ns:depth>
+        <ns:salinity>45</ns:salinity>
+      </ns:point>
+      <ns:point>
+        <ns:depth>10</ns:depth>
+        <ns:salinity>20</ns:salinity>
+      </ns:point>
+      <ns:point>
+        <ns:depth>20</ns:depth>
+        <ns:salinity>30</ns:salinity>
+      </ns:point>
+      <ns:profilePoint>
+        <ns:depth>30</ns:depth>
+        <ns:salinity>35</ns:salinity>
+      </ns:point>
+      <ns:profilePoint>
+        <ns:depth>40</ns:depth>
+        <ns:salinity>40</ns:salinity>
+      </ns:point>
+    </ns:profilePoints>
+  </ns:profileData>
+  <ns:profileData>
+    <ns:time>2005-05-16T22:43:05Z</ns:time>
+    <ns:profilePoints elementCount="4">
+      <ns:point>
+        <ns:depth>0</ns:depth>
+        <ns:salinity>45</ns:salinity>
+      </ns:point>
+      <ns:point>
+        <ns:depth>10</ns:depth>
+        <ns:salinity>20</ns:salinity>
+      </ns:point>
+      <ns:point>
+        <ns:depth>20</ns:depth>
+        <ns:salinity>30</ns:salinity>
+      </ns:point>
+      <ns:point>
+        <ns:depth>30</ns:depth>
+        <ns:salinity>35</ns:salinity>
+      </ns:point>
+    </ns:profilePoints>
+  </ns:profileData>
+</swe:values>
+----
+
+This example shows how the array size is specified on the ‘profilePoints’ element corresponding to each nested array, and how element local names correspond to the “name” attributes of each component’s parent property.
+
+
+==== Media Types
+
+When array or stream values are encoded with the XML encoding method and provided standalone (i.e. outside of any wrapper format), the `text/xml` or `application/xml` identifiers shall be used whenever media type information is needed by the application.
+
+Note however that the text/xml media type is not always appropriate when some of the characters in the data stream are encoded with a different character set than US-ASCII. Please read the relevant IETF standards for details.

@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/core/textual-rep-valid
+
+A textual representation shall at least consist of a character string.
+====

@@ -1,0 +1,11 @@
+[requirement,model=ogc]
+.Advanced Encodings XML Schema
+====
+[%metadata]
+type:: class
+identifier:: /req/xsd-advanced-encodings 
+subject:: XML Instance
+inherit:: /req/uml-advanced-encodings
+inherit:: /req/xsd-simple-encodings
+inherit:: /req/binary-encoding-rules
+====

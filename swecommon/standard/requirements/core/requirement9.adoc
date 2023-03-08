@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/core/temporal-frame-defined
+
+A temporal quantity shall be expressed with respect to a well defined temporal reference frame and this frame shall be specified.
+====

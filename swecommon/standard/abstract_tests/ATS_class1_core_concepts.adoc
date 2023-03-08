@@ -1,0 +1,35 @@
+[conformance_class]
+====
+[%metadata]
+identifier:: /conf/core
+target:: /req/core
+classification:: Target Type: Derived Models and Software Implementations
+====
+
+include::./ATS_class1_test1.adoc[]
+
+include::./ATS_class1_test2.adoc[]
+
+include::./ATS_class1_test3.adoc[]
+
+include::./ATS_class1_test4.adoc[]
+
+include::./ATS_class1_test5.adoc[]
+
+include::./ATS_class1_test6.adoc[]
+
+include::./ATS_class1_test7.adoc[]
+
+include::./ATS_class1_test8.adoc[]
+
+include::./ATS_class1_test9.adoc[]
+
+include::./ATS_class1_test10.adoc[]
+
+include::./ATS_class1_test11.adoc[]
+
+include::./ATS_class1_test12.adoc[]
+
+include::./ATS_class1_test13.adoc[]
+
+

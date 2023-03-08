@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/uml-simple-components/category-range-codespace-order
+
+The code space specified by the “codeSpace” attribute of an instance of the “CategoryRange” class shall define a well-ordered set of categories.
+====

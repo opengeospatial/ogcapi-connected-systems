@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/uml-simple-components/category-value-valid
+
+When an instance of the “Category” class specifies a code space, the value of the property represented by this instance shall be equal to one of the entries of the code space.
+====

@@ -1,0 +1,402 @@
+[[encoding_rules_text]]
+=== Requirements Class: Text Encoding Rules
+
+include::../requirements/encoding_rules/text/requirements_class.adoc[]
+
+The “TextEncoding” method encodes field values (especially numbers) by their text representation. Special characters provide a way to separate successive values and successive blocks. The ABNF syntax defined in IETF RFC 5234 is used to formalize the encoding rules, and thus all ABNF snippets provided in this section are normative.
+
+include::../requirements/encoding_rules/text/requirement1.adoc[]
+
+
+==== Separators
+
+Token separators are used between single values and the block separator is used at the end of each block. The block corresponds to one element of the “DataArray” or “DataStream” carrying the “values” element in which the values are encoded. There are no special separators to delimitate nested records, arrays and choices.
+
+Separators shall be chosen so that nothing in the dataset contains the exact same character sequence as the one chosen for token or block separator.
+
+include::../requirements/encoding_rules/text/requirement2.adoc[]
+
+When the attribute “collapseWhiteSpaces” is set to true (its default value), all white space characters surrounding the token and block separators shall be ignored. The BNF grammar for separators is given below:
+
+[source%unnumbered]
+----
+white-space = %d9 / %d10 / %d13 / %d32 ; TAB, LF, CR or SPACE
+
+token-separator-chars = < Value of the tokenSeparator attribute >
+
+block-separator-chars = < Value of the blockSeparator attribute >
+
+token-separator = [white-space] token-separator-chars [white-space]
+
+block-separator = [white-space] block-separator-chars [white-space]
+----
+
+White spaces around separators are in fact only allowed when the “collapseWhiteSpaces” attribute is set to ‘true’ (which is the default).
+
+
+==== Rules for Scalar Components
+
+The value for a scalar component is encoded as its text representation, following XML schema datatypes conventions.
+
+[source%unnumbered]
+----
+scalar-value = xs:bool / xs:string / xs:double / xs:int / xs:date / xs:dateTime
+----
+
+Nil values are included in the stream just like normal scalar values. Since their data type has to match the field data type, there is no special treatment necessary for a decoder or encoder. It is the responsibility of the application to match the data value against the list of registered nil values for a given field in order to detect if it is associated to a nil reason or if it is an actual measurement value.
+
+
+==== Rules for Range Components
+
+Range components are encoded as a sequence of two tokens (each one representing a scalar value) separated by a token separator:
+
+[source%unnumbered]
+----
+min-value = scalar-value
+
+max-value = scalar-value
+
+range-values = min-value token-separator max-value
+----
+
+
+==== Rules for DataRecord and Vector
+
+Values of fields of a “DataRecord” are recursively encoded following rules associated to the type of component used for the field’s description (i.e. scalar, record, array, etc.) and separated by token separators as expressed by the following grammar:
+
+[source%unnumbered]
+----
+field-count = < Number of fields in the record minus one. Greater or equal to 0 >
+
+any-field-value = scalar-value / range-values / record-values / choice-values / array-values
+
+mandatory-field-value = any-field-value
+
+optional-field-value = (“Y” token-separator any-field-value) / “N”
+
+field-value = mandatory-field-value / optional-field-value
+
+record-values = field-value <field-count>*(token-separator field-value)
+----
+
+When a field is marked as optional in the definition, the token ‘Y’ or ‘N’ shall be inserted in the data block. When the field value is omitted, the token ‘N’ is inserted alone. When it is included, the token ‘Y’ is inserted followed by the actual field value.
+
+include::../requirements/encoding_rules/text/requirement3.adoc[]
+
+Coordinate values of “Vector” components are encoded with a similar syntax, but a coordinate value can only be scalar and cannot be omitted:
+
+[source%unnumbered]
+----
+coord-count = < Number of coordinates in the vector minus one. Greater or equal to 0 >
+
+vector-values = scalar-value <coord-count>*(token-separator scalar-value)
+----
+
+The following example shows how elements of an array defined as a “DataRecord” are encoded with the text method:
+
+[[enc_curve_example]]
+[source%unnumbered,xml]
+----
+<swe:DataArray definition="http://sweet.jpl.nasa.gov/2.0/mathFunction.owl#Function">
+  <swe:description>Measurement error vs. temperature</swe:description>
+  <swe:elementCount>
+    <swe:Count>
+      <swe:value>5</swe:value>
+    </swe:Count>
+  </swe:elementCount>
+  <swe:elementType name="point">
+    <swe:DataRecord>
+      <swe:label>Error vs. Temperature</swe:label>
+      <swe:field name="temp">
+        <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/physThermo.owl#Temperature">
+          <swe:label>Temperature</swe:label>
+          <swe:uom code="Cel"/>
+        </swe:Quantity>
+      </swe:field>
+      <swe:field name="error">
+        <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/sciUncertainty.owl#Error">
+          <swe:label>Relative Error</swe:label>
+          <swe:uom code="%"/>
+        </swe:Quantity>
+      </swe:field>
+    </swe:DataRecord>
+  </swe:elementType>
+  <swe:encoding>
+    <swe:TextEncoding blockSeparator=" " tokenSeparator=","/>
+  </swe:encoding>
+  <swe:values>0,5 10,2 50,2 80,5 100,15</swe:values>
+</swe:DataArray>
+----
+
+In this example, each element consists of a record of two values. The array element structure also corresponds to one block so that tuples are separated by block separators (here the ‘,’ character). Since the array is of size 5, there are 5 tuples listed sequentially in the data block, each one composed of the two values of the data record separated by the token separator. The pattern is “temp,error temp,error …” since values have to be listed in the same order as the fields.
+
+The following example shows the resulting encoded block when some of the fields are optional:
+
+[[enc_optional_fields_example]]
+[source%unnumbered,xml]
+----
+<swe:DataStream>
+  <swe:label>Aircraft Navigation</swe:label>
+  <swe:elementType name="navData">
+    <swe:DataRecord>
+      <swe:field name="time">
+        <swe:Time definition="http://www.opengis.net/def/property/OGC/0/SamplingTime"
+                  referenceFrame="http://www.opengis.net/def/trs/OGC/0/GPS">
+          <swe:uom xlink:href="http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"/>
+        </swe:Time>
+      </swe:field>
+      <swe:field name="speed">
+        <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/humanTransportAir.owl#GroundSpeed">
+          <swe:uom code="m/s"/>
+        </swe:Quantity >
+      </swe:field>
+      <swe:field name="location">
+        <swe:Vector optional="true" referenceFrame="http://www.opengis.net/def/crs/EPSG/0/4979">
+          <swe:coordinate name="lat">
+            <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/spaceCoordinates.owl#Latitude" axisID="Lat">
+              <swe:uom code="deg"/>
+            </swe:Quantity>
+          </swe:coordinate>
+          <swe:coordinate name="lon">
+            <swe:Quantity definition=" http://sweet.jpl.nasa.gov/2.0/spaceCoordinates.owl#Longitude" axisID="Long">
+              <swe:uom code="deg"/>
+            </swe:Quantity>
+          </swe:coordinate>
+          <swe:coordinate name="alt">
+            <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/spaceExtent.owl#Altitude" axisID="h">
+              <swe:uom code="m"/>
+            </swe:Quantity>
+          </swe:coordinate>
+        </swe:Vector>
+      </swe:field>
+    </swe:DataRecord>
+  </swe:elementType>
+  <swe:encoding>
+    <swe:TextEncoding blockSeparator="&#10;" tokenSeparator=","/>
+  </swe:encoding>
+  <swe:values>
+    2007-10-23T15:46:12Z,15.3,Y,45.3,-90.5,311
+    2007-10-23T15:46:22Z,25.3,N
+    2007-10-23T15:46:32Z,20.6,Y,45.3,-90.6,312
+    2007-10-23T15:46:52Z,18.9,Y,45.4,-90.6,315
+    2007-10-23T15:47:02Z,22.3,N
+  </swe:values>
+</swe:DataStream>
+----
+
+In this example, the whole location “Vector” is marked as optional and thus the coordinate values are only included when the optional flag is set to ‘Y’ in the stream. Field values in each block have to be listed in the same order as the field properties in the record definition thus following the “time,speed,Y,lat,lon,alt” or “time,speed,N” pattern depending on whether or not the location is omitted.
+
+
+==== Rules for DataChoice
+
+A “DataChoice” is encoded with the text method by providing the name of the selected item before the item values themselves. The name used shall correspond to the “name” attribute of the “item” property element that describes the structure of the selected item.
+
+[source%unnumbered]
+----
+selected-item-name = < Value of the “name” attribute of the item selected >
+selected-item-values = scalar-value / range-values / record-values / choice-values / array-values
+choice-values = selected-item-name token-separator selected-item-values
+----
+
+include::../requirements/encoding_rules/text/requirement4.adoc[]
+
+This is illustrated by the following example:
+
+[source%unnumbered,xml]
+----
+<swe:DataStream>
+  <swe:elementType name="message">
+    <swe:DataChoice>
+      <swe:item name="TEMP">
+        <swe:DataRecord>
+          <swe:label>Temperature Measurement</swe:label>
+          <swe:field name="time">
+            <swe:Time definition="http://www.opengis.net/def/property/OGC/0/SamplingTime">
+              <swe:uom xlink:href="http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"/>
+            </swe:Time>
+          </swe:field>
+          <swe:field name="temp">
+            <swe:Quantity definition="http://mmisw.org/ont/cf/parameter/air_temperature">
+              <swe:uom code="Cel"/>
+            </swe:Quantity>
+          </swe:field>
+        </swe:DataRecord>
+      </swe:item>
+      <swe:item name="WIND">
+        <swe:DataRecord>
+          <swe:label>Wind Measurement</swe:label>
+          <swe:field name="time">
+            <swe:Time definition="http://www.opengis.net/def/property/OGC/0/SamplingTime">
+              <swe:uom xlink:href="http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"/>
+            </swe:Time>
+          </swe:field>
+          <swe:field name="wind_speed">
+            <swe:Quantity definition="http://mmisw.org/ont/cf/parameter/wind_speed">
+              <swe:uom code="km/h"/>
+            </swe:Quantity>
+          </swe:field>
+          <swe:field name="wind_dir">
+            <swe:Quantity definition="http://mmisw.org/ont/cf/parameter/wind_to_direction">
+              <swe:uom code="deg"/>
+            </swe:Quantity>
+          </swe:field>
+        </swe:DataRecord>
+      </swe:item>
+    </swe:DataChoice>
+  </swe:elementType>
+  <swe:encoding>
+    <swe:TextEncoding blockSeparator="&#10;" tokenSeparator=","/>
+  </swe:encoding>
+  <swe:values>
+    TEMP,2009-05-23T19:36:15Z,25.5
+    TEMP,2009-05-23T19:37:15Z,25.6
+    WIND,2009-05-23T19:37:17Z,56.3,226.3
+    TEMP,2009-05-23T19:38:15Z,25.5
+  </swe:values>
+</swe:DataStream>
+----
+
+This data stream interleaves different types of messages separated by the block separator character. The element type is a “DataChoice” which means that each encoded block is composed of the item name ‘TEMP’ or ‘WIND’, followed by values of the item. This example also demonstrates that items of a choice can be of different types and length.
+
+
+==== Rules for DataArray and Matrix
+
+Values of each “DataArray” or “Matrix” element are recursively encoded following rules associated to the type of component used for the element type (i.e. scalar, record, array, etc.). Groups of values (or single value in the case of a scalar element type) corresponding to each element are sequentially appended to the data block and separated by token or block separators, depending on the context: When the “DataArray” is the root of the component tree that is being encoded, its elements are separated by block separators, otherwise its elements are separated by token separators.
+
+A “DataArray” or “Matrix” can have a fixed or variable size, which leads to two slightly different syntaxes for encoding values:
+array-separator = token-separator / block-separator  ; block-separator is only used when the array is the root of the component tree whose values are being encoded.
+
+[source%unnumbered]
+----
+array-values = fixed-size-array-values / variable-size-array-values
+----
+
+Fixed size arrays have a size of at least one, and are encoded as defined below:
+
+[source%unnumbered]
+----
+fixed-element-count = < Number of elements in a fixed size array minus one. Greater or equal to 0 since fixed size is always at least one >
+
+element-values = scalar-value / range-values / record-values / choice-values / array-values
+
+fixed-size-array-values = element-values <fixed-element-count>*(array-separator element-values)
+----
+
+The following example illustrates how values of a fixed size 3x3 stress matrix can be text encoded:
+
+[source%unnumbered,xml]
+----
+<swe:Matrix definition="http://sweet.jpl.nasa.gov/2.0/physPressure.owl#Stress">
+  <swe:elementCount>
+    <swe:Count>
+      <swe:value>3</swe:value>
+    </swe:Count>
+  </swe:elementCount>
+  <swe:elementType name="row">
+    <swe:Matrix definition="http://sweet.jpl.nasa.gov/2.0/info.owl#Row">
+      <swe:elementCount>
+        <swe:Count>
+          <swe:value>3</swe:value>
+        </swe:Count>
+      </swe:elementCount>
+      <swe:elementType name="coef">
+        <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/mathVector.owl#Coordinate">
+          <swe:uom code="MPa"/>
+        </swe:Quantity>
+      </swe:elementType>
+    </swe:Matrix>
+  </swe:elementType>
+  <swe:encoding>
+    <swe:TextEncoding blockSeparator=" " tokenSeparator=","/>
+  </swe:encoding>
+  <swe:values>0.36,0.48,-0.8 -0.8,0.6,0.0 0.48,0.64,0.6</swe:values>
+</swe:Matrix>
+----
+
+Note that elements of the outer array (i.e. a matrix is a special kind of array) are separated by block separators (i.e. each block surrounded by spaces corresponds to one row of the matrix) while the inner array elements are separated by token separators.
+
+When a “DataArray” (“Matrix”) is defined as variable size, its size can be 0 and the array size is included as a token in the data block, before the actual array elements values are listed:
+
+[source%unnumbered]
+----
+variable-element-count = < Number of elements in a variable size array. Greater or equal to 0 since variable size can be 0 for an empty array >
+
+variable-size-array-values = variable-element-count <variable-element-count>*(array-separator element-values)
+----
+
+The following example shows how SWE Common can be used to encode a series of irregular length profiles by using a variable size array:
+
+[[profile_series_example]]
+[source%unnumbered,xml]
+----
+<swe:DataStream>
+  <swe:elementType name="profileData">
+    <swe:DataRecord>
+      <swe:field name="time">
+        <swe:Time definition="http://www.opengis.net/def/property/OGC/0/SamplingTime">
+          <swe:label>Sampling Time</swe:label>
+          <swe:uom xlink:href="http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"/>
+        </swe:Time>
+      </swe:field>
+      <swe:field name="profilePoints">
+        <swe:DataArray definition="http://sweet.jpl.nasa.gov/2.0/info.owl#Profile">
+          <swe:elementCount>
+            <swe:Count/>
+          </swe:elementCount>
+          <swe:elementType name="point">
+            <swe:DataRecord>
+              <swe:field name="depth">
+                <swe:Quantity definition="http://mmisw.org/ont/cf/parameter/depth">
+                  <swe:label>Sampling Point Vertical Location</swe:label>
+                  <swe:uom code="m"/>
+                </swe:Quantity>
+              </swe:field>
+              <swe:field name="salinity">
+                <swe:Quantity definition="http://mmisw.org/ont/cf/parameter#sea_water_salinity">
+                  <swe:label>Salinity</swe:label>
+                  <swe:uom code="[ppth]"/>
+                </swe:Quantity>
+              </swe:field>
+            </swe:DataRecord>
+          </swe:elementType>
+        </swe:DataArray>
+      </swe:field>
+    </swe:DataRecord>
+  </swe:elementType>
+  <swe:encoding>
+    <swe:TextEncoding blockSeparator="@@&#10;" tokenSeparator=","/>
+  </swe:encoding>
+  <swe:values>
+    2005-05-16T21:47:12Z,5,0,45,10,20,20,30,30,35,40,40@@
+    2005-05-16T22:43:05Z,4,0,45,10,20,20,30,30,35@@
+    2005-05-16T23:40:52Z,5,0,45,10,20,20,30,30,35,40,40
+  </swe:values>
+</swe:DataStream>
+----
+
+The example shows data for 4 profiles with a variable number of measurements along the vertical dimension. The number of measurements is indicated in the encoded data block by a number inserted after the timestamp, and before the measurements themselves. Since the array is itself the element of a “DataStream”, elements of the array are separated by token separators.
+
+
+==== Rules for DataStream
+
+Values of “DataStream” elements are encoded as a sequence of tokens in a way similar to how “DataArray” values are encoded. Groups of encoded values corresponding to one element of a “DataStream” are always separated by block separators, while all values within these groups are separated by token separators:
+
+[source%unnumbered]
+----
+stream-element-count = < Number of elements in a data stream minus one. Greater or equal to 0 since the number of elements in a data stream is always at least one >
+
+stream-values = element-values <stream-element-count>*(block-separator element-values);
+----
+
+Examples of “DataStream” with “TextEncoding” have already been given in previous sections.
+
+
+==== Media Types
+
+When array or stream values are encoded with the text encoding method and provided standalone (i.e. outside of any wrapper format such as an XML document), the following identifiers shall be used whenever media type information is needed by the application:
+
+- `text/csv` when the token separator is set to a single comma ‘,’ and the block separator is set to ‘CRLF’
+
+- `text/plain` for any other combination of separators
+
+NOTE: _It is recommended that the character set code be correctly appended to the MIME type if it differs from US-ASCII (see IETF RFC 2045)._

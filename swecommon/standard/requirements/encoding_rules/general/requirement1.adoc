@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/general-encoding-rules/record-encoding-rule
+
+“DataRecord” fields or “Vector” coordinates shall be encoded sequentially in a data block in the order in which these fields or coordinates are listed in the data descriptor.
+====

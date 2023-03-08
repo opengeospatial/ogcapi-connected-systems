@@ -1,0 +1,551 @@
+[[uml_simple_components]]
+=== Requirements Class: Basic Types and Simple Components Packages
+
+include::../requirements/uml/simple_components/requirements_class.adoc[]
+
+Data components are the most essential part of the SWE Common Data Model. They are used to describe all types of data structures, whether they represent data stream contents, tasking messages, alert messages or process inputs/outputs.
+
+The “Simple Components” UML package contains classes modeling simple data components, that is to say scalar components and range components (i.e. value extents). These classes implement concepts defined in the core section of this standard, and are designed to collect information about nature, representation and quality of data. These include six scalar types – Boolean, Text, Category, Count, Quantity, and Time – as well as four range types – CategoryRange, CountRange, QuantityRange and TimeRange.
+
+The “Basic Types” UML package from which the “Simple Components” package is dependent is also included in this requirements class. 
+
+As an overview, conceptual models of the six scalar component types are shown on the following UML class diagram:
+
+[[uml_fig_scalar_components]]
+.Scalar Data Components
+image::figures/fig7.3.png[]
+
+Classes representing the four range data components are shown on the diagram below:
+
+[[uml_fig_range_components]]
+.Range Data Components
+image::figures/fig7.4.png[]
+
+Details and requirements about each of these classes are given in the following sections.
+
+include::../requirements/uml/simple_components/requirement1.adoc[]
+
+Several dependencies to ISO standards exist and are detailed below.
+
+Data types from several packages of the ISO 19103 standard are used directly which makes this requirement class dependent on it. These data types are “CharacterString”, “Boolean”, “Real”, “Integer”, “Date”, “Time”, “DateTime”, “ScopedName”, “UnitOfMeasure” and “UomTime”.
+
+include::../requirements/uml/simple_components/requirement2.adoc[]
+
+The “TM_Position” data type from the “Temporal Reference System” package of the ISO 19108 standard is also used.
+
+include::../requirements/uml/simple_components/requirement3.adoc[]
+
+The “SC_CRS” and “TM_Temporal_CRS” classifiers are referenced conceptually from ISO 19111 but their implementation is not required by this standard. Implementations are allowed to simply use a CRS identifier as a mean of recognizing predefined coordinate reference systems. The use of identifiers from the EPSG database is recommended in this case. However, when new CRS definitions need to be created (e.g. engineering CRS attached to sensors or platforms), the models defined in ISO 19111 shall be used.
+
+
+[[uml_basic_types]]
+==== Basic Data Types
+
+This requirement class also includes requirements for the “Basic Types” UML package. This package defines low level data types that are used as property types by classes defined in the other packages.
+
+Data types defined in this package relate to defining pairs of data types defined in ISO 19103 for use within classes describing value extents:
+
+.Basic types for pairs of scalar types
+image::figures/fig7.5.png[]
+
+
+[[uml_alldatacomponents]]
+==== Attributes shared by all data components
+
+All SWE Common data component classes carry standard attributes inherited (transitively) from the “AbstractDataComponent” and “AbstractSWEValue” classes (The “AbstractSWEValue” class is actually defined in the “Basic Types” package but is shown here for clarity). The class hierarchy is shown on the following UML diagram:
+
+.AbstractDataComponent Class
+image::figures/fig7.6.png[]
+
+**Extension Slot**
+
+The “extension” attribute is used as a container for future extensions. Each extension should put its content in a separate extension property. It is available by inheritance to all sub-classes of “AbstractSWEValue”. This extension point can be used at runtime (i.e. at the instance level in the case of XML encoding) to add new extended properties to an existing class.
+
+**Name and Description**
+
+The optional “name” and “description” attributes can be used to provide human readable information describing what property the component represents. The “name” is meant to hold a short descriptive name whereas “description” can carry any length of plain text. These two fields should not be used to specify robust semantic information (see <<core_robust_semantics>>). Instead, the “definition” attribute described below should be used for that purpose.
+
+**Identifier**
+
+The optional “identifier” attribute allows assigning a unique identifier to the component, so that it can be referenced later on. It can be used, for example, when defining the unique identifier of a universal constant.
+
+**Definition**
+
+The “definition” attribute identifies the property (often an observed property in our context) that the data component represents by using a scoped name. It should map to a controlled term defined in an (web accessible) dictionary, registry or ontology. Such terms provide the formal textual definition agreed upon by one or more communities, eventually illustrated by pictures and diagrams as well as additional semantic information such as relationships to units and other concepts, ontological mappings, etc.
+
+[example%unnumbered]
+====
+*Examples*
+
+The definition may indicate that the value represents an atmospheric temperature using a URN such as "urn:ogc:def:property:OGC::SamplingTime" referencing the complete definition in a register.
+
+The definition may also be a URL linking to a concept defined in an ontology such as [http//www.opengis.net/def/OGC/0/SamplingTime].
+The label could be “Sampling Time”, which allows quick identification by human data consumers.
+
+The description could be “Time at which the observation was made as measured by the on-board clock” which adds contextual details.
+====
+
+**Flags**
+
+The “optional” attribute is an optional flag indicating if the component value can be omitted in the data stream. It is only meaningful if the component is used as a schema descriptor (i.e. not for a component containing an inline value). It is 'false' by default.
+
+The “updatable” attribute is an optional flag indicating if the component value is fixed or can be updated. It is only applicable if the data component is used to define the input of a process (i.e. when used to define the input or parameter of a service, process or sensor, but not when used to define the content of a dataset).
+
+[example%unnumbered]
+====
+*Examples*
+
+The “updatable” flag can be used to identify what parameters of a system are changeable. The exact semantics depends on the context. For example:
+
+- In SensorML process chains, the “updatable” flag is used to identify process parameters that can accept an incoming connection (and thus can get changed while the process is in execution).
+
+- In a SensorML System it is used to indicate whether or not a system parameter is changeable, either by an operator (i.e. by turning a screw or inserting a jumper) or remotely by sending a command.
+
+- In the Sensor Planning Service it is used to indicate if tasking parameters are changeable by the client (i.e. by using the Update operation) after a task has been submitted.
+====
+
+
+[[uml_simplecomponents]]
+==== Attributes shared by all simple data components
+
+As shown on <<uml_fig_scalar_components;uml_fig_range_components>>, classes modeling simple data components inherit attributes from the “AbstractSimpleComponent” class from which they are directly derived. This abstract class is shown again below:
+
+.AbstractSimpleComponent Class
+image::figures/fig7.7.png[]
+
+The definition attribute inherited from the “AbstractDataComponent” class is mandatory on this class and thus on all its descendants.
+
+include::../requirements/uml/simple_components/requirement4.adoc[]
+
+**Reference Frames and Axes**
+
+It provides two attributes allowing the association of a data component to a reference frame and an axis and thus implements core concepts introduced in <<core_time_space>>. These attributes are used for a component which value is the projection of a property along a temporal or spatial axis.
+
+The “referenceFrame” attribute identifies the reference frame (as defined by the “SC_CRS” object) relative to which the coordinate value is given. The “axisID” attribute takes a string that uniquely identifies one of the reference frame’s axes along which the coordinate value is given.
+
+include::../requirements/uml/simple_components/requirement5.adoc[]
+
+The union of these two attributes thus uniquely identifies one axis of one given reference frame along which the value of the component is expressed. Note that even though the ISO 19111 model assigns units to CRS axes in addition to a direction, only the direction is used in this standard and the unit is defined by the data component itself. This allows expressing other quantities than the one predefined along the CRS’s axes such as velocity, acceleration or rotation.
+
+A component representing a projected quantity can be defined in isolation or can be contained within a “Vector” or ”Matrix” aggregate when it contributes to the specification of a multi-dimensional quantity (see <<uml_vector_class;uml_matrix_class>>). In this last case the reference frame definition is usually inherited from the parent “Vector” or ”Matrix” instance and is thus omitted from the scalar component itself. However, the “axisID” attribute still needs to be specified on “Vector” components.
+
+include::../requirements/uml/simple_components/requirement6.adoc[]
+
+include::../requirements/uml/simple_components/requirement7.adoc[]
+
+**Quality**
+
+The optional “quality” attribute is used to provide simple quality information as discussed in <<core_quality_info>>. It is of type “Quality” which is a union of several classes as defined in <<uml_quality_union>>. Its multiplicity is more than one which means that several quality measures can be given on for a single data component.
+
+[example%unnumbered]
+====
+*Example*
+
+Both precision and accuracy of the value associated to a data component can be specified concurrently (see http://en.wikipedia.org/wiki/Accuracy_and_precision for a good explanation of the difference between the two).
+====
+
+**Nil Values**
+
+The optional “nilValues” attribute is used to provide a list (i.e. one or more) of NIL values as defined in <<core_nil_values>>. The model of the “NilValues” class is detailed in <<uml_nilvalues_class>>.
+
+Concrete sub-classes of “AbstractSimpleComponent” can also define a “constraint” attribute that allows further restriction of the possible values allowed by the corresponding representation. This implements concepts defined in <<core_data_constraints>>. These constraints always apply to the value of the property as represented by the corresponding data component whether this value is given inline (data container case) or out-of-band (data descriptor case).
+
+**Constraints**
+
+include::../requirements/uml/simple_components/requirement8.adoc[]
+
+All concrete sub-classes of “AbstractSimpleComponent” also define a “value” attribute. This attribute is not defined in this abstract class because it has a different primitive type in each concrete data component class (See following clauses).
+
+include::../requirements/uml/simple_components/requirement9.adoc[]
+
+The “value” attribute is always optional on any simple data component in order to allow for both data descriptor and data container cases:
+
+- When the data component is used as a data container, this attribute always carries the value of the associated property (formally the representation of the estimated or asserted value of the property). Quality information, nil values definitions and constraints thus apply to the value taken by this attribute.
+
+- When the data component is used as a data descriptor, its actual value is provided somewhere else, often encoded as part of a larger data block. In this case, quality information, nil values definitions and constraints apply to the out-of-band value and not to the “value” attribute. Instead, the “value” attribute can then be used to specify a default value.
+
+Whether the data component is used as a descriptor or a container depends on the context and should be explicitly stated by any standard that makes use of the SWE Common Data Model.
+
+All UML classes in this package that derive from “AbstractSimpleComponent” define a “value” attribute with the adequate primitive type and whose meaning is the one explained above.
+
+
+[[uml_boolean_class]]
+==== Boolean Class
+
+The “Boolean” class is used to specify a scalar data component with a Boolean representation as defined in <<core_boolean_rep>>. It derives from “AbstractSimpleComponent” and is shown below:
+
+.Boolean Class
+image::figures/fig7.8.png[]
+
+The “value” attribute of this class is of the boolean primitive type.
+
+NOTE: _The boolean primitive type is defined in ISO19103 and is not to be confused with the “Boolean” class defined in this standard. This clause is the only place in this standard where the ISO 19103 boolean data type is referenced. All other occurrences of the “Boolean” class in this standard refer to the class defined in this clause._
+
+
+[[uml_text_class]]
+==== Text Class
+
+The “Text” class is used to specify a component with a textual representation as defined in <<core_textual_rep>>. It derives from “AbstractSimpleComponent” and is shown below:
+
+.Text Class
+image::figures/fig7.9.png[]
+
+*Constraints*
+
+The “constraint” attribute allows further restricting the range of possible values by using the “AllowedTokens” class defined in <<uml_allowedtokens_class>>. This class allows the definition of the constraint by either enumerating the allowed tokens and/or by specifying a pattern that the value must match.
+
+*Value*
+
+The “value” attribute (or the corresponding value in out-of-band data) is a string that must match the constraint.
+
+NOTE: _The “Text” component can be used to wrap a string representing complex content such as an expression in a programming language, xml or html content. This practice should however be used only for systems that don’t require high level of interoperability since the client must know how to interpret the content. Also care must be taken to properly escape such content before it is inserted in an XML document or in a SWE Common data stream._
+
+
+[[uml_category_class]]
+==== Category Class
+
+The “Category” class is used to specify a scalar data component with a categorical representation as defined in <<core_categorical_rep>>. It derives from “AbstractSimpleComponent” and is shown below:
+
+.Category Class
+image::figures/fig7.10.png[]
+
+*Code Space*
+
+The “codeSpace” attribute is of type “Dictionary” and allows listing and defining the meaning of all possible values for this component. It is expected that instances of the “Dictionary” class will usually be referenced (rather than included inline) by implementations of this class since the code space definition is usually obtained from a controlled vocabulary maintained at a remote location. This type of implementation is the one chosen in the XML encodings defined by this standard.
+
+*Constraints*
+
+The “constraint” attribute allows further restricting the list of possible values by using the “AllowedTokens” class defined in <<uml_allowedtokens_class>>. This is usually done by specifying a limited list of possible values, which have to be extracted from the code space.
+
+include::../requirements/uml/simple_components/requirement10.adoc[]
+
+It is also possible to use this class without a code space, even though it is not recommended as values allowed in the component would then not be formally defined. However, as the intent of this class is to always represent a value extracted from a set of possible options, a constraint shall be defined if no code space is specified.
+
+include::../requirements/uml/simple_components/requirement11.adoc[]
+
+*Value*
+
+The “value” attribute (or the corresponding value in out-of-band data) is a string that must be one of the items of the code space and also match the constraint.
+
+include::../requirements/uml/simple_components/requirement12.adoc[]
+
+
+[[uml_count_class]]
+==== Count Class
+
+The “Count” class is used to specify a scalar data component with a discrete countable representation as defined in <<core_countable_rep>>. It derives from “AbstractSimpleComponent” and is shown below:
+
+.Count Class
+image::figures/fig7.11.png[]
+
+*Constraints*
+
+The “constraint” attribute can be used to restrict the range of possible values to a list of inclusive intervals and/or single values using the “AllowedValues” class defined in <<uml_allowedvalues_class>>. Numbers used to define these constraints should be integers and expressed in the same scale as the count value itself. The “significantFigures” constraint allowed by the “AllowedValues” class is not applicable to the “Count” class.
+
+*Value*
+
+The “value” attribute (or the corresponding value in out-of-band data) is an integer that must be within one of the constraint intervals or exactly one of the enumerated values.
+
+
+[[uml_quantity_class]]
+==== Quantity Class
+
+The “Quantity” class is used to specify a component with a continuous numerical representation as defined in <<core_numerical_rep>>. It derives from “AbstractSimpleComponent” and is shown below:
+
+.Quantity Class
+image::figures/fig7.12.png[]
+
+*Unit of Measure (UoM)*
+
+In addition to attributes inherited from the “AbstractSimpleComponent” class, this class provides a unit of measure declaration through the “uom” attribute. This unit is essential for the correct interpretation of data represented as decimal numbers and is thus mandatory. Quantities with no physical unit still have a scale (such as unity, percent, per thousands, etc.) that must be specified with this property.
+
+*Constraints*
+
+The “constraint” attribute is used to restrict the range of possible values to a list of inclusive intervals and/or single values using the “AllowedValues” class defined in <<uml_allowedvalues_class>>. Numbers used to define these constraints must be expressed in the same unit as the quantity value itself. Additionally, it is possible to constrain the number of significant digits that can be added after the decimal point.
+
+*Value*
+
+The “value” attribute (or the corresponding value in out-of-band data) is a real value that is within one of the constraint intervals or exactly one of the enumerated values, and most importantly is expressed in the unit specified.
+
+
+[[uml_time_class]]
+==== Time Class
+
+The “Time” class is used to specify a component with a date-time representation and whose value is projected along the axis of a temporal reference frame. This class is also necessary to specify that a time value is expressed in a calendar system. This class derives from “AbstractSimpleComponent” and is shown below:
+
+.Time Class
+image::figures/fig7.13.png[]
+
+Time is treated as a special type of continuous numerical quantity that can be either expressed as a scalar number with a temporal unit or a calendar date with or without a time of day. Consequently, this class has all properties of the “Quantity” class, plus some others that are specific to the treatment of time.
+
+*Reference Frame*
+
+As time is always expressed relative to a particular reference frame, the “referenceFrame” attribute inherited from the parent class “AbstractSimpleComponent” shall always be set on instances on this class unless the default ‘UTC’ is meant.
+
+include::../requirements/uml/simple_components/requirement13.adoc[]
+
+Note that specifying the frame of reference is required even when using ISO notation because there can be ambiguities between several universal time references such as UTC, TAI, GPS, UT1, etc… Differences between these different time reference systems are indeed in the order of a few seconds (and increasing), that is to say not negligible in various situations.
+
+[example%unnumbered]
+====
+*Example*
+
+J2000 is a well known epoch in astronomy and is equal to:
+
+  - January 1, 2000, 11:59:27.816 in the TAI time reference system
+  - January 1, 2000, 11:58:55.816 in the UTC time reference system
+  - January 1, 2000, 11:59:08.816 in the GPS time reference system
+
+These offsets are not always constant and depend on the irregular insertion of leap seconds in UTC.
+====
+
+The “axisID” attribute inherited from the parent class does not need to be set since a time reference system always has a single dimension. However it can be set to ‘T’ for consistency with spatial axes.
+
+*Reference Time*
+
+The “referenceTime” attribute is used to specify a different time origin than the one sometimes implied by the “referenceFrame”. This is used to express a time relative to an arbitrary epoch (i.e. different from the origin of a well known reference frame). The new time origin specified by “referenceTime” shall be expressed with respect to the reference frame specified and is of type “DateTime”. This forces the definition of this origin as a calendar date/time combination.
+
+include::../requirements/uml/simple_components/requirement14.adoc[]
+
+[example%unnumbered]
+====
+*Example*
+
+This class can be used to define a value expressed as a UNIX time (i.e. number of seconds elapsed since January 1, 1970, 00:00:00 GMT) by:
+
+- Specifying that the reference frame is the UTC reference system
+- Setting the reference time to January 1, 1970, 00:00:00 GMT.
+- Setting the unit of measure to seconds
+
+See definitions of some commonly accepted time standards at http://en.wikipedia.org/wiki/Time_standard or http://stjarnhimlen.se/comp/time.html.
+==== 
+
+*Local Frame*
+
+The optional “localFrame” attribute allows for the definition of a local temporal frame of reference through the value of the component (i.e. we are specifying a time origin), as opposed to the referenceFrame which specifies that the value of the component is in reference to this frame.
+
+include::../requirements/uml/simple_components/requirement15.adoc[]
+
+This feature allows chaining several relative time positions. This is similar to what is done with spatial position in a geopositioning algorithm (and which is also supported by this standard using the “Vector” class).
+
+[example%unnumbered]
+====
+*Example 1*
+
+In the case of a whiskbroom scanner instrument, the “sampling time” is often expressed relative to the “scan start time” which is itself given relative to the “mission start time”. It is important to properly identify the chain of time reference systems at play so that the adequate process can compute the absolute time of every measurement made (Note that it is often not practical to record the absolute time of each single measurement when high sampling rates are used).
+
+*Example 2*
+
+A model forecast may represent its result times relative to the “run time” of the model for efficient encoding. The values of the output will be in reference to this base epoch. In this example the “referenceFrame” attribute of the model time is set to UTC and the “localFrame” set as “ModelTime”. The model result would then define its “referenceFrame” as “ModelTime”, allowing the time values to be encoded relative to the specified time origin.
+====
+
+*Unit of Measure (UoM)*
+
+The “uom” attribute is mandatory since time is a continuous property that shall always be expressed in a well defined scale. The only units allowed are obviously time units.
+
+*Constraints*
+
+Similarly to the “Quantity” class, the “constraint” attribute allows further restricting the range of possible time values by using the “AllowedTimes” class defined in <<uml_allowedtimes_class>>.
+
+*Value*
+
+The “value” attribute (or the corresponding value in out-of-band data) is of type “TimePosition” (see <<uml_basic_types>>) and must match the constraint.
+
+
+==== Requirements applicable to all range classes
+
+This UML package defines four classes “CategoryRange”, “CountRange”, “QuantityRange” and “TimeRange” that are used for representing extents of property values. These classes have common requirements that are expressed in this clause.
+
+The “value” attribute of all these classes takes a pair of values (with a datatype corresponding to the representation) that represent the inclusive minimum and maximum bounds of the extent. These values must both satisfy the constraints specified by an instance of the class, and be expressed in the unit specified when applicable.
+
+include::../requirements/uml/simple_components/requirement16.adoc[]
+
+NOTE: _These classes are intentionally not derived from their scalar counterparts because they are aggregates of two values and should be treated as such by implementations (especially by encoding methods defined in this standard)._
+
+
+[[uml_categoryrange_class]]
+==== CategoryRange Class
+
+The “CategoryRange” class is used to express a value extent using the categorical representation of a property. It defines the same attributes as the “Category” class and those should be used in the same way (see <<uml_category_class,style=short%>>):
+
+.CategoryRange Class
+image::figures/fig7.14.png[]
+
+include::../requirements/uml/simple_components/requirement17.adoc[]
+
+*Code Space*
+
+The “CategoryRange” class also requires that the underlying code space is well-ordered (i.e. the ordering of the different categories in the code space is clearly defined) so that the range is meaningful.
+
+include::../requirements/uml/simple_components/requirement18.adoc[]
+
+[example%unnumbered]
+====
+*Example*
+
+A “CategoryRange” can be used to specify the approximate time of a geological event by using names of geological eons, eras or periods such as [Archean - Proterozoic] or [Jurassic - Cretaceous].
+====
+
+*Value*
+
+The “value” attribute of the “CategoryRange” class takes a pair of tokens representing the inclusive minimum and maximum bounds of the extent.
+
+
+[[uml_countrange_class]]
+==== CountRange Class
+
+The “CountRange” class is used to express a value extent using the discrete countable representation of a property. It defines the same attributes as the “Count” class and those should be used in the same way (see <<uml_count_class,style=short%>>):
+
+.CountRange Class
+image::figures/fig7.15.png[]
+
+*Value*
+
+The “value” attribute of the “CountRange” class takes a pair of integer numbers representing the inclusive minimum and maximum bounds of the extent.
+
+
+[[uml_quantityrange_class]]
+==== QuantityRange Class
+
+The “QuantityRange” class is used to express a value extent using the discrete countable representation of a property. It defines the same attributes as the “Quantity” class and those should be used in the same way (see <<uml_quantity_class,style=short%>>):
+
+.QuantityRange Class
+image::figures/fig7.16.png[]
+
+*Value*
+
+The “value” attribute of the “QuantityRange” class takes a pair of real numbers representing the inclusive minimum and maximum bounds of the extent.
+
+
+[[uml_timerange_class]]
+==== TimeRange Class
+
+The “TimeRange” class is used to express a value extent of a time property. It defines the same attributes as the “Time” class and those should be used in the same way (see <<uml_time_class,style=short%>>):
+
+.TimeRange Class
+image::figures/fig7.17.png[]
+
+include::../requirements/uml/simple_components/requirement19.adoc[]
+
+The “value” attribute of the “TimeRange” class takes a pair of values of type “TimePosition” representing the inclusive minimum and maximum bounds of the extent.
+
+
+[[uml_quality_union]]
+==== Quality Union
+
+The “Quality” class is a union allowing the use of different representations of quality.
+
+Quality can be indeed be specified as a decimal value, an interval, a categorical value or a textual statement. In our model, quality objects are in fact data components used in a recursive way, as shown on the following diagram:
+
+.Quality Union
+image::figures/fig7.18.png[]
+
+These different representations of quality are useful to cover most use cases where simple quality information is provided with the data.
+
+[example%unnumbered]
+====
+*Examples*
+
+“Quantity” is used to specify quality as a decimal number such as accuracy, variance and mean, or probability.
+
+“QuantityRange” is used to specify a bounded interval of variation such as a bi-directional tolerance.
+
+“Category” is used for a quality statement based on a well defined taxonomy such as certification levels.
+
+“Text” is used to include a textual quality statement such as a comment written by a field operator.
+====
+
+The “definition” attribute of the chosen quality component helps to further define the type of quality information given just like any other data component, and the “uom” should be specified in the case of a decimal quality value or interval.
+
+NOTE: _Reusing data components to specify quality also allows the inclusion of quality values in the data stream itself. This is useful if the quality is varying and re-estimated for each measurement. This is for example the case in a GPS receiver where both horizontal and vertical errors are given along with the geographic position. See the XML implementation clause for more information on this use case._
+
+
+[[uml_nilvalues_class]]
+==== NilValues Class
+
+The “NilValues” class is used by all classes deriving from “AbstractSimpleComponent”. It allows the specification of one or more reserved values that may be included in a data stream when the normal measurement value is not available (see <<core_nil_values>>). The UML model of this class is given below:
+
+.NilValues Class 
+image::figures/fig7.19.png[]
+
+An instance of the “NilValues” class is composed of one to many “NilValue” objects, each of which specifies a mapping between a reserved value and a reason.
+
+The mandatory “reason” attribute indicates the reason why a measurement value is not available. It is a resolvable reference to a controlled term that provides the formal textual definition of this reason (usually agreed upon by one or more communities).
+
+include::../requirements/uml/simple_components/requirement20.adoc[]
+
+The mandatory “value” attribute specifies the data value that would be found in the stream to indicate that a measurement value is missing for the corresponding reason. The range of values allowed here is the range of values allowed by the datatype of the parent data component.
+
+include::../requirements/uml/simple_components/requirement21.adoc[]
+
+This means that when specifying NIL values for a “Quantity” component, only real values are allowed (in most implementations, this includes NaN, -INF and INF) and for a “Count” component only integer values are allowed.
+
+Consequently, it is also impossible to specify NIL values for a “Boolean” data component since it allows only two possible values. In this case a “Category” component should be used.
+
+There are no restrictions on the choice of NIL values for “Category” and “Text” components since their datatype is String.
+
+
+[[uml_allowedtokens_class]]
+==== AllowedTokens Class
+
+The “AllowedTokens” class is used to express constraints on the value of a data component represented by a “Text” or a “Category” class. The UML class is shown below:
+
+.AllowedTokens Class 
+image::figures/fig7.20.png[]
+
+This class allows defining the constraint either by enumerating a list of allowed values by using one or more “value” attributes and/or by specifying a pattern that the value must match. The value must then either be one of the enumerated tokens or match the pattern.
+
+
+[[uml_allowedvalues_class]]
+==== AllowedValues Class
+
+The “AllowedValues” class is used to express constraints on the value of a data component represented by a “Count” or a “Quantity” class. The UML class is shown below:
+
+.AllowedValues Class 
+image::figures/fig7.21.png[]
+
+This class allows constraints to be defined either by enumerating a list of allowed values and/or a list of inclusive intervals. To be valid, the value must either be one of the enumerated values or included in one of the intervals. The numbers used in the “value” and “interval” properties shall be expressed in the same unit as the parent data component.
+
+include::../requirements/uml/simple_components/requirement22.adoc[]
+
+If the parent data component instance is used to define a projected quantity (i.e. when the “axisID” is set), then the constraints given by this class are expressed along the same spatial reference frame axis.
+
+The number of significant digits can also be specified with the “significantFigures” property though it is only applicable when used with a decimal representation (i.e. within the “Quantity” class). This limits the total number of digits that can be included in the number represented whether a scientific notation is used or not.
+
+[example%unnumbered]
+====
+*Examples*
+
+All non-zero digits are considered significant. 123.45 has five significant figures: 1, 2, 3, 4 and 5.
+
+Zeros between two non-zero digits are significant. 101.12 has five significant figures: 1, 0, 1, 1 and 2.
+
+Leading zeros are not significant. 0.00052 has two significant figures: 5 and 2 and is equivalent to 5.2x10-4 and would be valid even if the number of significant figures is restricted to 2.
+
+Trailing zeros are significant. 12.2300 has six significant figures: 1, 2, 2, 3, 0 and 0 and would thus be invalid if the number of significant figures is restricted to 4.
+====
+
+NOTE: _The number of significant figures and/or an interval constraint (i.e. min/max values) can help a software implementation choosing the best data type to use (i.e. ‘float’ or ‘double’, ‘short’, ‘int’ or ‘long’) to store values associated to a given data component._
+
+
+[[uml_allowedtimes_class]]
+==== AllowedTimes Class
+
+The “AllowedTimes” class is used to express constraints on the value of a data component represented by a “Time” class. The UML class is shown below:
+
+.AllowedTimes Class 
+image::figures/fig7.22.png[]
+
+This class is almost identical to the “AllowedValues” class and in fact all properties are used in the same way. The only difference with this class is that the “value” and “interval” properties allow the use of time data types as defined in <<uml_basic_types>>.
+
+The constraints given by this class are expressed along the same time reference frame axis as the value attached to the parent data component.
+
+
+==== Unions of simple component classes
+
+Several useful groups of classes are also defined in this package. These unions can be used as attribute types and they are shown on the following diagram:
+
+.Simple Component Unions
+image::figures/fig7.23.png[]
+
+The “AnyScalar” union groups all classes representing scalar components, numerical or not. The “AnyNumerical” union includes all classes corresponding to numerical scalar representations. The “AnyRange” union regroups all range components.

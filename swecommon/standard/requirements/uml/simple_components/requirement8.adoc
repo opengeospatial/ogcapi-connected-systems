@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/uml-simple-components/value-constraint-valid
+
+The property value (formally the representation of the property value) attached to an instance of a class derived from “AbstractSimpleComponent” shall satisfy the constraints specified by this instance.
+====

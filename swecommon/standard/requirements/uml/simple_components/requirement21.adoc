@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/uml-simple-components/nil-value-type-coherent
+
+The value used in the “value” property of an instance of the “NilValue” class shall be compatible with the datatype of the parent data component object.
+====

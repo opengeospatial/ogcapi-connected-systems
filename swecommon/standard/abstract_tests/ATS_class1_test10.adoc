@@ -1,0 +1,15 @@
+[abstract_test]
+.A spatial quantity is associated to an axis of a spatial reference frame
+====
+[%metadata]
+identifier:: /conf/core/spatial-frame-defined
+
+target:: /req/core/spatial-frame-defined
+
+test-purpose:: Verify that the target implementation allows providing a spatial reference frame and axis along with any quantity that is projected along a spatial dimension.
+
+[.component,class=test method]
+=====
+Inspect the target implementation.
+=====
+====

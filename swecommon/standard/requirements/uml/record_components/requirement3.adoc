@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/uml-record-components/vector-coord-name-unique
+
+Each “coordinate” attribute in a given instance of the “Vector” class shall be identified by a name that is unique to this instance.
+====

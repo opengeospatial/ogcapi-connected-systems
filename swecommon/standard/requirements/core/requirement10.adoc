@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/core/spatial-frame-defined
+
+A spatial quantity shall be expressed with respect to the axes of a well defined spatial reference frame and this frame shall be specified.
+====

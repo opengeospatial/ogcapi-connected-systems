@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/uml-simple-components/axis-valid
+
+The value of the “axisID” attribute shall correspond to the “axisAbbrev” attribute of one of the coordinate system axes listed in the specified reference frame definition.
+====

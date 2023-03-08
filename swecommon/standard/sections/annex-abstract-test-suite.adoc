@@ -1,0 +1,68 @@
+[appendix,obligation=normative]
+== Conformance Class Abstract Test Suite
+
+
+=== Core Conformance Classes
+
+==== Conformance Class: Core Concepts
+
+include::../abstract_tests/ATS_class1_core_concepts.adoc[]
+
+
+
+=== UML Conformance Classes
+
+==== Conformance Class: Basic Types and Simple Components UML Packages
+
+
+
+==== Conformance Class: Record Components UML Package
+
+
+==== Conformance Class: Choice Components UML Package
+
+
+==== Conformance Class: Block Components UML Package
+
+
+==== Conformance Class: Simple Encodings UML Package
+
+
+==== Conformance Class: Advanced Encodings UML Package
+
+
+
+=== XML Conformance Classes
+
+==== Conformance Class: Basic Types and Simple Components XML Schemas
+
+
+==== Conformance Class: Record Components XML Schema
+
+
+==== Conformance Class: Choice Components XML Schema
+
+
+==== Conformance Class: Block Components XML Schema
+
+
+==== Conformance Class: Simple Encodings XML Schema
+
+
+==== Conformance Class: Advanced Encodings XML Schema
+
+
+
+=== Datastream Encoding Conformance Classes
+
+==== Conformance Class: General Encoding Rules
+
+
+==== Conformance Class: Text Encoding Rules
+
+
+==== Conformance Class: XML Encoding Rules
+
+
+==== Conformance Class: Binary Encoding Rules
+

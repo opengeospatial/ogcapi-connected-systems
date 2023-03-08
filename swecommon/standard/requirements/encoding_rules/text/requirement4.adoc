@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/text-encodings-rules/choice-selection-marker-valid
+
+The selected-item-name token shall correspond to the value of the “name” attribute of the “item” property element that represents the selected item.
+====

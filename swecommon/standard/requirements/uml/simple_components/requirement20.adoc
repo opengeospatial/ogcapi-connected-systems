@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/uml-simple-components/nil-reason-resolvable
+
+The “reason” attribute of an instance of the “NilValue” class shall map to the complete human readable definition of the reason associated with the NIL value.
+====

@@ -1,0 +1,32 @@
+[[uml_models]]
+== UML Conceptual Models (normative)
+
+This standard defines normative UML models with which derived encoding models as well as all future separate extensions should be compliant. The standardization target type for the UML requirements classes defined in this clause is thus a software implementation or an encoding model that directly implements the conceptual models defined in this standard.
+
+
+=== Package Dependencies
+
+The following packages are defined by the SWE Common Data Model:
+
+.Internal Package Dependencies
+image::figures/fig7.1.png[]
+
+This standard also has dependencies on external packages defined by other standards, namely ISO 19103, ISO 19108 and ISO 19111, as show below:
+
+.External Package Dependencies
+image::figures/fig7.2.png[]
+
+
+// other subsections
+
+include::clause_7.2_uml_simple_components.adoc[]
+
+include::clause_7.3_uml_record_components.adoc[]
+
+include::clause_7.4_uml_choice_components.adoc[]
+
+include::clause_7.5_uml_block_components.adoc[]
+
+include::clause_7.6_uml_simple_encodings.adoc[]
+
+include::clause_7.7_uml_advanced_encodings.adoc[]

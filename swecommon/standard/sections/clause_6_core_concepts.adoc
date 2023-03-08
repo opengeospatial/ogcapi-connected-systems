@@ -1,0 +1,301 @@
+[[core_concepts]]
+== Requirements Class: Core Concepts (normative core)
+
+include::../requirements/core/requirements_class.adoc[]
+
+=== Introduction
+
+The generic SWE Common data model defined by this standard aims at providing verbose information to robustly describe sensor related datasets. We define Sensor Data as data resulting from the observation of properties of virtual or real world objects (or features) by any type of Observation Procedure (See the Observation and Measurements specification OGC 07-022r1 for a more complete description of the observation model used in SWE).
+
+Sensor related datasets however are not limited to sensor observation values, but can also include auxiliary information such as status or ancillary data. In the following sections, we will use the term ‘property’ in a broader sense, which does not necessarily imply “property measured by a sensor”.
+
+A dataset is composed of Data Components whose values need to be put into context in order to be fully understood and interpreted, by either humans or machines. The SWE Common Data Model provides several pieces of information that are necessary to achieve this goal. More precisely, the SWE Common Data Model covers the following aspects of datasets description:
+
+  - Representation
+  - Nature of data and semantics (by using identifiers pointing to external semantics) 
+  - Quality
+  - Structure
+  - Encoding
+
+This requirement class constitutes the core of this standard. The standardization target types of this core are all models or software implementations seeking compliance with this standard.
+
+include::../requirements/core/requirement1.adoc[]
+
+[[core_data_rep]]
+=== Data Representation
+
+Data representation deals with how property values are represented and stored digitally. Each component (or field) in a dataset carries a value that represents the state of a property. This representation will vary depending on the nature of the method used to capture the data and/or the target usage. For instance, a fluid temperature can be represented as a decimal number expressed in degrees Celsius (i.e. 25.4 °C), or as a categorical value taken from a list of possible choices (such as “freezing, cold, normal, warm, hot”).
+
+The following types of representations have been identified: Boolean, Categorical, Continuous Numerical, Discrete Countable and Textual. The paragraphs below explain basic features of each of these representation types.
+
+[[core_boolean_rep]]
+==== Boolean
+
+A Boolean representation of a property can take only two values that should be “true/false” or “yes/no”. In a sense, this type of representation is a particular case of the categorical representation with only two predefined options.
+
+[example%unnumbered]
+====
+*Examples*
+
+Motion detectors output can be represented by a boolean value
+– TRUE if there is motion in the room, FALSE otherwise.
+
+On/Off status of a measurement system can be represented by a boolean value
+– TRUE if the system in on, FALSE if the system is off.
+====
+
+include::../requirements/core/requirement2.adoc[]
+
+The “Boolean” class described in <<uml_boolean_class>> is used to define a data component with a Boolean representation.
+
+[[core_categorical_rep]]
+==== Categorical
+
+A categorical representation is a type of discrete representation of a property that only allows picking a value from a well defined list of possibilities (i.e. categories). This list is called a code space in this standard, following ISO 19103 terminology.
+
+The different possible values constituting a code space are usually listed explicitly in an out-of-band dictionary or ontology. This is necessary because each value should be defined formally and unambiguously, so that it can be interpreted correctly.
+
+[example%unnumbered]
+====
+*Examples*
+
+Biological or chemical species data is usually represented by a categorical data component that can leverage on existing controlled vocabulary.
+
+A camera mode can be represented by a categorical value: AUTO_FOCUS, MANUAL_FOCUS, etc...
+====
+
+include::../requirements/core/requirement3.adoc[]
+
+The “Category” class described in <<uml_category_class>> is used to define a data component with a categorical representation.
+
+[[core_numerical_rep]]
+==== Numerical (continuous)
+
+Perhaps the most used representation of a property value, especially in the science and technical communities, is the numerical one, as the majority of properties measured by sensors can be represented by numbers.
+
+Numerical representation is often used for continuous values and, in this case, the representation consists of a decimal (often floating point) number associated to a scale or unit of measure. The unit specification is mandatory even for quantities such as ratios that have no physical unit (in this case a scale factor is provided such as 1, 1/100 for percents, 1/1000 for per thousands, etc.).
+
+[example%unnumbered]
+====
+*Examples*
+
+Temperature measurements can be represented by a number associated to a unit such as degrees Celsius or Fahrenheit: 23.51°C, 94°F
+
+A velocity vector is composed of several values (usually 2 or 3) associated to a unit of speed: [1.0 2.0 3.0] m/s.
+====
+
+include::../requirements/core/requirement4.adoc[]
+
+The “Quantity” class described in <<uml_quantity_class>> is used to define a data component with a decimal representation and a unit of measure.
+
+[[core_countable_rep]]
+==== Countable (discrete)
+
+Discrete countable properties are also of interest and are most accurately captured with a numerical integer representation. They do not require a unit since the unit is always the unit of count (i.e. the person if we are counting persons, the pixel if we are counting pixels, etc). Note that continuous properties can also be represented as integers with certain combinations of scale and precision. This case should not be confused with the countable properties described here.
+
+[example%unnumbered]
+====
+*Examples*
+
+Array indices and sizes are countable properties with no unit.
+
+There are numerous other countable properties such as number of persons, number of bytes, number of frames, etc. for which the unit is obvious from the definition of the property itself.
+====
+
+A discrete countable representation should not be confused with a continuous numerical representation whose scale and precision allow encoding the property value as an integer.
+
+include::../requirements/core/requirement5.adoc[]
+
+The “Count” class described in <<uml_count_class>> is used to define a data component with an integer representation and no unit of measure.
+
+[[core_textual_rep]]
+==== Textual
+
+A textual representation is useful for providing human readable data, expressed in natural language, as well as various alpha numeric tokens that cannot be assigned to well-defined categories. 
+
+[example%unnumbered]
+====
+*Examples*
+
+Comments or notes written by humans (ex: data annotations, quality assessments).
+
+Machine generated messages for which there is no taxonomy (ex: automatic alert messages).
+
+Alphanumeric identifier schemes leading to a large number of possibilities that cannot be explicitly enumerated (ex: UUID, ISBN code, URN).
+====
+
+include::../requirements/core/requirement6.adoc[]
+
+The “Text” class described in <<uml_text_class>> is used to define a data component with a textual representation.
+
+[[core_data_constraints]]
+==== Constraints
+
+Constraints can be added to some representation types to further restrict the set of possible values allowed for a given property:
+
+  * A boolean representation cannot be restricted further since it is already limited to only two possibilities.
+  * A numerical representation can be constrained by a list of allowed values and/or bounded or unbounded intervals. A decimal representation can also be constrained by the number of significant digits after the decimal point.
+  * A categorical representation can be constrained by a list of possible choices, which should be a subset of the list of possibilities defined by the code space.
+  * A textual representation can be constrained by a pattern expressed in a well known language such as regular expression syntax.
+
+These constraints apply only to the value of the data component to which they are associated. They shall not be used to express constraints on other data components or on any other information than the value.
+
+[example%unnumbered]
+====
+*Examples*
+
+A decimal representation of an angular property such as latitude can be constrained to the [-90° 90°] interval.
+
+A temperature reading produced by a sensor can be constrained to the [-50°C +250°C] range.
+====
+
+
+[[core_data_nature]]
+=== Nature of Data
+
+We define “Nature of data” as the information needed to understand what property the value represents. It is thus connected to semantics and the semantic details are often provided by external sources such as dictionaries, taxonomies or ontologies. Note that it is independent of the type of representation used and it does not include information about how the data was actually measured or acquired. This lineage information should be described by other means as explained in <<core_full_lineage>>.
+
+[[core_human_readable_info]]
+==== Human readable information
+
+The first means by which nature of data can be communicated is through human readable text. The data component’s description, which is present in all data types defined in this specification, can hold any length of text for this purpose. The data component’s label is used to carry short human readable information (i.e. a short name); this is useful to allow data consumers to quickly identify the represented property.
+
+It is not recommended to use the concepts of “description” and “label” in a way that they contain robust semantic information (i.e. that machines can rely upon). The content of such fields is intended to be interpretable solely by humans.
+
+[[core_robust_semantics]]
+==== Robust semantics
+
+All SWE Common data types allow for associating each data component in a dataset with the definition of the Property that it represents.
+
+include::../requirements/core/requirement7.adoc[]
+
+It is recommended that a model uses references to out-of-band dictionaries rather than inline information because semantics are supposed to be shared by multiple datasets. Using references also helps by providing a framework that is independent from the actual semantic technology used.
+
+The SWE Common UML models and XML schemas desribed in this standard can be used in combination with any semantic web technology. It is thus possible to connect a SWE dataset description to an existing taxonomy provided the external register exposes a unique identifier for each entry.
+
+These semantic references point to out-of-band semantic information that can be encoded in various languages, such as the Ontology Web Language (OWL) or GML dictionary.
+
+include::../requirements/core/requirement8.adoc[]
+
+[[core_time_space]]
+==== Time, space and projected quantities
+
+Temporal, spatial and other projected quantities need to be further defined by specifying the reference frame and axis with respect to which the quantity is expressed. In SWE Common, any simple component type can be associated to a particular axis of a given reference frame.
+
+[example%unnumbered]
+====
+*Examples*
+
+Satellite position data can be defined as a vector of 3 components, expressed in the J2000 ECI Cartesian frame, the 1st component being associated to the X axis, the 2nd to the Y axis and the 3rd to the Z axis.
+
+Angular velocity data from an Inertial Measurement Unit can be defined as a vector of 3 components, expressed in the plane reference frame (for instance ENU defined by local East, North, Up directions), the Euler components being mapped to X, Y, Z respectively.
+
+Relative time data can be given with respect to an arbitrary epoch itself positioned in a well defined reference frame such as TAI (from the French “Temps Atomique International” = International Atomic Time).
+====
+
+include::../requirements/core/requirement9.adoc[]
+
+include::../requirements/core/requirement10.adoc[]
+
+The “Time” class described in <<uml_time_class>> is designed for carrying a temporal reference frame or a time of reference in the case of relative time data.
+
+The “Vector” class detailed in <<uml_vector_class>> is a special type of record used to assign a reference frame to all its child-components.
+
+The “Matrix” class defined in <<uml_matrix_class>> allows the definition of higher order tensor quantities.
+
+This standard does not impose requirements on the type of reference frames that a standardization target shall support. Standards that are dependent on this specification can (and often should) however define a minimum set of reference frames that shall be supported by all implementations.
+
+
+[[core_data_quality]]
+=== Data Quality
+
+Quality information can be essential to the data consumer and the SWE Common Data Model provides simple and flexible ways to associate qualitative information with each component of a dataset.
+
+[[core_quality_info]]
+==== Simple quality information
+
+Simple quality information can be associated with any scalar data component, in the form of another scalar or range value. The quality information defined here applies solely to the value of the associated data component (i.e. the measurement value) and, depending on its data type, quality can be represented by a numerical, categorical or textual value, or by a range of values.
+
+This quality information can be static, i.e. constant over the whole dataset, or dynamic and provided with the data itself. In this case, the quality value is in fact carried by another component of the dataset (and described in SWE Common as such).
+
+The exact type of quality information provided should be specified via semantic tagging just like with any other property in SWE Common.
+
+[example%unnumbered]
+====
+*Examples*
+
+Examples of quality measures are “absolute accuracy”, “relative accuracy”, “absolute precision”, “tolerance”, and “confidence level”.
+
+Quality related comments can also describe operating conditions, such as “sensor contained blockage and was removed” or “engineer on site, values may be affected”. This information can inform the user of potential inaccuracy in the data across certain periods.
+====
+
+[[core_nil_values]]
+==== Nil Values
+
+The concept of NIL value is used to indicate that the actual value of a property cannot be given in the data stream, and that a special code (i.e. reserved value) is used instead. It is thus a kind of quality information. The reason for which the value is not included is essential for a good interpretation of the data, so each reserved value is associated to a well-defined reason. In that sense, a NIL value definition is essentially a mapping between a reserved value and a reason.
+
+Each component of a dataset can define one or several NIL values corresponding to one or more reasons.
+
+[example%unnumbered]
+====
+*Example*
+
+In low level satellite imagery with, for instance, 8-bits per channel, the imagery metadata often defines:
+- A reserved value to indicate that a pixel value was “Below Detection Limit” usually set to ‘0’
+- A reserved value to indicate that a pixel value was “Above Detection Limit” usually set to ‘255’
+====
+
+include::../requirements/core/requirement11.adoc[]
+
+[[core_full_lineage]]
+==== Full lineage and traceability
+
+Full lineage and traceability is not in the scope of this specification. It is fully addressed by the OGC® Sensor Model Language Standard, which allows robust definition of measurement chains, with detailed information about the processing that takes place at each stage of the chain. This means that complex lineage guarantying full traceability can be recorded in a SensorML process chain, separately from the data itself.
+
+Datasets can be associated to lineage information described using the Sensor Model Language by using a metadata wrapper such as the “Observation” object defined in the OGC® Observations and Measurements Standard (O&M). In this standard, the “procedure” property of the “Observation” class allows attaching detailed information about the measurement procedure, that is to say a description of how the data was obtained (i.e. lineage), to the data itself.
+
+
+[[core_data_structure]]
+=== Data Structure
+
+Data structure defines how individual pieces of data are grouped, ordered, repeated and interleaved to form a complete data stream. The SWE Common models are based on data structures commonly accepted in computer science and formalized in ISO 11404.
+Classical aggregate datatypes are defined below:
+
+- Record: consists of a list of fields, each of them being keyed by a field identifier and defining its own type that can be any scalar or aggregate structure.
+
+- Array: consists of many elements of the same type, usually indexed by an integer. The element type can be any data structure including scalars and aggregates. The array size constitutes the upper bound of the index.
+
+- Choice: consists of a list of alternatives, each of them being keyed by a tag value and having its own type. Only values for one alternative at a time are actually present in the data stream described by such a structure.
+
+include::../requirements/core/requirement12.adoc[]
+
+This standard also defines the concept of “data component” as any part of the structure of a dataset, aggregate or not. It is thus the superset of all the aggregate structures described above and of all scalar elements implementing the representations described in <<core_data_rep>>.
+
+[example%unnumbered]
+====
+*Example*
+
+A dataset representing a time series of observations acquired by a mobile sensor can be encoded with various methods depending on the requirements:
+
+- XML encoding can be used when data needs to be easily styled to other markup formats (such as HTML) or when precise error localization (in the case of an error in the stream) is needed.
+
+- ASCII encoding can be used to achieve a good compromise between readability and size efficiency.
+
+- Binary encoding can be used (eventually with embedded compression) when pure performance (i.e. size but also reading and writing throughput) is the main concern.
+====
+
+A data component can be both a data descriptor and a data container:
+
+- A data component used as a data descriptor defines the structure, representation, semantics, quality, and other metadata of a data set but does not include the actual data values. 
+
+- A data component used as a data container equally defines the dataset but also includes the actual property values.
+
+
+[[core_data_encoding]]
+=== Data Encoding
+
+A key concept of the SWE Common Data Model is the ability to separate data values themselves from the description of the data structure, semantics and representation. This allows verbose metadata to be used in order to robustly define the content and meaning of a dataset while still being able to package the data values in very efficient manners.
+
+Data encoding methods define how the data is packed as blocks that can efficiently be transferred or stored using various protocols and formats. Different methods allow encoding the data as XML, text (CSV like), binary and even compressed or encrypted formats in a way that is agnostic to a particular structure. This allows any of the encodings methods to be selected and used based on a particular requirement, such as performance, re-use of tools, alignment with existing standards and so on.
+
+include::../requirements/core/requirement13.adoc[]

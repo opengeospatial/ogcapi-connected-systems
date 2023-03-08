@@ -1,0 +1,196 @@
+[[uml_block_components]]
+=== Requirements Class: Block Components Package
+
+include::../requirements/uml/block_components/requirements_class.adoc[]
+
+This package defines additional aggregate components for describing arrays of values that are designed to be encoded as efficient data blocks. These additional aggregate components are purposely defined in a separate requirement class because they require a more advanced implementation for handling data values as encoded blocks.
+
+The UML models for these additional aggregate components are shown below:
+
+.Array Components
+image::figures/fig7.28.png[]
+
+include::../requirements/uml/block_components/requirement1.adoc[]
+
+The principle of these two classes is that the number and type of elements contained in the array is defined once, while the actual array values are listed separately without being redefined with each value. In order to achieve this, all array values are encoded as a single data block in the “values” attribute. Consequently, these classes are restricted to cases where all elements are homogeneous and thus can be described only once even though the array data may in fact contain many of them.
+
+This package also defines the “DataStream” class that is similar in principle to the “DataArray” class but cannot be nested within other aggregate data components. It is a top level class that encapsulates the description of a full data stream.
+
+
+[[uml_dataarray_class]]
+==== DataArray Class
+
+The “DataArray” class is modeled on the corresponding definition of ISO 11404. This definition states that an array is a collection of elements of the same type (as opposed to a record where each field can have a different type), with a defined size. This class is shown on the following UML diagram:
+
+.DataArray Class
+image::figures/fig7.29.png[]
+
+This class implements a full composite pattern, so that the “elementType” can be any data component, including simple and aggregate types. It can be used to group identical scalar components as well as records, choices and arrays in a recursive manner.
+
+*Element Count*
+
+The “elementCount” attribute is used to indicate the size of the array, that is to say the number of elements of the given type in the array. Note that each element is not necessarily scalar but can be a record, another array, etc.
+
+*Element Type*
+
+The content of the “elementType” attribute defines the exact structure of each element in the array. The data component used and all of its children shall not include any inline values, as these will be block encoded in the “values” attribute of the parent “DataArray”.
+
+include::../requirements/uml/block_components/requirement2.adoc[]
+
+However, the “DataArray” class itself, like any other data component can be used either as a data descriptor or as a data container. To use it as a data descriptor the “encoding” and “values” attributes are not set. To use it as a data container, these attributes are both set as described below.
+
+*Encoding and Values*
+
+The “encoding” and “values” fields are there to provide array data as an efficient block which can be encoded in several ways. The different encoding methods are described in <<uml_simple_encodings;uml_advanced_encodings>>. The “encoding” field shall have a value if the “values” field is present, and the data shall be encoded using the specified encoding.
+
+include::../requirements/uml/block_components/requirement3.adoc[]
+
+The choice of simple encodings (defined in the “Simple Encodings” package) allows encoding data as text using a delimiter separated values (DSV, a variant of CSV) format or as XML tagged values. The “Advanced Encodings” package defines binary encodings that can be used to efficiently package large datasets.
+
+*Nested Components*
+
+By combining instances of “DataArray”, “DataRecord” and scalar components, one can obtain the complex data structures that are necessary to fully describe any kind of sensor data. In particular, the possibility of nesting a “DataRecord” or “Vector” inside a “DataArray” allows defining structures such as trajectories, profiles, multi-band images, etc.
+
+[example%unnumbered]
+====
+*Example 1*
+
+The “DataArray” class can be used to describe a simple 1D array of measurements such as radiance values obtained using a 12000 cells (1 row) CCD strip for instance. This can be done by using the “Quantity” class as the element type. In such a case, describing the dataset as a “DataRecord” would be a very repetitive task given the number of elements (12000 in this case!).
+
+[%unnumbered]
+image::figures/array_diagram1.png[]
+
+*Example 2*
+
+The “DataArray” class can be used as a descriptor for a trajectory dataset by using a vector of [latitude, longitude] coordinates as its element type. Note that this can also be considered as a 1D coverage in a 2D CRS.
+
+[%unnumbered]
+image::figures/array_diagram2.png[]
+
+====
+
+*Multi-dimensional Arrays*
+
+Since the “DataArray” class alone can only represent 1-dimensional arrays, the construction of multi-dimensional arrays is done by nesting “DataArray” objects inside each other.
+
+[example%unnumbered]
+====
+*Example*
+
+The structure of panchromatic imagery data can be described with two nested arrays, which sizes indicate the two dimensions of the image. A “Quantity” is used as the element type of the nested array in order to indicate that the repeated element of the 2D array is of type infrared radiance with a given unit.
+
+[%unnumbered]
+image::figures/array_diagram3.png[]
+
+In this example, the image is described as an array of rows, each row being an array of samples. It is also possible to describe an image as an array of columns by reversing the two dimensions. Note that this would change the order in which the data values would appear in a stream (by rows vs. by columns).
+====
+
+*Array Size*
+
+One powerful feature of the “DataArray” model is that it allows for the element count to be either fixed or variable, thus allowing the description of data streams with variable number of repetitive elements as is often the case with many kinds of sensor.
+
+In a fixed size array, the number of elements can be provided in the descriptor as an instance of the “Count” class with an inline value. This value is only present in the data description and not in the encoded block of array values. The definition of the “Count” instance is not required. 
+
+In a variable size array, the “elementCount” attribute either contains an instance of the “Count” class with no value or references an instance of a “Count” class in a parent or sibling data component. The value giving the actual array size is then included in the stream, before the array values themselves, so that the block can be properly decoded. One obvious implementation constraint is that the value representing the array size must be received before the array values. This is detailed further in the XML implementation section.
+
+[example%unnumbered]
+====
+*Examples*
+
+Argo profiling floats can measure ocean salinity and temperature profiles of variable lengths by diving at different depths and depending on the conditions. A variable size “DataArray” could be used to describe their output data as well as a dataset aggregating data from several Argo floats.
+
+Variable size arrays can often be used to avoid unnecessary padding of fixed size array data. However for efficiency reasons (usually to enable fast random access w/o preliminary indexation), padding can also be specified in SWE Common when using the binary encoding.
+====
+
+*Array Semantics*
+
+As with any other data component, the “name” and “description” can be used to better describe the array and more importantly the “definition” attribute can be used to formally indicate the semantics behind the array.
+
+[example%unnumbered]
+====
+*Example*
+
+When a “DataArray” is used to package data relative to the spectral response of a sensor, the array “definition” attribute can be used to point to the formal out-of-band definition of the “spectral response” concept.
+
+Similarly a “DataArray” used to describe the output data of an Argo float would have its “definition” attribute reference the formal definition of a “profile”.
+====
+
+The value of the “definition” attribute of the “Count” instance used as the “elementCount” is also especially important, since it is used to define the meaning of the array dimension. Thanks to this, it is possible to tag the dimension of an array as spatial, temporal, spectral, or any other kind. However it is not mandatory as it is on other simple components.
+
+[example%unnumbered]
+====
+*Examples*
+
+In the CCD strip example described as a 1D array, the array index is the cell number in the strip.
+
+In the 2D image example, the outer array index is the row number, while the inner array index is the column (or sample) number.
+
+In a 1D array representing a time series, the array index is along the temporal dimension.
+
+In a 2D array representing a spatial coverage, the two array indices are along spatial dimensions.
+
+In a 3D array representing hyper-spectral imagery, the two first arrays have indices along spatial dimension while the most inner array is indexed along the spectral dimension.
+====
+
+This extra information can be used by software to make decisions (or at least ask the user by providing him this information) about how to represent or even interpolate the data. 
+
+
+[[uml_matrix_class]]
+==== Matrix Class
+
+The “Matrix” extends the “DataArray” class by providing a reference frame within which the matrix elements are expressed and a local frame of interest. The UML diagram of this class is shown below:
+
+.Matrix Class
+image::figures/fig7.30.png[]
+
+The “Matrix” class is usually used to represent a position matrix or a tensor quantity of second or higher order. Each matrix element is expressed along the axis of a well defined reference frame.
+
+*Element Type*
+
+The “elementType” attribute inherited from the “DataArray” class can only take a nested “Matrix” instance or a scalar numerical component. Nested matrix objects allow the full description of N-dimensional matrices.
+
+include::../requirements/uml/block_components/requirement4.adoc[]
+
+*Reference Frame*
+
+The “referenceFrame” attribute is used in the same way as with the “Vector” class to specify the frame of reference with respect to which the matrix element values are expressed. It is inherited by all child components.
+
+*Local Frame*
+
+The “localFrame” attribute is used to identify the frame of interest, that is to say the frame whose orientation or position is given with the matrix in the case where it is a position matrix. If the matrix does not specify position, “localFrame” should not be used. Whether an instance of the “Matrix” class represents a position matrix or not should be disambiguated by setting the value of its “definition” attribute.
+
+[example%unnumbered]
+====
+*Examples*
+
+The “Matrix” class can be used to represent for instance:
+- A 3D 3x3 stress tensor
+- A 4D 4x4 homogeneous affine transformation matrix
+
+In particular it is often used to specify the orientation of an object relative to another one, like for instance the attitude of a plane relative to the earth.
+====
+
+
+[[uml_datastream_class]]
+==== DataStream Class
+
+The “DataStream” class has a structure similar than the “DataArray” class but is not a data component (i.e. it does not derive from “AbstractDataComponent”) and thus cannot be used as a child of other aggregate components. Below is its UML diagram:
+
+.DataStream Class
+image::figures/fig7.31.png[]
+
+This class should be used as the wrapper object to define a complete data stream. It defines a data stream as containing a list of elements with an arbitrary complex structure. An important feature is that the data stream can be open ended (i.e. the number of elements is not known in advance) and is thus designed to support real time streaming of data.
+
+*Element Count*
+
+The “elementCount” attribute is optional and can be used to indicate the number of elements in the stream if it is known. This is done by instantiating an instance of the “Count” class whose “value” attribute would be set to the number of elements.
+
+*Element Type*
+
+The “elementType” attribute is used to define the structure of each element in the stream. The data component used as the element type and all of its children shall be used solely as data descriptors, meaning that they shall not include any inline values. These values will instead be block encoded in the “values” attribute of the parent “DataStream”.
+
+*Encoding and Values*
+
+The “encoding” and “values” fields are there to provide the stream values as an efficient block which can be encoded in several ways. The same encoding methods as for the “DataArray” class are available and are described in <<uml_simple_encodings;uml_advanced_encodings>>. The “values” attribute is optional as the DataStream class can be used as a simple descriptor.
+
+include::../requirements/uml/block_components/requirement5.adoc[]

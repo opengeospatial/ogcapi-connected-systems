@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/core/encoding-method-valid
+
+All encoding methods shall be applicable to any arbitrarily complex data structures as long as they are made of the data components described in <<core_data_structure>>.
+====

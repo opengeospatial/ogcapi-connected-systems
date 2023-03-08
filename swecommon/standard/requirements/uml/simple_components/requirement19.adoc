@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/uml-simple-components/time-range-valid
+
+All requirements associated to the “Time” class defined in <<uml_time_class>> apply to the “TimeRange” class.
+====

@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/uml-simple-components/time-ref-time-valid
+
+The value of the “referenceTime” attribute shall be expressed with respect to the system of reference indicated by the “referenceFrame” attribute.
+====

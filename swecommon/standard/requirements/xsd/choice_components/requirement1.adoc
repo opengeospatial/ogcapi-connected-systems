@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/xsd-choice-components/schema-valid
+
+The XML instance shall be valid with respect to the grammar defined in the {xsd-base-url}/choice_components.xsd[“choice_components.xsd”] XML schema as well as satisfy all Schematron patterns defined in {xsd-base-url}/choice_components.sch[“choice_components.sch”].
+====

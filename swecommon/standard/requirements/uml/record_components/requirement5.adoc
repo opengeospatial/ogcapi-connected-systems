@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/uml-record-components/vector-component-axis-defined
+
+The “axisID” attribute shall be specified on all data components used as children of a “Vector” instance.
+====

@@ -1,0 +1,15 @@
+[abstract_test]
+.A boolean representation consists of a boolean value
+====
+[%metadata]
+identifier:: /conf/core/boolean-rep-valid
+
+target:: /req/core/boolean-rep-valid
+
+test-purpose:: Verify that the target implementation correctly implements the Boolean representation.
+
+[.component,class=test method]
+=====
+Inspect the target implementation.
+=====
+====

@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/general-encoding-rules/array-encoding-rule
+
+“DataArray” elements shall be encoded sequentially in a data block in the order of their index in the array (i.e. from low to high index).
+====

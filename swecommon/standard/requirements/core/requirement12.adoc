@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/core/aggregates-model-valid
+
+Aggregate data structures shall be implemented in a way that is consistent with definitions of ISO 11404.
+====

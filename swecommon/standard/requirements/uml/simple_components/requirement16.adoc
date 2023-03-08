@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/uml-simple-components/range-value-valid
+
+Both values specified in the “value” property of an instance of a class representing a property range (i.e. “CategoryRange”, “CountRange”, “QuantityRange” and “TimeRange”) shall satisfy the same requirements as the scalar value used in the corresponding scalar classes.
+====

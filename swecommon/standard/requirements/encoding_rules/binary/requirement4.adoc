@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/binary-encoding-rules/optional-field-marker-present
+
+The ‘Y’ or ‘N’ 1-byte token shall be inserted in a binary encoded data block for all “DataRecord” fields that have the “optional” attribute set to ‘true’.
+====

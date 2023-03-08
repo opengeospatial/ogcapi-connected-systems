@@ -1,0 +1,10 @@
+[requirement,model=ogc]
+.Choice Components XML Schema
+====
+[%metadata]
+type:: class
+identifier:: /req/xsd-choice-components 
+subject:: XML Instance
+inherit:: /req/uml-choice-components
+inherit:: /req/xsd-simple-components
+====

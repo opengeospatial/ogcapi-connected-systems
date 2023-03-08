@@ -1,0 +1,155 @@
+[[encoding_rules_binary]]
+=== Requirements Class: Binary Encoding Rules
+
+include::../requirements/encoding_rules/binary/requirements_class.adoc[]
+
+The “BinaryEncoding” method encodes field values by their binary representation. The ABNF syntax defined in IETF RFC 5234 is used to formalize the encoding rules, and thus all ABNF snippets provided in this section are normative.
+
+include::../requirements/encoding_rules/binary/requirement1.adoc[]
+
+The encoding rules are similar to those of the “TextEncoding” method except that numerical values are encoded directly as their binary representation and that no separators are used. Separators are not needed because data types have either a fixed size or contain length information (See String encoding).
+
+
+==== Rules for Scalar Components
+
+The value for a scalar component is encoded as its binary representation. This especially applies to numerical values that are encoded directly in binary form in accordance to the selected data type and the value of the “byteOrder” attribute.
+
+[source%unnumbered]
+----
+scalar-value = < binary value encoded according to data type, byte encoding and byte order specifications >
+----
+
+The last column of <<binary-datatypes-table>> in <<xsd_binarycomponent_elt>> indicates how each data type shall be binary encoded into a low level byte sequence. The actual order of bytes composing a multi-bytes data type depends on the value of the “byteOrder” attribute. The ‘bigEndian’ option indicates that muti-bytes data types are encoded with the most significant byte (MSB) first, while selecting ‘littleEndian’ signifies that encoding is done with the less significant byte (LSB) first. A UTF-8 string is not considered as a multi-byte data type and is always encoded in the same order, as specified by the Unicode Standard.
+
+include::../requirements/encoding_rules/binary/requirement2.adoc[]
+
+Nil values are included in the stream just like normal scalar values. Since their data type has to match the field data type, there is no special treatment necessary for a decoder or encoder. It is the responsibility of the application to match the data value against the list of registered nil values for a given field in order to detect if it is associated to a nil reason or if it is an actual measurement value.
+
+When the ‘raw’ byte encoding option is selected, bytes resulting from the data type encoding process defined above are inserted in the binary stream directly. This is refered to as ‘raw binary’ encoding. When the ‘base64’ option is selected, each byte resulting from the binary encoding process is also encoded in Base64 before being included in the stream. Scalar values can be Base 64 encoded one by one or by blocks as long as the resulting stream is compatible with requirements of IETF RFC 2045.
+
+include::../requirements/encoding_rules/binary/requirement3.adoc[]
+
+
+==== Rules for Range Components
+
+Range components are encoded as a sequence of two binary values (each one representing a scalar value):
+
+[source%unnumbered]
+----
+min-value = scalar-value
+
+max-value = scalar-value
+
+range-values = min-value max-value
+----
+
+Values are always included in the same order: The lower bound of the range first, followed by the upper bound.
+
+
+==== Rules for DataRecord and Vector
+
+Values of fields of a “DataRecord” are recursively encoded following rules associated to the type of component used as the field’s description (i.e. scalar, record, array, etc.) and appended to the binary block:
+
+[source%unnumbered]
+----
+field-count = < Number of fields in the record. Greater or equal to 1 >
+
+any-field-value = scalar-value / range-values / record-values / choice-values / array-values / block_values
+
+mandatory-field-value = any-field-value
+
+optional-field-value = (“Y” any-field-value) / “N”
+
+field-value = mandatory-field-value / optional-field-value
+
+record-values = <field-count>*field-values
+----
+
+When a field is marked as optional in the definition, the 1-byte value ‘Y’ (ASCII code 89) or ‘N’ (ASCII code 78) shall be inserted in the data block. When the field value is omitted, the token ‘N’ is inserted alone. When it is included, the token ‘Y’ is inserted followed by the actual field value.
+
+include::../requirements/encoding_rules/binary/requirement4.adoc[]
+
+Coordinate values of “Vector” components are encoded with a similar syntax, but a coordinate value can only be scalar and cannot be omitted:
+
+[source%unnumbered]
+----
+coord-count = < Number of coordinates in the vector. Greater or equal to 1 >
+
+vector-values = <coord-count>*scalar-value
+----
+
+Vector coordinates cannot be optional.
+
+
+==== Rules for DataChoice
+
+A “DataChoice” is encoded with the binary method by providing the name of the selected item before the item values themselves. The name used shall correspond to the “name” attribute of the “item” property element that describes the structure of the selected item, and be encoded as a variable length string datatype.
+
+[source%unnumbered]
+----
+selected-item-name = < Value of the “name” attribute of the item selected >
+
+selected-item-value = scalar-value / range-values / record-values / choice-values / array-values
+
+choice-values = selected-item-name selected-item-value
+----
+
+include::../requirements/encoding_rules/binary/requirement5.adoc[]
+
+
+==== Rules for DataArray and Matrix
+
+Values of each “DataArray” or “Matrix” element are recursively encoded following rules associated to the type of component used for the element type (i.e. scalar, record, array, etc.). Groups of values (or single value in the case of a scalar element type) corresponding to each element are sequentially appended to the data block. Since a “DataArray” or “Matrix” can have a fixed or variable size, two slightly different syntaxes for encoding values are possible:
+
+[source%unnumbered]
+----
+array-values = fixed-size-array-values / variable-size-array-values
+
+element-value = scalar-value / range-values / record-values / choice-values / array-values / block_values
+----
+
+Fixed size arrays have a size of at least one, and are encoded as defined below:
+
+[source%unnumbered]
+----
+fixed-element-count = < Number of elements in a fixed size array > 
+
+fixed-size-array-values = <fixed-element-count>*element-value
+----
+
+When a “DataArray” (“Matrix”) is defined as variable size, its size can be 0 and the array size is included as a token in the data block, before the actual array elements values are listed:
+
+[source%unnumbered]
+----
+variable-element-count = < Number of elements in a variable size array >
+
+variable-size-array-values = variable-element-count <variable-element-count>*element-value
+----
+
+When the array size is 0, only this number is encoded and no element values are included in the data block.
+
+
+==== Rules for DataStream
+
+Values of “DataStream” elements are encoded exactly as elements of an array: 
+
+[source%unnumbered]
+----
+stream-element-count = < Number of elements in a data stream >
+
+stream-values = <stream-element-count>*element-value
+----
+
+A data stream usually contains at least one value but could be empty.
+
+
+==== Media Types
+
+When array or stream values are encoded with the binary encoding method and provided standalone (i.e. outside of any wrapper format), the `application/octet-stream` identifier shall be used whenever media type information is needed by the application.
+
+
+==== Block encoded components
+
+When block encoding characteristics are also specified in the encoding description, the encryption and/or compression algorithm shall be applied after the binary encoding process described above is completed for the block. Extensions of this standard can define compression and encryption methods that fit the needs of particular communities.
+
+In order to maximize compatibility with existing software, when compressing a binary encoded data stream results in a well known binary format, the corresponding mime type can be used instead of application/octet-stream. For instance video/h264 can be used when the entirety of the dataset (presumably a video stream) is compressed using the H264 video codec.

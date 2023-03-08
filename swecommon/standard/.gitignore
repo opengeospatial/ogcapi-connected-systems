@@ -1,0 +1,9 @@
+.DS_Store/
+document.err
+document.xml
+document.presentation.xml
+document.html
+document.pdf
+*.abort
+relaton/
+iev/

@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/general-encoding-rules/array-size-encoding-rule
+
+Encoded data for a variable size “DataArray” shall include a number specifying the array size whatever the encoding method used.
+====

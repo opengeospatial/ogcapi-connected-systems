@@ -1,0 +1,36 @@
+[[uml_choice_components]]
+=== Requirements Class: Choice Components Package
+
+include::../requirements/uml/choice_components/requirements_class.adoc[]
+
+As detailed in the following clauses, this package defines a class modeling a disjoint union component type. This aggregate type can be nested with other aggregate components to build complex structures.
+
+include::../requirements/uml/choice_components/requirement1.adoc[]
+
+
+[[uml_datachoice_class]]
+==== DataChoice Class
+
+The “DataChoice” class (also called Disjoint Union) is modeled on the definition of ‘Choice’ from ISO 11404. It is a composite component that allows for a choice of child components. By opposition to records that carry all their fields simultaneously, only one item at a time can be present in the data when wrapped in a “DataChoice”. The following diagram shows the “DataChoice” class as implemented in the SWE Common Data Model:
+
+.DataChoice Class
+image::figures/fig7.27.png[]
+
+This class implements a full composite pattern, so that each “item” can be any data component, including simple and aggregate types.
+
+The “choiceValue” attribute is used to represent the token value that would be present in the data stream and that indicates the actual choice selection before the corresponding data can be given (i.e. knowing what choice item was selected ahead of time is necessary for proper decoding of encoded data streams). 
+
+Each “item” attribute can thus take an instance of any concrete sub-class of “AbstractDataComponent”, which is the superset of all data component types defined in this standard. The name of each item shall be unique within a given “DataChoice” instance so that it can be used as a key to uniquely identify and/or index each one of the choice components.
+
+include::../requirements/uml/choice_components/requirement2.adoc[]
+
+The “DataChoice” component is used to describe a data structure (or a part of the structure) that can alternatively contain different types of objects. It can also be used to define the input of a service or process that allows a choice of structures as its input.
+
+[example%unnumbered]
+====
+*Examples*
+
+NMEA 0183 compatible devices can output several types of sentences in the same data stream. Some sentences include GPS location, while some others contain heading or status data. This can be described by a “DataChoice” which items represent all the possible types of sentences output by the device.
+
+A Sensor Planning Service (SPS) can define a choice in the tasking messages that the service can accept, thus leaving more possibilities to the users.
+====

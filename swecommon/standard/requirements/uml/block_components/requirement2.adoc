@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/uml-block-components/array-component-no-value
+
+Data components that are children of an instance of a block component shall be used solely as data descriptors. Their values shall be block encoded in the “values” attribute of the block component rather than included inline.
+====

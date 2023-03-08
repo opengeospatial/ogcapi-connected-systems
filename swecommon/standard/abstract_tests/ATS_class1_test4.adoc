@@ -1,0 +1,15 @@
+[abstract_test]
+.A continuous numerical representation consists of a number with a scale
+====
+[%metadata]
+identifier:: /conf/core/numerical-rep-valid
+
+target:: /req/core/numerical-rep-valid
+
+test-purpose:: Verify that the target implementation correctly implements the Numerical representation.
+
+[.component,class=test method]
+=====
+Inspect the target implementation.
+=====
+====

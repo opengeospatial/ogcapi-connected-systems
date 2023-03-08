@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/uml-simple-components/allowed-values-unit-coherent
+
+The scale of the numbers used in the “enumeration” and “interval” properties of an instance of the “AllowedValues” class shall be expressed in the same scale as the value(s) that the constraint applies to.
+====

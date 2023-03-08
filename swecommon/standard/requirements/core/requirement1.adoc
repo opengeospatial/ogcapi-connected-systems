@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/core/core-concepts-used
+
+A derived model or software implementation shall correctly implement the concepts defined in the core of this standard.
+====

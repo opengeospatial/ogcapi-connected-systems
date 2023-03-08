@@ -1,0 +1,67 @@
+= OGC SWE Common Data Model Encoding Standard
+:doctype: standard
+:encoding: utf-8
+:lang: en
+:status: draft
+:committee: technical
+:draft: 1.0
+:external-id: http://www.opengis.net/doc/DIS/SWE/2.1
+:docnumber: 08-094r2
+:received-date: 2023-03-15
+:issued-date: 2023-03-15
+:published-date: 2023-03-15
+:fullname: Alexandre Robin
+:docsubtype: implementation
+:keywords: ogcdoc, OGC document, html, SWE, sensor, sensorweb, connected systems, xml, json, encoding, observation, command, tasking, property
+:submitting-organizations: GeoRobotix, Inc.; Botts Innovative Research, Inc.; Cesium GS, Inc.; Spot Image, S.A.; University of Alabama in Huntsville (UAH); International Geospatial Services Institute GmbH (iGSI); Commonwealth Scientific and Industrial Research Organisation (CSIRO) Australia; University of Muenster - Institute for Geoinformatics; 52° North Initiative for Geospatial Open Source Software GmbH; Southeastern Universities Research Association (SURA); Oracle USA; US Department of Homeland Security (DHS);
+:mn-document-class: ogc
+:mn-output-extensions: xml,html,doc,pdf
+:local-cache-only:
+:data-uri-image:
+:pdf-uri: ./document.pdf
+:xml-uri: ./document.xml
+:doc-uri: ./document.doc
+:edition: 2.1.0
+
+:xsd-base-url: https://schemas.opengis.net/sweCommon/2.0
+
+
+////
+Make sure to complete each included document
+////
+include::sections/clause_0_front_material.adoc[]
+
+include::sections/clause_1_scope.adoc[]
+
+include::sections/clause_2_conformance.adoc[]
+
+include::sections/clause_3_references.adoc[]
+
+include::sections/clause_4_terms_and_definitions.adoc[]
+
+include::sections/clause_5_conventions.adoc[]
+
+include::sections/clause_6_core_concepts.adoc[]
+
+include::sections/clause_7_uml_conceptual_models.adoc[]
+
+include::sections/clause_8_xml_implementation.adoc[]
+
+include::sections/clause_9_datastream_encoding_rules.adoc[]
+
+////
+Annexes
+////
+include::sections/annex-abstract-test-suite.adoc[]
+
+include::sections/annex-relationships_with_standards.adoc[]
+
+include::sections/annex-uml-xml-encoding-rules.adoc[]
+
+////
+Revision History should be the last annex before the Bibliography
+Bibliography should be the last annex
+////
+include::sections/annex-history.adoc[]
+
+include::sections/annex-bibliography.adoc[]

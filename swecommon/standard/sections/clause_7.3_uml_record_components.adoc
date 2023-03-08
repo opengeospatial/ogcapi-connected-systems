@@ -1,0 +1,105 @@
+[[uml_record_components]]
+=== Requirements Class: Record Components Package
+
+include::../requirements/uml/record_components/requirements_class.adoc[]
+
+As detailed in the following clauses, this package defines classes modeling record style component types that can be nested to build complex structures from the simple component types introduced in <<uml_simple_components>>.
+
+The classes defined in this package are “DataRecord” and “Vector” (other aggregates are defined in the “Choice Components” and “Block Components” packages defined in <<uml_choice_components;uml_block_components>> respectively). The UML model is exposed below:
+
+.Record Data Components
+image::figures/fig7.24.png[]
+
+include::../requirements/uml/record_components/requirement1.adoc[]
+
+As with simple component types, all data aggregates inherit attributes from the “AbstractDataComponent” class. In this case, however, these attributes provide information about the group as a whole rather than its individual components.
+
+[example%unnumbered]
+====
+*Examples*
+
+A particular “DataRecord” might represent a standard collection of error codes coming from a GPS device.
+
+A particular “Vector” might represent the linear or angular velocity vector of an aircraft.
+
+In these two cases, the “definition” attribute should reference a semantic description in a registry, so that the data consumer knows what kind of data the aggregate represents. This semantic description can then be interpreted appropriately by consuming clients: for example to automatically decide how to style the data in visualization software.
+====
+
+
+[[uml_datarecord_class]]
+==== DataRecord Class
+
+The “DataRecord” class is modeled on the definition of ‘Record’ from ISO 11404. In this definition, a record is a composite data type composed of one to many fields, each of which having its own name and type definition. Thus it defines some logical collection of components of any type that are grouped for a given purpose.
+
+As shown on the following figure, the “DataRecord” class in SWE Common is based on a full composite design pattern, such that each one of its “field” can be of a different type, including simple component types as well as any aggregate component type.
+
+.DataRecord Class
+image::figures/fig7.25.png[]
+
+The “DataRecord” class derives from the “AbstractDataComponent” class, which is necessary to enable the full composite pattern in which a “DataRecord” can be used to group scalar components, but also other records, arrays and choices recursively.
+
+*Fields*
+
+Each “field” attribute can take an instance of any concrete sub-class of “AbstractDataComponent”, which is the superset of all data component types defined in this standard. The name of each field must be unique within a given “DataRecord” instance so that it can be used as a key to uniquely identify and/or index each one of the record components.
+
+include::../requirements/uml/record_components/requirement2.adoc[]
+
+[example%unnumbered]
+====
+*Example*
+
+A “DataRecord” can group related values such as “temperature”, “pressure” and “wind speed” into a structure called “weather measurements”. This feature is often used to organize the data and present it in a clear way to the user.
+
+Similarly a “DataRecord” can be used to group values of several spectral bands in multi-spectral sensor data. However, using a “DataArray” may be easier to describe hyper spectral datasets with several hundreds of bands.
+====
+
+NOTE: _The slightly different definition of record found in ISO 19103 provides for its schema to be specified in an associated “RecordType”. When used as a descriptor, the “DataRecord” implements the ISO 19103 “RecordType”. When used as a data container, it is self-describing: the descriptive information is then interleaved with the record values._
+
+
+[[uml_vector_class]]
+==== Vector Class
+
+The “Vector” class is used to express multi-dimensional quantities with respect to a well defined referenced frame (usually a spatial or spatio-temporal reference frame). This is done by projecting the quantity on one or several axes that define the reference frame and assigning a value to each of the axis projections.
+
+*Coordinates*
+
+The “Vector” class is a special case of a record that takes a collection of coordinates that are restricted to a numerical representation. Coordinates of a “Vector” can thus only be of type “Quantity”, “Count” or “Time”. Its UML diagram is shown below:
+
+.Vector Class
+image::figures/fig7.26.png[]
+
+include::../requirements/uml/record_components/requirement3.adoc[]
+
+*Reference Frame*
+
+This class contains a mandatory “referenceFrame” attribute that identifies the frame of reference with respect to which the vector quantity is expressed. The coordinates of the vector correspond to values projected on the axes of this frame.
+
+The “referenceFrame” attribute is inherited by all components of the “Vector”, so that it shall not be redefined for each coordinate. However the “axisID” attribute shall be specified for each coordinate, in order to unambiguously indicate what axis of the reference frame it corresponds to.
+
+include::../requirements/uml/record_components/requirement4.adoc[]
+
+include::../requirements/uml/record_components/requirement5.adoc[]
+
+*Local Frame*
+
+The optional “localFrame” attribute allows identifying the frame of interest, that is to say the frame we are positioning with the coordinate values associated to this component (by opposition to the “referenceFrame” that specifies the frame with respect to which the values of the coordinates are expressed). 
+
+include::../requirements/uml/record_components/requirement6.adoc[]
+
+Correctly identifying the local and reference frame is an important feature that allows chaining several relative positions, something that is essential to correctly compute accurate position of sensor data (especially remote sensing data).
+
+[example%unnumbered]
+====
+*Example 1*
+
+A position vector (or location vector) is used to locate the origin of a frame of interest (the local frame) relative to the origin of a frame of reference (the reference frame) through a linear translation. It is composed of three coordinates of type “Quantity”, each with a definition indicating that the coordinate represents a length expressed in the desired unit. The definition of the “Vector” itself should also indicate that it is a “location vector”.
+
+[%unnumbered]
+image::figures/vector_diagram1.png[]
+
+*Example 2*
+
+An orientation vector is used to indicate the rotation of the axes of a frame of interest (the local frame) relative to a frame of reference (the reference frame). It is composed of three coordinates of type “Quantity” with a definition indicating an angular property. The “Vector” definition should indicate the type of orientation vector such as “Euler Angles” or “Quaternion”. Depending on the exact definition, the order in which the coordinates are listed in the vector may matter.
+====
+
+NOTE: _“Vector” aggregates are most commonly used to describe position, orientation, velocity, and acceleration within temporal and spatial domains, but can also be used to express relationships between any two coordinate frames._

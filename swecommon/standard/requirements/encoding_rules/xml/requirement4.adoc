@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/xml-encoding-rules/record-wrapper-elt-valid
+
+“DataRecord” values shall be XML encoded with an element which contains one sub-element for each “field” that is not omitted (when optional).
+====

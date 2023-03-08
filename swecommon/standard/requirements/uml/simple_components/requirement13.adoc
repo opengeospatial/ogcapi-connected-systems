@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/uml-simple-components/time-ref-frame-defined
+
+The “referenceFrame” attribute inherited from “AbstractSimple Component” shall always be set on instance of the “Time” class unless the UTC temporal reference system is used.
+====

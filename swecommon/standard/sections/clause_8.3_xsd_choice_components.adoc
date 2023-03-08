@@ -1,0 +1,84 @@
+=== Requirements Class: Choice Components XML Schema
+
+include::../requirements/xsd/choice_components/requirements_class.adoc[]
+
+XML Schema elements and types defined in the “choice_components.xsd” schema implement all classes defined in the “Choice Components” UML packages. 
+
+include::../requirements/xsd/choice_components/requirement1.adoc[]
+
+
+[[xsd_datachoice_elt]]
+==== DataChoice Element
+
+The “DataChoice” element is the XML schema implementation of the “DataChoice” UML class defined in <<uml_datachoice_class>>. The schema snippet for this element and its corresponding complex type is shown below:
+
+[source%unnumbered,xml]
+----
+<element name="DataChoice" type="swe:DataChoiceType"
+         substitutionGroup="swe:AbstractDataComponent"/>
+
+<complexType name="DataChoiceType">
+  <complexContent>
+    <extension base="swe:AbstractDataComponentType">
+      <sequence>
+        <element name="choiceValue" minOccurs="0" type="swe:CategoryPropertyType"/>
+        <element name="item" minOccurs="2" maxOccurs="unbounded">
+          <complexType>
+            <complexContent>
+              <extension base="swe:AbstractDataComponentPropertyType">
+                <attribute name="name" type="NCName" use="required"/>
+              </extension>
+            </complexContent>
+          </complexType>
+        </element>
+      </sequence>
+    </extension>
+  </complexContent>
+</complexType>
+----
+
+This element contains a list of (at least two) “item” property elements, each with a “name” attribute and containing the data component element that defines the field.
+
+The following “DataChoice” example illustrates how it can be used to define an element of a data stream that can either be a temperature or a pressure measurement, in both cases associated to a time tag:
+
+[source%unnumbered,xml]
+----
+<swe:DataChoice>
+  <swe:item name="TEMP">
+    <swe:DataRecord>
+      <swe:label>Temperature Measurement</swe:label>
+      <swe:field name="time">
+        <swe:Time definition="http://www.opengis.net/def/property/OGC/0/SamplingTime"
+                  referenceFrame="http://www.opengis.net/def/trs/OGC/0/GPS">
+          <swe:uom xlink:href="http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"/>
+        </swe:Time>
+      </swe:field>
+      <swe:field name="temp">
+        <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/physThermo.owl#Temperature">
+          <swe:uom code="Cel"/>
+        </swe:Quantity>
+      </swe:field>
+    </swe:DataRecord>
+  </swe:item>
+  <swe:item name="PRESS">
+    <swe:DataRecord>
+      <swe:label>Pressure Measurement</swe:label>
+      <swe:field name="time">
+        <swe:Time definition="http://www.opengis.net/def/property/OGC/0/SamplingTime"
+                  referenceFrame="http://www.opengis.net/def/trs/OGC/0/GPS">
+          <swe:uom xlink:href="http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"/>
+        </swe:Time>
+      </swe:field>
+      <swe:field name="press">
+        <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/physPressure.owl#Pressure">
+          <swe:uom code="HPa"/>
+        </swe:Quantity>
+      </swe:field>
+    </swe:DataRecord>
+  </swe:item>
+</swe:DataChoice>
+----
+
+A dataset element defined by the structure above would be of a variant type, meaning that each instance (actual data values) of this structure could be either a pair of time and temperature values OR a pair of time and pressure values. Note that each choice item has a unique name within the “DataChoice” element (see Req 46). This is enforced by a Schematron pattern.
+
+The “DataChoice” element is fully recursive so that each field can itself be any type of component defined in this standard, although implementations are not required to support nested “DataChoice” elements.

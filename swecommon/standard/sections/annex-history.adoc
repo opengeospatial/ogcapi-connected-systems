@@ -1,0 +1,16 @@
+[appendix]
+== Revision History
+
+[%unnumbered,width="90%",options="header"]
+|===
+| Date | Release | Editor | Primary clauses modified | Description
+| 2008-08-20 | 2.0 draft | Alexandre Robin | All | Initial draft version
+| 2008-10-30 | 2.0 draft | Ingo Simonis | All | General revision
+| 2009-10-30 | 2.0 draft | Alexandre Robin | All | Draft candidate standard
+| 2009-11-04 | 2.0 draft | Peter Taylor | Clauses 6 and 7 | Additional examples, minor edits 
+| 2009-11-10 | 2.0 draft | Alexandre Robin | All | General revision, added section 8
+| 2010-01-15 | 2.0 draft | Alexandre Robin | All | Clarifications in requirements
+| 2010-03-10 | 2.0 final | Alexandre Robin | All | Corrections following RFC comments
+| 2010-03-07 | 2.1 draft | Alexandre Robin | All | Conversion to AsciiDoc / Metanorma
+| 2010-03-08 | 2.1 draft | Alexandre Robin | Clauses 7,8,9 | Removed requirements that were redundant with dependencies.
+|===
