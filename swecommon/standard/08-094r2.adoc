@@ -4,12 +4,11 @@
 :lang: en
 :status: draft
 :committee: technical
-:draft: 1.0
 :external-id: http://www.opengis.net/doc/DIS/SWE/2.1
 :docnumber: 08-094r2
-:received-date: 2023-03-15
-:issued-date: 2023-03-15
-:published-date: 2023-03-15
+:received-date: yyyy-mm-dd
+:issued-date: yyyy-mm-dd
+:published-date: yyyy-mm-dd
 :fullname: Alexandre Robin
 :docsubtype: implementation
 :keywords: ogcdoc, OGC document, html, SWE, sensor, sensorweb, connected systems, xml, json, encoding, observation, command, tasking, property
@@ -18,9 +17,6 @@
 :mn-output-extensions: xml,html,doc,pdf
 :local-cache-only:
 :data-uri-image:
-:pdf-uri: ./document.pdf
-:xml-uri: ./document.xml
-:doc-uri: ./document.doc
 :edition: 2.1.0
 
 :xsd-base-url: https://schemas.opengis.net/sweCommon/2.0
