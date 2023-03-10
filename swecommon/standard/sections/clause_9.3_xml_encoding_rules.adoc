@@ -52,7 +52,7 @@ Let us consider the example of “TimeRange” below:
 </swe:field>
 ----
 
-Following Req 96, this component values are encoded as XML as shown below:
+The component's values are encoded in XML as shown below:
 
 [source%unnumbered,xml]
 ----
@@ -65,7 +65,7 @@ Following Req 96, this component values are encoded as XML as shown below:
 
 ==== Rules for DataRecord and Vector
 
-Aggregate components are encoded by using a parent element with the proper local name as enforced by Req 94 to which elements for sub-components are appended (recursively). Elements normally corresponding to record fields marked as optional can be completely omitted since parsers can use element names to unambiguously know the ones that are missing.
+Aggregate components are encoded by using a parent element with the proper local name (see xref:/req/xml-encoding-rules/local-names-valid[]) to which elements for sub-components are appended (recursively). Elements normally corresponding to record fields marked as optional can be completely omitted since parsers can use element names to unambiguously know the ones that are missing.
 
 include::../requirements/encoding_rules/xml/requirement4.adoc[]
 

@@ -79,6 +79,6 @@ The following “DataChoice” example illustrates how it can be used to define 
 </swe:DataChoice>
 ----
 
-A dataset element defined by the structure above would be of a variant type, meaning that each instance (actual data values) of this structure could be either a pair of time and temperature values OR a pair of time and pressure values. Note that each choice item has a unique name within the “DataChoice” element (see Req 46). This is enforced by a Schematron pattern.
+A dataset element defined by the structure above would be of a variant type, meaning that each instance (actual data values) of this structure could be either a pair of time and temperature values OR a pair of time and pressure values. Note that each choice item has a unique name within the “DataChoice” element (see xref:/req/uml-choice-components/choice-item-name-unique[]). This is enforced by a Schematron pattern.
 
 The “DataChoice” element is fully recursive so that each field can itself be any type of component defined in this standard, although implementations are not required to support nested “DataChoice” elements.

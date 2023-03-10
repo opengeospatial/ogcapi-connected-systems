@@ -152,7 +152,7 @@ include::../requirements/xsd/simple_components/requirement5.adoc[]
 </complexType>
 ----
 
-The “AbstractSimpleComponent” complex type adds XML attributes as defined in the UML class with the same name. The meaning of the corresponding UML properties is detailed in <<uml_simplecomponents>>. The “definition” attribute is mandatory on all elements derived from “AbstractSimpleComponentType” (see Req 18 of UML model). This is enforced by a Schematron pattern.
+The “AbstractSimpleComponent” complex type adds XML attributes as defined in the UML class with the same name. The meaning of the corresponding UML properties is detailed in <<uml_simplecomponents>>. The “definition” attribute is mandatory on all elements derived from “AbstractSimpleComponentType” (see xref:/req/uml-simple-components/definition-present[]). This is enforced by a Schematron pattern.
 
 As the XML schema snippet shows, this abstract element contains two important property elements “quality” and “nilValues” as well as two attributes “referenceFrame” and “axisID” implementing the corresponding attributes in the UML. Since all simple data components defined in this schema derive from this base type, these elements and attributes are available on all of them. Examples in the following sub-clauses show their usage. Detailed content of the “Quality” and “NilValues” elements that are the values of “QualityPropertyType” and “NilValuesPropertyType” respectively are given in <<xsd_quality_group>> and <<xsd_nilvalues_elt>>.
 
@@ -297,7 +297,7 @@ Note that the code space references an existing dictionary defined by CGI (Commi
 
 In this example, no official code space URI was found so the “codeSpace” element is used to reference the online source of the taxonomy (The “birdlife.org” website hosts the international database that is the reference in this case).
 
-When no code space is specified, Req 25 must be satisfied by inserting a constraint with a list of allowed values as shown in the example below:
+When no code space is specified, a constraint with a list of allowed values must be used instead, as shown in the example below (see xref:/req/uml-simple-components/category-enum-defined[]):
 
 [source%unnumbered,xml]
 ----
@@ -501,7 +501,7 @@ The example below shows how to use this XML element to specify the sampling time
 </swe:Time>
 ----
 
-Note the “referenceFrame” attribute which clarifies the time reference system used. Here the GPS time standard, which is different from UTC and TAI is used. The presence of the mandatory “referenceFrame” attribute (see Req 27) is enforced by an additional Schematron assertion.
+Note the “referenceFrame” attribute which clarifies the time reference system used. Here the GPS time standard, which is different from UTC and TAI is used. The presence of the mandatory “referenceFrame” attribute is enforced by an additional Schematron assertion (see xref:/req/uml-simple-components/time-ref-frame-defined[]).
 
 As mentioned above, the “Time” element can also be used to specify a time after an epoch by specifying a time of reference and using a scalar numerical value. This is shown in the following example with a UNIX time:
 
@@ -1025,7 +1025,7 @@ Several allowed intervals and values can also be combined to express a complex c
 </swe:AllowedValues>
 ----
 
-In the above example, the actual value must be 5, or 10, or between 20 and 30 included, or between 40 and 60 included. All numbers used within “interval” and “value” elements shall be expressed in the same unit as the enclosing data component (Req 36).
+In the above example, the actual value must be 5, or 10, or between 20 and 30 included, or between 40 and 60 included. All numbers used within “interval” and “value” elements shall be expressed in the same unit as the enclosing data component (see xref:/req/uml-simple-components/allowed-values-unit-coherent[]).
 
 The last option to specify a constraint on a decimal number (so only applicable to “Quantity”) is to limit the number of significant figures:
 
@@ -1079,7 +1079,7 @@ This element is used to specify numerical constraints with the “Time” and �
 </swe:Time>
 ----
 
-Note that unbounded intervals are also possible when ISO 8601 notation is used. In all other cases mixing decimal and ISO 8601 notation is forbidden. If the “uom” element indicates that ISO 8601 is the unit, then constraints shall be expressed using ISO 8601 notation as well, otherwise constraints shall be expressed with decimal numbers with the scale specified by “uom”. This is enforced by a Schematron pattern (Req 36).
+Note that unbounded intervals are also possible when ISO 8601 notation is used. In all other cases mixing decimal and ISO 8601 notation is forbidden. If the “uom” element indicates that ISO 8601 is the unit, then constraints shall be expressed using ISO 8601 notation as well, otherwise constraints shall be expressed with decimal numbers with the scale specified by “uom”. This is enforced by a Schematron pattern.
 
 
 [[xsd_simplecomponent_groups]]

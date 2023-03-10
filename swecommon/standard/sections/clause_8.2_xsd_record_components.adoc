@@ -79,7 +79,7 @@ The XML example below describes a record composed of weather data fields. In thi
 </swe:DataRecord>
 ----
 
-Each field shall have a unique name within the record (Req 39). This is enforced by a Schematron pattern.
+Each field shall have a unique name within the record (see xref:/req/uml-record-components/record-field-name-unique[]). This is enforced by a Schematron pattern.
 
 The “DataRecord” element can also carry its own “definition” attribute to carry semantics about the whole group of values. The next example shows how radial distortion coefficients of a frame camera sensor could be encoded in this way:
 
@@ -145,7 +145,7 @@ The “Vector” element is the XML schema implementation of the “Vector” UM
 </complexType>
 ----
 
-This element is similar to the “DataRecord” element except that it is composed of a list of coordinates instead of fields. Each “coordinate” element is restricted to numerical component types (see “AnyNumerical” element group defined in <<xsd_simplecomponent_groups>>) and inherits the reference frame from the “Vector” element. A Schematron pattern enforces that an “axisID” attribute is specified and that no “referenceFrame” attribute is used on each coordinate component (see Req 41 and Req 42).
+This element is similar to the “DataRecord” element except that it is composed of a list of coordinates instead of fields. Each “coordinate” element must have a unique name (see xref:/req/uml-record-components/vector-coord-name-unique[]) and is restricted to numerical component types (see “AnyNumerical” element group defined in <<xsd_simplecomponent_groups>>) and inherits the reference frame from the “Vector” element. A Schematron pattern enforces that an “axisID” attribute is specified and that no “referenceFrame” attribute is used on each coordinate component (see xref:/req/uml-record-components/vector-component-no-ref-frame[] and xref:/req/uml-record-components/vector-component-axis-defined[]).
 
 The example below illustrates how to use the “Vector” element to encode geographic location:
 
