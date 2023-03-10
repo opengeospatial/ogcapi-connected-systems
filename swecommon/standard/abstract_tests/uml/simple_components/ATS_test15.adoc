@@ -1,0 +1,15 @@
+[abstract_test]
+.The local and reference frames of a Time component are different
+====
+[%metadata]
+identifier:: /conf/uml-simple-components/time-local-frame-valid
+
+target:: /req/uml-simple-components/time-local-frame-valid
+
+test-purpose:: Verify that the target implementation has a constraint that enforces the requirement.
+
+[.component,class=test method]
+=====
+Inspect the model or software implementation.
+=====
+====

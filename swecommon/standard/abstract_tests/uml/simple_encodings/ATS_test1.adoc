@@ -1,0 +1,15 @@
+[abstract_test]
+.Compliance with UML models defined in this package
+====
+[%metadata]
+identifier:: /conf/uml-simple-encodings/package-fully-implemented
+
+target:: /req/uml-simple-encodings/package-fully-implemented
+
+test-purpose:: Verify that the target implements all classes in the UML package.
+
+[.component,class=test method]
+=====
+Inspect the model or software implementation.
+=====
+====

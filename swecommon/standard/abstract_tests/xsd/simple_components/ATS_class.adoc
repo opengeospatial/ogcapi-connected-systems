@@ -1,0 +1,23 @@
+[conformance_class]
+.Basic Types and Simple Components XML Schemas
+====
+[%metadata]
+identifier:: /conf/xsd-simple-components
+target:: /req/xsd-simple-components
+indirect-dependency:: /conf/core
+classification:: Target Type: XML Instance
+====
+
+All tests in this conformance test class and in the following shall be used to check conformance of XML instances created according to the schemas defined in this standard. They shall also be used to check conformance of software implementations that output XML instances.
+
+include::./ATS_test1.adoc[]
+include::./ATS_test2.adoc[]
+include::./ATS_test3.adoc[]
+include::./ATS_test4.adoc[]
+include::./ATS_test5.adoc[]
+include::./ATS_test6.adoc[]
+include::./ATS_test7.adoc[]
+include::./ATS_test8.adoc[]
+include::./ATS_test9.adoc[]
+
+

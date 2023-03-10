@@ -1,0 +1,12 @@
+[conformance_class]
+.Simple Encodings UML Package
+====
+[%metadata]
+identifier:: /conf/uml-simple-encodings
+target:: /req/uml-simple-encodings
+inherit:: /conf/uml-block-components
+inherit:: /conf/core
+classification:: Target Type: Derived Models and Software Implementations
+====
+
+include::./ATS_test1.adoc[]

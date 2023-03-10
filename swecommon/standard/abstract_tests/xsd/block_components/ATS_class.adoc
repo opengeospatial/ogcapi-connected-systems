@@ -1,0 +1,15 @@
+[conformance_class]
+.Block Components XML Schema
+====
+[%metadata]
+identifier:: /conf/xsd-block-components
+target:: /req/xsd-block-components
+inherit:: /conf/xsd-simple-components
+inherit:: /conf/xsd-simple-encodings
+classification:: Target Type: XML Instance
+====
+
+include::./ATS_test1.adoc[]
+include::./ATS_test2.adoc[]
+
+

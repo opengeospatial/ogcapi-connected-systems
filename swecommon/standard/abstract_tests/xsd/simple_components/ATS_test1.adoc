@@ -1,0 +1,15 @@
+[abstract_test]
+.Compliance with XML schemas and Schematron patterns
+====
+[%metadata]
+identifier:: /conf/xsd-simple-components/schema-valid
+
+target:: /req/xsd-simple-components/schema-valid
+
+test-purpose:: Verify that the XML instance is valid against the schema.
+
+[.component,class=test method]
+=====
+Validate the XML instance containing simple data components with the “swe.xsd” XML schema file and the Schematron patterns in “simple_components.sch”.
+=====
+====

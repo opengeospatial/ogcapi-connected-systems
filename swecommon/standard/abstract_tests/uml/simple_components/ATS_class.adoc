@@ -1,0 +1,34 @@
+[conformance_class]
+.Basic Types and Simple Components UML Packages
+====
+[%metadata]
+identifier:: /conf/uml-simple-components
+target:: /req/uml-simple-components
+inherit:: /conf/core
+classification:: Target Type: Derived Models and Software Implementations
+====
+
+include::./ATS_test1.adoc[]
+include::./ATS_test2.adoc[]
+include::./ATS_test3.adoc[]
+include::./ATS_test4.adoc[]
+include::./ATS_test5.adoc[]
+include::./ATS_test6.adoc[]
+include::./ATS_test7.adoc[]
+include::./ATS_test8.adoc[]
+include::./ATS_test9.adoc[]
+include::./ATS_test10.adoc[]
+include::./ATS_test11.adoc[]
+include::./ATS_test12.adoc[]
+include::./ATS_test13.adoc[]
+include::./ATS_test14.adoc[]
+include::./ATS_test15.adoc[]
+include::./ATS_test16.adoc[]
+include::./ATS_test17.adoc[]
+include::./ATS_test18.adoc[]
+include::./ATS_test19.adoc[]
+include::./ATS_test20.adoc[]
+include::./ATS_test21.adoc[]
+include::./ATS_test22.adoc[]
+
+

@@ -1,0 +1,18 @@
+[conformance_class]
+.Record Components UML Package
+====
+[%metadata]
+identifier:: /conf/uml-record-components
+target:: /req/uml-record-components
+inherit:: /conf/uml-simple-components
+classification:: Target Type: Derived Models and Software Implementations
+====
+
+include::./ATS_test1.adoc[]
+include::./ATS_test2.adoc[]
+include::./ATS_test3.adoc[]
+include::./ATS_test4.adoc[]
+include::./ATS_test5.adoc[]
+include::./ATS_test6.adoc[]
+
+

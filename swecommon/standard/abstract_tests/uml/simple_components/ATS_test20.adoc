@@ -1,0 +1,18 @@
+[abstract_test]
+.The reason attribute is a URI that is resolvable to a definition
+====
+[%metadata]
+identifier:: /conf/uml-simple-components/nil-reason-resolvable
+
+target:: /req/uml-simple-components/nil-reason-resolvable
+
+test-purpose:: Verify that the target implementation allows the value of a NIL reason identifier to be either:
+
+- a well known reason code defined by OGC
+- a URI that can be resolved to the textual description of a custom reason.
+
+[.component,class=test method]
+=====
+Inspect the model or software implementation.
+=====
+====

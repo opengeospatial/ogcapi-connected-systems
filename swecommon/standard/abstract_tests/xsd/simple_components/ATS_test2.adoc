@@ -1,0 +1,13 @@
+[abstract_test]
+.XML property values are included inline or by reference
+====
+[%metadata]
+identifier:: /conf/xsd-simple-components/ref-or-inline-value-present
+
+target:: /req/xsd-simple-components/ref-or-inline-value-present
+
+[.component,class=test method]
+=====
+Check that all properties either include an inline value or an “xlink:href” attribute.
+=====
+====

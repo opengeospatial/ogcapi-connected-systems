@@ -1,0 +1,15 @@
+[abstract_test]
+.The local and reference frames of a Vector component are different
+====
+[%metadata]
+identifier:: /conf/uml-record-components/vector-local-frame-valid
+
+target:: /req/uml-record-components/vector-local-frame-valid
+
+test-purpose:: Verify that the implementation of the “Vector” class has a constraint that enforces the requirement.
+
+[.component,class=test method]
+=====
+Inspect the model or software implementation.
+=====
+====

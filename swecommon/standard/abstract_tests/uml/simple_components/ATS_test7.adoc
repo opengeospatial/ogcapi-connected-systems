@@ -1,0 +1,15 @@
+[abstract_test]
+.The reference frame is specified on scalar spatial properties not part of a vector
+====
+[%metadata]
+identifier:: /conf/uml-simple-components/ref-frame-defined
+
+target:: /req/uml-simple-components/ref-frame-defined
+
+test-purpose:: Verify that the target implementation has a constraint that enforces the requirement.
+
+[.component,class=test method]
+=====
+Inspect the model or software implementation.
+=====
+====

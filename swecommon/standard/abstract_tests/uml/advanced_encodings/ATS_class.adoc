@@ -1,0 +1,13 @@
+[conformance_class]
+.Advanced Encodings UML Package
+====
+[%metadata]
+identifier:: /conf/uml-advanced-encodings
+target:: /req/uml-advanced-encodings
+inherit:: /conf/uml-simple-encodings
+classification:: Target Type: Derived Models and Software Implementations
+====
+
+include::./ATS_test1.adoc[]
+
+

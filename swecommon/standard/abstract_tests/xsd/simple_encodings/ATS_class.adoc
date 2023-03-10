@@ -1,0 +1,12 @@
+[conformance_class]
+.Simple Encodings XML Schema
+====
+[%metadata]
+identifier:: /conf/xsd-simple-encodings
+target:: /req/xsd-simple-encodings
+classification:: Target Type: XML Instance
+====
+
+//include::./ATS_test1.adoc[]
+
+

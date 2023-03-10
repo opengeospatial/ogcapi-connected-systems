@@ -1,0 +1,15 @@
+[abstract_test]
+.The temporal reference frame is defined
+====
+[%metadata]
+identifier:: /conf/uml-simple-components/time-ref-frame-defined
+
+target:: /req/uml-simple-components/time-ref-frame-defined
+
+test-purpose:: Verify that the implementation correctly assumes the default value when the attribute is not set.
+
+[.component,class=test method]
+=====
+Inspect the model or software implementation.
+=====
+====

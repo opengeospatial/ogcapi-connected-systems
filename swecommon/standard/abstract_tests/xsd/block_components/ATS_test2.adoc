@@ -1,0 +1,18 @@
+[abstract_test]
+.Encoding of array elements is consistent with the DataArray definition
+====
+[%metadata]
+identifier:: /conf/xsd-block-components/encoded-values-valid
+
+target:: /req/xsd-block-components/encoded-values-valid
+
+test-purpose:: Verify that the XML instance is valid against the schema.
+
+[.component,class=test method]
+=====
+- Verify that the data block is effectively encoded with the specified encoding method.
+- Decode the data block by following the encoding rules described in the clause of this standard corresponding to the specified encoding method and verify that the decoded data is actually a sequence of values that is consistent with the element type definition.
+- For each decoded value in the sequence, verify that it is consistent with the data type and constraints (including the code space for a “Category” component) of the corresponding data component.
+- Verify that the total number of decoded elements is equal to the element count.
+=====
+====

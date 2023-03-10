@@ -1,0 +1,15 @@
+[abstract_test]
+.Values reserved for NIL reasons are compatible with the component data type
+====
+[%metadata]
+identifier:: /conf/uml-simple-components/nil-value-type-coherent
+
+target:: /req/uml-simple-components/nil-value-type-coherent
+
+test-purpose:: Verify that the target implementation has a constraint that enforces the requirement.
+
+[.component,class=test method]
+=====
+Inspect the model or software implementation.
+=====
+====

@@ -1,0 +1,15 @@
+[abstract_test]
+.A definition URI is mandatory on all simple components
+====
+[%metadata]
+identifier:: /conf/uml-simple-components/definition-present
+
+target:: /req/uml-simple-components/definition-present
+
+test-purpose:: Verify that the target implementation has a constraint that enforces the requirement.
+
+[.component,class=test method]
+=====
+Inspect the model or software implementation.
+=====
+====

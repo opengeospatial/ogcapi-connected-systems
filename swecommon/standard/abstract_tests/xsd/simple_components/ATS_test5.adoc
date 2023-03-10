@@ -1,0 +1,13 @@
+[abstract_test]
+.The value of the definition attribute is a resolvable URI
+====
+[%metadata]
+identifier:: /conf/xsd-simple-components/definition-resolvable
+
+target:: /req/xsd-simple-components/definition-resolvable
+
+[.component,class=test method]
+=====
+Verify that the URI can be resolved to an online document (or a document fragment if the URI includes a fragment) describing the type of property. In the case of a URL, check that connecting to the specified address results in the successful retrieval of the document. In the case of a URN check that a registry is available to resolve it to a URL that behaves as specified above or directly to the document.
+=====
+====

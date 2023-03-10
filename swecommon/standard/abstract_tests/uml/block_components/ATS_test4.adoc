@@ -1,0 +1,15 @@
+[abstract_test]
+.Elements of a matrix are of scalar types or nested matrices
+====
+[%metadata]
+identifier:: /conf/uml-block-components/matrix-element-type-valid
+
+target:: /req/uml-block-components/matrix-element-type-valid
+
+test-purpose:: Verify that the implementation of the “Matrix” class has a constraint that enforces the requirement.
+
+[.component,class=test method]
+=====
+Inspect the model or software implementation.
+=====
+====

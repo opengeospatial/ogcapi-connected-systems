@@ -1,0 +1,13 @@
+[abstract_test]
+.Pattern constraints are expressed using Unicode regular expressions
+====
+[%metadata]
+identifier:: /conf/xsd-simple-components/
+
+target:: /req/xsd-simple-components/
+
+[.component,class=test method]
+=====
+Verify that all character strings used as regular expressions are valid according to the Unicode standard.
+=====
+====

@@ -1,0 +1,12 @@
+[conformance_class]
+.Advanced Encodings XML Schema
+====
+[%metadata]
+identifier:: /conf/xsd-advanced-encodings
+target:: /req/xsd-advanced-encodings
+classification:: Target Type: XML Instance
+====
+
+//include::./ATS_test1.adoc[]
+
+

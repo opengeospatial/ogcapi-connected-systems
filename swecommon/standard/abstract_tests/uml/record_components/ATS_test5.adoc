@@ -1,0 +1,16 @@
+[abstract_test]
+.The axis ID is specified on all coordinates of a Vector
+====
+[%metadata]
+identifier:: /conf/uml-record-components/vector-component-axis-defined
+
+target:: /req/uml-record-components/vector-component-axis-defined
+
+test-purpose:: Verify that the implementation of the “Vector” class has a constraint that enforces the requirement.
+
+[.component,class=test method]
+=====
+Inspect the model or software implementation.
+The “axisID” attribute shall be present on all data components used to define coordinates of a “Vector” instance.
+=====
+====

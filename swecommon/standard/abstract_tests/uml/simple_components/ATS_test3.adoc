@@ -1,0 +1,15 @@
+[abstract_test]
+.Compliance with UML models defined in ISO 19108
+====
+[%metadata]
+identifier:: /conf/uml-simple-components/iso19108-implemented
+
+target:: /req/uml-simple-components/iso19108-implemented
+
+test-purpose:: Verify that the target implements all classes imported from ISO 19108 UML packages.
+
+[.component,class=test method]
+=====
+Inspect the model or software implementation.
+=====
+====

@@ -1,0 +1,13 @@
+[conformance_class]
+.Record Components XML Schema
+====
+[%metadata]
+identifier:: /conf/xsd-record-components
+target:: /req/xsd-record-components
+inherit:: /conf/xsd-simple-components
+classification:: Target Type: XML Instance
+====
+
+include::./ATS_test1.adoc[]
+
+

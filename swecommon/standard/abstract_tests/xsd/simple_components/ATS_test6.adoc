@@ -1,0 +1,13 @@
+[abstract_test]
+.Data component inline value satisfies the constraints
+====
+[%metadata]
+identifier:: /conf/xsd-simple-components/inline-value-constraint-valid
+
+target:: /req/xsd-simple-components/inline-value-constraint-valid
+
+[.component,class=test method]
+=====
+This test is run only on instances of simple data components that include a constraint (i.e. using one of “AllowedValues”, “AllowedTimes” or “AllowedTokens” elements) and an inline value. For such instances, verify that the inline value is valid with respect to the specified constraint(s).
+=====
+====

@@ -1,0 +1,15 @@
+[abstract_test]
+.Each DataChoice item has a unique name
+====
+[%metadata]
+identifier:: /conf/uml-choice-components/choice-item-name-unique
+
+target:: /req/uml-choice-components/choice-item-name-unique
+
+test-purpose:: Verify that the implementation of the “DataChoice” class has a constraint that enforces the requirement.
+
+[.component,class=test method]
+=====
+Inspect the model or software implementation.
+=====
+====

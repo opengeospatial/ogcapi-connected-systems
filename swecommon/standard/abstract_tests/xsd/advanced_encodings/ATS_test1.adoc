@@ -1,0 +1,13 @@
+[abstract_test]
+.Title
+====
+[%metadata]
+identifier:: /conf/xsd-advanced-encodings/
+
+target:: /req/xsd-advanced-encodings/
+
+[.component,class=test method]
+=====
+Method
+=====
+====

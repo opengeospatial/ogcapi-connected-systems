@@ -1,0 +1,13 @@
+[conformance_class]
+.Choice Components XML Schema
+====
+[%metadata]
+identifier:: /conf/xsd-choice-components
+target:: /req/xsd-choice-components
+inherit:: /conf/xsd-simple-components
+classification:: Target Type: XML Instance
+====
+
+include::./ATS_test1.adoc[]
+
+

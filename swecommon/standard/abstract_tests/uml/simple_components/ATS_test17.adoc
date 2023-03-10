@@ -1,0 +1,20 @@
+[abstract_test]
+.CategoryRange components satisfy all requirements of a Category component
+====
+[%metadata]
+identifier:: /conf/uml-simple-components/category-range-valid
+
+target:: /req/uml-simple-components/category-range-valid
+
+test-purpose:: Verify that the target implementation has constraints that enforce the requirement.
+
+[.component,class=test method]
+=====
+Inspect the model or software implementation.
+Apply the following conformance tests to the “CategoryRange” class:
+
+- xref:/conf/uml-simple-components/category-constraint-valid[]
+- xref:/conf/uml-simple-components/category-enum-defined[]
+- xref:/conf/uml-simple-components/category-value-valid[]
+=====
+====
