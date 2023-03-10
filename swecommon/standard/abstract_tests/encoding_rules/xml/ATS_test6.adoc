@@ -1,0 +1,13 @@
+[abstract_test]
+.Nested arrays are encoded with an XML element with a size
+====
+[%metadata]
+identifier:: /conf/xml-encoding-rules/array-wrapper-elt-valid
+
+target:: /req/xml-encoding-rules/array-wrapper-elt-valid
+
+[.component,class=test method]
+=====
+Inspect the XML of the encoded data block to verify that nested array data is wrapped by an XML element whose name is the same as the one provided in the descriptor.
+=====
+====

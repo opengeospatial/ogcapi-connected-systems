@@ -4,9 +4,13 @@
 [%metadata]
 identifier:: /conf/xsd-simple-encodings
 target:: /req/xsd-simple-encodings
+inherit:: /conf/text-encoding-rules
+inherit:: /conf/xml-encoding-rules
 classification:: Target Type: XML Instance
 ====
 
-//include::./ATS_test1.adoc[]
+include::./ATS_test1.adoc[]
+include::./ATS_test2.adoc[]
+include::./ATS_test3.adoc[]
 
 

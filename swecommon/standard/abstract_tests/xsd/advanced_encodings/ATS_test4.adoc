@@ -1,13 +1,13 @@
 [abstract_test]
-.Title
+.The path value in the ref attribute points to a valid component
 ====
 [%metadata]
-identifier:: /conf/xsd-advanced-encodings/
+identifier:: /conf/xsd-advanced-encodings/scalar-ref-component-valid
 
-target:: /req/xsd-advanced-encodings/
+target:: /req/xsd-advanced-encodings/scalar-ref-component-valid
 
 [.component,class=test method]
 =====
-Method
+Inspect the section of the XML instance describing the binary encoding options. Resolve the path to a component of the dataset definition tree and check that this component is one of the elements defined in simple_components.xsd schema.
 =====
 ====

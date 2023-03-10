@@ -3,5 +3,5 @@
 [%metadata]
 identifier:: /req/binary-encoding-rules/choice-selection-marker-valid
 
-The selected-item-name token shall correspond to the value of the “name” attribute of the “item” property element that represents the selected item.
+The value of the `selected-item-idx` flag shall be the zero-based index of the selected item (within the ordered list of items provided by the choice descriptor) and be encoded on a single unsigned byte.
 ====

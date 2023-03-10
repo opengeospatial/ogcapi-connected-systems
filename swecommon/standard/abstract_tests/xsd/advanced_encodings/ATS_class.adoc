@@ -4,9 +4,18 @@
 [%metadata]
 identifier:: /conf/xsd-advanced-encodings
 target:: /req/xsd-advanced-encodings
+inherit:: /conf/xsd-simple-encodings
+inherit:: /conf/binary-encoding-rules
 classification:: Target Type: XML Instance
 ====
 
-//include::./ATS_test1.adoc[]
+include::./ATS_test1.adoc[]
+include::./ATS_test2.adoc[]
+include::./ATS_test3.adoc[]
+include::./ATS_test4.adoc[]
+include::./ATS_test5.adoc[]
+include::./ATS_test6.adoc[]
+include::./ATS_test7.adoc[]
+include::./ATS_test8.adoc[]
 
 

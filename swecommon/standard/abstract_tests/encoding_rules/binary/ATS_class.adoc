@@ -1,0 +1,17 @@
+[conformance_class]
+.Binary Encoding Rules
+====
+[%metadata]
+identifier:: /conf/binary-encoding-rules
+target:: /req/binary-encoding-rules
+inherit:: /conf/general-encoding-rules
+classification:: Target Type: Encoded Values Instance
+====
+
+include::./ATS_test1.adoc[]
+include::./ATS_test2.adoc[]
+include::./ATS_test3.adoc[]
+include::./ATS_test4.adoc[]
+include::./ATS_test5.adoc[]
+
+

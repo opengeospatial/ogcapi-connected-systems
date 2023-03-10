@@ -1,13 +1,13 @@
 [abstract_test]
-.Title
+.The chosen datatype is one of the possible options
 ====
 [%metadata]
-identifier:: /conf/xsd-advanced-encodings/
+identifier:: /conf/xsd-advanced-encodings/datatype-valid
 
-target:: /req/xsd-advanced-encodings/
+target:: /req/xsd-advanced-encodings/datatype-valid
 
 [.component,class=test method]
 =====
-Method
+Verify that the URI used to specify the binary data type is one of the item the list provided in <<binary-datatypes-table>>.
 =====
 ====

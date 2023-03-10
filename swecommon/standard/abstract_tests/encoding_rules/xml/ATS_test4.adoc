@@ -1,0 +1,14 @@
+[abstract_test]
+.Record components are encoded as an XML element with complex content
+====
+[%metadata]
+identifier:: /conf/xml-encoding-rules/record-wrapper-elt-valid
+
+target:: /req/xml-encoding-rules/record-wrapper-elt-valid
+target:: /req/xml-encoding-rules/vector-wrapper-elt-valid
+
+[.component,class=test method]
+=====
+Inspect the XML of the encoded data block to verify that record and vector data is wrapped by an XML element whose name is the same as the one provided in the descriptor.
+=====
+====

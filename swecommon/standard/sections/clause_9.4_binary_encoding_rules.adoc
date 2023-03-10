@@ -83,15 +83,15 @@ Vector coordinates cannot be optional.
 
 ==== Rules for DataChoice
 
-A “DataChoice” is encoded with the binary method by providing the name of the selected item before the item values themselves. The name used shall correspond to the “name” attribute of the “item” property element that describes the structure of the selected item, and be encoded as a variable length string datatype.
+A “DataChoice” is encoded with the binary method by providing the zero-based index of the selected item before the item values themselves. The index value ranges from 0 for the first choice item to `(number_of_items - 1)` for the last item.
 
 [source%unnumbered]
 ----
-selected-item-name = < Value of the “name” attribute of the item selected >
+selected-item-idx = < Index of the item selected >
 
 selected-item-value = scalar-value / range-values / record-values / choice-values / array-values
 
-choice-values = selected-item-name selected-item-value
+choice-values = selected-item-idx selected-item-value
 ----
 
 include::../requirements/encoding_rules/binary/requirement5.adoc[]

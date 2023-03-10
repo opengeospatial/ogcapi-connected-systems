@@ -80,12 +80,20 @@ include::../abstract_tests/xsd/advanced_encodings/ATS_class.adoc[]
 
 ==== Conformance Class: General Encoding Rules
 
+include::../abstract_tests/encoding_rules/general/ATS_class.adoc[]
+
 
 ==== Conformance Class: Text Encoding Rules
+
+include::../abstract_tests/encoding_rules/text/ATS_class.adoc[]
 
 
 ==== Conformance Class: XML Encoding Rules
 
+include::../abstract_tests/encoding_rules/xml/ATS_class.adoc[]
+
 
 ==== Conformance Class: Binary Encoding Rules
+
+include::../abstract_tests/encoding_rules/binary/ATS_class.adoc[]
 

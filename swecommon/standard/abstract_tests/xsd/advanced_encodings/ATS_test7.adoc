@@ -1,13 +1,13 @@
 [abstract_test]
-.Title
+.The length of a datatype is specified only when appropriate
 ====
 [%metadata]
-identifier:: /conf/xsd-advanced-encodings/
+identifier:: /conf/xsd-advanced-encodings/no-datatype-length
 
-target:: /req/xsd-advanced-encodings/
+target:: /req/xsd-advanced-encodings/no-datatype-length
 
 [.component,class=test method]
 =====
-Method
+Verify that the “bitLength” and “byteLength” attributes are used only when one of the UTF-8 String or Custom Integer data types is selected.
 =====
 ====

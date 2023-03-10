@@ -1,0 +1,16 @@
+[conformance_class]
+.Text Encoding Rules
+====
+[%metadata]
+identifier:: /conf/text-encoding-rules
+target:: /req/text-encoding-rules
+inherit:: /conf/general-encoding-rules
+classification:: Target Type: Encoded Values Instance
+====
+
+include::./ATS_test1.adoc[]
+include::./ATS_test2.adoc[]
+include::./ATS_test3.adoc[]
+include::./ATS_test4.adoc[]
+
+

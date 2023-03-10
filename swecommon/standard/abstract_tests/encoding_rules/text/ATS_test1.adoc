@@ -1,0 +1,13 @@
+[abstract_test]
+.Compliance with ABNF grammar
+====
+[%metadata]
+identifier:: /conf/text-encoding-rules/abnf-syntax-valid
+
+target:: /req/text-encoding-rules/abnf-syntax-valid
+
+[.component,class=test method]
+=====
+Verify that the text encoded data block is correct with respect to the ABNF grammar corresponding to the particular dataset (The complete ABNF grammar of the dataset should be dynamically constructed from the ABNF snippets provided in the specification).
+=====
+====

@@ -5,6 +5,6 @@
 type:: class
 identifier:: /req/binary-encoding-rules
 subject:: Encoded Values Instance
-inherit:: /req/uml-advanced-encodings
 inherit:: /req/general-encoding-rules
+indirect-dependency:: /req/uml-advanced-encodings
 ====

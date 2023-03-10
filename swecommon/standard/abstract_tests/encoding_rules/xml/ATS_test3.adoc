@@ -1,0 +1,13 @@
+[abstract_test]
+.Range components are encoded as a group of two XML elements
+====
+[%metadata]
+identifier:: /conf/xml-encoding-rules/range-encoding-elt-valid
+
+target:: /req/xml-encoding-rules/range-encoding-elt-valid
+
+[.component,class=test method]
+=====
+Inspect the XML of the encoded data block to verify that range components are encoded with a single element containing two nested elements with min and max values.
+=====
+====

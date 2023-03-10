@@ -1,0 +1,13 @@
+[abstract_test]
+.Array elements are encoded as an XML element with complex content 
+====
+[%metadata]
+identifier:: /conf/xml-encoding-rules/array-elt-wrapper-elt-valid
+
+target:: /req/xml-encoding-rules/array-elt-wrapper-elt-valid
+
+[.component,class=test method]
+=====
+Inspect the XML of the encoded data block to verify that each element within an array is encoded using a wrapper XML element whose name is the same as the one provided in the descriptor.
+=====
+====

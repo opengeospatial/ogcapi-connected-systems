@@ -1,13 +1,13 @@
 [abstract_test]
-.Title
+.Values are encoded as defined by the text encoding rules
 ====
 [%metadata]
-identifier:: /conf/xsd-simple-encodings/
+identifier:: /conf/xsd-simple-encodings/text-encoding-rules-applied
 
-target:: /req/xsd-simple-encodings/
+target:: /req/xsd-simple-encodings/text-encoding-rules-applied
 
 [.component,class=test method]
 =====
-Method
+Find all text encoded value blocks included inline or referenced by the XML instance. Apply all tests from xref:/conf/text-encoding-rules[] to the encoded data to validate its syntax and structure.
 =====
 ====

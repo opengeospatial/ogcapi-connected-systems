@@ -5,6 +5,5 @@
 type:: class
 identifier:: /req/general-encoding-rules
 subject:: Encoded Values Instance
-inherit:: /req/core
-inherit:: /req/uml-simple-encodings
+indirect-dependency:: /req/uml-simple-encodings
 ====

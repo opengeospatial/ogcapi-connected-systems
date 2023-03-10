@@ -1,13 +1,13 @@
 [abstract_test]
-.Title
+.Values are encoded as defined by the binary encoding rules
 ====
 [%metadata]
-identifier:: /conf/xsd-advanced-encodings/
+identifier:: /conf/xsd-advanced-encodings/binary-encoding-rules-applied
 
-target:: /req/xsd-advanced-encodings/
+target:: /req/xsd-advanced-encodings/binary-encoding-rules-applied
 
 [.component,class=test method]
 =====
-Method
+Find all binary encoded value blocks included inline (base64 encoded) or referenced by the XML instance. Apply all tests from xref:/conf/binary-encoding-rules[] to the encoded data to validate its syntax and structure.
 =====
 ====

@@ -1,13 +1,13 @@
 [abstract_test]
-.Title
+.Binary block encoding specifications are associated to an aggregate component
 ====
 [%metadata]
-identifier:: /conf/xsd-advanced-encodings/
+identifier:: /conf/xsd-advanced-encodings/block-ref-component-valid
 
-target:: /req/xsd-advanced-encodings/
+target:: /req/xsd-advanced-encodings/block-ref-component-valid
 
 [.component,class=test method]
 =====
-Method
+Verify that the component referenced by the ‘ref’ attribute is an aggregate, that is to say it is either a “DataRecord”, “Vector”, “DataChoice”, “DataArray” or “Matrix”.
 =====
 ====
