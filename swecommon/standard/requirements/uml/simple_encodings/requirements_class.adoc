@@ -6,5 +6,4 @@ type:: class
 identifier:: /req/uml-simple-encodings
 subject:: Software Implementation or Encoding of the Conceptual Models
 inherit:: /req/core
-inherit:: /req/uml-simple-components
 ====

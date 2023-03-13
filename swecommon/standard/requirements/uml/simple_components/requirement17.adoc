@@ -3,5 +3,5 @@
 [%metadata]
 identifier:: /req/uml-simple-components/category-range-valid
 
-All requirements associated to the “Category” class defined in clause 7.2.6 apply to the “CategoryRange” class.
+All requirements associated to the “Category” class defined in <<uml_category_class,style=short%>> apply to the “CategoryRange” class.
 ====

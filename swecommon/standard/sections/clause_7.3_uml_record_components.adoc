@@ -61,12 +61,14 @@ NOTE: _The slightly different definition of record found in ISO 19103 provides f
 
 The “Vector” class is used to express multi-dimensional quantities with respect to a well defined referenced frame (usually a spatial or spatio-temporal reference frame). This is done by projecting the quantity on one or several axes that define the reference frame and assigning a value to each of the axis projections.
 
-*Coordinates*
-
 The “Vector” class is a special case of a record that takes a collection of coordinates that are restricted to a numerical representation. Coordinates of a “Vector” can thus only be of type “Quantity”, “Count” or “Time”. Its UML diagram is shown below:
 
 .Vector Class
 image::figures/fig7.26.png[]
+
+*Coordinates*
+
+Just like record fields, vector coordinates must have a unique name:
 
 include::../requirements/uml/record_components/requirement3.adoc[]
 
