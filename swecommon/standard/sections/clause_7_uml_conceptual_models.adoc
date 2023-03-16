@@ -27,6 +27,8 @@ include::clause_7.4_uml_choice_components.adoc[]
 
 include::clause_7.5_uml_block_components.adoc[]
 
-include::clause_7.6_uml_simple_encodings.adoc[]
+include::clause_7.6_uml_geometry_components.adoc[]
 
-include::clause_7.7_uml_advanced_encodings.adoc[]
+include::clause_7.7_uml_simple_encodings.adoc[]
+
+include::clause_7.8_uml_advanced_encodings.adoc[]

@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/uml-geom-components/package-fully-implemented
+
+The encoding or software shall correctly implement all classes defined in the “Geometry Components” UML package.
+====

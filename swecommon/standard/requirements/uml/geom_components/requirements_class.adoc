@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+.Geometry Components UML Package
+====
+[%metadata]
+type:: class
+identifier:: /req/uml-geom-components
+subject:: Software Implementation or Encoding of the Conceptual Models
+inherit:: /req/uml-simple-components
+====

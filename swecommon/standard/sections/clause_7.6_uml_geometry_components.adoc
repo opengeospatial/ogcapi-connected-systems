@@ -1,0 +1,47 @@
+[[uml_geom_components]]
+=== Requirements Class: Geometry Components Package
+
+include::../requirements/uml/geom_components/requirements_class.adoc[]
+
+This package defines an additional component for representing simple feature geometries, as defined by <<OGC_SFA>>, within an encoded SWE Common data block or stream.
+
+include::../requirements/uml/geom_components/requirement1.adoc[]
+
+
+[[uml_geometry_class]]
+==== Geometry Class
+
+The “Geometry” class extends the “AbstractDataComponent” class with a value of type geometry and a constraint that can be used to limit the types of allowed geometries. This class is shown on the following UML diagram:
+
+.Geometry Class
+image::figures/fig7.36.png[]
+
+
+*Coordinate Reference System*
+
+The “crs” attribute provides the URI of the coordinate reference system w.r.t which the geometry coordinates are expressed. The unit of the coordinates is also provided by the coordinate reference system.
+
+include::../requirements/uml/geom_components/requirement2.adoc[]
+
+
+*Constraints*
+
+The “constraint” attribute is used to restrict the possible geometries that can be provided using this component when it is used as a descriptor. The constraint is provided using the “AllowedGeometries” class that includes a list of allowed geometry types.
+
+
+*Value*
+
+The value of this component must be a geometry instance, whether it's provided inline using the “value” attribute, or as part of a datastream.
+
+include::../requirements/uml/geom_components/requirement3.adoc[]
+
+
+[NOTE]
+====
+Encoding sections in this standard define how the geometry value is encoded:
+
+- GML in the <<xml_impl,XML implementation>> and <<encoding_rules_xml,XML encoding rules>>
+- GeoJSON in the <<json_impl,JSON implementation>> and <<encoding_rules_json,JSON encoding rules>>
+- WKT in the <<encoding_rules_text,Text encoding rules>>
+- WKB in the <<encoding_rules_binary,Binary encoding rules>>
+====

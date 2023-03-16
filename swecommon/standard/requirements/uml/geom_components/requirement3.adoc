@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/uml-geom-components/geom-value-valid
+
+The “value” attribute shall be one of the concrete geometry value classes defined in <<OGC_SFA>>: “Point”, “MultiPoint”, “LineString”, “MultiLineString”, “Polygon”, or “MultiPolygon”.
+====

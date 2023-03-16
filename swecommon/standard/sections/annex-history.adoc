@@ -11,6 +11,7 @@
 | 2009-11-10 | 2.0 draft | Alexandre Robin | All | General revision, added section 8
 | 2010-01-15 | 2.0 draft | Alexandre Robin | All | Clarifications in requirements
 | 2010-03-10 | 2.0 final | Alexandre Robin | All | Corrections following RFC comments
-| 2010-03-07 | 2.1 draft | Alexandre Robin | All | Conversion to AsciiDoc / Metanorma
-| 2010-03-08 | 2.1 draft | Alexandre Robin | Clauses 7,8,9 | Removed requirements that were redundant with dependencies.
+| 2023-03-07 | 2.1 draft | Alexandre Robin | All | Conversion to AsciiDoc / Metanorma
+| 2023-03-08 | 2.1 draft | Alexandre Robin | Clauses 7,8,9 | Removed requirements that were redundant with dependencies
+| 2023-03-10 | 2.1 draft | Alexandre Robin | Clause 7,8,9 | Added Geometry class
 |===
