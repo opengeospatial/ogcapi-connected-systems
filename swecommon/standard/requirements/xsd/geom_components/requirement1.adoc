@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/xsd-geom-components/schema-valid
+
+The XML instance shall be valid with respect to the XML grammar defined in the {xsd-base-url}/geom_components.xsd[“geom_components.xsd”] XML schema as well as satisfy all Schematron patterns defined in {xsd-base-url}/geom_components.sch[“geom_components.sch”].
+====

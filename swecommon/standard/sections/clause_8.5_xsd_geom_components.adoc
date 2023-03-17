@@ -1,0 +1,47 @@
+=== Requirements Class: Geometry Components XML Schema
+
+include::../requirements/xsd/geom_components/requirements_class.adoc[]
+
+XML Schema elements and types defined in the “geom_components.xsd” schema implement all classes defined in the Geometry Components” UML packages. 
+
+include::../requirements/xsd/geom_components/requirement1.adoc[]
+
+
+[[xsd_geometry_elt]]
+==== Geometry Element
+
+The “Geometry” element is the XML schema implementation of the “Geometry” UML class defined in <<uml_geometry_class>>. The schema snippet for this element and its corresponding complex type is shown below:
+
+[source%unnumbered,xml,indent=0]
+----
+include::../schemas/xsd/geom_components.xsd[tag=GeometryType]
+----
+
+The following is an example Geometry component encoded as XML:
+
+[source%unnumbered,xml,indent=0]
+----
+include::../schemas/xsd/examples/spec/geom_components.xml[tag=point]
+
+include::../schemas/xsd/examples/spec/geom_components.xml[tag=linestring]
+
+include::../schemas/xsd/examples/spec/geom_components.xml[tag=polygon]
+----
+
+
+[[xsd_allowedgeometries_elt]]
+==== AllowedGeometries Element
+
+The “AllowedGeometries” element is used as a constraint to restrict the type of geometries allowed as the valud of a “Geometry” component.
+
+[source%unnumbered,xml,indent=0]
+----
+include::../schemas/xsd/geom_components.xsd[tag=AllowedGeometriesType]
+----
+
+The following example shows a “Geometry” component used as a descriptor (i.e. describing a field in a datastream) that limits the value to a subset of supported geometry types:
+
+[source%unnumbered,xml,indent=0]
+----
+include::../schemas/xsd/examples/spec/geom_components.xml[tag=constraint]
+----

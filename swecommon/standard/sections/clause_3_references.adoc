@@ -12,6 +12,10 @@ References are to follow the Springer LNCS style, with the exception that option
 
 * [[[OGC08131, OGC 08-131r3]]], The Specification Model – A Standard for Modular Specification
 
+* [[[OGC_SFA, OGC 06-103r4]]], Simple feature access - Part 1: Common architecture
+
+* [[[OGC_GML_SFA, OGC 10-100r3]]], Geography Markup Language (GML) simple features profile 
+
 * [[[ISO8601, ISO 8601:2019]]], Date and time — Representations for information interchange — Part 1: Basic rules. International Organization for Standardization, Geneva (2019). https://www.iso.org/standard/70907.html.
 
 * [[[ISO8601-2, ISO 8601:2019]]], Date and time — Representations for information interchange — Part 2: Extensions. International Organization for Standardization, Geneva (2019). https://www.iso.org/standard/70908.html.
@@ -21,6 +25,8 @@ References are to follow the Springer LNCS style, with the exception that option
 * [[[ISO19101, ISO 19101-1:2014]]], Geographic information — Reference model — Part 1: Fundamentals. International Organization for Standardization, Geneva (2014). https://www.iso.org/standard/59164.html.
 
 * [[[ISO19103, ISO 19103:2005]]], Conceptual Schema Language
+
+* [[[ISO19107, ISO 19107:2003]]], Spatial Schema
 
 * [[[ISO19108, ISO 19108:2002]]], Temporal Schema
 

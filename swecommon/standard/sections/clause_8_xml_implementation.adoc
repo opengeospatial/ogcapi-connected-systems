@@ -22,6 +22,8 @@ include::clause_8.3_xsd_choice_components.adoc[]
 
 include::clause_8.4_xsd_block_components.adoc[]
 
-include::clause_8.5_xsd_simple_encodings.adoc[]
+include::clause_8.5_xsd_geom_components.adoc[]
 
-include::clause_8.6_xsd_advanced_encodings.adoc[]
+include::clause_8.6_xsd_simple_encodings.adoc[]
+
+include::clause_8.7_xsd_advanced_encodings.adoc[]

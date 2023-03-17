@@ -1,0 +1,104 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" targetNamespace="http://www.opengis.net/swe/2.0" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.0">
+  <annotation>
+    <documentation>SWE Common Data Model schema for geometry data components. See requirements class http://www.opengis.net/spec/SWE/2.1/req/xsd-geom-components/
+    
+    SWE Common is an OGC Standard.
+    Copyright (c) 2010 Open Geospatial Consortium. 
+    To obtain additional rights of use, visit http://www.opengeospatial.org/legal/ .
+    </documentation>
+  </annotation>
+  <include schemaLocation="swe.xsd"/>
+  <include schemaLocation="basic_types.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!-- ================================================= -->
+  <!-- tag::GeometryType[] -->
+  <element name="Geometry" substitutionGroup="swe:AbstractDataComponent" type="swe:GeometryType">
+    <annotation>
+      <documentation>Geometry component whose value is a simple feature geometry</documentation>
+    </annotation>
+  </element>
+
+  <complexType name="GeometryType">
+    <complexContent>
+      <extension base="swe:AbstractDataComponentType">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="constraint" type="swe:AllowedGeometriesPropertyType"/>
+          <element maxOccurs="1" minOccurs="0" name="value" type="swe:GeomValuePropertyType">
+            <annotation>
+              <documentation>Value is optional, to enable structure to act as a schema for values provided using other encodings</documentation>
+            </annotation>
+          </element>
+        </sequence>
+        <attribute name="srs" type="anyURI" use="required">
+          <annotation>
+            <documentation>Spatial reference system with respect to which the geometry coordinates are expressed.</documentation>
+          </annotation>
+        </attribute>
+      </extension>
+    </complexContent>
+  </complexType>
+  <!-- end::GeometryType[] -->
+  <complexType name="GeometryPropertyType">
+    <sequence minOccurs="0">
+      <element ref="swe:Geometry"/>
+    </sequence>
+    <attributeGroup ref="swe:AssociationAttributeGroup"/>
+  </complexType>
+  <!-- ================================================= -->
+  <group name="SFGeometryUnion">
+    <annotation>
+      <documentation>Union of allowed GML geometry types</documentation>
+    </annotation>
+    <choice>
+      <element ref="gml:Point"/>
+      <element ref="gml:LineString"/>
+      <element ref="gml:Polygon"/>
+      <element ref="gml:MultiPoint"/>
+      <element ref="gml:MultiCurve"/>
+      <element ref="gml:MultiSurface"/>
+    </choice>
+  </group>
+  <complexType name="GeomValuePropertyType">
+    <sequence minOccurs="0">
+      <group ref="swe:SFGeometryUnion"/>
+    </sequence>
+  </complexType>
+  <!-- ================================================= -->
+  <!-- tag::AllowedGeometriesType[] -->
+  <element name="AllowedGeometries" substitutionGroup="swe:AbstractSWE" type="swe:AllowedGeometriesType">
+    <annotation>
+      <documentation>Defines permitted values for the component, as an enumerated list of geometry types</documentation>
+    </annotation>
+  </element>
+  <complexType name="AllowedGeometriesType">
+    <complexContent>
+      <extension base="swe:AbstractSWEType">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="geomType" type="swe:GeomType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="AllowedGeometriesPropertyType">
+    <sequence minOccurs="0">
+      <element ref="swe:AllowedGeometries"/>
+    </sequence>
+    <attributeGroup ref="swe:AssociationAttributeGroup"/>
+  </complexType>
+  <complexType name="AllowedGeometriesPropertyByValueType">
+    <sequence>
+      <element ref="swe:AllowedGeometries"/>
+    </sequence>
+  </complexType>
+  <simpleType name="GeomType">
+    <restriction base="string">
+      <enumeration value="Point"/>
+      <enumeration value="LineString"/>
+      <enumeration value="Polygon"/>
+      <enumeration value="MultiPoint"/>
+      <enumeration value="MultiLineString"/>
+      <enumeration value="MultiPolygon"/>
+    </restriction>
+  </simpleType>
+  <!-- end::AllowedGeometriesType[] -->
+</schema>

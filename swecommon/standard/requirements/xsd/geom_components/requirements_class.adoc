@@ -1,0 +1,10 @@
+[requirement,model=ogc]
+.Geometry Components XML Schema
+====
+[%metadata]
+type:: class
+identifier:: /req/xsd-geom-components 
+subject:: XML Instance
+inherit:: /req/uml-geom-components
+inherit:: /req/xsd-simple-components
+====

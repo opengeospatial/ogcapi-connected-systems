@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<swe:DataRecord xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink" xsi:schemaLocation="http://www.opengis.net/swe/2.0 ../../swe.xsd">
+  <!-- -->
+  <swe:field name="geom_field_descriptor">
+    <!-- tag::constraint[] -->
+    <swe:Geometry definition="http://sensorml.com/ont/swe/property/TargetLocation" srs="http://www.opengis.net/def/crs/EPSG/0/4326">
+      <swe:label>Geometry Field</swe:label>
+      <swe:description>Field descriptor allowing for point, multipoint or polygon geometry</swe:description>
+      <swe:constraint>
+        <swe:AllowedGeometries>
+          <swe:geomType>Point</swe:geomType>
+          <swe:geomType>Polygon</swe:geomType>
+          <swe:geomType>MultiPoint</swe:geomType>
+        </swe:AllowedGeometries>
+      </swe:constraint>
+    </swe:Geometry>
+    <!-- end::constraint[] -->
+  </swe:field>
+  <!-- -->
+  <swe:field name="point_geom_field">
+    <!-- tag::point[] -->
+    <swe:Geometry definition="http://sensorml.com/ont/swe/property/TargetLocation" srs="http://www.opengis.net/def/crs/EPSG/0/4326">
+      <swe:label>Target Location</swe:label>
+      <swe:description>A point geometry</swe:description>
+      <swe:value>
+        <gml:Point>
+          <gml:pos>12.34 56.36</gml:pos>
+        </gml:Point>
+      </swe:value>
+    </swe:Geometry>
+    <!-- end::point[] -->
+  </swe:field>
+  <!-- -->
+  <swe:field name="linestring_geom_field">
+    <!-- tag::linestring[] -->
+    <swe:Geometry definition="http://sensorml.com/ont/swe/property/Trajectory" srs="http://www.opengis.net/def/crs/EPSG/0/4326">
+      <swe:label>Desired Trajectory</swe:label>
+      <swe:description>Desired UxS trajectory provided as a line string</swe:description>
+      <swe:value>
+        <gml:LineString>
+          <gml:posList>12.34 56.36 12.45 56.37 12.45 56.39 12.34 56.36</gml:posList>
+        </gml:LineString>
+      </swe:value>
+    </swe:Geometry>
+    <!-- end::linestring[] -->
+  </swe:field>
+  <!-- -->
+  <swe:field name="polygon_geom_field">
+    <!-- tag::polygon[] -->
+    <swe:Geometry definition="http://sensorml.com/ont/x-swe/property/SurveillanceArea" srs="http://www.opengis.net/def/crs/EPSG/0/4326">
+      <swe:label>Surveillance Area</swe:label>
+      <swe:description>Desired UxS surveillance area</swe:description>
+      <swe:value>
+        <gml:Polygon>
+          <gml:exterior>
+            <gml:LinearRing>
+              <gml:posList>12.34 56.36 12.45 56.37 12.45 56.39 12.34 56.36</gml:posList>
+            </gml:LinearRing>
+          </gml:exterior>
+        </gml:Polygon>
+      </swe:value>
+    </swe:Geometry>
+    <!-- end::polygon[] -->
+  </swe:field>
+  <!-- -->
+  <swe:field name="multipoint_geom_field">
+    <swe:Geometry definition="http://sensorml.com/ont/x-swe/property/SurveillanceArea" srs="http://www.opengis.net/def/crs/EPSG/0/4326">
+      <swe:label>Target Locations</swe:label>
+      <swe:description>A MultiPoint geometry</swe:description>
+      <swe:value>
+        <gml:MultiPoint>
+          <gml:pointMember>
+            <gml:Point>
+              <gml:pos>12.34 56.36</gml:pos>
+            </gml:Point>
+          </gml:pointMember>
+          <gml:pointMember>
+            <gml:Point>
+              <gml:pos>12.45 56.37</gml:pos>
+            </gml:Point>
+          </gml:pointMember>
+        </gml:MultiPoint>
+      </swe:value>
+    </swe:Geometry>
+  </swe:field>
+  <!-- -->
+  <!-- -->
+  <swe:field name="multilinestring_geom_field">
+    <swe:Geometry definition="http://sensorml.com/ont/x-swe/property/SurveillanceArea" srs="http://www.opengis.net/def/crs/EPSG/0/4326">
+      <swe:label>Desired Trajectories</swe:label>
+      <swe:description>Desired UxS trajectories</swe:description>
+      <swe:value>
+        <gml:MultiCurve>
+          <gml:curveMember>
+            <gml:LineString>
+              <gml:posList>12.34 56.36 12.45 56.37 12.45 56.39 12.34 56.36</gml:posList>
+            </gml:LineString>
+          </gml:curveMember>
+          <gml:curveMember>
+            <gml:LineString>
+              <gml:posList>12.34 56.36 12.45 56.37 12.45 56.39 12.34 56.36</gml:posList>
+            </gml:LineString>
+          </gml:curveMember>       
+        </gml:MultiCurve>
+      </swe:value>
+    </swe:Geometry>
+  </swe:field>
+  <!-- -->
+  <swe:field name="multipolygon_geom_field">
+    <swe:Geometry definition="http://sensorml.com/ont/x-swe/property/SurveillanceArea" srs="http://www.opengis.net/def/crs/EPSG/0/4326">
+      <swe:label>Surveillance Areas</swe:label>
+      <swe:description>Desired UxS surveillance areas</swe:description>
+      <swe:value>
+        <gml:MultiSurface>
+          <gml:surfaceMember>
+            <gml:Polygon>
+              <gml:exterior>
+                <gml:LinearRing>
+                  <gml:posList>12.34 56.36 12.45 56.37 12.45 56.39 12.34 56.36</gml:posList>
+                </gml:LinearRing>
+              </gml:exterior>
+            </gml:Polygon>
+          </gml:surfaceMember>
+          <gml:surfaceMember>
+            <gml:Polygon>
+              <gml:exterior>
+                <gml:LinearRing>
+                  <gml:posList>12.34 56.36 12.45 56.37 12.45 56.39 12.34 56.36</gml:posList>
+                </gml:LinearRing>
+              </gml:exterior>
+            </gml:Polygon>
+          </gml:surfaceMember>
+        </gml:MultiSurface>
+      </swe:value>
+    </swe:Geometry>
+  </swe:field>
+  <!-- -->
+</swe:DataRecord>
