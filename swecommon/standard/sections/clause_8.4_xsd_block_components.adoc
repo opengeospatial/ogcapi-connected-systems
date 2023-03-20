@@ -1,3 +1,4 @@
+[[xsd_block_components]]
 === Requirements Class: Block Components XML Schema
 
 include::../requirements/xsd/block_components/requirements_class.adoc[]

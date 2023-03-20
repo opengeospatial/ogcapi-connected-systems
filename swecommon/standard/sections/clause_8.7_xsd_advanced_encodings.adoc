@@ -1,3 +1,4 @@
+[[xsd_advanced_encodings]]
 === Requirements Class: Advanced Encodings XML Schema
 
 include::../requirements/xsd/advanced_encodings/requirements_class.adoc[]

@@ -1,3 +1,4 @@
+[[xsd_record_components]]
 === Requirements Class: Record Components XML Schema
 
 include::../requirements/xsd/record_components/requirements_class.adoc[]

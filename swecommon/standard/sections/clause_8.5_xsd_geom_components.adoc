@@ -1,3 +1,4 @@
+[[xsd_geom_components]]
 === Requirements Class: Geometry Components XML Schema
 
 include::../requirements/xsd/geom_components/requirements_class.adoc[]

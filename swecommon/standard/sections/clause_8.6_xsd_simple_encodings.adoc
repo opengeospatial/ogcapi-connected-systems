@@ -1,3 +1,4 @@
+[[xsd_simple_encodings]]
 === Requirements Class: Simple Encodings XML Schema
 
 include::../requirements/xsd/simple_encodings/requirements_class.adoc[]

@@ -1,3 +1,4 @@
+[[xsd_choice_components]]
 === Requirements Class: Choice Components XML Schema
 
 include::../requirements/xsd/choice_components/requirements_class.adoc[]
