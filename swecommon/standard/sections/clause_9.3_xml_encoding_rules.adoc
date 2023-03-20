@@ -71,75 +71,19 @@ include::../requirements/encoding_rules/xml/requirement4.adoc[]
 
 include::../requirements/encoding_rules/xml/requirement5.adoc[]
 
-The <<enc_curve_example,curve data example>> introduced in the Text Encoding section would be encoded in XML as shown below:
+See the following examples:
 
-[source%unnumbered,xml]
-----
-<swe:encoding>
-  <swe:XMLEncoding/>
-</swe:encoding>
+- <<enc_xml_weather_stream_example,style=basic%>>
+- <<enc_xml_optional_fields_example,style=basic%>>
 
-<swe:values xmlns:ns="http://www.myorg.com/datasets/id">
-  <ns:point>
-    <ns:temp>0</ns:temp>
-    <ns:error>5</ns:error>
-  </ns:point>
-  <ns:point>
-    <ns:temp>10</ns:temp>
-    <ns:error>2</ns:error>
-  </ns:point>
-  <ns:point>
-    <ns:temp>50</ns:temp>
-    <ns:error>2</ns:error>
-  </ns:point>
-  <ns:point>
-    <ns:temp>80</ns:temp>
-    <ns:error>5</ns:error>
-  </ns:point>
-  <ns:point>
-    <ns:temp>100</ns:temp>
-    <ns:error>15</ns:error>
-  </ns:point>
-</swe:values>
-----
 
-In this example, the array element type is called ‘point’ and is defined as a “DataRecord” that contains two scalar fields called ‘temp’ and ‘error’. These soft-typed property names are thus used as the element local names of encoded values.
+==== Rules for DataChoice
 
-The following example shows how the <<enc_optional_fields_example,record dataset with optional fields>> from the Text Encoding section is encoded with the “XMLEncoding” method:
+“DataChoice” components are encoded by using a parent element whose local name (see xref:/req/xml-encoding-rules/local-names-valid[]) corresponds to the name of the selected choice item.
 
-[source%unnumbered,xml]
-----
-<swe:encoding>
-  <swe:XMLEncoding/>
-</swe:encoding>
+include::../requirements/encoding_rules/xml/requirement6.adoc[]
 
-<swe:values xmlns:ns="urn:myorg:dataset:X156822">
-  <ns:navData>
-    <ns:time>2007-10-23T15:46:12Z</ns:time>
-    <ns:speed>15.3</ns:speed>
-    <ns:location>
-      <ns:lat>45.3</ns:lat>
-      <ns:lon>-90.5</ns:lon>
-      <ns:alt>311</ns:alt>
-    </ns:location>
-  </ns:navData>
-  <ns:navData>
-    <ns:time>2007-10-23T15:46:22Z</ns:time>
-    <ns:speed>25.3</ns:speed>
-  </ns:navData>
-  <ns:navData>
-    <ns:time>2007-10-23T15:46:32Z</ns:time>
-    <ns:speed>20.6</ns:speed>
-    <ns:location>
-      <ns:lat>45.3</ns:lat>
-      <ns:lon>-90.6</ns:lon>
-      <ns:alt>312</ns:alt>
-    </ns:location>
-  </ns:navData>
-</swe:values>
-----
-
-Notice that the optional ‘location’ field in the second stream element has been completely omitted.
+See example: <<enc_xml_choice_example,style=basic%>>
 
 
 ==== Rules for DataArray, Matrix and DataStream
@@ -148,125 +92,22 @@ Block components are slightly different because they can either include the enco
 
 In the case of all “DataStream” instances or when the “DataArray” or “Matrix” includes its own encoded values, only the array elements are actually encoded within the “values” XML element. The two previous examples of this section illustrate this case.
 
-include::../requirements/encoding_rules/xml/requirement6.adoc[]
+include::../requirements/encoding_rules/xml/requirement7.adoc[]
 
 When a “DataArray” or “Matrix” is nested in a parent block component (and thus does not encapsulate encoded values itself), array elements are encoded as defined above but are also wrapped in an element carrying the array name.
 
-include::../requirements/encoding_rules/xml/requirement7.adoc[]
+include::../requirements/encoding_rules/xml/requirement8.adoc[]
 
-The following example builds on the <<profile_series_example,profile series dataset>> introduced in the Text Encoding section and shows how the same values could be encoded with the “XMLEncoding” method:
-
-[source%unnumbered,xml]
-----
-<swe:encoding>
-  <swe:XMLEncoding/>
-</swe:encoding>
-
-<swe:values xmlns:ns="urn:myorg:dataset:PS3658">
-  <ns:profileData>
-    <ns:time>2005-05-16T21:47:12Z</ns:time>
-    <ns:profilePoints elementCount="5">
-      <ns:point>
-        <ns:depth>0</ns:depth>
-        <ns:salinity>45</ns:salinity>
-      </ns:point>
-      <ns:point>
-        <ns:depth>10</ns:depth>
-        <ns:salinity>20</ns:salinity>
-      </ns:point>
-      <ns:point>
-        <ns:depth>20</ns:depth>
-        <ns:salinity>30</ns:salinity>
-      </ns:point>
-      <ns:profilePoint>
-        <ns:depth>30</ns:depth>
-        <ns:salinity>35</ns:salinity>
-      </ns:point>
-      <ns:profilePoint>
-        <ns:depth>40</ns:depth>
-        <ns:salinity>40</ns:salinity>
-      </ns:point>
-    </ns:profilePoints>
-  </ns:profileData>
-  <ns:profileData>
-    <ns:time>2005-05-16T22:43:05Z</ns:time>
-    <ns:profilePoints elementCount="4">
-      <ns:point>
-        <ns:depth>0</ns:depth>
-        <ns:salinity>45</ns:salinity>
-      </ns:point>
-      <ns:point>
-        <ns:depth>10</ns:depth>
-        <ns:salinity>20</ns:salinity>
-      </ns:point>
-      <ns:point>
-        <ns:depth>20</ns:depth>
-        <ns:salinity>30</ns:salinity>
-      </ns:point>
-      <ns:point>
-        <ns:depth>30</ns:depth>
-        <ns:salinity>35</ns:salinity>
-      </ns:point>
-    </ns:profilePoints>
-  </ns:profileData>
-</swe:values>
-----
-
-This example shows how the array size is specified on the ‘profilePoints’ element corresponding to each nested array, and how element local names correspond to the “name” attributes of each component’s parent property.
+See example: <<enc_xml_profile_series_example,style=basic%>>
 
 
 ==== Rules for Geometry
 
 The value of a “Geometry” component is encoded using <<OGC_GML_SFA,GML Simple Features Profile>>.
 
-include::../requirements/encoding_rules/xml/requirement8.adoc[]
+include::../requirements/encoding_rules/xml/requirement9.adoc[]
 
-The following snippet shows how records from the <<enc_geometry_example,datastream with geometry>> example (introduced in the Text Encoding section) would be encoded with the “XMLEncoding” method:
-
-[source%unnumbered,xml]
-----
-<swe:values xmlns:ns="urn:myorg:dataset:X151451" xmlns:gml="http://www.opengis.net/gml/3.2">
-  <ns:detection>
-    <ns:time>2007-10-23T15:46:12Z</ns:time>
-    <ns:type>Car</ns:type>
-    <ns:geom>
-      <gml:Polygon srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <gml:exterior>
-          <gml:LinearRing>
-            <gml:posList srsDimension="2">-86.3254 35.4812 -86.3253 35.4812 -86.3253 35.4811 -86.3254 35.4811 -86.3254 35.4812</gml:posList>
-          </gml:LinearRing>
-        </gml:exterior>
-      </gml:Polygon>
-    </ns:geom>
-  </ns:detection>
-  <ns:detection>
-    <ns:time>2007-10-23T15:49:03Z</ns:time>
-    <ns:type>Truck</ns:type>
-    <ns:geom>
-      <gml:Polygon srsName="http://www.opengis.net/def/crs/EPSG/0/4326" >
-        <gml:exterior>
-          <gml:LinearRing>
-            <gml:posList srsDimension="2">-86.3254 35.4812 -86.3253 35.4812 -86.3253 35.4811 -86.3254 35.4811 -86.3254 35.4812</gml:posList>
-          </gml:LinearRing>
-        </gml:exterior>
-      </gml:Polygon>
-    </ns:geom>
-  </ns:detection>
-  <ns:detection>
-    <ns:time>2007-10-23T15:56:45Z</ns:time>
-    <ns:type>Bus</ns:type>
-    <ns:geom>
-      <gml:Polygon srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-        <gml:exterior>
-          <gml:LinearRing>
-            <gml:posList srsDimension="2">-86.3254 35.4812 -86.3253 35.4812 -86.3253 35.4811 -86.3254 35.4811 -86.3254 35.4812</gml:posList>
-          </gml:LinearRing>
-        </gml:exterior>
-      </gml:Polygon>
-    </ns:geom>
-  </ns:detection>
-</swe:values>
-----
+See example: <<enc_xml_geom_example,style=basic%>>
 
 
 ==== Media Types
@@ -276,3 +117,5 @@ When array or stream values are encoded with the XML encoding method and provide
 Note however that the text/xml media type is not always appropriate when some of the characters in the data stream are encoded with a different character set than US-ASCII. Please read the relevant IETF standards for details.
 
 The media type `application/swe+xml` shall be used when a client requests this format from an API or web service.
+
+

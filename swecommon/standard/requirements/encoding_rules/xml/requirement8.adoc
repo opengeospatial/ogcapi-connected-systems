@@ -1,11 +1,7 @@
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/xml-encodings-rules/geometry-valid
+identifier:: /req/xml-encoding-rules/array-wrapper-elt-valid
 
-part:: The value of a “Geometry” component shall be encoded as a GML geometry, following rules defined by <<OGC_GML_SFA>>.
-
-part:: The allowed GML geometry types shall be restricted to: `gml:Point`, `gml:LineString`, `gml:Polygon`, `gml:MultiPoint`, `gml:MultiLineString`, and `gml:MultiPolygon`
-
-part:: The number of dimensions of the GML geometry shall match the number of dimensions of the coordinate reference system identified by the “srs” attribute of the component.
+All elements of each nested “DataArray” and “Matrix” shall be encapsulated in a parent element as specified in xref:/req/xml-encoding-rules/local-names-valid[] and this element shall also have an “elementCount” attribute that specifies the array size.
 ====

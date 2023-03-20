@@ -1,0 +1,631 @@
+[appendix]
+== Examples
+
+
+[[enc_text_examples]]
+=== Text Encoding Rules Examples
+
+[[enc_text_curve_example]]
+==== DataArray with inline values (curve) 
+
+The following example shows how elements of an array defined as a “DataRecord” can be encoded inline with the text method:
+
+[source%unnumbered,xml]
+----
+<swe:DataArray definition="http://sweet.jpl.nasa.gov/2.0/mathFunction.owl#Function">
+  <swe:description>Measurement error vs. temperature</swe:description>
+  <swe:elementCount>
+    <swe:Count>
+      <swe:value>5</swe:value>
+    </swe:Count>
+  </swe:elementCount>
+  <swe:elementType name="point">
+    <swe:DataRecord>
+      <swe:label>Error vs. Temperature</swe:label>
+      <swe:field name="temp">
+        <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/physThermo.owl#Temperature">
+          <swe:label>Temperature</swe:label>
+          <swe:uom code="Cel"/>
+        </swe:Quantity>
+      </swe:field>
+      <swe:field name="error">
+        <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/sciUncertainty.owl#Error">
+          <swe:label>Relative Error</swe:label>
+          <swe:uom code="%"/>
+        </swe:Quantity>
+      </swe:field>
+    </swe:DataRecord>
+  </swe:elementType>
+  <swe:encoding>
+    <swe:TextEncoding blockSeparator=" " tokenSeparator=","/>
+  </swe:encoding>
+  <swe:values>0,5 10,2 50,2 80,5 100,15</swe:values>
+</swe:DataArray>
+----
+
+In this example, each element consists of a record of two values. The array element structure also corresponds to one block so that tuples are separated by block separators (here the ‘,’ character). Since the array is of size 5, there are 5 tuples listed sequentially in the data block, each one composed of the two values of the data record separated by the token separator. The pattern is “temp,error temp,error …” since values have to be listed in the same order as the fields.
+
+
+[[enc_text_weather_stream_example]]
+==== Datastream with records (weather data)
+
+The following snippet defines a datastream with an element of type record:
+
+[source%unnumbered,xml]
+----
+<swe:DataStream>
+  <swe:label>Weather Data</swe:label>
+  <swe:elementType name="weatherData">
+    <swe:DataRecord>
+      <swe:field name="time">
+        <swe:Time definition="http://www.opengis.net/def/property/OGC/0/SamplingTime"
+                  referenceFrame="http://www.opengis.net/def/trs/BIPM/0/UTC">
+          <swe:uom xlink:href="http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"/>
+        </swe:Time>
+      </swe:field>
+      <swe:field name="temp">
+        <swe:Quantity definition="http://mmisw.org/ont/cf/parameter/air_temperature">
+          <swe:label>Air Temperature</swe:label>
+          <swe:uom code="Cel"/>
+        </swe:Quantity >
+      </swe:field>
+      <swe:field name="press">
+        <swe:Quantity definition="http://mmisw.org/ont/cf/parameter/air_pressure_at_mean_sea_level">
+          <swe:label>Atmospheric Pressure</swe:label>
+          <swe:uom code="HPa"/>
+        </swe:Quantity >
+      </swe:field>
+       <swe:field name="windSpeed">
+        <swe:Quantity definition="http://mmisw.org/ont/cf/parameter/wind_speed">
+          <swe:label>Wind Speed</swe:label>
+          <swe:uom code="km/h"/>
+        </swe:Quantity>
+      </swe:field>
+      <swe:field name="windDir">
+        <swe:Quantity definition="http://mmisw.org/ont/cf/parameter/wind_to_direction">
+          <swe:label>Wind Direction</swe:label>
+          <swe:uom code="deg"/>
+        </swe:Quantity>
+      </swe:field>
+    </swe:DataRecord>
+  </swe:elementType>
+  <swe:encoding>
+    <swe:TextEncoding blockSeparator="&#10;" tokenSeparator=","/>
+  </swe:encoding>
+</swe:DataStream>
+----
+
+An example of corresponding encoded datastream is given below:
+
+[source%unnumbered]
+----
+2023-03-20T15:40:00Z,15.3,1014,3.5,56.0
+2023-03-20T15:45:00Z,15.4,1015,5.6,123.0
+2023-03-20T15:50:00Z,15.8,1014,13.2,34.0
+...
+----
+
+
+[[enc_text_optional_fields_example]]
+==== Datastream with records and optional fields (navigation data)
+
+The following snippet defines a datastream with an element of type record that contains optional fields:
+
+[source%unnumbered,xml]
+----
+<swe:DataStream>
+  <swe:label>Aircraft Navigation</swe:label>
+  <swe:elementType name="navData">
+    <swe:DataRecord>
+      <swe:field name="time">
+        <swe:Time definition="http://www.opengis.net/def/property/OGC/0/SamplingTime"
+                  referenceFrame="http://www.opengis.net/def/trs/OGC/0/GPS">
+          <swe:uom xlink:href="http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"/>
+        </swe:Time>
+      </swe:field>
+      <swe:field name="speed">
+        <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/humanTransportAir.owl#GroundSpeed">
+          <swe:uom code="m/s"/>
+        </swe:Quantity >
+      </swe:field>
+      <swe:field name="location">
+        <swe:Vector optional="true" referenceFrame="http://www.opengis.net/def/crs/EPSG/0/4979">
+          <swe:coordinate name="lat">
+            <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/spaceCoordinates.owl#Latitude" axisID="Lat">
+              <swe:uom code="deg"/>
+            </swe:Quantity>
+          </swe:coordinate>
+          <swe:coordinate name="lon">
+            <swe:Quantity definition=" http://sweet.jpl.nasa.gov/2.0/spaceCoordinates.owl#Longitude" axisID="Long">
+              <swe:uom code="deg"/>
+            </swe:Quantity>
+          </swe:coordinate>
+          <swe:coordinate name="alt">
+            <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/spaceExtent.owl#Altitude" axisID="h">
+              <swe:uom code="m"/>
+            </swe:Quantity>
+          </swe:coordinate>
+        </swe:Vector>
+      </swe:field>
+    </swe:DataRecord>
+  </swe:elementType>
+  <swe:encoding>
+    <swe:TextEncoding blockSeparator="&#10;" tokenSeparator=","/>
+  </swe:encoding>
+</swe:DataStream>
+----
+
+An example of corresponding encoded datastream is given below:
+
+[source%unnumbered]
+----
+2007-10-23T15:46:12Z,15.3,Y,45.3,-90.5,311
+2007-10-23T15:46:22Z,25.3,N
+2007-10-23T15:46:32Z,20.6,Y,45.3,-90.6,312
+2007-10-23T15:46:52Z,18.9,Y,45.4,-90.6,315
+2007-10-23T15:47:02Z,22.3,N
+...
+----
+
+In this example, the whole location “Vector” is marked as optional and thus the coordinate values are only included when the optional flag is set to ‘Y’ in the stream. Field values in each block have to be listed in the same order as the field properties in the record definition thus following the “time,speed,Y,lat,lon,alt” or “time,speed,N” pattern depending on whether or not the location is omitted.
+
+
+[[enc_text_choice_example]]
+==== Datastream with choice (navigation data)
+
+This is illustrated by the following example:
+
+[source%unnumbered,xml]
+----
+<swe:DataStream>
+  <swe:elementType name="message">
+    <swe:DataChoice>
+      <swe:item name="TEMP">
+        <swe:DataRecord>
+          <swe:label>Temperature Measurement</swe:label>
+          <swe:field name="time">
+            <swe:Time definition="http://www.opengis.net/def/property/OGC/0/SamplingTime">
+              <swe:uom xlink:href="http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"/>
+            </swe:Time>
+          </swe:field>
+          <swe:field name="temp">
+            <swe:Quantity definition="http://mmisw.org/ont/cf/parameter/air_temperature">
+              <swe:uom code="Cel"/>
+            </swe:Quantity>
+          </swe:field>
+        </swe:DataRecord>
+      </swe:item>
+      <swe:item name="WIND">
+        <swe:DataRecord>
+          <swe:label>Wind Measurement</swe:label>
+          <swe:field name="time">
+            <swe:Time definition="http://www.opengis.net/def/property/OGC/0/SamplingTime">
+              <swe:uom xlink:href="http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"/>
+            </swe:Time>
+          </swe:field>
+          <swe:field name="wind_speed">
+            <swe:Quantity definition="http://mmisw.org/ont/cf/parameter/wind_speed">
+              <swe:uom code="km/h"/>
+            </swe:Quantity>
+          </swe:field>
+          <swe:field name="wind_dir">
+            <swe:Quantity definition="http://mmisw.org/ont/cf/parameter/wind_to_direction">
+              <swe:uom code="deg"/>
+            </swe:Quantity>
+          </swe:field>
+        </swe:DataRecord>
+      </swe:item>
+    </swe:DataChoice>
+  </swe:elementType>
+  <swe:encoding>
+    <swe:TextEncoding blockSeparator="&#10;" tokenSeparator=","/>
+  </swe:encoding>
+</swe:DataStream>
+----
+
+An example of corresponding encoded datastream is given below:
+
+[source%unnumbered]
+----
+TEMP,2009-05-23T19:36:15Z,25.5
+TEMP,2009-05-23T19:37:15Z,25.6
+WIND,2009-05-23T19:37:17Z,56.3,226.3
+TEMP,2009-05-23T19:38:15Z,25.5
+...
+----
+
+This datastream interleaves different types of messages separated by the block separator character. The element type is a “DataChoice” which means that each encoded block is composed of the item name ‘TEMP’ or ‘WIND’, followed by values of the item. This example also demonstrates that items of a choice can be of different types and length.
+
+
+[[enc_text_matrix_example]]
+==== Fixed size 2D array (stress matrix)
+
+The following example illustrates how values of a fixed size 3x3 stress matrix can be text encoded:
+
+[source%unnumbered,xml]
+----
+<swe:Matrix definition="http://sweet.jpl.nasa.gov/2.0/physPressure.owl#Stress">
+  <swe:elementCount>
+    <swe:Count>
+      <swe:value>3</swe:value>
+    </swe:Count>
+  </swe:elementCount>
+  <swe:elementType name="row">
+    <swe:Matrix definition="http://sweet.jpl.nasa.gov/2.0/info.owl#Row">
+      <swe:elementCount>
+        <swe:Count>
+          <swe:value>3</swe:value>
+        </swe:Count>
+      </swe:elementCount>
+      <swe:elementType name="coef">
+        <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/mathVector.owl#Coordinate">
+          <swe:uom code="MPa"/>
+        </swe:Quantity>
+      </swe:elementType>
+    </swe:Matrix>
+  </swe:elementType>
+  <swe:encoding>
+    <swe:TextEncoding blockSeparator=" " tokenSeparator=","/>
+  </swe:encoding>
+  <swe:values>0.36,0.48,-0.8 -0.8,0.6,0.0 0.48,0.64,0.6</swe:values>
+</swe:Matrix>
+----
+
+Note that elements of the outer array (i.e. a matrix is a special kind of array) are separated by block separators (i.e. each block surrounded by spaces corresponds to one row of the matrix) while the inner array elements are separated by token separators.
+
+
+[[enc_text_profile_series_example]]
+==== Datastream of variable size 1D arrays (profile series)
+
+The following example shows how SWE Common can be used to encode a series of irregular length profiles by using a variable size array:
+
+[source%unnumbered,xml]
+----
+<swe:DataStream>
+  <swe:elementType name="profileData">
+    <swe:DataRecord>
+      <swe:field name="time">
+        <swe:Time definition="http://www.opengis.net/def/property/OGC/0/SamplingTime">
+          <swe:label>Sampling Time</swe:label>
+          <swe:uom xlink:href="http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"/>
+        </swe:Time>
+      </swe:field>
+      <swe:field name="profilePoints">
+        <swe:DataArray definition="http://sweet.jpl.nasa.gov/2.0/info.owl#Profile">
+          <swe:elementCount>
+            <swe:Count/>
+          </swe:elementCount>
+          <swe:elementType name="point">
+            <swe:DataRecord>
+              <swe:field name="depth">
+                <swe:Quantity definition="http://mmisw.org/ont/cf/parameter/depth">
+                  <swe:label>Sampling Point Vertical Location</swe:label>
+                  <swe:uom code="m"/>
+                </swe:Quantity>
+              </swe:field>
+              <swe:field name="salinity">
+                <swe:Quantity definition="http://mmisw.org/ont/cf/parameter#sea_water_salinity">
+                  <swe:label>Salinity</swe:label>
+                  <swe:uom code="[ppth]"/>
+                </swe:Quantity>
+              </swe:field>
+            </swe:DataRecord>
+          </swe:elementType>
+        </swe:DataArray>
+      </swe:field>
+    </swe:DataRecord>
+  </swe:elementType>
+  <swe:encoding>
+    <swe:TextEncoding blockSeparator="@@&#10;" tokenSeparator=","/>
+  </swe:encoding>
+</swe:DataStream>
+----
+
+An example of corresponding encoded datastream is given below:
+
+[source%unnumbered]
+----
+2005-05-16T21:47:12Z,5,0,45,10,20,20,30,30,35,40,40@@
+2005-05-16T22:43:05Z,4,0,45,10,20,20,30,30,35@@
+2005-05-16T23:40:52Z,5,0,45,10,20,20,30,30,35,40,40
+...
+----
+
+The example shows data for 3 profiles with a variable number of measurements along the vertical dimension. The number of measurements is indicated in the encoded data block by a number inserted after the timestamp, and before the measurements themselves. Since the array is itself the element of a “DataStream”, elements of the array are separated by token separators.
+
+
+[[enc_text_geom_example]]
+==== Datastream with geometry (feature detection)
+
+The following snippet is an example of datastream that contains a geometry. Here, each datastream record represents a feature detected in a video stream, and is composed of a timestamp, a scalar field and the geometry of the geolocated feature.
+
+[[enc_text_geometry_example]]
+[source%unnumbered,xml]
+----
+<swe:DataStream>
+  <swe:label>Feature Detections</swe:label>
+  <swe:elementType name="detection">
+    <swe:DataRecord>
+      <swe:field name="time">
+        <swe:Time definition="http://www.opengis.net/def/property/OGC/0/SamplingTime"
+                  referenceFrame="http://www.opengis.net/def/trs/OGC/0/GPS">
+          <swe:uom xlink:href="http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"/>
+        </swe:Time>
+      </swe:field>
+      <swe:field name="type">
+        <swe:Category definition="http://www.opengis.net/def/featureType">
+          <swe:codeSpace xlink:href="http://x-myorg.net/def/VehicleTypes"/>
+        </swe:Category>
+      </swe:field>
+      <swe:field name="geom">
+        <swe:Geometry definition="http://www.opengis.net/def/property/OGC/0/SamplingTime" srs="http://www.opengis.net/def/crs/EPSG/0/4326">
+          <swe:constraint>
+            <swe:AllowedGeometries>
+              <swe:geomType>Point</swe:geomType>
+              <swe:geomType>Polygon</swe:geomType>
+            </swe:AllowedGeometries>
+          </swe:constraint>
+        </swe:Geometry>
+      </swe:field>
+    </swe:DataRecord>
+  </swe:elementType>
+  <swe:encoding>
+    <swe:TextEncoding blockSeparator="&#10;" tokenSeparator=";"/>
+  </swe:encoding>
+</swe:DataStream>
+----
+
+An example of corresponding encoded datastream is given below:
+
+[source%unnumbered]
+----
+2007-10-23T15:46:12Z;Car;POINT(-86.3254 35.4812)
+2007-10-23T15:49:03Z;Truck;POLYGON((-86.3254 35.4812,-86.3253 35.4812,-86.3253 35.4811,-86.3254 35.4811,-86.3254 35.4812))
+2007-10-23T15:56:45Z;Bus;POLYGON((-86.3254 35.4812,-86.3253 35.4812,-86.3253 35.4811,-86.3254 35.4811,-86.3254 35.4812))
+...
+----
+
+
+
+=== XML Encoding Rules Examples
+
+The following examples build on the ones provided in the <<enc_text_examples,style=basic%>> section. The datastream descriptions are kept the same, except that the encoding method would have to be changed to:
+
+[source%unnumbered,xml]
+----
+<swe:encoding>
+  <swe:XMLEncoding/>
+</swe:encoding>
+----
+
+In the following sections, encoded values were kept identical to the ones used in the text encoding section, in order to facilitate comparison.
+
+
+[[enc_xml_weather_stream_example]]
+==== Datastream with records (weather data)
+
+This example is based on the datastream description of the “<<enc_text_weather_stream_example,style=basic%>>” example provided in the “Text Encoding Rules” section.
+
+The following snippet shows how this datastream records are encoded using the XML encoding method:
+
+[source%unnumbered,xml]
+----
+<swe:values xmlns:ns="http://www.myorg.com/datasets/id">
+  <ns:weatherData>
+    <ns:time>2023-03-20T15:40:00Z</ns:time>
+    <ns:temp>15.3</ns:temp>
+    <ns:press>1014</ns:press>
+    <ns:windSpeed>3.5</ns:windSpeed>
+    <ns:windDir>56.0</ns:windDir>
+  </ns:weatherData>
+  <ns:weatherData>
+    <ns:time>2023-03-20T15:45:00Z</ns:time>
+    <ns:temp>15.4</ns:temp>
+    <ns:press>1015</ns:press>
+    <ns:windSpeed>5.6</ns:windSpeed>
+    <ns:windDir>123.0</ns:windDir>
+  </ns:weatherData>
+  <ns:weatherData>
+    <ns:time>2023-03-20T15:50:00Z</ns:time>
+    <ns:temp>15.8</ns:temp>
+    <ns:press>1014</ns:press>
+    <ns:windSpeed>13.2</ns:windSpeed>
+    <ns:windDir>34.0</ns:windDir>
+  </ns:weatherData>
+  ...
+</swe:values>
+----
+
+
+[[enc_xml_optional_fields_example]]
+==== Datastream with records and optional fields (navigation data)
+
+This example is based on the datastream description of the “<<enc_text_optional_fields_example,style=basic%>>” example provided in the “Text Encoding Rules” section.
+
+The following snippet shows how this datastream records are encoded using the XML encoding method:
+
+[source%unnumbered,xml]
+----
+<swe:values xmlns:ns="urn:myorg:dataset:X156822">
+  <ns:navData>
+    <ns:time>2007-10-23T15:46:12Z</ns:time>
+    <ns:speed>15.3</ns:speed>
+    <ns:location>
+      <ns:lat>45.3</ns:lat>
+      <ns:lon>-90.5</ns:lon>
+      <ns:alt>311</ns:alt>
+    </ns:location>
+  </ns:navData>
+  <ns:navData>
+    <ns:time>2007-10-23T15:46:22Z</ns:time>
+    <ns:speed>25.3</ns:speed>
+  </ns:navData>
+  <ns:navData>
+    <ns:time>2007-10-23T15:46:32Z</ns:time>
+    <ns:speed>20.6</ns:speed>
+    <ns:location>
+      <ns:lat>45.3</ns:lat>
+      <ns:lon>-90.6</ns:lon>
+      <ns:alt>312</ns:alt>
+    </ns:location>
+  </ns:navData>
+</swe:values>
+----
+
+Notice that the optional ‘location’ field in the second stream element has been completely omitted.
+
+
+[[enc_xml_choice_example]]
+==== Datastream with choice (navigation data)
+
+This example is based on the datastream description of the “<<enc_text_choice_example,style=basic%>>” example provided in the “Text Encoding Rules” section.
+
+The following snippet shows how this datastream records are encoded using the XML encoding method:
+
+[source%unnumbered,xml]
+----
+<swe:values xmlns:ns="urn:myorg:dataset:DC4578">
+  <ns:message>
+    <ns:TEMP>
+      <ns:time>2009-05-23T19:36:15Z</ns:time>
+      <ns:temp>25.5</ns:temp>
+    </ns:TEMP>
+  </ns:message>
+  <ns:message>
+    <ns:TEMP>
+      <ns:time>2009-05-23T19:37:15Z</ns:time>
+      <ns:temp>25.6</ns:temp>
+    </ns:TEMP>
+  </ns:message>
+  <ns:message>
+    <ns:WIND>
+      <ns:time>2009-05-23T19:37:17Z</ns:time>
+      <ns:wind_speed>56.3</ns:wind_speed>
+      <ns:wind_dir>226.3</ns:wind_dir>
+    </ns:WIND>
+  </ns:message>
+  <ns:message>
+    <ns:TEMP>
+      <ns:time>2009-05-23T19:38:15Z</ns:time>
+      <ns:temp>25.5</ns:temp>
+    </ns:TEMP>
+  </ns:message>
+  ...
+</swe:values>
+----
+
+
+[[enc_xml_profile_series_example]]
+==== Datastream of variable size 1D arrays (profile series)
+
+This example is based on the datastream description of the “<<enc_text_profile_series_example,style=basic%>>” example provided in the “Text Encoding Rules” section.
+
+The following snippet shows how this datastream records are encoded using the XML encoding method:
+
+[source%unnumbered,xml]
+----
+<swe:values xmlns:ns="urn:myorg:dataset:PS3658">
+  <ns:profileData>
+    <ns:time>2005-05-16T21:47:12Z</ns:time>
+    <ns:profilePoints elementCount="5">
+      <ns:point>
+        <ns:depth>0</ns:depth>
+        <ns:salinity>45</ns:salinity>
+      </ns:point>
+      <ns:point>
+        <ns:depth>10</ns:depth>
+        <ns:salinity>20</ns:salinity>
+      </ns:point>
+      <ns:point>
+        <ns:depth>20</ns:depth>
+        <ns:salinity>30</ns:salinity>
+      </ns:point>
+      <ns:point>
+        <ns:depth>30</ns:depth>
+        <ns:salinity>35</ns:salinity>
+      </ns:point>
+      <ns:point>
+        <ns:depth>40</ns:depth>
+        <ns:salinity>40</ns:salinity>
+      </ns:point>
+    </ns:profilePoints>
+  </ns:profileData>
+  <ns:profileData>
+    <ns:time>2005-05-16T22:43:05Z</ns:time>
+    <ns:profilePoints elementCount="4">
+      <ns:point>
+        <ns:depth>0</ns:depth>
+        <ns:salinity>45</ns:salinity>
+      </ns:point>
+      <ns:point>
+        <ns:depth>10</ns:depth>
+        <ns:salinity>20</ns:salinity>
+      </ns:point>
+      <ns:point>
+        <ns:depth>20</ns:depth>
+        <ns:salinity>30</ns:salinity>
+      </ns:point>
+      <ns:point>
+        <ns:depth>30</ns:depth>
+        <ns:salinity>35</ns:salinity>
+      </ns:point>
+    </ns:profilePoints>
+  </ns:profileData>
+</swe:values>
+----
+
+This example shows how the array size is specified on the ‘profilePoints’ element corresponding to each nested array, and how element local names correspond to the “name” attributes of each component’s parent property.
+
+
+[[enc_xml_geom_example]]
+==== Datastream with geometry (feature detection)
+
+This example is based on the datastream description of the “<<enc_text_geom_example,style=basic%>>” example provided in the “Text Encoding Rules” section.
+
+The following snippet shows how this datastream records are encoded using the XML encoding method:
+
+[source%unnumbered,xml]
+----
+<swe:values xmlns:ns="urn:myorg:dataset:X151451" xmlns:gml="http://www.opengis.net/gml/3.2">
+  <ns:detection>
+    <ns:time>2007-10-23T15:46:12Z</ns:time>
+    <ns:type>Car</ns:type>
+    <ns:geom>
+      <gml:Polygon srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <gml:exterior>
+          <gml:LinearRing>
+            <gml:posList srsDimension="2">-86.3254 35.4812 -86.3253 35.4812 -86.3253 35.4811 -86.3254 35.4811 -86.3254 35.4812</gml:posList>
+          </gml:LinearRing>
+        </gml:exterior>
+      </gml:Polygon>
+    </ns:geom>
+  </ns:detection>
+  <ns:detection>
+    <ns:time>2007-10-23T15:49:03Z</ns:time>
+    <ns:type>Truck</ns:type>
+    <ns:geom>
+      <gml:Polygon srsName="http://www.opengis.net/def/crs/EPSG/0/4326" >
+        <gml:exterior>
+          <gml:LinearRing>
+            <gml:posList srsDimension="2">-86.3254 35.4812 -86.3253 35.4812 -86.3253 35.4811 -86.3254 35.4811 -86.3254 35.4812</gml:posList>
+          </gml:LinearRing>
+        </gml:exterior>
+      </gml:Polygon>
+    </ns:geom>
+  </ns:detection>
+  <ns:detection>
+    <ns:time>2007-10-23T15:56:45Z</ns:time>
+    <ns:type>Bus</ns:type>
+    <ns:geom>
+      <gml:Polygon srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <gml:exterior>
+          <gml:LinearRing>
+            <gml:posList srsDimension="2">-86.3254 35.4812 -86.3253 35.4812 -86.3253 35.4811 -86.3254 35.4811 -86.3254 35.4812</gml:posList>
+          </gml:LinearRing>
+        </gml:exterior>
+      </gml:Polygon>
+    </ns:geom>
+  </ns:detection>
+  ...
+</swe:values>
+----

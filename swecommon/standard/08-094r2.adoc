@@ -50,6 +50,8 @@ Annexes
 ////
 include::sections/annex-abstract-test-suite.adoc[]
 
+include::sections/annex-examples.adoc[]
+
 include::sections/annex-relationships_with_standards.adoc[]
 
 include::sections/annex-uml-xml-encoding-rules.adoc[]
