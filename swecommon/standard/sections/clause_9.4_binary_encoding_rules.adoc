@@ -143,9 +143,20 @@ stream-values = <stream-element-count>*element-value
 A data stream usually contains at least one value but could be empty.
 
 
+==== Rules for Geometry
+
+The value of “Geometry” is encoded using the WKB format defined in the Simple Feature Access Standard (<<OGC_SFA>>).
+
+include::../requirements/encoding_rules/binary/requirement6.adoc[]
+
+No specific marker or length information needs to be pre-pended to the binary representation since the WKB format is self descriptive and parsable without knowing the total length ahead of time.
+
+
 ==== Media Types
 
 When array or stream values are encoded with the binary encoding method and provided standalone (i.e. outside of any wrapper format), the `application/octet-stream` identifier shall be used whenever media type information is needed by the application.
+
+The media type `application/swe+binary` shall be used when a client requests this format from an API or web service.
 
 
 ==== Block encoded components

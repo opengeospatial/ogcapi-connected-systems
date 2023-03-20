@@ -1,0 +1,13 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/text-encodings-rules/geometry-valid
+
+part:: The value of a “Geometry” component shall be encoded using the WKT format defined in <<OGC_SFA>>, clause 7. 
+
+part:: The WKT representation shall be either a "Two-Dimension Geometry WKT" (clause 7.2.2 of <<OGC_SFA>>) or a "Three-Dimension Geometry WKT" (clause 7.2.3 of <<OGC_SFA>>). The 'M' coordinate shall not be used.
+
+part:: The number of dimensions of the WKT geometry shall match the number of dimensions of the coordinate reference system identified by the “srs” attribute of the component.
+
+part:: When a geometry value is included in a text-encoded datastream, the token separator shall not be the comma character (ASCII code 44) to avoid conflicting with commas used inside the WKT representation.
+====

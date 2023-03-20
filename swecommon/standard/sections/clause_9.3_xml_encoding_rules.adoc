@@ -215,8 +215,64 @@ The following example builds on the <<profile_series_example,profile series data
 This example shows how the array size is specified on the ‘profilePoints’ element corresponding to each nested array, and how element local names correspond to the “name” attributes of each component’s parent property.
 
 
+==== Rules for Geometry
+
+The value of a “Geometry” component is encoded using <<OGC_GML_SFA,GML Simple Features Profile>>.
+
+include::../requirements/encoding_rules/xml/requirement8.adoc[]
+
+The following snippet shows how records from the <<enc_geometry_example,datastream with geometry>> example (introduced in the Text Encoding section) would be encoded with the “XMLEncoding” method:
+
+[source%unnumbered,xml]
+----
+<swe:values xmlns:ns="urn:myorg:dataset:X151451" xmlns:gml="http://www.opengis.net/gml/3.2">
+  <ns:detection>
+    <ns:time>2007-10-23T15:46:12Z</ns:time>
+    <ns:type>Car</ns:type>
+    <ns:geom>
+      <gml:Polygon srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <gml:exterior>
+          <gml:LinearRing>
+            <gml:posList srsDimension="2">-86.3254 35.4812 -86.3253 35.4812 -86.3253 35.4811 -86.3254 35.4811 -86.3254 35.4812</gml:posList>
+          </gml:LinearRing>
+        </gml:exterior>
+      </gml:Polygon>
+    </ns:geom>
+  </ns:detection>
+  <ns:detection>
+    <ns:time>2007-10-23T15:49:03Z</ns:time>
+    <ns:type>Truck</ns:type>
+    <ns:geom>
+      <gml:Polygon srsName="http://www.opengis.net/def/crs/EPSG/0/4326" >
+        <gml:exterior>
+          <gml:LinearRing>
+            <gml:posList srsDimension="2">-86.3254 35.4812 -86.3253 35.4812 -86.3253 35.4811 -86.3254 35.4811 -86.3254 35.4812</gml:posList>
+          </gml:LinearRing>
+        </gml:exterior>
+      </gml:Polygon>
+    </ns:geom>
+  </ns:detection>
+  <ns:detection>
+    <ns:time>2007-10-23T15:56:45Z</ns:time>
+    <ns:type>Bus</ns:type>
+    <ns:geom>
+      <gml:Polygon srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <gml:exterior>
+          <gml:LinearRing>
+            <gml:posList srsDimension="2">-86.3254 35.4812 -86.3253 35.4812 -86.3253 35.4811 -86.3254 35.4811 -86.3254 35.4812</gml:posList>
+          </gml:LinearRing>
+        </gml:exterior>
+      </gml:Polygon>
+    </ns:geom>
+  </ns:detection>
+</swe:values>
+----
+
+
 ==== Media Types
 
 When array or stream values are encoded with the XML encoding method and provided standalone (i.e. outside of any wrapper format), the `text/xml` or `application/xml` identifiers shall be used whenever media type information is needed by the application.
 
 Note however that the text/xml media type is not always appropriate when some of the characters in the data stream are encoded with a different character set than US-ASCII. Please read the relevant IETF standards for details.
+
+The media type `application/swe+xml` shall be used when a client requests this format from an API or web service.

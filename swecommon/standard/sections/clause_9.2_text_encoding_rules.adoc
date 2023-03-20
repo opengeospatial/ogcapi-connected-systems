@@ -391,12 +391,65 @@ stream-values = element-values <stream-element-count>*(block-separator element-v
 Examples of “DataStream” with “TextEncoding” have already been given in previous sections.
 
 
+[[encoding_rules_text_geom]]
+==== Rules for Geometry
+
+The value of a “Geometry” component is encoded using the WKT format defined in the Simple Feature Access Standard (<<OGC_SFA>>).
+
+include::../requirements/encoding_rules/text/requirement5.adoc[]
+
+The following snippet is an example of datastream where each element represents a feature detected in a video stream, and geolocated. Each record is composed of a timestamp, a scalar field and a geometry: 
+
+[[enc_geometry_example]]
+[source%unnumbered,xml]
+----
+<swe:DataStream>
+  <swe:label>Feature Detections</swe:label>
+  <swe:elementType name="detection">
+    <swe:DataRecord>
+      <swe:field name="time">
+        <swe:Time definition="http://www.opengis.net/def/property/OGC/0/SamplingTime"
+                  referenceFrame="http://www.opengis.net/def/trs/OGC/0/GPS">
+          <swe:uom xlink:href="http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"/>
+        </swe:Time>
+      </swe:field>
+      <swe:field name="type">
+        <swe:Category definition="http://www.opengis.net/def/featureType">
+          <swe:codeSpace xlink:href="http://x-myorg.net/def/VehicleTypes"/>
+        </swe:Category>
+      </swe:field>
+      <swe:field name="geom">
+        <swe:Geometry definition="http://www.opengis.net/def/property/OGC/0/SamplingTime" srs="http://www.opengis.net/def/crs/EPSG/0/4326">
+          <swe:constraint>
+            <swe:AllowedGeometries>
+              <swe:geomType>Point</swe:geomType>
+              <swe:geomType>Polygon</swe:geomType>
+            </swe:AllowedGeometries>
+          </swe:constraint>
+        </swe:Geometry>
+      </swe:field>
+    </swe:DataRecord>
+  </swe:elementType>
+  <swe:encoding>
+    <swe:TextEncoding blockSeparator="&#10;" tokenSeparator=";"/>
+  </swe:encoding>
+  <swe:values>
+    2007-10-23T15:46:12Z;Car;POINT(-86.3254 35.4812)
+    2007-10-23T15:49:03Z;Truck;POLYGON((-86.3254 35.4812,-86.3253 35.4812,-86.3253 35.4811,-86.3254 35.4811,-86.3254 35.4812))
+    2007-10-23T15:56:45Z;Bus;POLYGON((-86.3254 35.4812,-86.3253 35.4812,-86.3253 35.4811,-86.3254 35.4811,-86.3254 35.4812))
+  </swe:values>
+</swe:DataStream>
+----
+
+
 ==== Media Types
 
 When array or stream values are encoded with the text encoding method and provided standalone (i.e. outside of any wrapper format such as an XML document), the following identifiers shall be used whenever media type information is needed by the application:
 
-- `text/csv` when the token separator is set to a single comma ‘,’ and the block separator is set to ‘CRLF’
+- `text/csv` when the token separator is set to a single comma ‘,’ and the block separator is set to ‘CRLF’.
 
-- `text/plain` for any other combination of separators
+- `text/plain` for any other combination of separators.
+
+- `application/swe+text` shall be used when a client requests this format from an API or web service.
 
 NOTE: _It is recommended that the character set code be correctly appended to the MIME type if it differs from US-ASCII (see IETF RFC 2045)._

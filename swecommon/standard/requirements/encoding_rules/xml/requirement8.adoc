@@ -1,0 +1,11 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/xml-encodings-rules/geometry-valid
+
+part:: The value of a “Geometry” component shall be encoded as a GML geometry, following rules defined by <<OGC_GML_SFA>>.
+
+part:: The allowed GML geometry types shall be restricted to: `gml:Point`, `gml:LineString`, `gml:Polygon`, `gml:MultiPoint`, `gml:MultiLineString`, and `gml:MultiPolygon`
+
+part:: The number of dimensions of the GML geometry shall match the number of dimensions of the coordinate reference system identified by the “srs” attribute of the component.
+====
