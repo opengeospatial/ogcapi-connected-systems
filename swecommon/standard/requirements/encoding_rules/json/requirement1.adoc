@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/json-encodings-rules/json-valid
+
+Data blocks and datastreams encoded using the JSON Encoding rules shall be valid JSON documents as defined by <<JSON>>.
+====

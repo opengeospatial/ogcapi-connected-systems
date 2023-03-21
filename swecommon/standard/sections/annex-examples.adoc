@@ -95,7 +95,7 @@ The following snippet defines a datastream with an element of type record:
 </swe:DataStream>
 ----
 
-An example of corresponding encoded datastream is given below:
+The datastream records are encoded using the Text encoding method as shown below:
 
 [source%unnumbered]
 ----
@@ -155,7 +155,7 @@ The following snippet defines a datastream with an element of type record that c
 </swe:DataStream>
 ----
 
-An example of corresponding encoded datastream is given below:
+The datastream records are encoded using the Text encoding method as shown below:
 
 [source%unnumbered]
 ----
@@ -223,7 +223,7 @@ This is illustrated by the following example:
 </swe:DataStream>
 ----
 
-An example of corresponding encoded datastream is given below:
+The datastream records are encoded using the Text encoding method as shown below:
 
 [source%unnumbered]
 ----
@@ -240,7 +240,7 @@ This datastream interleaves different types of messages separated by the block s
 [[enc_text_matrix_example]]
 ==== Fixed size 2D array (stress matrix)
 
-The following example illustrates how values of a fixed size 3x3 stress matrix can be text encoded:
+The following example illustrates how values of a fixed size 3x3 stress matrix can be text encoded inline:
 
 [source%unnumbered,xml]
 ----
@@ -321,7 +321,7 @@ The following example shows how SWE Common can be used to encode a series of irr
 </swe:DataStream>
 ----
 
-An example of corresponding encoded datastream is given below:
+The datastream records are encoded using the Text encoding method as shown below:
 
 [source%unnumbered]
 ----
@@ -375,7 +375,7 @@ The following snippet is an example of datastream that contains a geometry. Here
 </swe:DataStream>
 ----
 
-An example of corresponding encoded datastream is given below:
+The datastream records are encoded using the Text encoding method as shown below:
 
 [source%unnumbered]
 ----
@@ -404,7 +404,7 @@ In the following sections, encoded values were kept identical to the ones used i
 [[enc_xml_weather_stream_example]]
 ==== Datastream with records (weather data)
 
-This example is based on the datastream description of the “<<enc_text_weather_stream_example,style=basic%>>” example provided in the “Text Encoding Rules” section.
+This example is based on the same datastream description as the one provided in <<enc_text_weather_stream_example,style=short%>>.
 
 The following snippet shows how this datastream records are encoded using the XML encoding method:
 
@@ -440,7 +440,7 @@ The following snippet shows how this datastream records are encoded using the XM
 [[enc_xml_optional_fields_example]]
 ==== Datastream with records and optional fields (navigation data)
 
-This example is based on the datastream description of the “<<enc_text_optional_fields_example,style=basic%>>” example provided in the “Text Encoding Rules” section.
+This example is based on the same datastream description as the one provided in <<enc_text_optional_fields_example,style=short%>>.
 
 The following snippet shows how this datastream records are encoded using the XML encoding method:
 
@@ -469,6 +469,7 @@ The following snippet shows how this datastream records are encoded using the XM
       <ns:alt>312</ns:alt>
     </ns:location>
   </ns:navData>
+  ...
 </swe:values>
 ----
 
@@ -478,7 +479,7 @@ Notice that the optional ‘location’ field in the second stream element has b
 [[enc_xml_choice_example]]
 ==== Datastream with choice (navigation data)
 
-This example is based on the datastream description of the “<<enc_text_choice_example,style=basic%>>” example provided in the “Text Encoding Rules” section.
+This example is based on the same datastream description as the one provided in <<enc_text_choice_example,style=short%>>.
 
 The following snippet shows how this datastream records are encoded using the XML encoding method:
 
@@ -518,7 +519,7 @@ The following snippet shows how this datastream records are encoded using the XM
 [[enc_xml_profile_series_example]]
 ==== Datastream of variable size 1D arrays (profile series)
 
-This example is based on the datastream description of the “<<enc_text_profile_series_example,style=basic%>>” example provided in the “Text Encoding Rules” section.
+This example is based on the same datastream description as the one provided in <<enc_text_profile_series_example,style=short%>>.
 
 The following snippet shows how this datastream records are encoded using the XML encoding method:
 
@@ -571,6 +572,7 @@ The following snippet shows how this datastream records are encoded using the XM
       </ns:point>
     </ns:profilePoints>
   </ns:profileData>
+  ...
 </swe:values>
 ----
 
@@ -580,7 +582,7 @@ This example shows how the array size is specified on the ‘profilePoints’ el
 [[enc_xml_geom_example]]
 ==== Datastream with geometry (feature detection)
 
-This example is based on the datastream description of the “<<enc_text_geom_example,style=basic%>>” example provided in the “Text Encoding Rules” section.
+This example is based on the same datastream description as the one provided in <<enc_text_geom_example,style=short%>>.
 
 The following snippet shows how this datastream records are encoded using the XML encoding method:
 
@@ -628,4 +630,298 @@ The following snippet shows how this datastream records are encoded using the XM
   </ns:detection>
   ...
 </swe:values>
+----
+
+
+
+=== JSON Encoding Rules Examples
+
+The following examples build on the ones provided in the <<enc_text_examples,style=basic%>> section. The datastream descriptions are kept the same, except that the encoding method would have to be changed to:
+
+[source%unnumbered,xml]
+----
+<swe:encoding>
+  <swe:JSONEncoding/>
+</swe:encoding>
+----
+
+In the following sections, encoded values were kept identical to the ones used in the text encoding section, in order to facilitate comparison.
+
+
+[[enc_json_curve_example]]
+==== DataArray with inline values (curve) 
+
+This example is based on the same “DataArray” description as the one provided in <<enc_text_curve_example,style=short%>>.
+
+The equivalent JSON description for this “DataArray” is provided below:
+
+[source%unnumbered,json]
+----
+{
+  "type": "DataArray",
+  "definition": "http://sweet.jpl.nasa.gov/2.0/mathFunction.owl#Function"
+  "description": "Measurement error vs. temperature",
+  "elementCount": {
+    "type": "Count",
+    "value": 5
+  },
+  "elementType": {
+    "name": "point",
+    "type": "DataRecord",
+    "label": "Error vs. Temperature",
+    "fields": [
+      {
+        "name": "temp",
+        "type": "Quantity",
+        "definition": "http://sweet.jpl.nasa.gov/2.0/physThermo.owl#Temperature",
+        "label": "Temperature",
+        "uom": { "code": "Cel" }
+      },
+      {
+        "name": "error",
+        "type": "Quantity",
+        "definition": "http://sweet.jpl.nasa.gov/2.0/sciUncertainty.owl#Error",
+        "label": "Relative Error",
+        "uom": { "code": "%" }
+      }
+    ]
+  },
+  "values": [[0,5], [10,2], [50,2], [80,5], [100,15]]
+}
+----
+
+
+[[enc_json_weather_stream_example]]
+==== Datastream with records (weather data)
+
+This example is based on the same datastream description as the one provided in <<enc_text_weather_stream_example,style=short%>>.
+
+The following snippet shows how this datastream records are encoded using the JSON encoding method:
+
+[source%unnumbered,json]
+----
+[
+  {
+    "time": "2023-03-20T15:40:00Z",
+    "temp": 15.3,
+    "press": 1014,
+    "windSpeed": 3.5,
+    "windDir": 56.0
+  },
+  {
+    "time": "2023-03-20T15:45:00Z",
+    "temp": 15.4,
+    "press": 1015,
+    "windSpeed": 5.6,
+    "windDir": 123.0
+  },
+  {
+    "time": "2023-03-20T15:50:00Z",
+    "temp": 15.8,
+    "press": 1014,
+    "windSpeed": 13.2,
+    "windDir": 34.0
+  },
+  ...
+]
+----
+
+
+[[enc_json_optional_fields_example]]
+==== Datastream with records and optional fields (navigation data)
+
+This example is based on the same datastream description as the one provided in <<enc_text_optional_fields_example,style=short%>>.
+
+The following snippet shows how this datastream records are encoded using the XML encoding method:
+
+[source%unnumbered,json]
+----
+[
+  {
+    "time": "2007-10-23T15:46:12Z",
+    "speed": 15.3,
+    "location": {
+      "lat": 45.3,
+      "lon": -90.5,
+      "alt": 311 
+    }
+  },
+  {
+    "time": "2007-10-23T15:46:22Z",
+    "speed": 25.3,
+    "location": null
+  },
+  {
+    "time": "2007-10-23T15:46:32Z",
+    "speed": 20.6,
+    "location": {
+      "lat": 45.3,
+      "lon": -90.6,
+      "alt": 312 
+    }
+  },
+  ...
+]
+----
+
+
+[[enc_json_choice_example]]
+==== Datastream with choice (navigation data)
+
+This example is based on the same datastream description as the one provided in <<enc_text_choice_example,style=short%>>.
+
+The following snippet shows how this datastream records are encoded using the JSON encoding method:
+
+[source%unnumbered,json]
+----
+[
+  {
+    "TEMP": {
+      "time": "2009-05-23T19:36:15Z",
+      "temp": 25.5
+    }
+  },
+  {
+    "TEMP": {
+      "time": "2009-05-23T19:37:15Z",
+      "temp": 25.6
+    }
+  },
+  {
+    "WIND": {
+      "time": "2009-05-23T19:37:17Z",
+      "wind_speed": 56.3,
+      "wind_dir": 226.3
+    }
+  },
+  {
+    "TEMP": {
+      "time": "2009-05-23T19:38:15Z",
+      "temp": 25.5
+    }
+  },
+  ...
+]
+----
+
+
+[[enc_json_matrix_example]]
+==== Fixed size 2D array (stress matrix)
+
+This example is based on the same “Matrix” description as the one provided in <<enc_text_matrix_example,style=short%>>.
+
+The equivalent JSON description for this “Matrix” is provided below:
+
+[source%unnumbered,json]
+----
+{
+  "type": "Matrix",
+  "definition": "http://sweet.jpl.nasa.gov/2.0/physPressure.owl#Stress"
+  "elementCount": {
+    "type": "Count",
+    "value": 3
+  },
+  "elementType": {
+    "name": "row",
+    "type": "Matrix",
+    "elementCount": {
+      "type": "Count",
+      "value": 3
+    },
+    "elementType": {
+      "name": "coef",
+      "type": "Quantity",
+      "definition": "http://sweet.jpl.nasa.gov/2.0/mathVector.owl#Coordinate",
+      "uom": { "code": "MPa" }
+    }
+  },
+  "values": [[0.36,0.48,-0.8], [-0.8,0.6,0.0], [0.48,0.64,0.6]]
+}
+----
+
+
+[[enc_json_profile_series_example]]
+==== Datastream of variable size 1D arrays (profile series)
+
+This example is based on the same datastream description as the one provided in <<enc_text_profile_series_example,style=short%>>.
+
+The following snippet shows how this datastream records are encoded using the JSON encoding method:
+
+[source%unnumbered,json]
+----
+[
+  {
+    "time": "2005-05-16T21:47:12Z",
+    "profilePoints": [
+      { "depth": 0, "salinity": 45 },
+      { "depth": 10, "salinity": 20 },
+      { "depth": 20, "salinity": 30 },
+      { "depth": 30, "salinity": 35 },
+      { "depth": 40, "salinity": 40 }
+    ]
+  },
+  {
+    "time": "2005-05-16T22:43:05Z",
+    "profilePoints": [
+      { "depth": 0, "salinity": 45 },
+      { "depth": 10, "salinity": 20 },
+      { "depth": 20, "salinity": 30 },
+      { "depth": 30, "salinity": 35 }
+    ]
+  },
+  {
+    "time": "2005-05-16T23:40:52Z",
+    "profilePoints": [
+      { "depth": 0, "salinity": 45 },
+      { "depth": 10, "salinity": 20 },
+      { "depth": 20, "salinity": 30 },
+      { "depth": 30, "salinity": 35 },
+      { "depth": 40, "salinity": 40 }
+    ]
+  },
+  ...
+]
+----
+
+
+[[enc_json_geom_example]]
+==== Datastream with geometry (feature detection)
+
+This example is based on the same datastream description as the one provided in <<enc_text_geom_example,style=short%>>.
+
+The following snippet shows how this datastream records are encoded using the JSON encoding method:
+
+[source%unnumbered,json]
+----
+[
+  {
+    "time": "2007-10-23T15:46:12Z",
+    "type": "Car",
+    "geom": {
+      "type": "Point",
+      "coordinates": [-86.3254, 35.4812]
+    }
+  },
+  {
+    "time": "2007-10-23T15:49:03Z",
+    "type": "Truck",
+    "geom": {
+      "type": "Polygon",
+      "coordinates": [
+        [-86.3254 35.4812,-86.3253 35.4812,-86.3253 35.4811,-86.3254 35.4811,-86.3254 35.4812]
+      ]
+    }
+  },
+  {
+    "time": "2007-10-23T15:56:45Z",
+    "type": "Bus",
+    "geom": {
+      "type": "Polygon",
+      "coordinates": [
+        [-86.3254 35.4812,-86.3253 35.4812,-86.3253 35.4811,-86.3254 35.4811,-86.3254 35.4812]
+      ]
+    }
+  },
+  ...
+]
 ----

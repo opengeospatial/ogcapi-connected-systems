@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/json-encoding-rules/scalar-value-valid
+
+The value of a scalar component shall be represented using a JSON Number, a JSON String, or a boolean literal value, as defined in <<json_value_types_mappings>>.
+====

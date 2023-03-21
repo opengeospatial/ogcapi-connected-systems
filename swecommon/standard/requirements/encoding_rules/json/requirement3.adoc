@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/json-encoding-rules/range-value-valid
+
+part:: Values of range components shall be wrapped in a JSON Array with exactly 2 scalar values.
+
+part:: Each value is encoded in the same manner as the corresponding scalar component as defined in <<json_value_types_mappings>>.
+====

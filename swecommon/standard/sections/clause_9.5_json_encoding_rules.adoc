@@ -1,0 +1,156 @@
+[[encoding_rules_json]]
+=== Requirements Class: JSON Encoding Rules
+
+include::../requirements/encoding_rules/json/requirements_class.adoc[]
+
+The “JSON Encoding” method encodes field values by their <<JSON,JSON>> representation.
+
+include::../requirements/encoding_rules/json/requirement1.adoc[]
+
+The encoding rules defined in this document refer to JSON data types defined by <<JSON>>. Their definitions are recalled below:
+
+*Objects*: An object structure is represented as a pair of curly brackets surrounding zero or more name/value pairs (or members). Members are separated by commas. Each member must have a distinct name.
+
+*Arrays*: An array structure is represented as square brackets surrounding zero or more values (or elements).  Elements are separated by commas.
+
+*Numbers*: A decimal or integer number represented in base 10, with a sign and optional exponent.
+
+*Strings*: A string of Unicode characters that begins and ends with quotation marks.
+
+
+==== Special Numerical Values
+
+JSON does not define special decimal values for 'Not a Number' and positive/negative infinity. It is thus necessary to encode them as strings.
+
+Consequently, encoded values for Quantity and Time components expressed using a non-ISO8601 unit are allowed to be either a JSON Number or one of the following JSON Strings: `NaN`, `-Infinity` or `Infinity`.
+
+NOTE: These strings have been chosen because they are supported natively by Javascript/ECMA Script implementations. The `+` unary operator can be used to transparently parse one of these strings to a Number type (see https://262.ecma-international.org/13.0/#sec-unary-plus-operator).
+
+
+==== Rules for Scalar Components
+
+Scalar components are encoded as specified in <<json_value_types_mappings>>.
+
+include::../requirements/encoding_rules/json/requirement2.adoc[]
+
+[[json_value_types_mappings]]
+.Simple Component to JSON Value Types Mapping
+|===
+| *Component Type* | *JSON Value Type* | *Examples*
+
+| Boolean  | Boolean literal | `true` +
+                               `false`
+
+| Text     | JSON String     | `"word"` +
+                               `"a full sentence"` +
+                               `"BYC-589-AA"`
+
+| Category | JSON String     | `"ON"` +
+                               `"Paleozoic"` +
+                               `"diesel"`
+
+| Count    | JSON Number     | `12` +
+                               `0`
+
+| Quantity | JSON Number, or +
+             JSON String with special value. | `12` +
+                                               `23.1` +
+                                               `"NaN"` +
+                                               `"-Infinity"` +
+                                               `"Infinity"`
+
+| Time     | JSON String with a ISO8601 date/time string, or
+             JSON Number, or +
+             JSON String with special value. | `"2023-03-15T12:45:56Z"` +
+                                               `-23.1` +
+                                               `12` +
+                                               `"NaN"` +
+                                               `"-Infinity"` +
+                                               `"Infinity"` +
+                                               
+|===
+
+
+==== Rules for Range Components
+
+A range component is encoded using a JSON array of two values.
+
+include::../requirements/encoding_rules/json/requirement3.adoc[]
+
+.Range Component to JSON Mapping
+|===
+| *Component Type* | *Examples*
+
+| CategoryRange | `["Cenozoic", "Paleozoic"]`
+
+| CountRange    | `[0, 12]`
+
+| QuantityRange | `[-12, 35]` +
+                  `[-180.0, 180.0]` +
+                  `["-Infinity", 0.0]` +
+                  `[10.0, "Infinity"]` +
+                  `["NaN", "NaN"]`
+
+| TimeRange     | `["2023-01-01T00:00:00Z", "2023-03-15T12:45:56Z"]` +
+                  `["2023-01-01T00:00:00Z", "Infinity"]` +
+                  `["-Infinity", "2023-01-01T00:00:00Z"]` +
+                  `["2023-01-01T00:00:00Z", "Infinity"]` +
+                  `["NaN", "NaN"]`
+|===
+
+
+==== Rules for DataRecord and Vector
+
+“DataRecord” components are encoded using a JSON Object whose members are named like the record fields.
+
+include::../requirements/encoding_rules/json/requirement4.adoc[]
+
+include::../requirements/encoding_rules/json/requirement5.adoc[]
+
+When a field has its 'optional' flag set to true, its value can be either omitted or set to the literal value `null`.
+
+See the following examples:
+
+- <<enc_json_curve_example,style=basic%>>
+- <<enc_json_weather_stream_example,style=basic%>>
+- <<enc_json_optional_fields_example,style=basic%>>
+
+
+==== Rules for DataChoice
+
+Values of “DataChoice” components are encoded using a JSON Object with a single member whose name is the name of the selected choice item.
+
+include::../requirements/encoding_rules/json/requirement6.adoc[]
+
+See example: <<enc_json_choice_example,style=basic%>>
+
+
+==== Rules for DataArray and Matrix
+
+Values of “DataArray” and “Matrix” components are encoded using a JSON Array, containing as many elements as there are elements in the Array component.
+
+include::../requirements/encoding_rules/json/requirement7.adoc[]
+
+See the following examples:
+
+- <<enc_json_matrix_example,style=basic%>>
+- <<enc_json_profile_series_example,style=basic%>>
+
+
+==== Rules for Geometry
+
+The value of a “Geometry” component is encoded using a GeoJSON Geometry object.
+
+include::../requirements/encoding_rules/json/requirement8.adoc[]
+
+See example: <<enc_json_geom_example,style=basic%>>
+
+
+==== JSON Schema
+
+#In order to maximize compatibility with existing tools, A JSON Schema can be easily auto-generated from the Datastream description.#
+
+
+==== Media Types
+
+When array or stream values are encoded with the JSON encoding method and provided standalone (i.e. outside of any wrapper format), the `application/swe+json` identifier shall be used whenever media type information is needed by the application.

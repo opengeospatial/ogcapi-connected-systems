@@ -1,0 +1,11 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/json-encoding-rules/vector-object-valid
+
+part:: “Vector” values shall be wrapped in a JSON Object.
+
+part:: The name of the JSON object members shall be the same as the “Vector” coordinate names.
+
+part:: The value of each JSON Object member shall be chosen by following the encoding rules of the data component used as the vector coordinate field with the same name.
+====

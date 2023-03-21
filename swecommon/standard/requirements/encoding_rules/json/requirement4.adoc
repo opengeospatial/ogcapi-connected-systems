@@ -1,0 +1,13 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/json-encoding-rules/record-object-valid
+
+part:: “DataRecord” values shall be wrapped in a JSON Object.
+
+part:: The name of the JSON object members shall be the same as the “DataRecord” field names.
+
+part:: The value of each JSON Object member shall be chosen by following the encoding rules of the data component used as the record field with the same name.
+
+part:: If a record field is marked as 'optional', the corresponding JSON object member can be omitted or its JSON value can be set to `null`.
+====

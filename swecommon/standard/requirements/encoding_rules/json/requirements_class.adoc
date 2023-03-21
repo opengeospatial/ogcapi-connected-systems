@@ -1,0 +1,10 @@
+[requirement,model=ogc]
+.JSON Encoding Rules
+====
+[%metadata]
+type:: class
+identifier:: /req/json-encoding-rules
+subject:: Encoded Values Instance
+inherit:: /req/general-encoding-rules
+indirect-dependency:: /req/uml-simple-encodings
+====

@@ -1,0 +1,11 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/json-encoding-rules/choice-object-valid
+
+part:: “DataChoice” values shall be encapsulated in a JSON Object.
+
+part:: The JSON object shall contain a single member whose name is the same as the selected choice item.
+
+part:: The JSON value of this unique member shall be chosen according to the encoding rules of the data component corresponding to the selected item.
+====

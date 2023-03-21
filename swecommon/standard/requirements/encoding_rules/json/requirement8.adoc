@@ -1,0 +1,11 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/json-encodings-rules/geometry-valid
+
+part:: The value of a “Geometry” component shall be encoded as a GeoJSON Geometry Object, following rules defined by <<GeoJSON>>.
+
+part:: The allowed GeoJSON geometry types shall be restricted to: `Point`, `LineString`, `Polygon`, `MultiPoint`, `MultiLineString`, and `MultiPolygon`
+
+part:: The number of dimensions of the GeoJSON geometry shall match the number of dimensions of the coordinate reference system identified by the “srs” attribute of the component.
+====

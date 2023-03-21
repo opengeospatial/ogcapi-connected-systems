@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/json-encoding-rules/array-values-valid
+
+part:: “DataArray” and “Matrix” values shall be encapsulated in a JSON Array.
+
+part:: Each array element shall be encoded using the rules corresponding to the data component used as the array element type.
+====
