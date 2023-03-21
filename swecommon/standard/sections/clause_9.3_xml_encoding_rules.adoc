@@ -112,10 +112,11 @@ See example: <<enc_xml_geom_example,style=basic%>>
 
 ==== Media Types
 
-When array or stream values are encoded with the XML encoding method and provided standalone (i.e. outside of any wrapper format), the `text/xml` or `application/xml` identifiers shall be used whenever media type information is needed by the application.
+When array or datastream values are encoded with the XML encoding method and provided standalone (i.e. outside of any wrapper format), one of the following media type identifiers shall be used:
 
-Note however that the text/xml media type is not always appropriate when some of the characters in the data stream are encoded with a different character set than US-ASCII. Please read the relevant IETF standards for details.
+1. *`application/xml`* or *`application/swe+xml`* shall be used as the content-type for files and HTTP reponses.
 
-The media type `application/swe+xml` shall be used when a client requests this format from an API or web service.
+2. *`application/swe+xml`* shall be used for format negotiation between server and client (e.g. when the format is advertised by an API or web service). In particular, this media type shall be used in HTTP `Accept` and `Link` headers and in any server response used to advertise support or link to a resource encoded with this format.
 
+#alternative would be `application/vnd.ogc.swe+xml`#
 

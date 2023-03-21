@@ -152,15 +152,19 @@ include::../requirements/encoding_rules/binary/requirement6.adoc[]
 No specific marker or length information needs to be pre-pended to the binary representation since the WKB format is self descriptive and parsable without knowing the total length ahead of time.
 
 
-==== Media Types
-
-When array or stream values are encoded with the binary encoding method and provided standalone (i.e. outside of any wrapper format), the `application/octet-stream` identifier shall be used whenever media type information is needed by the application.
-
-The media type `application/swe+binary` shall be used when a client requests this format from an API or web service.
-
-
 ==== Block encoded components
 
 When block encoding characteristics are also specified in the encoding description, the encryption and/or compression algorithm shall be applied after the binary encoding process described above is completed for the block. Extensions of this standard can define compression and encryption methods that fit the needs of particular communities.
 
 In order to maximize compatibility with existing software, when compressing a binary encoded data stream results in a well known binary format, the corresponding mime type can be used instead of application/octet-stream. For instance video/h264 can be used when the entirety of the dataset (presumably a video stream) is compressed using the H264 video codec.
+
+
+==== Media Types
+
+When array or stream values are encoded with the Binary encoding method and provided standalone (i.e. outside of any wrapper format), one of the following media type identifiers shall be used:
+
+1. One of *`application/octet-stream`* or *`application/swe-binary`* shall be used as the content-type for files and HTTP reponses.
+
+2. *`application/swe+binary`* shall be used for format negotiation between server and client (e.g. when the format is advertised by an API or web service). In particular, this media type shall be used in HTTP `Accept` and `Link` headers and in any server response used to advertise support or link to a resource encoded with this format.
+
+#alternative would be `application/vnd.ogc.swe-binary`#

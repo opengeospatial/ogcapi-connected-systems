@@ -112,7 +112,7 @@ choice-values = selected-item-name token-separator selected-item-values
 
 include::../requirements/encoding_rules/text/requirement4.adoc[]
 
-See the following example: <<enc_text_choice_example,style=basic%>>.
+See example: <<enc_text_choice_example,style=basic%>>.
 
 
 ==== Rules for DataArray and Matrix
@@ -174,17 +174,20 @@ The value of a “Geometry” component is encoded using the WKT format defined 
 
 include::../requirements/encoding_rules/text/requirement5.adoc[]
 
-See example <<enc_text_geom_example,style=basic%>>
+See example: <<enc_text_geom_example,style=basic%>>
 
 
 ==== Media Types
 
-When array or stream values are encoded with the text encoding method and provided standalone (i.e. outside of any wrapper format such as an XML document), the following identifiers shall be used whenever media type information is needed by the application:
+When array or datastream values are encoded with the Text encoding method and provided standalone (i.e. outside of any wrapper format such as an XML document), one of the following media type identifiers shall be used:
 
-- `text/csv` when the token separator is set to a single comma ‘,’ and the block separator is set to ‘CRLF’.
+1. One of *`text/plain`*, *`text/csv`*, or *`application/swe+text`* shall be used as the content-type for files and HTTP reponses.
 
-- `text/plain` for any other combination of separators.
+  - *`text/csv`* can be used only when the token separator is set to a single comma ‘,’ and the block separator is set to ‘CRLF’.
+  - *`text/plain`* and *`application/swe+text`* can be used for any combination of separators.
 
-- `application/swe+text` shall be used when a client requests this format from an API or web service.
+2. *`application/swe+text`* shall be used for format negotiation between server and client (e.g. when the format is advertised by an API or web service). In particular, this media type shall be used in HTTP `Accept` and `Link` headers and in any server response used to advertise support or link to a resource encoded with this format.
 
-NOTE: _It is recommended that the character set code be correctly appended to the MIME type if it differs from US-ASCII (see IETF RFC 2045)._
+NOTE: _It is recommended that the character set code be correctly appended to these media types if it differs from US-ASCII or UTF-8._
+
+#alternative would be `application/vnd.ogc.swe+text`#
