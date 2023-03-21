@@ -43,7 +43,7 @@ include::sections/clause_7_uml_conceptual_models.adoc[]
 
 include::sections/clause_8_xml_implementation.adoc[]
 
-include::sections/clause_9_datastream_encoding_rules.adoc[]
+include::sections/clause_10_datastream_encoding_rules.adoc[]
 
 ////
 Annexes

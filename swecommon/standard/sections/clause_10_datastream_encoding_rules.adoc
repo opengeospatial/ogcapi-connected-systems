@@ -68,10 +68,10 @@ include::../requirements/encoding_rules/general/requirement4.adoc[]
 
 // other subsections
 
-include::clause_9.2_text_encoding_rules.adoc[]
+include::clause_10.2_text_encoding_rules.adoc[]
 
-include::clause_9.3_xml_encoding_rules.adoc[]
+include::clause_10.3_xml_encoding_rules.adoc[]
 
-include::clause_9.4_binary_encoding_rules.adoc[]
+include::clause_10.4_binary_encoding_rules.adoc[]
 
-include::clause_9.5_json_encoding_rules.adoc[]
+include::clause_10.5_json_encoding_rules.adoc[]
