@@ -1,0 +1,271 @@
+[[json_simple_components]]
+=== Requirements Class: Basic Types and Simple Components JSON Schemas
+
+include::../requirements/json/simple_components/requirements_class.adoc[]
+
+Validation patterns that implement all classes defined respectively in the “Basic Types” and “Simple Components” UML packages are provided as JSON schema files at {jsonschema-base-url}.
+
+The entry point schema used for validation is {jsonschema-base-url}/sweCommon.json[“sweCommon.json”].
+
+include::../requirements/json/simple_components/requirement1.adoc[]
+
+
+==== General JSON Principles
+
+The following rules were used when generating the JSON schemas:
+
+- Classes are implemented as JSON Objects.
+
+- Any property with a multiplicty greater than one is implemented as a JSON Array and its name is converted to plural form.
+
+- Textual fields are implementes as a JSON String
+
+- Decimal fields are implemented as a union of a JSON Number and JSON String type with an enum restricting its values to "Not a Number", positive infinity and negative infinity.
+
+- ISO8601 date/time fields are implemented as JSON String with a union of date/time formats.
+
+#TODO#
+
+
+===== IDs and Linkable Properties
+
+Links are represented by a link object that is modeled on the <<WebLinking>> standard.
+
+#TODO#
+
+
+==== Abstract Base Classes
+
+The three abstract base classes defined in the UML models are implemented by the following JSON schemas:
+
+- {jsonschema-base-url}/AbstractSweIdentifiable.json[AbstractSweIdentifiable.json]
+- {jsonschema-base-url}/AbstractDataComponent.json[AbstractDataComponent.json]
+- {jsonschema-base-url}/AbstractSimpleComponent.json[AbstractSimpleComponent.json]
+
+
+[[json_boolean_obj]]
+==== Boolean Object
+
+The “Boolean” object is the JSON schema implementation of the “Boolean” UML class defined in <<uml_boolean_class>>. The schema for this class is provided in {jsonschema-base-url}/Boolean.json[Boolean.json].
+
+The following snippet shows an example boolean field with a value:
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/boolean1.json[]
+----
+
+The next snippet is an example of boolean component used as data descriptor, and this contains no value:
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/boolean2.json[]
+----
+
+
+[[json_text_obj]]
+==== Text Object
+
+The “Text” object is the JSON schema implementation of the “Text” UML class defined in <<uml_text_class>>. The schema for this class is provided in {jsonschema-base-url}/Text.json[Text.json].
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/text1.json[]
+----
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/text2.json[]
+----
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/text3.json[]
+----
+
+
+[[json_category_obj]]
+==== Category Object
+
+The “Category” object is the JSON schema implementation of the “Category” UML class defined in <<uml_category_class>>. The schema for this class is provided in {jsonschema-base-url}/Category.json[Category.json].
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/category1.json[]
+----
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/category2.json[]
+----
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/category3.json[]
+----
+
+
+[[json_count_obj]]
+==== Count Object
+
+The “Count” object is the JSON schema implementation of the “Count” UML class defined in <<uml_count_class>>. The schema for this class is provided in {jsonschema-base-url}/Count.json[Count.json].
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/count1.json[]
+----
+
+
+[[json_quantity_obj]]
+==== Quantity Object
+
+The “Quantity” object is the JSON schema implementation of the “Quantity” UML class defined in <<uml_quantity_class>>. The schema for this class is provided in {jsonschema-base-url}/Quantity.json[Quantity.json].
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/quantity1.json[]
+----
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/quantity2.json[]
+----
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/quantity3.json[]
+----
+
+
+[[json_time_obj]]
+==== Time Object
+
+The “Time” object is the JSON schema implementation of the “Time” UML class defined in <<uml_time_class>>. The schema for this class is provided in {jsonschema-base-url}/Time.json[Time.json].
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/time1.json[]
+----
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/time2.json[]
+----
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/time3.json[]
+----
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/time4.json[]
+----
+
+
+[[json_categoryrange_obj]]
+==== CategoryRange Object
+
+The “CategoryRange” object is the JSON schema implementation of the “CategoryRange” UML class defined in <<uml_categoryrange_class>>. The schema for this class is provided in {jsonschema-base-url}/CategoryRange.json[CategoryRange.json].
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/category-range1.json[]
+----
+
+
+[[json_countrange_obj]]
+==== CountRange Object
+
+The “CountRange” object is the JSON schema implementation of the “CountRange” UML class defined in <<uml_countrange_class>>. The schema for this class is provided in {jsonschema-base-url}/CountRange.json[CountRange.json].
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/count-range1.json[]
+----
+
+
+[[json_quantityrange_obj]]
+==== QuantityRange Object
+
+The “QuantityRange” object is the JSON schema implementation of the “QuantityRange” UML class defined in <<uml_quantityrange_class>>. The schema for this class is provided in {jsonschema-base-url}/QuantityRange.json[QuantityRange.json].
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/quantity-range1.json[]
+----
+
+
+[[json_timerange_obj]]
+==== TimeRange Object
+
+The “TimeRange” object is the JSON schema implementation of the “TimeRange” UML class defined in <<uml_timerange_class>>. The schema for this class is provided in {jsonschema-base-url}/TimeRange.json[TimeRange.json].
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/time-range1.json[]
+----
+
+
+[[json_nilvalues_obj]]
+==== NilValues Object
+
+The “NilValues” object is the JSON schema implementation of the “NilValues” UML class defined in <<uml_nilvalues_class>>. The schema for this class is provided in {jsonschema-base-url}/basicTypes.json[basicTypes.json] (see #definitions/NilValues).
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/nil-values1.json[]
+----
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/nil-values2.json[]
+----
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/nil-values3.json[]
+----
+
+
+[[json_allowedtokens_obj]]
+==== AllowedTokens Object
+
+The “AllowedTokens” object is the XML schema implementation of the “AllowedTokens” UML class defined in <<uml_allowedtokens_class>>. The schema for this class is provided in {jsonschema-base-url}/basicTypes.json[basicTypes.json] (see #definitions/AllowedTokens).
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/allowedTokens1.json[]
+----
+
+
+[[json_allowedvalues_obj]]
+==== AllowedValues Object
+
+The “AllowedValues” object is the XML schema implementation of the “AllowedValues” UML class defined in <<uml_allowedvalues_class>>. The schema for this class is provided in {jsonschema-base-url}/basicTypes.json[basicTypes.json] (see #definitions/AllowedValues).
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/allowedValues1.json[]
+----
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/allowedValues2.json[]
+----
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/allowedValues3.json[]
+----
+
+
+[[json_allowedtimes_obj]]
+==== AllowedTimes Object
+
+The “AllowedTimes” object is the XML schema implementation of the “AllowedTimes” UML class defined in <<uml_allowedtimes_class>>. The schema for this class is provided in {jsonschema-base-url}/basicTypes.json[basicTypes.json] (see #definitions/AllowedTimes).
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/allowedTimes1.json[]
+----

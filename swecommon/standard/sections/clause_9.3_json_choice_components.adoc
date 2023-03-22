@@ -1,0 +1,16 @@
+[[json_choice_components]]
+=== Requirements Class: Choice Components JSON Schema
+
+include::../requirements/json/choice_components/requirements_class.adoc[]
+
+
+[[json_datachoice_obj]]
+==== DataChoice Object
+
+The “DataChoice” object is the JSON schema implementation of the “DataChoice” UML class defined in <<uml_datachoice_class>>. The schema for this class is provided in {jsonschema-base-url}/DataChoice.json[DataChoice.json].
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/choice1.json[]
+----
+

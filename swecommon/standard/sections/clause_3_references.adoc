@@ -48,6 +48,8 @@ References are to follow the Springer LNCS style, with the exception that option
 
 * [[[GeoJSON, IETF RFC 7946]]], The GeoJSON Format, https://www.rfc-editor.org/rfc/rfc7946
 
+* [[[WebLinking, IETF RFC 8288]]], Web Linking, https://www.rfc-editor.org/rfc/rfc8288
+
 * [[[JSONSchema, IETF JSON Schema]]], JSON Schema Validation: A Vocabulary for Structural Validation of JSON, Version 2020-12, https://json-schema.org/draft/2020-12/json-schema-validation.html
 
 * [[[RFC2045, IETF RFC 2045]]], Multipurpose Internet Mail Extensions (MIME) Part One: Format of Internet Message Bodies, November 1996

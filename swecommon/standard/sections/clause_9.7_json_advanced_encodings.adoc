@@ -1,0 +1,15 @@
+[[json_advanced_encodings]]
+=== Requirements Class: Advanced Encodings JSON Schema
+
+include::../requirements/json/advanced_encodings/requirements_class.adoc[]
+
+
+[[json_binaryencoding_obj]]
+==== BinaryEncoding Object
+
+The “BinaryEncoding” object is the JSON schema implementation of the “BinaryEncoding” UML class defined in <<uml_binaryencoding_class>>. The schema for this class is provided in {jsonschema-base-url}/encodings.json[encondings.json#/definitions/BinaryEncoding].
+
+[source%unnumbered,json]
+----
+
+----

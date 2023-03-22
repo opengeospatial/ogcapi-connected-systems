@@ -1,0 +1,43 @@
+[[json_record_components]]
+=== Requirements Class: Record Components JSON Schema
+
+include::../requirements/json/record_components/requirements_class.adoc[]
+
+
+[[json_datarecord_obj]]
+==== DataRecord Object
+
+The “DataRecord” object is the JSON schema implementation of the “DataRecord” UML class defined in <<uml_datarecord_class>>. The schema for this class is provided in {jsonschema-base-url}/DataRecord.json[DataRecord.json].
+
+The example below describes a record composed of weather data fields. In this case the “DataRecord” element is used as a descriptor for records of data that are provided as part of a datastream:
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/record1.json[]
+----
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/record2.json[]
+----
+
+
+[[json_vector_obj]]
+==== Vector Object
+
+The “Vector” object is the JSON schema implementation of the “Vector” UML class defined in <<uml_vector_class>>. The schema for this class is provided in {jsonschema-base-url}/Vector.json[Vector.json].
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/vector1.json[]
+----
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/vector2.json[]
+----
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/vector3.json[]
+----

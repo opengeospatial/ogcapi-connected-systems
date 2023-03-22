@@ -1,0 +1,11 @@
+[requirement,model=ogc]
+.Simple Encodings JSON Schema
+====
+[%metadata]
+type:: class
+identifier:: /req/json-simple-encodings 
+subject:: JSON Document
+inherit:: /req/json-simple-encodings
+inherit:: /req/text-encoding-rules
+inherit:: /req/json-encoding-rules
+====

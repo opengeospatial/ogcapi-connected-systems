@@ -20,6 +20,7 @@
 :edition: 2.1.0
 
 :xsd-base-url: https://schemas.opengis.net/sweCommon/2.0
+:jsonschema-base-url: https://raw.githubusercontent.com/opengeospatial/connected-systems/master/swecommon/schemas/json
 
 
 ////
@@ -42,6 +43,8 @@ include::sections/clause_6_core_concepts.adoc[]
 include::sections/clause_7_uml_conceptual_models.adoc[]
 
 include::sections/clause_8_xml_implementation.adoc[]
+
+include::sections/clause_9_json_implementation.adoc[]
 
 include::sections/clause_10_datastream_encoding_rules.adoc[]
 

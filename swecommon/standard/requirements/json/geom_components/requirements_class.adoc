@@ -1,0 +1,10 @@
+[requirement,model=ogc]
+.Geometry Components JSON Schema
+====
+[%metadata]
+type:: class
+identifier:: /req/json-geom-components 
+subject:: JSON Document
+inherit:: /req/uml-geom-components
+inherit:: /req/json-simple-components
+====

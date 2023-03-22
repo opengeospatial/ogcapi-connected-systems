@@ -1,0 +1,10 @@
+[requirement,model=ogc]
+.Choice Components JSON Schema
+====
+[%metadata]
+type:: class
+identifier:: /req/json-choice-components 
+subject:: JSON Document
+inherit:: /req/uml-choice-components
+inherit:: /req/json-simple-components
+====

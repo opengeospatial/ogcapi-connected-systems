@@ -1,0 +1,10 @@
+[requirement,model=ogc]
+.Block Components JSON Schema
+====
+[%metadata]
+type:: class
+identifier:: /req/json-block-components 
+subject:: JSON Document
+inherit:: /req/uml-block-components
+inherit:: /req/json-simple-components
+====

@@ -1,0 +1,67 @@
+[[json_block_components]]
+=== Requirements Class: Block Components JSON Schema
+
+include::../requirements/json/block_components/requirements_class.adoc[]
+
+
+[[json_dataarray_obj]]
+==== DataArray Object
+
+The “DataArray” element is the JSON schema implementation of the “DataArray” UML class defined in <<uml_dataarray_class>>. The schema for this class is provided in {jsonschema-base-url}/DataArray.json[DataArray.json].
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/array1.json[]
+----
+
+When provided inline, “DataArray” values are encoded using the method defined in <<json_value_block>>.
+
+The following example shows how to define a 1D variable size array whose data is provided separately.
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/array2.json[]
+----
+
+“DataArray” components can also be nested to form multi-dimensional arrays, as shown in the following example of a 2D array:
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/array3.json[]
+----
+
+
+[[json_matrix_obj]]
+==== Matrix Object
+
+The “Matrix” object is the JSON schema implementation of the “Matrix” UML class defined in <<uml_matrix_class>>. The schema for this class is provided in {jsonschema-base-url}/Matrix.json[Matrix.json].
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/matrix1.json[]
+----
+
+When provided inline, “Matrix” values are encoded using the method defined in <<json_value_block>>.
+
+
+[[json_datastream_obj]]
+==== DataStream Object
+
+The “DataStream” object is the JSON schema implementation of the “DataStream” UML class defined in <<uml_datastream_class>>. The schema for this class is provided in {jsonschema-base-url}/DataStream.json[DataStream.json].
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/datastream1.json[]
+----
+
+When provided inline, “DataStream” values are encoded using the method defined in <<json_value_block>>.
+
+
+[[json_value_block]]
+==== Inline Value Blocks
+
+This clause specifies how inline vaues for “DataArray”, “Matrix” and “DataStream” components shall be encoded when provided within a JSON document. No other method is allowed within a JSON document compliant with this standard.
+
+However, when values are provided separately from the component description (e.g. when datastream values are provided separately), any encoding methods defined in <<encoding_rules>> can be used.
+
+Inline block component values shall always be wrapped using JSON Arrays. 

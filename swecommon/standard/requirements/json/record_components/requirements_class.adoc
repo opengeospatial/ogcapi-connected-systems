@@ -1,0 +1,10 @@
+[requirement,model=ogc]
+.Record Components JSON Schema
+====
+[%metadata]
+type:: class
+identifier:: /req/json-record-components 
+subject:: JSON Document
+inherit:: /req/uml-record-components
+inherit:: /req/json-simple-components
+====

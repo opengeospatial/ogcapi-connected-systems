@@ -1,0 +1,37 @@
+[[json_impl]]
+== JSON Implementation (normative)
+
+This standard defines a normative JSON implementation of the conceptual models presented in <<uml_models>>. The standardization target type for all requirements classes in this clause is a JSON instance document that seeks compliance with this JSON encoding model.
+
+JSON schemas defined in this section are a direct implementation of the UML conceptual models described in <<uml_models>>. They have been generated from these models by strictly following well-defined encoding rules. All attributes and composition/aggregation associations contained in the UML models are encoded as JSON object members.
+
+All example instances given in this section are informative and are used solely for illustrating features of the normative model. Many of these examples reference semantic information by using URLs that are resolvable to definitions maintained in one of several online ontologies:
+
+- The OGC online registry at http://www.opengis.net/def/.
+- The QUDT quantity kinds ontology at http://qudt.org/2.1/vocab/quantitykind.
+- The SWEET ontology maintained by ESIP at http://sweetontology.net/.
+- The MMI ontology registry and repository at http://mmisw.org/ont/.
+
+// subsections
+
+include::clause_9.1_json_simple_components.adoc[]
+
+include::clause_9.2_json_record_components.adoc[]
+
+include::clause_9.3_json_choice_components.adoc[]
+
+include::clause_9.4_json_block_components.adoc[]
+
+include::clause_9.5_json_geom_components.adoc[]
+
+include::clause_9.6_json_simple_encodings.adoc[]
+
+include::clause_9.7_json_advanced_encodings.adoc[]
+
+
+
+#Special Numerical Values: NaN, Inifinity, -Infinity#
+
+#Date & Time Values: ISO8601 encoding#
+
+#Links: Some linking disallowed in the JSON encoding. Use xlink or web linking syntax?#

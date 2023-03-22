@@ -1,0 +1,11 @@
+[requirement,model=ogc]
+.Advanced Encodings JSON Schema
+====
+[%metadata]
+type:: class
+identifier:: /req/json-advanced-encodings 
+subject:: JSON Document
+inherit:: /req/uml-advanced-encodings
+inherit:: /req/json-simple-encodings
+inherit:: /req/binary-encoding-rules
+====

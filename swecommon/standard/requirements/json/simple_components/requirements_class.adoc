@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+.Basic Types and Simple Components JSON Schemas
+====
+[%metadata]
+type:: class
+identifier:: /req/json-simple-components
+subject:: JSON Document
+inherit:: /req/uml-simple-components
+====
