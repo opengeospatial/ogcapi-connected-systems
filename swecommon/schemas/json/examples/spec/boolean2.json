@@ -1,0 +1,6 @@
+{
+  "type": "Boolean",
+  "definition": "http://mmisw.org/ont/q2o/test/timeContinuityTest",
+  "label": "Time Continuity Test",
+  "description": "Set to true to enable time continuity test"
+}

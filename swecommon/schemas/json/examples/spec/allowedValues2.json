@@ -1,0 +1,8 @@
+{
+  "type": "Count",
+  "definition": "http://www.opengis.net/def/property/OGC/0/NumberOfPixels",
+  "label": "Image Width",
+  "constraint": {
+    "values": [256, 512, 1024]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Implementation of a mathematical vector composed of a list of scalar coordinates expressed in the mandatory reference frame.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "./AbstractDataComponent.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "Vector"
+        },
+        "referenceFrame": {
+          "description": "Frame of reference (usually spatial) with respect to which the coordinates of this vector are expressed. A reference frame anchors a vector value to a real world datum.",
+          "type": "string",
+          "format": "uri"
+        },
+        "localFrame": {
+          "description": "Frame of reference whose origin is located by the coordinates of this vector",
+          "type": "string",
+          "format": "uri"
+        },
+        "coordinates": {
+          "description": "Definition of the coordinate provided as a data component with a numerical representation",
+          "type": "array",
+          "items": {
+            "allOf": [
+              { "$ref": "basicTypes.json#/definitions/SoftNamedProperty" },
+              {
+                "oneOf": [
+                  { "$ref": "Count.json" },
+                  { "$ref": "Quantity.json" },
+                  { "$ref": "Time.json" }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "type",
+        "definition",
+        "referenceFrame",
+        "label",
+        "coordinates"
+      ]
+    }
+  ]
+}

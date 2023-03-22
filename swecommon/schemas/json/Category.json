@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Scalar component used to represent a categorical value as a simple token identifying a term in a code space",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "./AbstractSimpleComponent.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "Category"
+        },
+        "codeSpace": {
+          "description": "Name of the dictionary where the possible values for this component are listed and defined",
+          "type": "string",
+          "format": "uri"
+        },
+        "constraint": {
+          "$ref": "basicTypes.json#/definitions/AllowedTokens"
+        },
+        "nilValues": {
+          "$ref": "basicTypes.json#/definitions/NilValuesText"
+        },
+        "value": {
+          "description": "Value is optional, to enable structure to act as a schema for values provided using other encodings",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "definition",
+        "label"
+      ]
+    }
+  ]
+}

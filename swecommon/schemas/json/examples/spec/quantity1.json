@@ -1,0 +1,8 @@
+{
+  "type": "Quantity",
+  "definition": "http://sweet.jpl.nasa.gov/2.0/physThermo.owl#Temperature",
+  "label": "Outside Temperature",
+  "description": "Outside temperature taken at the top of the antenna",
+  "uom": { "code": "Cel" },
+  "value": 21.5
+}

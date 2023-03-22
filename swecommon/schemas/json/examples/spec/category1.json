@@ -1,0 +1,8 @@
+{
+  "type": "Category",
+  "definition": "http://sweet.jpl.nasa.gov/2.0/timeGeologic.owl#GeologicTime",
+  "label": "Geological Period",
+  "description": "Name of the geological period according to the nomenclature of the International Commission on Stratigraphy",
+  "codeSpace": "http://sweet.jpl.nasa.gov/2.0/timeGeologic.owl#Period",
+  "value": "Jurassic"
+}

@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "AnyComponent": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/AnySimpleComponent"
+        },
+        {
+          "$ref": "./DataRecord.json"
+        },
+        {
+          "$ref": "./Vector.json"
+        },
+        {
+          "$ref": "./DataArray.json"
+        },
+        {
+          "$ref": "./Matrix.json"
+        },
+        {
+          "$ref": "./DataChoice.json"
+        },
+        {
+          "$ref": "./Geometry.json"
+        }
+      ]
+    },
+    "AnySimpleComponent": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/AnyScalarComponent"
+        },
+        {
+          "$ref": "./CountRange.json"
+        },
+        {
+          "$ref": "./QuantityRange.json"
+        },
+        {
+          "$ref": "./TimeRange.json"
+        },
+        {
+          "$ref": "./CategoryRange.json"
+        }
+      ]
+    },
+    "AnyScalarComponent": {
+      "oneOf": [
+        {
+          "$ref": "./Boolean.json"
+        },
+        {
+          "$ref": "./Count.json"
+        },
+        {
+          "$ref": "./Quantity.json"
+        },
+        {
+          "$ref": "./Time.json"
+        },
+        {
+          "$ref": "./Category.json"
+        },
+        {
+          "$ref": "./Text.json"
+        }
+      ]
+    }
+  },
+  "oneOf": [
+    {
+      "$ref": "#/definitions/AnyComponent"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Defines the structure of the element that will be repeated in the stream",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "./AbstractSWEIdentifiable.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "DataStream"
+        },
+        "elementType": {
+          "description": "Definition and structure of one stream element",
+          "allOf": [
+            {
+              "$ref": "basicTypes.json#/definitions/SoftNamedProperty"
+            },
+            {
+              "$ref": "basicTypes.json#/definitions/AssociationAttributeGroup"
+            },
+            {
+              "$ref": "sweCommon.json#/definitions/AnyComponent"
+            }
+          ]
+        },
+        "encoding": {
+          "description": "Method used to encode the stream values",
+          "oneOf": [
+            {
+              "$ref": "encodings.json#/definitions/BinaryEncoding"
+            },
+            {
+              "$ref": "encodings.json#/definitions/TextEncoding"
+            },
+            {
+              "$ref": "encodings.json#/definitions/XMLEncoding"
+            },
+            {
+              "$ref": "encodings.json#/definitions/JSONEncoding"
+            }
+          ]
+        },
+        "values": {
+          "description": "Encoded values for the stream (can be out of band)",
+          "$ref": "basicTypes.json#/definitions/AssociationAttributeGroup"
+        }
+      },
+      "required": [
+        "type",
+        "elementType",
+        "encoding"
+      ]
+    }
+  ]
+}

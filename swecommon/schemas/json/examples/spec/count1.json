@@ -1,0 +1,7 @@
+{
+  "type": "Count",
+  "definition": "http://www.opengis.net/def/property/OGC/0/NumberOfPixels",
+  "label": "Row Size",
+  "description": "Number of pixels in each row of the image",
+  "value": 1024
+}

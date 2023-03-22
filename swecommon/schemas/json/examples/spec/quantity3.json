@@ -1,0 +1,10 @@
+{
+  "type": "Quantity",
+  "definition": "http://sweet.jpl.nasa.gov/2.0/spaceExtent.owl#Height",
+  "referenceFrame": "http://www.opengis.net/def/crs/EPSG/0/5714",
+  "axisID": "H",
+  "label": "MSL Height",
+  "description": "Height above mean sea level",
+  "uom": { "code": "m" },
+  "value": 1320.0
+}

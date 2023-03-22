@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Base substitution groups for all SWE Common objects with identification metadata",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "basicTypes.json#/definitions/AbstractSWE"
+    },
+    {
+      "properties": {
+        "identifier": {
+          "description": "Unique identifier of the data component. It can be used to globally identify a particular component of the dataset, a process input/output or a universal constant",
+          "type": "string",
+          "format": "uri"
+        },
+        "label": {
+          "description": "Textual label for the data component . This is often used for displaying a human readable name for a dataset field or a process input/output",
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "description": "Textual description (i.e. human readable) of the data component usually used to clarify its nature",
+          "type": "string",
+          "minLength": 3
+        }
+      }
+    }
+  ]
+}

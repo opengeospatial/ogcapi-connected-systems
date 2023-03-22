@@ -1,0 +1,9 @@
+{
+  "type": "Time",
+  "definition": "http://www.opengis.net/def/property/OGC/0/RunTime",
+  "referenceTime": "1970-01-01T00:00:00Z",
+  "label": "Model Run Time",
+  "description": "Run time of the model expressed as a Unix time",
+  "uom": {"code": "s" },
+  "value": 1257415633
+}

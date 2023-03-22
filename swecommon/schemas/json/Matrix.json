@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Implementation of ISO-11404 Array datatype. This defines an array of identical data components with a elementCount. Values are given as a block and can be encoded in different ways",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "./DataArray.json#/definitions/AbstractArray"
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "Matrix"
+        },
+        "referenceFrame": {
+          "description": "Frame of reference (usually spatial) with respect to which the coordinates of this matrix are expressed",
+          "type": "string",
+          "format": "uri"
+        },
+        "localFrame": {
+          "description": "Frame of reference whose position and orientation are provided by the transformation defined by this matrix",
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "type",
+        "elementType"
+      ]
+    }
+  ]
+}

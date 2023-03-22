@@ -1,0 +1,49 @@
+{
+  "type": "DataArray",
+  "definition": "http://sensorml.com/ont/swe/property/RasterImage",
+  "label": "Satellite Image",
+  "elementCount": {
+    "definition": "http://www.opengis.net/def/property/OGC/0/NumberOfRows",
+    "value": 3000
+  },
+  "elementType": {
+    "name": "row",
+    "type": "DataArray",
+    "definition": "http://sensorml.com/ont/swe/property/RasterImage",
+    "elementCount": {
+      "definition": "http://www.opengis.net/def/property/OGC/0/NumberOfSamples",
+      "value": 3000
+    },
+    "elementType": {
+      "name": "pixel",
+      "type": "DataRecord",
+      "definition": "http://sensorml.com/ont/swe/property/GridCell",
+      "fields": [
+        {
+          "name": "band1",
+          "type": "Quantity",
+          "definition": "http://qudt.org/vocab/quantitykind/Radiance",
+          "label": "Radiance",
+          "description": "Radiance measured on band1",
+          "uom": { "code": "W.m-2.Sr-1" }
+        },
+        {
+          "name": "band2",
+          "type": "Quantity",
+          "definition": "http://qudt.org/vocab/quantitykind/Radiance",
+          "label": "Radiance",
+          "description": "Radiance measured on band2",
+          "uom": { "code": "W.m-2.Sr-1" }
+        },
+        {
+          "name": "band3",
+          "type": "Quantity",
+          "definition": "http://qudt.org/vocab/quantitykind/Radiance",
+          "label": "Radiance",
+          "description": "Radiance measured on band3",
+          "uom": { "code": "W.m-2.Sr-1" }
+        }
+      ]
+    }
+  }
+}

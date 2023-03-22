@@ -1,0 +1,21 @@
+{
+  "survey_period": [
+    "2023-02-15T00:00:00Z",
+    "2023-02-28T00:00:00Z"
+  ],
+  "region_of_interest": {
+    "type": "Polygon",
+    "coordinates": [
+      [[43.0,-1.4],[43.0,1.9],[42.5,1.8],[42.5,-1.4]]
+    ]
+  },
+  "acquisition_angle": {
+    "azimuth": [-180.0, 180.0],
+    "elevation": [0.0, 10.0]
+  },
+  "acquisition_parameters": {
+    "ground_resolution": [1.0, 2.0],
+    "instrument_mode": "MULTISPECTRAL"
+  },
+  "priority_level": "STANDARD"
+}

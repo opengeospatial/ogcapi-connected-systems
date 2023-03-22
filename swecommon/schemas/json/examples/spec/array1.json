@@ -1,0 +1,41 @@
+{
+  "type": "DataArray",
+  "label": "Measurement Table",
+  "elementType": {
+    "name": "measurement",
+    "type": "DataRecord",
+    "label": "Weather Data Record",
+    "fields": [
+      {
+        "name": "time",
+        "type": "Time",
+        "definition": "http://www.opengis.net/def/property/OGC/0/SamplingTime",
+        "referenceFrame": "http://www.opengis.net/def/trs/BIPM/0/UTC",
+        "label": "Sampling Time",
+        "uom": {
+          "href": "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"
+        }
+      },
+      {
+        "name": "temperature",
+        "type": "Quantity",
+        "definition": "http://mmisw.org/ont/cf/parameter/air_temperature",
+        "label": "Air Temperature",
+        "uom": { "code": "Cel" }
+      },
+      {
+        "name": "pressure",
+        "type": "Quantity",
+        "definition": "http://mmisw.org/ont/cf/parameter/air_pressure_at_mean_sea_level",
+        "label": "Air Pressure",
+        "uom": { "code": "mbar" }
+      }
+    ]
+  },
+  "values": [
+    ["2009-02-10T10:42:56Z",25.4,1020],
+    ["2009-02-10T10:43:06Z",25.3,1021],
+    ["2009-02-10T10:44:16Z",25.3,1020],
+    ["2009-02-10T10:44:17Z",25.2,1020]
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "type": "Vector",
+  "definition": "http://www.opengis.net/def/property/OGC/0/PlatformLocation",
+  "referenceFrame": "http://www.opengis.net/def/crs/EPSG/0/4326",
+  "label": "Platform Location",
+  "coordinates": [
+    {
+      "name": "lat",
+      "type": "Quantity",
+      "definition": "http://sensorml.com/ont/swe/property/GeodeticLatitude",
+      "label": "Latitude",
+      "axisID": "Lat",
+      "uom": { "code": "deg" },
+      "value": 45.36
+    },
+    {
+      "name": "lon",
+      "type": "Quantity",
+      "definition": "http://sensorml.com/ont/swe/property/Longitude",
+      "label": "Longitude",
+      "axisID": "Lon",
+      "uom": { "code": "deg" },
+      "value": 5.2
+    }
+  ]
+}

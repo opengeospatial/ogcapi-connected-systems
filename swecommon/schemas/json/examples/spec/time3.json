@@ -1,0 +1,12 @@
+{
+  "type": "Time",
+  "definition": "http://www.opengis.net/def/property/OGC-EO/0/MissionStartTime",
+  "referenceFrame": "http://www.opengis.net/def/trs/BIPM/0/UTC",
+  "localFrame": "system:#MISSION-START-TIME",
+  "label": "Flight Time",
+  "description": "Time at take-off in UTC",
+  "uom": {
+    "href": "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"
+  },
+  "value": "2009-01-26T10:21:45+01:00"
+}

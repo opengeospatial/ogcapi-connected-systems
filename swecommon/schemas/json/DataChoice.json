@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Implementation of a choice of two or more Data Components (also called disjoint union)",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "./AbstractDataComponent.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "DataChoice"
+        },
+        "choiceValue": {
+          "description": "This category component marks the data stream element that will indicate the actual choice made. Possible choices are listed in the Category constraint section as an enumeration and should map to item names.",
+          "$ref": "Category.json"
+        },
+        "items": {
+          "description": "Definition of the choice items. Items can be of any component types",
+          "type": "array",
+          "items": {
+            "allOf": [
+              { "$ref": "basicTypes.json#/definitions/SoftNamedProperty" },
+              {
+                "oneOf": [
+                  { "$ref": "basicTypes.json#/definitions/AssociationAttributeGroup" },
+                  { "$ref": "sweCommon.json#/definitions/AnyComponent" }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "type",
+        "items"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "type": "Vector",
+  "definition": "http://qudt.org/vocab/quantitykind/LinearVelocity",
+  "referenceFrame": "http://www.opengis.net/def/crs/OGC/0/ECI_J2000",
+  "label": "Platform Velocity",
+  "coordinates": [
+    {
+      "name": "vx",
+      "type": "Quantity",
+      "definition": "http://qudt.org/vocab/quantitykind/Speed",
+      "label": "Velocity X",
+      "uom": { "code": "m/s" }
+    },
+    {
+      "name": "vy",
+      "type": "Quantity",
+      "definition": "http://qudt.org/vocab/quantitykind/Speed",
+      "label": "Velocity Y",
+      "uom": { "code": "m/s" }
+    },
+    {
+      "name": "vz",
+      "type": "Quantity",
+      "definition": "http://qudt.org/vocab/quantitykind/Speed",
+      "label": "Velocity Z",
+      "uom": { "code": "m/s" }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "type": "Quantity",
+  "definition": "http://sweet.jpl.nasa.gov/2.0/physRadiation.owl#IonizingRadiation",
+  "label": "Radiation Dose",
+  "description": "Radiation dose measured by Gamma detector",
+  "uom": { "code": "uR" },
+  "nilValues": [
+    { "reason": "http://www.opengis.net/def/nil/OGC/0/BelowDetectionRange", "value": "-Infinity" },
+    { "reason": "http://www.opengis.net/def/nil/OGC/0/AboveDetectionRange", "value": "Infinity" }
+  ]
+}

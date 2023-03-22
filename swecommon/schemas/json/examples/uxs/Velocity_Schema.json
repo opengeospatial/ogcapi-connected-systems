@@ -1,0 +1,36 @@
+{
+  "type": "Vector",
+  "label": "Platform Velocity",
+  "definition": "http://qudt.org/vocab/quantitykind/LinearVelocity",
+  "objectDef": "http://www.w3.org/ns/sosa/Platform",
+  "referenceFrame": "http://www.opengis.net/def/cs/OGC/0/NED",
+  "coordinates": [
+    {
+      "name": "velocity_n",
+      "type": "Quantity",
+      "definition": "http://qudt.org/vocab/quantitykind/Speed",
+      "axisID": "X",
+      "label": "North Velocity",
+      "description": "North component of velocity vector",
+      "uom": { "code": "m/s" }
+    },
+    {
+      "name": "velocity_e",
+      "type": "Quantity",
+      "definition": "http://qudt.org/vocab/quantitykind/Speed",
+      "axisID": "Y",
+      "label": "East Velocity",
+      "description": "East component of velocity vector",
+      "uom": { "code": "m/s" }
+    },
+    {
+      "name": "velocity_d",
+      "type": "Quantity",
+      "definition": "http://qudt.org/vocab/quantitykind/Speed",
+      "axisID": "Z",
+      "label": "Down Velocity",
+      "description": "Down component of velocity vector",
+      "uom": { "code": "m/s" }
+    }
+  ]
+}

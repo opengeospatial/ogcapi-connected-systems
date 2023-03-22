@@ -1,0 +1,11 @@
+{
+  "type": "Time",
+  "definition": "http://www.opengis.net/def/property/OGC/0/SamplingTime",
+  "referenceFrame": "http://www.opengis.net/def/trs/USNO/0/GPS",
+  "label": "Sampling Time",
+  "description": "Time at which the measurement was made",
+  "uom": {
+    "href": "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"
+  },
+  "value": "2009-11-05T16:29:26Z"
+}

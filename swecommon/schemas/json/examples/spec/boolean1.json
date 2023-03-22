@@ -1,0 +1,7 @@
+{
+  "type": "Boolean",
+  "definition": "http://sweet.jpl.nasa.gov/2.0/physDynamics.owl#Motion",
+  "label": "Motion Detected",
+  "description": "True when motion was detected in the room",
+  "value": true
+}

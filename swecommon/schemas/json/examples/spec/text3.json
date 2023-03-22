@@ -1,0 +1,8 @@
+{
+  "type": "Text",
+  "definition": "http://sensorml.com/ont/x-swe/property/VehicleRegistrationNumber",
+  "label": "License Plate",
+  "constraint": {
+    "pattern": "^[0-9][A-Z]{4}-[A-Z]{3}-[0-9]{3}$"
+  }
+}

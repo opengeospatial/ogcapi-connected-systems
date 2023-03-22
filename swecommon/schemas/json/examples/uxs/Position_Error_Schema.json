@@ -1,0 +1,39 @@
+{
+  "type": "Vector",
+  "label": "Platform Position Error",
+  "definition": "http://qudt.org/vocab/quantitykind/PositionVector",
+  "objectDef": "http://www.w3.org/ns/sosa/Platform",
+  "referenceFrame": "http://www.opengis.net/def/cs/OGC/0/NED",
+  "coordinates": [
+    {
+      "name": "accuracy_n",
+      "type": "Quantity",
+      "definition": "http://qudt.org/vocab/quantitykind/Distance",
+      "statistic": "http://sensorml.com/ont/swe/x-stat/StandardDeviation",
+      "axisID": "X",
+      "label": "North Position Error",
+      "description": "North component of position error",
+      "uom": { "code": "m" }
+    },
+    {
+      "name": "accuracy_e",
+      "type": "Quantity",
+      "definition": "http://qudt.org/vocab/quantitykind/Distance",
+      "statistic": "http://sensorml.com/ont/swe/x-stat/StandardDeviation",
+      "axisID": "Y",
+      "label": "East Position Error",
+      "description": "East component of position error",
+      "uom": { "code": "m" }
+    },
+    {
+      "name": "accuracy_d",
+      "type": "Quantity",
+      "definition": "http://qudt.org/vocab/quantitykind/Distance",
+      "statistic": "http://sensorml.com/ont/swe/x-stat/StandardDeviation",
+      "axisID": "Z",
+      "label": "Down Position Error",
+      "description": "Down component of position error",
+      "uom": { "code": "m" }
+    }
+  ]
+}

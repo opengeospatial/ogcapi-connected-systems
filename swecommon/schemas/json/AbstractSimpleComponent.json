@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "./AbstractDataComponent.json"
+    },
+    {
+      "properties": {
+        "referenceFrame": {
+          "description": "Frame of reference (usually temporal or spatial) with respect to which the value of the component is expressed. A reference frame anchors a value to a real world datum.",
+          "type": "string",
+          "format": "uri"
+        },
+        "axisID": {
+          "description": "Specifies the reference axis (refer to gml:axisID). The reference frame URI should also be specified unless it is inherited from parent Vector",
+          "type": "string",
+          "minLength": 1
+        },
+        "quality": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "basicTypes.json#/definitions/AssociationAttributeGroup"
+              },
+              {
+                "oneOf": [
+                  {
+                    "$ref": "Quantity.json"
+                  },
+                  {
+                    "$ref": "QuantityRange.json"
+                  },
+                  {
+                    "$ref": "Category.json"
+                  },
+                  {
+                    "$ref": "Text.json"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

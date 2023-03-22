@@ -1,0 +1,36 @@
+{
+  "type": "Vector",
+  "label": "Platform Acceleration",
+  "definition": "http://qudt.org/vocab/quantitykind/LinearAcceleration",
+  "objectDef": "http://www.w3.org/ns/sosa/Platform",
+  "referenceFrame": "http://www.opengis.net/def/cs/OGC/0/NED",
+  "coordinates": [
+    {
+      "name": "acceleration_n",
+      "type": "Quantity",
+      "definition": "http://qudt.org/vocab/quantitykind/Acceleration",
+      "axisID": "X",
+      "label": "North Acceleration",
+      "description": "North component of acceleration vector",
+      "uom": { "code": "m/s2" }
+    },
+    {
+      "name": "acceleration_e",
+      "type": "Quantity",
+      "definition": "http://qudt.org/vocab/quantitykind/Acceleration",
+      "axisID": "Y",
+      "label": "East Acceleration",
+      "description": "East component of acceleration vector",
+      "uom": { "code": "m/s2" }
+    },
+    {
+      "name": "acceleration_d",
+      "type": "Quantity",
+      "definition": "http://qudt.org/vocab/quantitykind/Acceleration",
+      "axisID": "Z",
+      "label": "Down Acceleration",
+      "description": "Down component of acceleration vector",
+      "uom": { "code": "m/s2" }
+    }
+  ]
+}

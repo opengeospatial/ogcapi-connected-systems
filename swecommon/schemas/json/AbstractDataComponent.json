@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Abstract base class for all data components",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "./AbstractSweIdentifiable.json"
+    },
+    {
+      "properties": {
+        "updatable": {
+          "description": "Specifies if the value of a data component can be updated externally (i.e. is variable)",
+          "type": "boolean"
+        },
+        "optional": {
+          "description": "Specifies if the data for this component can be omitted in the datastream",
+          "type": "boolean"
+        },
+        "definition": {
+          "description": "Link to the definition of the property whose value is provided by this component",
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    }
+  ]
+}

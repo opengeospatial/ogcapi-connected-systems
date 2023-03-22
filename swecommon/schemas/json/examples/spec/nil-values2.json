@@ -1,0 +1,9 @@
+{
+  "type": "Count",
+  "definition": "http://sweet.jpl.nasa.gov/2.0/physRadiation.owl#Radiance",
+  "label": "Band 1",
+  "nilValues": [
+    { "reason": "http://www.opengis.net/def/nil/OGC/0/BelowDetectionRange", "value": 0 },
+    { "reason": "http://www.opengis.net/def/nil/OGC/0/AboveDetectionRange", "value": 255 }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "type": "DataRecord",
+  "definition": "http://www.opengis.net/def/property/OGC-EO/0/CoverageProgrammingRequest",
+  "label": "Coverage Tasking Request",
+  "fields": [
+    {
+      "name": "survey_period",
+      "type": "TimeRange",
+      "definition": "http://www.opengis.net/def/property/OGC-EO/0/SurveyPeriod",
+      "referenceFrame": "http://www.opengis.net/def/trs/BIPM/0/UTC",
+      "label": "Survey Period",
+      "uom": {
+        "href": "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"
+      }
+    },
+    {
+      "name": "region_of_interest",
+      "type": "Geometry",
+      "definition": "http://www.opengis.net/def/property/OGC-EO/0/RegionOfInterest",
+      "srs": "http://www.opengis.net/def/crs/EPSG/0/4326",
+      "label": "Region of Interest",
+      "description": "Geographic region to cover with collected imagery",
+      "constraint": {
+        "geomTypes": ["Point", "Polygon"]
+      }
+    },
+    {
+      "name": "acquisition_angle",
+      "type": "DataRecord",
+      "definition": "http://www.opengis.net/def/property/OGC-EO/0/IncidenceRange",
+      "label": "Incidence Range",
+      "fields": [
+        {
+          "name": "azimuth",
+          "type": "QuantityRange",
+          "definition": "http://www.opengis.net/def/property/OGC-EO/0/AzimuthAngle",
+          "label": "Azimuth Angle",
+          "uom": { "code": "deg" },
+          "constraint": {
+            "intervals": [[-180.0, 180.0]]
+          }
+        },
+        {
+          "name": "elevation",
+          "type": "QuantityRange",
+          "definition": "http://www.opengis.net/def/property/OGC-EO/0/ElevationAngle",
+          "label": "Elevation Angle",
+          "uom": { "code": "deg" },
+          "constraint": {
+            "intervals": [[0.0, 60.0]]
+          }
+        }
+      ]     
+    },
+    {
+      "name": "acquisition_parameters",
+      "type": "DataRecord",
+      "definition": "http://www.opengis.net/def/property/OGC-EO/0/opt/AcquisitionParametersOPT",
+      "label": "Acquisition Parameters",
+      "fields": [
+        {
+          "name": "ground_resolution",
+          "type": "QuantityRange",
+          "definition": "http://www.opengis.net/def/property/OGC-EO/0/GroundResolution",
+          "label": "Ground Resolution",
+          "uom": { "code": "m" },
+          "constraint": {
+            "intervals": [[0.5, 10.0]]
+          }
+        },
+        {
+          "name": "instrument_mode",
+          "type": "Category",
+          "definition": "http://www.opengis.net/def/property/OGC-EO/0/InstrumentMode",
+          "label": "Instrument Mode",
+          "constraint": {
+            "values": ["PANCHROMATIC", "MULTISPECTRAL"]
+          }
+        }
+      ]  
+    },
+    {
+      "name": "priority_level",
+      "type": "Category",
+      "definition": "http://www.opengis.net/def/property/OGC-EO/0/PriorityLevel",
+      "label": "Priority Level",
+      "constraint": {
+        "values": ["STANDARD", "HIGH", "P0", "P1"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "type": "Category",
+  "definition": "http://sweet.jpl.nasa.gov/2.0/biol.owl#Species",
+  "label": "Bird Species",
+  "description": "Bird species according to the classification of the World Bird Database",
+  "codeSpace": "http://www.birdlife.org/datazone/species/index.html"
+}

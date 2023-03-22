@@ -1,0 +1,9 @@
+{
+  "type": "Text",
+  "definition": "http://sensorml.com/ont/x-swe/property/VehicleRegistrationNumber",
+  "label": "License Plate",
+  "nilValues": [
+    { "reason": "http://www.opengis.net/def/nil/OGC/0/Missing", "value": "Missing" },
+    { "reason": "http://www.opengis.net/def/nil/OGC/0/Unknown", "value": "Unknown" }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "type": "Time",
+  "definition": "http://www.opengis.net/def/property/OGC-EO/0/ScanStartTime",
+  "referenceFrame": "system:#MISSION-START-TIME",
+  "localFrame": "system:#SCAN-START-TIME",
+  "label": "Scanline Time",
+  "description": "Acquisition time of the scan line",
+  "uom": { "code": "s" }
+}

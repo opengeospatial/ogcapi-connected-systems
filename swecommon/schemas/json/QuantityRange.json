@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Decimal pair for specifying a quantity range with a unit of measure",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "./AbstractSimpleComponent.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "QuantityRange"
+        },
+        "uom": {
+          "description": "Unit of measure used to express the value of this data component",
+          "$ref": "basicTypes.json#/definitions/UnitReference"
+        },
+        "constraint": {
+          "$ref": "basicTypes.json#/definitions/AllowedValues"
+        },
+        "nilValues": {
+          "$ref": "basicTypes.json#/definitions/NilValuesNumber"
+        },
+        "value": {
+          "description": "Value is a pair of double numbers separated by a space. It is optional, to enable structure to act as a schema for values provided using other encodings",
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "$ref": "basicTypes.json#/definitions/NumberOrSpecial"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "definition",
+        "label",
+        "uom"
+      ]
+    }
+  ]
+}

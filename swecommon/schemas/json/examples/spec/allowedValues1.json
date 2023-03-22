@@ -1,0 +1,9 @@
+{
+  "type": "Quantity",
+  "definition": "http://sweet.jpl.nasa.gov/2.0/spaceDirection.owl#Angle",
+  "label": "Planar Angle",
+  "uom": { "code": "deg" },
+  "constraint": {
+    "intervals": [[-180, 180]]
+  }
+}

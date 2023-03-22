@@ -1,0 +1,6 @@
+{
+  "type": "CountRange",
+  "definition": "http://www.opengis.net/def/property/OGC/0/ArrayIndex",
+  "label": "Index Range",
+  "value": [0, 9999]
+}

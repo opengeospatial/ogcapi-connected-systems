@@ -1,0 +1,8 @@
+{
+  "type": "CategoryRange",
+  "definition": "http://sweet.jpl.nasa.gov/2.0/timeGeologic.owl#GeologicTime",
+  "label": "Approximate Dating",
+  "description": "Approximate geological dating expressed as a range of geological eras",
+  "codeSpace": "http://sweet.jpl.nasa.gov/2.0/timeGeologic.owl#Era",
+  "value": ["Paleozoic", "Mesozoic"]
+}

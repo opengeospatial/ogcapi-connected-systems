@@ -1,0 +1,9 @@
+{
+  "type": "Category",
+  "definition": "http://www.opengis.net/def/property/OGC/0/SensorStatus",
+  "label": "Sensor Status",
+  "description": "Current connection status of the sensor",
+  "constraint": {
+    "values": [ "Off", "Stand-by", "Ready", "Busy" ]
+  }
+}

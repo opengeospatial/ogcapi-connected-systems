@@ -1,0 +1,8 @@
+{
+  "type": "Quantity",
+  "definition": "http://sensorml.com/ont/swe/property/SpectralRadiance",
+  "label": "Radiance",
+  "description": "Radiance measured on band1",
+  "uom": { "code": "W.m-2.Sr-1.um-1" },
+  "value": 2.83e-2
+}

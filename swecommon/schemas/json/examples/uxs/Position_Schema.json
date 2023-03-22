@@ -1,0 +1,33 @@
+{
+  "type": "Vector",
+  "label": "Platform Position",
+  "definition": "http://sensorml.com/ont/swe/property/Location",
+  "objectDef": "http://www.w3.org/ns/sosa/Platform",
+  "referenceFrame": "http://www.opengis.net/def/crs/EPSG/0/4979",
+  "coordinates": [
+    {
+      "name": "latitude",
+      "type": "Quantity",
+      "definition": "http://sensorml.com/ont/swe/property/GeodeticLatitude",
+      "axisID": "Lat",
+      "label": "Geodetic Latitude",
+      "uom": { "code": "deg" }
+    },
+    {
+      "name": "longitude",
+      "type": "Quantity",
+      "definition": "http://sensorml.com/ont/swe/property/Longitude",
+      "axisID": "Lon",
+      "label": "Longitude",
+      "uom": { "code": "deg" }
+    },
+    {
+      "name": "altitude",
+      "type": "Quantity",
+      "definition": "http://sensorml.com/ont/swe/property/HeightAboveEllipsoid",
+      "axisID": "h",
+      "label": "Ellipsoidal Height",
+      "uom": { "code": "m" }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "Time",
+  "definition": "http://www.opengis.net/def/property/OGC/0/SamplingTime",
+  "referenceFrame": "http://www.opengis.net/def/trs/USNO/0/GPS",
+  "label": "Acquisition Time",
+  "uom": {
+    "href": "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"
+  },
+  "constraint": {
+    "intervals": [["2009-01-01T00:00:00Z", "Infinity"]]
+  }
+}

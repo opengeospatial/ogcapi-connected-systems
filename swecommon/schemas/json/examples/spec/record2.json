@@ -1,0 +1,31 @@
+{
+  "type": "DataRecord",
+  "definition": "urn:x-ogc:def:property:CSM::RadialDistortionCoefficients",
+  "label": "Radial Distortion Coefficients",
+  "fields": [
+    {
+      "name": "k1",
+      "type": "Quantity",
+      "definition": "urn:x-ogc:def:property:CSM::DISTOR_RAD1",
+      "label": "Coef k1",
+      "uom": { "code": "mm-2" },
+      "value": 1.92709e-5
+    },
+    {
+      "name": "k2",
+      "type": "Quantity",
+      "definition": "urn:x-ogc:def:property:CSM::DISTOR_RAD2",
+      "label": "Coef k2",
+      "uom": { "code": "mm-2" },
+      "value": -5.14206e-10
+    },
+    {
+      "name": "k3",
+      "type": "Quantity",
+      "definition": "urn:x-ogc:def:property:CSM::DISTOR_RAD3",
+      "label": "Coef k3",
+      "uom": { "code": "mm-2" },
+      "value": -3.33356e-12
+    }
+  ]
+}

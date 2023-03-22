@@ -1,0 +1,286 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "AbstractSWE": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "description": "Base substitution groups for all SWE Common objects other than value objects",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "UnitReference": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "href": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "oneOf": [
+        { "required": [ "code" ] },
+        { "required": [ "href" ] }
+      ],
+      "additionalProperties": false
+    },
+    "AllowedTokens": {
+      "description": "Defines permitted values for the component, as an enumerated list of tokens or a regular expression pattern",
+      "type": "object",
+      "properties": {
+        "values": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "pattern": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "oneOf": [
+        { "required": [ "values" ] },
+        { "required": [ "pattern" ] }
+      ],
+      "additionalProperties": false
+    },
+    "AllowedValues": {
+      "description": "Defines the permitted values for the component as an enumerated list and/or a list of inclusive ranges",
+      "type": "object",
+      "properties": {
+        "values": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "$ref": "#/definitions/NumberOrSpecial"
+          }
+        },
+        "intervals": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "$ref": "#/definitions/NumberOrSpecial"
+            }
+          }
+        },
+        "significantFigures": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 40
+        }
+      },
+      "oneOf": [
+        { "required": [ "values" ] },
+        { "required": [ "intervals" ] }
+      ],
+      "additionalProperties": false
+    },
+    "AllowedTimes": {
+      "description": "Defines the permitted values for the component, as a time range or an enumerated list of time values",
+      "type": "object",
+      "properties": {
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DateTimeNumberOrSpecial"
+          }
+        },
+        "intervals": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "$ref": "#/definitions/DateTimeNumberOrSpecial"
+            }
+          }
+        },
+        "significantFigures": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 40
+        }
+      },
+      "oneOf": [
+        { "required": [ "values" ] },
+        { "required": [ "intervals" ] }
+      ],
+      "additionalProperties": false
+    },
+    "NilValuesText": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string",
+            "format": "uri"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "value"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "NilValuesInteger": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string",
+            "format": "uri"
+          },
+          "value": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "reason",
+          "value"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "NilValuesNumber": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string",
+            "format": "uri"
+          },
+          "value": {
+            "$ref": "#/definitions/NumberOrSpecial"
+          }
+        },
+        "required": [
+          "reason",
+          "value"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "NilValuesTime": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string",
+            "format": "uri"
+          },
+          "value": {
+            "$ref": "#/definitions/DateTimeNumberOrSpecial"
+          }
+        },
+        "required": [
+          "reason",
+          "value"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "SoftNamedProperty": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [ "name" ]
+    },
+    "AssociationAttributeGroup": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string",
+          "format": "uri"
+        },
+        "role": {
+          "type": "string",
+          "format": "uri"
+        },
+        "arcrole": {
+          "type": "string",
+          "format": "uri"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [ "href" ]
+    },
+    "NumberOrSpecial": {
+      "oneOf": [
+        { "type": "number" },
+        { "enum": ["NaN", "Infinity", "-Infinity"] }
+      ]
+    },
+    "DateTimeNumberOrSpecial": {
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "$ref": "#/definitions/NumberOrSpecial"
+        }
+      ]
+    },
+    "ElementCount": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "./AbstractSimpleComponent.json"
+        },
+        {
+          "properties": {
+            "constraint": {
+              "$ref": "basicTypes.json#/definitions/AllowedValues"
+            },
+            "value": {
+              "description": "Value is optional, to enable structure to act as a schema for values provided using other encodings",
+              "type": "integer"
+            }
+          }
+        }
+      ]
+    },
+    "EncodedValues": {
+      "oneOf": [
+        {
+          "type": "array"
+        },
+        {
+          "$ref": "#/definitions/AssociationAttributeGroup"
+        }
+      ]
+    }
+  }
+}

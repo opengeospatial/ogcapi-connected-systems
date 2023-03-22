@@ -1,0 +1,54 @@
+{
+  "type": "DataChoice",
+  "label": "Weather Data Message",
+  "items": [
+    {
+      "name": "TEMP",
+      "type": "DataRecord",
+      "label": "Temperature Measurement",
+      "fields": [
+        {
+          "name": "time",
+          "type": "Time",
+          "definition": "http://www.opengis.net/def/property/OGC/0/SamplingTime",
+          "referenceFrame": "http://www.opengis.net/def/trs/BIPM/0/UTC",
+          "label": "Sampling Time",
+          "uom": {
+            "href": "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"
+          }
+        },
+        {
+          "name": "temp",
+          "type": "Quantity",
+          "definition": "http://mmisw.org/ont/cf/parameter/air_temperature",
+          "label": "Air Temperature",
+          "uom": { "code": "Cel" }
+        }
+      ]
+    },
+    {
+      "name": "PRESS",
+      "type": "DataRecord",
+      "label": "Pressure Measurement",
+      "fields": [
+        {
+          "name": "time",
+          "type": "Time",
+          "definition": "http://www.opengis.net/def/property/OGC/0/SamplingTime",
+          "referenceFrame": "http://www.opengis.net/def/trs/BIPM/0/UTC",
+          "label": "Sampling Time",
+          "uom": {
+            "href": "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"
+          }
+        },
+        {
+          "name": "press",
+          "type": "Quantity",
+          "definition": "http://mmisw.org/ont/cf/parameter/air_pressure_at_mean_sea_level",
+          "label": "Air Pressure",
+          "uom": { "code": "HPa" }
+        }
+      ]
+    }
+  ]
+}

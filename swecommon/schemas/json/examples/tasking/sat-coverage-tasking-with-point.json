@@ -1,0 +1,19 @@
+{
+  "survey_period": [
+    "2023-02-15T00:00:00Z",
+    "2023-02-28T00:00:00Z"
+  ],
+  "region_of_interest": {
+    "type": "Point",
+    "coordinates": [43.0, 1.9]
+  },
+  "acquisition_angle": {
+    "azimuth": [-180.0, 180.0],
+    "elevation": [0.0, 10.0]
+  },
+  "acquisition_parameters": {
+    "ground_resolution": [1.0, 2.0],
+    "instrument_mode": "PANCHROMATIC"
+  },
+  "priority_level": "STANDARD"
+}
