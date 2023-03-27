@@ -14,12 +14,12 @@
         "referenceFrame": {
           "description": "Frame of reference (usually spatial) with respect to which the coordinates of this vector are expressed. A reference frame anchors a vector value to a real world datum.",
           "type": "string",
-          "format": "uri"
+          "format": "uri-reference"
         },
         "localFrame": {
           "description": "Frame of reference whose origin is located by the coordinates of this vector",
           "type": "string",
-          "format": "uri"
+          "format": "uri-reference"
         },
         "coordinates": {
           "description": "Definition of the coordinate provided as a data component with a numerical representation",

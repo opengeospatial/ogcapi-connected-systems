@@ -10,7 +10,7 @@
         "referenceFrame": {
           "description": "Frame of reference (usually temporal or spatial) with respect to which the value of the component is expressed. A reference frame anchors a value to a real world datum.",
           "type": "string",
-          "format": "uri"
+          "format": "uri-reference"
         },
         "axisID": {
           "description": "Specifies the reference axis (refer to gml:axisID). The reference frame URI should also be specified unless it is inherited from parent Vector",

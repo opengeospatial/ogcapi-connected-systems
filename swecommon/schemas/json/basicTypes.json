@@ -47,6 +47,7 @@
         },
         "pattern": {
           "type": "string",
+          "format": "regex",
           "minLength": 1
         }
       },
@@ -219,7 +220,7 @@
       "properties": {
         "href": {
           "type": "string",
-          "format": "uri"
+          "format": "uri-reference"
         },
         "role": {
           "type": "string",
@@ -239,7 +240,7 @@
     "NumberOrSpecial": {
       "oneOf": [
         { "type": "number" },
-        { "enum": ["NaN", "Infinity", "-Infinity"] }
+        { "enum": ["NaN", "+Infinity", "-Infinity"] }
       ]
     },
     "DateTimeNumberOrSpecial": {

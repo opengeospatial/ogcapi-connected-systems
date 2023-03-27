@@ -14,12 +14,12 @@
         "referenceFrame": {
           "description": "Frame of reference (usually spatial) with respect to which the coordinates of this matrix are expressed",
           "type": "string",
-          "format": "uri"
+          "format": "uri-reference"
         },
         "localFrame": {
           "description": "Frame of reference whose position and orientation are provided by the transformation defined by this matrix",
           "type": "string",
-          "format": "uri"
+          "format": "uri-reference"
         }
       },
       "required": [
