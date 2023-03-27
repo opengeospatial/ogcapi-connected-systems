@@ -11,5 +11,9 @@ The “Geometry” object is the XML schema implementation of the “Geometry”
 
 [source%unnumbered,json]
 ----
-include::../schemas/json/examples/spec/geometry.json[]
+include::../schemas/json/examples/spec/geometry1.json[]
+
+include::../schemas/json/examples/spec/geometry2.json[]
+
+include::../schemas/json/examples/spec/geometry3.json[]
 ----

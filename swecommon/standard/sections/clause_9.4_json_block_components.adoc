@@ -14,7 +14,7 @@ The “DataArray” element is the JSON schema implementation of the “DataArra
 include::../schemas/json/examples/spec/array1.json[]
 ----
 
-When provided inline, “DataArray” values are encoded using the method defined in <<json_value_block>>.
+When provided inline, “DataArray” values are encoded using the method defined in <<json_values_block>>.
 
 The following example shows how to define a 1D variable size array whose data is provided separately.
 
@@ -41,7 +41,7 @@ The “Matrix” object is the JSON schema implementation of the “Matrix” UM
 include::../schemas/json/examples/spec/matrix1.json[]
 ----
 
-When provided inline, “Matrix” values are encoded using the method defined in <<json_value_block>>.
+When provided inline, “Matrix” values are encoded using the method defined in <<json_values_block>>.
 
 
 [[json_datastream_obj]]
@@ -54,10 +54,10 @@ The “DataStream” object is the JSON schema implementation of the “DataStre
 include::../schemas/json/examples/spec/datastream1.json[]
 ----
 
-When provided inline, “DataStream” values are encoded using the method defined in <<json_value_block>>.
+When provided inline, “DataStream” values are encoded using the method defined in <<json_values_block>>.
 
 
-[[json_value_block]]
+[[json_values_block]]
 ==== Inline Value Blocks
 
 This clause specifies how inline vaues for “DataArray”, “Matrix” and “DataStream” components shall be encoded when provided within a JSON document. No other method is allowed within a JSON document compliant with this standard.

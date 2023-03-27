@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/json-simple-components/definition-resolvable
+
+The “definition” object member defined in the “AbstractDataComponent.json” schema shall contain a URI that can be resolved to the complete human readable definition of the property that is represented by the data component.
+====

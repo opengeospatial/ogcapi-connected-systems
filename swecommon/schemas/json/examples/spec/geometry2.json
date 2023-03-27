@@ -1,0 +1,11 @@
+{
+  "type": "Geometry",
+  "definition": "http://sensorml.com/ont/swe/property/Trajectory",
+  "srs": "http://www.opengis.net/def/crs/EPSG/0/4326",
+  "label": "Desired Trajectory",
+  "description": "Desired UxS trajectory defined as a line string",
+  "value": {
+    "type": "LineString",
+    "coordinates": [[12.34, 56.36], [12.45, 56.37], [12.45, 56.39], [12.34, 56.36]]
+  }
+}

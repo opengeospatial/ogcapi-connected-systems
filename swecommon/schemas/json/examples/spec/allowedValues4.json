@@ -1,0 +1,10 @@
+{
+  "type": "Quantity",
+  "definition": "http://qudt.org/vocab/quantitykind/RadialDistance",
+  "label": "Radial Distance",
+  "description": "Radial distance is always positive",
+  "uom": { "code": "m" },
+  "constraint": {
+    "intervals": [[0, "+Infinity"]]
+  }
+}

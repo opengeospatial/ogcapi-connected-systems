@@ -2,7 +2,7 @@
   "type": "Vector",
   "definition": "http://sensorml.com/ont/swe/property/RotationQuaternion",
   "referenceFrame": "http://www.opengis.net/def/crs/OGC/0/ECI_J2000",
-  "localFrame": "rel:#PLATFORM_FRAME",
+  "localFrame": "urn:org:systems:001#PLATFORM_FRAME",
   "label": "Platform Orientation",
   "coordinates": [
     {

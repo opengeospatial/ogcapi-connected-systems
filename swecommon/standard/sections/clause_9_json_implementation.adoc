@@ -5,12 +5,15 @@ This standard defines a normative JSON implementation of the conceptual models p
 
 JSON schemas defined in this section are a direct implementation of the UML conceptual models described in <<uml_models>>. They have been generated from these models by strictly following well-defined encoding rules. All attributes and composition/aggregation associations contained in the UML models are encoded as JSON object members.
 
-All example instances given in this section are informative and are used solely for illustrating features of the normative model. Many of these examples reference semantic information by using URLs that are resolvable to definitions maintained in one of several online ontologies:
+All JSON examples given in this section are informative and are used solely for illustrating features of the normative model. Many of these examples reference semantic information by using URLs that resolve to the following online ontologies:
 
 - The OGC online registry at http://www.opengis.net/def/.
 - The QUDT quantity kinds ontology at http://qudt.org/2.1/vocab/quantitykind.
 - The SWEET ontology maintained by ESIP at http://sweetontology.net/.
 - The MMI ontology registry and repository at http://mmisw.org/ont/.
+
+Some of the JSON examples contain inline values while others don't. This is meant to illustrate that the component objects defined by the JSON implementation can be used as value objects for properties of larger metadata objects (e.g. SensorML system descriptions), but can also be used as descriptors to describe, for instance, the content of a datastream or the rangeset of a coverage.
+
 
 // subsections
 
@@ -28,10 +31,3 @@ include::clause_9.6_json_simple_encodings.adoc[]
 
 include::clause_9.7_json_advanced_encodings.adoc[]
 
-
-
-#Special Numerical Values: NaN, Inifinity, -Infinity#
-
-#Date & Time Values: ISO8601 encoding#
-
-#Links: Some linking disallowed in the JSON encoding. Use xlink or web linking syntax?#

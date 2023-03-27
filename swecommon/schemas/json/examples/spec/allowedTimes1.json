@@ -7,6 +7,6 @@
     "href": "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"
   },
   "constraint": {
-    "intervals": [["2009-01-01T00:00:00Z", "Infinity"]]
+    "intervals": [["2009-01-01T00:00:00Z", "+Infinity"]]
   }
 }

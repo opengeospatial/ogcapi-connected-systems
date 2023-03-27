@@ -1,0 +1,11 @@
+{
+  "type": "Time",
+  "definition": "http://www.opengis.net/def/property/OGC/0/SamplingTime",
+  "referenceFrame": "urn:org:systems:001#SCAN-START-TIME",
+  "label": "Lidar Pulse Time",
+  "description": "Time stamp of LiDAR pulse relative to start of scan",
+  "uom": { "code": "ms" },
+  "constraint": {
+    "intervals": [[0, 1e6]]
+  }
+}

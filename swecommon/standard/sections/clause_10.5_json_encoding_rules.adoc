@@ -9,27 +9,18 @@ include::../requirements/encoding_rules/json/requirement1.adoc[]
 
 The encoding rules defined in this document refer to JSON data types defined by <<JSON>>. Their definitions are recalled below:
 
-*Objects*: An object structure is represented as a pair of curly brackets surrounding zero or more name/value pairs (or members). Members are separated by commas. Each member must have a distinct name.
+*JSON Object*: An object structure is represented as a pair of curly brackets surrounding zero or more name/value pairs (or members). Members are separated by commas. Each member must have a distinct name.
 
-*Arrays*: An array structure is represented as square brackets surrounding zero or more values (or elements).  Elements are separated by commas.
+*JSON Array*: An array structure is represented as square brackets surrounding zero or more values (or elements). Elements are separated by commas.
 
-*Numbers*: A decimal or integer number represented in base 10, with a sign and optional exponent.
+*JSON Number*: A decimal or integer number represented in base 10, with a sign and optional exponent.
 
-*Strings*: A string of Unicode characters that begins and ends with quotation marks.
-
-
-==== Special Numerical Values
-
-JSON does not define special decimal values for 'Not a Number' and positive/negative infinity. It is thus necessary to encode them as strings.
-
-Consequently, encoded values for Quantity and Time components expressed using a non-ISO8601 unit are allowed to be either a JSON Number or one of the following JSON Strings: `NaN`, `-Infinity` or `Infinity`.
-
-NOTE: These strings have been chosen because they are supported natively by Javascript/ECMA Script implementations. The `+` unary operator can be used to transparently parse one of these strings to a Number type (see https://262.ecma-international.org/13.0/#sec-unary-plus-operator).
+*JSON String*: A string of Unicode characters that begins and ends with quotation marks.
 
 
 ==== Rules for Scalar Components
 
-Scalar components are encoded as specified in <<json_value_types_mappings>>.
+Scalar components are encoded as specified in <<json_value_types_mappings>>. Special numerical values allowed for “Quantity” and “Time” components are defined in <<json_special_numerical_values>>.
 
 include::../requirements/encoding_rules/json/requirement2.adoc[]
 
@@ -53,20 +44,20 @@ include::../requirements/encoding_rules/json/requirement2.adoc[]
                                `0`
 
 | Quantity | JSON Number, or +
-             JSON String with special value. | `12` +
-                                               `23.1` +
-                                               `"NaN"` +
-                                               `"-Infinity"` +
-                                               `"Infinity"`
+             JSON String with special numerical value. | `12` +
+                                                         `23.1` +
+                                                         `"NaN"` +
+                                                         `"-Infinity"` +
+                                                         `"+Infinity"`
 
 | Time     | JSON String with a ISO8601 date/time string, or
              JSON Number, or +
-             JSON String with special value. | `"2023-03-15T12:45:56Z"` +
-                                               `-23.1` +
-                                               `12` +
-                                               `"NaN"` +
-                                               `"-Infinity"` +
-                                               `"Infinity"` +
+             JSON String with special numerical value. | `"2023-03-15T12:45:56Z"` +
+                                                         `-23.1` +
+                                                         `12` +
+                                                         `"NaN"` +
+                                                         `"-Infinity"` +
+                                                         `"+Infinity"` +
                                                
 |===
 
@@ -88,13 +79,13 @@ include::../requirements/encoding_rules/json/requirement3.adoc[]
 | QuantityRange | `[-12, 35]` +
                   `[-180.0, 180.0]` +
                   `["-Infinity", 0.0]` +
-                  `[10.0, "Infinity"]` +
+                  `[10.0, "+Infinity"]` +
                   `["NaN", "NaN"]`
 
 | TimeRange     | `["2023-01-01T00:00:00Z", "2023-03-15T12:45:56Z"]` +
-                  `["2023-01-01T00:00:00Z", "Infinity"]` +
+                  `["2023-01-01T00:00:00Z", "+Infinity"]` +
                   `["-Infinity", "2023-01-01T00:00:00Z"]` +
-                  `["2023-01-01T00:00:00Z", "Infinity"]` +
+                  `["2023-01-01T00:00:00Z", "+Infinity"]` +
                   `["NaN", "NaN"]`
 |===
 

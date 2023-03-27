@@ -2,7 +2,7 @@
   "type": "Time",
   "definition": "http://www.opengis.net/def/property/OGC-EO/0/MissionStartTime",
   "referenceFrame": "http://www.opengis.net/def/trs/BIPM/0/UTC",
-  "localFrame": "system:#MISSION-START-TIME",
+  "localFrame": "urn:org:systems:001#MISSION-START-TIME",
   "label": "Flight Time",
   "description": "Time at take-off in UTC",
   "uom": {

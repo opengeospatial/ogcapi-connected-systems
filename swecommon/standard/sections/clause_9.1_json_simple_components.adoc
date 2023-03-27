@@ -14,24 +14,37 @@ include::../requirements/json/simple_components/requirement1.adoc[]
 
 The following rules were used when generating the JSON schemas:
 
-- Classes are implemented as JSON Objects.
+- Classes are implemented as JSON Objects;
 
-- Any property with a multiplicty greater than one is implemented as a JSON Array and its name is converted to plural form.
+- Any property with a multiplicty greater than one is implemented as a JSON Array and its name is converted to plural form;
 
-- Textual fields are implementes as a JSON String
+- Textual fields are implemented as a JSON String;
 
-- Decimal fields are implemented as a union of a JSON Number and JSON String type with an enum restricting its values to "Not a Number", positive infinity and negative infinity.
+- Decimal fields are implemented as a union of JSON Number and JSON String value types (the string value allowing for special values, see <<json_special_numerical_values>>);
 
-- ISO8601 date/time fields are implemented as JSON String with a union of date/time formats.
+- ISO8601 date/time fields are implemented as a JSON String with a union of date/time formats.
 
-#TODO#
+
+[[json_special_numerical_values]]
+==== Special Numerical Values
+
+JSON does not define special decimal values for 'Not a Number', positive infinity and negative infinity. It is thus necessary to encode them as strings.
+
+include::../requirements/json/simple_components/requirement2.adoc[]
+
+[NOTE]
+====
+These special value strings have been chosen because they are supported natively by Javascript/ECMA Script implementations. The `+` unary operator can be used to transparently parse one of these strings to a Number type (see https://262.ecma-international.org/13.0/#sec-unary-plus-operator).
+
+These values also correspond to infinities and NaN values defined in <<IEEE754>>.
+====
 
 
 ===== IDs and Linkable Properties
 
 Links are represented by a link object that is modeled on the <<WebLinking>> standard.
 
-#TODO#
+include::../requirements/json/simple_components/requirement3.adoc[]
 
 
 ==== Abstract Base Classes
@@ -42,20 +55,24 @@ The three abstract base classes defined in the UML models are implemented by the
 - {jsonschema-base-url}/AbstractDataComponent.json[AbstractDataComponent.json]
 - {jsonschema-base-url}/AbstractSimpleComponent.json[AbstractSimpleComponent.json]
 
+include::../requirements/json/simple_components/requirement4.adoc[]
+
+include::../requirements/json/simple_components/requirement5.adoc[]
+
 
 [[json_boolean_obj]]
 ==== Boolean Object
 
 The “Boolean” object is the JSON schema implementation of the “Boolean” UML class defined in <<uml_boolean_class>>. The schema for this class is provided in {jsonschema-base-url}/Boolean.json[Boolean.json].
 
-The following snippet shows an example boolean field with a value:
+The following snippet shows an example boolean component with an inline value:
 
 [source%unnumbered,json]
 ----
 include::../schemas/json/examples/spec/boolean1.json[]
 ----
 
-The next snippet is an example of boolean component used as data descriptor, and this contains no value:
+The next snippet is an example of boolean component used as data descriptor, hence with no value:
 
 [source%unnumbered,json]
 ----
@@ -68,6 +85,10 @@ include::../schemas/json/examples/spec/boolean2.json[]
 
 The “Text” object is the JSON schema implementation of the “Text” UML class defined in <<uml_text_class>>. The schema for this class is provided in {jsonschema-base-url}/Text.json[Text.json].
 
+Constraints on a “Text” representation are expressed using the <<json_allowedtokens_obj,style=basic%>>.
+
+The following snippets show how the “Text” component can be used to define human readable text fields, as well as any other alpha-numerical properties:
+
 [source%unnumbered,json]
 ----
 include::../schemas/json/examples/spec/text1.json[]
@@ -78,16 +99,24 @@ include::../schemas/json/examples/spec/text1.json[]
 include::../schemas/json/examples/spec/text2.json[]
 ----
 
+Constraints can also be used - typically when the component is used as a descriptor - to limit the possible text values, either by enumeration or a regular expression pattern:
+
 [source%unnumbered,json]
 ----
 include::../schemas/json/examples/spec/text3.json[]
 ----
+
+NOTE: This standard does not define any limit on the size of the text data than can be included as the value of a “Text” component, either inline or as part of a datastream. Implementations are responsible for documenting this upper limit.
 
 
 [[json_category_obj]]
 ==== Category Object
 
 The “Category” object is the JSON schema implementation of the “Category” UML class defined in <<uml_category_class>>. The schema for this class is provided in {jsonschema-base-url}/Category.json[Category.json].
+
+Constraints on a “Category” representation are expressed using the <<json_allowedtokens_obj,style=basic%>>.
+
+The following examples illustrate how the “Category” component is used to define various fields with categorical representations. The categorical scale is defined either via a code space, an enumeration constraint, or both (in which case the enumeration constraint defines a subset of possible values from a code space):
 
 [source%unnumbered,json]
 ----
@@ -99,16 +128,15 @@ include::../schemas/json/examples/spec/category1.json[]
 include::../schemas/json/examples/spec/category2.json[]
 ----
 
-[source%unnumbered,json]
-----
-include::../schemas/json/examples/spec/category3.json[]
-----
-
 
 [[json_count_obj]]
 ==== Count Object
 
 The “Count” object is the JSON schema implementation of the “Count” UML class defined in <<uml_count_class>>. The schema for this class is provided in {jsonschema-base-url}/Count.json[Count.json].
+
+Constraints on a “Count” representation are expressed using the <<json_allowedvalues_obj,style=basic%>>.
+
+The following snippet shows a “Count” component used to define the size of a row in a raster dataset:
 
 [source%unnumbered,json]
 ----
@@ -120,6 +148,14 @@ include::../schemas/json/examples/spec/count1.json[]
 ==== Quantity Object
 
 The “Quantity” object is the JSON schema implementation of the “Quantity” UML class defined in <<uml_quantity_class>>. The schema for this class is provided in {jsonschema-base-url}/Quantity.json[Quantity.json].
+
+Constraints on a “Quantity” representation are expressed using the <<json_allowedvalues_obj,style=basic%>>.
+
+The unit of measure is defined using either a URI or a code expressed using the Unified Code for Units of Measure (<<UCUM>>) standard.
+
+include::../requirements/json/simple_components/requirement6.adoc[]
+
+The following snippets show how “Quantity” components are used to define various (observable or controllable) properties with continuous decimal representations:
 
 [source%unnumbered,json]
 ----
@@ -142,20 +178,36 @@ include::../schemas/json/examples/spec/quantity3.json[]
 
 The “Time” object is the JSON schema implementation of the “Time” UML class defined in <<uml_time_class>>. The schema for this class is provided in {jsonschema-base-url}/Time.json[Time.json].
 
+Constraints on a “Time” representation are expressed using the <<json_allowedtimes_obj,style=basic%>>.
+
+The unit of measure is defined using either a URI or a code expressed using the Unified Code for Units of Measure (<<UCUM>>) standard. When the temporal property is provided in the <<ISO8601>> format, this is indicated by using a specific URI.
+
+include::../requirements/json/simple_components/requirement7.adoc[]
+
+The following snippets show how “Time” components are used to define various temporal properties, with different time scales:
+
+ISO8601 formatted time stamp based on the UTC time standard:
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/time3.json[]
+----
+
+ISO8601 formatted time stamp based on the GPS time standard:
+
 [source%unnumbered,json]
 ----
 include::../schemas/json/examples/spec/time1.json[]
 ----
+
+Time stamp in seconds past the Unix epoch:
 
 [source%unnumbered,json]
 ----
 include::../schemas/json/examples/spec/time2.json[]
 ----
 
-[source%unnumbered,json]
-----
-include::../schemas/json/examples/spec/time3.json[]
-----
+Time stamp in seconds past a custom time reference called `MISSION_START_TIME`:
 
 [source%unnumbered,json]
 ----
@@ -168,6 +220,8 @@ include::../schemas/json/examples/spec/time4.json[]
 
 The “CategoryRange” object is the JSON schema implementation of the “CategoryRange” UML class defined in <<uml_categoryrange_class>>. The schema for this class is provided in {jsonschema-base-url}/CategoryRange.json[CategoryRange.json].
 
+“CategoryRange” objects share most properties with “Category” object, as shown on the following snippet:
+
 [source%unnumbered,json]
 ----
 include::../schemas/json/examples/spec/category-range1.json[]
@@ -178,6 +232,8 @@ include::../schemas/json/examples/spec/category-range1.json[]
 ==== CountRange Object
 
 The “CountRange” object is the JSON schema implementation of the “CountRange” UML class defined in <<uml_countrange_class>>. The schema for this class is provided in {jsonschema-base-url}/CountRange.json[CountRange.json].
+
+“CountRange” objects share most properties with “Count” object, as shown on the following snippet:
 
 [source%unnumbered,json]
 ----
@@ -190,6 +246,8 @@ include::../schemas/json/examples/spec/count-range1.json[]
 
 The “QuantityRange” object is the JSON schema implementation of the “QuantityRange” UML class defined in <<uml_quantityrange_class>>. The schema for this class is provided in {jsonschema-base-url}/QuantityRange.json[QuantityRange.json].
 
+“QuantityRange” objects share most properties with the “Quantity” object, as shown on the following snippet:
+
 [source%unnumbered,json]
 ----
 include::../schemas/json/examples/spec/quantity-range1.json[]
@@ -201,6 +259,8 @@ include::../schemas/json/examples/spec/quantity-range1.json[]
 
 The “TimeRange” object is the JSON schema implementation of the “TimeRange” UML class defined in <<uml_timerange_class>>. The schema for this class is provided in {jsonschema-base-url}/TimeRange.json[TimeRange.json].
 
+“TimeRange” objects share most properties with the “Time” object, as shown on the following snippet:
+
 [source%unnumbered,json]
 ----
 include::../schemas/json/examples/spec/time-range1.json[]
@@ -210,7 +270,9 @@ include::../schemas/json/examples/spec/time-range1.json[]
 [[json_nilvalues_obj]]
 ==== NilValues Object
 
-The “NilValues” object is the JSON schema implementation of the “NilValues” UML class defined in <<uml_nilvalues_class>>. The schema for this class is provided in {jsonschema-base-url}/basicTypes.json[basicTypes.json] (see #definitions/NilValues).
+The “NilValues” object is the JSON schema implementation of the “NilValues” UML class defined in <<uml_nilvalues_class>>. Schema patterns for this class are provided in {jsonschema-base-url}/basicTypes.json[basicTypes.json]. Several sub-patterns are defined for the decimal, integer and text cases.
+
+Examples of NIL values definitions are provided below, in the case of numerical, countable and textual representations:
 
 [source%unnumbered,json]
 ----
@@ -233,9 +295,16 @@ include::../schemas/json/examples/spec/nil-values3.json[]
 
 The “AllowedTokens” object is the XML schema implementation of the “AllowedTokens” UML class defined in <<uml_allowedtokens_class>>. The schema for this class is provided in {jsonschema-base-url}/basicTypes.json[basicTypes.json] (see #definitions/AllowedTokens).
 
+Examples of constraints for textual or categorical properties are provided below:
+
 [source%unnumbered,json]
 ----
 include::../schemas/json/examples/spec/allowedTokens1.json[]
+----
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/allowedTokens2.json[]
 ----
 
 
@@ -243,6 +312,8 @@ include::../schemas/json/examples/spec/allowedTokens1.json[]
 ==== AllowedValues Object
 
 The “AllowedValues” object is the XML schema implementation of the “AllowedValues” UML class defined in <<uml_allowedvalues_class>>. The schema for this class is provided in {jsonschema-base-url}/basicTypes.json[basicTypes.json] (see #definitions/AllowedValues).
+
+Examples of constraints for various numerical properties are provided below:
 
 [source%unnumbered,json]
 ----
@@ -259,13 +330,27 @@ include::../schemas/json/examples/spec/allowedValues2.json[]
 include::../schemas/json/examples/spec/allowedValues3.json[]
 ----
 
+Numerical constraints can also be unbounded:
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/allowedValues4.json[]
+----
+
 
 [[json_allowedtimes_obj]]
 ==== AllowedTimes Object
 
 The “AllowedTimes” object is the XML schema implementation of the “AllowedTimes” UML class defined in <<uml_allowedtimes_class>>. The schema for this class is provided in {jsonschema-base-url}/basicTypes.json[basicTypes.json] (see #definitions/AllowedTimes).
 
+Examples of constraints for various temporal properties, expressed as ISO-8601 or decimal values, are provided below:
+
 [source%unnumbered,json]
 ----
 include::../schemas/json/examples/spec/allowedTimes1.json[]
+----
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/allowedTimes2.json[]
 ----

@@ -1,0 +1,11 @@
+{
+  "type": "Geometry",
+  "definition": "http://sensorml.com/ont/swe/property/TargetLocation",
+  "srs": "http://www.opengis.net/def/crs/EPSG/0/4326",
+  "label": "Target Location",
+  "description": "A point geometry",
+  "value": {
+    "type": "Point",
+    "coordinates": [12.34, 56.36]
+  }
+}

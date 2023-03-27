@@ -1,0 +1,13 @@
+{
+  "type": "Geometry",
+  "definition": "http://sensorml.com/ont/x-swe/property/SurveillanceArea",
+  "srs": "http://www.opengis.net/def/crs/EPSG/0/4326",
+  "label": "Surveillance Area",
+  "description": "Desired UxS surveillance area defined as a polygon",
+  "value": {
+    "type": "Polygon",
+    "coordinates": [
+      [[12.34, 56.36], [12.45, 56.37], [12.45, 56.39], [12.34, 56.36]]
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/json-simple-components/inline-value-constraint-valid
+
+The inline value included in a JSON instance validating against the “AbstractSimpleComponent.json” schema shall satisfy the constraints specified by this instance.
+====

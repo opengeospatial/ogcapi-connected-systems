@@ -131,6 +131,8 @@ The following XML elements and complex types are defined in the “simple_compon
 
 The “AbstractDataComponent” complex type adds XML attributes as defined in the UML class with the same name. The meaning of the corresponding UML class attributes is detailed in <<uml_alldatacomponents>>.
 
+The “definition” attribute is a URI that shall be resolvable to a human readable description of the property being measured or any other referenced concept. It is also recommended that an XML representation of this information can be retrieved via content negociation.
+
 include::../requirements/xsd/simple_components/requirement5.adoc[]
 
 [source%unnumbered,xml]
@@ -157,8 +159,6 @@ The “AbstractSimpleComponent” complex type adds XML attributes as defined in
 As the XML schema snippet shows, this abstract element contains two important property elements “quality” and “nilValues” as well as two attributes “referenceFrame” and “axisID” implementing the corresponding attributes in the UML. Since all simple data components defined in this schema derive from this base type, these elements and attributes are available on all of them. Examples in the following sub-clauses show their usage. Detailed content of the “Quality” and “NilValues” elements that are the values of “QualityPropertyType” and “NilValuesPropertyType” respectively are given in <<xsd_quality_group>> and <<xsd_nilvalues_elt>>.
 
 Most simple data components (defined in the following sub-clauses) also allow for the definition of constraints via the “constraint” property element. When such constraints are specified, the value of the component (either inline or in a separate data block) shall always satisfy these constraints.
-
-The “definition” attribute is a URI that shall be resolvable to a human readable description of the property being measured or any other referenced concept. It is also recommended that an XML representation of this information can be retrieved via content negociation.
 
 include::../requirements/xsd/simple_components/requirement6.adoc[]
 

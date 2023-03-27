@@ -5,38 +5,37 @@ include::../requirements/json/simple_encodings/requirements_class.adoc[]
 
 Validation patterns that implement classes defined respectively in the “Simple Encodings” UML packages are provided in the JSON schema {jsonschema-base-url}/encodings.json[encodings.json].
 
+When datastream or data array values are provided out-of-band (i.e. not inline in the “DataArray”, “Matrix” or “DataStream” description), a different encoding than JSON can be selected. This is specified by using one of the following classes.
+
 
 [[json_textencoding_obj]]
 ==== TextEncoding Object
 
-The “TextEncoding” object is the JSON schema implementation of the “TextEncoding” UML class defined in <<uml_textencoding_class>>. The schema for this class is provided in {jsonschema-base-url}/encodings.json[encondings.json#/definitions/TextEncoding].
+The “TextEncoding” object is the JSON schema implementation of the “TextEncoding” UML class defined in <<uml_textencoding_class>>. The schema for this class is provided in {jsonschema-base-url}/encodings.json[encodings.json#/definitions/TextEncoding].
 
 [source%unnumbered,json]
 ----
-
+include::../schemas/json/examples/spec/text-encoding.json[]
 ----
-
-
 
 
 [[json_xmlencoding_obj]]
 ==== XMLEncoding Object
 
-The “XMLEncoding” object is the JSON schema implementation of the “XMLEncoding” UML class defined in <<uml_xmlencoding_class>>. The schema for this class is provided in {jsonschema-base-url}/encodings.json[encondings.json#/definitions/XMLEncoding].
+The “XMLEncoding” object is the JSON schema implementation of the “XMLEncoding” UML class defined in <<uml_xmlencoding_class>>. The schema for this class is provided in {jsonschema-base-url}/encodings.json[encodings.json#/definitions/XMLEncoding].
 
 [source%unnumbered,json]
 ----
-
+include::../schemas/json/examples/spec/xml-encoding.json[]
 ----
-
 
 
 [[json_jsonencoding_obj]]
 ==== JSONEncoding Object
 
-The “JSONEncoding” object is the JSON schema implementation of the “JSONEncoding” UML class defined in <<uml_jsonencoding_class>>. The schema for this class is provided in {jsonschema-base-url}/encodings.json[encondings.json#/definitions/JSONEncoding].
+The “JSONEncoding” object is the JSON schema implementation of the “JSONEncoding” UML class defined in <<uml_jsonencoding_class>>. The schema for this class is provided in {jsonschema-base-url}/encodings.json[encodings.json#/definitions/JSONEncoding].
 
 [source%unnumbered,json]
 ----
-
+include::../schemas/json/examples/spec/json-encoding.json[]
 ----

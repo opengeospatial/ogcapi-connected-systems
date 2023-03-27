@@ -1,10 +1,10 @@
 {
   "type": "Quantity",
-  "definition": "http://sweet.jpl.nasa.gov/2.0/spaceDirection.owl#Angle",
-  "label": "Planar Angle",
+  "definition": "http://sensorml.com/ont/swe/property/GeodeticLatitude",
+  "label": "Latitude",
   "uom": { "code": "deg" },
   "constraint": {
-    "intervals": [[-180, 180]],
-    "significantFigures": 5
+    "intervals": [[-90, 90]],
+    "significantFigures": 6
   }
 }
