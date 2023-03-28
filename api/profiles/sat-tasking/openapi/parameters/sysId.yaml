@@ -1,0 +1,6 @@
+name: sysId
+in: path
+description: The ID of the system
+required: true
+schema:
+  type: string

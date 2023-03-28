@@ -1,0 +1,6 @@
+name: cmdId
+in: path
+description: The ID of the command
+required: true
+schema:
+  type: string

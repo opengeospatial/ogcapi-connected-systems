@@ -1,0 +1,8 @@
+in: query
+required: false
+schema:
+  type: array
+  items:
+    type: string
+    format: uri
+explode: false

@@ -1,0 +1,181 @@
+openapi: 3.0.2
+info:
+  title: "OGC API - Connected Systems - EO Satellite Tasking Profile"
+  version: 0.0.1
+  description: >-
+    This is the OpenAPI definition of a Connected Systems API profile for satellite tasking.
+  contact:
+    name: Alex Robin (GeoRobotix, Inc.)
+    email: no-reply@georobotix.com
+  license:
+    name: OGC License
+    url: "https://www.ogc.org/ogc/Document"
+  x-logo:
+    url: "https://www.ogc.org/pub/www/files/OGC_Logo_2D_Blue_x_0_0.png"
+    backgroundColor: "#FFFFFF"
+    altText: "OGC logo"
+    href: "https://www.ogc.org/contacts"
+
+tags:
+  - name: Capabilities
+    description: Essential characteristics of the information available from the API.
+  - name: Collections
+    description: Collections of features.
+  - name: Systems
+    description: System features representing space-borne systems.
+  - name: Coverage Tasking
+    description: Coverage tasking channel.
+
+paths:
+  /:
+    get:
+      summary: Landing page
+      description: The landing page provides links to the API definition, the conformance statements and to the feature collections in this dataset.
+      tags:
+        - Capabilities
+      responses:
+        '200':
+          $ref: "responses/LandingPage.yaml"
+
+  /conformance:
+    get:
+      summary: Information about specifications that this API conforms to
+      description: A list of all conformance classes specified in a standard that the server conforms to.
+      tags:
+        - Capabilities
+      responses:
+        '200':
+          $ref: "responses/Conformance.yaml"
+
+  /collections:
+    get:
+      summary: Retrieve list of feature collections
+      description: |
+        A user can retrieve catalogs to access collections by simple filtering and a limit.
+      tags:
+        - Collections
+      parameters:
+        - $ref: "parameters/limit.yaml"
+      responses:
+        '200':
+          $ref: "responses/Collections.yaml"
+
+  /collections/{collectionId}:
+    get:
+      summary: Access metadata about a specific collection (here an example of System collection)
+      tags:
+        - Collections
+      parameters:
+        - $ref: "parameters/collectionId.yaml"
+      responses:
+        '200':
+          $ref: "responses/SystemCollection.yaml"
+    
+
+  /collections/{collectionId}/items:
+    get:
+      summary: Retrieve collection items
+      tags:
+        - Collections
+      parameters:
+        - $ref: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/parameters/collectionId.yaml
+        - $ref: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/parameters/limit.yaml
+      responses:
+        '200':
+          $ref: "responses/FeatureCollection.yaml"
+
+  /collections/{collectionId}/items/{featureId}:
+    get:
+      summary: Retrieve a specific feature (here an example of System feature)
+      tags:
+        - Collections
+      parameters:
+        - $ref: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/parameters/collectionId.yaml
+        - $ref: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/parameters/featureId.yaml
+      responses:
+        '200':
+          $ref: "responses/System.yaml"
+
+  /systems:
+    get:
+      summary: Retrieve list of all systems.
+      description: |
+        List or search all observing systems available through this API.
+        By default, only top level systems are listed (i.e. subsystems are ommitted) unless the "parent" query parameter is set
+      tags:
+        - Systems
+      parameters:
+        - $ref: "parameters/limit.yaml"
+      responses:
+        '200':
+          $ref: "responses/SystemCollection.yaml"
+
+  /systems/{sysId}:
+    get:
+      summary: Get information about a specific system.
+      tags:
+        - Systems
+      parameters:
+        - $ref: "parameters/sysId.yaml"
+      responses:
+        '200':
+          $ref: "responses/System.yaml"
+
+  /systems/{sysId}/controls:
+    get:
+      summary: Retrieve list of control channels of the parent system.
+      tags:
+        - Systems
+      parameters:
+        - $ref: "parameters/limit.yaml"
+      responses:
+        '200':
+          $ref: "responses/ControlCollection.yaml"
+
+  /systems/{sysId}/controls/coverage-tasking:
+    get:
+      summary: Retrieve info about the coverage-tasking control channel.
+      tags:
+        - Coverage Tasking
+      responses:
+        '200':
+          $ref: "responses/ControlChannel.yaml"
+
+  /systems/{sysId}/controls/coverage-tasking/commands:
+    get:
+      summary: Get list of accepted coverage programming requests.
+      tags:
+        - Coverage Tasking
+      parameters:
+        - $ref: "parameters/limit.yaml"
+      responses:
+        '200':
+          $ref: "responses/CoverageProgrammingRequestCollection.yaml"         
+    post:
+      summary: Submit a coverage programming request
+      tags:
+        - Coverage Tasking
+      requestBody:
+        $ref: "requests/CoverageProgrammingRequest.yaml"
+
+  /systems/{sysId}/controls/coverage-tasking/commands/{cmdId}:
+    get:
+      summary: Retrieve info about a specific coverage programming request.
+      tags:
+        - Coverage Tasking
+      parameters:
+        - $ref: "parameters/cmdId.yaml"
+      responses:
+        '200':
+          $ref: "responses/CoverageProgrammingRequest.yaml"
+
+  /systems/{sysId}/controls/coverage-tasking/commands/{cmdId}/status:
+    get:
+      summary: Get status of a specific coverage programming request.
+      tags:
+        - Coverage Tasking
+      parameters:
+        - $ref: "parameters/limit.yaml"
+      responses:
+        '200':
+          $ref: "responses/CommandStatusCollection.yaml"

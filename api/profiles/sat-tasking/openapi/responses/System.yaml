@@ -1,0 +1,4 @@
+content:
+  application/geo+json:
+    schema:
+      $ref: ../schemas/systemGeoJSON.yaml

@@ -1,0 +1,21 @@
+type: object
+properties:
+  id:
+    type: string
+  control@id:
+    type: string
+  issueTime:
+    $ref: timeInstant.yaml
+  executionTime:
+    $ref: timeExtent.yaml
+  userId:
+    type: string
+  currentStatus:
+    $ref: commandStatusCode.yaml
+  params:
+    $ref: coverageTaskingParams.yaml
+required:
+  - control@id
+  - issueTime
+  - userId
+  - params

@@ -1,0 +1,5 @@
+description: Control channel resource
+content:
+  application/json:
+    schema:
+      type: object

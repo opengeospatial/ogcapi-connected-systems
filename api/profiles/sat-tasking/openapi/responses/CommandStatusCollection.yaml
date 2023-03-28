@@ -1,0 +1,9 @@
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '../schemas/commandStatus.yaml'

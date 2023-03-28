@@ -1,0 +1,5 @@
+description: The links to the API capabilities.
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/landingPage.yaml

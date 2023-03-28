@@ -1,0 +1,6 @@
+type: object
+properties:
+  params:
+    $ref: coverageTaskingParams.yaml
+required:
+  - params

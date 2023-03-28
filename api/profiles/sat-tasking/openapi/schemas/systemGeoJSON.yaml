@@ -1,0 +1,40 @@
+type: object
+required:
+  - type
+  - geometry
+  - properties
+properties:
+  id:
+    type: string
+  type:
+    type: string
+    enum:
+      - Feature
+  geometry:
+    $ref: geometryGeoJSON.yaml
+  properties:
+    type: object
+    properties:
+      uid:
+        type: string
+        example: "urn:osh:sensor:sat:spot-6:hr"
+      featureType:
+        type: string
+        format: uri
+        example: "http://www.w3.org/ns/ssn/System"
+      name:
+        type: string
+        example: "SPOT-6 Satellite"
+      description:
+        type: string
+        example: "Simulated EO satellite with tasking support"
+      validTime:
+        $ref: timeExtent.yaml
+  links:
+    type: array
+    items:
+      $ref: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/link.yaml
+    example:
+      - rel: canonical
+        href: http://data.example.org/systems/hqi2viohl2vci
+

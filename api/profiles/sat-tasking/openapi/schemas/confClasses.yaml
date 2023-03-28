@@ -1,0 +1,13 @@
+type: object
+required:
+  - conformsTo
+properties:
+  conformsTo:
+    type: array
+    items:
+      type: string
+      example:
+        - "http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/core"
+        - "http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/conf/core"
+        - "http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/conf/system-features"
+        - "http://www.opengis.net/spec/ogcapi-connectedsystems-2/1.0/conf/controls"

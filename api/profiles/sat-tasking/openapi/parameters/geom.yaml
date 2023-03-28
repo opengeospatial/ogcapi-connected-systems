@@ -1,0 +1,5 @@
+name: geom
+in: query
+required: false
+schema:
+  type: string

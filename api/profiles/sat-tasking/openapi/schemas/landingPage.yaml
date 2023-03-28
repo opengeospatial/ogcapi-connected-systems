@@ -1,0 +1,21 @@
+type: object
+required:
+  - links
+properties:
+  title:
+    type: string
+    example: EO Satellite Tasking API
+  description:
+    type: string
+    example: API providing access to satellite information and tasking capabilities.
+  links:
+    type: array
+    items:
+      $ref: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/link.yaml
+    example:
+      - rel: service-desc
+        href: http://data.example.com/apidoc
+      - rel: conformance
+        href: http://data.example.com/conformance
+      - rel: collections
+        href: http://data.example.com/collections

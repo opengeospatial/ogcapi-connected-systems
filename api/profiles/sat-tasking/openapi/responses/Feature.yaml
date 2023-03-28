@@ -1,0 +1,5 @@
+description: Single feature resource
+content:
+  application/geo+json:
+    schema:
+      $ref: ../schemas/featureGeoJSON.yaml

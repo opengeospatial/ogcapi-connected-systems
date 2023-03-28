@@ -1,0 +1,24 @@
+type: object
+properties:
+  id:
+    type: string
+  command@id:
+    type: string
+  reportTime:
+    $ref: timeInstant.yaml
+  status:
+    $ref: commandStatusCode.yaml
+  percentCompletion:
+    type: number
+    minimum: 0
+    maximum: 100
+  executionTime:
+    $ref: timeExtent.yaml
+  message:
+    type: string
+  result:
+    type: object
+required:
+  - command@id
+  - reportTime
+  - status

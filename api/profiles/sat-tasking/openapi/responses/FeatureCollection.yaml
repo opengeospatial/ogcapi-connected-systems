@@ -1,0 +1,5 @@
+description: Collection of feature resources
+content:
+  application/geo+json:
+    schema:
+      $ref: ../schemas/featureCollectionGeoJSON.yaml
