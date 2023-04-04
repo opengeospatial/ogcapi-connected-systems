@@ -8,11 +8,6 @@
     },
     {
       "properties": {
-        "identifier": {
-          "description": "Unique identifier of the data component. It can be used to globally identify a particular component of the dataset, a process input/output or a universal constant",
-          "type": "string",
-          "format": "uri"
-        },
         "label": {
           "description": "Textual label for the data component . This is often used for displaying a human readable name for a dataset field or a process input/output",
           "type": "string",
