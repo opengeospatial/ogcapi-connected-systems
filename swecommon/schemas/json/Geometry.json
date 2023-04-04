@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Geometry",
   "description": "Implementation of ISO-19107 geometry datatype. This allows embedding a geometry in a larger schema",
   "type": "object",
   "allOf": [
