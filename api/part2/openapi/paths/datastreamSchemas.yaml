@@ -1,0 +1,31 @@
+get:
+  summary: Retrieve a datastream schema for a given format
+  description: 
+  tags:
+    - Datastreams
+  parameters:
+    - $ref: ../parameters/datastreamId.yaml
+    - $ref: ../parameters/obsFormat.yaml
+  responses:
+    '200':
+      description: OK. Successful request
+      content:
+        application/swe+json:
+          schema:
+            $ref: ../schemas/json/datastreamSchemaSwe.json
+        application/swe+csv:
+          schema:
+            $ref: ../schemas/json/datastreamSchemaSwe.json
+        application/swe+protobuf:
+          example:
+            $ref: ../examples/schemas/example.proto
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX

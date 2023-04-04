@@ -1,0 +1,6 @@
+name: obsFormat
+in: query
+description: Media type of the desired format
+required: true
+schema:
+  type: string

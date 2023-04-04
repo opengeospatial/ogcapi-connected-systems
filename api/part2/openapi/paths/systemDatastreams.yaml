@@ -1,0 +1,56 @@
+get:
+  summary: List system datastreams
+  description: |-
+    List or search datastreams available from this system.
+  tags:
+    - Datastreams
+  parameters:
+    - $ref: ../../../part1/openapi/parameters/systemId.yaml
+    - $ref: ../parameters/phenomenonTime.yaml
+    - $ref: ../parameters/resultTime.yaml
+    - $ref: ../../../part1/openapi/parameters/keyword.yaml
+    #- $ref: '#/components/parameters/system'
+    #- $ref: '#/components/parameters/select'
+    - $ref: ../../../part1/openapi/parameters/limit.yaml
+  responses:
+    '200':
+      description: OK. Successful request
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/json/datastreamCollection.json
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
+
+post:
+  summary: Add a new datastream to a system
+  tags:
+    - Datastreams
+  parameters:
+    - $ref: ../../../part1/openapi/parameters/systemId.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/json/datastream.json
+  responses:
+    '201':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/201
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX

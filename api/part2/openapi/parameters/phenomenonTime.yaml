@@ -1,0 +1,39 @@
+name: phenomenonTime
+in: query
+description: |-
+  Either a date-time or an interval. Date and time expressions adhere to RFC 3339. 
+  Intervals may be bounded or half-bounded (double-dots at start or end).
+
+  Only resources with a `phenomenonTime` temporal property that intersects the value of the
+  `phenomenonTime` parameter are selected.
+required: false
+schema:
+  $ref: ../../../part1/openapi/parameters/datetimeSchema.yaml
+style: form
+explode: false
+
+examples:
+  instant:
+    summary: Time instant
+    value: '2018-02-12T23:20:50Z'
+  latest:
+    summary: Latest
+    value: 'latest'
+  now:
+    summary: Current time
+    value: 'now'
+  period:
+    summary: Bounded interval
+    value: '2018-02-12T00:00:00Z/2018-03-18T12:31:12Z'
+  period2:
+    summary: Half-bounded interval
+    value: '2018-02-12T00:00:00Z/..'
+  period3:
+    summary: Anything up to now
+    value: '../now'
+  period4:
+    summary: Anything from now on
+    value: 'now/2018-03-18T12:31:12Z'
+  period5:
+    summary: From date/time to latest
+    value: '2018-02-12T00:00:00Z/latest'

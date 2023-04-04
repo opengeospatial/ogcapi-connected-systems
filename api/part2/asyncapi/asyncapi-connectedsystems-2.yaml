@@ -1,0 +1,30 @@
+asyncapi: 2.6.0
+info:
+  title: "OGC API - Connected Systems - Part 2: Dynamic Data"
+  version: 0.0.1
+  description: Pub/sub interface for OGC API - Connected Systems
+
+channels:
+
+  datastreams/{datastreamId}/observations:
+    parameters:
+      datastreamId:
+        description: Local identifier of a Datastream
+        schema:
+          type: string
+    subscribe:
+      summary: Subscribe for observations in a specific datastream
+      message:
+        name: observation
+        title: Observation
+        contentType: application/om+json
+        payload:
+          $ref: ../openapi/schemas/json/observation.json
+    publish:
+      summary: Publish observations in a specific datastream
+      message:
+        name: observation
+        title: Observation
+        contentType: application/om+json
+        payload:
+          $ref: ../openapi/schemas/json/observation.json

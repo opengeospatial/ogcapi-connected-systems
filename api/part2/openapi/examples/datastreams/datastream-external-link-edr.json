@@ -1,0 +1,39 @@
+{
+  "id": "958tf25kjm2f6",
+  "name": "Outdoor Thermometer 001 - Air Temperature",
+  "system@link": {
+    "href": "https://data.example.org/api/systems/123",
+    "uid": "urn:x-ogc:systems:001",
+    "outputName": "temp"
+  },
+  "phenomenonTime": [
+    "2020-06-29T14:32:00Z",
+    "2022-06-29T19:37:00Z"
+  ],
+  "resultTime": [
+    "2020-06-29T14:32:00Z",
+    "2012-06-29T19:37:00Z"
+  ],
+  "observedProperties": [
+    {
+      "definition": "http://mmisw.org/ont/cf/parameter/air_temperature",
+      "label": "Air Temperature"
+    }
+  ],
+  "formats": [
+    "application/json"
+  ],
+  "links": [
+    {
+      "rel" : "self",
+      "href" : "https://data.example.org/api/datastreams/958tf25kjm2f6",
+      "type" : "application/json"
+    }, {
+      "rel": "dataset",
+      "href": "https://data.other.net/edr/collections/nyc-temp-754",
+      "type" : "application/json",
+      "serviceRoot": "https://data.other.net/edr",
+      "serviceType": "http://www.opengis.net/doc/IS/ogcapi-edr-1/1.0"
+    }
+  ]
+}

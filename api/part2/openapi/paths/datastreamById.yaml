@@ -1,0 +1,51 @@
+get:
+  summary: Retrieve a datastream description by ID
+  description: 
+  tags:
+    - Datastreams
+  parameters:
+    - $ref: ../parameters/datastreamId.yaml
+    #- $ref: '#/components/parameters/select'
+  responses:
+    '200':
+      description: OK. Successful request
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/json/datastream.json
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
+
+put:
+  summary: Update a datastream description
+  description: 
+  tags:
+    - Datastreams
+  parameters:
+    - $ref: ../parameters/datastreamId.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/json/datastream.json
+  responses:
+    '204':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/204
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX

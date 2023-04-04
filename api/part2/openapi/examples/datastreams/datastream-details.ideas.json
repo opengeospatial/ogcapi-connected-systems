@@ -1,0 +1,60 @@
+{
+  "id": "7dogt5gs8949s",
+  "name": "Radiological Sensor RADIO003 - Wireless Link Status",
+  "live": true,
+  "system@link": {
+    "href": "https://data.example.org/api/systems/958tf25kjm2f6",
+    "uid": "urn:x-ogc:systems:FF465",
+    "outputName": "radio"
+  },
+  "ultimateFeatureOfInterest@link": {
+    "if only one": "???",
+    "href": "https://data.example.org/api/systems/4578",
+    "uid": "urn:x-ogc:systems:FF465"
+  },
+  "samplingFeatures@link": {
+    "href": "https://data.example.org/api/datastreams/7dogt5gs8949s/samplingFeatures"
+  },
+  "phenomenonTime": {
+    "id": "PHEN_TIME",
+    "definition": "http://www.opengis.net/def/property/OGC/0/SamplingTime",
+    "definition2": "http://www.opengis.net/def/property/OGC/0/ForecastTime",
+    "referenceFrame": "http://www.opengis.net/def/trs/BIPM/0/UTC",
+    "periodicity": "PT1H",
+    "extent": [
+      "2012-06-29T14:32:34Z",
+      "2012-06-29T14:37:34Z"
+    ]
+  },
+  "resultTime": {
+    "id": "RESULT_TIME",
+    "definition": "http://www.opengis.net/def/property/OGC/0/SamplingTime",
+    "definition2": "http://www.opengis.net/def/property/OGC/0/RunTime",
+    "referenceFrame": "http://www.opengis.net/def/trs/BIPM/0/UTC",
+    "periodicity": "PT6H",
+    "extent": [
+      "2012-06-29T14:32:34Z",
+      "2012-06-29T14:37:34Z"
+    ],
+    "or enum": [
+      "2012-06-29T06:00:00Z",
+      "2012-06-29T12:00:00Z",
+      "2012-06-29T18:00:00Z",
+      "2012-06-30T00:00:00Z",
+      "2012-06-30T06:00:00Z",
+      "2012-06-30T12:00:00Z"
+    ]
+  },
+  "result": {
+    "type": "DataRecord",
+    "fields": [
+
+    ]
+  },
+  "parameters": {
+    "type": "DataRecord",
+    "fields": [
+
+    ]
+  }
+}
