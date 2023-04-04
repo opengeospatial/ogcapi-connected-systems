@@ -1,0 +1,23 @@
+description: One or more procedure resources
+required: true
+content:
+  application/geo+json:
+    schema:
+      oneOf:
+      - title: Single Procedure
+        $ref: ../schemas/geojson/procedure.json
+      - title: List of Procedures
+        type: array
+        minItems: 1
+        items:
+          $ref: ../schemas/geojson/procedure.json
+  application/sml+json:
+    schema:
+      oneOf:
+      - title: Single Procedure
+        $ref: ../schemas/sensorml/procedure.json
+      - title: List of Procedures
+        type: array
+        minItems: 1
+        items:
+          $ref: ../schemas/sensorml/procedure.json

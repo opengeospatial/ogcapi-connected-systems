@@ -1,0 +1,10 @@
+
+name: foi
+description: |-
+  List of feature local IDs or unique IDs (URI).
+  Only resources that are associated to a feature of interest that has one of the provided identifiers are selected.
+in: query
+required: false
+schema:
+  $ref: idListSchema.yaml
+explode: false

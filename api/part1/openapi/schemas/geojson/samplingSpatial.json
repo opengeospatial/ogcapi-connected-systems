@@ -13,7 +13,7 @@
               "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
             },
             "hostedSystem@link": {
-              "$ref": "../common/commonDefs.json#/definitions/XLink"
+              "$ref": "../common/commonDefs.json#/definitions/Link"
             }
           }
         }

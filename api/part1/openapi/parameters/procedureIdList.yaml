@@ -1,0 +1,10 @@
+
+name: procedure
+description: |-
+  List of procedure local IDs or unique IDs (URI).
+  Only systems that implement a procedure that has one of the provided identifiers are selected.
+in: query
+required: false
+schema:
+  $ref: idListSchema.yaml
+explode: false

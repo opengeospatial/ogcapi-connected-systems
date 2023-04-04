@@ -1,5 +1,14 @@
 name: geom
 in: query
+description: |-
+  WKT geometry and operator to filter resources on their location or geometry.
+
+  Only features that have a geometry that intersects the value of `geom` are selected.
 required: false
 schema:
   type: string
+examples:
+  point:
+    value: 'LINESTRING((-86.53 12.45), (-86.54 12.46), (-86.55 12.47))'
+  polygon:
+    value: 'POLYGON((0 0,4 0,4 4,0 4,0 0))'

@@ -1,24 +1,18 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "allOf": [
-    { "$ref": "sensormlDefs.json#/definitions/DescribedObject" },
+    { "$ref": "sensormlDefs.json#/definitions/Deployment" },
     {
-      "type": "object",
-      "required": [ "definition", "members" ],
       "properties": {
         "definition": {
           "const": "http://www.w3.org/ns/ssn/Deployment"
         },
-        "location": {
-          "$ref": "https://geojson.org/schema/Geometry.json"
-        },
-        "members": {
-          "type": "array",
-          "items": {
-            "$ref": "../common/commonDefs.json#/definitions/XLink"
-          }
+        "links": {
+          "description": "Other links to related resources",
+          "$ref": "../common/links.json"
         }
-      }
+      },
+      "required": [ "definition" ]
     }
   ]
 }

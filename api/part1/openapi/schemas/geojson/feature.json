@@ -6,35 +6,44 @@
       "type": "object",
       "properties": {
         "id": {
-          "oneOf": [
-            { "type": "string" },
-            { "type": "integer" }
-          ]
+          "description": "Local ID of the feature",
+          "minLength": 1
+        },
+        "geometry": {
+          "description": "Geometry of the feature"
+        },
+        "bbox": {
+          "description": "Optional bounding box for the feature"
         },
         "properties": {
+          "description": "Feature properties",
           "type": "object",
           "required": [ "featureType", "uid", "name" ],
           "properties": {
             "featureType": {
-              "type": "string"
+              "type": "string",
+              "format": "uri"
             },
             "uid": {
+              "description": "Globally unique identifier of the feature",
               "type": "string",
               "format": "uri"
             },
             "name": {
-              "type": "string"
+              "description": "Human readable name of the feature",
+              "type": "string",
+              "minLength": 1
             },
             "description": {
-              "type": "string"
+              "description": "Human readable description of the feature",
+              "type": "string",
+              "minLength": 1
             }
           }
         },
         "links": {
-          "type": "array",
-          "items": {
-            "$ref": "../common/link.json"
-          }
+          "description": "Links to related resources",
+          "$ref": "../common/commonDefs.json#/definitions/Link"
         }
       }
     }

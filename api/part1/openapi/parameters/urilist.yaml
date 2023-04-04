@@ -1,7 +1,12 @@
+name: uri
+description: |-
+  List of resource unique identifiers (URIs).
+  Only resources that have one of the provided identifiers are selected.
 in: query
 required: false
 schema:
   type: array
+  minItems: 1
   items:
     type: string
     format: uri

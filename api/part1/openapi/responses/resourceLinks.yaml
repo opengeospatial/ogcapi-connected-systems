@@ -1,0 +1,13 @@
+description: OK. Successful request
+content:
+  application/json:
+    schema:
+      type: object
+      required: items
+      properties:
+        items:
+          description: Array of resource URIs
+          type: array
+          items:
+            type: string
+            format: uri

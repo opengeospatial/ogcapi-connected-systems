@@ -1,0 +1,18 @@
+{
+  "title": "OGC API - Connected Systems",
+  "description": "Access to system datastreams and command and control capabilities.",
+  "links": [
+    {
+      "rel": "service-desc",
+      "href": "https://data.example.com/api/doc"
+    },
+    {
+      "rel": "conformance",
+      "href": "https://data.example.com/api/conformance"
+    },
+    {
+      "rel": "collections",
+      "href": "https://data.example.com/api/collections"
+    }
+  ]
+}

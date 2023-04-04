@@ -2,22 +2,25 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
     "DescribedObject": {
-      "$ref": "../../../../../sensorml/json_encodings/schemas/describedObject.json"
+      "$ref": "../../../../../sensorml/schemas/json/DescribedObject.json"
     },
     "AbstractProcess": {
-      "$ref": "../../../../../sensorml/json_encodings/schemas/abstractProcess.json"
+      "$ref": "../../../../../sensorml/schemas/json/AbstractProcess.json"
     },
     "PhysicalComponent": {
-      "$ref": "../../../../../sensorml/json_encodings/schemas/physicalComponent.json"
+      "$ref": "../../../../../sensorml/schemas/json/PhysicalComponent.json"
     },
     "PhysicalSystem": {
-      "$ref": "../../../../../sensorml/json_encodings/schemas/physicalSystem.json"
+      "$ref": "../../../../../sensorml/schemas/json/PhysicalSystem.json"
     },
     "SimpleProcess": {
-      "$ref": "../../../../../sensorml/json_encodings/schemas/simpleProcess.json"
+      "$ref": "../../../../../sensorml/schemas/json/SimpleProcess.json"
     },
     "AggregateProcess": {
-      "$ref": "../../../../../sensorml/json_encodings/schemas/aggregateProcess.json"
+      "$ref": "../../../../../sensorml/schemas/json/AggregateProcess.json"
+    },
+    "Deployment": {
+      "$ref": "../../../../../sensorml/schemas/json/Deployment.json"
     }
   }
 }

@@ -1,0 +1,61 @@
+get:
+  summary: List sampling features attached to a specific system
+  description: |-
+    
+  tags:
+    - Systems
+    - Sampling Features
+  parameters:
+    - $ref: ../parameters/systemId.yaml
+    - $ref: ../parameters/idList.yaml
+    - $ref: ../parameters/bbox.yaml
+    - $ref: ../parameters/datetime.yaml
+    - $ref: ../parameters/geom.yaml
+    - $ref: ../parameters/keyword.yaml
+    - $ref: ../parameters/foiIdList.yaml
+    - $ref: ../parameters/obsPropIdList.yaml
+    - $ref: ../parameters/controlPropIdList.yaml
+    #- $ref: '#/components/parameters/select'
+    - $ref: ../parameters/limit.yaml
+  responses:
+    '200':
+      $ref: ../responses/samplingFeatureCollection.yaml
+    '400':
+      $ref: ../responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../responses/StandardResponses.yaml#/5XX
+
+post:
+  summary: Create new sampling features
+  description: |-
+    Add one or more new `Sampling Feature` resources. Sampling features are always created inside, and thus attached to a parent system.
+
+    Note that it is possible to create multiple resources in a single batch request.
+    In this case, several resource descriptions are provided in the content body inside a JSON array.
+    On success, the server will send a `200` response with the list of ids of all created resources,
+    in the same order as the array in the request.
+  tags:
+    - Sampling Features
+  requestBody:
+    $ref: ../requests/samplingFeatureOrArray.yaml
+  responses:
+    '200':
+      $ref: ../responses/resourceLinks.yaml
+    '201':
+      $ref: ../responses/StandardResponses.yaml#/201
+    '400':
+      $ref: ../responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../responses/StandardResponses.yaml#/5XX

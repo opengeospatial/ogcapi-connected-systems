@@ -1,0 +1,40 @@
+oneOf:
+  - title: Time Instant
+    description: |-
+      ISO 8601 encoded time instant or special value.
+      Examples:
+        * A time instant: "2020-02-12T23:20:50Z" or "2020-01-15Z"
+        * Special indeterminate value: "now", "latest"
+    oneOf:
+      - title: ISO Date
+        type: string
+        format: date
+      - title: ISO Date/Time
+        type: string
+        format: date-time
+      - title: Special Value
+        type: string
+        enum: [now, latest]
+
+  - title: Time Period
+    description: |-
+      ISO 8601 encoded time period that can include special values.
+      Examples:
+        * A closed interval: "2020-02-12T00:00:00Z/2020-03-18T12:31:12Z" or "2020-01-15Z/2020-02-16Z"
+        * An open interval: "2020-02-12T00:00:00Z/.." or "../2020-03-18T12:31:12Z"
+        * An interval with indeterminate value: "2020-02-12T00:00:00Z/now", "2020-02-12T00:00:00Z/latest" or "now/.."
+    type: array
+    minItems: 2,
+    maxItems: 2,
+    items:
+      oneOf:
+        - title: ISO Date
+          type: string
+          format: date
+        - title: ISO Date/Time
+          type: string
+          format: date-time
+        - title: Special Value
+          type: string
+          enum: [now, latest]
+    

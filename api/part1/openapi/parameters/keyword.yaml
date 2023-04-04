@@ -1,9 +1,25 @@
 name: q
 in: query
+description: |-
+  Comma separated list of keywords used for full-text search.
+
+  Only resources that have textual fields that contain one of the specified keywords are selected.
+
+  The resource `name` and `description` properties are always searched.
+  It is up to the server to decide which other textual fields are searched.
 required: false
 schema:
   type: array
   items:
     type: string
-style: form
+    minLength: 1
+    maxLength: 50
 explode: false
+
+examples:
+  case1:
+    summary: One keyword
+    value: 'temp'
+  case2:
+    summary: Several keywords
+    value: 'gps,imu'

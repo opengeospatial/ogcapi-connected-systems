@@ -1,0 +1,73 @@
+get:
+  summary: Retrieve a sampling feature by ID
+  tags:
+    - Sampling Features
+  parameters:
+    - $ref: ../parameters/featureId.yaml
+    #- $ref: '#/components/parameters/select'
+  responses:
+    '200':
+      description: OK. Successful request
+      content:
+        application/geo+json:
+          schema:
+            $ref: ../schemas/geojson/anySamplingFeature.json
+    '400':
+      $ref: ../responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../responses/StandardResponses.yaml#/5XX
+
+put:
+  summary: Update a sampling feature description
+  tags:
+    - Sampling Features
+  parameters:
+    - $ref: ../parameters/featureId.yaml
+  requestBody:
+    content:
+      application/geo+json:
+        schema:
+          $ref: ../schemas/geojson/samplingFeature.json
+  responses:
+    '204':
+      $ref: ../responses/StandardResponses.yaml#/204_PUT
+    '400':
+      $ref: ../responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../responses/StandardResponses.yaml#/5XX
+
+delete:
+  summary: Delete a sampling feature resource
+  description: |-
+    This will delete the sampling feature and remove it from all collections it is associated to.
+  tags:
+    - Sampling Features
+  parameters:
+    - $ref: ../parameters/featureId.yaml
+  responses:
+    '204':
+      $ref: ../responses/StandardResponses.yaml#/204_DELETE
+    '400':
+      $ref: ../responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../responses/StandardResponses.yaml#/404
+    '409':
+      $ref: ../responses/StandardResponses.yaml#/409_DELETE
+    '5XX':
+      $ref: ../responses/StandardResponses.yaml#/5XX

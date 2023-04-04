@@ -1,7 +1,0 @@
-description: A list of Temporalgeometry data.
-content:
-  application/json:
-    schema:
-      $ref: "../schemas/temporalGeometryCollection.yaml"
-    example:
-      $ref: "../examples/temporalGeometryCollection.json"

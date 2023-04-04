@@ -3,27 +3,20 @@
   "allOf": [
     { "$ref": "feature.json" },
     {
-      "type": "object",
       "properties": {
         "properties": {
-          "type": "object",
-          "required": [ "uid", "name", "validTime" ],
+          "required": [ "validTime", "members" ],
           "properties": {
             "featureType": {
               "const": "http://www.w3.org/ns/ssn/Deployment"
             },
-            "uid": {
-              "type": "string",
-              "format": "uri"
-            },
-            "name": {
-              "type": "string"
-            },
-            "description": {
-              "type": "string"
-            },
             "validTime": {
+              "description": "Time period during which the systems where deployed.",
               "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
+            },
+            "members@link": {
+              "description": "Link to the collection of deployed systems.",
+              "$ref": "../common/commonDefs.json#/definitions/Link"
             }
           }
         }

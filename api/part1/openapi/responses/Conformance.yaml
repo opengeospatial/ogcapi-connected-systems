@@ -2,4 +2,6 @@ description: The URIs of all requirements classes supported by the server.
 content:
   application/json:
     schema:
-      $ref: "../schemas/confClasses.yaml"
+      $ref: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/confClasses.yaml
+    example:
+      $ref: ../examples/confClasses.json

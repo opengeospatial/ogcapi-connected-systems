@@ -1,0 +1,18 @@
+
+name: id
+description: |-
+  List of resource local IDs or unique IDs (URI).
+  Only resources that have one of the provided identifiers are selected.
+in: query
+required: false
+schema:
+  $ref: idListSchema.yaml
+explode: false
+
+examples:
+  id:
+    summary: Local IDs
+    value: 'RES_ID1,RES_ID2,RES_ID63'
+  uri:
+    summary: Unique IDs
+    value: 'urn:example:resource:001,urn:example:resource:033'

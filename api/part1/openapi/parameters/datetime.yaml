@@ -4,12 +4,6 @@ description: |-
   Either a date-time or an interval. Date and time expressions adhere to RFC 3339. 
   Intervals may be bounded or half-bounded (double-dots at start or end).
 
-  Examples:
-
-  * A date-time: "2018-02-12T23:20:50Z"
-  * A bounded interval: "2018-02-12T00:00:00Z/2018-03-18T12:31:12Z"
-  * Half-bounded intervals: "2018-02-12T00:00:00Z/.." or "../2018-03-18T12:31:12Z"
-
   Only features that have a temporal property that intersects the value of
   `datetime` are selected.
 
@@ -18,6 +12,32 @@ description: |-
   the extent or all relevant temporal properties.
 required: false
 schema:
-  type: string
+  $ref: datetimeSchema.yaml
 style: form
 explode: false
+
+examples:
+  instant:
+    summary: Time instant
+    value: '2018-02-12T23:20:50Z'
+  latest:
+    summary: Latest
+    value: 'latest'
+  now:
+    summary: Current time
+    value: 'now'
+  period:
+    summary: Bounded interval
+    value: '2018-02-12T00:00:00Z/2018-03-18T12:31:12Z'
+  period2:
+    summary: Half-bounded interval
+    value: '2018-02-12T00:00:00Z/..'
+  period3:
+    summary: Anything up to now
+    value: '../now'
+  period4:
+    summary: Anything from now on
+    value: 'now/2018-03-18T12:31:12Z'
+  period5:
+    summary: From date/time to latest
+    value: '2018-02-12T00:00:00Z/latest'

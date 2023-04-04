@@ -6,14 +6,34 @@
       "type": "object",
       "properties": {
         "properties": {
-          "type": "object",
-          "required": [ "featureType", "uid", "name" ],
           "properties": {
+            "featureType": {
+              "type": "string",
+              "enum": [
+                "http://www.w3.org/ns/sosa/Sensor",
+                "http://www.w3.org/ns/sosa/Actuator",
+                "http://www.w3.org/ns/sosa/Platform",
+                "http://www.w3.org/ns/sosa/Sampler",
+                "http://www.w3.org/ns/ssn/System"
+              ]
+            },
+            "assetType": {
+              "description": "Type of asset represented by this system.",
+              "type": "string",
+              "enum": [
+                "http://www.opengis.net/def/x-OGC/TBD/Equipment",
+                "http://www.opengis.net/def/x-OGC/TBD/Human",
+                "http://www.opengis.net/def/x-OGC/TBD/Simulation",
+                "http://www.opengis.net/def/x-OGC/TBD/Mixed"
+              ]
+            },
             "validTime": {
+              "description": "Time period during which the system description is valid.",
               "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
             },
             "procedure@link": {
-              "$ref": "../common/commonDefs.json#/definitions/XLink"
+              "description": "Link to the procedure implemented by this system.",
+              "$ref": "../common/commonDefs.json#/definitions/Link"
             }
           }
         }

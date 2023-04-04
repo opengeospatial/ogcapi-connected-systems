@@ -1,9 +1,12 @@
 name: bbox
 in: query
 description: |-
-  Only features that have a geometry that intersects the bounding box are selected.
   The bounding box is provided as four or six numbers, depending on whether the
-  coordinate reference system includes a vertical axis (height or depth):
+  coordinate reference system includes a vertical axis (height or depth).
+
+  Only features that have a geometry that intersects the bounding box are selected.
+
+  The order of coordinates is as follow:
 
   * Lower left corner, coordinate axis 1
   * Lower left corner, coordinate axis 2
@@ -36,13 +39,26 @@ description: |-
   the extent or all relevant geometries.
 required: false
 schema:
-  type: array
   oneOf:
-    - minItems: 4
+    - type: array
+      title: 2D Bbox
+      minItems: 4
       maxItems: 4
-    - minItems: 6
+      items:
+        type: number
+    - type: array
+      title: 3D Bbox
+      minItems: 6
       maxItems: 6
-  items:
-    type: number
+      items:
+        type: number
 style: form
 explode: false
+
+examples:
+  2d:
+    summary: 2D bbox
+    value: '-180,-90,180,90'
+  3d:
+    summary: 3D bbox
+    value: '-180,-90,180,90,0,1000'

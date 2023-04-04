@@ -1,0 +1,91 @@
+get:
+  summary: Retrieve a system description by ID
+  description: |-
+    Note that this will return the description of the system valid at the current time.
+    To get the description valid for a past (or future) time, use the "history" sub-collection.
+  tags:
+    - Systems
+  parameters:
+    - $ref: ../parameters/systemId.yaml
+    - $ref: ../parameters/datetime.yaml
+    #- $ref: '#/components/parameters/select'
+  responses:
+    '200':
+      description: OK. Successful request
+      content:
+        application/geo+json:
+          schema:
+            $ref: ../schemas/geojson/system.json
+        application/sml+json:
+          schema:
+            $ref: ../schemas/sensorml/system.json
+    '400':
+      $ref: ../responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../responses/StandardResponses.yaml#/5XX
+
+put:
+  summary: Update a system description
+  description: |-
+    This will only update the description of the system that is valid at the current
+    time and its validTime property cannot be changed. For more advanced modifications
+    of the system history, use the "history" sub collection.
+  tags:
+    - Systems
+  parameters:
+    - $ref: ../parameters/systemId.yaml
+  requestBody:
+    content:
+      application/geo+json:
+        schema:
+          $ref: ../schemas/geojson/system.json
+      application/sml+json:
+        schema:
+          $ref: ../schemas/sensorml/system.json
+  responses:
+    '204':
+      $ref: ../responses/StandardResponses.yaml#/204_PUT
+    '400':
+      $ref: ../responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../responses/StandardResponses.yaml#/5XX
+
+delete:
+  summary: Delete a system resource
+  description: |-
+    This will delete the system and remove it from all collections it is associated to.
+
+    If the `cascade` parameter is used, all associated sub-resources hosted by the same server
+    (sampling features, datastreams, command streams, observations, and commmands) are also deleted.
+  tags:
+    - Systems
+  parameters:
+    - $ref: ../parameters/systemId.yaml
+    - $ref: ../parameters/cascade.yaml
+  responses:
+    '204':
+      $ref: ../responses/StandardResponses.yaml#/204_DELETE
+    '400':
+      $ref: ../responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../responses/StandardResponses.yaml#/404
+    '409':
+      $ref: ../responses/StandardResponses.yaml#/409_DELETE
+    '5XX':
+      $ref: ../responses/StandardResponses.yaml#/5XX

@@ -1,0 +1,6 @@
+name: systemId
+in: path
+description: Local identifier of a System
+required: true
+schema:
+  type: string

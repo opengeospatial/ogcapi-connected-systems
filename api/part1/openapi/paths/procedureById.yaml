@@ -1,0 +1,79 @@
+get:
+  summary: Retrieve a procedure description by ID
+  tags:
+    - Procedures
+  parameters:
+    - $ref: ../parameters/procedureId.yaml
+    #- $ref: '#/components/parameters/select'
+  responses:
+    '200':
+      description: OK. Successful request
+      content:
+        application/geo+json:
+          schema:
+            $ref: ../schemas/geojson/procedure.json
+        application/sml+json:
+          schema:
+            $ref: ../schemas/sensorml/procedure.json
+    '400':
+      $ref: ../responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../responses/StandardResponses.yaml#/5XX
+
+put:
+  summary: Update a procedure description
+  tags:
+    - Procedures
+  parameters:
+    - $ref: ../parameters/procedureId.yaml
+  requestBody:
+    content:
+      application/geo+json:
+        schema:
+          $ref: ../schemas/geojson/procedure.json
+      application/sml+json:
+        schema:
+          $ref: ../schemas/sensorml/procedure.json
+  responses:
+    '204':
+      $ref: ../responses/StandardResponses.yaml#/204_PUT
+    '400':
+      $ref: ../responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../responses/StandardResponses.yaml#/5XX
+
+delete:
+  summary: Delete a procedure resource
+  description: |-
+    This will delete the procedure and remove it from all collections it is associated to.
+  tags:
+    - Procedures
+  parameters:
+    - $ref: ../parameters/procedureId.yaml
+  responses:
+    '204':
+      $ref: ../responses/StandardResponses.yaml#/204_DELETE
+    '400':
+      $ref: ../responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../responses/StandardResponses.yaml#/404
+    '409':
+      $ref: ../responses/StandardResponses.yaml#/409_DELETE
+    '5XX':
+      $ref: ../responses/StandardResponses.yaml#/5XX

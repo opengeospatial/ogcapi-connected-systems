@@ -1,0 +1,7 @@
+name: cascade
+in: query
+description: If set to true, dependent resources are also deleted.
+required: false
+schema:
+  type: boolean
+  default: false

@@ -1,26 +1,75 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
-  "required": ["href", "rel"],
+  "required": ["href"],
   "properties": {
     "href": {
+      "description": "URL of target resource",
       "type": "string",
-      "format": "uri"
+      "format": "uri",
+      "examples": [
+        "https://data.example.com/link/to/resource"
+      ]
     },
     "rel": {
-      "type": "string"
+      "description": "Link relation type",
+      "type": "string",
+      "examples": [
+        "alternate",
+        "self",
+        "http://www.opengis.net/def/rel/ogc/1.0/conformance"
+      ]
     },
     "type": {
-      "type": "string"
+      "description": "Media type of target resource",
+      "type": "string",
+      "examples": [
+        "application/json",
+        "image/tiff; application=geotiff"
+      ]
     },
     "hreflang": {
-      "type": "string"
+      "description": "Language tag of target resource (2-letter language code, followed by optional 2-letter region code)",
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^([a-z]{2}(-[A-Z]{2})?)|x-default$",
+      "examples": [
+        "en-US",
+        "fr-FR",
+        "de"
+      ]
     },
     "title": {
-      "type": "string"
+      "description": "Title of target resource",
+      "type": "string",
+      "minLength": 1,
+      "examples": [
+        "Resource Name"
+      ]
     },
-    "length": {
-      "type": "integer"
+    "uid": {
+      "description": "Unique identifier of target resource",
+      "type": "string",
+      "format": "uri",
+      "examples": [
+        "urn:x-org:resourceType:0001"
+      ]
+    },
+    "rt": {
+      "description": "Semantic type of target resource",
+      "type": "string",
+      "format": "uri",
+      "examples": [
+        "http://www.w3.org/ns/sosa/FeatureOfInterest"
+      ]
+    },
+    "if": {
+      "description": "Interface used to access target resource",
+      "type": "string",
+      "format": "uri",
+      "examples": [
+        "http://www.opengis.net/spec/ogcapi-features-1/1.0"
+      ]
     }
   }
 }

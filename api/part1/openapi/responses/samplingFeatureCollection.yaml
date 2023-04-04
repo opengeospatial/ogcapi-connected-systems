@@ -1,0 +1,31 @@
+description: OK. Successful request
+content:
+  application/json:
+    schema:
+      type: object
+      required: items
+      properties:
+        items:
+          type: array
+          items:
+            $ref: ../schemas/geojson/anySamplingFeature.json
+        links:
+          type: array
+          items:
+            $ref: ../schemas/common/link.json
+  application/geo+json:
+    schema:
+      type: object
+      required: features
+      properties:
+        type:
+          type: string
+          const: FeatureCollection
+        features:
+          type: array
+          items:
+            $ref: ../schemas/geojson/anySamplingFeature.json
+        links:
+          type: array
+          items:
+            $ref: ../schemas/common/link.json

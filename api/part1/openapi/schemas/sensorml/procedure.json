@@ -10,7 +10,6 @@
       ]  
     },
     {
-      "type": "object",
       "properties": {
         "definition": {
           "enum": [
@@ -25,7 +24,8 @@
           "not": {}
         },
         "links": {
-          "type": "array"
+          "description": "Other links to related resources",
+          "$ref": "../common/links.json"
         }
       }
     }

@@ -1,7 +1,0 @@
-description: A moving feature static data.
-content:
-  application/geo+json:
-    schema:
-      $ref: "../schemas/movingFeatureGeoJSON.yaml"
-    example:
-      $ref: "../examples/movingFeature.json"

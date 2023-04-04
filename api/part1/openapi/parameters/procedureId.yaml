@@ -1,0 +1,6 @@
+name: procedureId
+in: path
+description: Local identifier of a Procedure
+required: true
+schema:
+  type: string

@@ -1,0 +1,30 @@
+get:
+  summary: List deployments of a specific system
+  description: |-
+    
+  tags:
+    - Deployments
+    - Systems
+  parameters:
+    - $ref: ../parameters/systemId.yaml
+    - $ref: ../parameters/idList.yaml
+    - $ref: ../parameters/bbox.yaml
+    - $ref: ../parameters/datetime.yaml
+    - $ref: ../parameters/geom.yaml
+    - $ref: ../parameters/keyword.yaml
+    - $ref: ../parameters/foiIdList.yaml
+    #- $ref: '#/components/parameters/select'
+    - $ref: ../parameters/limit.yaml
+  responses:
+    '200':
+      $ref: ../responses/deploymentCollection.yaml
+    '400':
+      $ref: ../responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../responses/StandardResponses.yaml#/5XX

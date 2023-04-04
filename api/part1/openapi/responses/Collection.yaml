@@ -1,7 +1,5 @@
-description: The metadata being returned.
+description: Metadata for a feature collection.
 content:
   application/json:
     schema:
-      $ref: "../schemas/collection.yaml"
-    example:
-      $ref: "../examples/collection.json"
+      $ref: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/collection.yaml

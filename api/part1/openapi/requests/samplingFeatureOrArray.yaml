@@ -1,0 +1,13 @@
+description: One or more procedure resources
+required: true
+content:
+  application/geo+json:
+    schema:
+      oneOf:
+      - title: Single Feature
+        $ref: ../schemas/geojson/anySamplingFeature.json
+      - title: List of Features
+        type: array
+        minItems: 1
+        items:
+          $ref: ../schemas/geojson/anySamplingFeature.json

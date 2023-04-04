@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SamplingFeature",
   "allOf": [
     { "$ref": "feature.json" },
     {
@@ -10,7 +11,7 @@
           "required": [ "sampledFeature@link" ],
           "properties": {
             "sampledFeature@link": {
-              "$ref": "../common/commonDefs.json#/definitions/XLink"
+              "$ref": "../common/commonDefs.json#/definitions/Link"
             }
           }
         }

@@ -1,0 +1,13 @@
+oneOf:
+  - type: array
+    title: Local IDs 
+    minItems: 1
+    items:
+      type: string
+      minLength: 1
+      maxLength: 50
+  - type: array
+    title: Unique IDs
+    minItems: 1
+    items:
+      type: uri

@@ -3,11 +3,10 @@
   "allOf": [
     { "$ref": "feature.json" },
     {
-      "type": "object",
       "geometry": null,
       "properties": {
         "geometry": {
-          "type": "null"
+          "const": "null"
         }
       }
     }

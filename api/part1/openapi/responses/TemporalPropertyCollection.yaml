@@ -1,7 +1,0 @@
-description: A list of static data of Temporalproperty.
-content:
-  application/json:
-    schema:
-      $ref: "../schemas/temporalPropertyCollection.yaml"
-    example:
-      $ref: "../examples/temporalPropertyCollection.json"

@@ -1,0 +1,22 @@
+{
+  "conformsTo": [
+    "http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/core",
+    "http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/html",
+    "http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/json",
+    "http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/oas30",
+    "http://www.opengis.net/spec/ogcapi-common-2/0.0/conf/collections",
+    "http://www.opengis.net/spec/ogcapi-common-2/0.0/conf/html",
+    "http://www.opengis.net/spec/ogcapi-common-2/0.0/conf/json",
+    "http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/core",
+    "http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/geojson",
+    "http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/html",
+    "http://www.opengis.net/spec/ogcapi-features-4/1.0/conf/create-replace-delete",
+    "http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/conf/core",
+    "http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/conf/system-features",
+    "http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/conf/procedure-features",
+    "http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/conf/deployment-features",
+    "http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/conf/sampling-features",
+    "http://www.opengis.net/spec/ogcapi-connectedsystems-2/1.0/conf/encoding/geojson",
+    "http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/conf/encoding/sensorml"
+  ]
+}

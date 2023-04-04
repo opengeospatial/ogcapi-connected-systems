@@ -1,0 +1,23 @@
+'201':
+  description: Success. New resource created.
+  headers:
+    Location:
+      schema:
+        type: string
+      description: URI of newly created resource
+'204_PUT':
+  description: Success. Resource updated.
+'204_DELETE':
+  description: Success. Resource deleted.
+'400':
+  description: Bad request. Either the query parameters or the content body are invalid.
+'401':
+  description: No authentication information was provided.
+'403':
+  description: The user doesn't have the necessary permissions to access the resource.
+'404':
+  description: No resource was found with the specified URL.
+'409_DELETE':
+  description: The resource cannot be deleted because other resources depend on it.
+'5XX':
+  description: Unexpected server error. Only retry on 502 and 503.

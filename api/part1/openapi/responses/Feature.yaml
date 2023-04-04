@@ -1,0 +1,9 @@
+description: Feature resource
+content:
+  application/geo+json:
+    schema:
+      allOf:
+        - $ref: ../schemas/geojson/feature.json
+        - type: object
+          required: 
+            - id
