@@ -65,7 +65,7 @@
           "label": "Ground Resolution",
           "uom": { "code": "m" },
           "constraint": {
-            "intervals": [[0.5, 10.0]]
+            "intervals": [[0.1, 10.0]]
           }
         },
         {
