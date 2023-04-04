@@ -1,7 +1,7 @@
 {
-  "$schema": "../physicalSystem.json",
+  "$schema": "../PhysicalSystem.json",
   "type": "PhysicalSystem",
-  "id": "g7qgqjt7276pa",
+  "id": "qgqjt7276pa",
   "uniqueId": "urn:osh:sensor:simweather:0123456879",
   "definition": "http://www.w3.org/ns/sosa/Sensor",
   "name": "Simulated Weather Sensor",

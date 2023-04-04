@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "allOf": [
+    { "$ref": "DescribedObject.json" },
+    {
+      "properties": {
+        "type": {
+          "const": "Deployment"
+        },
+        "location": {
+          "description": "The deployment location or area",
+          "$ref": "https://geojson.org/schema/Geometry.json"
+        },
+        "members": {
+          "description": "The list of deployed systems",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "commonDefs.json#/definitions/XLink"
+          }
+        }
+      },
+      "required": [ "members" ]
+    }
+  ]
+}

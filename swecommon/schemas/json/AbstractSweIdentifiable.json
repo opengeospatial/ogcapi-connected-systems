@@ -16,7 +16,7 @@
         "description": {
           "description": "Textual description (i.e. human readable) of the data component usually used to clarify its nature",
           "type": "string",
-          "minLength": 3
+          "minLength": 1
         }
       }
     }

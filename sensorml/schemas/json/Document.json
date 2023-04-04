@@ -3,12 +3,15 @@
   "type": "object",
   "properties": {
     "name": {
+      "description": "Name of the document",
       "type": "string"
     },
     "description": {
+      "description": "Human readable description of the document",
       "type": "string"
     },
     "linkage": {
+      "description": "URI of the document (Favor a URL if the document is directly accessible online)",
       "$ref": "commonDefs.json#/definitions/XLink"
     }
   },

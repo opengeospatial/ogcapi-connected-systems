@@ -7,6 +7,7 @@
       "type": "object",
       "properties": {
         "id": {
+          "description": "The ID of the object, referenceable using a URI fragment",
           "type": "string",
           "minLength": 1
         }
@@ -29,33 +30,48 @@
         }
       },
       "oneOf": [
-        { "required": [ "code" ] },
-        { "required": [ "href" ] }
+        {
+          "title": "UCUM Code",
+          "required": [ "code" ]
+        },
+        {
+          "title": "URI",
+          "required": [ "href" ]
+        }
       ],
       "additionalProperties": false
     },
     "AllowedTokens": {
       "description": "Defines permitted values for the component, as an enumerated list of tokens or a regular expression pattern",
       "type": "object",
-      "properties": {
-        "values": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "minLength": 1
-          }
-        },
-        "pattern": {
-          "type": "string",
-          "format": "regex",
-          "minLength": 1
-        }
-      },
       "oneOf": [
-        { "required": [ "values" ] },
-        { "required": [ "pattern" ] }
-      ],
-      "additionalProperties": false
+        {
+          "title": "Enum Values",
+          "properties": {
+            "values": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "required": [ "values" ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Regex Pattern",
+          "properties": {
+            "pattern": {
+              "type": "string",
+              "format": "regex",
+              "minLength": 1
+            }
+          },
+          "required": [ "pattern" ],
+          "additionalProperties": false
+        }
+      ]
     },
     "AllowedValues": {
       "description": "Defines the permitted values for the component as an enumerated list and/or a list of inclusive ranges",
@@ -63,7 +79,7 @@
       "properties": {
         "values": {
           "type": "array",
-          "minItems": 3,
+          "minItems": 1,
           "items": {
             "$ref": "#/definitions/NumberOrSpecial"
           }
@@ -86,9 +102,15 @@
           "maximum": 40
         }
       },
-      "oneOf": [
-        { "required": [ "values" ] },
-        { "required": [ "intervals" ] }
+      "anyOf": [
+        {
+          "title": "Enum Values",
+          "required": [ "values" ]
+        },
+        {
+          "title": "Intervals",
+          "required": [ "intervals" ]
+        }
       ],
       "additionalProperties": false
     },
@@ -98,6 +120,7 @@
       "properties": {
         "values": {
           "type": "array",
+          "minItems": 1,
           "items": {
             "$ref": "#/definitions/DateTimeNumberOrSpecial"
           }
@@ -119,9 +142,15 @@
           "maximum": 40
         }
       },
-      "oneOf": [
-        { "required": [ "values" ] },
-        { "required": [ "intervals" ] }
+      "anyOf": [
+        {
+          "title": "Enum Values",
+          "required": [ "values" ]
+        },
+        {
+          "title": "Intervals",
+          "required": [ "intervals" ]
+        }
       ],
       "additionalProperties": false
     },
@@ -209,11 +238,15 @@
       "type": "object",
       "properties": {
         "name": {
-          "type": "string",
-          "minLength": 1
+          "$ref": "#/definitions/NameToken"
         }
       },
       "required": [ "name" ]
+    },
+    "NameToken": {
+      "type": "string",
+      "minLength": 1,
+      "regex": "^[A-Za-z][A-Za-z0-9_\\-]*$"
     },
     "AssociationAttributeGroup": {
       "type": "object",
@@ -239,13 +272,21 @@
     },
     "NumberOrSpecial": {
       "oneOf": [
-        { "type": "number" },
-        { "enum": ["NaN", "+Infinity", "-Infinity"] }
+        {
+          "title": "Number",
+          "type": "number"
+        },
+        {
+          "title": "Special Value",
+          "type": "string",
+          "enum": ["NaN", "+Infinity", "-Infinity"]
+        }
       ]
     },
     "DateTimeNumberOrSpecial": {
       "oneOf": [
         {
+          "title": "Date/Time",
           "type": "string",
           "format": "date-time"
         },

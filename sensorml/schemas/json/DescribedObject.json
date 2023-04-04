@@ -8,32 +8,30 @@
     {
       "properties": {
         "lang": {
+          "description": "Language of this document",
           "type": "string"
-        },
-        "extensions": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": true
-          }
         },
         "definition": {
           "type": "string",
           "format": "uri"
         },
         "keywords": {
+          "description": "Short keywords describing the context of this document to aid in discovery.",
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "minLength": 1
           }
         },
         "identifiers": {
+          "description": "Additional identifiers for the asset, useful for discovery (e.g. short name, mission id, model number, serial number, etc.).",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Term"
           }
         },
         "classifiers": {
+          "description": "Classifiers for the asset, useful for discovery (e.g. process type, sensor type, intended application, etc.).",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Term"
@@ -43,6 +41,7 @@
           "$ref": "commonDefs.json#/definitions/TimePeriod"
         },
         "securityConstraints": {
+          "description": "Overall security tagging of process description; Individual tagging of properties can be done using extension properties.",
           "type": "array",
           "items": {
             "type": "object",
@@ -50,36 +49,42 @@
           }
         },
         "legalConstraints": {
+          "description": "Legal constraints applied to this description (e.g. copyrights, legal use, etc.)",
           "type": "array",
           "items": {
             "$ref": "LegalConstraint.json"
           }
         },
         "characteristics": {
+          "description": "Groups of characteristics applicable to this asset under various conditions",
           "type": "array",
           "items": {
             "$ref": "#/definitions/CharacteristicList"
           }
         },
         "capabilities": {
+          "description": "Groups of capabilities applicable to this asset under various conditions",
           "type": "array",
           "items": {
             "$ref": "#/definitions/CapabilityList"
           }
         },
         "contacts": {
+          "description": "The list of contacts related to this asset",
           "type": "array",
           "items": {
             "$ref": "ResponsibleParty.json"
           }
         },
         "documentation": {
+          "description": "Additional documentation about the asset",
           "type": "array",
           "items": {
             "$ref": "Document.json"
           }
         },
         "history": {
+          "description": "The list of events related to this asset",
           "type": "array",
           "items": {
             "$ref": "Event.json"
@@ -98,19 +103,22 @@
           "type": "object",
           "properties": {
             "name": {
-              "type": "string"
+              "$ref": "sweCommonDefs.json#/definitions/NameToken"
             },
             "definition": {
+              "description": "The semantic definition for this group of capabilities.",
               "type": "string",
               "format": "uri"
             },
             "conditions": {
+              "description": "The conditions under which the characteristics apply.",
               "type": "array",
               "items": {
                 "$ref": "sweCommonDefs.json#/definitions/AnySimpleComponent"
               }
             },
-            "characteristics": {
+            "items": {
+              "description": "The list of characteristics in this group.",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/AnyProperty"
@@ -128,22 +136,26 @@
           "$ref": "sweCommonDefs.json#/definitions/AbstractSWEIdentifiable"
         },
         {
+          "description": "A group of capabilities.",
           "type": "object",
           "properties": {
             "name": {
-              "type": "string"
+              "$ref": "sweCommonDefs.json#/definitions/NameToken"
             },
             "definition": {
+              "description": "The semantic definition for this group of capabilities.",
               "type": "string",
               "format": "uri"
             },
             "conditions": {
+              "description": "The conditions under which the capabilities apply.",
               "type": "array",
               "items": {
                 "$ref": "sweCommonDefs.json#/definitions/AnySimpleComponent"
               }
             },
-            "capabilities": {
+            "items": {
+              "description": "The list of capabilities in this group.",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/AnyProperty"
@@ -163,14 +175,16 @@
           "format": "uri"
         },
         "label": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "codeSpace": {
           "type": "string",
           "format": "uri"
         },
         "value": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         }
       },
       "required": [

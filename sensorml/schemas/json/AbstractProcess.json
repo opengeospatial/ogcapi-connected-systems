@@ -8,12 +8,12 @@
     {
       "properties": {
         "definition": {
-          "description": "An optional property that allows one to reference the process instance in an online ontology or dictionary. The value of the property must be a resolvable URI.",
+          "description": "The semantic type of the process as a reference to a concept in an online ontology or dictionary. The value of the property must be a resolvable URI.",
           "type": "string",
           "format": "uri"
         },
         "typeOf": {
-          "description": "A reference to a base process from which this process inherits properties and constraints (e.g. original equipment manufacturer's model description, generic equation, etc.). The uniqueID of the referenced process must be provided using the xlink:title attribute while the URL to the process description must be provided by the xlink:href attribute.",
+          "description": "A reference to a base process from which this process inherits properties and constraints (e.g. original equipment manufacturer's model description, generic equation, etc.).",
           "$ref": "commonDefs.json#/definitions/XLink"
         },
         "configuration": {
@@ -21,19 +21,19 @@
           "$ref": "Settings.json"
         },
         "featuresOfInterest": {
-          "description": "A collection of features relevant to a process (e.g. the Gulf of Mexico, the White House, the set of all Fibonacci Numbers, etc.); can also support a sampling feature. The primary purpose of the Features of Interest is to support discovery.",
+          "description": "A collection of sampling features or domain features relevant to the process (e.g. the Gulf of Mexico, the White House, the Atmosphere, a vehicle, etc.).",
           "$ref": "#/definitions/FeatureList"
         },
         "inputs": {
-          "description": "The list of data components (and their properties and semantics) that the process will accept as input; In the standard linear equation y=mx+b; x is the input, m and b are the parameters, and y is the output.",
+          "description": "The list of process or system inputs.",
           "$ref": "#/definitions/InputList"
         },
         "outputs": {
-          "description": "The list of data components (and their properties and semantics) that the process will accept as output; In the standard linear equation y=mx+b; x is the input, m and b are the parameters, and y is the output.",
+          "description": "The list of process or system outputs.",
           "$ref": "#/definitions/OutputList"
         },
         "parameters": {
-          "description": "The list of data components (and their properties and semantics) that the process will accept as parameters; In the standard linear equation y=mx+b; x is the input, m and b are the parameters, and y is the output.",
+          "description": "The list of process or system parameters.",
           "$ref": "#/definitions/ParameterList"
         },
         "modes": {
@@ -48,10 +48,15 @@
   ],
   "definitions": {
     "FeatureList": {
-
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "commonDefs.json#/definitions/XLink"
+      }
     },
     "InputList": {
       "type": "array",
+      "minItems": 1,
       "items": {
         "oneOf": [
           { "$ref": "sweCommonDefs.json#/definitions/AnyComponent" },
@@ -61,6 +66,7 @@
     },
     "OutputList": {
       "type": "array",
+      "minItems": 1,
       "items": {
         "oneOf": [
           { "$ref": "sweCommonDefs.json#/definitions/AnyComponent" },
@@ -70,6 +76,7 @@
     },
     "ParameterList": {
       "type": "array",
+      "minItems": 1,
       "items": {
         "$ref": "sweCommonDefs.json#/definitions/AnyComponent"
       }

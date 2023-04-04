@@ -2,28 +2,29 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
-    "$schema": {
-      "type": "string"
-    },
     "type": {
+      "description": "Type of object",
       "type": "string"
     },
     "id": {
-      "description": "Locally unique ID of the object (e.g. unique to a server or to a particular dataset).",
-      "type": "string"
+      "description": "Local ID of the feature (e.g. locally unique on a server)",
+      "type": "string",
+      "minLength": 1
     },
     "description": {
-      "description": "A textual description of the object.",
-      "type": "string"
+      "description": "A textual description of the feature",
+      "type": "string",
+      "minLength": 1
     },
     "uniqueId": {
-      "description": "URI serving as a globally unique identifier for the object, typically a URN",
+      "description": "URI serving as the globally unique identifier of the feature (typically a URN)",
       "type": "string",
       "format": "uri"
     },
     "name": {
-      "description": "A human readable label for the object.",
-      "type": "string"
+      "description": "A human readable label for the feature",
+      "type": "string",
+      "minLength": 1
     }
   },
   "required": [

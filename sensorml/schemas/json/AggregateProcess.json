@@ -11,6 +11,7 @@
           "const": "AggregateProcess"
         },
         "components": {
+          "description": "The list of sub-processes",
           "$ref": "#/definitions/ComponentList"
         },
         "connections": {
@@ -22,7 +23,11 @@
   ],
   "definitions": {
     "ComponentList": {
-
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "commonDefs.json#/definitions/XLink"
+      }
     },
     "ConnectionList": {
 

@@ -33,6 +33,9 @@
           "$ref": "../../../swecommon/schemas/json/sweCommon.json#/definitions/AnyComponent"
         }
       ]
+    },
+    "NameToken": {
+      "$ref": "../../../swecommon/schemas/json/basicTypes.json#/definitions/NameToken"
     }
   }
 }

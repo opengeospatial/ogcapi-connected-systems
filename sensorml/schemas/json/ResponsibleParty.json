@@ -24,8 +24,14 @@
     "role"
   ],
   "oneOf": [
-    { "required": ["individualName"] },
-    { "required": ["organisationName"] }
+    { 
+      "title": "Individual",
+      "required": ["individualName"]
+    },
+    { 
+      "title": "Organization",
+      "required": ["organisationName"]
+    }
   ],
   "definitions": {
     "Contact": {
