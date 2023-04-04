@@ -1,5 +1,5 @@
 {
-  "$schema": "../schemas/physicalSystem.json",
+  "$schema": "../physicalSystem.json",
   "type": "PhysicalSystem",
   "id": "g7qgqjt7276pa",
   "uniqueId": "urn:osh:sensor:simweather:0123456879",
@@ -8,25 +8,21 @@
   "description": "Simulated weather station generating realistic pseudo-random measurements",
   "identifiers": [
     {
-      "type": "Term",
       "definition": "http://sensorml.com/ont/swe/property/LongName",
       "label": "Long Name",
       "value": "Davis Vantage Pro2 Weather Station"
     },
     {
-      "type": "Term",
       "definition": "http://sensorml.com/ont/swe/property/ShortName",
       "label": "Short Name",
       "value": "Vantage Pro2"
     },
     {
-      "type": "Term",
       "definition": "http://sensorml.com/ont/swe/property/Manufacturer",
       "label": "Manufacturer",
       "value": "Davis Instruments"
     },
     {
-      "type": "Term",
       "definition": "http://sensorml.com/ont/swe/property/SerialNumber",
       "label": "Serial Number",
       "value": "0123456879"
@@ -34,13 +30,11 @@
   ],
   "classifiers": [
     {
-      "type": "Term",
       "definition": "http://sensorml.com/ont/swe/property/Application",
       "label": "Intended Application",
       "value": "weather"
     },
     {
-      "type": "Term",
       "definition": "http://sensorml.com/ont/swe/property/SensorType",
       "label": "Instrument Type",
       "codeSpace": "https://gcmd.earthdata.nasa.gov/kms/concepts/concept_scheme/instruments",
@@ -56,6 +50,9 @@
       "name": "operating_specs",
       "definition": "http://www.w3.org/ns/ssn/systems/OperatingRange",
       "label": "Operating Characteristics",
+      "conditions": [
+        
+      ],
       "characteristics": [
         {
           "name": "voltage",

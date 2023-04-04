@@ -3,7 +3,7 @@
   "type": "object",
   "allOf": [
     {
-      "$ref": "abstractPhysicalProcess.json"
+      "$ref": "AbstractPhysicalProcess.json"
     },
     {
       "properties": {

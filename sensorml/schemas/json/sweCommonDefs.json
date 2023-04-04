@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "AbstractSWE": {
+      "$ref": "../../../swecommon/schemas/json/basicTypes.json#/definitions/AbstractSWE"
+    },
+    "AbstractSWEIdentifiable": {
+      "$ref": "../../../swecommon/schemas/json/AbstractSweIdentifiable.json"
+    },
+    "Vector": {
+      "$ref": "../../../swecommon/schemas/json/Vector.json"
+    },
+    "Matrix": {
+      "$ref": "../../../swecommon/schemas/json/Matrix.json"
+    },
+    "DataArray": {
+      "$ref": "../../../swecommon/schemas/json/DataArray.json"
+    },
+    "AnySimpleComponent": {
+      "$ref": "../../../swecommon/schemas/json/sweCommon.json#/definitions/AnySimpleComponent"
+    },
+    "AnyComponent": {
+      "allOf": [
+        {
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [ "name" ]
+        },
+        {
+          "$ref": "../../../swecommon/schemas/json/sweCommon.json#/definitions/AnyComponent"
+        }
+      ]
+    }
+  }
+}

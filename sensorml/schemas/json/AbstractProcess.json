@@ -3,7 +3,7 @@
   "type": "object",
   "allOf": [
     {
-      "$ref": "describedObject.json"
+      "$ref": "DescribedObject.json"
     },
     {
       "properties": {
@@ -18,7 +18,7 @@
         },
         "configuration": {
           "description": "Value settings that further constrain the properties of the base process.",
-          "$ref": "settings.json"
+          "$ref": "Settings.json"
         },
         "featuresOfInterest": {
           "description": "A collection of features relevant to a process (e.g. the Gulf of Mexico, the White House, the set of all Fibonacci Numbers, etc.); can also support a sampling feature. The primary purpose of the Features of Interest is to support discovery.",

@@ -3,7 +3,7 @@
   "type": "object",
   "allOf": [
     {
-      "$ref": "abstractFeature.json"
+      "$ref": "AbstractFeature.json"
     },
     {
       "properties": {
@@ -52,7 +52,7 @@
         "legalConstraints": {
           "type": "array",
           "items": {
-            "$ref": "legalConstraint.json"
+            "$ref": "LegalConstraint.json"
           }
         },
         "characteristics": {
@@ -70,19 +70,19 @@
         "contacts": {
           "type": "array",
           "items": {
-            "$ref": "responsibleParty.json"
+            "$ref": "ResponsibleParty.json"
           }
         },
         "documentation": {
           "type": "array",
           "items": {
-            "$ref": "document.json"
+            "$ref": "Document.json"
           }
         },
         "history": {
           "type": "array",
           "items": {
-            "$ref": "event.json"
+            "$ref": "Event.json"
           }
         }
       }
@@ -104,10 +104,16 @@
               "type": "string",
               "format": "uri"
             },
+            "conditions": {
+              "type": "array",
+              "items": {
+                "$ref": "sweCommonDefs.json#/definitions/AnySimpleComponent"
+              }
+            },
             "characteristics": {
               "type": "array",
               "items": {
-                "$ref": "sweCommonDefs.json#/definitions/AnyComponent"
+                "$ref": "#/definitions/AnyProperty"
               }
             }
           },
@@ -131,10 +137,16 @@
               "type": "string",
               "format": "uri"
             },
+            "conditions": {
+              "type": "array",
+              "items": {
+                "$ref": "sweCommonDefs.json#/definitions/AnySimpleComponent"
+              }
+            },
             "capabilities": {
               "type": "array",
               "items": {
-                "$ref": "sweCommonDefs.json#/definitions/AnyComponent"
+                "$ref": "#/definitions/AnyProperty"
               }
             }
           },
@@ -145,39 +157,35 @@
     },
     "Term": {
       "type": "object",
-      "allOf": [
-        {
-          "$ref": "sweCommonDefs.json#/definitions/AbstractSWE"
+      "properties": {
+        "definition": {
+          "type": "string",
+          "format": "uri"
         },
-        {
-          "additionalProperties": false,
-          "properties": {
-            "type": {
-              "const": "Term"
-            },
-            "definition": {
-              "type": "string",
-              "format": "uri"
-            },
-            "label": {
-              "type": "string"
-            },
-            "codeSpace": {
-              "type": "string",
-              "format": "uri"
-            },
-            "value": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "type",
-            "label",
-            "value"
-          ]
+        "label": {
+          "type": "string"
+        },
+        "codeSpace": {
+          "type": "string",
+          "format": "uri"
+        },
+        "value": {
+          "type": "string"
         }
+      },
+      "required": [
+        "label",
+        "value"
       ],
       "unevaluatedProperties": false
+    },
+    "AnyProperty": {
+      "oneOf": [
+        { "$ref": "sweCommonDefs.json#/definitions/AnySimpleComponent" },
+        { "$ref": "sweCommonDefs.json#/definitions/Vector" },
+        { "$ref": "sweCommonDefs.json#/definitions/DataArray" },
+        { "$ref": "sweCommonDefs.json#/definitions/Matrix" }
+      ]
     }
   }
 }
