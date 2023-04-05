@@ -7,7 +7,7 @@ get:
     - Systems
   parameters:
     - $ref: ../parameters/systemId.yaml
-    - $ref: ../parameters/datetime.yaml
+    #- $ref: ../parameters/datetime.yaml # should be only time instant if history supported
     #- $ref: '#/components/parameters/select'
   responses:
     '200':
