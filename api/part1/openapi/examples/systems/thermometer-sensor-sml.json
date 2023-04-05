@@ -6,10 +6,10 @@
   "name": "Outdoor Thermometer 001",
   "description": "Digital thermometer located on first floor window 1",
   "typeOf": {
-    "href": "https://data.example.org/api/procedures/P456/procedure?f=json",
-    "type" : "application/geo+json",
+    "href": "https://data.example.org/api/procedures/TP60S?f=sml",
     "uid": "urn:x-myorg:datasheets:ThermoPro:TP60S:v001",
-    "title": "ThermoPro TP60S"
+    "title": "ThermoPro TP60S",
+    "type" : "application/sml+json"
   },
   "identifiers": [
     {
@@ -27,18 +27,5 @@
   "position": {
     "type": "Point",
     "coordinates": [41.8781, -87.6298]
-  },
-  "links": [
-    {
-      "rel" : "self",
-      "title" : "this document",
-      "href" : "https://data.example.org/api/systems/123?f=sml",
-      "type" : "application/sml+json"
-    }, {
-      "rel" : "alternate",
-      "title" : "this resource as GeoJSON",
-      "href" : "https://data.example.org/api/systems/123?f=json",
-      "type" : "application/geo+json"
-    }
-  ]
+  }
 }

@@ -1,4 +1,4 @@
-description: OK. Successful request
+description: Success. Several new resources created.
 content:
   application/json:
     schema:
