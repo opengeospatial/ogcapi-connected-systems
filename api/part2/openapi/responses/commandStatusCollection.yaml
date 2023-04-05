@@ -8,25 +8,13 @@ content:
         items:
           type: array
           items:
-            $ref: ../schemas/json/command.json
+            $ref: ../schemas/json/commandStatus.json
             required:
               - id
-              - control@id
-              - issueTime
+              - command@id
+              - reportTime
               - userId
               - currentStatus
-        links:
-          description: Links to related resources (including paging)
-          $ref: ../schemas/common/commonDefs.json#/definitions/Links
-  application/swe+json:
-    schema:
-      type: object
-      required: items
-      properties:
-        items:
-          type: array
-          items:
-            type: object
         links:
           description: Links to related resources (including paging)
           $ref: ../schemas/common/commonDefs.json#/definitions/Links

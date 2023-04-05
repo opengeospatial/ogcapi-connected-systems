@@ -1,0 +1,53 @@
+get:
+  summary: List all commands from a control stream
+  description: |-
+    List or search all commands available from a control stream.
+  tags:
+    - Commands
+  parameters:
+    - $ref: ../parameters/controlStreamId.yaml
+    - $ref: ../../../part1/openapi/parameters/idList.yaml
+    - $ref: ../parameters/issueTime.yaml
+    - $ref: ../parameters/executionTime.yaml
+    - $ref: ../../../part1/openapi/parameters/foiIdList.yaml
+    - $ref: ../../../part1/openapi/parameters/controlPropIdList.yaml
+    #- $ref: '#/components/parameters/select'
+    - $ref: ../../../part1/openapi/parameters/limit.yaml
+  responses:
+    '200':
+      $ref: ../responses/commandCollection.yaml
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
+
+post:
+  summary: Add new commands
+  description: |-
+    Add one or more new `Command` resources. Commands are always added to a parent control stream.
+  tags:
+    - Commands
+  parameters:
+    - $ref: ../parameters/controlStreamId.yaml
+  requestBody:
+    $ref: ../requests/commandOrArray.yaml
+  responses:
+    '201':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/201
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
+  

@@ -96,3 +96,6 @@ paths:
 
   /commands/{cmdId}:
     $ref: paths/commandById.yaml
+
+  /commands/{cmdId}/status:
+    $ref: paths/commandStatus.yaml

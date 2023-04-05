@@ -1,10 +1,13 @@
 description: OK. Successful request
 content:
-  application/om+json:
+  application/json:
     schema:
       $ref: ../schemas/json/command.json
       required:
         - id
+        - control@id
+        - issueTime
+        - userId
         - currentStatus
       properties:
         links:

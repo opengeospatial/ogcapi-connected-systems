@@ -1,0 +1,16 @@
+name: reportTime
+in: query
+description: |-
+  Either a date-time or an interval. Date and time expressions adhere to RFC 3339. 
+  Intervals may be bounded or half-bounded (double-dots at start or end).
+
+  Only resources with a `reportTime` temporal property that intersects the value of the
+  `reportTime` parameter are selected.
+required: false
+schema:
+  $ref: ../../../part1/openapi/parameters/datetimeSchema.yaml
+style: form
+explode: false
+
+examples:
+  $ref: ../../../part1/openapi/parameters/datetimeExamples.yaml

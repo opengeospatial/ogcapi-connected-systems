@@ -24,6 +24,6 @@
     }
   },
   "required": [
-    "control@id", "issueTime", "userId", "params"
+    "params"
   ]
 }
