@@ -5,22 +5,18 @@ get:
   tags:
     - Datastreams
   parameters:
+    - $ref: ../../../part1/openapi/parameters/idList.yaml
+    - $ref: ../../../part1/openapi/parameters/keyword.yaml
     - $ref: ../parameters/phenomenonTime.yaml
     - $ref: ../parameters/resultTime.yaml
-    - $ref: ../../../part1/openapi/parameters/keyword.yaml
     - $ref: ../../../part1/openapi/parameters/systemIdList.yaml
     - $ref: ../../../part1/openapi/parameters/foiIdList.yaml
     - $ref: ../../../part1/openapi/parameters/obsPropIdList.yaml
-    - $ref: ../../../part1/openapi/parameters/controlPropIdList.yaml
     #- $ref: '#/components/parameters/select'
     - $ref: ../../../part1/openapi/parameters/limit.yaml
   responses:
     '200':
-      description: OK. Successful request
-      content:
-        application/json:
-          schema:
-            $ref: ../schemas/json/datastreamCollection.json
+      $ref: ../responses/datastreamCollection.yaml
     '400':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
     '401':

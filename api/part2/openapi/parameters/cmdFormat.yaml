@@ -1,0 +1,6 @@
+name: cmdFormat
+in: query
+description: Media type of the desired command format
+required: true
+schema:
+  type: string

@@ -3,24 +3,55 @@
   "type": "object",
   "properties": {
     "id": {
+      "description": "Local ID of the observation",
       "type": "string"
     },
     "datastream@id": {
+      "description": "Local ID of the datastream that this observation is part of",
       "type": "string"
     },
     "foi@id": {
+      "description": "Local ID of the sampling feature that this observation applies to",
       "type": "string"
     },
     "phenomenonTime": {
+      "description": "Time at which the observation result is a valid estimate of the sampling feature",
       "$ref": "../common/commonDefs.json#/definitions/TimeInstant"
     },
     "resultTime": {
+      "description": "Time at which the observation result was generated",
       "$ref": "../common/commonDefs.json#/definitions/TimeInstant"
     },
     "result": {
+      "description": "Result of the observation",
+      "oneOf": [
+        {
+          "title": "Inline data"
+        },
+        {
+          "title": "Link to external data",
+          "$ref": "../common/commonDefs.json#/definitions/Link"
+        }
+      ]
     }
   },
   "required": [
     "datastream@id", "phenomenonTime", "resultTime", "result"
-  ]
+  ],
+
+  "examples": [
+    {
+      "id": "fefaig45w46v5186d6w",
+      "datastream@id": "f44f85rrt",
+      "foi@id": "55f48g48th",
+      "phenomenonTime": "2023-04-03T18:45:23Z",
+      "resultTime": "2023-04-03T18:45:23Z",
+      "result": {
+        "href": "https://data.x-ecmwf.int/wms?service=WMS&version=1.1.0&request=GetMap&format=image/tiff&layers=HRES-2T-20230215-0600-T1&bbox=-180,90,180,-90&width=3600&height=1800&srs=EPSG:4326",
+        "title": "Imagery on external WMS server",
+        "type": "image/tiff; application=geotiff",
+        "if": "http://www.opengis.net/def/serviceType/ogc/wms/1.1"
+      }
+    }
+]
 }

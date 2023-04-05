@@ -1,6 +1,6 @@
 name: obsFormat
 in: query
-description: Media type of the desired format
+description: Media type of the desired observation format
 required: true
 schema:
   type: string

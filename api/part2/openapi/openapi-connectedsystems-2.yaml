@@ -29,13 +29,23 @@ tags:
     description: |-
       Datastreams allow access to dynamic data produced by systems, in various formats.
 
-      They also provide metadata for describing the properties included in the data (i.e. schema).
+      They also provide metadata describing the exact meaning of properties included in the data.
+
   - name: Observations
     description: Access to historical and real-time observations.
-  - name: Controls
-    description: Control channels allow access to historical and/or real-time commands.
+
+  - name: Control Streams
+    description: |-
+      Control streams represent control channels used to send commands to systems.
+
+      They also provide metadata describing the exact meaning and content of command messages.
+
+  - name: Commands
+    description: Access to historical and real-time commands.
+
   - name: System Events
-    description: System events are used to notify users of changes one or more systems.
+    description: System events are used to notify users of changes to one or more systems.
+
   - name: System History
     description: Advanced access to historical system descriptions.
 
@@ -43,13 +53,46 @@ paths:
   
   # Datastreams
   /datastreams:
-    $ref: paths/datastreams.yaml
+    $ref: paths/dataStreams.yaml
 
   /systems/{systemId}/datastreams:
-    $ref: paths/systemDatastreams.yaml
+    $ref: paths/systemDataStreams.yaml
 
-  /datastreams/{datastreamId}:
-    $ref: paths/datastreamById.yaml
+  /datastreams/{dataStreamId}:
+    $ref: paths/dataStreamById.yaml
 
-  /datastreams/{datastreamId}/schema:
-    $ref: paths/datastreamSchemas.yaml
+  /datastreams/{dataStreamId}/schema:
+    $ref: paths/dataStreamSchemas.yaml
+
+  # Observations
+  /observations:
+    $ref: paths/observations.yaml
+
+  /datastreams/{dataStreamId}/observations:
+    $ref: paths/dataStreamObservations.yaml
+
+  /observations/{obsId}:
+    $ref: paths/observationById.yaml
+
+  # Control Streams
+  /controls:
+    $ref: paths/controlStreams.yaml
+
+  /systems/{systemId}/controls:
+    $ref: paths/systemControlStreams.yaml
+
+  /controls/{controlStreamId}:
+    $ref: paths/controlStreamById.yaml
+
+  /controls/{controlStreamId}/schema:
+    $ref: paths/controlStreamSchemas.yaml
+
+  # Commands
+  /commands:
+    $ref: paths/commands.yaml
+
+  /controls/{controlStreamId}/commands:
+    $ref: paths/controlStreamCommands.yaml
+
+  /commands/{cmdId}:
+    $ref: paths/commandById.yaml

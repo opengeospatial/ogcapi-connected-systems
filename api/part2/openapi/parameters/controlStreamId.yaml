@@ -1,0 +1,6 @@
+name: controlStreamId
+in: path
+description: Local identifier of a Control Stream
+required: true
+schema:
+  type: string

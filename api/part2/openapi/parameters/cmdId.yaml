@@ -1,0 +1,6 @@
+name: cmdId
+in: path
+description: Local identifier of a Command
+required: true
+schema:
+  type: string

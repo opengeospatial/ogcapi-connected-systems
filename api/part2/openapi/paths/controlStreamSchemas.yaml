@@ -1,24 +1,27 @@
 get:
-  summary: Retrieve a datastream schema for a given format
+  summary: Retrieve a control stream schema for a given format
   description: 
   tags:
-    - Datastreams
+    - Control Streams
   parameters:
-    - $ref: ../parameters/datastreamId.yaml
-    - $ref: ../parameters/obsFormat.yaml
+    - $ref: ../parameters/controlStreamId.yaml
+    - $ref: ../parameters/cmdFormat.yaml
   responses:
     '200':
       description: OK. Successful request
       content:
+        application/json:
+          schema:
+            $ref: ../schemas/json/controlStreamSchemaJson.json
         application/swe+json:
           schema:
-            $ref: ../schemas/json/datastreamSchemaSwe.json
+            $ref: ../schemas/json/controlStreamSchemaSwe.json
         application/swe+csv:
           schema:
-            $ref: ../schemas/json/datastreamSchemaSwe.json
+            $ref: ../schemas/json/controlStreamSchemaSwe.json
         application/swe+protobuf:
           example:
-            $ref: ../examples/schemas/example.proto
+            $ref: ../examples/schemas/controlStreamSchema.proto
     '400':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
     '401':

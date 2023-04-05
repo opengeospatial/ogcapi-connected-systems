@@ -5,6 +5,6 @@
   "minItems": 2,
   "maxItems": 2,
   "items": {
-    "$ref": "timeInstant.json"
+    "$ref": "timeInstantOrNow.json"
   }
 }

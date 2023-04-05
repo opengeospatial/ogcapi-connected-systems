@@ -1,0 +1,29 @@
+get:
+  summary: List all available commands
+  description: |-
+    List or search all commands available from this server endpoint.
+  tags:
+    - Commands
+  parameters:
+    - $ref: ../../../part1/openapi/parameters/idList.yaml
+    - $ref: ../parameters/issueTime.yaml
+    - $ref: ../parameters/executionTime.yaml
+    - $ref: ../../../part1/openapi/parameters/controlStreamIdList.yaml
+    - $ref: ../../../part1/openapi/parameters/systemIdList.yaml
+    - $ref: ../../../part1/openapi/parameters/foiIdList.yaml
+    - $ref: ../../../part1/openapi/parameters/controlPropIdList.yaml
+    #- $ref: '#/components/parameters/select'
+    - $ref: ../../../part1/openapi/parameters/limit.yaml
+  responses:
+    '200':
+      $ref: ../responses/commandCollection.yaml
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX

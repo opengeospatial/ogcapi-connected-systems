@@ -1,18 +1,21 @@
 get:
-  summary: Retrieve a datastream description by ID
-  description: 
+  summary: List system control streams
+  description: |-
+    List or search control streams available from this system.
   tags:
-    - Datastreams
+    - Control Streams
   parameters:
-    - $ref: ../parameters/datastreamId.yaml
+    - $ref: ../../../part1/openapi/parameters/systemId.yaml
+    - $ref: ../../../part1/openapi/parameters/idList.yaml
+    - $ref: ../../../part1/openapi/parameters/keyword.yaml
+    - $ref: ../parameters/issueTime.yaml
+    - $ref: ../parameters/executionTime.yaml
+    - $ref: ../../../part1/openapi/parameters/keyword.yaml
     #- $ref: '#/components/parameters/select'
+    - $ref: ../../../part1/openapi/parameters/limit.yaml
   responses:
     '200':
-      description: OK. Successful request
-      content:
-        application/json:
-          schema:
-            $ref: ../schemas/json/datastream.json
+      $ref: ../responses/controlStreamCollection.yaml
     '400':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
     '401':
@@ -24,21 +27,22 @@ get:
     '5XX':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
 
-put:
-  summary: Update a datastream description
-  description: 
+post:
+  summary: Add a new control stream
+  description: |-
+    A new control stream is always added inside a parent system.
   tags:
-    - Datastreams
+    - Control Streams
   parameters:
-    - $ref: ../parameters/datastreamId.yaml
+    - $ref: ../../../part1/openapi/parameters/systemId.yaml
   requestBody:
     content:
       application/json:
         schema:
-          $ref: ../schemas/json/datastream.json
+          $ref: ../schemas/json/controlStream.json
   responses:
-    '204':
-      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/204
+    '201':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/201
     '400':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
     '401':

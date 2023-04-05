@@ -1,0 +1,79 @@
+get:
+  summary: Retrieve a datastream description by ID
+  description: 
+  tags:
+    - Datastreams
+  parameters:
+    - $ref: ../parameters/dataStreamId.yaml
+    #- $ref: '#/components/parameters/select'
+  responses:
+    '200':
+      description: OK. Successful request
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/json/datastream.json
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
+
+put:
+  summary: Update a datastream description
+  description: 
+  tags:
+    - Datastreams
+  parameters:
+    - $ref: ../parameters/dataStreamId.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/json/datastream.json
+  responses:
+    '204':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/204_PUT
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
+
+delete:
+  summary: Delete a datastream
+  description: |-
+    This will delete the datastream and remove it from all collections it is associated to.
+
+    If the `cascade` parameter is used, all associated observations are also deleted
+    if they are hosted on the same server.
+  tags:
+    - Datastreams
+  parameters:
+    - $ref: ../parameters/dataStreamId.yaml
+    - $ref: ../../../part1/openapi/parameters/cascade.yaml
+  responses:
+    '204':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/204_DELETE
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '409':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/409_DELETE
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX

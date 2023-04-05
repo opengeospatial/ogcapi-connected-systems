@@ -9,6 +9,9 @@
     },
     "Link": {
       "$ref": "../../../../../common/link.json"
+    },
+    "Links": {
+      "$ref": "../../../../../api/part1/openapi/schemas/common/links.json"
     }
   }
 }

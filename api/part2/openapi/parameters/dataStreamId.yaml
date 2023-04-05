@@ -1,4 +1,4 @@
-name: datastreamId
+name: dataStreamId
 in: path
 description: Local identifier of a Datastream
 required: true

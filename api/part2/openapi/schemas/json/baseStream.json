@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Local resource ID",
+      "type": "string",
+      "minLength": 1
+    },
+    "name": {
+      "description": "Human readable name of the resource",
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "description": "Human readable description of the resource",
+      "type": "string",
+      "minLength": 1
+    },
+    "system@link": {
+      "description": "Link to the parent system",
+      "$ref": "../common/commonDefs.json#/definitions/Link"
+    },
+    "ultimateFeatureOfInterest@link": {
+      "description": "Link to the ultimate feature of interest (if there is only one)",
+      "$ref": "../common/commonDefs.json#/definitions/Link"
+    },
+    "samplingFeatures@link": {
+      "description": "Link to the collection of sampling features related to this stream",
+      "$ref": "../common/commonDefs.json#/definitions/Link"
+    },
+    "formats": {
+      "description": "List of available formats",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "validTime": {
+      "description": "Validity period of the resource",
+      "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
+    }
+  },
+  "required": [
+    "name", "system@link", "formats"
+  ]
+}

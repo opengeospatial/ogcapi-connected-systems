@@ -9,16 +9,11 @@ get:
     - $ref: ../parameters/phenomenonTime.yaml
     - $ref: ../parameters/resultTime.yaml
     - $ref: ../../../part1/openapi/parameters/keyword.yaml
-    #- $ref: '#/components/parameters/system'
     #- $ref: '#/components/parameters/select'
     - $ref: ../../../part1/openapi/parameters/limit.yaml
   responses:
     '200':
-      description: OK. Successful request
-      content:
-        application/json:
-          schema:
-            $ref: ../schemas/json/datastreamCollection.json
+      $ref: ../responses/datastreamCollection.yaml
     '400':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
     '401':
@@ -31,7 +26,9 @@ get:
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
 
 post:
-  summary: Add a new datastream to a system
+  summary: Add a new datastream
+  description: |-
+    A new datastream is always added inside a parent system.
   tags:
     - Datastreams
   parameters:

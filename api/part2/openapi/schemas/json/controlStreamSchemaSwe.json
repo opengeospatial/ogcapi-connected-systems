@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "cmdFormat": {
+      "type": "string",
+      "enum": [
+        "application/swe+json",
+        "application/swe+csv",
+        "application/swe+binary"
+      ]
+    },
+    "recordSchema": {
+      "$ref": "../common/sweCommonDefs.json#/definitions/AnyComponent"
+    },
+    "encoding": {
+      "$ref": "../common/sweCommonDefs.json#/definitions/AnyEncoding"
+    }
+  },
+  "required": [
+    "cmdFormat", "recordSchema", "encoding"
+  ]
+}

@@ -1,0 +1,10 @@
+
+name: datastream
+description: |-
+  List of datastream local IDs or unique IDs (URI).
+  Only observations that are part of a datastream that has one of the provided identifiers are selected.
+in: query
+required: false
+schema:
+  $ref: idListSchema.yaml
+explode: false
