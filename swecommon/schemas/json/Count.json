@@ -18,7 +18,6 @@
           "$ref": "basicTypes.json#/definitions/NilValuesInteger"
         },
         "value": {
-          "description": "Value is optional, to enable structure to act as a schema for values provided using other encodings",
           "type": "integer"
         }
       },

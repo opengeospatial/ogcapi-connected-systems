@@ -55,7 +55,7 @@
               ]
             },
             "values": {
-              "description": "If present, contains an encoded block of the values contained in the array. Values are optional so that the array definition can be used a as a schema for values provided externally",
+              "description": "If present, contains an encoded block of the values contained in the array. Values are optional so that the array definition can be used a as a schema for values provided separately",
               "$ref": "basicTypes.json#/definitions/EncodedValues"
             }
           }

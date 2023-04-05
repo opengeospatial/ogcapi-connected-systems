@@ -23,7 +23,6 @@
           "$ref": "basicTypes.json#/definitions/NilValuesText"
         },
         "value": {
-          "description": "Value is optional, to enable structure to act as a schema for values provided using other encodings",
           "type": "string"
         }
       },

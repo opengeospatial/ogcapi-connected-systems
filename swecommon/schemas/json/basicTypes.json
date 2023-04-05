@@ -19,23 +19,27 @@
         "label": {
           "type": "string",
           "minLength": 1
-        },
-        "code": {
-          "type": "string",
-          "minLength": 1
-        },
-        "href": {
-          "type": "string",
-          "format": "uri"
         }
       },
       "oneOf": [
         {
           "title": "UCUM Code",
+          "properties": {
+            "code": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
           "required": [ "code" ]
         },
         {
           "title": "URI",
+          "properties": {
+            "href": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
           "required": [ "href" ]
         }
       ],
@@ -160,10 +164,12 @@
         "type": "object",
         "properties": {
           "reason": {
+            "description": "The reason for using the reserved value",
             "type": "string",
             "format": "uri"
           },
           "value": {
+            "description": "The reserved value itself",
             "type": "string"
           }
         },
@@ -180,10 +186,12 @@
         "type": "object",
         "properties": {
           "reason": {
+            "description": "The reason for using the reserved value",
             "type": "string",
             "format": "uri"
           },
           "value": {
+            "description": "The reserved value itself",
             "type": "integer"
           }
         },
@@ -200,10 +208,12 @@
         "type": "object",
         "properties": {
           "reason": {
+            "description": "The reason for using the reserved value",
             "type": "string",
             "format": "uri"
           },
           "value": {
+            "description": "The reserved value itself",
             "$ref": "#/definitions/NumberOrSpecial"
           }
         },
@@ -220,10 +230,12 @@
         "type": "object",
         "properties": {
           "reason": {
+            "description": "The reason for using the reserved value",
             "type": "string",
             "format": "uri"
           },
           "value": {
+            "description": "The reserved value itself",
             "$ref": "#/definitions/DateTimeNumberOrSpecial"
           }
         },

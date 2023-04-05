@@ -32,7 +32,6 @@
           "$ref": "basicTypes.json#/definitions/NilValuesTime"
         },
         "value": {
-          "description": "Value is a pair of time values expressed in ISO-8601 or as decimal numbers separated by a space. It is optional, to enable structure to act as a schema for values provided using other encodings",
           "type": "array",
           "minItems": 2,
           "maxItems": 2,

@@ -18,7 +18,6 @@
           "$ref": "basicTypes.json#/definitions/NilValuesText"
         },
         "value": {
-          "description": "Value is a pair of integer numbers separated by a space. It is optional, to enable structure to act as a schema for values provided using other encodings",
           "type": "array",
           "minItems": 2,
           "maxItems": 2,

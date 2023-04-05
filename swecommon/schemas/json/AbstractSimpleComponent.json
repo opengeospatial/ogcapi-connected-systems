@@ -18,6 +18,7 @@
           "minLength": 1
         },
         "quality": {
+          "description": "Provides an indication of the reliability of the component value in the form of a decimal number (e.g. relative accuracy), a range (e.g. bidirectional tolerance), a categorical value (e.g. good, bad) or plain textual statement",
           "type": "array",
           "items": {
             "allOf": [
@@ -42,6 +43,14 @@
               }
             ]
           }
+        },
+        "nilValues": {
+          "description": "Defines reserved values with special meaning (e.g. missing, out-of-range, etc.)"
+        },
+        "constraint": {
+        },
+        "value": {
+          "description": "Inline value(s) for the component. This property is optional to enable structure to act as a schema for values provided separately (e.g. in a datastream)"
         }
       }
     }
