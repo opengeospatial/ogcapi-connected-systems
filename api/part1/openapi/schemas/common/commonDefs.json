@@ -8,7 +8,7 @@
       "$ref": "../../../../../common/timePeriod.json"
     },
     "Link": {
-      "$ref": "link.json"
+      "$ref": "../../../../../common/link.json"
     }
   }
 }

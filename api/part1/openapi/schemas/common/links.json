@@ -3,6 +3,6 @@
   "type": "array",
   "minItems": 1,
   "items": {
-    "$ref": "link.json"
+    "$ref": "commonDefs.json#/definitions/Link"
   }
 }

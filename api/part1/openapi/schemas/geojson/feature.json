@@ -43,7 +43,7 @@
         },
         "links": {
           "description": "Links to related resources",
-          "$ref": "../common/commonDefs.json#/definitions/Link"
+          "$ref": "../common/links.json"
         }
       }
     }

@@ -12,7 +12,7 @@ content:
         links:
           type: array
           items:
-            $ref: ../schemas/common/link.json
+            $ref: ../schemas/common/commonDefs.json#/definitions/Link
   application/geo+json:
     schema:
       type: object
@@ -28,7 +28,7 @@ content:
         links:
           type: array
           items:
-            $ref: ../schemas/common/link.json
+            $ref: ../schemas/common/commonDefs.json#/definitions/Link
   application/sml+json:
     schema:
       type: object
@@ -41,4 +41,4 @@ content:
         links:
           type: array
           items:
-            $ref: ../schemas/common/link.json
+            $ref: ../schemas/common/commonDefs.json#/definitions/Link

@@ -56,19 +56,19 @@
       ]
     },
     "rt": {
-      "description": "Semantic type of target resource",
+      "description": "Semantic type of target resource (RFC 6690)",
       "type": "string",
       "format": "uri",
       "examples": [
-        "http://www.w3.org/ns/sosa/FeatureOfInterest"
+        "http://www.example.org/uri/of/concept"
       ]
     },
     "if": {
-      "description": "Interface used to access target resource",
+      "description": "Interface used to access target resource (RFC 6690)",
       "type": "string",
       "format": "uri",
       "examples": [
-        "http://www.opengis.net/spec/ogcapi-features-1/1.0"
+        "http://www.opengis.net/spec/spec-id/version"
       ]
     }
   }

@@ -7,11 +7,8 @@
     "TimePeriod": {
       "$ref": "../../../../../common/timePeriod.json"
     },
-    "XLink": {
-      "$ref": "../../../../../common/xlink.json"
-    },
     "Link": {
-      "$ref": "../../../../part1/openapi/schemas/common/link.json"
+      "$ref": "../../../../../common/link.json"
     }
   }
 }
