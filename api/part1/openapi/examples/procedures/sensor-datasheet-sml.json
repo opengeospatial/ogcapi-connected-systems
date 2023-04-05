@@ -7,13 +7,11 @@
   "description": "Precision 3-axis ultrasonic anemometer",
   "identifiers": [
     {
-      "type": "Term",
       "definition": "http://sensorml.com/ont/swe/property/Manufacturer",
       "label": "Manufacturer Name",
       "value": "Gill"
     },
     {
-      "type": "Term",
       "definition": "http://sensorml.com/ont/swe/property/ModelNumber",
       "label": "Model Number",
       "value": "WindMaster"
@@ -21,7 +19,6 @@
   ],
   "classifiers": [
     {
-      "type": "Term",
       "definition": "http://sensorml.com/ont/swe/property/SensorType",
       "label": "Sensor Type",
       "value": "Anemometer"

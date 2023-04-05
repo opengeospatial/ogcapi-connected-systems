@@ -117,7 +117,7 @@
                 "$ref": "sweCommonDefs.json#/definitions/AnySimpleComponent"
               }
             },
-            "items": {
+            "characteristics": {
               "description": "The list of characteristics in this group.",
               "type": "array",
               "items": {
@@ -154,7 +154,7 @@
                 "$ref": "sweCommonDefs.json#/definitions/AnySimpleComponent"
               }
             },
-            "items": {
+            "capabilities": {
               "description": "The list of capabilities in this group.",
               "type": "array",
               "items": {

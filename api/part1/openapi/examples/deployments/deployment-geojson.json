@@ -1,6 +1,6 @@
 {
   "type": "Feature",
-  "id": "kk8p16lbvqvdo",
+  "id": "iv3f2kcq27gfi",
   "geometry": {
     "type": "Polygon",
     "coordinates": [[
@@ -16,14 +16,24 @@
     "name": "Saildrone - 2017 Arctic Mission",
     "featureType": "http://www.w3.org/ns/ssn/Deployment",
     "description": "In July 2017, three saildrones were launched from Dutch Harbor, Alaska, in partnership with NOAA Research...",
-    "validTime": ["2017-07-17", "2017-09-29"]
+    "validTime": ["2017-07-17T00:00:00Z", "2017-09-29T00:00:00Z"],
+    "members": {
+      "href" : "https://data.example.org/api/deployments/iv3f2kcq27gfi/systems?f=json",
+      "type" : "application/geo+json",
+      "title" : "Deployed Systems"
+    }
   },
   "links": [
     {
-      "href" : "https://data.example.org/api/deployments/kk8p16lbvqvdo/systems?f=json",
-      "rel" : "systems",
+      "href" : "https://data.example.org/api/deployments/iv3f2kcq27gfi?f=json",
+      "rel" : "self",
       "type" : "application/geo+json",
-      "title" : "Deployed Systems"
+      "title" : "this document"
+    }, {
+      "href" : "https://data.example.org/api/deployments/iv3f2kcq27gfi?f=sml",
+      "rel" : "alternate",
+      "type" : "application/sml+json",
+      "title" : "this resource as SensorML"
     }
   ]
 }

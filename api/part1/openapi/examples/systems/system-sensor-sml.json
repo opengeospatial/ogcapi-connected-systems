@@ -13,7 +13,6 @@
   },
   "identifiers": [
     {
-      "type": "Term",
       "definition": "http://sensorml.com/ont/swe/property/SerialNumber",
       "label": "Serial Number",
       "value": "0123456879"

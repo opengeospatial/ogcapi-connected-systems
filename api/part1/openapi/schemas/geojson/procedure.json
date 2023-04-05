@@ -6,7 +6,7 @@
       "geometry": null,
       "properties": {
         "geometry": {
-          "const": "null"
+          "type": "null"
         }
       }
     }

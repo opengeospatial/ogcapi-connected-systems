@@ -7,7 +7,6 @@
   "description": "In July 2017, three saildrones were launched from Dutch Harbor, Alaska, in partnership with NOAA Research...",
   "classifiers": [
     {
-      "type": "Term",
       "definition": "https://schema.org/DefinedRegion",
       "label": "Region",
       "value": "Arctic"
