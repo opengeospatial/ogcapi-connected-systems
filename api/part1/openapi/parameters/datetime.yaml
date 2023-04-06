@@ -4,12 +4,14 @@ description: |-
   Either a date-time or an interval. Date and time expressions adhere to RFC 3339. 
   Intervals may be bounded or half-bounded (double-dots at start or end).
 
-  Only features that have a temporal property that intersects the value of
+  Only features that have a `validTime` property that intersects the value of
   `datetime` are selected.
 
-  If a feature has multiple temporal properties, it is the decision of the
-  server whether only a single temporal property is used to determine
-  the extent or all relevant temporal properties.
+  If history is supported for a feature type, the following also applies:
+  - if `datetime` is a time instant or `now`, only the description valid at the specified time is selected
+  - if `datetime` is a time period, only the latest description valid during the period is selected
+  - The response can never include more that one description of the same feature
+
 required: false
 schema:
   $ref: datetimeSchema.yaml

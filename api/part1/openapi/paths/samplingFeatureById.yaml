@@ -25,6 +25,8 @@ get:
 
 put:
   summary: Update a sampling feature description
+  description: |-
+    This will completely replace the existing description of the sampling feature with the provided content.
   tags:
     - Sampling Features
   parameters:
@@ -49,7 +51,7 @@ put:
       $ref: ../responses/StandardResponses.yaml#/5XX
 
 delete:
-  summary: Delete a sampling feature resource
+  summary: Delete a sampling feature
   description: |-
     This will delete the sampling feature and remove it from all collections it is associated to.
   tags:

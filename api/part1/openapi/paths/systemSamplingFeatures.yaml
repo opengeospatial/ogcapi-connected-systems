@@ -1,7 +1,7 @@
 get:
   summary: List sampling features attached to a specific system
   description: |-
-    
+    List or search all `Sampling Feature` resources associated to a specific system.
   tags:
     - Systems
     - Sampling Features

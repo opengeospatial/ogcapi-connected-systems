@@ -168,8 +168,8 @@ paths:
   /samplingFeatures:
     $ref: paths/samplingFeatures.yaml
 
-  /samplingFeatures/{featureId}:
-    $ref: paths/samplingFeatureById.yaml
-
   /systems/{systemId}/samplingFeatures:
     $ref: paths/systemSamplingFeatures.yaml
+
+  /samplingFeatures/{featureId}:
+    $ref: paths/samplingFeatureById.yaml

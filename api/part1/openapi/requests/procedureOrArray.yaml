@@ -11,6 +11,11 @@ content:
         minItems: 1
         items:
           $ref: ../schemas/geojson/procedure.json
+    examples:
+      sensor:
+        summary: Sensor Datasheet
+        value:
+          $ref: ../examples/procedures/sensor-datasheet-geojson.json
   application/sml+json:
     schema:
       oneOf:
@@ -21,3 +26,8 @@ content:
         minItems: 1
         items:
           $ref: ../schemas/sensorml/procedure.json
+    examples:
+      sensor:
+        summary: Sensor Datasheet
+        value:
+          $ref: ../examples/procedures/sensor-datasheet-sml.json

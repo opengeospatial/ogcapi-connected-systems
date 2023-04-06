@@ -11,6 +11,11 @@ content:
         minItems: 1
         items:
           $ref: ../schemas/geojson/deployment.json
+    examples:
+      sensor:
+        summary: Unmanned Surface Vehicle (USV) Deployment
+        value:
+          $ref: ../examples/deployments/deployment-geojson.json
   application/sml+json:
     schema:
       oneOf:
@@ -21,3 +26,8 @@ content:
         minItems: 1
         items:
           $ref: ../schemas/sensorml/deployment.json
+    examples:
+      sensor:
+        summary: Unmanned Surface Vehicle (USV) Deployment
+        value:
+          $ref: ../examples/deployments/deployment-sml.json

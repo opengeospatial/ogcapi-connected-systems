@@ -4,6 +4,7 @@ get:
     List or search all `System` resources available from this server endpoint.
 
     By default, only top level systems are included (i.e. subsystems are ommitted) unless the `parent` query parameter is set.
+
   tags:
     - Systems
   parameters:

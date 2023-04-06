@@ -28,6 +28,8 @@ get:
 
 put:
   summary: Update a procedure description
+  description: |-
+    This will completely replace the existing description of the procedure with the provided content.
   tags:
     - Procedures
   parameters:
@@ -55,7 +57,7 @@ put:
       $ref: ../responses/StandardResponses.yaml#/5XX
 
 delete:
-  summary: Delete a procedure resource
+  summary: Delete a procedure
   description: |-
     This will delete the procedure and remove it from all collections it is associated to.
   tags:

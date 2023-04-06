@@ -52,12 +52,12 @@
       "type": "application/sml+json"
     },
     {
-      "href": "https://data.example.org/api/systems/2f35ofoms2l6?f=sml",
+      "href": "https://data.example.org/api/systems/2f35ofoms2l8?f=sml",
       "uid": "urn:x-saildrone:platforms:SD-1002",
       "type": "application/sml+json"
     },
     {
-      "href": "https://data.example.org/api/systems/2f35ofoms2l6?f=sml",
+      "href": "https://data.example.org/api/systems/2f35ofoms2l9?f=sml",
       "uid": "urn:x-saildrone:platforms:SD-1003",
       "type": "application/sml+json"
     }

@@ -14,6 +14,7 @@
     "materialClass": "http://www.opengis.net/def/material/OGC-OM/2.0/rock",
     "sampledFeature@link": {
       "href": "https://api.usgs.gov/collections/geological_features/items/1458955?f=json",
+      "title": "Geological Unit 235",
       "type" : "application/geo+json"
     }
   },

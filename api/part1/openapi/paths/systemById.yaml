@@ -1,13 +1,15 @@
 get:
   summary: Retrieve a system description by ID
   description: |-
-    Note that this will return the description of the system valid at the current time.
-    To get the description valid for a past (or future) time, use the "history" sub-collection.
+    This will return the latest description of the system valid before or at the current time, by default.
+
+    If system history is supported by the server, descriptions of the system valid at past (or future) time
+    can be accessed using the `datetime` parameter or through the `history` sub-collection.
   tags:
     - Systems
   parameters:
     - $ref: ../parameters/systemId.yaml
-    #- $ref: ../parameters/datetime.yaml # should be only time instant if history supported
+    - $ref: ../parameters/datetime.yaml # should be only time instant if history supported
     #- $ref: '#/components/parameters/select'
   responses:
     '200':
@@ -33,9 +35,11 @@ get:
 put:
   summary: Update a system description
   description: |-
-    This will only update the description of the system that is valid at the current
-    time and its validTime property cannot be changed. For more advanced modifications
-    of the system history, use the "history" sub collection.
+    This will completely replace the existing description of the system with the provided content.
+    
+    If system history is supported and the `validTime` property starts after the time of the previous description,
+    the provided description becomes the current one and all previous descriptions are made available via the
+    `history` sub collection.
   tags:
     - Systems
   parameters:
@@ -63,12 +67,14 @@ put:
       $ref: ../responses/StandardResponses.yaml#/5XX
 
 delete:
-  summary: Delete a system resource
+  summary: Delete a system
   description: |-
     This will delete the system and remove it from all collections it is associated to.
 
     If the `cascade` parameter is used, all associated sub-resources hosted by the same server
     (sampling features, datastreams, command streams, observations, and commmands) are also deleted.
+
+    If system history is supported, all historical descriptions are deleted as well.
   tags:
     - Systems
   parameters:

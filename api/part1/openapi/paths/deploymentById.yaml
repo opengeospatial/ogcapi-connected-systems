@@ -28,6 +28,8 @@ get:
 
 put:
   summary: Update a deployment description
+  description: |-
+    This will completely replace the existing description of the deployment with the provided content.
   tags:
     - Deployments
   parameters:
@@ -55,7 +57,7 @@ put:
       $ref: ../responses/StandardResponses.yaml#/5XX
 
 delete:
-  summary: Delete a deployment resource
+  summary: Delete a deployment
   description: |-
     This will delete the deployment and remove it from all collections it is associated to.
   tags:

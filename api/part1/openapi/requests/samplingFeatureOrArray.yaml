@@ -11,3 +11,16 @@ content:
         minItems: 1
         items:
           $ref: ../schemas/geojson/anySamplingFeature.json
+    examples:
+      sf-point:
+        summary: Sampling Point
+        value:
+          $ref: ../examples/sampling/sampling-point-geojson.json
+      specimen:
+        summary: Specimen
+        value:
+          $ref: ../examples/sampling/sampling-specimen-geojson.json
+      part:
+        summary: Feature Part
+        value:
+          $ref: ../examples/sampling/sampling-part-geojson.json
