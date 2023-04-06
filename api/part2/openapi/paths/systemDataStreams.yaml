@@ -30,14 +30,11 @@ get:
 post:
   summary: Add new datastreams to a system
   description: |-
-    A new datastream is always added inside a parent system.
+    New datastreams are always added inside a parent system.
   tags:
     - Datastreams
   requestBody:
-    content:
-      application/json:
-        schema:
-          $ref: ../schemas/json/datastream.json
+    $ref: ../requests/dataStreamOrArray.yaml
   responses:
     '200':
       $ref: ../../../part1/openapi/responses/resourceLinks.yaml

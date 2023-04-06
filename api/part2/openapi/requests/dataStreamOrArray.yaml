@@ -1,0 +1,18 @@
+description: One or more datastream resources
+required: true
+content:
+  application/json:
+    schema:
+      oneOf:
+      - title: Single Datastream
+        $ref: ../schemas/json/datastream.json
+      - title: Multiple Datastreams
+        type: array
+        minItems: 1
+        items:
+          $ref: ../schemas/json/datastream.json
+    examples:
+      simple:
+        summary: Simple Datastream (1 observed property)
+        value:
+          $ref: ../examples/datastreams/datastream-simple.json

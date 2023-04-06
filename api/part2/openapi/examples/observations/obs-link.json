@@ -1,0 +1,13 @@
+{
+  "id": "fefaig45w46v5186d6w",
+  "datastream@id": "f44f85rrt",
+  "foi@id": "55f48g48th",
+  "phenomenonTime": "2023-04-03T18:45:23Z",
+  "resultTime": "2023-04-03T18:45:23Z",
+  "result": {
+    "href": "https://data.x-ecmwf.int/wms?service=WMS&version=1.1.0&request=GetMap&format=image/tiff&layers=HRES-2T-20230215-0600-T1&bbox=-180,90,180,-90&width=3600&height=1800&srs=EPSG:4326",
+    "title": "Imagery on external WMS server",
+    "type": "image/tiff; application=geotiff",
+    "if": "http://www.opengis.net/def/serviceType/ogc/wms/1.1"
+  }
+}

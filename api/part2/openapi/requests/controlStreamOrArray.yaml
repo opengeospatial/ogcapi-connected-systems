@@ -1,0 +1,18 @@
+description: One or more datastream resources
+required: true
+content:
+  application/json:
+    schema:
+      oneOf:
+      - title: Single Control Stream
+        $ref: ../schemas/json/controlStream.json
+      - title: Multiple Control Streams
+        type: array
+        minItems: 1
+        items:
+          $ref: ../schemas/json/controlStream.json
+    examples:
+      ptz:
+        summary: PTZ Control
+        value:
+          $ref: ../examples/controlStreams/controlStream-ptz-post.json

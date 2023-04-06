@@ -11,3 +11,16 @@ content:
         minItems: 1
         items:
           $ref: ../schemas/json/observation.json
+    examples:
+      simple:
+        summary: Scalar Observation (Measure)
+        value:
+          $ref: ../examples/observations/obs-simple.json
+      location:
+        summary: Location Observation
+        value:
+          $ref: ../examples/observations/obs-location.json
+      link:
+        summary: Observation with link to external result
+        value:
+          $ref: ../examples/observations/obs-link.json

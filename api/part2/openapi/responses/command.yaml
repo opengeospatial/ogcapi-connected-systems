@@ -13,6 +13,11 @@ content:
         links:
           description: Links to related resources
           $ref: ../schemas/common/commonDefs.json#/definitions/Links
+    examples:
+      ptz:
+        summary: PTZ Commands
+        value:
+          $ref: ../examples/commands/command-ptz.json
         
   application/swe+json:
     schema:
