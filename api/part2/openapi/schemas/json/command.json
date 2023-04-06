@@ -3,24 +3,34 @@
   "type": "object",
   "properties": {
     "id": {
-      "type": "string"
+      "description": "Local ID of the command",
+      "type": "string",
+      "minLength": 1
     },
     "control@id": {
-      "type": "string"
+      "description": "Local ID of the control stream where the command is part of",
+      "type": "string",
+      "minLength": 1
     },
     "issueTime": {
+      "description": "Time at which the command was issued",
       "$ref": "../common/commonDefs.json#/definitions/TimeInstant"
     },
     "executionTime": {
+      "description": "Time period during which the command was executed",
       "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
     },
     "userId": {
-      "type": "string"
+      "description": "ID of the user who submitted the command",
+      "type": "string",
+      "minLength": 1
     },
     "currentStatus": {
+      "description": "Current status of the command",
       "$ref": "commandStatusCode.json"
     },
     "params": {
+      "description": "Command parameters"
     }
   },
   "required": [

@@ -1,11 +1,13 @@
+parameters:
+  - $ref: ../../../part1/openapi/parameters/systemId.yaml
+
 get:
-  summary: List system control streams
+  summary: List control streams of a specific system
   description: |-
-    List or search control streams available from this system.
+    List or search control streams available from a parent system.
   tags:
-    - Control Streams
+    - Control Channels
   parameters:
-    - $ref: ../../../part1/openapi/parameters/systemId.yaml
     - $ref: ../../../part1/openapi/parameters/idList.yaml
     - $ref: ../../../part1/openapi/parameters/keyword.yaml
     - $ref: ../parameters/issueTime.yaml
@@ -28,19 +30,19 @@ get:
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
 
 post:
-  summary: Add a new control stream
+  summary: Add new control streams to a system
   description: |-
     A new control stream is always added inside a parent system.
   tags:
-    - Control Streams
-  parameters:
-    - $ref: ../../../part1/openapi/parameters/systemId.yaml
+    - Control Channels
   requestBody:
     content:
       application/json:
         schema:
           $ref: ../schemas/json/controlStream.json
   responses:
+    '200':
+      $ref: ../../../part1/openapi/responses/resourceLinks.yaml
     '201':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/201
     '400':

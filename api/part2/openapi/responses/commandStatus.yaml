@@ -1,0 +1,14 @@
+description: OK. Successful request
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/json/commandStatus.json
+      required:
+        - id
+        - command@id
+        - reportTime
+        - status
+      properties:
+        links:
+          description: Links to related resources
+          $ref: ../schemas/common/commonDefs.json#/definitions/Links

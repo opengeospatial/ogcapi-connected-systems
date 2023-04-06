@@ -27,18 +27,20 @@ servers:
 tags:
   - name: Datastreams
     description: |-
-      Datastreams allow access to dynamic data produced by systems, in various formats.
+      Datastreams allow access to observations produced by systems, in various formats.
+      They also provide metadata describing the exact meaning of properties included in the observations.
 
-      They also provide metadata describing the exact meaning of properties included in the data.
+      API clients can act both as sender of receiver of observations.
 
   - name: Observations
     description: Access to historical and real-time observations.
 
-  - name: Control Streams
+  - name: Control Channels
     description: |-
-      Control streams represent control channels used to send commands to systems.
-
+      Control channels (or control streams) allow sending commands to systems, in various formats.
       They also provide metadata describing the exact meaning and content of command messages.
+
+      API clients can act both as sender or receiver of commands.
 
   - name: Commands
     description: Access to historical and real-time commands.
@@ -99,3 +101,6 @@ paths:
 
   /commands/{cmdId}/status:
     $ref: paths/commandStatus.yaml
+
+  /commands/{cmdId}/status/{statusId}:
+    $ref: paths/commandStatusById.yaml

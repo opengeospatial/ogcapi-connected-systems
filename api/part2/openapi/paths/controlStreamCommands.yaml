@@ -1,11 +1,13 @@
+parameters:
+  - $ref: ../parameters/controlStreamId.yaml
+  
 get:
-  summary: List all commands from a control stream
+  summary: List commands from a specific control channel
   description: |-
-    List or search all commands available from a control stream.
+    List or search all commands received on a specific control channel.
   tags:
     - Commands
   parameters:
-    - $ref: ../parameters/controlStreamId.yaml
     - $ref: ../../../part1/openapi/parameters/idList.yaml
     - $ref: ../parameters/issueTime.yaml
     - $ref: ../parameters/executionTime.yaml
@@ -28,16 +30,16 @@ get:
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
 
 post:
-  summary: Add new commands
+  summary: Send commands in a specific control stream
   description: |-
     Add one or more new `Command` resources. Commands are always added to a parent control stream.
   tags:
     - Commands
-  parameters:
-    - $ref: ../parameters/controlStreamId.yaml
   requestBody:
     $ref: ../requests/commandOrArray.yaml
   responses:
+    '200':
+      $ref: ../../../part1/openapi/responses/resourceLinks.yaml
     '201':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/201
     '400':

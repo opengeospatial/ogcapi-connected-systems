@@ -1,10 +1,12 @@
+parameters:
+  - $ref: ../parameters/dataStreamId.yaml
+
 get:
   summary: Retrieve a datastream schema for a given format
   description: 
   tags:
     - Datastreams
   parameters:
-    - $ref: ../parameters/dataStreamId.yaml
     - $ref: ../parameters/obsFormat.yaml
   responses:
     '200':

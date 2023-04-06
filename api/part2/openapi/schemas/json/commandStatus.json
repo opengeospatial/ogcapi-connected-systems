@@ -3,32 +3,52 @@
   "type": "object",
   "properties": {
     "id": {
-      "type": "string"
+      "description": "Local identifier of the status report",
+      "type": "string",
+      "minLength": 1
     },
     "command@id": {
-      "type": "string"
+      "description": "Local identifier of the command that this report applies to",
+      "type": "string",
+      "minLength": 1
     },
     "reportTime": {
+      "description": "Time at which this report was generated",
       "$ref": "../common/commonDefs.json#/definitions/TimeInstant"
     },
     "status": {
+      "description": "Current status code",
       "$ref": "commandStatusCode.json"
     },
     "percentCompletion": {
+      "description": "Current progress expressed as a percentage of total task execution",
       "type": "number",
       "minimum": 0,
       "maximum": 100
     },
     "executionTime": {
+      "description": "Time period during which the command was executed or is scheduled to be executed (depending on status code)",
       "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
     },
     "message": {
-      "type": "string"
+      "description": "Human readable message providing more details on the current status (can be both an error or information message depending on the status code)",
+      "type": "string",
+      "minLength": 1
     },
     "result": {
+      "description": "Result of the command",
+      "oneOf": [
+        {
+          "title": "Inline data"
+        },
+        {
+          "title": "Link to external data",
+          "$ref": "../common/commonDefs.json#/definitions/Link"
+        }
+      ]
     }
   },
   "required": [
-    "command@id", "reportTime", "status"
+    "status"
   ]
 }

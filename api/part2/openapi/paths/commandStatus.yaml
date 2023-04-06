@@ -1,3 +1,6 @@
+parameters:
+  - $ref: ../parameters/cmdId.yaml
+
 get:
   summary: List command status reports
   description: |-
@@ -5,7 +8,6 @@ get:
   tags:
     - Commands
   parameters:
-    - $ref: ../parameters/cmdId.yaml
     - $ref: ../../../part1/openapi/parameters/idList.yaml
     - $ref: ../parameters/reportTime.yaml
     - $ref: ../parameters/executionTime.yaml
@@ -26,16 +28,16 @@ get:
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
 
 post:
-  summary: Add new command status
+  summary: Add new command status reports
   description: |-
     Add one or more new `CommandStatus` resources.
   tags:
     - Commands
-  parameters:
-    - $ref: ../parameters/cmdId.yaml
   requestBody:
     $ref: ../requests/commandStatusOrArray.yaml
   responses:
+    '200':
+      $ref: ../../../part1/openapi/responses/resourceLinks.yaml
     '201':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/201
     '400':

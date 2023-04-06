@@ -1,11 +1,13 @@
+parameters:
+  - $ref: ../parameters/dataStreamId.yaml
+  
 get:
-  summary: List all observations from a datastream
+  summary: List observations from a specific datastream
   description: |-
     List or search all observations available from a datastream.
   tags:
     - Observations
   parameters:
-    - $ref: ../parameters/dataStreamId.yaml
     - $ref: ../../../part1/openapi/parameters/idList.yaml
     - $ref: ../parameters/phenomenonTime.yaml
     - $ref: ../parameters/resultTime.yaml
@@ -28,16 +30,16 @@ get:
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
 
 post:
-  summary: Add new observations
+  summary: Add new observations to a datastream
   description: |-
     Add one or more new `Observation` resources. Observations are always added to a parent datastream.
   tags:
     - Observations
-  parameters:
-    - $ref: ../parameters/dataStreamId.yaml
   requestBody:
     $ref: ../requests/observationOrArray.yaml
   responses:
+    '200':
+      $ref: ../../../part1/openapi/responses/resourceLinks.yaml
     '201':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/201
     '400':

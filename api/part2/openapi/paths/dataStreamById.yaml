@@ -1,11 +1,13 @@
+parameters:
+  - $ref: ../parameters/dataStreamId.yaml
+
 get:
   summary: Retrieve a datastream description by ID
   description: 
   tags:
     - Datastreams
-  parameters:
-    - $ref: ../parameters/dataStreamId.yaml
-    #- $ref: '#/components/parameters/select'
+  #parameters:
+  #  - $ref: '#/components/parameters/select'
   responses:
     '200':
       description: OK. Successful request
@@ -29,8 +31,6 @@ put:
   description: 
   tags:
     - Datastreams
-  parameters:
-    - $ref: ../parameters/dataStreamId.yaml
   requestBody:
     content:
       application/json:
@@ -60,7 +60,6 @@ delete:
   tags:
     - Datastreams
   parameters:
-    - $ref: ../parameters/dataStreamId.yaml
     - $ref: ../../../part1/openapi/parameters/cascade.yaml
   responses:
     '204':

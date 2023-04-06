@@ -1,0 +1,6 @@
+name: statusId
+in: path
+description: Local identifier of a Status Report
+required: true
+schema:
+  type: string

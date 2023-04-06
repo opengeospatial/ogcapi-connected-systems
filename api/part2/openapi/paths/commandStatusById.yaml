@@ -1,16 +1,17 @@
 parameters:
   - $ref: ../parameters/cmdId.yaml
-    
+  - $ref: ../parameters/statusId.yaml
+
 get:
-  summary: Retrieve a command by ID
+  summary: Retrieve a status report by ID
   description: 
   tags:
     - Commands
   #parameters:
-    #- $ref: '#/components/parameters/select'
+  #  - $ref: '#/components/parameters/select'
   responses:
     '200':
-      $ref: ../responses/command.yaml
+      $ref: ../responses/commandStatus.yaml
     '400':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
     '401':
@@ -23,12 +24,12 @@ get:
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
 
 put:
-  summary: Update a command
+  summary: Update a command status report
   description: 
   tags:
     - Commands
   requestBody:
-    $ref: ../requests/command.yaml
+    $ref: ../requests/commandStatus.yaml
   responses:
     '204':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/204_PUT
@@ -44,13 +45,9 @@ put:
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
 
 delete:
-  summary: Delete a command
-  description: |-
-    This will delete the command and remove it from all collections it is associated to.
+  summary: Delete a command status report
   tags:
     - Commands
-  parameters:
-    - $ref: ../parameters/cmdId.yaml
   responses:
     '204':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/204_DELETE

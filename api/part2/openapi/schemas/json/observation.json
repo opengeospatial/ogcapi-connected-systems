@@ -4,18 +4,21 @@
   "properties": {
     "id": {
       "description": "Local ID of the observation",
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "datastream@id": {
       "description": "Local ID of the datastream that this observation is part of",
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "foi@id": {
       "description": "Local ID of the sampling feature that this observation applies to",
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "phenomenonTime": {
-      "description": "Time at which the observation result is a valid estimate of the sampling feature",
+      "description": "Time at which the observation result is a valid estimate of the sampling feature property(ies)",
       "$ref": "../common/commonDefs.json#/definitions/TimeInstant"
     },
     "resultTime": {
