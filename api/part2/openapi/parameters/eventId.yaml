@@ -1,0 +1,6 @@
+name: eventId
+in: path
+description: Local identifier of a System Event
+required: true
+schema:
+  type: string

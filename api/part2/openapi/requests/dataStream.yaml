@@ -1,4 +1,4 @@
-description: OK. Successful request
+description: A single `Datastream` resource
 content:
   application/json:
     schema:

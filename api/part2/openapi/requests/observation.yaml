@@ -1,4 +1,4 @@
-description: OK. Successful request
+description: A single `Observation` resource
 content:
   application/om+json:
     schema:

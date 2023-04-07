@@ -106,15 +106,11 @@ paths:
     $ref: paths/commandStatusById.yaml
 
   # System Events
+  /systemEvents:
+    $ref: paths/systemEventsAll.yaml
+
   /systems/{systemId}/events:
     $ref: paths/systemEvents.yaml
 
   /systems/{systemId}/events/{eventId}:
-    $ref: paths/eventById.yaml
-
-  # Resource Events (read-only)
-  /systems/events:
-    $ref: paths/systemEvents.yaml
-
-  /systems/{systemId}/datastreams/events:
-    $ref: paths/eventById.yaml
+    $ref: paths/systemEventById.yaml

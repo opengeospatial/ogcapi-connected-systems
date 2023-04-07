@@ -1,4 +1,4 @@
-description: OK. Successful request
+description: A single `Command` resource
 content:
   application/json:
     schema:

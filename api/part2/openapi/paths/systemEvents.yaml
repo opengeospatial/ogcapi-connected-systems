@@ -1,0 +1,56 @@
+parameters:
+  - $ref: ../../../part1/openapi/parameters/systemId.yaml
+
+get:
+  summary: List events about a specific system
+  description: |-
+    List or search events about the parent system.
+  tags:
+    - System Events
+  parameters:
+    - $ref: ../parameters/eventTime.yaml
+    - $ref: ../../../part1/openapi/parameters/keyword.yaml
+    #- $ref: '#/components/parameters/select'
+    - $ref: ../../../part1/openapi/parameters/limit.yaml
+  responses:
+    '200':
+      $ref: ../responses/systemEventCollection.yaml
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
+
+post:
+  summary: Publish new system events
+  description: |-
+    New system events are always added inside a parent system.
+
+    Note that it is possible to create multiple resources in a single batch request.
+    In this case, several resource descriptions are provided in the content body inside a JSON array.
+    On success, the server will send a `200` response with the list of URIs of all created resources,
+    in the same order as the array in the request.
+  tags:
+    - System Events
+  requestBody:
+    $ref: ../requests/systemEventOrArray.yaml
+  responses:
+    '200':
+      $ref: ../../../part1/openapi/responses/resourceLinks.yaml
+    '201':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/201
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX

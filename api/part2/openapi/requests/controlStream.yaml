@@ -1,4 +1,4 @@
-description: OK. Successful request
+description: A single `Control Stream` resource
 content:
   application/json:
     schema:

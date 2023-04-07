@@ -1,8 +1,8 @@
-description: A single `Command Status` resource
+description: A single `System Event` resource
 content:
-  application/json:
+  application/om+json:
     schema:
-      $ref: ../schemas/json/commandStatus_replace.json
+      $ref: ../schemas/json/systemEvent_replace.json
       properties:
         links:
           description: Links to related resources

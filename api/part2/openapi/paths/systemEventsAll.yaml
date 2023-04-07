@@ -1,0 +1,24 @@
+get:
+  summary: List all system events
+  description: |-
+    List or search events about any system.
+  tags:
+    - System Events
+  parameters:
+    - $ref: ../parameters/eventTime.yaml
+    - $ref: ../../../part1/openapi/parameters/keyword.yaml
+    #- $ref: '#/components/parameters/select'
+    - $ref: ../../../part1/openapi/parameters/limit.yaml
+  responses:
+    '200':
+      $ref: ../responses/systemEventCollection.yaml
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX

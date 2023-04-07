@@ -1,11 +1,11 @@
-name: issueTime
+name: eventTime
 in: query
 description: |-
   Either a date-time or an interval. Date and time expressions adhere to RFC 3339. 
   Intervals may be bounded or half-bounded (double-dots at start or end).
 
-  Only resources with a `issueTime` property that intersects the value of the
-  `issueTime` parameter are selected.
+  Only resources with a `time` property that intersects the value of the
+  `eventTime` parameter are selected.
 required: false
 schema:
   $ref: ../../../part1/openapi/parameters/datetimeSchema.yaml
