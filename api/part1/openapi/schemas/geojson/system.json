@@ -3,7 +3,6 @@
   "allOf": [
     { "$ref": "feature.json" },
     {
-      "type": "object",
       "properties": {
         "properties": {
           "properties": {

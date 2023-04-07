@@ -1,0 +1,33 @@
+required: true
+content:
+  application/geo+json:
+    schema:
+      $ref: ../schemas/geojson/system.json
+    examples:
+      sensor:
+        summary: Sensor - Simple Thermometer
+        value:
+          $ref: ../examples/systems/thermometer-sensor-geojson.json
+      platform:
+        summary: Platform - Unmanned Aerial Vehicle (UAV)
+        value:
+          $ref: ../examples/systems/uav-platform-geojson.json
+  application/sml+json:
+    schema:
+      oneOf:
+      - title: Single System
+        $ref: ../schemas/sensorml/system.json
+      - title: List of Systems
+        type: array
+        minItems: 1
+        items:
+          $ref: ../schemas/sensorml/system.json
+    examples:
+      sensor:
+        summary: Sensor - Simple Thermometer
+        value:
+          $ref: ../examples/systems/thermometer-sensor-sml.json
+      platform:
+        summary: Platform - Unmanned Aerial Vehicle (UAV)
+        value:
+          $ref: ../examples/systems/uav-platform-sml.json

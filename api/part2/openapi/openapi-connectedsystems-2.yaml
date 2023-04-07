@@ -114,3 +114,10 @@ paths:
 
   /systems/{systemId}/events/{eventId}:
     $ref: paths/systemEventById.yaml
+
+  # System History
+  /systems/{systemId}/history:
+    $ref: paths/systemHistory.yaml
+
+  /systems/{systemId}/history/{versionId}:
+    $ref: paths/systemHistoryById.yaml

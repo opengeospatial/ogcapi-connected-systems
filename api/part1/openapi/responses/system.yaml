@@ -1,0 +1,8 @@
+description: OK. Successful request
+content:
+  application/geo+json:
+    schema:
+      $ref: ../schemas/geojson/system.json
+  application/sml+json:
+    schema:
+      $ref: ../schemas/sensorml/system.json
