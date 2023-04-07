@@ -13,7 +13,7 @@
           "format": "uri-reference"
         },
         "axisID": {
-          "description": "Specifies the reference axis (refer to gml:axisID). The reference frame URI should also be specified unless it is inherited from parent Vector",
+          "description": "Specifies the reference axis (refer to CRS axisID). The reference frame URI should also be specified unless it is inherited from parent Vector",
           "type": "string",
           "minLength": 1
         },

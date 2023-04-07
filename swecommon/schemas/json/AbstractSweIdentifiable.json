@@ -9,12 +9,12 @@
     {
       "properties": {
         "label": {
-          "description": "Textual label for the data component . This is often used for displaying a human readable name for a dataset field or a process input/output",
+          "description": "Human readable label for the object",
           "type": "string",
           "minLength": 1
         },
         "description": {
-          "description": "Textual description (i.e. human readable) of the data component usually used to clarify its nature",
+          "description": "Human readable description of the object",
           "type": "string",
           "minLength": 1
         }

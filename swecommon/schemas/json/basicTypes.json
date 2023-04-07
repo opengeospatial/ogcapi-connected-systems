@@ -54,6 +54,7 @@
           "properties": {
             "values": {
               "type": "array",
+              "minItems": 1,
               "items": {
                 "type": "string",
                 "minLength": 1
@@ -160,6 +161,7 @@
     },
     "NilValuesText": {
       "type": "array",
+      "minItems": 1,
       "items": {
         "type": "object",
         "properties": {
@@ -182,6 +184,7 @@
     },
     "NilValuesInteger": {
       "type": "array",
+      "minItems": 1,
       "items": {
         "type": "object",
         "properties": {
@@ -204,6 +207,7 @@
     },
     "NilValuesNumber": {
       "type": "array",
+      "minItems": 1,
       "items": {
         "type": "object",
         "properties": {
@@ -226,6 +230,7 @@
     },
     "NilValuesTime": {
       "type": "array",
+      "minItems": 1,
       "items": {
         "type": "object",
         "properties": {
