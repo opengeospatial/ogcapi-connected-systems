@@ -33,6 +33,40 @@
           ]
         }
       ]
+    },
+    "Term": {
+      "type": "object",
+      "properties": {
+        "definition": {
+          "type": "string",
+          "format": "uri"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "codeSpace": {
+          "type": "string",
+          "format": "uri"
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "label",
+        "value"
+      ],
+      "unevaluatedProperties": false
+    },
+    "AnyProperty": {
+      "oneOf": [
+        { "$ref": "sweCommonDefs.json#/definitions/AnySimpleComponent" },
+        { "$ref": "sweCommonDefs.json#/definitions/Vector" },
+        { "$ref": "sweCommonDefs.json#/definitions/DataArray" },
+        { "$ref": "sweCommonDefs.json#/definitions/Matrix" }
+      ]
     }
   }
 }

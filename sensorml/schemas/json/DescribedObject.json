@@ -27,14 +27,14 @@
           "description": "Additional identifiers for the asset, useful for discovery (e.g. short name, mission id, model number, serial number, etc.).",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Term"
+            "$ref": "commonDefs.json#/definitions/Term"
           }
         },
         "classifiers": {
           "description": "Classifiers for the asset, useful for discovery (e.g. process type, sensor type, intended application, etc.).",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Term"
+            "$ref": "commonDefs.json#/definitions/Term"
           }
         },
         "validTime": {
@@ -102,9 +102,6 @@
         {
           "type": "object",
           "properties": {
-            "name": {
-              "$ref": "sweCommonDefs.json#/definitions/NameToken"
-            },
             "definition": {
               "description": "The semantic definition for this group of capabilities.",
               "type": "string",
@@ -121,7 +118,7 @@
               "description": "The list of characteristics in this group.",
               "type": "array",
               "items": {
-                "$ref": "#/definitions/AnyProperty"
+                "$ref": "commonDefs.json#/definitions/AnyProperty"
               }
             }
           },
@@ -139,9 +136,6 @@
           "description": "A group of capabilities.",
           "type": "object",
           "properties": {
-            "name": {
-              "$ref": "sweCommonDefs.json#/definitions/NameToken"
-            },
             "definition": {
               "description": "The semantic definition for this group of capabilities.",
               "type": "string",
@@ -158,7 +152,7 @@
               "description": "The list of capabilities in this group.",
               "type": "array",
               "items": {
-                "$ref": "#/definitions/AnyProperty"
+                "$ref": "commonDefs.json#/definitions/AnyProperty"
               }
             }
           },
@@ -166,40 +160,6 @@
         }
       ],
       "unevaluatedProperties": false
-    },
-    "Term": {
-      "type": "object",
-      "properties": {
-        "definition": {
-          "type": "string",
-          "format": "uri"
-        },
-        "label": {
-          "type": "string",
-          "minLength": 1
-        },
-        "codeSpace": {
-          "type": "string",
-          "format": "uri"
-        },
-        "value": {
-          "type": "string",
-          "minLength": 1
-        }
-      },
-      "required": [
-        "label",
-        "value"
-      ],
-      "unevaluatedProperties": false
-    },
-    "AnyProperty": {
-      "oneOf": [
-        { "$ref": "sweCommonDefs.json#/definitions/AnySimpleComponent" },
-        { "$ref": "sweCommonDefs.json#/definitions/Vector" },
-        { "$ref": "sweCommonDefs.json#/definitions/DataArray" },
-        { "$ref": "sweCommonDefs.json#/definitions/Matrix" }
-      ]
     }
   }
 }
