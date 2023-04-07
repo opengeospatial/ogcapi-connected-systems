@@ -5,22 +5,26 @@ content:
     schema:
       oneOf:
       - title: Single Observation
-        $ref: ../schemas/json/observation.json
+        $ref: ../schemas/json/observation_create.json
       - title: Multiple Observations
         type: array
         minItems: 1
         items:
-          $ref: ../schemas/json/observation.json
+          $ref: ../schemas/json/observation_create.json
     examples:
       simple:
         summary: Scalar Observation (Measure)
         value:
-          $ref: ../examples/observations/obs-simple.json
+          $ref: ../examples/observations/obs-simple-create.json
       location:
-        summary: Location Observation
+        summary: Vector Observation (Location)
         value:
-          $ref: ../examples/observations/obs-location.json
+          $ref: ../examples/observations/obs-location-create.json
+      profile:
+        summary: Profile Observation
+        value:
+          $ref: ../examples/observations/obs-profile-create.json
       link:
         summary: Observation with link to external result
         value:
-          $ref: ../examples/observations/obs-link.json
+          $ref: ../examples/observations/obs-link-create.json

@@ -15,7 +15,7 @@ get:
     - $ref: ../../../part1/openapi/parameters/limit.yaml
   responses:
     '200':
-      $ref: ../responses/datastreamCollection.yaml
+      $ref: ../responses/dataStreamCollection.yaml
     '400':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
     '401':
@@ -31,6 +31,11 @@ post:
   summary: Add new datastreams to a system
   description: |-
     New datastreams are always added inside a parent system.
+
+    Note that it is possible to create multiple resources in a single batch request.
+    In this case, several resource descriptions are provided in the content body inside a JSON array.
+    On success, the server will send a `200` response with the list of URIs of all created resources,
+    in the same order as the array in the request.
   tags:
     - Datastreams
   requestBody:

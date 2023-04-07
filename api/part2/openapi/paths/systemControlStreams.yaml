@@ -32,7 +32,12 @@ get:
 post:
   summary: Add new control streams to a system
   description: |-
-    A new control stream is always added inside a parent system.
+    New control streams are always added to a parent system.
+
+    Note that it is possible to create multiple resources in a single batch request.
+    In this case, several resource descriptions are provided in the content body inside a JSON array.
+    On success, the server will send a `200` response with the list of URIs of all created resources,
+    in the same order as the array in the request.
   tags:
     - Control Channels
   requestBody:

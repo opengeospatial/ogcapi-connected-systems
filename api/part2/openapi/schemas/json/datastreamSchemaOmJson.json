@@ -9,7 +9,7 @@
       "$ref": "../common/sweCommonDefs.json#/definitions/AnyComponent"
     },
     "parameterSchema": {
-      "$ref": "../common/sweCommonDefs.json#/definitions/AnyComponent"
+      "$ref": "../common/sweCommonDefs.json#/definitions/DataRecord"
     }
   },
   "required": [

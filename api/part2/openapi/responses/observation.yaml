@@ -2,13 +2,28 @@ description: OK. Successful request
 content:
   application/om+json:
     schema:
-      $ref: ../schemas/json/observation.json
-      required:
-        - id
+      $ref: ../schemas/json/observation_view.json
       properties:
         links:
           description: Links to related resources
           $ref: ../schemas/common/commonDefs.json#/definitions/Links
+    examples:
+      simple:
+        summary: Scalar Observation (Measure)
+        value:
+          $ref: ../examples/observations/obs-simple.json
+      location:
+        summary: Vector Observation (Location)
+        value:
+          $ref: ../examples/observations/obs-location.json
+      profile:
+        summary: Profile Observation
+        value:
+          $ref: ../examples/observations/obs-profile.json
+      link:
+        summary: Observation with link to external result
+        value:
+          $ref: ../examples/observations/obs-link.json
         
   application/swe+json:
     schema:

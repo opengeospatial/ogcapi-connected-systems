@@ -43,10 +43,7 @@
           "description": "Other links to related resources",
           "$ref": "../common/commonDefs.json#/definitions/Links"
         }
-      },
-      "required": [
-        "phenomenonTime", "resultTime", "observedProperties"
-      ]
+      }
     }
   ]
 }

@@ -8,9 +8,7 @@ content:
         items:
           type: array
           items:
-            $ref: ../schemas/json/controlStream.json
-            required:
-              - id
+            $ref: ../schemas/json/controlStream_view.json
         links:
           description: Links to related resources (including paging)
           $ref: ../schemas/common/commonDefs.json#/definitions/Links

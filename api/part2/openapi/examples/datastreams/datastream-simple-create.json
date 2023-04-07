@@ -1,0 +1,13 @@
+{
+  "name": "Indoor Thermometer 001 - Living Room Temperature",
+  "ultimateFeatureOfInterest@link": {
+    "href": "https://data.example.org/api/collections/buildings/items/754",
+    "title": "My House"
+  },
+  "observedProperties": [
+    {
+      "definition": "http://mmisw.org/ont/cf/parameter/air_temperature",
+      "label": "Air Temperature"
+    }
+  ]
+}

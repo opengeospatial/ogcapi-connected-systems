@@ -8,13 +8,7 @@ content:
         items:
           type: array
           items:
-            $ref: ../schemas/json/commandStatus.json
-            required:
-              - id
-              - command@id
-              - reportTime
-              - userId
-              - currentStatus
+            $ref: ../schemas/json/commandStatus_view.json
         links:
           description: Links to related resources (including paging)
           $ref: ../schemas/common/commonDefs.json#/definitions/Links

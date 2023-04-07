@@ -10,11 +10,7 @@ get:
   #  - $ref: '#/components/parameters/select'
   responses:
     '200':
-      description: OK. Successful request
-      content:
-        application/json:
-          schema:
-            $ref: ../schemas/json/datastream.json
+      $ref: ../responses/dataStream.yaml
     '400':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
     '401':
@@ -32,10 +28,7 @@ put:
   tags:
     - Datastreams
   requestBody:
-    content:
-      application/json:
-        schema:
-          $ref: ../schemas/json/datastream.json
+    $ref: ../requests/dataStream.yaml
   responses:
     '204':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/204_PUT

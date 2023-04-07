@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "allOf": [
+    { "$ref": "command.json" },
+    { "required": [
+      "id",
+      "control@id",
+      "issueTime",
+      "sender",
+      "currentStatus",
+      "params"
+    ]}
+  ]
+}

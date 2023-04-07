@@ -3,7 +3,7 @@
   "type": "object",
   "properties": {
     "id": {
-      "description": "Local resource ID",
+      "description": "Local resource ID. If set on creation, the server may ignore it",
       "type": "string",
       "minLength": 1
     },
@@ -19,7 +19,8 @@
     },
     "system@link": {
       "description": "Link to the parent system",
-      "$ref": "../common/commonDefs.json#/definitions/Link"
+      "$ref": "../common/commonDefs.json#/definitions/Link",
+      "readOnly": true
     },
     "ultimateFeatureOfInterest@link": {
       "description": "Link to the ultimate feature of interest (if there is only one)",
@@ -35,7 +36,8 @@
       "minItems": 1,
       "items": {
         "type": "string"
-      }
+      },
+      "readOnly": true
     },
     "validTime": {
       "description": "Validity period of the resource",
@@ -43,6 +45,6 @@
     }
   },
   "required": [
-    "name", "system@link", "formats"
+    "name"
   ]
 }

@@ -1,6 +1,6 @@
 {
   "id": "958tf25kjm2f6",
-  "name": "Outdoor Thermometer 001 - Air Temperature",
+  "name": "Indoor Thermometer 001 - Living Room Temperature",
   "system@link": {
     "href": "https://data.example.org/api/systems/123",
     "uid": "urn:x-ogc:systems:001",

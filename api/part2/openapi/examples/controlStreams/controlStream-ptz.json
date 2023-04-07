@@ -4,6 +4,7 @@
   "system@link": {
     "href": "https://data.example.org/api/systems/4722256",
     "uid": "urn:x-ogc:systems:CAM001",
+    "title": "Garage Video Camera 001",
     "inputName": "ptz"
   },
   "issueTime": [

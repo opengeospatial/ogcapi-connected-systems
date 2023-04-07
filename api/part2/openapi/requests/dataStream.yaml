@@ -1,0 +1,5 @@
+description: OK. Successful request
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/json/dataStream_replace.json

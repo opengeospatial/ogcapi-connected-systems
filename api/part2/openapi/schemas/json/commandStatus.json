@@ -5,7 +5,8 @@
     "id": {
       "description": "Local identifier of the status report",
       "type": "string",
-      "minLength": 1
+      "minLength": 1,
+      "readOnly": true
     },
     "command@id": {
       "description": "Local identifier of the command that this report applies to",
@@ -13,10 +14,10 @@
       "minLength": 1
     },
     "reportTime": {
-      "description": "Time at which this report was generated",
+      "description": "Time at which this report was generated. If omitted on creation, the server sets it to the time the request was received.",
       "$ref": "../common/commonDefs.json#/definitions/TimeInstant"
     },
-    "status": {
+    "statusCode": {
       "description": "Current status code",
       "$ref": "commandStatusCode.json"
     },
@@ -39,7 +40,8 @@
       "description": "Result of the command",
       "oneOf": [
         {
-          "title": "Inline data"
+          "title": "Inline data",
+          "type": "object"
         },
         {
           "title": "Link to external data",
@@ -47,8 +49,5 @@
         }
       ]
     }
-  },
-  "required": [
-    "status"
-  ]
+  }
 }

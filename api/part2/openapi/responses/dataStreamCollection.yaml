@@ -8,9 +8,7 @@ content:
         items:
           type: array
           items:
-            $ref: ../schemas/json/datastream.json
-            required:
-              - id
+            $ref: ../schemas/json/dataStream_view.json
         links:
           description: Links to related resources (including paging)
           $ref: ../schemas/common/commonDefs.json#/definitions/Links

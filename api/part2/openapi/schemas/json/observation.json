@@ -5,7 +5,8 @@
     "id": {
       "description": "Local ID of the observation",
       "type": "string",
-      "minLength": 1
+      "minLength": 1,
+      "readOnly": true
     },
     "datastream@id": {
       "description": "Local ID of the datastream that this observation is part of",
@@ -18,30 +19,19 @@
       "minLength": 1
     },
     "phenomenonTime": {
-      "description": "Time at which the observation result is a valid estimate of the sampling feature property(ies)",
+      "description": "Time at which the observation result is a valid estimate of the sampling feature property(ies). Defaults to the same value as `resultTime`.",
       "$ref": "../common/commonDefs.json#/definitions/TimeInstant"
     },
     "resultTime": {
-      "description": "Time at which the observation result was generated",
+      "description": "Time at which the observation result was generated. If omitted on creation, the server sets it to the time the request was received.",
       "$ref": "../common/commonDefs.json#/definitions/TimeInstant"
     },
     "result": {
-      "description": "Result of the observation",
-      "oneOf": [
-        {
-          "title": "Inline data",
-          "not": {
-            "required": [ "href" ]
-          }
-        },
-        {
-          "title": "Link to external data",
-          "$ref": "../common/commonDefs.json#/definitions/Link"
-        }
-      ]
+      "description": "Result of the observation. Must be valid according to the schema provided in the datastream metadata."
+    },
+    "result@links": {
+      "description": "Link to external result data (e.g. large raster dataset served by a tiling service)",
+      "$ref": "../common/commonDefs.json#/definitions/Links"
     }
-  },
-  "required": [
-    "datastream@id", "phenomenonTime", "resultTime", "result"
-  ]
+  }
 }

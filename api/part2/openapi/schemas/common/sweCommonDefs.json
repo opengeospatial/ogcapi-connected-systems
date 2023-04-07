@@ -6,6 +6,9 @@
     },
     "AnyEncoding": {
       "$ref": "../../../../../swecommon/schemas/json/encodings.json"
+    },
+    "DataRecord": {
+      "$ref": "../../../../../swecommon/schemas/json/DataRecord.json"
     }
   }
 }

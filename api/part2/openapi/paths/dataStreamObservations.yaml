@@ -32,7 +32,12 @@ get:
 post:
   summary: Add new observations to a datastream
   description: |-
-    Add one or more new `Observation` resources. Observations are always added to a parent datastream.
+    New observations are always added to a parent datastream.
+
+    Note that it is possible to create multiple resources in a single batch request.
+    In this case, several resource descriptions are provided in the content body inside a JSON array.
+    On success, the server will send a `200` response with the list of URIs of all created resources,
+    in the same order as the array in the request.
   tags:
     - Observations
   requestBody:
