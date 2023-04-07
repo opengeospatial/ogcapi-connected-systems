@@ -9,7 +9,7 @@
     {
       "properties": {
         "definition": {
-          "description": "Reference to the definition of the type of event.",
+          "description": "Type of event (semantic link)",
           "type": "string",
           "format": "uri"
         },

@@ -12,6 +12,7 @@
           "type": "string"
         },
         "definition": {
+          "description": "Type of the object (semantic link)",
           "type": "string",
           "format": "uri"
         },
@@ -103,19 +104,19 @@
           "type": "object",
           "properties": {
             "definition": {
-              "description": "The semantic definition for this group of capabilities.",
+              "description": "Semantic link to the definition of this group of capabilities",
               "type": "string",
               "format": "uri"
             },
             "conditions": {
-              "description": "The conditions under which the characteristics apply.",
+              "description": "The conditions under which the characteristics apply",
               "type": "array",
               "items": {
                 "$ref": "sweCommonDefs.json#/definitions/AnySimpleComponent"
               }
             },
             "characteristics": {
-              "description": "The list of characteristics in this group.",
+              "description": "The list of characteristics in this group",
               "type": "array",
               "items": {
                 "$ref": "commonDefs.json#/definitions/AnyProperty"
@@ -137,19 +138,19 @@
           "type": "object",
           "properties": {
             "definition": {
-              "description": "The semantic definition for this group of capabilities.",
+              "description": "Semantic link to the definition of this group of capabilities",
               "type": "string",
               "format": "uri"
             },
             "conditions": {
-              "description": "The conditions under which the capabilities apply.",
+              "description": "The conditions under which the capabilities apply",
               "type": "array",
               "items": {
                 "$ref": "sweCommonDefs.json#/definitions/AnySimpleComponent"
               }
             },
             "capabilities": {
-              "description": "The list of capabilities in this group.",
+              "description": "The list of capabilities in this group",
               "type": "array",
               "items": {
                 "$ref": "commonDefs.json#/definitions/AnyProperty"

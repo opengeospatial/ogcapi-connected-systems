@@ -58,20 +58,14 @@
       "type": "array",
       "minItems": 1,
       "items": {
-        "oneOf": [
-          { "$ref": "sweCommonDefs.json#/definitions/AnyComponent" },
-          { "$ref": "commonDefs.json#/definitions/ObservableProperty" }
-        ]
+        "$ref": "#/definitions/ComponentOrObsProp"
       }
     },
     "OutputList": {
       "type": "array",
       "minItems": 1,
       "items": {
-        "oneOf": [
-          { "$ref": "sweCommonDefs.json#/definitions/AnyComponent" },
-          { "$ref": "commonDefs.json#/definitions/ObservableProperty" }
-        ]
+        "$ref": "#/definitions/ComponentOrObsProp"
       }
     },
     "ParameterList": {
@@ -83,6 +77,18 @@
     },
     "ModeChoice": {
 
+    },
+    "ComponentOrObsProp": {
+      "oneOf": [
+        {
+          "title": "DataComponent",
+          "$ref": "sweCommonDefs.json#/definitions/AnyComponent"
+        },
+        {
+          "title": "ObservableProperty",
+          "$ref": "commonDefs.json#/definitions/ObservableProperty"
+        }
+      ]
     }
   }
 }

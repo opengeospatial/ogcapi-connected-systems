@@ -2,7 +2,12 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
-    "name": {
+    "definition": {
+      "description": "Type of document (semantic link)",
+      "type": "string",
+      "format": "uri"
+    },
+    "label": {
       "description": "Name of the document",
       "type": "string"
     },
@@ -10,11 +15,11 @@
       "description": "Human readable description of the document",
       "type": "string"
     },
-    "linkage": {
+    "link": {
       "description": "URI of the document (Favor a URL if the document is directly accessible online)",
       "$ref": "commonDefs.json#/definitions/XLink"
     }
   },
   "unevaluatedProperties": false,
-  "required": [ "name", "linkage" ]
+  "required": [ "label", "link" ]
 }

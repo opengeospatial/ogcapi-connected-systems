@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
     "XLink": {
-      "$ref": "../../../common/xlink.json"
+      "$ref": "../../../common/link.json"
     },
     "TimeInstant": {
       "$ref": "../../../common/timeInstant.json"
@@ -38,18 +38,22 @@
       "type": "object",
       "properties": {
         "definition": {
+          "description": "Type of identifier/classifier (semantic link)",
           "type": "string",
           "format": "uri"
         },
         "label": {
+          "description": "Human readable label for this identifier/classifier",
           "type": "string",
           "minLength": 1
         },
         "codeSpace": {
+          "description": "URI of codespace defining the possible values for this identifier/classifier",
           "type": "string",
           "format": "uri"
         },
         "value": {
+          "description": "Actual identifier/classifier value",
           "type": "string",
           "minLength": 1
         }
