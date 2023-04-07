@@ -10,9 +10,8 @@ content:
           items:
             $ref: ../schemas/geojson/system.json
         links:
-          type: array
-          items:
-            $ref: ../schemas/common/commonDefs.json#/definitions/Link
+          description: Links to related resources (including paging)
+          $ref: ../schemas/common/commonDefs.json#/definitions/Links
   application/geo+json:
     schema:
       type: object
@@ -26,9 +25,8 @@ content:
           items:
             $ref: ../schemas/geojson/system.json
         links:
-          type: array
-          items:
-            $ref: ../schemas/common/commonDefs.json#/definitions/Link
+          description: Links to related resources (including paging)
+          $ref: ../schemas/common/commonDefs.json#/definitions/Links
   application/sml+json:
     schema:
       type: object
@@ -39,6 +37,5 @@ content:
           items:
             $ref: ../schemas/sensorml/system.json
         links:
-          type: array
-          items:
-            $ref: ../schemas/common/commonDefs.json#/definitions/Link
+          description: Links to related resources (including paging)
+          $ref: ../schemas/common/commonDefs.json#/definitions/Links

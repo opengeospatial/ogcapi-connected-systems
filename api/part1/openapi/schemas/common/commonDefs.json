@@ -9,6 +9,9 @@
     },
     "Link": {
       "$ref": "../../../../../common/link.json"
+    },
+    "Links": {
+      "$ref": "links.json"
     }
   }
 }

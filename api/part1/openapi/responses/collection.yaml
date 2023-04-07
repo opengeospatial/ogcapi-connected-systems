@@ -1,0 +1,6 @@
+description: Metadata for a feature collection.
+content:
+  application/json:
+    schema:
+      #$ref: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/collection.yaml
+      $ref: collection_schema.yaml

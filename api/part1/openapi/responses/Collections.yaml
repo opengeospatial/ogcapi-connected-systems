@@ -1,7 +1,0 @@
-description: The list of collections available on this endpoint
-content:
-  application/json:
-    schema:
-      $ref: https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/collections.yaml
-    example:
-      $ref: "../examples/collections/collections1.json"

@@ -1,4 +1,4 @@
-description: Success. Several new resources created.
+description: Success. Several new resources created. (Only sent if the payload contained an array of resources).
 content:
   application/json:
     schema:
@@ -11,3 +11,7 @@ content:
           items:
             type: string
             format: uri
+    example:
+      - https://data.example.org/api/collections/{id}/items/546861
+      - https://data.example.org/api/collections/{id}/items/546862
+      - https://data.example.org/api/collections/{id}/items/546863

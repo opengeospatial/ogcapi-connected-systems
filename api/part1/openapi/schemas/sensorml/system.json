@@ -21,7 +21,7 @@
           ]
         },
         "links": {
-          "description": "Other links to related resources",
+          "description": "Links to related resources",
           "$ref": "../common/links.json"
         }
       },

@@ -55,7 +55,7 @@ paths:
         - Capabilities
       responses:
         '200':
-          $ref: responses/LandingPage.yaml
+          $ref: responses/landingPage.yaml
 
   /conformance:
     get:
@@ -65,7 +65,7 @@ paths:
         - Capabilities
       responses:
         '200':
-          $ref: responses/Conformance.yaml
+          $ref: responses/conformance.yaml
 
 
   # Collections  
@@ -84,7 +84,7 @@ paths:
         - $ref: parameters/limit.yaml
       responses:
         '200':
-          $ref: responses/Collections.yaml
+          $ref: responses/collections.yaml
 
   /collections/{collectionId}:
     get:
@@ -96,7 +96,7 @@ paths:
         - $ref: parameters/collectionId.yaml
       responses:
         '200':
-          $ref: responses/Collection.yaml    
+          $ref: responses/collection.yaml    
 
   /collections/{collectionId}/items:
     get:
@@ -112,7 +112,7 @@ paths:
         - $ref: parameters/limit.yaml
       responses:
         '200':
-          $ref: responses/FeatureCollection.yaml
+          $ref: responses/featureCollection.yaml
 
   /collections/{collectionId}/items/{featureId}:
     get:
@@ -125,7 +125,7 @@ paths:
         - $ref: parameters/featureId.yaml
       responses:
         '200':
-          $ref: responses/Feature.yaml
+          $ref: responses/feature.yaml
 
 
   # Systems
