@@ -26,7 +26,6 @@
   ],
   "capabilities": [
     {
-      "name": "speed_measurement",
       "definition": "http://www.w3.org/ns/ssn/systems/SystemCapability",
       "label": "Speed Measurement Capabilities",
       "capabilities": [

@@ -43,7 +43,7 @@
           "required": [ "href" ]
         }
       ],
-      "additionalProperties": false
+      "unevaluatedProperties": false
     },
     "AllowedTokens": {
       "description": "Defines permitted values for the component, as an enumerated list of tokens or a regular expression pattern",
@@ -61,8 +61,7 @@
               }
             }
           },
-          "required": [ "values" ],
-          "additionalProperties": false
+          "required": [ "values" ]
         },
         {
           "title": "Regex Pattern",
@@ -73,10 +72,10 @@
               "minLength": 1
             }
           },
-          "required": [ "pattern" ],
-          "additionalProperties": false
+          "required": [ "pattern" ]
         }
-      ]
+      ],
+      "unevaluatedProperties": false
     },
     "AllowedValues": {
       "description": "Defines the permitted values for the component as an enumerated list and/or a list of inclusive ranges",
