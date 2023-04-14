@@ -1,21 +1,21 @@
 {
   "type": "Feature",
-  "id": "DS002",
+  "id": "iv3f2kcq27gfi",
   "geometry": null,
   "properties": {
     "uid": "urn:x-gill:datasheets:windmaster:v1",
     "name": "Gill WindMaster",
     "description": "Precision 3-axis ultrasonic anemometer",
-    "featureType": "http://www.opengis.net/def/x-OGC/ObservingProcedure"
+    "featureType": "http://www.w3.org/ns/sosa/ObservingProcedure"
   },
   "links": [
     {
-      "href" : "https://data.example.org/api/procedures/123?f=json",
+      "href" : "https://data.example.org/api/procedures/iv3f2kcq27gfi?f=json",
       "rel" : "self",
       "type" : "application/geo+json",
       "title" : "this document"
     }, {
-      "href" : "https://data.example.org/api/procedures/items/DS002?f=sml",
+      "href" : "https://data.example.org/api/procedures/iv3f2kcq27gfi?f=sml",
       "rel" : "alternate",
       "type" : "application/sml+json",
       "title" : "this resource as SensorML"

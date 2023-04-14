@@ -13,11 +13,11 @@
       "properties": {
         "definition": {
           "enum": [
-            "http://www.opengis.net/def/x-OGC/ObservingProcedure",
-            "http://www.opengis.net/def/x-OGC/ActuatingProcedure",
-            "http://www.opengis.net/def/x-OGC/SamplingProcedure",
-            "http://www.opengis.net/def/x-OGC/SimulationProcedure",
-            "http://www.opengis.net/def/x-OGC/MobilityProcedure"
+            "http://www.w3.org/ns/sosa/ObservingProcedure",
+            "http://www.w3.org/ns/sosa/ActuationProcedure",
+            "http://www.w3.org/ns/sosa/SamplingProcedure",
+            "http://www.w3.org/ns/sosa/PreparationProcedure",
+            "http://www.w3.org/ns/sosa/Procedure"
           ]
         },
         "position": {
@@ -29,6 +29,5 @@
         }
       }
     }
-  ],
-  "unevaluatedProperties": false
+  ]
 }
