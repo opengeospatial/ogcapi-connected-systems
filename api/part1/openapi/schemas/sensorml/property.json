@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "allOf": [
+    { 
+      "$ref": "sensormlDefs.json#/definitions/DerivedProperty"
+    },
+    {
+      "properties": {
+        "links": {
+          "description": "Links to related resources",
+          "$ref": "../common/links.json"
+        }
+      }
+    }
+  ]
+}

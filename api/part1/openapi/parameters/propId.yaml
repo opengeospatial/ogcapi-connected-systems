@@ -1,0 +1,6 @@
+name: propId
+in: path
+description: Local identifier of a Property
+required: true
+schema:
+  type: string

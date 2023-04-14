@@ -1,0 +1,68 @@
+get:
+  summary: Retrieve a property definition by ID
+  tags:
+    - Properties
+  parameters:
+    - $ref: ../parameters/propId.yaml
+    #- $ref: '#/components/parameters/select'
+  responses:
+    '200':
+      $ref: ../responses/property.yaml
+    '400':
+      $ref: ../responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../responses/StandardResponses.yaml#/5XX
+
+put:
+  summary: Update a property definition
+  description: |-
+    This will completely replace the existing definition of the property with the provided content.
+  tags:
+    - Properties
+  parameters:
+    - $ref: ../parameters/propId.yaml
+  requestBody:
+    $ref: ../requests/property.yaml
+  responses:
+    '204':
+      $ref: ../responses/StandardResponses.yaml#/204_PUT
+    '400':
+      $ref: ../responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../responses/StandardResponses.yaml#/5XX
+
+delete:
+  summary: Delete a property
+  description: |-
+    This will delete the property and remove it from all collections it is associated to.
+  tags:
+    - Properties
+  parameters:
+    - $ref: ../parameters/propId.yaml
+  responses:
+    '204':
+      $ref: ../responses/StandardResponses.yaml#/204_DELETE
+    '400':
+      $ref: ../responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../responses/StandardResponses.yaml#/404
+    '409':
+      $ref: ../responses/StandardResponses.yaml#/409_DELETE
+    '5XX':
+      $ref: ../responses/StandardResponses.yaml#/5XX

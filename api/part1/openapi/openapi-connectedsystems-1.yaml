@@ -32,8 +32,9 @@ tags:
     description: Collections of features (e.g. Systems, Procedures, Deployments, Sampling Features, and other Features of Interest).
   - name: Systems
     description: |-
-      Systems are entities that can produce data feeds and/or receive commands (e.g. sensors and sensor networks, platforms, actuators, processing components, etc.).
-      Many systems can be classified as 'observing systems' that produce observations of one or more features of interest.
+      Systems are entities that can produce data feeds and/or receive commands (e.g. sensors and sensor networks, platforms, actuators,
+      processing components, etc.). Many systems can be classified as 'observing systems' that produce observations of one or more
+      features of interest.
   - name: Procedures
     description: |-
       Procedures provides information about the procedure implemented by a system to accomplish its task(s).
@@ -44,7 +45,17 @@ tags:
       Deployments describe how systems are being deployed at a particular place and time.
   - name: Sampling Features
     description: |-
-      Sampling Features link Systems with ultimate features of interest, describing exactly what part of a larger feature is being interacted with.
+      Sampling Features link Systems with ultimate features of interest, describing exactly what part of a larger feature is being
+      interacted with.
+  - name: Properties
+    description: |-
+      Property resources provide the definitions of derived properties that are used throughout the API.
+      
+      Derived properties are specific to a type of feature, a type of system, or even to a particular organization, project or deployment.
+      Property definitions are referenced by feature schemas, system and deployment descriptions, datastream and control stream schemas, etc.
+      
+      Depending on the context they are used in, they can represent properties that are asserted (e.g. system characteristic), observed
+      (observed or observable property) or controlled (controlled or controllable property).
 
 paths:
   /:
@@ -173,3 +184,11 @@ paths:
 
   /samplingFeatures/{featureId}:
     $ref: paths/samplingFeatureById.yaml
+
+
+  # Properties
+  /properties:
+    $ref: paths/properties.yaml
+
+  /properties/{propId}:
+    $ref: paths/propertyById.yaml

@@ -1,0 +1,21 @@
+{
+  "id": "RFPower_Received_620-720",
+  "baseProperty": "http://qudt.org/vocab/quantitykind/RF-Power",
+  "label": "Received RF Power",
+  "description": "RF Power received in band 620-720 MHz",
+  "qualifiers": [
+    {
+      "type": "QuantityRange",
+      "definition": "http://qudt.org/vocab/quantitykind/Frequency",
+      "label": "Frequency Range",
+      "uom": { "code": "MHz" },
+      "value": [620.0, 720.0]
+    }
+  ],
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://data.example.com/api/properties/RFPower_Received_620-720"
+    }
+  ]
+}

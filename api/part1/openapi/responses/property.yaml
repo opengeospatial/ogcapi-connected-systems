@@ -1,0 +1,5 @@
+description: OK. Successful request
+content:
+  application/sml+json:
+    schema:
+      $ref: ../schemas/sensorml/property.json

@@ -21,6 +21,9 @@
     },
     "Deployment": {
       "$ref": "../../../../../sensorml/schemas/json/Deployment.json"
+    },
+    "DerivedProperty": {
+      "$ref": "../../../../../sensorml/schemas/json/DerivedProperty.json"
     }
   }
 }

@@ -1,0 +1,89 @@
+{
+  "$schema": "PropertyCollection.json",
+  "properties": [
+    {
+      "id": "15361f5dsv1b4",
+      "uri": "http://mmisw.org/ont/cf/parameter/air_temperature",
+      "label": "Air Temperature",
+      "description": "Temperature of the air under cover",
+      "baseProperty": "http://qudt.org/vocab/quantitykind/Temperature",
+      "object": "http://sweetontology.net/realm/Atmosphere"
+    },
+    {
+      "id": "f45s4d6g4ds6",
+      "uri": "http://mmisw.org/ont/cf/parameter/sea_surface_temperature",
+      "label": "Seawater Temperature",
+      "description": "Temperature of the seawater close to the surface",
+      "baseProperty": "https://qudt.org/vocab/quantitykind/Temperature",
+      "object": "http://sweetontology.net/realmHydroBody/SeaSurface"
+    },
+    {
+      "id": "45gsddcbhhhtt",
+      "uri": "http://data.example.org/api/properties/CabinTemp",
+      "label": "Cabin Temperature",
+      "description": "Temperature of the air inside the cabin",
+      "baseProperty": "https://qudt.org/vocab/quantitykind/Temperature",
+      "object": "http://sensorml.com/ont/x-swe/featureType/Cabin"
+    },
+    {
+      "id": "fsdv54sf86f8",
+      "uri": "http://data.example.org/api/properties/EngineTemp",
+      "label": "Engine Temperature",      
+      "description": "Temperature of the engine measured on the cylinder head",
+      "baseProperty": "http://qudt.org/vocab/quantitykind/Temperature",
+      "object": "http://sensorml.com/ont/x-swe/featureType/Engine"
+    },
+    {
+      "id": "fs45sg5s5556",
+      "uri": "http://data.example.org/api/properties/CombustionTemp",
+      "label": "Combustion Temperature",
+      "description": "Temperature of the engine measured in the combustion chamber",
+      "baseProperty": "http://qudt.org/vocab/quantitykind/Temperature",
+      "object": "http://sensorml.com/ont/x-swe/featureType/Engine"
+    },
+    {
+      "id": "54g8gggef44",
+      "uri": "http://data.example.org/api/properties/DailyAverageAirTemperature",
+      "label": "Daily Average Temperature",
+      "description": "Average temperature computed over a 24-hour calendar day, starting at midnight local time at the measurement location",
+      "baseProperty": "http://mmisw.org/ont/cf/parameter/air_temperature",
+      "statistic": "http://sensorml.com/ont/x-stats/DailyMean"
+    },
+    {
+      "id": "4546gss2dg54",
+      "uri": "http://data.example.org/api/properties/EnginePower",
+      "label": "Engine Power",
+      "description": "Mechanical power produced by the engine",
+      "baseProperty": "http://qudt.org/vocab/quantitykind/Power",
+      "object": "http://sensorml.com/ont/x-swe/featureType/Engine"
+    },
+    {
+      "uri": "http://data.example.org/api/properties/RFPower_Received_620-720",
+      "baseProperty": "http://qudt.org/vocab/quantitykind/RF-Power",
+      "label": "Received RF Power",
+      "description": "RF Power received in band 620-720 MHz",
+      "qualifiers": [
+        {
+          "type": "QuantityRange",
+          "definition": "http://qudt.org/vocab/quantitykind/Frequency",
+          "label": "Frequency Range",
+          "uom": { "code": "MHz" },
+          "value": [620.0, 720.0]
+        }
+      ]
+    },
+    {
+      "uri": "http://data.example.org/api/properties/RFPower_Received_XBand",
+      "baseProperty": "http://qudt.org/vocab/quantitykind/RF-Power",
+      "label": "Received RF Power (XBand)",
+      "qualifiers": [
+        {
+          "type": "Category",
+          "definition": "http://qudt.org/vocab/quantitykind/Frequency",
+          "label": "Frequency Band",
+          "value": "http://sensorml.com/ont/swe/spectrum/IEEE/X_band"
+        }
+      ]
+    }
+  ]
+}
