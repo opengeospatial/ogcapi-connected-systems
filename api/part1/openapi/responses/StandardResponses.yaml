@@ -17,6 +17,8 @@
   description: The user doesn't have the necessary permissions to access the resource.
 '404':
   description: No resource was found with the specified URL.
+'409_PUT':
+  description: The resource cannot be updated because it conflicts with the existing resource version.
 '409_DELETE':
   description: The resource cannot be deleted because other resources depend on it.
 '5XX':
