@@ -29,7 +29,19 @@ tags:
   - name: Capabilities
     description: Essential characteristics of the information available from the API.
   - name: Collections
-    description: Collections of features (e.g. Systems, Procedures, Deployments, Sampling Features, and other Features of Interest).
+    description: |-
+      Collections allow a client to discover available resources in a way that is conformant with OGC API Features
+      and OGC API Common.
+      
+      All Connected Systems resource types are always available through their canonical collections at the service root,
+      but OGC API Collections provide an additional way of grouping and accessing these resources.
+      In particular, Collections allow a service provider to group resources logically according to any criteria.
+      
+      For example, collections can be used to:
+        - Group all `Systems` of the same type (e.g. all UAV platforms, all hydrological sensors, etc.).
+        - Group all `Procedures` of the same type (e.g. all platform types, all CBRNE sensor models, etc.).
+        - Group resources by project (e.g. all `Deployments`, `Systems`, `Datastreams` and `Sampling Features` relevant to a given data acquisition campaign)
+
   - name: Systems
     description: |-
       Systems are entities that can produce data feeds and/or receive commands (e.g. sensors and sensor networks, platforms, actuators,
