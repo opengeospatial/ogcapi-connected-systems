@@ -4,3 +4,4 @@ description: Local identifier of a historical revision
 required: true
 schema:
   type: string
+  minLength: 1
