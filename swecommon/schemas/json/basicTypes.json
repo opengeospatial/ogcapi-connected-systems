@@ -295,7 +295,7 @@
         {
           "title": "Special Value",
           "type": "string",
-          "enum": ["NaN", "+Infinity", "-Infinity"]
+          "enum": ["NaN", "Infinity", "+Infinity", "-Infinity"]
         }
       ]
     },
