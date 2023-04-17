@@ -5,7 +5,7 @@ get:
   tags:
     - System History
   parameters:
-    - $ref: ../../../part1/openapi/parameters/datetime.yaml
+    - $ref: ../parameters/validTime.yaml
     - $ref: ../../../part1/openapi/parameters/keyword.yaml
     #- $ref: '#/components/parameters/select'
     - $ref: ../../../part1/openapi/parameters/limit.yaml

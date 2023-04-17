@@ -26,6 +26,9 @@ put:
   summary: Update a system historical description
   description: |-
     This will completely replace a specific revision of a system description.
+
+    The server will reject the update if the `validTime` property of the provided system
+    description is different from the original.
   tags:
     - System History
   parameters:
