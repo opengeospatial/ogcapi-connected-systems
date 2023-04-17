@@ -26,8 +26,12 @@
       "description": "Time at which the observation result was generated. If omitted on creation, the server sets it to the time the request was received.",
       "$ref": "../common/commonDefs.json#/definitions/TimeInstant"
     },
+    "parameters": {
+      "description": "Parameters of the observation. Must be valid according to the parameters schema provided in the datastream metadata.",
+      "type": "object"
+    },
     "result": {
-      "description": "Result of the observation. Must be valid according to the schema provided in the datastream metadata."
+      "description": "Result of the observation. Must be valid according to the result schema provided in the datastream metadata."
     },
     "result@links": {
       "description": "Link to external result data (e.g. large raster dataset served by a tiling service)",
