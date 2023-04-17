@@ -3,7 +3,7 @@
   "type": "object",
   "properties": {
     "id": {
-      "description": "Local resource ID. If set on creation, the server may ignore it",
+      "description": "Local resource ID. If set on creation, the server may ignore it.",
       "type": "string",
       "minLength": 1
     },
@@ -23,11 +23,11 @@
       "readOnly": true
     },
     "ultimateFeatureOfInterest@link": {
-      "description": "Link to the ultimate feature of interest (if there is only one)",
+      "description": "Link to the ultimate feature of interest (only provided if all observations in this datastream relate to the same ultimate feature of interest)",
       "$ref": "../common/commonDefs.json#/definitions/Link"
     },
-    "samplingFeatures@link": {
-      "description": "Link to the collection of sampling features related to this stream",
+    "samplingFeature@link": {
+      "description": "Link to the sampling feature (only provided if all observations in this datastream relate to the same sampling feature)",
       "$ref": "../common/commonDefs.json#/definitions/Link"
     },
     "formats": {

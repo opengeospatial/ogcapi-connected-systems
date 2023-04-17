@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "obsFormat": {
+      "const": "application/om+protobuf"
+    },
+    "messageSchema": {
+      "description": "Protobuf schema provided as a string or as a link to an external proto file",
+      "oneOf": [
+        {
+          "title": "Inline schema",
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "title": "Link to external file",
+          "$ref": "../common/commonDefs.json#/definitions/Link"
+        }
+      ]
+    }
+  },
+  "required": [
+    "obsFormat", "messageSchema"
+  ]
+}

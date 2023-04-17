@@ -1,0 +1,6 @@
+name: f
+in: query
+description: Media type of the response format
+required: false
+schema:
+  type: string

@@ -1,0 +1,36 @@
+{
+  "obsFormat": "application/swe+json",
+  "recordSchema": {
+    "type": "DataRecord",
+    "fields": [
+      {
+        "name": "time",
+        "type": "Time",
+        "definition": "http://www.opengis.net/def/property/OGC/0/SamplingTime",
+        "referenceFrame": "http://www.opengis.net/def/trs/BIPM/0/UTC",
+        "label": "Sampling Time",
+        "uom": {
+          "href": "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"
+        }
+      },
+      {
+        "name": "temp",
+        "type": "Quantity",
+        "definition": "http://mmisw.org/ont/cf/parameter/air_temperature",
+        "label": "Room Temperature",
+        "description": "Ambient air temperature measured inside the room",
+        "uom": {
+          "code": "Cel"
+        },
+        "nilValues": [
+          { "reason": "http://www.opengis.net/def/nil/OGC/0/missing", "value": "NaN" },
+          { "reason": "http://www.opengis.net/def/nil/OGC/0/BelowDetectionRange", "value": "-Infinity" },
+          { "reason": "http://www.opengis.net/def/nil/OGC/0/AboveDetectionRange", "value": "+Infinity" }
+        ]
+      }
+    ]
+  },
+  "encoding": {
+    "type": "JSONEncoding"
+  }
+}

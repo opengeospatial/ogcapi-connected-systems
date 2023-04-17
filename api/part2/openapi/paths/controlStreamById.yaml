@@ -48,8 +48,7 @@ delete:
   description: |-
     This will delete the control stream and remove it from all collections it is associated to.
 
-    If the `cascade` parameter is used, all associated commands and command status reports hosted
-    by the same server are also deleted.
+    If the `cascade` parameter is used, all associated commands and command status are also deleted.
   tags:
     - Control Channels
   parameters:

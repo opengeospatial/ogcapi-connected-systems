@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "phenomenonTime": {
+      "description": "Descriptor for the observation `phenomenonTime` property. If omitted, values for phenomenon time are not included in the datastream and are assumed to be equal to the observation result time.",
+      "$ref": "../common/sweCommonDefs.json#/definitions/Time"
+    },
+    "resultTime": {
+      "description": "Descriptor for the observation `resultTime` property. If omitted, the result time is a fixed value provided in the datastream metadata and is not included in observations.",
+      "$ref": "../common/sweCommonDefs.json#/definitions/Time"
+    },
+    "featureOfInterest": {
+      "description": "Descriptor for the `featureOfInterest` property. If omitted, the single fixed FOI is provided in the datastream metadata and is not included in observations.",
+      "$ref": "../common/sweCommonDefs.json#/definitions/Category"
+    },
+    "result": {
+      "description": "Descriptor for the observation `result` property. This describes the observed properties included in the result and how they are structured if the result is a record, a vector quantity or a coverage.",
+      "$ref": "../common/sweCommonDefs.json#/definitions/AnyComponent"
+    },
+    "parameters": {
+      "description": "Descriptor for the observation `parameters` property. If omitted, parameters are not included in the datastream.",
+      "$ref": "../common/sweCommonDefs.json#/definitions/DataRecord"
+    }
+  },
+  "required": [
+    "result"
+  ],
+  "oneOf": [
+    {
+      "title": "resultTime schema required",
+      "required": [ "resultTime" ]
+    },
+    {
+      "title": "phenomenonTime schema required",
+      "required": [ "phenomenonTime" ]
+    }
+  ]
+}

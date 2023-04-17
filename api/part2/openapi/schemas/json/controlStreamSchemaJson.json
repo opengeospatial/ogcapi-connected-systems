@@ -2,17 +2,15 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
-    "cmdFormat": {
+    "commandFormat": {
       "type": "string",
-      "enum": [
-        "application/json"
-      ]
+      "const": "application/cmd+json"
     },
-    "parameterSchema": {
+    "paramsSchema": {
       "$ref": "../common/sweCommonDefs.json#/definitions/AnyComponent"
     }
   },
   "required": [
-    "cmdFormat", "paramSchema"
+    "cmdFormat", "paramsSchema"
   ]
 }

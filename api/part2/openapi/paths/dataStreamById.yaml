@@ -48,8 +48,7 @@ delete:
   description: |-
     This will delete the datastream and remove it from all collections it is associated to.
 
-    If the `cascade` parameter is used, all associated observations are also deleted
-    if they are hosted on the same server.
+    If the `cascade` parameter is used, all associated observations are also deleted.
   tags:
     - Datastreams
   parameters:

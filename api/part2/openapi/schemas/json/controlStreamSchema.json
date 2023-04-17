@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "oneOf": [
+    {
+      "title": "Command JSON",
+      "$ref": "controlStreamSchemaJson.json"
+    },
+    {
+      "title": "Command Protobuf",
+      "$ref": "controlStreamSchemaProtobuf.json"
+    },
+    {
+      "title": "SWE Records",
+      "$ref": "controlStreamSchemaSwe.json"
+    },
+    {
+      "title": "Other format",
+      "$ref": "controlStreamSchemaAnyOther.json"
+    }
+  ],
+  "required": [
+    "commandFormat"
+  ]
+}

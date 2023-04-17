@@ -8,22 +8,10 @@ get:
     - Control Channels
   parameters:
     - $ref: ../parameters/cmdFormat.yaml
+    - $ref: ../parameters/schemaType.yaml
   responses:
     '200':
-      description: OK. Successful request
-      content:
-        application/json:
-          schema:
-            $ref: ../schemas/json/controlStreamSchemaJson.json
-        application/swe+json:
-          schema:
-            $ref: ../schemas/json/controlStreamSchemaSwe.json
-        application/swe+csv:
-          schema:
-            $ref: ../schemas/json/controlStreamSchemaSwe.json
-        application/swe+protobuf:
-          example:
-            $ref: ../examples/schemas/controlStreamSchema.proto
+      $ref: ../responses/controlStreamSchema.yaml
     '400':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
     '401':
@@ -32,5 +20,31 @@ get:
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
     '404':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
+
+put:
+  summary: Update a control stream schema
+  description: |-
+    After a control stream has been created and commands have been issued through it, the server may
+    reject certain updates to the schema (e.g. adding or removing parameters, changing UoM, etc.).
+    In this case, the `409` response code is used.
+  tags:
+    - Control Channels
+  requestBody:
+    $ref: ../requests/controlStreamSchema.yaml
+  responses:
+    '204':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/204_PUT
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '409':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/409_PUT
     '5XX':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX

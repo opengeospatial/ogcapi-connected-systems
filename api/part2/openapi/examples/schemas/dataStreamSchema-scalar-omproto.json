@@ -1,0 +1,7 @@
+{
+  "obsFormat": "application/om+protobuf",
+  "messageSchema": {
+    "href": "https://data.example.org/api/datastreams/958tf25kjm2f6/schema?f=proto",
+    "type": "text/plain"
+  }
+}

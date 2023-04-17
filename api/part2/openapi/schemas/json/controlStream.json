@@ -39,7 +39,13 @@
                 "type": "string"
               }
             }
-          }
+          },
+          "readOnly": true
+        },
+        "live": {
+          "description": "Flag indicating if the command channel can currently accept commands",
+          "type": "boolean",
+          "readOnly": true
         },
         "links": {
           "description": "Links to related resources",

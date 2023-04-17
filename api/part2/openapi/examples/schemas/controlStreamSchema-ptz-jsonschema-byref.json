@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "allOf": [
+    { "$ref": "https://github.com/opengeospatial/connected-systems/blob/master/api/part2/openapi/schemas/json/command_view.json" },
+    {
+      "properties": {
+        "params": {
+          "type": "object",
+          "properties": {
+            "pan": {
+              "type": "number",
+              "title": "Pan Angle",
+              "description": "Rotation of the camera around its vertical axis (i.e. causing the image to translate along its horizontal axis)",
+              "@swe.definition": "http://sensorml.com/ont/swe/property/PanAngle",
+              "@swe.uomCode": "deg"
+            },
+            "tilt": {
+              "type": "number",
+              "title": "Tilt Angle",
+              "description": "Rotation of the camera around its horizontal axis (i.e. causing the image to translate along its vertical axis)",
+              "@swe.definition": "http://sensorml.com/ont/swe/property/TiltAngle",
+              "@swe.uomCode": "Cel"
+            },
+            "zoom": {
+              "type": "number",
+              "title": "Zoom Factor",
+              "description": "Amount of zoom, 0 being the highest FOV and 100 being the lowest",
+              "@swe.definition": "http://sensorml.com/ont/swe/property/ZoomFactor",
+              "@swe.uomCode": "%"
+            }
+          },
+          "required": [ "pan", "tilt", "zoom" ]
+        }
+      },
+      "required": [ "params" ]
+    }
+  ]
+}

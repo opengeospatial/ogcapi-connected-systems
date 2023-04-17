@@ -1,4 +1,4 @@
-description: One or more datastream resources
+description: One or more control stream resources
 required: true
 content:
   application/json:

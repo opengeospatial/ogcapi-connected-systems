@@ -1,0 +1,84 @@
+syntax = "proto3";
+import "swe_options.proto";
+import "google/protobuf/timestamp.proto";
+
+message Observation {
+  option (definition) = "http://www.opengis.net/spec/geopose/1.0/req/basic-ypr";
+  option (label) = "Basic YPR Pose";
+  option (description) = "Pose of platform (position + euler angles) in WGS84/ENU";
+  
+  // internal datastream ID
+  optional int64 datastream_id = 1;
+
+  // internal FOI ID
+  optional int64 foi_id = 2 [
+    default = 0
+  ];
+
+  // Result Time
+  Timestamp time = 3 [
+    (definition) = "http://www.opengis.net/def/property/OGC/0/SamplingTime",
+    (referenceFrame) = "http://www.opengis.net/def/trs/BIPM/0/UTC",
+    (label) = "Sampling Time"
+  ];
+
+  // Tangent Point Position
+  message TangentPointPosition {
+    option (definition) = "http://sensorml.com/ont/swe/property/Location";
+    option (referenceFrame) = "http://www.opengis.net/def/crs/EPSG/0/4979";
+    option (label) = "Tangent Point Position";
+
+    double lat = 1 [
+      (definition) = "http://sensorml.com/ont/swe/property/GeodeticLatitude",
+      (label) = "Geodetic Latitude",
+      (uomCode) = "deg",
+      (axisID) = "Lat"
+    ];
+    
+    double lon = 2 [
+      (definition) = "http://sensorml.com/ont/swe/property/Longitude",
+      (label) = "Longitude",
+      (uomCode) = "deg",
+      (axisID) = "Lon"
+    ];
+
+    double h = 3 [
+      (definition) = "http://sensorml.com/ont/swe/property/HeightAboveEllipsoid",
+      (label) = "Ellipsoidal Height",
+      (uomCode) = "m",
+      (axisID) = "h"
+    ];
+  }
+  TangentPointPosition position = 4;
+
+  // Yaw Pitch Roll Angles
+  message YawPitchRollAngles {
+    option (definition) = "http://sensorml.com/ont/swe/property/EulerAngles";
+    option (referenceFrame) = "http://www.opengis.net/def/cs/OGC/0/ENU";
+    option (label) = "Yaw Pitch Roll Angles";
+    option (description) = "Euler angles with order of rotation yaw/pitch/roll in rotating frame";
+
+    float yaw = 1 [
+      (definition) = "http://sensorml.com/ont/swe/property/YawAngle",
+      (label) = "Yaw Angle",
+      (uomCode) = "deg",
+      (axisID) = "Z"
+    ];
+
+    float pitch = 2 [
+      (definition) = "http://sensorml.com/ont/swe/property/PitchAngle",
+      (label) = "Pitch Angle",
+      (uomCode) = "deg",
+      (axisID) = "Y"
+    ];
+
+    float roll = 3 [
+      (definition) = "http://sensorml.com/ont/swe/property/RollAngle",
+      (label) = "Roll Angle",
+      (uomCode) = "deg",
+      (axisID) = "X"
+    ];
+  }
+  YawPitchRollAngles angles = 5;
+  
+}

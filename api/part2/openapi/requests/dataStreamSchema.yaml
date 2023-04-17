@@ -1,0 +1,30 @@
+description: A single `Datastream Schema` resource
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/json/dataStreamSchema.json
+    examples:
+      scalar-omjson:
+        summary: Scalar Result - O&M JSON encoding
+        value:
+          $ref: ../examples/schemas/dataStreamSchema-scalar-omjson.json
+      scalar-omproto:
+        summary: Scalar Result - O&M Protobuf encoding
+        value:
+          $ref: ../examples/schemas/dataStreamSchema-scalar-omproto.json
+      scalar-swejson:
+        summary: Scalar Result - SWE Common Schema with JSON encoding
+        value:
+          $ref: ../examples/schemas/dataStreamSchema-scalar-swejson.json
+      scalar-swecsv:
+        summary: Scalar Result - SWE Common Schema with CSV encoding
+        value:
+          $ref: ../examples/schemas/dataStreamSchema-scalar-swecsv.json
+      geopose-omjson:
+        summary: GeoPose Result - O&M JSON encoding
+        value:
+          $ref: ../examples/schemas/dataStreamSchema-geopose-omjson.json
+      geopose-swejson:
+        summary: GeoPose Result - SWE Common Schema with JSON encoding
+        value:
+          $ref: ../examples/schemas/dataStreamSchema-geopose-swejson.json

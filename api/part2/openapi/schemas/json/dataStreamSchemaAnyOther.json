@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "obsFormat": {
+      "type": "string",
+      "not": {
+        "enum": [
+          "application/om+json",
+          "application/om+protobuf",
+          "application/swe+json",
+          "application/swe+text",
+          "application/swe+csv",
+          "application/swe+binary"
+        ]
+      }
+    },
+    "any": {
+      "description": "Any other properties to describe schema"
+    }
+  },
+  "required": [ "obsFormat" ]
+}

@@ -3,27 +3,16 @@ parameters:
 
 get:
   summary: Retrieve a datastream schema for a given format
-  description: 
+  description: |-
+    The type of observation schema returned depends on the observation encoding format selected using the `obsFormat` parameter.
   tags:
     - Datastreams
   parameters:
     - $ref: ../parameters/obsFormat.yaml
+    - $ref: ../parameters/schemaType.yaml
   responses:
     '200':
-      description: OK. Successful request
-      content:
-        application/om+json:
-          schema:
-            $ref: ../schemas/json/datastreamSchemaOmJson.json
-        application/swe+json:
-          schema:
-            $ref: ../schemas/json/datastreamSchemaSwe.json
-        application/swe+csv:
-          schema:
-            $ref: ../schemas/json/datastreamSchemaSwe.json
-        application/swe+protobuf:
-          example:
-            $ref: ../examples/schemas/dataStreamSchema.proto
+      $ref: ../responses/dataStreamSchema.yaml
     '400':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
     '401':
@@ -32,5 +21,31 @@ get:
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
     '404':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
+
+put:
+  summary: Update a datastream schema
+  description: |-
+    After a datastream has been created and observations have been associated to it, the server may
+    reject certain updates to the schema (e.g. adding or removing result fields, changing UoM, etc.).
+    In this case, the `409` response code is used.
+  tags:
+    - Datastreams
+  requestBody:
+    $ref: ../requests/dataStreamSchema.yaml
+  responses:
+    '204':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/204_PUT
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '409':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/409_PUT
     '5XX':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX

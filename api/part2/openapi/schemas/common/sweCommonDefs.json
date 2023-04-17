@@ -4,11 +4,26 @@
     "AnyComponent": {
       "$ref": "../../../../../swecommon/schemas/json/sweCommon.json#/definitions/AnyComponent"
     },
+    "DataRecord": {
+      "$ref": "../../../../../swecommon/schemas/json/DataRecord.json"
+    },
+    "Time": {
+      "$ref": "../../../../../swecommon/schemas/json/Time.json"
+    },
+    "Category": {
+      "$ref": "../../../../../swecommon/schemas/json/Category.json"
+    },
     "AnyEncoding": {
       "$ref": "../../../../../swecommon/schemas/json/encodings.json"
     },
-    "DataRecord": {
-      "$ref": "../../../../../swecommon/schemas/json/DataRecord.json"
+    "JSONEncoding": {
+      "$ref": "../../../../../swecommon/schemas/json/encodings.json#/definitions/JSONEncoding"
+    },
+    "TextEncoding": {
+      "$ref": "../../../../../swecommon/schemas/json/encodings.json#/definitions/TextEncoding"
+    },
+    "BinaryEncoding": {
+      "$ref": "../../../../../swecommon/schemas/json/encodings.json#/definitions/BinaryEncoding"
     }
   }
 }

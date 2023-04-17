@@ -1,0 +1,42 @@
+syntax = "proto3";
+import "swe_options.proto";
+import "google/protobuf/timestamp.proto";
+
+message Command {
+
+  // internal datastream ID
+  optional int64 controlstream_id = 1 [
+    default = 0
+  ];
+
+  // internal FOI ID
+  optional int64 foi_id = 2 [
+    default = 0,
+    (definition) = "http://sensorml.com/ont/swe/property/FoiID"
+  ];
+
+  Timestamp issue_time = 3 [
+    (definition) = "http://www.opengis.net/def/property/OGC/0/IssueTime",
+    (referenceFrame) = "http://www.opengis.net/def/trs/BIPM/0/UTC",
+    (label) = "Issue Time"
+  ];
+
+  message CommandParams {
+    float pan = 1 [
+      (definition) = "http://sensorml.com/ont/swe/property/PanAngle",,
+      (label) = "Pan Angle"
+      (uomCode) = "deg"
+    ];
+    float tilt = 2 [
+      (definition) = "http://sensorml.com/ont/swe/property/TiltAngle",,
+      (label) = "Tilt Angle"
+      (uomCode) = "deg"
+    ];
+    float zoom = 3 [
+      (definition) = "http://sensorml.com/ont/swe/property/ZoomFactor",,
+      (label) = "Zoom Factor"
+      (uomCode) = "%"
+    ];
+  }
+  CommandParams params = 4;
+}

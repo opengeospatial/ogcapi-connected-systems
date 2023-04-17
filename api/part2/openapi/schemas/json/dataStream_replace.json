@@ -2,9 +2,17 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "allOf": [
     { "$ref": "dataStream.json" },
-    { "required": [
-      "name",
-      "observedProperties"
-    ]}
+    {
+      "properties": {
+        "schema": {
+          "description": "Schema describing the content of observations in this datastream. The exact syntax of the schema depends on the encoding format.",
+          "$ref": "dataStreamSchema.json",
+          "writeOnly": true
+        }
+      },
+      "required": [
+        "name"
+      ]
+    }
   ]
 }

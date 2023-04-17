@@ -1,13 +1,40 @@
 {
   "name": "Indoor Thermometer 001 - Living Room Temperature",
+  "description": "Indoor temperature measured on the south wall of the living room at 1.5m above the floor",
   "ultimateFeatureOfInterest@link": {
     "href": "https://data.example.org/api/collections/buildings/items/754",
     "title": "My House"
   },
-  "observedProperties": [
-    {
+  "samplingFeature@link": {
+    "href": "https://data.example.org/api/samplingFeatures/4478",
+    "title": "Thermometer Sampling Point"
+  },
+  "schema": {
+    "obsFormat": "application/om+json",
+    "resultTimeSchema": {
+      "name": "time",
+      "type": "Time",
+      "definition": "http://www.opengis.net/def/property/OGC/0/SamplingTime",
+      "referenceFrame": "http://www.opengis.net/def/trs/BIPM/0/UTC",
+      "label": "Sampling Time",
+      "uom": {
+        "href": "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"
+      }
+    },
+    "resultSchema": {
+      "name": "temp",
+      "type": "Quantity",
       "definition": "http://mmisw.org/ont/cf/parameter/air_temperature",
-      "label": "Air Temperature"
+      "label": "Room Temperature",
+      "description": "Ambient air temperature measured inside the room",
+      "uom": {
+        "code": "Cel"
+      },
+      "nilValues": [
+        { "reason": "http://www.opengis.net/def/nil/OGC/0/missing", "value": "NaN" },
+        { "reason": "http://www.opengis.net/def/nil/OGC/0/BelowDetectionRange", "value": "-Infinity" },
+        { "reason": "http://www.opengis.net/def/nil/OGC/0/AboveDetectionRange", "value": "+Infinity" }
+      ]
     }
-  ]
+  }
 }

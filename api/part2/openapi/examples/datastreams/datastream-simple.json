@@ -10,6 +10,10 @@
     "href": "https://data.example.org/api/collections/buildings/items/754",
     "title": "My House"
   },
+  "samplingFeature@link": {
+    "href": "https://data.example.org/api/samplingFeatures/4478",
+    "title": "Thermometer Sampling Point"
+  },
   "phenomenonTime": [
     "2020-06-29T14:32:00Z",
     "2022-06-29T19:37:00Z"
@@ -21,20 +25,20 @@
   "observedProperties": [
     {
       "definition": "http://mmisw.org/ont/cf/parameter/air_temperature",
-      "label": "Air Temperature"
+      "label": "Room Temperature",
+      "description": "Ambient air temperature measured inside the room"
     }
   ],
   "formats": [
-    "application/json"
+    "application/om+json",
+    "application/swe+json",
+    "application/swe+csv",
+    "application/x-protobuf"
   ],
   "links": [
     {
       "rel" : "self",
       "href" : "https://data.example.org/api/datastreams/958tf25kjm2f6",
-      "type" : "application/json"
-    }, {
-      "rel": "observations",
-      "href": "https://data.example.org/api/datastreams/958tf25kjm2f6/observations",
       "type" : "application/json"
     }
   ]

@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "http://json-schema.org/draft-07/schema",
   "allOf": [
     { "$ref": "baseStream.json" },
     {
@@ -13,11 +13,25 @@
         },
         "phenomenonTime": {
           "description": "Time extent spanning all phenomenon times of observations in this datastream",
-          "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
+          "$ref": "../common/commonDefs.json#/definitions/TimePeriod",
+          "readOnly": true
+        },
+        "phenomenonTimeInterval": {
+          "type": "string",
+          "format": "duration"
         },
         "resultTime": {
           "description": "Time extent spanning all result times of observations in this datastream",
-          "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
+          "$ref": "../common/commonDefs.json#/definitions/TimePeriod",
+          "readOnly": true
+        },
+        "resultTimeInterval": {
+          "type": "string",
+          "format": "duration"
+        },
+        "resultType": {
+          "type": "string",
+          "enum": ["measure", "vector", "record", "coverage1D", "coverage2D", "coverage3D"]
         },
         "observedProperties": {
           "description": "List of observed properties included in this datastream",
@@ -37,7 +51,13 @@
                 "type": "string"
               }
             }
-          }
+          },
+          "readOnly": true
+        },
+        "live": {
+          "description": "Flag indicating if the datastream is currently streaming data",
+          "type": "boolean",
+          "readOnly": true
         },
         "links": {
           "description": "Other links to related resources",

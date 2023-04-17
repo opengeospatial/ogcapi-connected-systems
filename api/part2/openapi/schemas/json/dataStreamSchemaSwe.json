@@ -5,7 +5,7 @@
     {
       "title": "SWE JSON",
       "properties": {
-        "commandFormat": {
+        "obsFormat": {
           "const": "application/swe+json"
         },
         "encoding": {
@@ -16,7 +16,7 @@
     {
       "title": "SWE Text",
       "properties": {
-        "commandFormat": {
+        "obsFormat": {
           "const": "application/swe+text"
         },
         "encoding": {
@@ -27,7 +27,7 @@
     {
       "title": "SWE CSV",
       "properties": {
-        "commandFormat": {
+        "obsFormat": {
           "const": "application/swe+csv"
         },
         "encoding": {
@@ -51,7 +51,7 @@
     {
       "title": "SWE Binary",
       "properties": {
-        "commandFormat": {
+        "obsFormat": {
           "const": "application/swe+binary"
         },
         "encoding": {
@@ -66,7 +66,6 @@
     }
   },
   "required": [
-    "commandFormat", "recordSchema", "encoding"
+    "obsFormat", "recordSchema", "encoding"
   ]
-
 }
