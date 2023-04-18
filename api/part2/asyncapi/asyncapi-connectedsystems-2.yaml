@@ -4,22 +4,57 @@ info:
   version: 0.0.1
   description: Pub/sub interface for OGC API - Connected Systems
 
+
 channels:
 
-  datastreams/{datastreamId}/observations:
+  systems/{systemId}/events:
     parameters:
-      datastreamId:
-        description: Local identifier of a Datastream
-        schema:
-          type: string
+      systemId:
+        $ref: ./parameters/systemId.yaml
     subscribe:
-      summary: Subscribe for observations in a specific datastream
+      summary: Subscribe for events from a specific system
+      message:
+        name: system_event
+        title: System Event
+        contentType: application/sml+json
+        payload:
+          $ref: ../openapi/schemas/json/systemEvent_view.json
+    publish:
+      summary: Publish events for a specific system
+      message:
+        name: system_event
+        title: System Event
+        contentType: application/sml+json
+        payload:
+          $ref: ../openapi/schemas/json/systemEvent_create.json
+
+
+  systems/events:
+    parameters:
+      systemId:
+        $ref: ./parameters/systemId.yaml
+    subscribe:
+      summary: Subscribe for events from all systems
+      message:
+        name: system_event
+        title: System Event
+        contentType: application/sml+json
+        payload:
+          $ref: ../openapi/schemas/json/systemEvent_view.json
+
+
+  datastreams/{dataStreamId}/observations:
+    parameters:
+      dataStreamId:
+        $ref: ./parameters/dataStreamId.yaml
+    subscribe:
+      summary: Subscribe for observations from a specific datastream
       message:
         name: observation
         title: Observation
         contentType: application/om+json
         payload:
-          $ref: ../openapi/schemas/json/observation.json
+          $ref: ../openapi/schemas/json/observation_view.json
     publish:
       summary: Publish observations in a specific datastream
       message:
@@ -27,4 +62,50 @@ channels:
         title: Observation
         contentType: application/om+json
         payload:
-          $ref: ../openapi/schemas/json/observation.json
+          $ref: ../openapi/schemas/json/observation_create.json
+
+
+  controls/{controlStreamId}/commands:
+    parameters:
+      controlStreamId:
+        $ref: ./parameters/controlStreamId.yaml
+    subscribe:
+      summary: Subscribe for commands from a specific control stream
+      message:
+        name: command
+        title: Command
+        contentType: application/cmd+json
+        payload:
+          $ref: ../openapi/schemas/json/command_view.json
+    publish:
+      summary: Publish commands in a specific control stream
+      message:
+        name: command
+        title: Command
+        contentType: application/cmd+json
+        payload:
+          $ref: ../openapi/schemas/json/command_create.json
+
+
+  controls/{controlStreamId}/commands/{cmdId}/status:
+    parameters:
+      controlStreamId:
+        $ref: ./parameters/controlStreamId.yaml
+      cmdId:
+        $ref: ./parameters/cmdId.yaml
+    subscribe:
+      summary: Subscribe for commands from a specific control stream
+      message:
+        name: command
+        title: Command
+        contentType: application/cmd+json
+        payload:
+          $ref: ../openapi/schemas/json/commandStatus_view.json
+    publish:
+      summary: Publish commands in a specific control stream
+      message:
+        name: command
+        title: Command
+        contentType: application/cmd+json
+        payload:
+          $ref: ../openapi/schemas/json/commandStatus_create.json

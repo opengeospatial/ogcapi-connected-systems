@@ -1,0 +1,3 @@
+description: Local identifier of a Control Stream
+schema:
+  type: string
