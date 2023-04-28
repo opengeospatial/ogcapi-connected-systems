@@ -1,0 +1,90 @@
+
+[[clause-feature-crud]]
+== Requirements Class "Create, Replace, Update and Delete"
+include::requirements/crud/requirements_class_crud.adoc[]
+
+
+=== Overview
+
+This requirements class specifies how instances of the feature types defined previously are created, replaced, udpated and deleted using the API.
+
+#TODO#
+
+
+=== Procedures
+
+==== Create
+
+ID can be ignored by server and reassigned.
+
+
+=> schema needs to go to encoding section!
+
+==== Replace
+
+Same content as create? only accepted on the individual resource URI?
+
+==== Update
+
+All properties are optional by definition.
+
+
+
+=== Systems
+
+==== Create
+
+==== Replace
+
+==== Update
+
+
+
+
+=== Deployments
+
+==== Create
+
+==== Replace
+
+==== Update
+
+
+
+=== Sampling Features
+
+==== Create
+
+==== Replace
+
+==== Update
+
+
+
+=== Nested Resources
+
+Create subresources when resource are nested in a parent resource (+ transform to links).
+
+This means create/replace/update schemas can accept links or nested objects. (read schemas accept only links? or support nested objects in case of expansion).
+
+Use Arrays of links vs. a link to a collection? (e.g. for system components and deployment members)
+
+
+
+=== Batch Mode
+
+==== Create multiple resources in same collection
+
+
+
+
+==== Update multiple resources in same collection
+
+Need to keep the resource ID in the content in this case
+
+
+
+
+by filter?
+
+

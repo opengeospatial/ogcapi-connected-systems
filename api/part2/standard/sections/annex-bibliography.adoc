@@ -1,0 +1,35 @@
+[bibliography]
+[[Bibliography]]
+== Bibliography
+
+#TODO#
+
+[NOTE]
+.Example Bibliography (Delete this note).
+===============================================
+The TC has approved Springer LNCS as the official document citation type.
+
+Springer LNCS is widely used in technical and computer science journals and other publications
+
+* For citations in the text please use square brackets and consecutive numbers: [1], [2], [3]
+
+– Actual References:
+
+[n] Journal: Author Surname, A.: Title. Publication Title. Volume number, Issue number, Pages Used (Year Published)
+
+[n] Web: Author Surname, A.: Title, http://Website-Url
+
+===============================================
+
+* [[[OGC-SOS, OGC 12-006]]], Sensor Observation Service Interface Standard, Version 2.0. https://www.ogc.org/standards/sos
+
+* [[[OGC-SPS, OGC 19-000]]], OGC Sensor Planning Service Implementation Standard, Version 2.0. at https://www.ogc.org/standards/sps
+
+* [[[OGC-STA-1, OGC 18-088]]], SensorThings API Part 1: Sensing, Version 1.1. https://docs.ogc.org/is/18-088/18-088.html
+
+* [[[OGC-STA-2, OGC 17-079r1]]], SensorThings API Part 2: Tasking Core, Version 1.0. http://docs.opengeospatial.org/is/17-079r1/17-079r1.html
+
+* [[[OGC-OM-2, OGC 10-004r3]]], Topic 20: Observations and Measurements, version 2.0. https://www.ogc.org/standards/om
+
+* [[[ISO-OMS-3, ISO 19156:2022]]], Geographic information - Observations, measurements and samples (OMS)
+

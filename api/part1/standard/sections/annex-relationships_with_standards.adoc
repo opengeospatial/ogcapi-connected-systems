@@ -1,0 +1,60 @@
+[appendix,obligation=informative]
+== Relationship with other OGC/ISO standards (Informative)
+
+=== Semantic Sensor Network Ontology
+
+#TODO#
+
+=== Sensor Modeling Language
+
+#TODO#
+
+=== Observations & Measurements
+
+#TODO#
+
++ OMS
+
+=== Coverages
+
+#TODO#
+
+=== OGC API - Features
+
+#TODO#
+
+=== SensorThings API
+
+#TODO#
+
+What makes it different from STA
+
+- Fully based on OGC API and API Features
+
+- Integrated with other OGC APIs via links (Features, MovingFeatures, GeoVolumes, 3D Tiles, Coverages, EDR, STA)
+
+- Resource model based on SensorML and O&M ; SOSA/SSN used for semantic tagging
+
+- Supports more complex observation and task types
+
+- Query model decorrelated from resource encoding
+
+- Able to support multiple formats (not only a single JSON model)
+  => intend to bring in protobuf encoding for SWE Common
+
+
+=== Other OGC APIs
+
+#TODO#
+
+This API is designed to be used in conjunction with other Web APIs with a particular focus on OGC APIs.
+
+- system -> link to STA Thing or STA Sensor/Actuator
+- datastream -> link to STA Datastream
+- control -> link to STA TaskingCapability
+- observation result -> link to a Coverages API (large imagery, data cube)
+- domain feature -> link to Features API, GeoVolumes, 3D tiles
+- system/process -> link to Processes API
+
+
+

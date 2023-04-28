@@ -1,0 +1,23 @@
+
+[[clause-protocol-mqtt]]
+=== Requirements Class "MQTT Transport"
+include::requirements/protocol/mqtt/requirements_class_mqtt.adoc[]
+
+
+==== Overview
+
+This requirements class defines how the MQTT protocol can be used to interact with certain resource types.
+
+MQTT can be used to:
+
+- Subscribe to resource events
+- Subscribe to system events
+- Subscribe to real-time observations
+- Publish observations
+- Subscribe to real-time commands
+- Publish commands
+
+
+Use AsyncAPI to define asynchronous operations
+
+#TODO#

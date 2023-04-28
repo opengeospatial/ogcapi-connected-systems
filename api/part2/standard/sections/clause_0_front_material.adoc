@@ -1,0 +1,59 @@
+.Preface
+
+#TODO#
+
+
+////
+*OGC Declaration*
+////
+
+Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. The Open Geospatial Consortium shall not be held responsible for identifying any or all such patent rights.
+
+Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the standard set forth in this document, and to provide supporting documentation.
+
+
+[abstract]
+== Abstract
+
+#TODO#
+
+
+== Security considerations
+
+//If no security considerations have been made for this Standard, use the following text.
+
+No security considerations have been made for this Standard.
+
+////
+If security considerations have been made for this Standard, follow the examples found in IANA or IETF documents. Please see the following example.
+“VRRP is designed for a range of internetworking environments that may employ different security policies. The protocol includes several authentication methods ranging from no authentication, simple clear text passwords, and strong authentication using IP Authentication with MD5 HMAC. The details on each approach including possible attacks and recommended environments follows.
+Independent of any authentication type VRRP includes a mechanism (setting TTL=255, checking on receipt) that protects against VRRP packets being injected from another remote network. This limits most vulnerabilities to local attacks.
+NOTE: The security measures discussed in the following sections only provide various kinds of authentication. No confidentiality is provided at all. This should be explicitly described as outside the scope....”
+////
+
+
+== Submitters
+
+All questions regarding this submission should be directed to the editor or the submitters:
+
+|===
+| *Name* | *Affiliation*
+| Alexandre Robin | GeoRobotix, Inc.
+| Mike Botts | Botts Innovative Research, Inc.
+|===
+
+
+[.preface]
+== Contributors
+
+Additional contributors to this Standard include the following:
+
+[%unnumbered]
+|===
+| *Name* | *Affiliation*
+| Chris Tucker | GeoRobotix, Inc.
+| Nick Garay | Botts Innovative Research, Inc.
+| Christian Autermann | 52° North Initiative
+| Glenn Laughlin | Pelagis Data Solutions
+| Chuck Heazel | Heazeltech
+|===

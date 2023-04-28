@@ -1,0 +1,87 @@
+= OGC API - Connected Systems - Part 1: Feature Resources
+:doctype: standard
+:encoding: utf-8
+:lang: en
+:status: draft
+:committee: technical
+:external-id: http://www.opengis.net/doc/DIS/ogcapi-connectedsystems-1/1.0
+:docnumber: 23-001r0
+:received-date: yyyy-mm-dd
+:issued-date: yyyy-mm-dd
+:published-date: yyyy-mm-dd
+:fullname: Alexandre Robin
+:docsubtype: implementation
+:keywords: ogcdoc, OGC document, OpenAPI, REST, feature, API, system, smart system, connected system, IoT, sensorweb, ssn, sensor, actuator, transducer, sampling, platform, robot, drone, unmanned, autonomous, observation, measurement, datastream, command, control, trajectory, dynamic
+:submitting-organizations: GeoRobotix, Inc.; Botts Innovative Research, Inc.; Cesium GS, Inc.; 52° North Initiative for Geospatial Open Source Software GmbH; Pelagis Data Solutions; National Geospatial-Intelligence Agency (NGA); 
+:mn-document-class: ogc
+:mn-output-extensions: xml,html,doc,pdf
+:local-cache-only:
+:data-uri-image:
+:edition: 1.0
+
+:ogcapi-common: https://ogcapi.ogc.org/common[OGC API - Common]
+:ogcapi-common-1: https://docs.ogc.org/DRAFTS/19-072.html[OGC API - Common - Part 1]
+:ogcapi-common-2: https://docs.ogc.org/DRAFTS/20-024.html[OGC API - Common - Part 2]
+:ogcapi-features: https://ogcapi.ogc.org/features[OGC API - Features]
+:ogcapi-features-1: https://docs.ogc.org/is/17-069r4/17-069r4.html[OGC API - Features - Part 1]
+:ogcapi-features-4: https://docs.ogc.org/DRAFTS/20-002.html[OGC API - Features - Part 4]
+:ogc-w3c-ssn: https://www.w3.org/TR/vocab-ssn[Semantic Sensor Network Ontology]
+
+:jsonschema-base-url: https://raw.githubusercontent.com/opengeospatial/connected-systems/master/api/part1/openapi/schemas
+
+
+////
+Make sure to complete each included document
+////
+include::sections/clause_0_front_material.adoc[]
+
+include::sections/clause_1_scope.adoc[]
+
+include::sections/clause_2_conformance.adoc[]
+
+include::sections/clause_3_references.adoc[]
+
+include::sections/clause_4_terms_and_definitions.adoc[]
+
+include::sections/clause_5_conventions.adoc[]
+
+include::sections/clause_6_overview.adoc[]
+
+include::sections/clause_7_requirements_class_common.adoc[]
+
+include::sections/clause_9_requirements_class_system_features.adoc[]
+
+include::sections/clause_10_requirements_class_procedure_features.adoc[]
+
+include::sections/clause_11_requirements_class_deployment_features.adoc[]
+
+include::sections/clause_12_requirements_class_sampling_features.adoc[]
+
+include::sections/clause_13_requirements_class_system_components.adoc[]
+
+include::sections/clause_14_requirements_class_advanced_filtering.adoc[]
+
+include::sections/clause_15_requirements_class_feature_crud.adoc[]
+
+include::sections/clause_20_requirements_class_geojson_encoding.adoc[]
+
+include::sections/clause_21_requirements_class_sensorml_encoding.adoc[]
+
+include::sections/clause_22_requirements_class_jsonfg_encoding.adoc[]
+
+////
+Annexes
+////
+include::sections/annex-abstract-test-suite.adoc[]
+
+include::sections/annex-examples.adoc[]
+
+include::sections/annex-relationships_with_standards.adoc[]
+
+////
+Revision History should be the last annex before the Bibliography
+Bibliography should be the last annex
+////
+include::sections/annex-history.adoc[]
+
+include::sections/annex-bibliography.adoc[]

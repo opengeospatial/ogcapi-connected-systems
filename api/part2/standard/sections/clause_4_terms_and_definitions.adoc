@@ -1,0 +1,70 @@
+== Terms and definitions
+
+This document uses the terms defined in Sub-clause 5.3 of <<OGC06-121r9>>, which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word "`shall`" (not "`must`") is the verb form used to indicate a requirement to be strictly followed to conform to this standard.
+
+For the purposes of this document, the following additional terms and definitions apply.
+
+#TODO# 
+
+=== Application Programming Interface (API)
+a formally defined set of types and methods which establish a contract between client code which uses the API
+and implementation code which provides the API
+
+=== Command
+
+
+=== Control Stream
+
+
+=== Connected Systems
+Collections of interrelated systems consisting of information technology (IT) devices, sensors, and actuators that can seamlessly interact.
+
+=== Datastream (or Data Stream)
+
+
+=== Feature
+Abstraction of real-world phenomena
+
+[.source]
+<<ISO19101, ISO-19101, definition 4.11>>
+
+=== Observation
+Act of observing a property
+
+[.source]
+<<ISO19156, ISO-19156, definition 4.10>>
+
+=== Observation Procedure
+Method, algorithm or instrument, or system of these which may be used in making an observation
+
+[.source]
+<<ISO19156, ISO-19156, definition 4.11>>
+
+Note: In the context of the sensor web, an observation procedure is often composed of one or more sensors that transform a real world phenomenon into digital information, plus additional processing steps.
+
+=== Property
+Facet or attribute of an object referenced by a name 
+Example	: Abby's car has the colour red, where "colour red" is a property of the car instance
+
+[.source]
+<<ISO19143, ISO-19143>>
+
+=== Sensor
+Type of observation procedure that provides the estimated value of an observed property at its output
+Note: A sensor uses a combination of physical, chemical or biological means in order to estimate the underlying observed property. At the end of the measuring chain electronic devices often produce signals to be processed
+
+=== Sensor Network
+A collection of sensors and processing nodes, in which information on properties observed by the sensors may be transferred and processed
+Note:	 A particular type of a sensor network is an ad hoc sensor network.
+
+=== Sensor Data
+List of digital values produced by a sensor that represents estimated values of one or more observed properties of one or more features
+Note: Sensor data is usually available in the form of data streams or computer files.
+
+=== Sensor Related Data
+List of digital values produced by a sensor that contains auxiliary information that is not directly related to the value of observed properties
+Example: sensor status, quality of measure, quality of service, etc… When such data is measured, it is sometimes considered sensor data as well.
+
+=== Data Component
+Element of sensor data definition corresponding to an atomic or aggregate data type
+Note: A data component is a part of the overall dataset definition. The dataset structure can then be seen as a hierarchical tree of data components. 

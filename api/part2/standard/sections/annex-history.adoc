@@ -1,0 +1,9 @@
+[appendix]
+== Revision History
+
+[%unnumbered,width="90%",options="header"]
+|===
+| Date | Release | Editor | Primary clauses modified | Description
+| 2023-01-10 | 1.0 draft | Alex Robin | All | Initial draft version
+| 2023-04-21 | 1.0 draft | Alex Robin | All | Migration to Metanorma
+|===

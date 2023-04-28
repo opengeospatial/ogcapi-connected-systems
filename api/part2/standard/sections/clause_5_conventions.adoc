@@ -1,0 +1,38 @@
+== Conventions
+
+This sections provides details and examples for any conventions used in the document. Examples of conventions are symbols, abbreviations, use of XML schema, or special notes regarding how to read the document.
+
+=== Identifiers
+The normative provisions in this standard are denoted by the URI
+
+`http://www.opengis.net/spec/ogcapi-connectedsystems-2/1.0`
+
+All requirements and conformance tests that appear in this document are denoted by partial URIs which are relative to this base.
+
+
+=== Abbreviated terms
+
+In this document the following abbreviations and acronyms are used or introduced:  
+
+- API: Application Programming Interface
+- CRS:	Coordinate Reference System
+- CSML:	Climate Science Modeling Language
+- GPS:	Global Positioning System
+- ISO:	International Organization for Standardization
+- MISB:	Motion Imagery Standards Board
+- OGC:	Open Geospatial Consortium
+- SAS:	Sensor Alert Service
+- SensorML:	Sensor Model Language
+- SI:	Système International (International System of Units)
+- SOS:	Sensor Observation Service
+- SPS:	Sensor Planning Service
+- SWE:	Sensor Web Enablement
+- TAI:	Temps Atomique International (International Atomic Time)
+- UML:	Unified Modeling Language
+- UTC:	Coordinated Universal Time
+- XML:	eXtended Markup Language
+- 1D:	One Dimensional
+- 2D:	Two Dimensional
+- 3D:	Three Dimensional
+
+

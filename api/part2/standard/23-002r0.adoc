@@ -1,0 +1,106 @@
+= OGC API - Connected Systems - Part 2: Dynamic Data
+:doctype: standard
+:encoding: utf-8
+:lang: en
+:status: draft
+:committee: technical
+:external-id: http://www.opengis.net/doc/DIS/ogcapi-connectedsystems-2/1.0
+:docnumber: 23-002r0
+:received-date: yyyy-mm-dd
+:issued-date: yyyy-mm-dd
+:published-date: yyyy-mm-dd
+:fullname: Alexandre Robin
+:docsubtype: implementation
+:keywords: ogcdoc, OGC document, OpenAPI, REST, feature, API, system, smart system, connected system, IoT, sensorweb, ssn, sensor, actuator, transducer, sampling, platform, robot, drone, unmanned, autonomous, observation, measurement, datastream, command, control, trajectory, dynamic
+:submitting-organizations: GeoRobotix, Inc.; Botts Innovative Research, Inc.; Cesium GS, Inc.; 52° North Initiative for Geospatial Open Source Software GmbH; Pelagis Data Solutions; National Geospatial-Intelligence Agency (NGA); 
+:mn-document-class: ogc
+:mn-output-extensions: xml,html,doc,pdf
+:local-cache-only:
+:data-uri-image:
+:edition: 1.0
+
+:ogcapi-common: https://ogcapi.ogc.org/common[OGC API - Common]
+:ogcapi-common-1: https://docs.ogc.org/DRAFTS/19-072.html[OGC API - Common - Part 1]
+:ogcapi-common-2: https://docs.ogc.org/DRAFTS/20-024.html[OGC API - Common - Part 2]
+:ogcapi-features: https://ogcapi.ogc.org/features[OGC API - Features]
+:ogcapi-features-1: https://docs.ogc.org/is/17-069r4/17-069r4.html[OGC API - Features - Part 1]
+:ogcapi-features-4: https://docs.ogc.org/DRAFTS/20-002.html[OGC API - Features - Part 4]
+:ogc-w3c-ssn: https://www.w3.org/TR/vocab-ssn[Semantic Sensor Network Ontology]
+
+:jsonschema-base-url: https://raw.githubusercontent.com/opengeospatial/connected-systems/master/api/part2/openapi/schemas
+
+
+////
+Make sure to complete each included document
+////
+include::sections/clause_0_front_material.adoc[]
+
+include::sections/clause_1_scope.adoc[]
+
+include::sections/clause_2_conformance.adoc[]
+
+include::sections/clause_3_references.adoc[]
+
+include::sections/clause_4_terms_and_definitions.adoc[]
+
+include::sections/clause_5_conventions.adoc[]
+
+include::sections/clause_6_overview.adoc[]
+
+include::sections/clause_7_requirements_class_common.adoc[]
+
+include::sections/clause_8_requirements_class_datastreams.adoc[]
+
+include::sections/clause_9_requirements_class_controls.adoc[]
+
+include::sections/clause_10_requirements_class_system_events.adoc[]
+
+include::sections/clause_11_requirements_class_system_history.adoc[]
+
+include::sections/clause_12_requirements_class_resource_events.adoc[]
+
+// filtering
+
+include::sections/clause_13_requirements_class_advanced_filtering.adoc[]
+
+// create/replace/update/delete
+
+include::sections/clause_14_requirements_class_resource_crud.adoc[]
+
+
+== Requirements Classes for Encodings
+
+include::sections/clause_20_requirements_class_json_encoding.adoc[]
+
+include::sections/clause_21_requirements_class_swecommon_json_encoding.adoc[]
+
+include::sections/clause_22_requirements_class_swecommon_text_encoding.adoc[]
+
+include::sections/clause_23_requirements_class_swecommon_binary_encoding.adoc[]
+
+//include::sections/clause_24_requirements_class_swecommon_protobuf_encoding.adoc[]
+
+
+== Requirements Classes for Transport Protocols
+
+include::sections/clause_30_requirements_class_websocket.adoc[]
+
+include::sections/clause_31_requirements_class_mqtt.adoc[]
+
+
+////
+Annexes
+////
+include::sections/annex-abstract-test-suite.adoc[]
+
+include::sections/annex-examples.adoc[]
+
+include::sections/annex-relationships_with_standards.adoc[]
+
+////
+Revision History should be the last annex before the Bibliography
+Bibliography should be the last annex
+////
+include::sections/annex-history.adoc[]
+
+include::sections/annex-bibliography.adoc[]

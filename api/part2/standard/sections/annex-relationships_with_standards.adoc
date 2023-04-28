@@ -1,0 +1,2 @@
+[appendix,obligation=informative]
+== Relationship with other OGC/ISO standards (Informative)

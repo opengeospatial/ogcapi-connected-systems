@@ -1,0 +1,525 @@
+./23-002r0.err errors
+
+
+== AsciiDoc Input
+
+(Section: Bibliography): no anchor on reference, markup may be malformed: see
+https://www.metanorma.com/author/topics/document-format/bibliography/ ,
+https://www.metanorma.com/author/iso/topics/markup/#bibliographies
+: For citations in the text please use square brackets and consecutive numbers: [1], [2], [3]
+	#<Asciidoctor::List@524420 {context: :ulist, style: nil, items: 1}>
+(Section: References): no anchor on reference, markup may be malformed: see
+https://www.metanorma.com/author/topics/document-format/bibliography/ ,
+https://www.metanorma.com/author/iso/topics/markup/#bibliographies
+: [[[SOSA-SSN: OGC/W3C]]], Semantic Sensor Network Ontology, (October 19 2017), <link target="https://www.w3.org/TR/vocab-ssn"/>
+	#<Asciidoctor::List@524400 {context: :ulist, style: "bibliography", items: 17}>
+(Section: References): no anchor on reference, markup may be malformed: see
+https://www.metanorma.com/author/topics/document-format/bibliography/ ,
+https://www.metanorma.com/author/iso/topics/markup/#bibliographies
+: [[[OMS: ISO 19156]]], Observations and Measurements, version 2.0
+	#<Asciidoctor::List@524400 {context: :ulist, style: "bibliography", items: 17}>
+
+
+== Crossreferences
+
+(XML Line 000221): ISO19101 does not have a corresponding anchor ID in the bibliography!
+	<origin bibitemid="ISO19101" type="inline" citeas="">ISO-19101, definition 4.11</origin>
+(XML Line 000231): ISO19156 does not have a corresponding anchor ID in the bibliography!
+	<origin bibitemid="ISO19156" type="inline" citeas="">ISO-19156, definition 4.10</origin>
+(XML Line 000241): ISO19156 does not have a corresponding anchor ID in the bibliography!
+	<origin bibitemid="ISO19156" type="inline" citeas="">ISO-19156, definition 4.11</origin>
+(XML Line 000254): ISO19143 does not have a corresponding anchor ID in the bibliography!
+	<origin bibitemid="ISO19143" type="inline" citeas="">ISO-19143</origin>
+
+
+== Anchors
+
+(XML Line 000194): Crossreference target OGC06-121r9 is undefined
+	<xref target="OGC06-121r9" style="short"/>
+(XML Line 000507): Crossreference target OGC-API-COMMON-2 is undefined
+	<xref target="OGC-API-COMMON-2" style="short"/>
+(XML Line 000526): Crossreference target OGC-W3C-SSN-EXT is undefined
+	<xref target="OGC-W3C-SSN-EXT" style="short">Extensions to the SSN Ontology</xref>
+(XML Line 000750): Crossreference target OGC-W3C-SSN is undefined
+	<xref target="OGC-W3C-SSN" style="short">SSN Ontology</xref>
+(XML Line 001127): Crossreference target OGC-W3C-SSN is undefined
+	<xref target="OGC-W3C-SSN" style="short">SSN Ontology</xref>
+(XML Line 001895): Crossreference target SWECommon-JSON is undefined
+	<xref target="SWECommon-JSON" style="short"/>
+(XML Line 001910): Crossreference target SWECommon is undefined
+	<xref target="SWECommon" style="short"/>
+(XML Line 001927): Crossreference target SWECommon is undefined
+	<xref target="SWECommon" style="short"/>
+
+
+== Metanorma XML Style Warning
+
+(XML Line 000043): Table should have title
+	<table id="_32142c31-186e-9c08-a4b5-7fd4e7a5c72a" unnumbered="true"><tbody><tr><td valign="middle" align="left"><strong>Name</strong></td>
+	<td valign="middle" align="left"><strong>Affiliation</strong></td>
+	</tr><tr><td valign="middle" align="left">Alexandre Robin</td>
+	<td valign="middle" align="left">GeoRobotix, Inc.</td>
+	</tr><tr><td valign="middle" align="left">Mike Botts</td>
+(XML Line 000056): Table should have title
+	<table id="_1d6685b0-db9c-ec89-a443-592f602c0acf" unnumbered="true"><tbody><tr><td valign="middle" align="left"><strong>Name</strong></td>
+	<td valign="middle" align="left"><strong>Affiliation</strong></td>
+	</tr><tr><td valign="middle" align="left">Chris Tucker</td>
+	<td valign="middle" align="left">GeoRobotix, Inc.</td>
+	</tr><tr><td valign="middle" align="left">Nick Garay</td>
+(XML Line 000299): Hanging paragraph in clause
+	<clause id="_conventions" obligation="normative">
+	<title>Conventions</title>
+	<p id="_f287e0a4-ca0e-ef98-6e01-5d09472b62aa">This sections provides details and examples for any conventions used in the document. Examples of conventions are symbols, abbreviations, use of XML schema, or special notes regarding how to read the document.</p>
+	
+	<clause id="_identifiers" obligation="normative">
+(XML Line 000433): Hanging paragraph in clause
+	<clause id="clause-api-common" obligation="normative">
+	<title>Requirements Class “Common”</title>
+	<p id="_d2b0577c-0145-fcd6-a9f9-4b589e298920">Unresolved directive in sections/clause_7_requirements_class_common.adoc — include::requirements/common/requirements_class_common.adoc[]</p>
+	
+	<clause id="_overview_2" obligation="normative">
+(XML Line 000474): Table should have title
+	<table id="req_links-canonical" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 1</strong></th>
+	<th valign="middle" align="left"><strong>/req/links/canonical</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_35f48b32-23fb-9457-11b7-3c1fbd8f5633">All links to resources corresponding to instances of a resource type defined by this Standard SHALL use the resource’s canonical URL.</p>
+(XML Line 000489): Table should have title
+	<table id="req_resource-id-unique" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 2</strong></th>
+	<th valign="middle" align="left"><strong>/req/unique-ids</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_269b2751-176b-b7ad-ff15-9ca3c7dda47e">The server SHALL ensure that resource IDs are unique across all collections of a given resource type.</p>
+(XML Line 000503): Table should have title
+	<table id="req_resource-col-paging" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 3</strong></th>
+	<th valign="middle" align="left"><strong>/req/unique-ids</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_be984be5-fabb-3154-4ec1-f46304d52ced">The server SHALL support paging on all collections containing resource types defined in this Standard using the <tt>limit</tt> query parameter and the <tt>next</tt> link, as specified by <xref target="OGC-API-COMMON-2" style="short"/> Requirements Module <link target="http://www.opengis.net/spec/ogcapi-common-2/1.0/rm/limit"/>.</p>
+(XML Line 000514): Hanging paragraph in clause
+	<clause id="clause-datastream-resources" obligation="normative">
+	<title>Requirements Class “Datastreams &amp; Observations”</title>
+	<p id="_12733dfd-571e-6785-9d39-6e649a034680">Unresolved directive in sections/clause_8_requirements_class_datastreams.adoc — include::requirements/datastreams/requirements_class_datastreams.adoc[]</p>
+	
+	<clause id="_overview_3" obligation="normative">
+(XML Line 000532): Hanging paragraph in clause
+	<clause id="_datastream_resources" obligation="normative">
+	<title>Datastream Resources</title>
+	<p id="_6e8d8416-11ef-1655-f1a4-679ab1e52f81">This section defines the properties and associations (links to other resources) that apply to <tt>DataStream</tt> resources.</p>
+	
+	<p id="_85009a93-ffbb-36b1-d97e-9add481068f2">Below is the contextual class diagram of the <tt>DataStream</tt> resource:</p>
+(XML Line 000544): Table should have title
+	<table id="req_datastream-props" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 4</strong></th>
+	<th valign="middle" align="left"><strong>/req/datastream/properties</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_22ad1375-e8c7-1208-01d0-218a3b2369a8">A <tt>DataStream</tt> resource SHALL include all mandatory properties listed in <xref target="datastream-properties" style="short"/>.</p>
+(XML Line 000595): Table should have title
+	<table id="req_datastream-type" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 5</strong></th>
+	<th valign="middle" align="left"><strong>/req/datastream/type</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_6a57d952-a00d-9523-56a6-892fea9e56d7">A <tt>DataStream</tt> resource encoding SHALL use one of the URIs provided in <xref target="datastream-types" style="short"/> as the value of the <tt>Type</tt> property.
+(XML Line 000622): Table should have title
+	<table id="req_datastream-links" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 6</strong></th>
+	<th valign="middle" align="left"><strong>/req/datastream/links</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_fb615cca-558d-dbe7-31f7-5b32c384d79a">A <tt>DataStream</tt> resource SHALL include the associations defined in <xref target="datastream-links" style="short"/>.</p>
+(XML Line 000658): Table should have title
+	<table id="req_datastream-collection" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 7</strong></th>
+	<th valign="middle" align="left"><strong>/req/datastream/collection</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_4cf7c8fd-81c5-c569-6fa8-97aef232d459">The server SHALL expose at least one collection containing <tt>Datastream</tt> resources.</p>
+(XML Line 000667): Table should have title
+	<table id="req_datastream-collection-type" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 8</strong></th>
+	<th valign="middle" align="left"><strong>/req/datastream/collection-type</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_be7c35da-b932-cd6b-3f42-44419a93f73d">The server SHALL identify all collections containing <tt>DataStream</tt> resources by setting the value of the <tt>itemType</tt> property to <tt>'datastream'</tt>.</p>
+(XML Line 000676): Table should have title
+	<table id="req_datastream-catchall-collection" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 9</strong></th>
+	<th valign="middle" align="left"><strong>/req/datastream/catchall-collection</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_6d5a45aa-4540-f381-19a0-c3d467a69ea5">The server SHALL expose a collection containing all available <tt>DataStream</tt> resources at URL <tt>{api_root}/datastreams</tt>.</p>
+(XML Line 000685): Table should have title
+	<table id="req_datastream-system-collection" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 10</strong></th>
+	<th valign="middle" align="left"><strong>/req/datastream/system-collection</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_1b3c3fe0-8e08-09c7-df0f-2db4e7369d71">The server SHALL expose the collection of all <tt>DataStream</tt> resources associated to a given <tt>System</tt> at URL <tt>{systemResourceUrl}/datastreams</tt>.</p>
+(XML Line 000701): Table should have title
+	<table id="req_datastream-schemas" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 11</strong></th>
+	<th valign="middle" align="left"><strong>/req/datastream/schema</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_8260df6d-8239-71da-e213-a6a970dd300e">The server SHALL expose the schemas for a given <tt>DataStream</tt> at URL <tt>{datastreamResourceUrl}/schema</tt>.</p>
+(XML Line 000748): Hanging paragraph in clause
+	<clause id="_observation_resources" obligation="normative">
+	<title>Observation Resources</title>
+	<p id="_1994d953-7f66-13be-9787-1f464cda6039"><tt>Observation</tt> resources are modeled on the corresponding <em><link target="http://www.w3.org/ns/sosa/Observation">Observation</link></em> concept defined in the <xref target="OGC-W3C-SSN" style="short">SSN Ontology</xref>.</p>
+	
+	<p id="_2b9a9ba0-9ff7-c979-80e3-7382ddc620ea">However, since <tt>Observation</tt> resources exposed through the API are always part of a <tt>Datastream</tt> (e.g. a type of <link target="https://www.w3.org/TR/vocab-ssn-ext/#sosa:ObservationCollection"><em>ObservationCollection</em></link>), they don’t have to include all mandatory properties as most of them can be factored at the datastream level.</p>
+(XML Line 000766): Table should have title
+	<table id="req_observation-props" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 12</strong></th>
+	<th valign="middle" align="left"><strong>/req/observation/properties</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_0c2c4762-6229-f211-06b9-19c43f3c54a2">An <tt>Observation</tt> resource SHALL include all mandatory properties listed in <xref target="observation-properties" style="short"/>.</p>
+(XML Line 000809): Table should have title
+	<table id="req_observation-links" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 13</strong></th>
+	<th valign="middle" align="left"><strong>/req/observation/links</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_78fd9781-8a90-d587-3117-9432851f8dae">A <tt>Command</tt> resource SHALL include the associations defined in <xref target="observation-links" style="short"/>.</p>
+(XML Line 000839): Table should have title
+	<table id="req_observation-collection" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 14</strong></th>
+	<th valign="middle" align="left"><strong>/req/observation/collection</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_477ea03d-87c2-5c0e-4bcf-44386e60091b">The server SHALL expose at least one collection containing <tt>Observation</tt> resources.</p>
+(XML Line 000848): Table should have title
+	<table id="req_observation-collection-type" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 15</strong></th>
+	<th valign="middle" align="left"><strong>/req/observation/collection-type</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_34e93811-6ae4-c172-d36c-54876de66c9b">The server SHALL identify all collections containing <tt>Observation</tt> resources by setting the value of the <tt>itemType</tt> property to <tt>'observation'</tt>.</p>
+(XML Line 000857): Table should have title
+	<table id="req_observation-catchall-collection" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 16</strong></th>
+	<th valign="middle" align="left"><strong>/req/observation/catchall-collection</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_ff8ef4d9-0cb9-0e2c-d8ee-1cfe0eca3986">The server SHALL expose a collection containing all available <tt>Observation</tt> resources at URL <tt>{api_root}/observations</tt>.</p>
+(XML Line 000868): Table should have title
+	<table id="req_observation-datastream-collection" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 17</strong></th>
+	<th valign="middle" align="left"><strong>/req/observation/datastream-collection</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_27201bde-1fb4-5b47-7eb9-9867dd7502e0">The server SHALL expose a collection containing all <tt>Observation</tt> resources available from a given <tt>Datastream</tt> at URL <tt>{datastreamResourceUrl}/observations</tt>.</p>
+(XML Line 000878): Hanging paragraph in clause
+	<clause id="_basic_observation_filters" obligation="normative">
+	<title>Basic Observation Filters</title>
+	<p id="_012d3bdd-9afa-662b-500b-482f90eb0f53">All observation collections support filtering using the query parameters described below.</p>
+	
+	<clause id="_phenomenon_time_filter" obligation="normative">
+(XML Line 000892): Hanging paragraph in clause
+	<clause id="clause-control-resources" obligation="normative">
+	<title>Requirements Class “Control Streams &amp; Commands”</title>
+	<p id="_eec5d253-0a25-38e5-6a0d-b9d4b1c32fbc">Unresolved directive in sections/clause_9_requirements_class_controls.adoc — include::requirements/controls/requirements_class_controls.adoc[]</p>
+	
+	<clause id="_overview_4" obligation="normative">
+(XML Line 000910): Hanging paragraph in clause
+	<clause id="_controlstream_resources" obligation="normative">
+	<title>ControlStream Resources</title>
+	<p id="_a787926e-58aa-e248-ac0f-ab88825b4df8">This section defines the properties and associations (links to other resources) that apply to <tt>ControlStream</tt> resources.</p>
+	
+	<p id="_e47466d0-faaf-b880-5c6a-2d18185d7354">Below is the contextual class diagram of the <tt>ControlStream</tt> resource:</p>
+(XML Line 000922): Table should have title
+	<table id="req_controlstream-props" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 18</strong></th>
+	<th valign="middle" align="left"><strong>/req/controlstream/properties</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_c732d4c1-56cc-6aed-e634-60acdff46312">A <tt>ControlStream</tt> resource SHALL include all mandatory properties listed in <xref target="controlstream-properties" style="short"/>.</p>
+(XML Line 000973): Table should have title
+	<table id="req_controlstream-type" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 19</strong></th>
+	<th valign="middle" align="left"><strong>/req/controlstream/type</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_f9845420-9f03-e133-812d-c4ac66d59b42">A <tt>ControlStream</tt> resource encoding SHALL use one of the URIs provided in <xref target="controlstream-types" style="short"/> as the value of the <tt>Type</tt> property.<br/>
+(XML Line 001000): Table should have title
+	<table id="req_controlstream-links" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 20</strong></th>
+	<th valign="middle" align="left"><strong>/req/controlstream/links</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_7026b368-7a39-b2a4-b63b-8fd843b095fb">A <tt>ControlStream</tt> resource SHALL include the associations defined in <xref target="controlstream-links" style="short"/>.</p>
+(XML Line 001039): Table should have title
+	<table id="req_controlstream-collection" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 21</strong></th>
+	<th valign="middle" align="left"><strong>/req/controlstream/collection</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_ed105927-d815-4605-0d68-e1af4bf3ff15">The server SHALL expose at least one collection containing <tt>ControlStream</tt> resources.</p>
+(XML Line 001048): Table should have title
+	<table id="req_controlstream-collection-type" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 22</strong></th>
+	<th valign="middle" align="left"><strong>/req/controlstream/collection-type</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_178085a4-ec38-f2e5-7103-3f1df21b72c6">The server SHALL identify all collections containing <tt>ControlStream</tt> resources by setting the value of the <tt>itemType</tt> property to <tt>'controlstream'</tt>.</p>
+(XML Line 001057): Table should have title
+	<table id="req_controlstream-catchall-collection" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 23</strong></th>
+	<th valign="middle" align="left"><strong>/req/controlstream/catchall-collection</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_2c9f40e8-6a7c-d7b1-2070-b24bb2aa2a71">The server SHALL expose a collection containing all available <tt>ControlStream</tt> resources at URL <tt>{api_root}/controls</tt>.</p>
+(XML Line 001068): Table should have title
+	<table id="req_controlstream-system-collection" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 24</strong></th>
+	<th valign="middle" align="left"><strong>/req/controlstream/system-collection</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_56ca1ace-828d-df08-72ab-303f2ad223ab">The server SHALL expose the collection of all <tt>ControlStream</tt> resources associated to a given <tt>System</tt> at URL <tt>{systemResourceUrl}/controls</tt>.</p>
+(XML Line 001084): Table should have title
+	<table id="req_controlstream-schemas" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 25</strong></th>
+	<th valign="middle" align="left"><strong>/req/controlstream/schema</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_c56d5e66-ae29-c110-059b-962b2a3cea92">The server SHALL expose the schemas for a given <tt>ControlStream</tt> at URL <tt>{controlStreamResourceUrl}/schema</tt>.</p>
+(XML Line 001125): Hanging paragraph in clause
+	<clause id="_command_resources" obligation="normative">
+	<title>Command Resources</title>
+	<p id="_aee7e847-18ab-0c81-c665-ea4325d1d800"><tt>Command</tt> resources are a generalization of the <em><link target="http://www.w3.org/ns/sosa/Actuation">Actuation</link></em> concept defined in the <xref target="OGC-W3C-SSN" style="short">SSN Ontology</xref>.</p>
+	
+	<p id="_1cb19bd1-4b8a-3020-addc-5168d8ea4fc7"><tt>Command</tt> resources exposed through the API are always part of a <tt>CommandStream</tt>, thus they don’t have to include all properties of an <em>Actuation</em> as many of them can be factored at the command stream level.</p>
+(XML Line 001143): Table should have title
+	<table id="req_command-props" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 26</strong></th>
+	<th valign="middle" align="left"><strong>/req/command/properties</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_72ccca1c-59f5-a4a2-3155-778e21aed770">A <tt>Command</tt> resource SHALL include all mandatory properties listed in <xref target="command-properties" style="short"/>.</p>
+(XML Line 001184): Table should have title
+	<table id="req_command-status" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 27</strong></th>
+	<th valign="middle" align="left"><strong>/req/command/status</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_cc6b991c-47e9-8816-9c05-aeccfadbb3c9">A <tt>Command</tt> resource encoding SHALL use one of the case-sensitive codes provided in <xref target="command-status-codes" style="short"/> as the value of the <tt>Status</tt> property.<br/>
+(XML Line 001202): Table should have title
+	<table id="req_command-links" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 28</strong></th>
+	<th valign="middle" align="left"><strong>/req/command/links</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_8d5c4bde-947d-fca0-7b5a-d8e4815a190c">A <tt>Command</tt> resource SHALL include the associations defined in <xref target="command-links" style="short"/>.</p>
+(XML Line 001235): Table should have title
+	<table id="req_command-collection" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 29</strong></th>
+	<th valign="middle" align="left"><strong>/req/command/collection</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_39fdcf9e-7d2e-9bef-e00c-faff9bd4a1a6">The server SHALL expose at least one collection containing <tt>Command</tt> resources.</p>
+(XML Line 001244): Table should have title
+	<table id="req_command-collection-type" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 30</strong></th>
+	<th valign="middle" align="left"><strong>/req/command/collection-type</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_64786532-8943-a10c-2927-01537f755258">The server SHALL identify all collections containing <tt>Command</tt> resources by setting the value of the <tt>itemType</tt> property to <tt>'command'</tt>.</p>
+(XML Line 001253): Table should have title
+	<table id="req_command-catchall-collection" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 31</strong></th>
+	<th valign="middle" align="left"><strong>/req/command/catchall-collection</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_8f8e47b1-25ae-9c35-a144-eb1a10c36696">The server SHALL expose a collection containing all available <tt>Command</tt> resources at URL <tt>{api_root}/commands</tt>.</p>
+(XML Line 001264): Table should have title
+	<table id="req_command-controlstream-collection" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 32</strong></th>
+	<th valign="middle" align="left"><strong>/req/command/controlstream-collection</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_7a0331ff-6e83-179f-e882-670c5ee50e91">The server SHALL expose a collection containing all <tt>Command</tt> resources available from a given <tt>ControlStream</tt> at URL <tt>{controlStreamResourceUrl}/commands</tt>.</p>
+(XML Line 001274): Hanging paragraph in clause
+	<clause id="_command_status_resources" obligation="normative">
+	<title>Command Status Resources</title>
+	<p id="_7c3a7780-dff0-819c-ecc4-eb89d9f92e4c"><tt>CommandStatus</tt> resources represent a status report describing the state of a command at a given point in time. Several status reports can be issued for any given command.</p>
+	
+	<p id="_e84c2a86-f954-8828-c381-cf7763734dd5">When commands are processed synchronously, a single status report is provided. But when commands are processed asynchronously, any number of status reports can be provided by the server. They are used to report early acceptance/rejection of the command, scheduling and execution steps as well as failure and cancellations.</p>
+(XML Line 001288): Table should have title
+	<table id="req_commandstatus-props" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 33</strong></th>
+	<th valign="middle" align="left"><strong>/req/commandstatus/properties</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_1ae4234c-64cb-8de5-ae03-5119599f493c">A <tt>CommandStatus</tt> resource SHALL include all mandatory properties listed in <xref target="commandstatus-properties" style="short"/>.</p>
+(XML Line 001327): Table should have title
+	<table id="req_commandstatus-status" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 34</strong></th>
+	<th valign="middle" align="left"><strong>/req/commandstatus/status</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_e30d715c-d018-138e-cafc-79ca6c7db8b4">A <tt>CommandStatus</tt> resource encoding SHALL use one of the case-sensitive codes provided in <xref target="command-status-codes" style="short"/> as the value of the <tt>status</tt> property.<br/>
+(XML Line 001371): Table should have title
+	<table id="req_commandstatus-links" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 35</strong></th>
+	<th valign="middle" align="left"><strong>/req/commandstatus/links</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_d79a7b66-947a-325c-bcf6-63f44560272b">A <tt>CommandStatus</tt> resource SHALL include the associations defined in <xref target="commandstatus-links" style="short"/>.</p>
+(XML Line 001395): Hanging paragraph in clause
+	<clause id="clause-system-events" obligation="normative">
+	<title>Requirements Class “System Events”</title>
+	<p id="_3cdeb48e-c7b9-e5f6-f7aa-00b76ff65df4">Unresolved directive in sections/clause_10_requirements_class_system_events.adoc — include::requirements/system/requirements_class_system_events.adoc[]</p>
+	
+	<clause id="_overview_5" obligation="normative">
+(XML Line 001409): Hanging paragraph in clause
+	<clause id="_system_event_resources" obligation="normative">
+	<title>System Event Resources</title>
+	<p id="_97910412-f84b-1889-a19f-39f1e1f8bbd4"><tt>SystemEvent</tt> resources are modeled on the SensorML Event class.</p>
+	
+	<p id="_8360a7a2-68a3-fd9b-77d7-8bfd1ba2993b">Below is the contextual class diagram of the <tt>SystemEvent</tt> resource:</p>
+(XML Line 001421): Table should have title
+	<table id="req_system-event-props" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 36</strong></th>
+	<th valign="middle" align="left"><strong>/req/system-event/properties</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_f66bf2e1-69ad-95f9-31af-79eecf74ff0a">A <tt>SystemEvent</tt> resource SHALL include all mandatory properties listed in <xref target="system-event-properties" style="short"/>.</p>
+(XML Line 001460): Table should have title
+	<table id="req_system-event-type" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 37</strong></th>
+	<th valign="middle" align="left"><strong>/req/system-event/type</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_d24db077-0093-558c-f9fb-ce79214b794e">A <tt>SystemEvent</tt> resource encoding SHALL use one of the URIs provided in <xref target="system-event-types" style="short"/> as the value of the <tt>Type</tt> property.
+(XML Line 001497): Table should have title
+	<table id="req_system-event-links" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 38</strong></th>
+	<th valign="middle" align="left"><strong>/req/system-event/links</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_1912bece-d970-46e9-7ca4-6518b7c7ae0f">A <tt>SystemEvent</tt> resource SHALL include the associations defined in <xref target="system-event-links" style="short"/>.</p>
+(XML Line 001524): Table should have title
+	<table id="req_system-events-collection" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 39</strong></th>
+	<th valign="middle" align="left"><strong>/req/system/events-collection</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_ed997375-3523-e16b-a4f5-c9eac1f0e7d0">The server SHALL expose <tt>System</tt> events at URL <tt>{systemResourceUrl}/events</tt>.</p>
+(XML Line 001538): Table should have title
+	<table id="req_filter-event-simplequery" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 40</strong></th>
+	<th valign="middle" align="left"><strong>/req/filter/event-simplequery</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_3a2d9ab5-2f06-1f4b-4e33-c261175feb01">The server SHALL support query parameters <tt>datetime</tt> and <tt>limit</tt> on all <tt>SystemEvent</tt> collections.</p>
+(XML Line 001547): Table should have title
+	<table id="req_filter-event-time" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 41</strong></th>
+	<th valign="middle" align="left"><strong>/req/filter/event-time</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_2e6b8262-e360-3dc8-2366-d280efe3ae48">When the <tt>datetime</tt> query parameter is used to filter a collection of <tt>SystemEvent</tt> resources, the server SHALL use the <tt>eventTime</tt> property of the resource to determine its temporal extent.</p>
+(XML Line 001563): Hanging paragraph in clause
+	<clause id="clause-system-history" obligation="normative">
+	<title>Requirements Class “System History”</title>
+	<p id="_daf2aab7-8c64-18b2-4c60-7f794e611727">Unresolved directive in sections/clause_11_requirements_class_system_history.adoc — include::requirements/system/requirements_class_system_history.adoc[]</p>
+	
+	<clause id="_overview_6" obligation="normative">
+(XML Line 001582): Table should have title
+	<table id="req_system-history-collection" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 42</strong></th>
+	<th valign="middle" align="left"><strong>/req/system-history/collection</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">A</td>
+	<td valign="middle" align="left"><p id="_b2cc589a-3ef6-e33b-00ca-aff3b1890cce">The server SHALL expose the history of a <tt>System</tt> at URL <tt>{systemResourceUrl}/history</tt>.</p>
+(XML Line 001602): Table should have title
+	<table id="req_filter-system-time" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 43</strong></th>
+	<th valign="middle" align="left"><strong>/req/filter/system-time</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">Condition</td>
+	<td valign="middle" align="left"><p id="_341af968-beb8-3070-44e4-3c789dd57c51">The request is made on a top-level <tt>System</tt> collection.</p>
+(XML Line 001624): Table should have title
+	<table id="req_filter-system-components-time" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 44</strong></th>
+	<th valign="middle" align="left"><strong>/req/filter/system-components-time</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">Condition</td>
+	<td valign="middle" align="left"><p id="_870b25a2-36fe-c431-4dc0-6a7705c1678c">The request is made on the <tt>components</tt> sub-collection of a <tt>System</tt>.</p>
+(XML Line 001642): Table should have title
+	<table id="req_filter-system-history-time" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 45</strong></th>
+	<th valign="middle" align="left"><strong>/req/filter/system-history-time</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">Condition</td>
+	<td valign="middle" align="left"><p id="_f0beab52-1072-bce6-031a-fd7d1f0e4bb1">The request is made on the <tt>history</tt> sub-collection of a <tt>System</tt>.</p>
+(XML Line 001662): Hanging paragraph in clause
+	<clause id="clause-resource-events" obligation="normative">
+	<title>Requirements Class “Resource Events”</title>
+	<p id="_c2908252-5f78-0f87-3544-bd4321e28334">Unresolved directive in sections/clause_12_requirements_class_resource_events.adoc — include::requirements/events/requirements_class_resource_events.adoc[]</p>
+	
+	<clause id="_overview_7" obligation="normative">
+(XML Line 001672): Hanging paragraph in clause
+	<clause id="clause-advanced-filtering" obligation="normative">
+	<title>Requirements Class “Advanced Filtering”</title>
+	<p id="_ba3d3f66-1087-48a5-774f-457ae60f8413">Unresolved directive in sections/clause_13_requirements_class_advanced_filtering.adoc — include::requirements/query/requirements_class_advanced_filtering.adoc[]</p>
+	
+	<clause id="_overview_8" obligation="normative">
+(XML Line 001686): Hanging paragraph in clause
+	<clause id="clause-resource-crud" obligation="normative">
+	<title>Requirements Class “Create, Replace, Update and Delete”</title>
+	<p id="_2d865f13-b6c7-b711-c360-a964f782a0cd">Unresolved directive in sections/clause_14_requirements_class_resource_crud.adoc — include::requirements/crud/requirements_class_crud.adoc[]</p>
+	
+	<clause id="_overview_9" obligation="normative">
+(XML Line 001703): Hanging paragraph in clause
+	<clause id="clause-encoding-json" obligation="normative">
+	<title>Requirements Class “JSON Encoding”</title>
+	<p id="_0f2e5b6e-8e87-9ce2-9be6-3d738845cd6f">Unresolved directive in sections/clause_20_requirements_class_json_encoding.adoc — include::requirements/encoding/json/requirements_class_json.adoc[]</p>
+	
+	<clause id="_overview_10" obligation="normative">
+(XML Line 001722): Table should have title
+	<table id="req_json-schema-datastream" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 46</strong></th>
+	<th valign="middle" align="left"><strong>/req/encoding/json/datastream-schema</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">Condition</td>
+	<td valign="middle" align="left"><p id="_0e32e34c-d0a4-5cbc-5511-252ebb649a2e">Server implements <xref target="clause-datastream-resources" style="short"/>.</p>
+(XML Line 001756): Table should have title
+	<table id="req_json-schema-observation" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 47</strong></th>
+	<th valign="middle" align="left"><strong>/req/encoding/json/observation-schema</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">Condition</td>
+	<td valign="middle" align="left"><p id="_097c5bdc-3e24-6a61-821b-0c7a1c33dfca">Server implements <xref target="clause-datastream-resources" style="short"/>.</p>
+(XML Line 001792): Table should have title
+	<table id="req_json-schema-controlstream" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 48</strong></th>
+	<th valign="middle" align="left"><strong>/req/encoding/json/controlstream-schema</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">Condition</td>
+	<td valign="middle" align="left"><p id="_0a136e88-c8bd-01ed-8c2c-603116dd55e7">Server implements <xref target="clause-control-resources" style="short"/>.</p>
+(XML Line 001821): Table should have title
+	<table id="req_json-schema-command" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 49</strong></th>
+	<th valign="middle" align="left"><strong>/req/encoding/json/command-schema</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">Condition</td>
+	<td valign="middle" align="left"><p id="_f3e6a559-f1c3-d66b-670f-c69293ef9718">Server implements <xref target="clause-control-resources" style="short"/>.</p>
+(XML Line 001850): Table should have title
+	<table id="req_json-schema-command-status" width="90%"><colgroup><col width="25%"/><col width="75%"/></colgroup><thead><tr><th valign="middle" align="center"><strong>Requirement 50</strong></th>
+	<th valign="middle" align="left"><strong>/req/encoding/json/command-status-schema</strong></th>
+	</tr></thead>
+	<tbody><tr><td valign="middle" align="center">Condition</td>
+	<td valign="middle" align="left"><p id="_3c87820f-0a7f-680e-b5e8-fb5f298d1a23">Server implements <xref target="clause-control-resources" style="short"/>.</p>
+(XML Line 001889): Hanging paragraph in clause
+	<clause id="clause-encoding-swejson" obligation="normative">
+	<title>Requirements Class “SWE Common JSON Encoding”</title>
+	<p id="_6f9dc3e9-99d3-6f5b-1563-f6bbc593e3b2">Unresolved directive in sections/clause_21_requirements_class_swecommon_json_encoding.adoc — include::requirements/encoding/swecommon/requirements_class_swecommon_json.adoc[]</p>
+	
+	<clause id="_overview_11" obligation="normative">
+(XML Line 001904): Hanging paragraph in clause
+	<clause id="clause-encoding-swetext" obligation="normative">
+	<title>Requirements Class “SWE Common Text Encoding”</title>
+	<p id="_08a5e7b2-1815-e29e-1973-81c95b359b9a">Unresolved directive in sections/clause_22_requirements_class_swecommon_text_encoding.adoc — include::requirements/encoding/swecommon/requirements_class_swecommon_text.adoc[]</p>
+	
+	<clause id="_overview_12" obligation="normative">
+(XML Line 001921): Hanging paragraph in clause
+	<clause id="clause-encoding-swebinary" obligation="normative">
+	<title>Requirements Class “SWE Common Binary Encoding”</title>
+	<p id="_852c713d-5e2e-a5f9-3351-1029bbbf3879">Unresolved directive in sections/clause_23_requirements_class_swecommon_binary_encoding.adoc — include::requirements/encoding/swecommon/requirements_class_swecommon_binary.adoc[]</p>
+	
+	<clause id="_overview_13" obligation="normative">
+(XML Line 001963): Hanging paragraph in clause
+	<clause id="clause-protocol-websocket" obligation="normative">
+	<title>Requirements Class “Websocket Transport”</title>
+	<p id="_e0e3e063-4edb-9a8f-4f72-a4171a767316">Unresolved directive in sections/clause_30_requirements_class_websocket.adoc — include::requirements/protocol/websocket/requirements_class_websocket.adoc[]</p>
+	
+	<clause id="_overview_14" obligation="normative">
+(XML Line 001987): Hanging paragraph in clause
+	<clause id="clause-protocol-mqtt" obligation="normative">
+	<title>Requirements Class “MQTT Transport”</title>
+	<p id="_59b529f4-6462-c6c3-1a39-1c5e0cb37e36">Unresolved directive in sections/clause_31_requirements_class_mqtt.adoc — include::requirements/protocol/mqtt/requirements_class_mqtt.adoc[]</p>
+	
+	<clause id="_overview_15" obligation="normative">
+(XML Line 002101): Table should have title
+	<table id="_4c6e7372-99a0-535f-2308-be2555745354" unnumbered="true" width="90%"><thead><tr><th valign="middle" align="left">Date</th>
+	<th valign="middle" align="left">Release</th>
+	<th valign="middle" align="left">Editor</th>
+	<th valign="middle" align="left">Primary clauses modified</th>
+	<th valign="middle" align="left">Description</th>
+
+
+== Document Attributes
+
+(): draft is not an allowed status for standard
+
+
+== Metanorma XML Syntax
+
+(XML Line 000005:244): character content of element "on" invalid; must be a string matching the regular expression "([\+\-]?\d{4})((-?)((0[1-9]|1[0-2])((-?)([12]\d|0[1-9]|3[01]))?|W([0-4]\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\d|[12]\d{2}|3([0-5]\d|6[1-6]))))?"
+(XML Line 000005:290): character content of element "on" invalid; must be a string matching the regular expression "([\+\-]?\d{4})((-?)((0[1-9]|1[0-2])((-?)([12]\d|0[1-9]|3[01]))?|W([0-4]\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\d|[12]\d{2}|3([0-5]\d|6[1-6]))))?"
+(XML Line 000005:338): character content of element "on" invalid; must be a string matching the regular expression "([\+\-]?\d{4})((-?)((0[1-9]|1[0-2])((-?)([12]\d|0[1-9]|3[01]))?|W([0-4]\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\d|[12]\d{2}|3([0-5]\d|6[1-6]))))?"
+(XML Line 000087:64): element "clause" not allowed here; expected the element end-tag or element "submitters"
+(XML Line 000105:89): element "clause" not allowed here; expected the element end-tag or element "submitters"
+(XML Line 000218:107): IDREF "ISO19101" without matching ID
+(XML Line 000228:107): IDREF "ISO19156" without matching ID
+(XML Line 000240:107): IDREF "ISO19156" without matching ID
+(XML Line 000251:107): IDREF "ISO19143" without matching ID
+(XML Line 000353:15): element "definitions" incomplete; missing required element "dl"
