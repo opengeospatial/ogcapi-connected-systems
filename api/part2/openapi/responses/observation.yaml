@@ -16,6 +16,10 @@ content:
         summary: Vector Observation (Location)
         value:
           $ref: ../examples/observations/obs-location.json
+      geopose:
+        summary: GeoPose Observation
+        value:
+          $ref: ../examples/observations/obs-geopose.json
       profile:
         summary: Profile Observation
         value:

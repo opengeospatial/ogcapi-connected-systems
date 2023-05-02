@@ -1,0 +1,18 @@
+{
+  "id": "maqdpujcj8dkstqhibju0ncmvqqh0k8",
+  "datastream@id": "tm3kijpkaoei6",
+  "phenomenonTime": "2023-03-15T10:03:34Z",
+  "resultTime": "2023-03-15T10:03:34Z",
+  "result": {
+    "position": {
+      "lat": -86.5861,
+      "lon": 34.7304,
+      "h": 183
+    },
+    "angles": {
+      "yaw": -124.3,
+      "pitch": 3.4,
+      "roll": -5.8
+    }
+  }
+}
