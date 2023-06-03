@@ -1,4 +1,4 @@
-<img align="left" height="110" src="https://raw.githubusercontent.com/opengeospatial/connected-systems/master/logo.jpg">
+<img align="left" height="100" style="margin-top: 15px" src="https://raw.githubusercontent.com/opengeospatial/connected-systems/master/logo.jpg">
 
 # Connected Systems<br/>Standards Working Group
 
