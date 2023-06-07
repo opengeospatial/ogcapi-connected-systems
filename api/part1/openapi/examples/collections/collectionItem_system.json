@@ -1,0 +1,23 @@
+{
+  "type": "Feature",
+  "id": "SYS001",
+  "geometry": null,
+  "properties": {
+    "featureType": "http://www.w3.org/ns/sosa/Platform",
+    "uid": "urn:x-ogc:systems:uav:solo154",
+    "name": "UAV System 412",
+    "description": "3DR Solo UAV"
+  },
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://data.example.com/api/collections/all_systems/items/SYS001?f=json",
+      "type" : "application/geo+json"
+    },
+    {
+      "rel": "canonical",
+      "href": "https://data.example.com/api/systems/SYS001?f=json",
+      "type" : "application/geo+json"
+    }
+  ]
+}
