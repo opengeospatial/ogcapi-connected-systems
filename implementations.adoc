@@ -1,0 +1,40 @@
+== Implementations
+
+=== Server-side
+
+[#table_implementation,reftext='{table-caption} {counter:table-num}']
+.Service implementations
+[cols=",,",width="75%",options="header",align="center"]
+|===
+|Implementation | Type | Contact
+
+| https://opensensorhub.org/[OpenSensorHub]
+| OGC API - Connected Systems
+| https://github.com/alexrobin[Alex Robin]
+
+| TBA
+| TBA
+| TBA
+
+| TBA
+| TBA
+| TBA
+|===
+
+
+=== Client-side
+
+[#table_implementation,reftext='{table-caption} {counter:table-num}']
+.Client implementations
+[cols=",,",width="75%",options="header",align="center"]
+|===
+|Implementation | Type | Contact
+
+| TBA
+| TBA
+| TBA
+
+| TBA
+| TBA
+| TBA
+|===
