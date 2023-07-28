@@ -28,6 +28,6 @@
     }
   },
   "required": [
-    "type", "uniqueId", "name"
+    "type", "name"
   ]
 }

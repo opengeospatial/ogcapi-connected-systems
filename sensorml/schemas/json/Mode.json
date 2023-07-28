@@ -1,5 +1,17 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object"
-  
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "DescribedObject.json"
+    },
+    {
+      "properties": {
+        "configuration": {
+          "description": "Value settings that further constrain the properties of the base process in this mode.",
+          "$ref": "Settings.json"
+        }
+      }
+    }
+  ]
 }

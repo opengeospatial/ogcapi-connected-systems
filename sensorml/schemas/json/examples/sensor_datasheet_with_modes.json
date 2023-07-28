@@ -1,0 +1,96 @@
+{
+  "$schema": "../PhysicalSystem.json",
+  "type": "PhysicalSystem",
+  "definition": "http://www.w3.org/ns/sosa/ObservingProcedure",
+  "uniqueId": "urn:osh:sensors:S0001_modes",
+  "name": "Sensor With Modes",
+  "description": "Sensor with Modes: example where sensor modes can be changed externally and reported in the output",
+  "validTime": [
+    "2023-07-28T20:44:53.201495Z",
+    "now"
+  ],
+  "inputs": [
+    {
+      "name": "radiation",
+      "type": "ObservableProperty",
+      "label": "Radiation",
+      "definition": "http://sensorml.com/ont/swe/property/Radiation"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "settings",
+      "type": "DataRecord",
+      "fields": [
+        {
+          "name": "samplingRate",
+          "type": "Quantity",
+          "definition": "http://sensorml.com/ont/swe/property/SamplingRate",
+          "label": "Sampling Rate",
+          "updatable": false,
+          "uom": {
+            "code": "Hz"
+          },
+          "constraint": {
+            "intervals": [
+              [ 0.01, 10.0 ]
+            ]
+          }
+        },
+        {
+          "name": "gain",
+          "type": "Quantity",
+          "definition": "http://sensorml.com/ont/swe/property/Gain",
+          "label": "Gain",
+          "updatable": false,
+          "uom": {
+            "code": "Hz"
+          },
+          "constraint": {
+            "intervals": [
+              [ 1.0, 2.5 ]
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "modes": [
+    {
+      "type": "Mode",
+      "id": "lowThreat",
+      "name": "Low Threat Mode",
+      "description": "Setting when nothing has been detected",
+      "configuration": {
+        "setValues": [
+          {
+            "ref": "parameters/settings/samplingRate",
+            "value": "1e-1"
+          },
+          {
+            "ref": "parameters/settings/gain",
+            "value": "1.0"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Mode",
+      "id": "highThreat",
+      "name": "High Threat Mode",
+      "description": "Setting when something has been detected",
+      "configuration": {
+        "setValues": [
+          {
+            "ref": "parameters/settings/samplingRate",
+            "value": "10.0"
+          },
+          {
+            "ref": "parameters/settings/gain",
+            "value": "2.5"
+          }
+        ]
+      }
+    }
+  ]
+}

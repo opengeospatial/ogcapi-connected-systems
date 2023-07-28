@@ -40,10 +40,11 @@
           "description": "A collection of parameters that can be set at once through the selection of a particular predefined mode.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ModeChoice"
+            "$ref": "Mode.json"
           }
         }
-      }
+      },
+      "required": ["uniqueId"]
     }
   ],
   "definitions": {
@@ -76,7 +77,16 @@
       }
     },
     "ModeChoice": {
-
+      "type": "object",
+      "properties": {
+        "modes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "Mode.json"
+          }
+        }
+      }
     },
     "ComponentOrObsProp": {
       "oneOf": [
