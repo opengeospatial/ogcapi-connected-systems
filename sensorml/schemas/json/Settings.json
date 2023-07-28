@@ -1,5 +1,83 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object"
-  
+  "type": "object",
+  "properties": {
+    "setValues": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "ref": {
+            "$ref": "commonDefs.json#/definitions/PathRef"
+          },
+          "value": {
+            "oneOf": [
+              {
+                "title": "Number",
+                "type": "number"
+              },
+              {
+                "title": "String",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "required": ["ref", "value"],
+        "additionalProperties": false
+      }
+    },
+    "setArrayValues": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "ref": {
+            "$ref": "commonDefs.json#/definitions/PathRef"
+          },
+          "value": {
+            "type": "array"
+          }
+        },
+        "required": ["ref", "value"],
+        "additionalProperties": false
+      }
+    },
+    "setModes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "ref": {
+            "$ref": "commonDefs.json#/definitions/PathRef"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "required": ["ref", "value"],
+        "additionalProperties": false
+      }
+    },
+    "setConstraints": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "ref": {
+            "$ref": "commonDefs.json#/definitions/PathRef"
+          },
+          "value": {
+            "$ref": "sweCommonDefs.json#/definitions/AnyConstraint"
+          }
+        },
+        "required": ["ref", "value"],
+        "additionalProperties": false
+      }
+    }
+  }
 }

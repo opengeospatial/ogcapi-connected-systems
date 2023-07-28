@@ -36,6 +36,13 @@
     },
     "NameToken": {
       "$ref": "../../../swecommon/schemas/json/basicTypes.json#/definitions/NameToken"
+    },
+    "AnyConstraint": {
+      "anyOf": [
+        { "$ref": "../../../swecommon/schemas/json/basicTypes.json#/definitions/AllowedTokens" },
+        { "$ref": "../../../swecommon/schemas/json/basicTypes.json#/definitions/AllowedValues" },
+        { "$ref": "../../../swecommon/schemas/json/basicTypes.json#/definitions/AllowedTimes" }
+      ]
     }
   }
 }

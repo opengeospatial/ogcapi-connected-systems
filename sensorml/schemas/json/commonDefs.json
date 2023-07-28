@@ -71,6 +71,10 @@
         { "$ref": "sweCommonDefs.json#/definitions/DataArray" },
         { "$ref": "sweCommonDefs.json#/definitions/Matrix" }
       ]
+    },
+    "PathRef": {
+      "type": "string",
+      "pattern": "^(components|inputs|outputs|parameters|modes)/([A-Za-z][A-Za-z0-9_\\-]*/)*[A-Za-z][A-Za-z0-9_\\-]*$"
     }
   }
 }
