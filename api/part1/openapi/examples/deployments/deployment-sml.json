@@ -17,7 +17,7 @@
       "role": "http://sensorml.com/ont/swe/property/Operator",
       "organisationName": "Saildrone, Inc.",
       "contactInfo": {
-        "onlineResource": "https://www.saildrone.com/",
+        "website": "https://www.saildrone.com/",
         "address": {
           "deliveryPoint": "1050 W. Tower Ave.",
           "city": "Alameda",
@@ -31,9 +31,13 @@
       "role": "http://sensorml.com/ont/swe/property/DataProvider",
       "organisationName": "NOAA Pacific Marine Environmental Laboratory (PMEL)",
       "contactInfo": {
-        "onlineResource": "https://www.pmel.noaa.gov"
+        "website": "https://www.pmel.noaa.gov"
       }
     }
+  ],
+  "validTime": [
+    "2017-07-17T00:00:00Z",
+    "2017-09-29T00:00:00Z"
   ],
   "location": {
     "type": "Polygon",

@@ -43,7 +43,7 @@
         "address": {
           "$ref": "#/definitions/Address"
         },
-        "onlineResource": {
+        "website": {
           "type": "string"
         },
         "hoursOfService": {
