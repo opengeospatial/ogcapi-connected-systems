@@ -30,19 +30,19 @@ The API is intended to act as a bridge between static data (geographic and other
 
 The proposed API Standard consists of two parts and defines several resource types:
 
-Part 1 - Feature Resources ([Current Draft Preview](https://opengeospatial.github.io/connected-systems/api/part1/standard/23-001r0.html), [OpenAPI Docs](https://opengeospatial.github.io/connected-systems/redoc/?url=../api/part1/openapi/openapi-connectedsystems-1.yaml))
+Part 1 - Feature Resources ([Current Draft Preview](https://opengeospatial.github.io/ogcapi-connected-systems/api/part1/standard/23-001r0.html), [OpenAPI Docs](https://opengeospatial.github.io/ogcapi-connected-systems/redoc/?url=../api/part1/openapi/openapi-connectedsystems-1.yaml))
 - Systems (metadata of sensors, actuators, platforms, simulations, etc.)
 - Procedures (metadata of procedures implemented by system, which includes automated system specs/datasheets and human driven activities)
 - Deployments (metadata of system deployments)
 - Sampling Features (metadata about sampling geometries/methodologies used by observing systems) 
 - Subsystems / Components
 
-Part 2 - Dynamic Data ([Current Draft Preview](https://opengeospatial.github.io/connected-systems/api/part2/standard/23-002r0.html), [OpenAPI Docs](https://opengeospatial.github.io/connected-systems/redoc/?url=../api/part2/openapi/openapi-connectedsystems-2.yaml))
+Part 2 - Dynamic Data ([Current Draft Preview](https://opengeospatial.github.io/ogcapi-connected-systems/api/part2/standard/23-002r0.html), [OpenAPI Docs](https://opengeospatial.github.io/ogcapi-connected-systems/redoc/?url=../api/part2/openapi/openapi-connectedsystems-2.yaml))
 - Data Streams
 - Observations
 - Control Streams
 - Commands and Command Status
-- MQTT Bindings ([AsyncAPI Docs](https://github.com/opengeospatial/connected-systems/blob/master/api/part2/asyncapi/asyncapi-connectedsystems-2.yaml))
+- MQTT Bindings ([AsyncAPI Docs](https://github.com/opengeospatial/ogcapi-connected-systems/blob/master/api/part2/asyncapi/asyncapi-connectedsystems-2.yaml))
 
 Beyond the above resource types, a few query parameters are added to the ones defined by OGC API - Features:
 - WKT geometry filter
@@ -100,8 +100,8 @@ The contributor understands that any contributions, if accepted by the OGC Membe
 
 The OGC Connected Systems Standards Working Group (SWG) is the group at OGC responsible for the stewardship of the resultant Standard(s), but is working to do as much work in public as possible.
 
-* [Open issues](https://github.com/opengeospatial/connected_systems/issues)
-* [Copy of License Language](https://github.com/opengeospatial/connected_systems/blob/master/LICENSE)
+* [Open issues](https://github.com/opengeospatial/ogcapi-connected_systems/issues)
+* [Copy of License Language](https://github.com/opengeospatial/ogcapi-connected_systems/blob/master/LICENSE)
 
 Pull Requests from contributors are welcomed. However, please note that by sending a Pull Request or Commit to this GitHub repository, you are agreeing to the terms in the Observer Agreement https://portal.ogc.org/files/?artifact_id=103056
 
