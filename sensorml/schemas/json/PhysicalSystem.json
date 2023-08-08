@@ -12,24 +12,12 @@
         },
         "components": {
           "description": "The list of sub-components",
-          "$ref": "#/definitions/ComponentList"
+          "$ref": "AggregateProcess.json#/definitions/ComponentList"
         },
         "connections": {
-          "$ref": "#/definitions/ConnectionList"
+          "$ref": "AggregateProcess.json#/definitions/ConnectionList"
         }
       }
     }
-  ],
-  "definitions": {
-    "ComponentList": {
-      "type": "array",
-      "minItems": 1,
-      "items": {
-        "$ref": "commonDefs.json#/definitions/XLink"
-      }
-    },
-    "ConnectionList": {
-
-    }
-  }
+  ]
 }
