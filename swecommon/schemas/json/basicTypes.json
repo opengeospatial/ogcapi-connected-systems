@@ -52,6 +52,9 @@
         {
           "title": "Enum Values",
           "properties": {
+            "type": {
+              "const": "AllowedTokens"
+            },
             "values": {
               "type": "array",
               "minItems": 1,
@@ -66,6 +69,9 @@
         {
           "title": "Regex Pattern",
           "properties": {
+            "type": {
+              "const": "AllowedTokens"
+            },
             "pattern": {
               "type": "string",
               "format": "regex",
@@ -81,6 +87,9 @@
       "description": "Defines the permitted values for the component as an enumerated list and/or a list of inclusive ranges",
       "type": "object",
       "properties": {
+        "type": {
+          "const": "AllowedValues"
+        },
         "values": {
           "type": "array",
           "minItems": 1,
@@ -122,6 +131,9 @@
       "description": "Defines the permitted values for the component, as a time range or an enumerated list of time values",
       "type": "object",
       "properties": {
+        "type": {
+          "const": "AllowedTimes"
+        },
         "values": {
           "type": "array",
           "minItems": 1,
