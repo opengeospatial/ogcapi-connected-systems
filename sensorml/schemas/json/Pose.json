@@ -1,0 +1,122 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "A Pose object based on the GeoPose standard.",
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Pose"
+        },
+        "localFrame": {
+          "type": "string",
+          "format": "uri"
+        },
+        "referenceFrame": {
+          "type": "string",
+          "format": "uri"
+        },
+        "tangentReferenceFrame": {
+          "type": "string",
+          "format": "uri"
+        },
+        "location": {
+          "$ref": "#/definitions/Location"
+        }
+      },
+      "required": ["type", "referenceFrame", "location"]
+    },
+    {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "angles": {
+              "$ref": "#/definitions/AnglesYPR"
+            }
+          },
+          "required": ["angles"]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "quaternion": {
+              "$ref": "#/definitions/Quaternion"
+            }
+          },
+          "required": ["quaternion"]
+        }
+      ]
+    }
+  ],
+  "definitions": {
+    "Location": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "referenceFrame": {
+              "const": "http://www.opengis.net/def/crs/EPSG/0/4979"
+            },
+            "lat": {
+              "type": "number"
+            },
+            "lon": {
+              "type": "number"
+            },
+            "h": {
+              "type": "number"
+            }
+          },
+          "required": ["lat","lon","h"]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            },
+            "z": {
+              "type": "number"
+            }
+          },
+          "required": ["x","y","z"]
+        }
+      ]
+    },
+    "AnglesYPR": {
+      "properties": {
+        "yaw": {
+          "type": "number"
+        },
+        "pitch": {
+          "type": "number"
+        },
+        "roll": {
+          "type": "number"
+        }
+      },
+      "required": ["yaw","pitch","roll"]
+    },
+    "Quaternion": {
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "z": {
+          "type": "number"
+        },
+        "w": {
+          "type": "number"
+        }
+      },
+      "required": ["x","y","z","w"]
+    }
+  }
+}
