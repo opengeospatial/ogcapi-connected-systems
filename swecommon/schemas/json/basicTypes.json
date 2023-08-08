@@ -274,7 +274,7 @@
     "NameToken": {
       "type": "string",
       "minLength": 1,
-      "regex": "^[A-Za-z][A-Za-z0-9_\\-]*$"
+      "pattern": "^[A-Za-z][A-Za-z0-9_\\-]*$"
     },
     "AssociationAttributeGroup": {
       "type": "object",
