@@ -11,12 +11,13 @@
           "description": "References the physical component or system (e.g. platform) to which to which this component or system is attached.",
           "$ref": "commonDefs.json#/definitions/XLink"
         },
-        "localReferenceFrames": {
-          "description": "A spatial reference frame of the physical component itself; this reference frame is absolute and defines the relationship of the reference frame to the physical body of the component; position of the component relates this reference frame to some external reference frame. Note that units are specified in the position so they are not specified as part of the SpatialFrame.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SpatialFrame"
-          }
+        "localReferenceFrame": {
+          "description": "A spatial reference frame of the physical component itself, defining the relationship of the reference frame to the physical body of the component; position of the component relates this reference frame to some external reference frame. Note that units are specified in the position so they are not specified as part of the SpatialFrame.",
+          "$ref": "#/definitions/SpatialFrame"
+        },
+        "position": {
+          "description": "Provides positional information relating the component's spatial reference frame to an external spatial reference frame.",
+          "$ref": "#/definitions/Position"
         },
         "localTimeFrames": {
           "description": "Supports local time reference frames such as \"time past mission start\". Note that units are handled in timePosition so they are not specified in the TemporalFrame.",
@@ -24,10 +25,6 @@
           "items": {
             "$ref": "#/definitions/TemporalFrame"
           }
-        },
-        "position": {
-          "description": "Provides positional information relating the component's spatial reference frame to an external spatial reference frame. Positional information can be given by location, by full body state, by a time-tagged trajectory, or by a measuring or computational process.",
-          "$ref": "#/definitions/Position"
         },
         "timePosition": {
           "description": "Provides Time positions typically reference a local time frame to an external time frame. For example, a timer-start-time might be given relative to an \"absolute\" GPS time.",
@@ -52,7 +49,7 @@
               "description": "A textual description of the origin of the reference frame relative to the physical device (e.g. \"the origin is at the point of attachment of the sensor to the platform\").",
               "type": "string"
             },
-            "axis": {
+            "axes": {
               "description": "Axis with name attribute and a textual description of the relationship of the axis to the physical device; the order of the axes listed determines their relationship according to the right-handed rule (e.g. axis 1 cross axis 2 = axis 3).",
               "type": "array",
               "items": {
@@ -74,7 +71,7 @@
           },
           "required": [
             "origin",
-            "axis"
+            "axes"
           ]
         }
       ],
