@@ -8,7 +8,7 @@
     {
       "properties": {
         "definition": {
-          "description": "The semantic type of the process as a reference to a concept in an online ontology or dictionary. The value of the property must be a resolvable URI.",
+          "description": "The type of process or system as a reference to a concept in an online ontology or dictionary. The value of the property must be a resolvable URI.",
           "type": "string",
           "format": "uri"
         },
