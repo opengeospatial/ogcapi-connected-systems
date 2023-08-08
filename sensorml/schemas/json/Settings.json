@@ -78,6 +78,24 @@
         "required": ["ref", "value"],
         "additionalProperties": false
       }
+    },
+    "setStatus": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "ref": {
+            "$ref": "commonDefs.json#/definitions/PathRef"
+          },
+          "value": {
+            "type": "string",
+            "enum": ["enabled", "disabled"]
+          }
+        },
+        "required": ["ref", "value"],
+        "additionalProperties": false
+      }
     }
   }
 }

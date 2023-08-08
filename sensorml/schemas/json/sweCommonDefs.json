@@ -38,10 +38,46 @@
       "$ref": "../../../swecommon/schemas/json/basicTypes.json#/definitions/NameToken"
     },
     "AnyConstraint": {
-      "anyOf": [
-        { "$ref": "../../../swecommon/schemas/json/basicTypes.json#/definitions/AllowedTokens" },
-        { "$ref": "../../../swecommon/schemas/json/basicTypes.json#/definitions/AllowedValues" },
-        { "$ref": "../../../swecommon/schemas/json/basicTypes.json#/definitions/AllowedTimes" }
+      "oneOf": [
+        {
+          "allOf": [
+            { "$ref": "../../../swecommon/schemas/json/basicTypes.json#/definitions/AllowedTokens" },
+            {
+              "properties": {
+                "type": {
+                  "const": "AllowedTokens"
+                }
+              },
+              "required": ["type"]
+            }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "../../../swecommon/schemas/json/basicTypes.json#/definitions/AllowedValues" },
+            {
+              "properties": {
+                "type": {
+                  "const": "AllowedValues"
+                }
+              },
+              "required": ["type"]
+            }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "../../../swecommon/schemas/json/basicTypes.json#/definitions/AllowedTimes" },
+            {
+              "properties": {
+                "type": {
+                  "const": "AllowedTimes"
+                }
+              },
+              "required": ["type"]
+            }
+          ]
+        }
       ]
     }
   }
