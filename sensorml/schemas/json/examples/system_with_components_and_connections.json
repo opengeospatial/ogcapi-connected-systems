@@ -1,0 +1,40 @@
+{
+  "$schema": "../PhysicalSystem.json",
+  "type": "PhysicalSystem",
+  "id": "qgqjt7276pa",
+  "uniqueId": "urn:osh:sensor:system:001",
+  "definition": "http://www.w3.org/ns/ssn/System",
+  "label": "Hierarchical System",
+  "description": "Example of hierarchical system with components and connections",
+  "validTime": [
+    "2015-08-02T20:00:00Z",
+    "now"
+  ],
+  "components": [
+    {
+      "name": "sensor1",
+      "type": "SimpleProcess",
+      "uniqueId": "urn:mysensor:002",
+      "description": "My sensor component, described inline",
+      "typeOf": {
+        "href": "https://data.example.com/link/to/procedure",
+        "title": "HS45 Magnetometer"
+      }
+    },
+    {
+      "name": "sensor2",
+      "href": "http://link/to/sensorml_doc.json",
+      "title": "My Sensor"
+    }
+  ],
+  "connections": [
+    {
+      "source": "components/sensor1/outputs/out",
+      "destination": "outputs/out1"
+    },
+    {
+      "source": "components/sensor2/outputs/out",
+      "destination": "outputs/out2"
+    }
+  ]
+}

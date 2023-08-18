@@ -3,7 +3,7 @@
   "id": "INS001",
   "definition": "http://www.w3.org/ns/sosa/ObservingProcedure",
   "uniqueId": "uuid:bd18ad0b-7f14-44f7-badb-c7a6b703806b",
-  "name": "VectorNav VN-200",
+  "label": "VectorNav VN-200",
   "description": "Datasheet of VN-200 GNSS-aided inertial navigation system",
   "identifiers": [
     {

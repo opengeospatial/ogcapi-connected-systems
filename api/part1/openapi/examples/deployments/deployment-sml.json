@@ -3,7 +3,7 @@
   "id": "iv3f2kcq27gfi",
   "definition": "http://www.w3.org/ns/ssn/Deployment",
   "uniqueId": "urn:x-saildrone:mission:2025",
-  "name": "Saildrone - 2017 Arctic Mission",
+  "label": "Saildrone - 2017 Arctic Mission",
   "description": "In July 2017, three saildrones were launched from Dutch Harbor, Alaska, in partnership with NOAA Research...",
   "classifiers": [
     {
@@ -42,28 +42,51 @@
   "location": {
     "type": "Polygon",
     "coordinates": [[
-      [53.76, -173.7],
-      [75.03, -173.7],
-      [75.03, -155.07],
-      [53.76, -155.07],
-      [53.76, -173.7]
+      [-173.70, 53.76],
+      [-173.70, 75.03],
+      [-155.07, 75.03],
+      [-155.07, 53.76],
+      [-173.70, 53.76]
     ]]
   },
   "members": [
     {
       "href": "https://data.example.org/api/systems/2f35ofoms2l6?f=sml",
       "uid": "urn:x-saildrone:platforms:SD-1001",
-      "type": "application/sml+json"
+      "title": "Saildrone SD-1001"
     },
     {
       "href": "https://data.example.org/api/systems/2f35ofoms2l8?f=sml",
       "uid": "urn:x-saildrone:platforms:SD-1002",
-      "type": "application/sml+json"
+      "title": "Saildrone SD-1002"
     },
     {
-      "href": "https://data.example.org/api/systems/2f35ofoms2l9?f=sml",
-      "uid": "urn:x-saildrone:platforms:SD-1003",
-      "type": "application/sml+json"
+      "type": "PhysicalSystem",
+      "name": "Saildrone SD-1003",
+      "uniqueId": "urn:x-saildrone:platforms:SD-1003",
+      "typeOf": {
+        "href": "https://data.example.org/api/systems/2f35ofoms2l9?f=sml"
+      },
+      "components": [
+        {
+          "name": "air_temp_sensor",
+          "href": "https://data.example.org/api/systems/41548?f=sml",
+          "uid": "urn:x-saildrone:sensors:temp01",
+          "title": "Air Temperature Sensor"
+        },
+        {
+          "name": "water_temp_sensor",
+          "href": "https://data.example.org/api/systems/36584?f=sml",
+          "uid": "urn:x-saildrone:sensors:temp02",
+          "title": "Water Temperature Sensor"
+        },
+        {
+          "name": "wind_sensor",
+          "href": "https://data.example.org/api/systems/47752?f=sml",
+          "uid": "urn:x-saildrone:sensors:wind01",
+          "title": "Wind Speed and Direction Sensor"
+        }
+      ]
     }
   ],
   "links": [

@@ -3,7 +3,7 @@
   "id": "8ewqgtmftd61",
   "definition": "http://www.w3.org/ns/sosa/Sensor",
   "uniqueId": "urn:x-usgs:sensors:4001",
-  "name": "Water Level Sensor 4001",
+  "label": "Water Level Sensor 4001",
   "description": "Water level sensor mounted in ground water well",
   "typeOf": {
     "href": "https://data.example.org/api/procedures/otxtb9yvouo1?f=sml",
@@ -17,7 +17,6 @@
   },
   "identifiers": [
     {
-      "type": "Term",
       "definition": "http://sensorml.com/ont/swe/property/SerialNumber",
       "label": "Serial Number",
       "value": "0123456879"

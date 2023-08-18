@@ -1,0 +1,11 @@
+{
+  "$schema": "../PhysicalSystem.json",
+  "type": "PhysicalSystem",
+  "definition": "http://www.w3.org/ns/sosa/Sensor",
+  "uniqueId": "urn:x-ogc:sensors:001",
+  "label": "Sensor with GeoJson location",
+  "position": {
+    "type": "Point",
+    "coordinates": [41.8781, -87.6298]
+  }
+}

@@ -3,29 +3,25 @@
   "id": "lvghdl3y18ip",
   "definition": "http://www.w3.org/ns/sosa/Platform",
   "uniqueId": "urn:x-meteofrance:stations:31069001",
-  "name": "Toulouse-Blagnac Weather Station",
+  "label": "Toulouse-Blagnac Weather Station",
   "description": "Weather monitoring station located at Toulouse Blagnac Airport",
   "identifiers": [
     {
-      "type": "Term",
       "definition": "http://sensorml.com/ont/x-swe/property/SiteNumber",
       "label": "Site Number",
       "value": "31069001"
     },
     {
-      "type": "Term",
       "definition": "http://sensorml.com/ont/x-swe/property/SiteName",
       "label": "Site Name",
       "value": "Toulouse-Blagnac Airport"
     },
     {
-      "type": "Term",
       "definition": "http://sensorml.com/ont/x-swe/property/Manufacturer",
       "label": "Manufacturer Name",
       "value": "Sterela"
     },
     {
-      "type": "Term",
       "definition": "http://sensorml.com/ont/x-swe/property/ModelNumber",
       "label": "Model Number",
       "value": "OPALE UMB"
@@ -33,7 +29,6 @@
   ],
   "classifiers": [
     {
-      "type": "Term",
       "definition": "http://sensorml.com/ont/swe/property/PlatformType",
       "codeSpace": "http://sensorml.com/ont/x-meteo/def/SiteType",
       "label": "Site Type",
@@ -49,7 +44,7 @@
       "role": "http://sensorml.com/ont/swe/property/Manufacturer",
       "organisationName": "Sterela",
       "contactInfo": {
-        "onlineResource": "http://www.sterela-meteo.fr",
+        "website": "http://www.sterela-meteo.fr",
         "address": {
           "deliveryPoint": "5 Impasse Pédenau",
           "city": "Pins-Justaret",
@@ -66,7 +61,7 @@
       "role": "http://sensorml.com/ont/swe/property/Operator",
       "organisationName": "Meteo France",
       "contactInfo": {
-        "onlineResource": "https://meteofrance.com",
+        "website": "https://meteofrance.com",
         "address": {
           "deliveryPoint": "42 av Gaspard Coriolis",
           "city": "Toulouse",

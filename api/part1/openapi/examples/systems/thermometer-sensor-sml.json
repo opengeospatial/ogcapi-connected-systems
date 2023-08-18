@@ -3,7 +3,7 @@
   "id": "123",
   "definition": "http://www.w3.org/ns/sosa/Sensor",
   "uniqueId": "urn:x-ogc:systems:001",
-  "name": "Outdoor Thermometer 001",
+  "label": "Outdoor Thermometer 001",
   "description": "Digital thermometer located on first floor window 1",
   "typeOf": {
     "href": "https://data.example.org/api/procedures/TP60S?f=sml",

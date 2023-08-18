@@ -3,7 +3,7 @@
   "id": "PLT412",
   "definition": "http://www.w3.org/ns/sosa/Platform",
   "uniqueId": "urn:x-ogc:systems:aircraft:101",
-  "name": "Global Hawk 101",
+  "label": "Global Hawk 101",
   "description": "Example UAV platform",
   "typeOf": {
     "href": "https://data.example.org/api/procedures/ge4pjqq0hq6y?f=json",

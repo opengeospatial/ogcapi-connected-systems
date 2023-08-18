@@ -3,17 +3,15 @@
   "id": "otxtb9yvouo1",
   "definition": "http://www.opengis.net/def/x-OGC/ObservingProcedure",
   "uniqueId": "urn:x-usgs:datasheets:WL400",
-  "name": "Datasheet - WL400 Water Level Sensor",
+  "label": "Datasheet - WL400 Water Level Sensor",
   "description": "Submersible Pressure Transducer For Level & Pressure",
   "identifiers": [
     {
-      "type": "Term",
       "definition": "http://sensorml.com/ont/swe/property/Manufacturer",
       "label": "Manufacturer Name",
       "value": "Global Water"
     },
     {
-      "type": "Term",
       "definition": "http://sensorml.com/ont/swe/property/ModelNumber",
       "label": "Model Number",
       "value": "WL400"
@@ -21,7 +19,6 @@
   ],
   "classifiers": [
     {
-      "type": "Term",
       "definition": "http://sensorml.com/ont/swe/property/SensorType",
       "label": "Sensor Type",
       "value": "Water Pressure Sensor"

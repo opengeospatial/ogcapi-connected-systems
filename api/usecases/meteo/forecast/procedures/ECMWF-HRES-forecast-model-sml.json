@@ -3,12 +3,11 @@
   "id": "6ypg3ed8osbj",
   "definition": "http://www.opengis.net/def/x-OGC/ObservingProcedure",
   "uniqueId": "urn:x-ecmwf:models:HRES",
-  "name": "ECMWF High Resolution Forecast Model (HRES)",
+  "label": "ECMWF High Resolution Forecast Model (HRES)",
   "description": "Numerical weather prediction (NWP) model based on ECMWF Integrated Forecasting System (IFS)",
   "keywords": [ "weather", "forecast", "europe" ],
   "classifiers": [
     {
-      "type": "Term",
       "definition": "http://sensorml.com/ont/swe/property/IntendedApplication",
       "label": "Application",
       "value": "Weather"
@@ -19,7 +18,7 @@
       "role": "http://sensorml.com/ont/x-swe/property/Developer",
       "organisationName": "European Centre for Medium-Range Weather Forecasts",
       "contactInfo": {
-        "onlineResource": "https://www.ecmwf.int",
+        "website": "https://www.ecmwf.int",
         "address": {
           "deliveryPoint": "Shinfield Park",
           "city": "Reading",

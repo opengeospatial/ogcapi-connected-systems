@@ -4,7 +4,7 @@
   "id": "qgqjt7276pa",
   "uniqueId": "urn:osh:sensor:simweather:0123456879",
   "definition": "http://www.w3.org/ns/sosa/Sensor",
-  "name": "Simulated Weather Sensor",
+  "label": "Simulated Weather Sensor",
   "description": "Simulated weather station generating realistic pseudo-random measurements",
   "identifiers": [
     {
@@ -47,7 +47,6 @@
   ],
   "characteristics": [
     {
-      "name": "operating_specs",
       "definition": "http://www.w3.org/ns/ssn/systems/OperatingRange",
       "label": "Operating Characteristics",
       "conditions": [

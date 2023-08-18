@@ -3,17 +3,15 @@
   "id": "uu0aqetxvfcz",
   "definition": "http://www.opengis.net/def/x-OGC/ObservingProcedure",
   "uniqueId": "urn:x-meteofrance:datasheets:PT100-AR003642",
-  "name": "Datasheet - Resistance thermometer PT100",
+  "label": "Datasheet - Resistance thermometer PT100",
   "description": "PT100 Temperature Probe, 3 wires, Class B, IP67",
   "identifiers": [
     {
-      "type": "Term",
       "definition": "http://sensorml.com/ont/swe/property/Manufacturer",
       "label": "Manufacturer Name",
       "value": "Guilcor Sensors"
     },
     {
-      "type": "Term",
       "definition": "http://sensorml.com/ont/swe/property/ModelNumber",
       "label": "Model Number",
       "value": "AR003642"
@@ -21,7 +19,6 @@
   ],
   "classifiers": [
     {
-      "type": "Term",
       "definition": "http://sensorml.com/ont/swe/property/SensorType",
       "label": "Sensor Type",
       "value": "Thermometer"
@@ -32,7 +29,7 @@
       "role": "http://sensorml.com/ont/swe/property/Manufacturer",
       "organisationName": "Guilcor Sensors",
       "contactInfo": {
-        "onlineResource": "https://www.guilcor.com",
+        "website": "https://www.guilcor.com",
         "address": {
           "deliveryPoint": "Route de Carolles",
           "city": "Sartilly",

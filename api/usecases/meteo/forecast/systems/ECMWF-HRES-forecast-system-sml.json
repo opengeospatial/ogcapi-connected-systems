@@ -3,7 +3,7 @@
   "id": "ff998550fmfm",
   "definition": "http://www.w3.org/ns/sosa/Sensor",
   "uniqueId": "urn:x-ecmwf:forecasts:HRES",
-  "name": "ECMWF High Resolution Forecast (HRES)",
+  "label": "ECMWF High Resolution Forecast (HRES)",
   "description": "HRES is a global, high-resolution, medium-range, weather forecast",
   "typeOf": {
     "href": "https://data.example.org/api/procedures/6ypg3ed8osbj?f=sml",

@@ -3,17 +3,15 @@
   "id": "tqjswq53bha6",
   "definition": "http://www.w3.org/ns/sosa/Platform",
   "uniqueId": "urn:x-usgs:sites:384824104332601",
-  "name": "Water Well SC01406428AAC KA6",
+  "label": "Water Well SC01406428AAC KA6",
   "description": "Groundwater monitoring location associated with a water well in the Denver Basin aquifer system",
   "identifiers": [
     {
-      "type": "Term",
       "definition": "http://sensorml.com/ont/x-hydro/def/SiteNumber",
       "label": "Site Number",
       "value": "384824104332601"
     },
     {
-      "type": "Term",
       "definition": "http://sensorml.com/ont/x-hydro/def/SiteName",
       "label": "Site Name",
       "value": "SC01406428AAC KA6"
@@ -21,20 +19,17 @@
   ],
   "classifiers": [
     {
-      "type": "Term",
       "definition": "http://sensorml.com/ont/swe/property/PlatformType",
       "codeSpace": "http://sensorml.com/ont/x-hydro/def/SiteType",
       "label": "Site Type",
       "value": "Well"
     },
     {
-      "type": "Term",
       "definition": "http://sensorml.com/ont/x-hydro/def/GeologicalUnit",
       "label": "Well Unit",
       "value": "..."
     },
     {
-      "type": "Term",
       "definition": "http://sensorml.com/ont/x-hydro/def/FluidBody",
       "label": "Well Body",
       "value": "Denver Basin aquifer system (S300DNVRBS)"

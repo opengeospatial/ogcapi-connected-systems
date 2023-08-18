@@ -4,45 +4,13 @@
   "id": "123",
   "definition": "http://www.w3.org/ns/sosa/Sensor",
   "uniqueId": "urn:x-ogc:systems:001",
-  "name": "Outdoor Thermometer 001",
+  "label": "Outdoor Thermometer 001",
   "description": "Digital thermometer located on first floor window 1",
   "typeOf": {
     "href": "https://data.example.org/api/procedures/TP60S?f=sml",
     "uid": "urn:x-myorg:datasheets:ThermoPro:TP60S:v001",
     "title": "ThermoPro TP60S",
     "type" : "application/sml+json"
-  },
-  "configuration": {
-    "setValues": [
-      {
-        "ref": "parameters/gain",
-        "value": 1.6
-      },
-      {
-        "ref": "parameters/offset",
-        "value": -0.3
-      }
-    ],
-    "setArrayValues": [
-      {
-        "ref": "parameters/calCoefs",
-        "value": [1.6]
-      }
-    ],
-    "setModes": [
-      {
-        "ref": "modes/OPERATING_MODES",
-        "value": "TEST"
-      }
-    ],
-    "setConstraints": [
-      {
-        "ref": "inputs/temperature",
-        "value": {
-          "intervals": [[-100, 230.0]]
-        }
-      }
-    ]
   },
   "identifiers": [
     {
@@ -57,6 +25,46 @@
       "organisationName": "Field Maintenance Corp."
     }
   ],
+  "configuration": {
+    "setValues": [
+      {
+        "ref": "parameters/gain",
+        "value": 1.6
+      },
+      {
+        "ref": "parameters/offset",
+        "value": -0.3
+      }
+    ],
+    "setArrayValues": [
+      {
+        "ref": "parameters/calCoefs",
+        "value": [1.6, 2.8, 0.035]
+      }
+    ],
+    "setModes": [
+      {
+        "ref": "modes/OPERATING_MODES",
+        "value": "TEST"
+      }
+    ],
+    "setConstraints": [
+      {
+        "ref": "inputs/temperature",
+        "value": {
+          "type": "AllowedValues",
+          "intervals": [[-100, 230.0]]
+        }
+      },
+      {
+        "ref": "parameters/tag",
+        "value": {
+          "type": "AllowedTokens",
+          "pattern": "[a-zA-Z0-9]"
+        }
+      }
+    ]
+  },
   "position": {
     "type": "Point",
     "coordinates": [41.8781, -87.6298]

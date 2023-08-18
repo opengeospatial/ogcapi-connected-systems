@@ -3,7 +3,7 @@
   "id": "1vlf792ueheh",
   "definition": "http://www.w3.org/ns/sosa/Sensor",
   "uniqueId": "urn:x-meteofrance:sensors:T1457114",
-  "name": "PT100 Temperature Probe",
+  "label": "PT100 Temperature Probe",
   "description": "Analog temperature probe connected to station ADC channel #2",
   "typeOf": {
     "href": "https://data.example.org/api/procedures/uu0aqetxvfcz?f=sml",
@@ -17,7 +17,6 @@
   },
   "identifiers": [
     {
-      "type": "Term",
       "definition": "http://sensorml.com/ont/swe/property/SerialNumber",
       "label": "Serial Number",
       "value": "T1457114"

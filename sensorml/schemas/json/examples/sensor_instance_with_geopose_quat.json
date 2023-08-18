@@ -1,0 +1,23 @@
+{
+  "$schema": "../PhysicalSystem.json",
+  "type": "PhysicalSystem",
+  "definition": "http://www.w3.org/ns/sosa/Sensor",
+  "uniqueId": "urn:x-ogc:sensors:001",
+  "label": "Sensor with GeoPose",
+  "position": {
+    "type": "Pose",
+    "referenceFrame": "http://www.opengis.net/def/crs/EPSG/0/4979",
+    "tangentReferenceFrame": "http://www.opengis.net/def/cs/OGC/0/NED",
+    "location": {
+      "lat": 47.7,
+      "lon": -122.3,
+      "h": 11.5
+    },
+    "quaternion": {
+      "x": 0.22876396167290736,
+      "y": -0.038868031178080464,
+      "z": 0.16293209735513692,
+      "w": -0.9589626987758765
+    }
+  }
+}

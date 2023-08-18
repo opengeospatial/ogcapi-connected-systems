@@ -21,13 +21,13 @@
       "type": "string",
       "format": "uri"
     },
-    "name": {
+    "label": {
       "description": "A human readable label for the feature",
       "type": "string",
       "minLength": 1
     }
   },
   "required": [
-    "type", "name"
+    "type", "label"
   ]
 }

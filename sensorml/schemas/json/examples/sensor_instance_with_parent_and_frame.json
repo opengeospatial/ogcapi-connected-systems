@@ -1,0 +1,39 @@
+{
+  "$schema": "../PhysicalSystem.json",
+  "type": "PhysicalSystem",
+  "id": "6p6978ufjont6",
+  "uniqueId": "urn:android:device:c840ed110af5ddf6",
+  "definition": "http://www.w3.org/ns/sosa/Sensor",
+  "label": "Android Sensors [Galaxy S21 (Alex)]",
+  "validTime": [
+    "2023-05-28T12:00:00Z",
+    "now"
+  ],
+  "attachedTo": {
+    "href": "http://link/to/parent/sensor",
+    "title": "Parent Sensor",
+    "type": "application/sml+json"
+  },
+  "localReferenceFrame": {
+    "id": "LOCAL_FRAME",
+    "origin": "Center of the device screen",
+    "axes": [
+      {
+        "name": "x",
+        "description": "The X axis is in the plane of the screen and points to the right"
+      },
+      {
+        "name": "y",
+        "description": "The Y axis is in the plane of the screen and points up"
+      },
+      {
+        "name": "z",
+        "description": "The Z axis points towards the outside of the front face of the screen"
+      }
+    ]
+  },
+  "position": {
+    "type": "Point",
+    "coordinates": [-86.7228, 34.8038, 0]
+  }
+}

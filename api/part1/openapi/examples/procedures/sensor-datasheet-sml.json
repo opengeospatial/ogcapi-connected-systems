@@ -3,7 +3,7 @@
   "id": "iv3f2kcq27gfi",
   "definition": "http://www.w3.org/ns/sosa/ObservingProcedure",
   "uniqueId": "urn:osh:sensors:saildrone:S0004",
-  "name": "3D Ultrasonic Anemometer",
+  "label": "3D Ultrasonic Anemometer",
   "description": "Precision 3-axis ultrasonic anemometer",
   "identifiers": [
     {
