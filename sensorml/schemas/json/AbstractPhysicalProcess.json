@@ -11,13 +11,12 @@
           "description": "References the physical component or system (e.g. platform) to which to which this component or system is attached.",
           "$ref": "commonDefs.json#/definitions/XLink"
         },
-        "localReferenceFrame": {
-          "description": "A spatial reference frame of the physical component itself, defining the relationship of the reference frame to the physical body of the component; position of the component relates this reference frame to some external reference frame. Note that units are specified in the position so they are not specified as part of the SpatialFrame.",
-          "$ref": "#/definitions/SpatialFrame"
-        },
-        "position": {
-          "description": "Provides positional information relating the component's spatial reference frame to an external spatial reference frame.",
-          "$ref": "#/definitions/Position"
+        "localReferenceFrames": {
+          "description": "A list of spatial reference frames, attached to the physical component itself.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SpatialFrame"
+          }
         },
         "localTimeFrames": {
           "description": "Supports local time reference frames such as \"time past mission start\". Note that units are handled in timePosition so they are not specified in the TemporalFrame.",
@@ -26,11 +25,9 @@
             "$ref": "#/definitions/TemporalFrame"
           }
         },
-        "timePosition": {
-          "description": "Provides Time positions typically reference a local time frame to an external time frame. For example, a timer-start-time might be given relative to an \"absolute\" GPS time.",
-          "type": "array",
-          "items": {
-          }
+        "position": {
+          "description": "Provides positional information relating the component's spatial reference frame to an external spatial reference frame.",
+          "$ref": "#/definitions/Position"
         }
       }
     }
