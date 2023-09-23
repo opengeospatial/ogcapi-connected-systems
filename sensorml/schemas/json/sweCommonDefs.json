@@ -20,22 +20,10 @@
       "$ref": "../../../swecommon/schemas/json/sweCommon.json#/definitions/AnySimpleComponent"
     },
     "AnyComponent": {
-      "allOf": [
-        {
-          "properties": {
-            "name": {
-              "type": "string"
-            }
-          },
-          "required": [ "name" ]
-        },
-        {
-          "$ref": "../../../swecommon/schemas/json/sweCommon.json#/definitions/AnyComponent"
-        }
-      ]
+      "$ref": "../../../swecommon/schemas/json/sweCommon.json#/definitions/AnyComponent"
     },
-    "NameToken": {
-      "$ref": "../../../swecommon/schemas/json/basicTypes.json#/definitions/NameToken"
+    "SoftNamedProperty": {
+      "$ref": "../../../swecommon/schemas/json/basicTypes.json#/definitions/SoftNamedProperty"
     },
     "AnyConstraint": {
       "oneOf": [
