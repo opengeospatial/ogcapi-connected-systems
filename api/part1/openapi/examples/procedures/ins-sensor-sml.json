@@ -2,7 +2,7 @@
   "type": "PhysicalSystem",
   "id": "INS001",
   "definition": "http://www.w3.org/ns/sosa/ObservingProcedure",
-  "uniqueId": "uuid:bd18ad0b-7f14-44f7-badb-c7a6b703806b",
+  "uniqueId": "urn:x-vectornav:sensor:vn200",
   "label": "VectorNav VN-200",
   "description": "Datasheet of VN-200 GNSS-aided inertial navigation system",
   "identifiers": [
@@ -137,21 +137,27 @@
   ],
   "components": [
     {
+      "name": "accel",
       "type": "PhysicalSystem",
       "definition": "http://www.w3.org/ns/sosa/Sensor",
-      "name": "Accelerometer",
+      "uniqueId": "urn:x-vectornav:sensor:vn200:accel",
+      "label": "Accelerometer",
       "description": "3-axis accelerometer"
     },
     {
+      "name": "gyro",
       "type": "PhysicalSystem",
       "definition": "http://www.w3.org/ns/sosa/Sensor",
-      "name": "Gyroscope",
+      "uniqueId": "urn:x-vectornav:sensor:vn200:gyro",
+      "label": "Gyroscope",
       "description": "3-axis gyroscope"
     },
     {
+      "name": "mag",
       "type": "PhysicalSystem",
       "definition": "http://www.w3.org/ns/sosa/Sensor",
-      "name": "Magnetometer",
+      "uniqueId": "urn:x-vectornav:sensor:vn200:mag",
+      "label": "Magnetometer",
       "description": "3-axis magnetometer"
     }
   ]

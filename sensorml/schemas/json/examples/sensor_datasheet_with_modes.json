@@ -57,9 +57,9 @@
   ],
   "modes": [
     {
+      "name": "lowThreat",
       "type": "Mode",
-      "id": "lowThreat",
-      "name": "Low Threat Mode",
+      "label": "Low Threat Mode",
       "description": "Setting when nothing has been detected",
       "configuration": {
         "setValues": [
@@ -75,9 +75,9 @@
       }
     },
     {
-      "type": "Mode",
       "id": "highThreat",
-      "name": "High Threat Mode",
+      "type": "Mode",
+      "label": "High Threat Mode",
       "description": "Setting when something has been detected",
       "configuration": {
         "setValues": [

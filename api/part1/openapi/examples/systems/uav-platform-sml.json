@@ -28,7 +28,7 @@
       "label": "Platform Frame",
       "description": "The platform frame is defined as the aircraft principal axes",
       "origin": "Center of gravity of the aircraft",
-      "axis": [
+      "axes": [
         {
           "name": "x",
           "description": "Longitudinal or roll axis, parallel to the fuselage reference line, directed forward"
