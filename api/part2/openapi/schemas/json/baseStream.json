@@ -22,6 +22,10 @@
       "$ref": "../common/commonDefs.json#/definitions/Link",
       "readOnly": true
     },
+    "deployment@link": {
+      "description": "Link to the deployment during which the data was collected",
+      "$ref": "../common/commonDefs.json#/definitions/Link"
+    },
     "ultimateFeatureOfInterest@link": {
       "description": "Link to the ultimate feature of interest (only provided if all observations in this datastream relate to the same ultimate feature of interest)",
       "$ref": "../common/commonDefs.json#/definitions/Link"

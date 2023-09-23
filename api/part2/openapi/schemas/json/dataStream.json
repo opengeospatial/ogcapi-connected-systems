@@ -4,12 +4,9 @@
     { "$ref": "baseStream.json" },
     {
       "properties": {
-        "system@link": {
-          "properties": {
-            "outputName": {
-              "type": "string"
-            }
-          }
+        "outputName": {
+          "description": "Name of the system output feeding this datastream",
+          "type": "string"
         },
         "phenomenonTime": {
           "description": "Time extent spanning all phenomenon times of observations in this datastream",

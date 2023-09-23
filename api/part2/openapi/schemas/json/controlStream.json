@@ -4,12 +4,9 @@
     { "$ref": "baseStream.json" },
     {
       "properties": {
-        "system@link": {
-          "properties": {
-            "inputName": {
-              "type": "string"
-            }
-          }
+        "inputName": {
+          "description": "Name of the system control input receiving data from this control stream",
+          "type": "string"
         },
         "issueTime": {
           "description": "Time extent spanning all issue times of commands in this control stream",
