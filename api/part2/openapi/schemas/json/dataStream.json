@@ -14,6 +14,7 @@
           "readOnly": true
         },
         "phenomenonTimeInterval": {
+          "description": "An indication of how often feature of interest properties are observed",
           "type": "string",
           "format": "duration"
         },
@@ -23,6 +24,7 @@
           "readOnly": true
         },
         "resultTimeInterval": {
+          "description": "An indication of how often observation results are produced",
           "type": "string",
           "format": "duration"
         },
