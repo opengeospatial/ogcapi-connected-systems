@@ -1,0 +1,14 @@
+{
+  "id": "RFPower_Received_XBand",
+  "baseProperty": "http://qudt.org/vocab/quantitykind/RF-Power",
+  "label": "Received RF Power (XBand)",
+  "description": "RF Power received in band X",
+  "qualifiers": [
+    {
+      "type": "Category",
+      "definition": "http://qudt.org/vocab/quantitykind/Frequency",
+      "label": "Frequency Band",
+      "value": "http://sensorml.com/ont/swe/spectrum/IEEE/X_band"
+    }
+  ]
+}

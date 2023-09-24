@@ -1,0 +1,7 @@
+{
+  "id": "DailyAverageAirTemp",
+  "label": "Daily Average Temperature",
+  "description": "Average temperature computed over a 24-hour calendar day, starting at midnight local time at the measurement location",
+  "baseProperty": "http://mmisw.org/ont/cf/parameter/air_temperature",
+  "statistic": "http://sensorml.com/ont/x-stats/DailyMean"
+}

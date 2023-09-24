@@ -1,0 +1,7 @@
+{
+  "id": "SeaWaterTemp",
+  "label": "Seawater Temperature",
+  "description": "Temperature of the sea surface water",
+  "baseProperty": "http://qudt.org/vocab/quantitykind/Temperature",
+  "object": "http://dbpedia.org/resource/Seawater"
+}

@@ -46,7 +46,7 @@
         }
       },
       "required": [
-        "label", "baseProperty"
+        "id", "label", "baseProperty"
       ]
     }
   ]
