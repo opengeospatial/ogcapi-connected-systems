@@ -100,7 +100,8 @@
           "$ref": "https://geojson.org/schema/Point.json"
         },
         {
-          "$ref": "Pose.json"
+          "$ref": "Pose.json",
+          "required": ["type"]
         },
         {
           "$ref": "sweCommonDefs.json#/definitions/Vector"

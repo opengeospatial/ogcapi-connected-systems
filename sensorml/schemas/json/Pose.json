@@ -16,79 +16,101 @@
           "type": "string",
           "format": "uri"
         },
-        "tangentReferenceFrame": {
+        "ltpReferenceFrame": {
+          "description": "Local tangent plane topocentric reference frame (LTP), e.g. ENU, NED",
           "type": "string",
           "format": "uri"
         },
-        "location": {
-          "$ref": "#/definitions/Location"
+        "position": {
+          "oneOf": [
+            { "$ref": "#/definitions/PositionGeo" },
+            { "$ref": "#/definitions/PositionXYZ" }
+          ]
+        },
+        "angles": {
+          "$ref": "#/definitions/AnglesYPR"
+        },
+        "quaternion": {
+          "$ref": "#/definitions/Quaternion"
         }
-      },
-      "required": ["type", "referenceFrame", "location"]
+      }
     },
     {
-      "oneOf": [
+      "anyOf": [
+        { "required": ["referenceFrame"] },
+        { "required": ["ltpReferenceFrame"] }
+      ]
+    },
+    {
+      "anyOf": [
+        { "required": ["position"] },
+        { "required": ["angles"] },
+        { "required": ["quaternion"] },
+        { "required": ["position", "angles"] },
+        { "required": ["position", "quaternion"] }
+      ]
+    },
+    {
+      "anyOf": [
         {
-          "type": "object",
           "properties": {
-            "angles": {
-              "$ref": "#/definitions/AnglesYPR"
+            "referenceFrame": {
+              "const": "http://www.opengis.net/def/crs/EPSG/0/4979"
+            },
+            "position": {
+              "$ref": "#/definitions/PositionGeo"
             }
-          },
-          "required": ["angles"]
+          }
         },
         {
-          "type": "object",
           "properties": {
-            "quaternion": {
-              "$ref": "#/definitions/Quaternion"
+            "position": {
+              "$ref": "#/definitions/PositionXYZ"
             }
-          },
-          "required": ["quaternion"]
+          }
         }
       ]
     }
   ],
   "definitions": {
-    "Location": {
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "referenceFrame": {
-              "const": "http://www.opengis.net/def/crs/EPSG/0/4979"
-            },
-            "lat": {
-              "type": "number"
-            },
-            "lon": {
-              "type": "number"
-            },
-            "h": {
-              "type": "number"
-            }
-          },
-          "required": ["lat","lon","h"]
+    "PositionGeo": {
+      "properties": {
+        "lat": {
+          "type": "number"
         },
-        {
-          "type": "object",
-          "properties": {
-            "x": {
-              "type": "number"
-            },
-            "y": {
-              "type": "number"
-            },
-            "z": {
-              "type": "number"
-            }
-          },
-          "required": ["x","y","z"]
+        "lon": {
+          "type": "number"
+        },
+        "h": {
+          "type": "number"
         }
-      ]
+      },
+      "required": ["lat","lon","h"]
+    },
+    "PositionXYZ": {
+      "properties": {
+        "referenceFrame": {
+          "type": "string",
+          "format": "uri"
+        },
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "z": {
+          "type": "number"
+        }
+      },
+      "required": ["x","y","z"]
     },
     "AnglesYPR": {
       "properties": {
+        "referenceFrame": {
+          "type": "string",
+          "format": "uri"
+        },
         "yaw": {
           "type": "number"
         },
@@ -103,6 +125,10 @@
     },
     "Quaternion": {
       "properties": {
+        "referenceFrame": {
+          "type": "string",
+          "format": "uri"
+        },
         "x": {
           "type": "number"
         },

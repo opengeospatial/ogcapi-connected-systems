@@ -15,6 +15,7 @@
       "name": "sensor1",
       "type": "SimpleProcess",
       "uniqueId": "urn:mysensor:002",
+      "label": "Magnetometer",
       "description": "My sensor component, described inline",
       "typeOf": {
         "href": "https://data.example.com/link/to/procedure",

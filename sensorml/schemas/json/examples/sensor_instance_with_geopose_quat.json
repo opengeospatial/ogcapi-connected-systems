@@ -7,8 +7,8 @@
   "position": {
     "type": "Pose",
     "referenceFrame": "http://www.opengis.net/def/crs/EPSG/0/4979",
-    "tangentReferenceFrame": "http://www.opengis.net/def/cs/OGC/0/NED",
-    "location": {
+    "ltpReferenceFrame": "http://www.opengis.net/def/cs/OGC/0/NED",
+    "position": {
       "lat": 47.7,
       "lon": -122.3,
       "h": 11.5
