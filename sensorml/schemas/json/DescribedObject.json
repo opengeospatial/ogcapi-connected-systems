@@ -69,7 +69,10 @@
           "description": "The list of contacts related to this asset",
           "type": "array",
           "items": {
-            "$ref": "ResponsibleParty.json"
+            "oneOf": [
+              { "$ref": "ResponsibleParty.json" },
+              { "$ref": "ContactLink.json" }
+            ]
           }
         },
         "documents": {
