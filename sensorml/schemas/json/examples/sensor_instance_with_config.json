@@ -50,18 +50,14 @@
     ],
     "setConstraints": [
       {
+        "type": "AllowedValues",
         "ref": "inputs/temperature",
-        "value": {
-          "type": "AllowedValues",
-          "intervals": [[-100, 230.0]]
-        }
+        "intervals": [[-100, 230.0]]
       },
       {
+        "type": "AllowedTokens",
         "ref": "parameters/tag",
-        "value": {
-          "type": "AllowedTokens",
-          "pattern": "[a-zA-Z0-9]"
-        }
+        "pattern": "[a-zA-Z0-9]"
       }
     ]
   },

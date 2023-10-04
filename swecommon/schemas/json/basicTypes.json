@@ -80,8 +80,7 @@
           },
           "required": [ "pattern" ]
         }
-      ],
-      "unevaluatedProperties": false
+      ]
     },
     "AllowedValues": {
       "description": "Defines the permitted values for the component as an enumerated list and/or a list of inclusive ranges",
@@ -124,8 +123,7 @@
           "title": "Intervals",
           "required": [ "intervals" ]
         }
-      ],
-      "additionalProperties": false
+      ]
     },
     "AllowedTimes": {
       "description": "Defines the permitted values for the component, as a time range or an enumerated list of time values",
@@ -167,8 +165,7 @@
           "title": "Intervals",
           "required": [ "intervals" ]
         }
-      ],
-      "additionalProperties": false
+      ]
     },
     "NilValuesText": {
       "type": "array",

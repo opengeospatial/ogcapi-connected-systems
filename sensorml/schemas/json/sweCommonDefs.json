@@ -30,8 +30,7 @@
         { "$ref": "../../../swecommon/schemas/json/basicTypes.json#/definitions/AllowedTokens" },
         { "$ref": "../../../swecommon/schemas/json/basicTypes.json#/definitions/AllowedValues" },
         { "$ref": "../../../swecommon/schemas/json/basicTypes.json#/definitions/AllowedTimes" }
-      ],
-      "required": [ "type" ]
+      ]
     }
   }
 }

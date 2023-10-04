@@ -66,17 +66,20 @@
       "type": "array",
       "minItems": 1,
       "items": {
-        "type": "object",
-        "properties": {
-          "ref": {
-            "$ref": "commonDefs.json#/definitions/PathRef"
+        "allOf": [
+          {
+            "properties": {
+              "ref": {
+                "$ref": "commonDefs.json#/definitions/PathRef"
+              }
+            }
           },
-          "value": {
+          {
             "$ref": "sweCommonDefs.json#/definitions/AnyConstraint"
           }
-        },
-        "required": ["ref", "value"],
-        "additionalProperties": false
+        ],
+        "required": ["type", "ref"],
+        "additionalProperties": true
       }
     },
     "setStatus": {
