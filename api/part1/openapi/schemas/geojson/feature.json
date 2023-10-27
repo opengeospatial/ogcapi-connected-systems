@@ -21,8 +21,8 @@
           "required": [ "featureType", "uid", "name" ],
           "properties": {
             "featureType": {
-              "type": "string",
-              "format": "uri"
+              "description": "Identifier of the type of feature, either a URI, a CURIE, or a simple token",
+              "type": "string"
             },
             "uid": {
               "description": "Globally unique identifier of the feature",
