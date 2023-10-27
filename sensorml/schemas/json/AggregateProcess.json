@@ -34,7 +34,14 @@
               { "$ref": "AggregateProcess.json" },
               { "$ref": "PhysicalComponent.json" },
               { "$ref": "PhysicalSystem.json" },
-              { "$ref": "commonDefs.json#/definitions/XLink" }
+              {
+                "$ref": "commonDefs.json#/definitions/XLink",
+                "properties": {
+                  "type": {
+                    "const": "Link"
+                  }
+                }
+              }
             ]
           }
         ]

@@ -74,6 +74,7 @@
   ],
   "definitions": {
     "PositionGeo": {
+      "description": "Geographic position in EPSG:4979 CRS",
       "properties": {
         "lat": {
           "type": "number"
@@ -88,47 +89,44 @@
       "required": ["lat","lon","h"]
     },
     "PositionXYZ": {
+      "description": "Cartesian position expressed in the specified reference frame",
       "properties": {
-        "referenceFrame": {
-          "type": "string",
-          "format": "uri"
-        },
         "x": {
+          "description": "Distance along the X axis, in meters",
           "type": "number"
         },
         "y": {
+          "description": "Distance along the Y axis, in meters",
           "type": "number"
         },
         "z": {
+          "description": "Distance along the Z axis, in meters",
           "type": "number"
         }
       },
       "required": ["x","y","z"]
     },
     "AnglesYPR": {
+      "description": "Euler angles, with yaw, pitch and roll rotations about the local (rotated) axes Z, Y, and X respectively, applied in that order",
       "properties": {
-        "referenceFrame": {
-          "type": "string",
-          "format": "uri"
-        },
         "yaw": {
+          "description": "Yaw angle about Z axis, in degrees",
           "type": "number"
         },
         "pitch": {
+          "description": "Pitch angle about Y axis, in degrees",
           "type": "number"
         },
         "roll": {
+          "description": "Roll angle about X axis, in degrees",
           "type": "number"
         }
       },
       "required": ["yaw","pitch","roll"]
     },
     "Quaternion": {
+      "description": "Quaternion orientation expressed in the specified reference frame",
       "properties": {
-        "referenceFrame": {
-          "type": "string",
-          "format": "uri"
-        },
         "x": {
           "type": "number"
         },
