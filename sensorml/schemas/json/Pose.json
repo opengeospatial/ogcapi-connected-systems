@@ -53,6 +53,7 @@
     {
       "anyOf": [
         {
+          "title": "GeoPose",
           "properties": {
             "referenceFrame": {
               "const": "http://www.opengis.net/def/crs/EPSG/0/4979"
@@ -63,6 +64,7 @@
           }
         },
         {
+          "title": "XYZ Pose",
           "properties": {
             "position": {
               "$ref": "#/definitions/PositionXYZ"

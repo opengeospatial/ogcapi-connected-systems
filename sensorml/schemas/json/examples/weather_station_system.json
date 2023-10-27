@@ -94,13 +94,8 @@
       }
     }
   ],
-  "positions": [
-    {
-      "type": "Point",
-      "id": "stationLocation",
-      "srsName": "http://www.opengis.net/def/crs/EPSG/0/4979",
-      "srsDimension": "3",
-      "pos": "34.8038 -86.7228 0"
-    }
-  ]
+  "position": {
+    "type": "Point",
+    "coordinates": [-86.7228, 34.8038, 0]
+  }
 }
