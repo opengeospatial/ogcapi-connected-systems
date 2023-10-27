@@ -12,8 +12,12 @@
             "featureType": {
               "type": "string",
               "enum": [
-                "http://www.opengis.net/def/samplingFeatureType/x-OGC-TBD/2.0/SF_FeaturePart"
+                "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/FeaturePart"
               ]
+            },
+            "partID": {
+              "description": "ID of the feature part of interest",
+              "type": "string"
             }
           }
         }

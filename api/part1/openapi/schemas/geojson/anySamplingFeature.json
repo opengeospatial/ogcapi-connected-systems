@@ -8,6 +8,11 @@
     { "$ref": "samplingSpecimen.json" },
     { "$ref": "samplingPart.json" },
     { "$ref": "samplingProxy.json" },
+    { "$ref": "samplingPointXYZ.json" },
+    { "$ref": "samplingSphere.json" },
+    { "$ref": "samplingProfile.json" },
+    { "$ref": "viewingFrustum.json" },
+    { "$ref": "viewingSector.json" },
     {
       "$comment": "or something else but it must have another URI",
       "allOf": [
@@ -27,8 +32,13 @@
                       "http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingSurface",
                       "http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingSolid",
                       "http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_Specimen",
-                      "http://www.opengis.net/def/samplingFeatureType/x-OGC-TBD/2.0/SF_FeaturePart",
-                      "http://www.opengis.net/def/samplingFeatureType/x-OGC-TBD/2.0/SF_FeatureProxy"
+                      "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/FeaturePart",
+                      "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/FeatureProxy",
+                      "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/SamplingPointXYZ",
+                      "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/SamplingSphere",
+                      "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/SamplingProfile",
+                      "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/ViewingFrustum",
+                      "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/ViewingSector"
                     ]
                   }
                 }

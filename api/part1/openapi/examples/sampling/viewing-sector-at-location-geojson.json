@@ -1,0 +1,32 @@
+{
+  "type": "Feature",
+  "id": "VS001",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [103.868811, 1.327909]
+  },
+  "properties": {
+    "uid": "urn:x-safecity:sg:dahua:SG00010:vf",
+    "name": "Camera Viewable Area",
+    "description": "Area visible to the PTZ camera",
+    "featureType": "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/ViewingSector",
+    "sampledFeature@link": {
+      "href": "https://data.example.org/api/collections/roads/PIE12",
+      "type" : "application/geo+json",
+      "title": "Pan-Island Expressway"
+    },
+    "pose": {
+      "ltpReferenceFrame": "http://www.opengis.net/def/cs/OGC/0/NED",
+      "angles": {
+        "yaw": 0.0,
+        "pitch": 0.0,
+        "roll": 0.0
+      }
+    },
+    "radius": 50.0,
+    "minElev": -90.0,
+    "maxElev": 25.0,
+    "minAzim": 23.0,
+    "maxAzim": 223.0
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Viewing Frustum",
+  "allOf": [
+    { "$ref": "samplingSpatialParametric.json" },
+    {
+      "type": "object",
+      "properties": {
+        "geometry": {
+          "oneOf": [
+            { "$ref": "https://geojson.org/schema/Point.json" },
+            { "type": "null" }
+          ]
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "featureType": {
+              "type": "string",
+              "const": "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/ViewingFrustum"
+            },
+            "frustumAxis": {
+              "description": "Axis along which the frustum is positioned, in the local frame defined by the pose information (the axis is pointing from the frustum apex toward its base)",
+              "type": "string",
+              "enum": ["X", "Y", "Z", "-X", "-Y", "-Z"]
+            },
+            "fov": {
+              "description": "Field of view, in degrees. If the aspect ratio is also provided, this is the horizontal field of view of a pyramidal frustum, otherwise the frustum is conical",
+              "type": "number"
+            },
+            "aspectRatio": {
+              "description": "Aspect ratio of the frustum base rectangle, that is the ratio of its width to its height (unitless)",
+              "type": "number"
+            },
+            "length": {
+              "description": "Length of the frustum, in meters",
+              "type": "number"
+            }
+          },
+          "required": ["frustumAxis", "fov"]
+        }
+      }
+    }
+  ]
+}

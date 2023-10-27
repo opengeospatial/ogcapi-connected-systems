@@ -11,9 +11,6 @@
           "properties": {
             "validTime": {
               "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
-            },
-            "hostedSystem@link": {
-              "$ref": "../common/commonDefs.json#/definitions/Link"
             }
           }
         }

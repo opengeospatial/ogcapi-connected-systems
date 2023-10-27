@@ -24,6 +24,9 @@
     },
     "DerivedProperty": {
       "$ref": "../../../../../sensorml/schemas/json/DerivedProperty.json"
+    },
+    "Pose": {
+      "$ref": "../../../../../sensorml/schemas/json/Pose.json"
     }
   }
 }

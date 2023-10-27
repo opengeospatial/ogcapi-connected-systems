@@ -12,7 +12,7 @@
             "featureType": {
               "type": "string",
               "enum": [
-                "http://www.opengis.net/def/samplingFeatureType/x-OGC-TBD/2.0/SF_FeatureProxy"
+                "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/FeatureProxy"
               ]
             }
           }

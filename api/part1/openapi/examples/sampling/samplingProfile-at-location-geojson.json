@@ -1,0 +1,30 @@
+{
+  "type": "Feature",
+  "id": "SPF001",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-151.458848, 59.649740, 7.6]
+  },
+  "properties": {
+    "uid": "urn:x-noaa:npn:HWPA2:spf",
+    "name": "Homer Wind Profiler Beam 1",
+    "featureType": "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/SamplingProfile",
+    "sampledFeature@link": {
+      "href": "http://dbpedia.org/resource/Atmosphere_of_Earth",
+      "type" : "text/html",
+      "title": "Atmosphere"
+    },
+    "pose": {
+      "ltpReferenceFrame": "http://www.opengis.net/def/cs/OGC/0/NED",
+      "angles": {
+        "yaw": 0.0,
+        "pitch": 0.0,
+        "roll": 0.0
+      }
+    },
+    "profileAxis": "-Z",
+    "numBins": 10,
+    "startDistance": 1.2,
+    "stepDistance": 0.4
+  }
+}

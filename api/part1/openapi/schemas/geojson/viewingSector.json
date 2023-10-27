@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Viewing Sector",
+  "allOf": [
+    { "$ref": "samplingSpatialParametric.json" },
+    {
+      "type": "object",
+      "properties": {
+        "geometry": {
+          "oneOf": [
+            { "$ref": "https://geojson.org/schema/Point.json" },
+            { "type": "null" }
+          ]
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "featureType": {
+              "type": "string",
+              "const": "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/ViewingSector"
+            },
+            "radius": {
+              "description": "Radius of the spherical sector, in meters",
+              "type": "number"
+            },
+            "innerRadius": {
+              "description": "Inner radius of the spherical sector, in meters (defaults 0)",
+              "type": "number"
+            },
+            "minAzim": {
+              "description": "Start azimuth of the spherical sector, in degrees (defaults to 0)",
+              "type": "number"
+            },
+            "maxAzim": {
+              "description": "End azimuth of the spherical sector, in degrees (defaults to 360)",
+              "type": "number"
+            },
+            "minElev": {
+              "description": "Start elevation of the spherical sector, in degrees (defaults to -90)",
+              "type": "number"
+            },
+            "maxElev": {
+              "description": "End elevation of the spherical sector, in degrees (defaults to 90)",
+              "type": "number"
+            }
+          },
+          "required": ["radius", "minAzim", "maxAzim", "minElev", "maxElev"]
+        }
+      }
+    }
+  ]
+}

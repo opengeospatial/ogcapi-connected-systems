@@ -1,0 +1,31 @@
+{
+  "type": "Feature",
+  "id": "VF002",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [103.868811, 1.327909]
+  },
+  "properties": {
+    "uid": "urn:x-safecity:sg:dahua:SG00010:vf",
+    "name": "Camera Viewing Frustum",
+    "description": "Viewing frustum of fixed camera",
+    "featureType": "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/ViewingFrustum",
+    "sampledFeature@link": {
+      "href": "https://data.example.org/api/collections/roads/PIE12",
+      "type" : "application/geo+json",
+      "title": "Pan-Island Expressway"
+    },
+    "pose": {
+      "ltpReferenceFrame": "http://www.opengis.net/def/cs/OGC/0/NED",
+      "angles": {
+        "yaw": 123.0,
+        "pitch": -2.0,
+        "roll": 0.0
+      }
+    },
+    "frustumAxis": "X",
+    "fov": 46.0,
+    "aspectRatio": 1.33,
+    "length": 50.0
+  }
+}

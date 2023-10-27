@@ -8,7 +8,7 @@
       "properties": {
         "properties": {
           "type": "object",
-          "required": [ "sampledFeature@link" ],
+          "required": [ "featureType", "sampledFeature@link" ],
           "properties": {
             "sampledFeature@link": {
               "$ref": "../common/commonDefs.json#/definitions/Link"

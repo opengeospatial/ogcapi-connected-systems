@@ -20,18 +20,5 @@
       "type" : "application/geo+json",
       "uid": "urn:x-ogc:systems:hydro:WS454EAF25"
     }
-  },
-  "links": [
-    {
-      "href" : "https://data.example.org/api/samplingFeatures/SP001?f=json",
-      "rel" : "self",
-      "type" : "application/geo+json",
-      "title" : "this document"
-    }, {
-      "href" : "https://data.example.org/api/samplingFeatures/SP001?f=html",
-      "rel" : "alternate",
-      "type" : "text/html",
-      "title" : "this resource as HTML"
-    }
-  ]
+  }
 }

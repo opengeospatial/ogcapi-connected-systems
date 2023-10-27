@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "SamplingPoint",
+  "title": "Sampling Sphere",
   "allOf": [
-    { "$ref": "samplingSpatial.json" },
+    { "$ref": "samplingSpatialParametric.json" },
     {
       "type": "object",
       "properties": {
@@ -17,12 +17,14 @@
           "properties": {
             "featureType": {
               "type": "string",
-              "const": "http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint"
+              "const": "http://www.opengis.net/def/samplingFeatureType/CSAPI/1.0/SamplingSphere"
             },
-            "hostedSystem@link": {
-              "$ref": "../common/commonDefs.json#/definitions/Link"
+            "radius": {
+              "description": "Sphere radius in meters",
+              "type": "number"
             }
-          }
+          },
+          "required": [ "radius" ]
         }
       }
     }

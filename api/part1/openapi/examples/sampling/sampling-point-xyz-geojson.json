@@ -1,0 +1,24 @@
+{
+  "type": "Feature",
+  "id": "tkckcs6che9i8",
+  "geometry": null,
+  "properties": {
+    "uid": "urn:x-osh:saildrone:1001:water-sf",
+    "name": "Water Sampling Point",
+    "description": "Sampling point for the CTD measurements",
+    "featureType": "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/SamplingPointXYZ",
+    "sampledFeature@link": {
+      "href": "http://dbpedia.org/resource/Seawater",
+      "type" : "text/html",
+      "title": "Seawater"
+    },
+    "pose": {
+      "referenceFrame": "urn:x-osh:saildrone:1001#PLATFORM_FRAME",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.5
+      }
+    }
+  }
+}

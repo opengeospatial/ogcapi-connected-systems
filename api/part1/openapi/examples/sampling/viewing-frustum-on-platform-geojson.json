@@ -1,0 +1,32 @@
+{
+  "type": "Feature",
+  "id": "VF001",
+  "geometry": null,
+  "properties": {
+    "uid": "urn:x-usgs:sites:301244087575701",
+    "name": "Camera Viewing Frustum",
+    "description": "Viewing frustum of camera attached to the boom",
+    "featureType": "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/ViewingFrustum",
+    "sampledFeature@link": {
+      "href": "http://dbpedia.org/resource/Atmosphere_of_Earth",
+      "type" : "text/html",
+      "title": "Atmosphere"
+    },
+    "pose": {
+      "referenceFrame": "urn:x-osh:saildrone:1001#PLATFORM_FRAME",
+      "position": {
+        "x": 0.0,
+        "y": 1.0,
+        "z": 2.5
+      },
+      "angles": {
+        "yaw": 0.0,
+        "pitch": -6.0,
+        "roll": 0.0
+      }
+    },
+    "frustumAxis": "X",
+    "fov": 58,
+    "aspectRatio": 1.33
+  }
+}

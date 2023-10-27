@@ -17,18 +17,5 @@
       "title": "Geological Unit 235",
       "type" : "application/geo+json"
     }
-  },
-  "links": [
-    {
-      "href" : "https://data.example.org/api/samplingFeatures/f6b464cf?f=json",
-      "rel" : "self",
-      "type" : "application/geo+json",
-      "title" : "this document"
-    }, {
-      "href" : "https://data.example.org/api/samplingFeatures/f6b464cf?f=html",
-      "rel" : "alternate",
-      "type" : "text/html",
-      "title" : "this resource as HTML"
-    }
-  ]
+  }
 }

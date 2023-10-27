@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SamplingProfile",
+  "allOf": [
+    { "$ref": "samplingSpatialParametric.json" },
+    {
+      "type": "object",
+      "properties": {
+        "geometry": {
+          "oneOf": [
+            { "$ref": "https://geojson.org/schema/Point.json" },
+            { "type": "null" }
+          ]
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "featureType": {
+              "type": "string",
+              "const": "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/SamplingProfile"
+            },
+            "profileAxis": {
+              "description": "Axis along which the profile bins are located, in the local frame defined by the pose information (the axis is pointing in the direction of increasing range)",
+              "type": "string",
+              "enum": ["X", "Y", "Z", "-X", "-Y", "-Z"]
+            },
+            "binDistances": {
+              "description": "Distances of bins along the profile, in meters",
+              "type": "array",
+              "minItems": 2,
+              "items": {
+                "type": "number"
+              }
+            },
+            "numBins": {
+              "description": "Total number of bins",
+              "type": "number"
+            },
+            "startDistance": {
+              "description": "Distance to first bin, in meters",
+              "type": "number"
+            },
+            "stepDistance": {
+              "description": "Distance between bins, in meters",
+              "type": "number"
+            },
+            "spreadAngle": {
+              "description": "Beam spread angle, in degrees (defaults to 0)",
+              "type": "number"
+            }
+          },
+          "required": ["profileAxis"],
+          "oneOf": [
+            { "required": ["binDistances"] },
+            { "required": ["numBins", "startDistance", "stepDistance"] }
+          ]
+        }
+      }
+    }
+  ]
+}
