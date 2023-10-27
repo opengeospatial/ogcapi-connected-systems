@@ -17,7 +17,7 @@
           "properties": {
             "featureType": {
               "type": "string",
-              "const": "http://www.opengis.net/def/samplingFeatureType/CSAPI/1.0/SamplingSphere"
+              "const": "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/SamplingSphere"
             },
             "radius": {
               "description": "Sphere radius in meters",
