@@ -1,0 +1,14 @@
+get:
+  summary: List all items in a collection
+  description: |-
+    Retrieve collections items, which can be Systems, Procedures, Deployments, Sampling Features, or any other features.
+
+    Please see the documentation of the respective root collections to see the specifics of each feature type.
+  tags:
+    - Collections
+  parameters:
+    - $ref: ../parameters/collectionId.yaml
+    - $ref: ../parameters/limit.yaml
+  responses:
+    '200':
+      $ref: ../responses/featureCollection.yaml

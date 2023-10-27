@@ -7,3 +7,12 @@ content:
         - type: object
           required: 
             - id
+    examples:
+      system:
+        summary: System
+        value:
+          $ref: ../examples/collections/collectionItem_system.json
+      deployment:
+        summary: Deployment
+        value:
+          $ref: ../examples/collections/collectionItem_deployment.json

@@ -1,0 +1,22 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "SYS001",
+      "geometry": null,
+      "properties": {
+      }
+    }
+  ],
+  "links": [
+    {
+      "href": "https://data.example.com/api/collections/all_systems/items",
+      "rel": "self"
+    },
+    {
+      "href": "https://data.example.com/api/systems",
+      "rel": "canonical"
+    }
+  ]
+}

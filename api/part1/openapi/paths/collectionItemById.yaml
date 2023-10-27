@@ -1,0 +1,12 @@
+get:
+  summary: Retrieve a collection item
+  description: Retrieve a specific item from a collection.
+  tags:
+    - Collections
+  parameters:
+    - $ref: ../parameters/collectionId.yaml
+    - $ref: ../parameters/featureId.yaml
+  responses:
+    '200':
+      $ref: ../responses/feature.yaml
+      

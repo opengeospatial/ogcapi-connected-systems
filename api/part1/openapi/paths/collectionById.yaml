@@ -1,0 +1,10 @@
+get:
+  summary: Retrieve collection metadata
+  description: Retrieve metadata about a specific collection.
+  tags:
+    - Collections
+  parameters:
+    - $ref: ../parameters/collectionId.yaml
+  responses:
+    '200':
+      $ref: ../responses/collection.yaml

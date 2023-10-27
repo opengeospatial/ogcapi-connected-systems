@@ -16,5 +16,12 @@ content:
           type: array
           items:
             $ref: collection_schema.yaml
-    example:
-      $ref: "../examples/collections/collections1.json"
+    examples:
+      catchall:
+        summary: Mandatory Collections
+        value:
+          $ref: ../examples/collections/collections1.json
+      custom:
+        summary: Custom Collections
+        value:
+          $ref: ../examples/collections/collections2.json

@@ -9,8 +9,8 @@
       "links": [
         {
           "rel": "items",
-          "title": "Access the system instances in this collection",
-          "href": "https://data.example.org/api/systems",
+          "title": "Access the features in this collection",
+          "href": "https://data.example.org/api/collections/all_systems/items?f=json",
           "type": "application/json"
         }
       ]
@@ -24,8 +24,8 @@
       "links": [
         {
           "rel": "items",
-          "title": "Access the procedures in this collection",
-          "href": "https://data.example.org/api/procedures",
+          "title": "Access the features in this collection",
+          "href": "https://data.example.org/api/collections/all_procedures/items?f=json",
           "type": "application/json"
         }
       ]
@@ -39,9 +39,16 @@
       "links": [
         {
           "rel": "items",
-          "title": "Access the procedures in this collection",
-          "href": "https://data.example.org/api/deployments",
+          "title": "Access the features in this collection",
+          "href": "https://data.example.org/api/collections/all_deployments?f=json",
           "type": "application/json"
+        },
+        {
+          "rel": "describedby",
+          "title": "Schema for features in the collection",
+          "anchor": "https://data.example.org/api/collections/all_deployments?f=json",
+          "href": "https://data.example.org/api/schemas/deployments?f=json",
+          "type": "application/schema+json"
         }
       ]
     }
@@ -50,13 +57,13 @@
     {
       "rel": "self",
       "title": "This document",
-      "href": "https://data.example.org/api/collections?f=application/json",
+      "href": "https://data.example.org/api/collections?f=json",
       "type": "application/json"
     },
     {
       "rel": "alternate",
       "title": "This document as HTML",
-      "href": "https://data.example.org/api/collections?f=text/html",
+      "href": "https://data.example.org/api/collections?f=html",
       "type": "text/html"
     }
   ]

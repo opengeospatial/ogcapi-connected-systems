@@ -1,0 +1,78 @@
+{
+  "collections": [
+    {
+      "id": "uxs_systems",
+      "title": "Unmanned Systems",
+      "description": "All unmanned systems registered on this server",
+      "itemType": "feature",
+      "featureType": "system",
+      "links": [
+        {
+          "rel": "items",
+          "title": "Access the features in this collection",
+          "href": "https://data.example.org/api/collections/uxs_systems/items?f=json",
+          "type": "application/json"
+        }
+      ]
+    },
+    {
+      "id": "uxs_procedures",
+      "title": "Unmanned Systems Datasheets",
+      "description": "Datasheets for unmanned systems registered on this server (UAV, UGV, USV, etc.)",
+      "itemType": "feature",
+      "featureType": "procedure",
+      "links": [
+        {
+          "rel": "items",
+          "title": "Access the features in this collection",
+          "href": "https://data.example.org/api/collections/uxs_procedures/items?f=json",
+          "type": "application/json"
+        }
+      ]
+    },
+    {
+      "id": "uxs_deployments",
+      "title": "Unmanned System Deployments",
+      "description": "All deployments of unmanned systems",
+      "itemType": "feature",
+      "featureType": "deployment",
+      "links": [
+        {
+          "rel": "items",
+          "title": "Access the features in this collection",
+          "href": "https://data.example.org/api/collections/uxs_deployments/items?f=json",
+          "type": "application/json"
+        }
+      ]
+    },
+    {
+      "id": "noaa_systems",
+      "title": "NOAA Observation Systems",
+      "description": "Observation systems operated by NOAA",
+      "itemType": "feature",
+      "featureType": "systems",
+      "links": [
+        {
+          "rel": "items",
+          "title": "Access the features in this collection",
+          "href": "https://data.example.org/api/collections/noaa_systems/items?f=json",
+          "type": "application/json"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "rel": "self",
+      "title": "This document",
+      "href": "https://data.example.org/api/collections?f=json",
+      "type": "application/json"
+    },
+    {
+      "rel": "alternate",
+      "title": "This document as HTML",
+      "href": "https://data.example.org/api/collections?f=html",
+      "type": "text/html"
+    }
+  ]
+}
