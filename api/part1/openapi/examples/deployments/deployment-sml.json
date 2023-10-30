@@ -62,7 +62,7 @@
     },
     {
       "type": "PhysicalSystem",
-      "name": "Saildrone SD-1003",
+      "label": "Saildrone SD-1003",
       "uniqueId": "urn:x-saildrone:platforms:SD-1003",
       "typeOf": {
         "href": "https://data.example.org/api/systems/2f35ofoms2l9?f=sml"

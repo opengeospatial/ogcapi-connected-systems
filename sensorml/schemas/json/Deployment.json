@@ -21,7 +21,13 @@
           "type": "array",
           "minItems": 1,
           "items": {
-            "$ref": "commonDefs.json#/definitions/XLink"
+            "oneOf": [
+              { "$ref": "./SimpleProcess.json" },
+              { "$ref": "./AggregateProcess.json" },
+              { "$ref": "./PhysicalComponent.json" },
+              { "$ref": "./PhysicalSystem.json" },
+              { "$ref": "commonDefs.json#/definitions/XLink" }
+            ]
           }
         }
       },
