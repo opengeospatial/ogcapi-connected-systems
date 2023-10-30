@@ -1,0 +1,31 @@
+syntax = "proto3";
+import "google/protobuf/timestamp.proto";
+
+message Observation {
+  /* datastream ID */
+  optional int64 datastream_id = 1;
+
+  /* sampling feature ID */
+  optional int64 sf_id = 2 [ default = 0 ];
+
+  /* sampling time */
+  Timestamp time = 3 [ (schema_ref) = "phenomenonTime" ];
+
+  /* latitude (deg) */
+  double lat = 1 [ (schema_ref) = "result/position/lat"];
+  
+  /* longitude (deg) */
+  double lon = 2 [ (schema_ref) = "result/position/lon" ];
+
+  /* altitude (m) */
+  double h = 3 [ (schema_ref) = "result/position/h" ];
+
+  /* yaw (deg) */
+  float yaw = 4 [ (schema_ref) = "result/angles/yaw" ];
+
+  /* pitch (deg) */
+  float pitch = 5 [ (schema_ref) = "result/angles/pitch" ];
+
+  /* roll (deg) */
+  float roll = 6 [ (schema_ref) = "result/angles/roll" ];  
+}

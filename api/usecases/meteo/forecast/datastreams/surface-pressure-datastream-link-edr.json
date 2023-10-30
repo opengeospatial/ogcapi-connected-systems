@@ -1,0 +1,37 @@
+{
+  "id": "ql0iqsgglhw4",
+  "name": "Surface Pressure Output (02/15 06:00 Run)",
+  "description": "Global coverage of forecasted surface pressures. This parameter is the pressure (force per unit area) of the atmosphere on the surface of land, sea and in-land water.",
+  "system@link": {
+    "href": "https://data.example.org/api/systems/ff998550fmfm?f=json",
+    "uid": "urn:x-ecmwf:forecasts:HRES"
+  },
+  "validTime": [
+    "2023-02-15T06:00:00Z",
+    "2023-02-15T11:59:59Z"
+  ],
+  "phenomenonTime": [
+    "2023-02-15T06:00:00Z",
+    "2023-02-25T00:00:00Z"
+  ],
+  "resultTime": [
+    "2023-02-15T06:00:00Z",
+    "2023-02-15T06:00:00Z"
+  ],
+  "observedProperties": [
+    {
+      "definition": "http://mmisw.org/ont/cf/parameter/surface_air_pressure",
+      "label": "Surface Pressure"
+    }
+  ],
+  "formats": [
+    "application/om+json"
+  ],
+  "links": [
+    {
+      "rel": "http://www.opengis.net/def/rel/ogc/1.0/dataset",
+      "href": "https://data.example.org/edr/collections/ECMWF/instances/20230215-06Z",
+      "if": "http://www.opengis.net/spec/ogcapi-edr-1/1.0"
+    }
+  ]
+}

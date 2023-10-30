@@ -4,9 +4,11 @@
   "foi@id": "k1svjipaapo3",
   "phenomenonTime": "2023-02-15T07:00:00Z",
   "resultTime": "2023-02-15T06:00:00Z",
-  "result": {
-    "href": "https://data.x-ecmwf.int/wms?service=WMS&version=1.1.0&request=GetMap&format=image/tiff&layers=HRES-2T-20230215-0600-T1&bbox=-180,90,180,-90&width=3600&height=1800&srs=EPSG:4326",
-    "type": "image/tiff; application=geotiff",
-    "serviceType": "http://www.opengis.net/def/serviceType/ogc/wms/1.1"
-  }
+  "result@links": [
+    {
+      "href": "https://data.x-ecmwf.int/wms?service=WMS&version=1.1.0&request=GetMap&format=image/tiff&layers=HRES-2T-20230215-0600-T1&bbox=-180,90,180,-90&width=3600&height=1800&srs=EPSG:4326",
+      "type": "image/tiff; application=geotiff",
+      "serviceType": "http://www.opengis.net/def/serviceType/ogc/wms/1.1"
+    }
+  ]
 }
