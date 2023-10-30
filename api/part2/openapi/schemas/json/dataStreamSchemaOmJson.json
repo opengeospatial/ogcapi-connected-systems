@@ -7,11 +7,11 @@
     },
     "phenomenonTimeSchema": {
       "description": "Descriptor for the observation `phenomenonTime` property. If omitted, values for phenomenon time can also be omitted from the datastream and are assumed to be equal to the observation result time.",
-      "$ref": "#/definitions/TimeDef"
+      "$ref": "../common/sweCommonDefs.json#/definitions/Time"
     },
     "resultTimeSchema": {
       "description": "Descriptor for the observation `resultTime` property. If omitted and a `phenomenonTimeSchema` is provided, the result time value can also be omitted from the datastream. Its value is the inherited from the datastream metadata or considered equal to the phenomenon time. If omitted and `phenomenonTimeSchema` is also omitted, `resultTime` is assumed to be on the UTC timescale and values must be provided in the datastream",
-      "$ref": "#/definitions/TimeDef"
+      "$ref": "../common/sweCommonDefs.json#/definitions/Time"
     },
     "resultSchema": {
       "description": "Schema for the observation `result` property. This describes the observed properties included in the result and how they are structured if the result is a record, a vector quantity or a coverage.",
@@ -24,25 +24,5 @@
   },
   "required": [
     "obsFormat", "resultSchema"
-  ],
-  "definitions": {
-    "TimeDef": {
-      "type": "object",
-      "properties": {
-        "definition": {
-          "type": "string",
-          "format": "uri"
-        },
-        "label": {
-          "type": "string",
-          "minLength": 1
-        },
-        "referenceFrame": {
-          "type": "string",
-          "format": "uri"
-        }
-      },
-      "required": [ "definition", "timeScale" ]
-    }
-  }
+  ]
 }
