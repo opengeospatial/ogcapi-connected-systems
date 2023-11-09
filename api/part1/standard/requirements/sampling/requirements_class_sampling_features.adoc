@@ -1,11 +1,12 @@
-[[rc_sampling-features]]
-[cols="1,4",width="90%",options="header"]
-|===
-2+|*Requirements Class*
-2+|http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/req/sampling-features
-|Target type    |Web API
-|Dependency     |<<clause-api-common>>
-|Dependency     |<<clause-system-features>>
-|Dependency     |OGC 10-004r3 - Clause 9: Spatial Sampling Features
-|Dependency     |OGC 10-004r3 - Clause 10: Specimens
-|===
+[requirement,model=ogc]
+====
+[%metadata]
+type:: class
+identifier:: /req/sampling-features
+subject:: Web API
+inherit:: /req/api-common
+inherit:: /req/system-features
+indirect-dependency:: OGC 10-004r3 - Clause 9: Spatial Sampling Features
+indirect-dependency:: OGC 10-004r3 - Clause 10: Specimens
+indirect-dependency:: OGC 23-001 - #Clause XX#: Sampling Features
+====

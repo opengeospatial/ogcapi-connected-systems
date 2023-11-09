@@ -2,7 +2,7 @@
 
 [[clause-encoding-geojson]]
 == Requirements Class "GeoJSON Format"
-include::requirements/encoding/geojson/requirements_class_geojson.adoc[]
+include::../requirements/encoding/geojson/requirements_class_geojson.adoc[]
 
 
 === Overview
@@ -31,11 +31,10 @@ The server must also implement Requirements Class "GeoJSON" of {ogcapi-features-
 [[example_geojson_sys1]]
 .A System Feature in GeoJSON format
 =================
-This is a simple description of a fixed in-situ sensor with a link to its alternate SensorML representation.
-
-[source%autofit,JSON]
+This is a simple description of a fixed in-situ sensor in GeoJSON, with a link to its alternate SensorML representation.
+[source%autofit,json]
 ----
-include::../openapi/examples/systems/system-sensor-geojson.json[]
+include::../openapi/examples/systems/thermometer-sensor-geojson.links.json[]
 ----
 =================
 
@@ -58,7 +57,7 @@ include::../openapi/examples/systems/system-sensor-geojson.json[]
 [[example_geojson_proc1]]
 .A Procedure Feature in GeoJSON format
 =================
-[source%autofit,JSON]
+[source%autofit,json]
 ----
 include::../openapi/examples/procedures/sensor-datasheet-geojson.json[]
 ----
@@ -83,7 +82,7 @@ include::../openapi/examples/procedures/sensor-datasheet-geojson.json[]
 [[example_geojson_dep1]]
 .A Deployment Feature in GeoJSON format
 =================
-[source%autofit,JSON]
+[source%autofit,json]
 ----
 include::../openapi/examples/deployments/deployment-geojson.json[]
 ----
@@ -128,7 +127,7 @@ include::../openapi/examples/deployments/deployment-geojson.json[]
 [[example_sf1]]
 .A Sampling Point Feature in GeoJSON format
 =================
-[source%autofit,JSON]
+[source%autofit,json]
 ----
 include::../openapi/examples/sampling/sampling-point-geojson.json[]
 ----
@@ -137,7 +136,7 @@ include::../openapi/examples/sampling/sampling-point-geojson.json[]
 [[example_sf2]]
 .A Specimen Feature in GeoJSON format
 =================
-[source%autofit,JSON]
+[source%autofit,json]
 ----
 include::../openapi/examples/sampling/sampling-specimen-geojson.json[]
 ----
@@ -146,7 +145,7 @@ include::../openapi/examples/sampling/sampling-specimen-geojson.json[]
 [[example_sf3]]
 .A System Part Feature in GeoJSON format
 =================
-[source%autofit,JSON]
+[source%autofit,json]
 ----
 include::../openapi/examples/sampling/sampling-part-geojson.json[]
 ----

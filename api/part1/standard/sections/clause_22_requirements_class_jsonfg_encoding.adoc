@@ -1,7 +1,7 @@
 
 [[clause-encoding-jsonfg]]
 == Requirements Class "JSON-FG Format"
-include::requirements/encoding/jsonfg/requirements_class_jsonfg.adoc[]
+include::../requirements/encoding/jsonfg/requirements_class_jsonfg.adoc[]
 
 
 === Overview

@@ -1,7 +1,7 @@
 
 [[clause-feature-crud]]
 == Requirements Class "Create, Replace, Update and Delete"
-include::requirements/crud/requirements_class_crud.adoc[]
+include::../requirements/crud/requirements_class_crud.adoc[]
 
 
 === Overview

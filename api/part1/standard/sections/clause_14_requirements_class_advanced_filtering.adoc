@@ -1,7 +1,7 @@
 
 [[clause-advanced-filtering]]
 == Requirements Class "Advanced Filtering"
-include::requirements/query/requirements_class_advanced_filtering.adoc[]
+include::../requirements/query/requirements_class_advanced_filtering.adoc[]
 
 
 === Overview
@@ -27,7 +27,7 @@ Identifiers in the list can be either local resource IDs or UIDs (URI) but the t
 
 [source,YAML]
 ----
-include::../openapi/parameters/idlist.yaml[]
+include::../openapi/parameters/idList.yaml[]
 ----
 ^| A | Items in the list SHALL be valid resource IDs or resource UIDs.
 ^| B | All items in the list SHALL be of the same ID type (either all resource IDs or all resource UIDs).

@@ -1,7 +1,7 @@
 
 [[clause-system-features]]
 == Requirements Class "System Features"
-include::requirements/system/requirements_class_system_features.adoc[]
+include::../requirements/system/requirements_class_system_features.adoc[]
 
 
 === Overview

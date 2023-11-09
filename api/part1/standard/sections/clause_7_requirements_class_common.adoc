@@ -1,6 +1,6 @@
 [[clause-api-common]]
 == Requirements Class "Common"
-include::requirements/common/requirements_class_common.adoc[]
+include::../requirements/common/requirements_class_common.adoc[]
 
 
 

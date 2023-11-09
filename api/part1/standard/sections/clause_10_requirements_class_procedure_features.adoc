@@ -1,7 +1,7 @@
 
 [[clause-procedure-features]]
 == Requirements Class "Procedure Features"
-include::requirements/procedure/requirements_class_procedure_features.adoc[]
+include::../requirements/procedure/requirements_class_procedure_features.adoc[]
 
 
 === Overview

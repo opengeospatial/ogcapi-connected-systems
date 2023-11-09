@@ -1,7 +1,7 @@
 
 [[clause-deployment-features]]
 == Requirements Class "Deployment Features"
-include::requirements/deployment/requirements_class_deployment_features.adoc[]
+include::../requirements/deployment/requirements_class_deployment_features.adoc[]
 
 
 === Overview

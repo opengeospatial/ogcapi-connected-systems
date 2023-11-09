@@ -1,7 +1,7 @@
 
 [[clause-system-components]]
 == Requirements Class "System Components"
-include::requirements/system/requirements_class_system_components.adoc[]
+include::../requirements/system/requirements_class_system_components.adoc[]
 
 
 === Overview

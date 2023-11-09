@@ -2,7 +2,7 @@
 [[clause-sampling-features]]
 == Requirements Class "Sampling Features"
 === Overview
-include::requirements/sampling/requirements_class_sampling_features.adoc[]
+include::../requirements/sampling/requirements_class_sampling_features.adoc[]
 
 
 === Overview

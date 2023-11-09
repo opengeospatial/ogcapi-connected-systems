@@ -1,8 +1,8 @@
-[[rc_procedure-features]]
-[cols="1,4",width="90%",options="header"]
-|===
-2+|*Requirements Class*
-2+|http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/req/procedure-features
-|Target type    |Web API
-|Dependency     |<<clause-api-common>>
-|===
+[requirement,model=ogc]
+====
+[%metadata]
+type:: class
+identifier:: /req/procedure-features
+subject:: Web API
+inherit:: /req/api-common
+====

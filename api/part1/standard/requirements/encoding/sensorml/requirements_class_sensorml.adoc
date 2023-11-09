@@ -1,9 +1,9 @@
-[[rc_encoding-sensorml]]
-[cols="1,4",width="90%",options="header"]
-|===
-2+|*Requirements Class*
-2+|http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/req/encoding/sensorml
-|Target type    |Web API
-|Dependency     |<<clause-api-common>>
-|Dependency     |http://www.opengis.net/spec/sensorml/2.1/req/core
-|===
+[requirement,model=ogc]
+====
+[%metadata]
+type:: class
+identifier:: /req/encoding/sensorml
+subject:: Web API
+inherit:: /req/api-common
+indirect-dependency:: SensorML, http://www.opengis.net/spec/sensorml/2.1/req/core
+====

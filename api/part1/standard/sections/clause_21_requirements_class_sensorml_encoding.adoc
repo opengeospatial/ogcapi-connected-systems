@@ -2,7 +2,7 @@
 
 [[clause-encoding-sensorml]]
 == Requirements Class "SensorML Format"
-include::requirements/encoding/sensorml/requirements_class_sensorml.adoc[]
+include::../requirements/encoding/sensorml/requirements_class_sensorml.adoc[]
 
 
 === Overview
@@ -51,9 +51,9 @@ The following requirement provides the mapping between common feature properties
 =================
 This is a simple description of a fixed in-situ sensor with identification and contact information.
 
-[source%autofit,JSON]
+[source%autofit,json]
 ----
-include::../openapi/examples/systems/system-sensor-sml.json[]
+include::../openapi/examples/systems/thermometer-sensor-sml.json[]
 ----
 =================
 
@@ -85,7 +85,7 @@ include::../openapi/examples/systems/system-sensor-sml.json[]
 [[example_sensorml_proc1]]
 .A Procedure Feature describing a sensor datasheet in SensorML format
 =================
-[source%autofit,JSON]
+[source%autofit,json]
 ----
 include::../openapi/examples/procedures/sensor-datasheet-sml.json[]
 ----
@@ -109,7 +109,7 @@ include::../openapi/examples/procedures/sensor-datasheet-sml.json[]
 [[example_sensorml_dep1]]
 .A Deployment Feature in SensorML format
 =================
-[source%autofit,JSON]
+[source%autofit,json]
 ----
 include::../openapi/examples/deployments/deployment-sml.json[]
 ----
