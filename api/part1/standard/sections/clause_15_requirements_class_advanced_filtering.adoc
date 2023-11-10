@@ -24,13 +24,9 @@ Identifiers in the list can be either local resource IDs or UIDs (URI) but the t
 |===
 ^|*Requirement {counter:req-id}* |*/req/filter/id-list-schema*
 ^| A | A query parameter of type `ID_List` SHALL conform to the following OpenAPI 3.0 schema:
-
-[source,YAML]
-----
-include::../openapi/parameters/idList.yaml[]
-----
-^| A | Items in the list SHALL be valid resource IDs or resource UIDs.
-^| B | All items in the list SHALL be of the same ID type (either all resource IDs or all resource UIDs).
+       - link:../openapi/parameters/idList.yaml[idList.yaml]
+^| B | Items in the list SHALL be valid resource IDs or resource UIDs.
+^| C | All items in the list SHALL be of the same ID type (either all resource IDs or all resource UIDs).
 |===
 
 

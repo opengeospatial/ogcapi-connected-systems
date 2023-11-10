@@ -19,6 +19,7 @@
 :data-uri-image:
 :edition: 1.0
 
+
 :ogcapi-common: https://ogcapi.ogc.org/common[OGC API - Common]
 :ogcapi-common-1: https://docs.ogc.org/DRAFTS/19-072.html[OGC API - Common - Part 1]
 :ogcapi-common-2: https://docs.ogc.org/DRAFTS/20-024.html[OGC API - Common - Part 2]
@@ -26,6 +27,7 @@
 :ogcapi-features-1: https://docs.ogc.org/is/17-069r4/17-069r4.html[OGC API - Features - Part 1]
 :ogcapi-features-4: https://docs.ogc.org/DRAFTS/20-002.html[OGC API - Features - Part 4]
 :ogc-w3c-ssn: https://www.w3.org/TR/vocab-ssn[Semantic Sensor Network Ontology]
+
 
 :jsonschema-base-url: https://raw.githubusercontent.com/opengeospatial/connected-systems/master/api/part1/openapi/schemas
 
@@ -59,9 +61,11 @@ include::sections/clause_12_requirements_class_sampling_features.adoc[]
 
 include::sections/clause_13_requirements_class_system_components.adoc[]
 
-include::sections/clause_14_requirements_class_advanced_filtering.adoc[]
+include::sections/clause_14_requirements_class_derived_properties.adoc[]
 
-include::sections/clause_15_requirements_class_feature_crud.adoc[]
+include::sections/clause_15_requirements_class_advanced_filtering.adoc[]
+
+include::sections/clause_16_requirements_class_feature_crud.adoc[]
 
 include::sections/clause_20_requirements_class_geojson_encoding.adoc[]
 
