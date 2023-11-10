@@ -18,12 +18,12 @@ OGC API - Connected Systems supports all capabilities from these previous Standa
 
 The API is designed as an extension of {ogcapi-features} which makes it entirely compatible with Features API clients, while still allowing more advanced functionality to access dynamic data associated to features. A clear goal of this approach is to better integrate the GIS and sensor/IoT communities. 
 
-Another key design decision was also to allow linking to other OGC APIs whenever possible, thus allowing a much better integration with the rest of the OGC API ecosystems.
+Another key design decision was to allow linking to other OGC APIs whenever possible, thus allowing a much better integration with the rest of the OGC API ecosystems.
 
-Models from the {ogc-w3c-ssn} are the basis for the API design, with the help of more concrete models like O&M and SensorML.
+Models from the {ogc-w3c-ssn} are the basis for the API design, with the help of more concrete models like O&M/OMS and SensorML.
 
 
-== Security Considerations
+=== Security Considerations
 
 #TODO#
 
@@ -35,6 +35,12 @@ Need for signed content
 
 Need for business logic to avoid users to alter content created by others 
 
+
+=== Requirements Classes
+
+Most requirements classes of this Standard can be implemented independently. For example, a given implementation can choose to implement only `System` and `Deployment` features and rely on other servers to host complementary data such as `Procedures`, Domain Features, or Dynamic Data (see part 2 of this Standard).
+
+This is made possible thanks to the use of hyperlinks that don't require that all resources be hosted at the same endpoint.
 
 
 === Feature Types
@@ -66,13 +72,6 @@ NOTE: The listed encodings are the ones defined in this Standard but extensions 
 <<OGC-API-Features,OGC API - Features>> mandates that its resources be organized into Feature Collections. In addition to the feature types themselves, this Standards specifies how to identify collections that contain a given feature type.
 
 This is done using an additional property on the Collection resource called `featureType`. Each requirements class defining a new feature type also defines the value to use for this property when creating a collection of this feature type.
-
-
-=== Requirements Classes
-
-Most requirements classes of this Standard can be implemented independently. For example, a given implementation can choose to implement only `System` and `Deployment` features and rely on other servers to host complementary data such as `Procedures`, Domain Features, or Dynamic Data (see part 2 of this Standard).
-
-This is made possible thanks to the use of hyperlinks that don't require that all resources be hosted at the same endpoint.
 
 
 === Paged Responses
