@@ -25,7 +25,8 @@
         "roll": 0.0
       }
     },
-    "frustumAxis": "X",
+    "frustumAxis": "Y",
+    "upAxis": "Z",
     "fov": 58,
     "aspectRatio": 1.33
   }

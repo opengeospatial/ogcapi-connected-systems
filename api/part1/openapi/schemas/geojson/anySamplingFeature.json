@@ -12,7 +12,7 @@
     { "$ref": "samplingSphere.json" },
     { "$ref": "samplingProfile.json" },
     { "$ref": "viewingFrustum.json" },
-    { "$ref": "viewingSector.json" },
+    { "$ref": "sphericalSector.json" },
     {
       "$comment": "or something else but it must have another URI",
       "allOf": [
@@ -38,7 +38,7 @@
                       "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/SamplingSphere",
                       "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/SamplingProfile",
                       "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/ViewingFrustum",
-                      "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/ViewingSector"
+                      "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/SphericalSector"
                     ]
                   }
                 }

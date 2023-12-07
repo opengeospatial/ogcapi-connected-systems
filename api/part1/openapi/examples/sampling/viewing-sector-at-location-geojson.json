@@ -16,7 +16,12 @@
       "title": "Pan-Island Expressway"
     },
     "pose": {
-      "ltpReferenceFrame": "http://www.opengis.net/def/cs/OGC/0/NED",
+      "referenceFrame": "http://www.opengis.net/def/cs/OGC/0/NED",
+      "position": {
+        "x": 0.0,
+        "y": 1.0,
+        "z": 2.5
+      },
       "angles": {
         "yaw": 0.0,
         "pitch": 0.0,

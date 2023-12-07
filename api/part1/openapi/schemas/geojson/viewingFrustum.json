@@ -20,7 +20,12 @@
               "const": "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/ViewingFrustum"
             },
             "frustumAxis": {
-              "description": "Axis along which the frustum is positioned, in the local frame defined by the pose information (the axis is pointing from the frustum apex toward its base)",
+              "description": "Longitudinal axis of the frustum, expressed in the inner frame defined by the pose information (the axis is pointing from the frustum apex toward its base)",
+              "type": "string",
+              "enum": ["X", "Y", "Z", "-X", "-Y", "-Z"]
+            },
+            "upAxis": {
+              "description": "Lateral axis of the frustum, pointing in the image up direction, expressed in the inner frame defined by the pose information",
               "type": "string",
               "enum": ["X", "Y", "Z", "-X", "-Y", "-Z"]
             },
@@ -37,7 +42,7 @@
               "type": "number"
             }
           },
-          "required": ["frustumAxis", "fov"]
+          "required": ["frustumAxis", "upAxis", "fov"]
         }
       }
     }

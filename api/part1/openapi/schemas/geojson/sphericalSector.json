@@ -17,7 +17,7 @@
           "properties": {
             "featureType": {
               "type": "string",
-              "const": "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/ViewingSector"
+              "const": "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/SphericalSector"
             },
             "radius": {
               "description": "Radius of the spherical sector, in meters",
