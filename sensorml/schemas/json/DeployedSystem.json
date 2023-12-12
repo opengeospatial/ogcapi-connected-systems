@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "system": {
+      "description": "Link to the system being deployed",
+      "$ref": "commonDefs.json#/definitions/XLink"
+    },
+    "procedure": {
+      "description": "Link to a procedure implemented by the system during this deployment (e.g. mission plan, methodology for human operator)",
+      "$ref": "commonDefs.json#/definitions/XLink"
+    },
+    "configuration": {
+      "$ref": "Settings.json"
+    },
+    "payloads": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#"
+      }
+    }
+  },
+  "required": [ "system" ]
+}
