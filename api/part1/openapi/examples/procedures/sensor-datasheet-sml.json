@@ -1,7 +1,7 @@
 {
   "type": "PhysicalComponent",
   "id": "iv3f2kcq27gfi",
-  "definition": "http://www.w3.org/ns/sosa/ObservingProcedure",
+  "definition": "http://www.w3.org/ns/sosa/oms/ObservingProcedure",
   "uniqueId": "urn:osh:sensors:saildrone:S0004",
   "label": "3D Ultrasonic Anemometer",
   "description": "Precision 3-axis ultrasonic anemometer",

@@ -13,10 +13,10 @@
       "properties": {
         "definition": {
           "enum": [
-            "http://www.w3.org/ns/sosa/ObservingProcedure",
-            "http://www.w3.org/ns/sosa/ActuationProcedure",
-            "http://www.w3.org/ns/sosa/SamplingProcedure",
-            "http://www.w3.org/ns/sosa/PreparationProcedure",
+            "http://www.w3.org/ns/sosa/oms/ObservingProcedure",
+            "http://www.w3.org/ns/sosa/oms/ActuationProcedure",
+            "http://www.w3.org/ns/sosa/oms/SamplingProcedure",
+            "http://www.w3.org/ns/sosa/oms/PreparationProcedure",
             "http://www.w3.org/ns/sosa/Procedure"
           ]
         },

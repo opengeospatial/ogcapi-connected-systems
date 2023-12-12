@@ -12,10 +12,10 @@
     "featureType": "http://www.w3.org/ns/sosa/Sensor",
     "assetType": "http://www.opengis.net/def/x-OGC/TBD/Equipment",
     "procedure@link": {
-      "href": "https://data.example.org/api/procedures/P456/procedure?f=json",
-      "type" : "application/geo+json",
+      "href": "https://data.example.org/api/procedures/TP60S?f=json",
       "uid": "urn:x-myorg:datasheets:ThermoPro:TP60S:v001",
-      "title": "Thermo Pro TP60S"
+      "title": "Thermo Pro TP60S",
+      "type" : "application/geo+json"
     }
   },
   "links": [
