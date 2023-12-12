@@ -14,28 +14,7 @@ content:
           $ref: ../schemas/common/commonDefs.json#/definitions/Links
   application/geo+json:
     schema:
-      type: object
-      required: features
-      properties:
-        type:
-          type: string
-          const: FeatureCollection
-        features:
-          type: array
-          items:
-            $ref: ../schemas/geojson/deployment.json
-        links:
-          description: Links to related resources (including paging)
-          $ref: ../schemas/common/commonDefs.json#/definitions/Links
+      $ref: ../schemas/geojson/deploymentCollection.json
   application/sml+json:
     schema:
-      type: object
-      required: items
-      properties:
-        items:
-          type: array
-          items:
-            $ref: ../schemas/sensorml/deployment.json
-        links:
-          description: Links to related resources (including paging)
-          $ref: ../schemas/common/commonDefs.json#/definitions/Links
+      $ref: ../schemas/sensorml/deploymentCollection.json

@@ -9,6 +9,13 @@
   description: Success. Resource updated.
 '204_DELETE':
   description: Success. Resource deleted.
+'303_POST':
+  description: The resource already exists.
+  headers:
+    Location:
+      schema:
+        type: string
+      description: URI of the existing resource
 '400':
   description: Bad request. Either the query parameters or the content body are invalid.
 '401':
