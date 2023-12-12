@@ -70,21 +70,22 @@ The core search capability is based on https://ogcapi.ogc.org/common/[OGC API-Co
 
 This API extends these core search capabilities to include:
 
+* Search by resource local ID or UID using the `id` parameter.
 * Geospatial searches using the `geom` parameter that takes a WKT geometry,
 * Full-text searches using the `q` parameter (prefix search only).
-* Search by feature UID using the `uid` parameter.
 
-Additional filters are defined on a per feature type basis, as shown in the following table:
+Additional filters are defined on a per resource type basis, as shown in the following table:
 
 [#query-params,reftext='{table-caption} {counter:table-num}']
 .Query Parameters
 [width="90%",cols="2,4"]
 |====
 | *Requirements Class*       | *Query Parameters*
-| System Features            | `procedure`, `deployment`
-| Procedure Features         | -
-| Deployment Features        | `system`
-| Sampling Features          | `sampledFeature`
+| System Features            | `parent`, `procedure`, `foi`, `observedProperty`, `controlledProperty`
+| Procedure Features         | `foi`, `observedProperty`, `controlledProperty`
+| Deployment Features        | `system`, `foi`, `observedProperty`, `controlledProperty`
+| Sampling Features          | `foi`, `observedProperty`, `controlledProperty`
+| Property Definitions       | `baseProperty`, `object`, `foi`
 |====
 
 See <<clause-advanced-filtering>> for more details.

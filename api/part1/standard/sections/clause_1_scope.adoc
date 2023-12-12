@@ -8,23 +8,7 @@ The following types of resources are made availables through this API:
 
   - *Systems* are features that represent instances of observing systems, platforms, sensors, actuators and samplers.
   - *Deployments* are features that provide information about the deployment of one or more `Systems`. They typically have a temporal and spatial extent.
-  - *Procedures* are non-spatial features describing the procedure implemented by one or more `System` instances.
-  - *Sampling Features* are features used to describe the sampling geometry and/or methodology of a given observing `System`
+  - *Procedures* are non-spatial features describing the procedure implemented by one or more `System` instances (e.g. specs/datasheets and methodologies).
+  - *Sampling Features* are features used to describe the sampling geometry and/or methodology of a given observing `System`.
+  - *Property Definitions* provide the definitions of observable/controllable/system properties derived form well known properties.
 
-
-[#common-paths,reftext='{table-caption} {counter:table-num}']
-.Overview of Resources
-[width="100%",cols="4,10",options="header"]
-|====
-| Resource | Description 
-| Systems |  (metadata of sensors, actuators, platforms, simulations, etc.)
-| Deployments  | (metadata of system deployments)
-| Procedures |  (metadata of procedures implemented by system, which includes automated system specs/datasheets and human driven activities)
-| Sampling Features  | (metadata about sampling geometries/methodologies used by observing systems)
-| Sampled Features |  (metadata about ultimate features of interest, observed or controlled by systems)
-| Datastreams | 
-| Observations | 
-| Control Channels | 
-| Commands | 
-| Command Status | 
-|====
