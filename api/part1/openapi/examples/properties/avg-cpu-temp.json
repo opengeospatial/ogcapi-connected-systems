@@ -2,7 +2,7 @@
   "id": "AverageCpuTemp",
   "label": "Average CPU Temp",
   "description": "Hourly average of the CPU temperature",
-  "baseProperty": "https://qudt.org/vocab/quantitykind/Temperature",
+  "baseProperty": "http://qudt.org/vocab/quantitykind/Temperature",
   "object": "http://dbpedia.org/resource/Central_processing_unit",
   "statistic": "http://sensorml.com/ont/x-stats/HourlyMean"
 }

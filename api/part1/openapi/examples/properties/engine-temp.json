@@ -2,6 +2,6 @@
   "id": "EngineTemp",
   "label": "Engine Temp",
   "description": "Temperature of the engine oil, measured at the bottom of the engine block",
-  "baseProperty": "https://qudt.org/vocab/quantitykind/Temperature",
+  "baseProperty": "http://qudt.org/vocab/quantitykind/Temperature",
   "object": "http://dbpedia.org/resource/Engine"
 }
