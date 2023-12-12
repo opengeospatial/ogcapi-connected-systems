@@ -118,6 +118,9 @@ paths:
   /systems/{systemId}/members:
     $ref: paths/systemMembers.yaml
 
+  /systems/{systemId}/members/{subsystemId}:
+    $ref: paths/systemMembersById.yaml
+
 
   # Procedures
   /procedures:

@@ -1,0 +1,25 @@
+delete:
+  summary: Remove a subsystem from a parent system
+  description: |-
+    This will remove the association between the system and its parent without deleting
+    the actual resource. The subsystem feature will still be available at its canonical URL.
+  tags:
+    - Systems
+  parameters:
+    - $ref: ../parameters/systemId.yaml
+    - $ref: ../parameters/subsystemId.yaml
+  responses:
+    '204':
+      $ref: ../responses/StandardResponses.yaml#/204_DELETE
+    '400':
+      $ref: ../responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../responses/StandardResponses.yaml#/404
+    '409':
+      $ref: ../responses/StandardResponses.yaml#/409_DELETE
+    '5XX':
+      $ref: ../responses/StandardResponses.yaml#/5XX

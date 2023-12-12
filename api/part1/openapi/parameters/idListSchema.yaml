@@ -1,3 +1,4 @@
+description: List of resource local IDs or unique identifiers (URIs).
 oneOf:
   - type: array
     title: Local IDs 
@@ -5,9 +6,9 @@ oneOf:
     items:
       type: string
       minLength: 1
-      maxLength: 50
   - type: array
     title: Unique IDs
     minItems: 1
     items:
-      type: uri
+      type: string
+      format: uri
