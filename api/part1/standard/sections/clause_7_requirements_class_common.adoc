@@ -56,7 +56,7 @@ When exposing resources via OGC API Common collections, the server must indicate
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/collection/type
+identifier:: /req/api-common/collection-type
 
 part:: A resource collection containing one of the feature types defined in this Standard SHALL be a valid feature collection as defined by {ogcapi-features-1}.
 
@@ -70,7 +70,7 @@ Heterogeneous feature collections (i.e. collections containing a mix of feature 
 [permission,model=ogc]
 ====
 [%metadata]
-identifier:: /req/collection/mixed-types
+identifier:: /req/api-common/mixed-types-collection
 
 The server CAN also offer collections containing mixed feature types. The behavior of these mixed collections in not defined by this Standard.
 ====
@@ -91,7 +91,7 @@ The canonical URL of a resource is based on the URL of the catch-all collection 
 [recommendation,model=ogc]
 ====
 [%metadata]
-identifier:: /req/links/canonical
+identifier:: /req/api-common/canonical-links
 
 Any link to a resource whose type is specified by this Standard SHOULD use the resource canonical URL.
 ====
@@ -105,7 +105,7 @@ However, the server must ensure that IDs are unique within a given resource type
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/resource-ids
+identifier:: /req/api-common/resource-ids
 
 The server SHALL ensure that resource IDs are unique across all collections of a given resource type.
 ====
@@ -125,7 +125,7 @@ A Connected Systems API server may hold the summary representation of a building
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/resource-uids
+identifier:: /req/api-common/resource-uids
 
 part:: The server SHALL ensure that resource UIDs (Unique IDs) are unique across all its collections.
 ====
@@ -133,7 +133,7 @@ part:: The server SHALL ensure that resource UIDs (Unique IDs) are unique across
 [recommendation,model=ogc]
 ====
 [%metadata]
-identifier:: /req/resource-uids-types
+identifier:: /req/api-common/resource-uids-types
 
 part:: The server SHOULD ensure that resource UIDs are globally unique URIs, that is either:
 
@@ -149,7 +149,7 @@ As this API extends {ogcapi-features-1}, the server is only required to implemen
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/crs
+identifier:: /req/api-common/crs
 
 conditions:: The server needs to support coordinate reference systems other than `CRS:84` and `CRS:84h`.
 
@@ -162,7 +162,7 @@ The server SHALL implement requirements from {ogcapi-features-2}.
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/filter/simple-query
+identifier:: /req/api-common/simple-query
 
 HTTP GET operations targeting collections of resource types defined in this Standard SHALL support the query parameters defined by requirements class http://www.opengis.net/spec/ogcapi-common-2/1.0/req/simple-query of {ogcapi-common-2}.
 ====
@@ -170,7 +170,7 @@ HTTP GET operations targeting collections of resource types defined in this Stan
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/filter/datetime
+identifier:: /req/api-common/datetime
 
 part:: When the `datetime` query parameter is used to filter a collection of feature types defined in this Standard, the server SHALL use the `validTime` attribute of the features to determine their temporal extent.
 

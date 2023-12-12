@@ -34,7 +34,7 @@ The following constraints must be implemented by the server.
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/create-replace-delete/system/delete-cascade
+identifier:: /req/create-replace-delete/system-delete-cascade
 
 conditions:: The server implements <<clause-system-features,/req/system-features>>
 

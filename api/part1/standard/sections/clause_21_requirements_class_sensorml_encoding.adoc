@@ -156,7 +156,7 @@ part:: A request or response body with media type `{sensorml-json-mediatype}` co
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/sensorml/procedure-attribute-mapping
+identifier:: /req/sensorml/procedure-mappings
 
 A SensorML JSON document representing a `Procedure` resource SHALL implement the mappings specified in <<procedure-attribute-sml-mappings>> and <<procedure-assoc-sml-mappings>>.
 ====
@@ -216,7 +216,7 @@ part:: A request or response body with media type `{sensorml-json-mediatype}` co
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/sensorml/deployment-attribute-mapping
+identifier:: /req/sensorml/deployment-mappings
 
 A SensorML JSON document representing a `Deployment` resource SHALL implement the mappings specified in <<deployment-attribute-sml-mappings>> and <<deployment-assoc-sml-mappings>>.
 ====
@@ -269,7 +269,7 @@ part:: A request or response body with media type `{sensorml-json-mediatype}` co
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/sensorml/property-attribute-mapping
+identifier:: /req/sensorml/property-mappings
 
 A SensorML JSON document representing a `Property` resource SHALL implement the mappings specified in <<property-attribute-sml-mappings>>.
 ====

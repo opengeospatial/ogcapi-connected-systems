@@ -2,7 +2,7 @@
 ====
 [%metadata]
 type:: class
-identifier:: /req/sampling/relative-point
+identifier:: /req/relative-sampling-point
 subject:: Web API
 inherit:: /req/sampling-features
 inherit:: /req/sampling-parametric

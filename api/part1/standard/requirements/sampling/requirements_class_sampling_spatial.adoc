@@ -2,7 +2,7 @@
 ====
 [%metadata]
 type:: class
-identifier:: /req/sampling/sampling-spatial
+identifier:: /req/sampling-spatial
 subject:: Web API
 inherit:: /req/sampling-features
 indirect-dependency:: OGC 10-004r3 - Clause 9: Spatial Sampling Features

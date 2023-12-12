@@ -2,7 +2,7 @@
 ====
 [%metadata]
 type:: class
-identifier:: /req/sampling/spherical-sector
+identifier:: /req/spherical-sector
 subject:: Web API
 inherit:: /req/sampling-features
 inherit:: /req/sampling-parametric

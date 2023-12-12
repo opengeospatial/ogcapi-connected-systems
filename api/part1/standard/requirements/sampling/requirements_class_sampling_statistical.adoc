@@ -2,7 +2,7 @@
 ====
 [%metadata]
 type:: class
-identifier:: /req/sampling/statistical-sample
+identifier:: /req/statistical-sample
 subject:: Web API
 inherit:: /req/sampling-features
 indirect-dependency:: http://www.opengis.net/spec/om/3.0/req/sam-basic/StatisticalSample

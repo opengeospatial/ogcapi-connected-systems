@@ -2,7 +2,7 @@
 ====
 [%metadata]
 type:: class
-identifier:: /req/sampling/material-sample
+identifier:: /req/material-sample
 subject:: Web API
 inherit:: /req/sampling-features
 indirect-dependency:: http://www.opengis.net/spec/om/3.0/req/sam-basic/MaterialSample

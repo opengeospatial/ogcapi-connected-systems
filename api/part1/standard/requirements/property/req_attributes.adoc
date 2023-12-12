@@ -1,7 +1,7 @@
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/property/attributes
+identifier:: /req/property-def/attributes
 
 part:: A `Property` resource SHALL include the attributes listed in <<property-attributes>>.
 

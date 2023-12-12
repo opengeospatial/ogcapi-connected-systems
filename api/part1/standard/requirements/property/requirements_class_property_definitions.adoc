@@ -2,7 +2,7 @@
 ====
 [%metadata]
 type:: class
-identifier:: /req/property-definitions
+identifier:: /req/property-def
 subject:: Web API
 inherit:: /req/api-common
 ====

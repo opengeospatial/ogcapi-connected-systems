@@ -2,7 +2,7 @@
 ====
 [%metadata]
 type:: class
-identifier:: /req/sampling/feature-part
+identifier:: /req/feature-part
 subject:: Web API
 inherit:: /req/sampling-features
 ====

@@ -53,7 +53,7 @@ Below are a few examples for each sub-type of `Spatial Sampling Feature`:
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/sampling/spatial/type
+identifier:: /req/sampling-spatial/type
 
 A `Spatial Sampling Feature` resource SHALL use one of the URIs or CURIEs provided in <<sf-spatial-types>> as the value of the `Feature Type` attribute.
 
@@ -76,7 +76,7 @@ If using a URI or CURIE is not practical, the encoding SHALL explicitely define 
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/sampling/spatial/om
+identifier:: /req/sampling-spatial/om
 
 A `Spatial Sampling Feature` resource SHALL implement the SF_SpatialSamplingFeature class defined in OGC 10-004r3.
 ====
@@ -95,7 +95,7 @@ Support for attributes listed in the following table is required:
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/sampling/spatial/shapes
+identifier:: /req/sampling-spatial/shapes
 
 part:: An implementation of this feature type SHALL support the sub types `SamplingPoint`, `SamplingCurve`, and `SamplingSurface`. Sub type `SamplingSolid` is not required.
 
@@ -109,7 +109,7 @@ Spatial Sampling Features always include a shape (or geometry). For mobile sampl
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/sampling/spatial/location
+identifier:: /req/sampling-spatial/location
 
 A `Sampling Feature` resource SHALL include the latest known location/geometry of the feature.
 ====
@@ -119,7 +119,7 @@ If the parameter `datetime` is used, the geometry must be the geometry of the fe
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/sampling/spatial/location-time
+identifier:: /req/sampling-spatial/location-time
 
 part:: If the implementation supports mobile sampling features, the location/geometry SHALL be reported according to the `datetime` request parameter.
 
@@ -160,7 +160,7 @@ NOTE: A generalization of this class is referred to as _Material Sample_ in http
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/sampling/specimen/type
+identifier:: /req/sampling-specimen/type
 
 The `Feature Type` attribute of a `Specimen Feature` resource SHALL be set to:
 
@@ -175,7 +175,7 @@ If using a URI or CURIE is not practical, the encoding SHALL unambiguously map o
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/sampling/specimen/om
+identifier:: /req/sampling-specimen/om
 
 A `Specimen Feature` resource SHALL implement the SF_Specimen class defined in <<OGC-OM>>.
 ====
@@ -216,7 +216,7 @@ The attributes of this class are recalled below:
 // [requirement,model=ogc]
 // ====
 // [%metadata]
-// identifier:: /req/sampling/material-sample/type
+// identifier:: /req/material-sample/type
 
 // The `Feature Type` property of a `Specimen Feature` resource SHALL be set to:
 
@@ -231,7 +231,7 @@ The attributes of this class are recalled below:
 // [requirement,model=ogc]
 // ====
 // [%metadata]
-// identifier:: /req/sampling/material-sample/attributes
+// identifier:: /req/material-sample/attributes
 
 // A `Material Sample` feature resource SHALL implement the `MaterialSample` class defined in <<OGC-OMS>>.
 // ====
@@ -275,7 +275,7 @@ This type of sampling feature is defined in https://docs.ogc.org/as/20-082r4/20-
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/sampling/statistical-sample/type
+identifier:: /req/statistical-sample/type
 
 The `Feature Type` attribute of a `Statistical Sample` resource SHALL be set to:
 
@@ -290,7 +290,7 @@ If using a URI or CURIE is not practical, the encoding SHALL unambiguously map o
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/sampling/statistical-sample/attributes
+identifier:: /req/statistical-sample/attributes
 
 A `Statistical Sample` feature resource SHALL implement the `StatisticalSample` class defined in <<OGC-OMS>>.
 ====
@@ -336,7 +336,7 @@ NOTE: Since this API does not allow linking an observation to the ultimate featu
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/sampling/feature-part/type
+identifier:: /req/feature-part/type
 
 The `Feature Type` attribute of a `Feature Part` resource SHALL be set to:
 
@@ -351,7 +351,7 @@ If using a URI or CURIE is not practical, the encoding SHALL unambiguously map o
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/sampling/feature-part/attributes
+identifier:: /req/feature-part/attributes
 
 part:: A `Feature Part` sampling feature SHALL include all mandatory attributes listed in <<sf-part-attributes>>.
 
@@ -390,7 +390,7 @@ All parametric sampling features share some requirements that are detailed below
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/sampling/parametric/attributes
+identifier:: /req/sampling-parametric/attributes
 
 part:: A `Parametric Sampling Feature` resource SHALL support the attributes listed in <<sf-parametric-attributes>>.
 
@@ -418,7 +418,7 @@ The allowed values for the `pose` attribute are "GeoPose Basic" instances or "Se
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/sampling/parametric/pose
+identifier:: /req/sampling-parametric/pose
 
 part:: The value of the `pose` attribute SHALL be one of the following:
   - A GeoPose Basic-YPR instance
@@ -468,7 +468,7 @@ The orientation part of the pose is not used in the `Relative Sampling Point` cl
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/sampling/relative-point/type
+identifier:: /req/relative-sampling-point/type
 
 The `Feature Type` attribute of a `Relative Sampling Point` resource SHALL be set to:
 
@@ -485,7 +485,7 @@ This Standard does not define any additional attributes for the `Relative Sampli
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/sampling/relative-point/pose
+identifier:: /req/relative-sampling-point/pose
 
 The `pose` attribute SHALL contain the . It SHALL not contain any orientation information.
 ====
@@ -503,7 +503,7 @@ include::../requirements/sampling/requirements_class_sampling_sphere.adoc[]
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/sampling/sphere/type
+identifier:: /req/sampling-sphere/type
 
 The `Feature Type` attribute of a `Sampling Sphere` resource SHALL be set to:
 
@@ -518,7 +518,7 @@ If using a URI or CURIE is not practical, the encoding SHALL unambiguously map o
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/sampling/sphere/attributes
+identifier:: /req/sampling-sphere/attributes
 
 part:: A `Sampling Sphere` feature SHALL support the attributes listed in <<sf-sphere-attributes>>.
 
@@ -564,7 +564,7 @@ NOTE: Although a `SamplingCurve` feature can be used to model a profile, it requ
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/sampling/profile/type
+identifier:: /req/sampling-profile/type
 
 The `Feature Type` attribute of a `Sampling Profile` resource SHALL be set to:
 
@@ -579,7 +579,7 @@ If using a URI or CURIE is not practical, the encoding SHALL unambiguously map o
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/sampling/profile/attributes
+identifier:: /req/sampling-profile/attributes
 
 part:: A `Sampling Profile` feature SHALL support the attributes listed in <<sf-profile-attributes>>.
 
@@ -630,7 +630,7 @@ NOTE: The real viewing volume of an optical imager has a more complex shape due 
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/sampling/viewing-frustum/type
+identifier:: /req/viewing-frustum/type
 
 The `Feature Type` attribute of a `Viewing Frustum` resource SHALL be set to:
 
@@ -645,7 +645,7 @@ If using a URI or CURIE is not practical, the encoding SHALL unambiguously map o
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/sampling/viewing-frustum/attributes
+identifier:: /req/viewing-frustum/attributes
 
 part:: A `Viewing Frustum` feature SHALL support the attributes listed in <<sf-frustum-attributes>>.
 
@@ -705,7 +705,7 @@ A `Spherical Sectors` is a 3D sampling feature whose geometry is defined as a pa
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/sampling/spherical-sector/type
+identifier:: /req/spherical-sector/type
 
 The `Feature Type` attribute of a `Spherical Sector` resource SHALL be set to:
 
@@ -720,7 +720,7 @@ If using a URI or CURIE is not practical, the encoding SHALL unambiguously map o
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/sampling/spherical-sector/attributes
+identifier:: /req/spherical-sector/attributes
 
 part:: A `Spherical Sector` feature SHALL support the attributes listed in <<sf-spherical-sector-attributes>>.
 

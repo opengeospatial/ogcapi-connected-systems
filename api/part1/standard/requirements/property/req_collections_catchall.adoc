@@ -1,7 +1,7 @@
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/property/collection-catchall
+identifier:: /req/property-def/collection-catchall
 
 part:: The server SHALL expose a collection containing all available `Property` resources at URL `{api_root}/properties`.
 
