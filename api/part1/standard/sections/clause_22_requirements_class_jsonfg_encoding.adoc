@@ -1,39 +1,54 @@
 
 [[clause-encoding-jsonfg]]
-== Requirements Class "JSON-FG Format"
+=== Requirements Class "JSON-FG Format"
+
+==== Overview
+
 include::../requirements/encoding/jsonfg/requirements_class_jsonfg.adoc[]
-
-
-=== Overview
 
 This requirements class specifies how `Feature` descriptions provided through the API are encoded using the JSON-FG format.
 All feature types defined by this Standard can be encoded as JSON-FG.
 
 
-=== Media Type
+==== Media Type
 
 
 
-=== Common Feature Encoding Rules
-
-#TODO#
-
-
-=== System Encoding Rules
+==== Common Feature Encoding Rules
 
 #TODO#
 
 
-=== Procedure Encoding Rules
+==== System Encoding Rules
 
 #TODO#
 
 
-=== Deployment Encoding Rules
+==== Procedure Encoding Rules
 
 #TODO#
 
 
-=== SamplingFeature Encoding Rules
+==== Deployment Encoding Rules
 
 #TODO#
+
+
+==== SamplingFeature Encoding Rules
+
+#TODO#
+
+
+
+==== Batch Mode
+
+Multiple features can be added using the JSON-FG format when wrapped into a FeatureCollection.
+
+===== Create multiple resources in same collection
+
+
+
+
+===== Replace multiple resources in same collection
+
+Need to keep the resource ID in the content in this case

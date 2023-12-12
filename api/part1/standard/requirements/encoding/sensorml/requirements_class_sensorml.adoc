@@ -2,7 +2,7 @@
 ====
 [%metadata]
 type:: class
-identifier:: /req/encoding/sensorml
+identifier:: /req/sensorml
 subject:: Web API
 inherit:: /req/api-common
 indirect-dependency:: SensorML, http://www.opengis.net/spec/sensorml/2.1/req/core

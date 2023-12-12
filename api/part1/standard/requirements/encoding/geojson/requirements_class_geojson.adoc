@@ -2,7 +2,7 @@
 ====
 [%metadata]
 type:: class
-identifier:: /req/encoding/geojson
+identifier:: /req/geojson
 subject:: Web API
 inherit:: /req/api-common
 inherit:: http://www.opengis.net/spec/ogcapi-features-1/1.0/req/geojson

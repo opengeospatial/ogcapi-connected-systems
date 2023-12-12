@@ -1,0 +1,7 @@
+[permission,model=ogc]
+====
+[%metadata]
+identifier:: /req/sampling/collection-others
+
+part:: The server CAN expose additional collections of `Sampling Feature` resources using the feature collection mechanism documented in {ogcapi-features-1}.
+====

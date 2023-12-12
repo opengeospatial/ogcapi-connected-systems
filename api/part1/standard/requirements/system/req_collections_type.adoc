@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/system/collection-type
+
+The server SHALL identify all collections containing `System` features by setting the value of the `featureType` attribute to `system`.
+====

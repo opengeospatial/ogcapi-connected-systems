@@ -23,45 +23,26 @@ Another key design decision was to allow linking to other OGC APIs whenever poss
 Models from the {ogc-w3c-ssn} are the basis for the API design, with the help of more concrete models like O&M/OMS and SensorML.
 
 
-=== Security Considerations
+=== Resource Types
 
-#TODO#
-
-Need for authentication
-
-Need for encryption
-
-Need for signed content
-
-Need for business logic to avoid users to alter content created by others 
-
-
-=== Requirements Classes
-
-Most requirements classes of this Standard can be implemented independently. For example, a given implementation can choose to implement only `System` and `Deployment` features and rely on other servers to host complementary data such as `Procedures`, Domain Features, or Dynamic Data (see part 2 of this Standard).
-
-This is made possible thanks to the use of hyperlinks that don't require that all resources be hosted at the same endpoint.
-
-
-=== Feature Types
-
-All resources defined in Part 1 of this Standard are features and are grouped into feature collections. <<api-class-diagram>> shows a UML class diagram of the Connected Systems API resources (Part 2 resources are shown with a dashed outline).
+<<api-class-diagram>> shows a UML class diagram of the Connected Systems API resources (Part 2 resources are shown with a dashed outline).
 
 [#api-class-diagram,reftext='{figure-caption} {counter:figure-num}']
 .Class diagram of API resources
 image::./figures/FIG001-resource-diagram.png[api-class-diagram, align="center"]
 
-All resources defined in part 1 of this Standard are feature types, each of which is defined in its own requirements class. The table below provides an overview of these feature types:
+All resources defined in part 1 of this Standard are feature types, except for the `Property Definition` resource. Each resource type is defined in its own requirements class. The table below provides an overview of these resource types:
 
 [#feature-types,reftext='{table-caption} {counter:table-num}']
-.Overview of feature types defined by this Standard
-[width="90%",cols="2,6,4,2"]
+.Overview of resource types defined by this Standard
+[width="90%",cols="2,2,6,3"]
 |====
-| *Feature Type*      | *Description* | *Requirements Class*          | *Possible Encodings*
-| System              | <<clause-system-features>> | Description of system instances such as sensors, platforms, human observers, etc.  | GeoJSON, JSON-FG, SML-JSON
-| Procedure           | <<clause-procedure-features>> | Description of procedures implemented by systems such as datasheets or methods (e.g. system types). | GeoJSON, JSON-FG, SML-JSON
-| Deployment          | <<clause-deployment-features>> | Description of deployments involving one or more systems for a particular purpose. | GeoJSON, JSON-FG, SML-JSON
-| Sampling Feature    | <<clause-sampling-features>> | Description of sampling strategies associated to particular systems (e.g. sampling geometry or method). | GeoJSON, JSON-FG
+| *Resource Type*      | *Requirements Class*           | *Description* | *Possible Encodings*
+| System (Feature)     | <<clause-system-features>>     | Description of system instances such as sensors, platforms, human observers, etc.  | GeoJSON, JSON-FG, SML-JSON
+| Procedure (Feature)  | <<clause-procedure-features>>  | Description of procedures implemented by systems such as datasheets or methods (e.g. system types). | GeoJSON, JSON-FG, SML-JSON
+| Deployment (Feature) | <<clause-deployment-features>> | Description of deployments involving one or more systems for a particular purpose. | GeoJSON, JSON-FG, SML-JSON
+| Sampling Feature     | <<clause-sampling-features>>   | Description of sampling strategies associated to particular systems (e.g. sampling geometry or method). | GeoJSON, JSON-FG
+| Property Definition  | <<clause-property-definitions>>  | Description of feature properties (observable properties, controllable properties, system properties). | SML-JSON
 |====
 
 NOTE: The listed encodings are the ones defined in this Standard but extensions can define additional encodings.
@@ -71,7 +52,7 @@ NOTE: The listed encodings are the ones defined in this Standard but extensions 
 
 <<OGC-API-Features,OGC API - Features>> mandates that its resources be organized into Feature Collections. In addition to the feature types themselves, this Standards specifies how to identify collections that contain a given feature type.
 
-This is done using an additional property on the Collection resource called `featureType`. Each requirements class defining a new feature type also defines the value to use for this property when creating a collection of this feature type.
+This is done using an additional attribute on the Collection resource called `featureType`. Each requirements class defining a new feature type also defines the value to use for this attribute when creating a collection of this feature type.
 
 
 === Paged Responses
@@ -107,3 +88,23 @@ Additional filters are defined on a per feature type basis, as shown in the foll
 |====
 
 See <<clause-advanced-filtering>> for more details.
+
+
+=== Security Considerations
+
+#TODO#
+
+Need for authentication
+
+Need for encryption
+
+Need for signed content
+
+Need for business logic to avoid users to alter content created by others 
+
+
+=== Requirements Classes
+
+Most requirements classes of this Standard can be implemented independently. For example, a given implementation can choose to implement only `System` and `Deployment` features and rely on other servers to host complementary data such as `Procedures`, Domain Features, or Dynamic Data (see part 2 of this Standard).
+
+This is made possible thanks to the use of hyperlinks that don't require that all resources be hosted at the same endpoint.

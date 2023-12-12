@@ -1,0 +1,11 @@
+[recommendation,model=ogc]
+====
+[%metadata]
+identifier:: /req/subsystem/collection/datetime
+
+part:: When the `datetime` parameter is ommitted, the server CAN also include all subsystems that are currently deployed on the parent system (i.e. the association is made via a `Deployment` resource that is currently valid).
+
+part:: When the `datetime` parameter is set to a time instant, the server CAN also include all subsystems that were deployed on the parent system at the specified time. This condition is true when the association is made via a `Deployment` resource whose valid time period contains the specified time instant.
+
+part:: When the `datetime` parameter is set to a time period, the server CAN also include all subsystems that were deployed on the parent system during the specified time period. This condition is true when the association is made via any `Deployment` resource whose valid time period intersects the specified time period.
+====

@@ -18,19 +18,40 @@
 :local-cache-only:
 :data-uri-image:
 :edition: 1.0
-
-
-:ogcapi-common: https://ogcapi.ogc.org/common[OGC API - Common]
-:ogcapi-common-1: https://docs.ogc.org/DRAFTS/19-072.html[OGC API - Common - Part 1]
-:ogcapi-common-2: https://docs.ogc.org/DRAFTS/20-024.html[OGC API - Common - Part 2]
-:ogcapi-features: https://ogcapi.ogc.org/features[OGC API - Features]
-:ogcapi-features-1: https://docs.ogc.org/is/17-069r4/17-069r4.html[OGC API - Features - Part 1]
-:ogcapi-features-4: https://docs.ogc.org/DRAFTS/20-002.html[OGC API - Features - Part 4]
-:ogc-w3c-ssn: https://www.w3.org/TR/vocab-ssn[Semantic Sensor Network Ontology]
-
-
-:jsonschema-base-url: https://raw.githubusercontent.com/opengeospatial/connected-systems/master/api/part1/openapi/schemas
-
+//
+:ogcapi-common: <<OGCAPI-Common-1, OGC API - Common>>
+:ogcapi-common-1: <<OGCAPI-Common-1, OGC API - Common - Part 1>>
+:ogcapi-common-2: <<OGCAPI-Common-2, OGC API - Common - Part 2>>
+:ogcapi-features: <<OGCAPI-Features-1, OGC API - Features>>
+:ogcapi-features-1: <<OGCAPI-Features-1, OGC API - Features - Part 1>>
+:ogcapi-features-2: <<OGCAPI-Features-2, OGC API - Features - Part 2>>
+:ogcapi-features-4: <<OGCAPI-Features-4, OGC API - Features - Part 4>>
+:ogc-w3c-ssn: <<SOSA-SSN, Semantic Sensor Network Ontology>>
+//:jsonschema-root: https://raw.githubusercontent.com/opengeospatial/connected-systems/master/api/part1/openapi/schemas
+:jsonschema-root: ../openapi/schemas
+:add-byref-schema: link:{jsonschema-root}/common/links.json[links.json]
+:batch-response-schema: link:{jsonschema-root}/common/batch_response.json[batch_response.json]
+:batch-delete-schema: link:{jsonschema-root}/common/batch_delete.json[batch_delete.json]
+//
+:geojson-schema-root: {jsonschema-root}/geojson
+:geojson-system-schema: link:{geojson-schema-root}/system.json[system.json]
+:geojson-system-collection-schema: link:{geojson-schema-root}/systemCollection.json[systemCollection.json]
+:geojson-procedure-schema: link:{geojson-schema-root}/procedure.json[procedure.json]
+:geojson-procedure-collection-schema: link:{geojson-schema-root}/procedureCollection.json[procedureCollection.json]
+:geojson-deployment-schema: link:{geojson-schema-root}/deployment.json[deployment.json]
+:geojson-deployment-collection-schema: link:{geojson-schema-root}/deploymentCollection.json[deploymentCollection.json]
+:geojson-samplingFeature-schema: link:{geojson-schema-root}/anySamplingFeature.json[anySamplingFeature.json]
+:geojson-samplingFeature-collection-schema: link:{geojson-schema-root}/samplingFeatureCollection.json[samplingFeatureCollection.json]
+//
+:sensorml-schema-root: {jsonschema-root}/sensorml
+:sensorml-system-schema: link:{sensorml-schema-root}/system.json[system.json]
+:sensorml-system-collection-schema: link:{sensorml-schema-root}/systemCollection.json[systemCollection.json]
+:sensorml-procedure-schema: link:{sensorml-schema-root}/procedure.json[procedure.json]
+:sensorml-procedure-collection-schema: link:{sensorml-schema-root}/procedureCollection.json[procedureCollection.json]
+:sensorml-deployment-schema: link:{sensorml-schema-root}/deployment.json[deployment.json]
+:sensorml-deployment-collection-schema: link:{sensorml-schema-root}/deploymentCollection.json[deploymentCollection.json]
+:sensorml-property-schema: link:{sensorml-schema-root}/property.json[property.json]
+:sensorml-property-collection-schema: link:{sensorml-schema-root}/propertyCollection.json[propertyCollection.json]
 
 ////
 Make sure to complete each included document
@@ -51,7 +72,9 @@ include::sections/clause_6_overview.adoc[]
 
 include::sections/clause_7_requirements_class_common.adoc[]
 
-include::sections/clause_9_requirements_class_system_features.adoc[]
+include::sections/clause_8_requirements_class_system_features.adoc[]
+
+include::sections/clause_9_requirements_class_system_components.adoc[]
 
 include::sections/clause_10_requirements_class_procedure_features.adoc[]
 
@@ -59,13 +82,18 @@ include::sections/clause_11_requirements_class_deployment_features.adoc[]
 
 include::sections/clause_12_requirements_class_sampling_features.adoc[]
 
-include::sections/clause_13_requirements_class_system_components.adoc[]
+include::sections/clause_13_sampling_feature_types.adoc[]
 
-include::sections/clause_14_requirements_class_derived_properties.adoc[]
+include::sections/clause_14_requirements_class_property_definitions.adoc[]
 
 include::sections/clause_15_requirements_class_advanced_filtering.adoc[]
 
-include::sections/clause_16_requirements_class_feature_crud.adoc[]
+include::sections/clause_16_requirements_class_create_replace_delete.adoc[]
+
+include::sections/clause_17_requirements_class_update.adoc[]
+
+[[clause-encodings]]
+== Requirements Classes for Encodings
 
 include::sections/clause_20_requirements_class_geojson_encoding.adoc[]
 

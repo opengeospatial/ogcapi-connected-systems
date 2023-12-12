@@ -1,10 +1,8 @@
 [[clause-api-common]]
 == Requirements Class "Common"
-include::../requirements/common/requirements_class_common.adoc[]
-
-
 
 === Overview
+include::../requirements/common/requirements_class_common.adoc[]
 
 This requirements class regroups core dependencies that all other requirements class inherit.
 It also provides clarifications on the use of {ogcapi-common} constructs.
@@ -17,103 +15,166 @@ The landing page provides links to start exploration of the resources offered by
 
 === API definition
 
-Every API is required to provide a definition document that describes the capabilities of that API.
-This definition document can be used by developers to understand the API, by software clients to connect to the server, or by development tools to support the implementation of servers and clients.
+Every API is required to provide a definition document that describes the capabilities of that API. This definition document can be used by developers to understand the API, by software clients to connect to the server, or by development tools to support the implementation of servers and clients.
 
 Implementation must comply with requirements defined in {ogcapi-common} when generating the API definition document.
 
 
 === Collections
 
-This API defines several feature types that are intended to be offered by the server in separate collections.
+This API defines several resource types that are intended to be offered by the server via separate collections. 
 
-[[req_collection-type]]
-[width="90%",cols="2,6a",options="header"]
-|===
-^|*Requirement {counter:req-id}* |*/req/collection/type*
-^| A | All feature collections containing the feature types defined in this Standard SHALL have a `featureType` property.
-^| B | Any such collection SHALL also have its `itemType` property set to the value `feature`.
-|===
+This API uses two types of collections:
 
-[[req_collection-nomix]]
-[width="90%",cols="2,6a",options="header"]
-|===
-^|*Requirement {counter:req-id}* |*/req/collection/nomix*
-^| A | The server SHALL expose separate collections for each feature type defined in this Standard. Mixing feature types in the same collection is not allowed.
-|===
+  - Root Collections
+  - OGC API Common Resource Collections
 
-A given instance of a feature type defined in this Standard can be made available via one or more collections.
+==== Root Collections
 
-At the minimum, each feature instance is available via a catch-all collection including all instances of the same feature type. The catch-all collection for a given feature type is specified by the corresponding requirements class.
+The root (or catch-all) collections are mandatory and have simple URLs located directly at the API root. They contain all resources of a given type exposed by the server. They provide a default endpoint for search queries that target all resources of a given type and are also used to generate canonical resource URLs.
 
-
-=== Links
-
-Since feature resources defined by this Standard can be accessed through multiple collections, any direct link to a feature instance (referenced by ID) must use its canonical URL.
-
-The canonical URL for a feature resource is the one that accesses it through the catch-all collection of the corresponding feature type. These collections are rooted at the following URLs:
+The root collections for resource types defined by this Standard are:
 
 - `{api_root}/systems`
 - `{api_root}/procedures`
 - `{api_root}/deployments`
 - `{api_root}/samplingFeatures`
+- `{api_root}/properties`
 
-This leads to the following canonical URL templates for individual feature resources:
+The catch-all collection for a given resource type is specified by the corresponding requirements class.
 
-- `{api_root}/systems/{sysId}`
-- `{api_root}/procedures/{procId}`
-- `{api_root}/deployments/{depId}`
-- `{api_root}/samplingFeatures/{sfId}`
+==== OGC API Common Collections
 
-[[req_links-canonical]]
-[width="90%",cols="2,6a",options="header"]
-|===
-^|*Requirement {counter:req-id}* |*/req/links/canonical*
-^| A | All links to resources corresponding to instances of a feature type defined by this Standard SHALL use the resource's canonical URL.
-|===
+These resource collections are governed by requirements from {ogcapi-common-2} (and also from {ogcapi-features-1} for feature collections).
+
+This API makes use of the collection mechanism specified in these two Standards to allow a server to provide a more organized view of its content, by grouping them into logical collections according to any criteria. Thus, OGC API Common collections provide a secondary way of getting to the resources that are already available through the root collections.
+
+Note that a given resource can be made available trough one or more OGC API Common collections (i.e. collections can overlap). This provides great flexibility for a server to organize resources according to multiple criterias and thus provide different view points to the client simultaneously. See the requirements classes of the different feature types for examples.
+
+When exposing resources via OGC API Common collections, the server must indicate the type of the items contained in the collection. This is done using the `itemType` attribute of the collection. For feature collections, the `itemType` is always set to `feature`, so this Standard defines the `featureType` attribute to further specify the type of features contained in the collection.  
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/collection/type
+
+part:: A resource collection containing one of the feature types defined in this Standard SHALL be a valid feature collection as defined by {ogcapi-features-1}.
+
+part:: A feature collection containing exactly one of the feature types defined in this Standard SHALL have a `featureType` attribute.
+
+part:: If a collection is tagged with the `featureType` attribute, all items in the collection SHALL be resources of the specified type.
+====
+
+Heterogeneous feature collections (i.e. collections containing a mix of feature types) are allowed but this Standard does not define the behavior of such collections.
+
+[permission,model=ogc]
+====
+[%metadata]
+identifier:: /req/collection/mixed-types
+
+The server CAN also offer collections containing mixed feature types. The behavior of these mixed collections in not defined by this Standard.
+====
 
 
-=== Unique Identifiers (UID)
+=== Links
 
-This standard mandates that all feature resources have a globally unique identifier that is independent from the resource URL. This is needed to carry the identity of a feature across services, as multiple servers may host different representations of the same feature.
+Since resources defined by this Standard can be discovered through multiple collections, it is recommended to always link to a given resource using its canonical URL (e.g. `{api_root}/systems/{id}`) instead of the collection based URL (e.g. `{api_root}/collections/my_system_collection/{id}`).
 
-NOTE: A Connected Systems API server may hold the summary representation of a building, while the feature API server of the land register contains its 2D footprint, and the emergency response server contains its detailed 3D structure. All 3 representations should refer to the same identifier so they can be related to each other.
+The canonical URL of a resource is based on the URL of the catch-all collection of the corresponding resource type. This leads to the following canonical URLs for resource types defined by this Standard:
+
+- `{api_root}/systems/{id}`
+- `{api_root}/procedures/{id}`
+- `{api_root}/deployments/{id}`
+- `{api_root}/samplingFeatures/{id}`
+- `{api_root}/properties/{id}`
+
+[recommendation,model=ogc]
+====
+[%metadata]
+identifier:: /req/links/canonical
+
+Any link to a resource whose type is specified by this Standard SHOULD use the resource canonical URL.
+====
 
 
 === Resource IDs
 
 Resource IDs are typically generated by the server and are not guaranteed to be globally unique.
-However, the server must ensure that IDs are unique within a given feature type.
+However, the server must ensure that IDs are unique within a given resource type and/or feature type.
 
-[[req_resource-id-unique]]
-[width="90%",cols="2,6a",options="header"]
-|===
-^|*Requirement {counter:req-id}* |*/req/unique-ids*
-^| A | The server SHALL ensure that feature IDs are unique across all collections of a given feature type.
-|===
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/resource-ids
+
+The server SHALL ensure that resource IDs are unique across all collections of a given resource type.
+====
+
+
+=== Unique Identifiers (UID)
+
+This standard mandates that some resource types (e.g. feature resources) have a globally unique identifier that is independent from the resource URL. This is needed to carry the identity of the real-world object that a resource represents across services, as multiple servers may host different representations/descriptions of the same object.
+
+[example%unnumbered]
+====
+*Example*
+
+A Connected Systems API server may hold the summary representation of a building, while the feature API server of the land register contains its 2D footprint, and the emergency response server contains its detailed 3D structure. All 3 representations should refer to the same identifier so they can be related to each other.
+====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/resource-uids
+
+part:: The server SHALL ensure that resource UIDs (Unique IDs) are unique across all its collections.
+====
+
+[recommendation,model=ogc]
+====
+[%metadata]
+identifier:: /req/resource-uids-types
+
+part:: The server SHOULD ensure that resource UIDs are globally unique URIs, that is either:
+
+- URNs for 128-bits Universally Unique Identifiers (UUID) (prefixed by `urn:uuid:`, see RFC4122)
+- URNs using a namespace registered with IANA
+====
 
 
 === Coordinate Reference Systems
 
-#TODO#
+As this API extends {ogcapi-features-1}, the server is only required to implement support for `CRS:84` (longitude, latitude) and `CRS:84h` (longitude, latitude, height). However, if support for more CRS is needed, the server can also implement requirements from {ogcapi-features-2}.
 
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/crs
+
+conditions:: The server needs to support coordinate reference systems other than `CRS:84` and `CRS:84h`.
+
+The server SHALL implement requirements from {ogcapi-features-2}.
+====
 
 
 === Simple Queries
 
-[[req_filter-simple-query]]
-[width="90%",cols="2,6a",options="header"]
-|===
-^|*Requirement {counter:req-id}* |*/req/filter/simple-query*
-^| A | HTTP GET operations targeting collections of feature types defined in this Standard SHALL support the query parameters defined by requirements class http://www.opengis.net/spec/ogcapi-common-2/1.0/req/simple-query of {ogcapi-common-2}.
-|===
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/filter/simple-query
 
-[[req_filter-datetime]]
-[width="90%",cols="2,6a",options="header"]
-|===
-^|*Requirement {counter:req-id}* |*/req/filter/datetime*
-^| A | When the `datetime` query parameter is used to filter a collection of feature types defined in this Standard, the server SHALL use the `validTime` property of the features to determine their temporal extent.
-^| B | Only features with a `validTime` period that intersects the value of the `datetime` query parameter, or features that don't report any temporal validity, SHALL be included in the result set.
-|===
+HTTP GET operations targeting collections of resource types defined in this Standard SHALL support the query parameters defined by requirements class http://www.opengis.net/spec/ogcapi-common-2/1.0/req/simple-query of {ogcapi-common-2}.
+====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/filter/datetime
+
+part:: When the `datetime` query parameter is used to filter a collection of feature types defined in this Standard, the server SHALL use the `validTime` attribute of the features to determine their temporal extent.
+
+part:: Only features with a `validTime` period that intersects the value of the `datetime` query parameter, or features that don't report any temporal validity (i.e. `validTime` attribute is `null` or not set), SHALL be included in the result set.
+====
 
 See <<clause-advanced-filtering>> for more filtering options.

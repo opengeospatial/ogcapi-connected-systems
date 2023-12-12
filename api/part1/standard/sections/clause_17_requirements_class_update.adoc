@@ -1,0 +1,161 @@
+
+[[clause-resource-update]]
+== Requirements Class "Update"
+
+=== Overview
+include::../requirements/crud/update/requirements_class_update.adoc[]
+
+This requirements class specifies how instances of the feature types defined previously are updated using the API.
+
+All resources are updated using the HTTP PATCH operation as specified by {ogcapi-features-4}.
+
+
+=== Systems
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/resource-update/system
+
+conditions:: The server implements <<clause-system-features,/req/system-features>>
+
+part:: The server SHALL implement support for the PATCH operation, as specified by requirements class "Update" of {ogcapi-features-4}, at the following endpoints:
+  - `{api_root}/systems/{id}`
+  - `{api_root}/collections/all_systems/items/{id}`
+
+part:: The server MAY also implement support for PATCH operations in other `System` collections.
+====
+
+
+=== Subsystems
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/resource-update/subsystem
+
+conditions:: The server implements <<clause-system-components,/req/system-components>>
+
+part:: The server SHALL implement support for the PATCH operation, as specified by requirements class "Update" of {ogcapi-features-4}, at the following endpoints:
+  - `{api_root}/systems/{subsystemId}`
+  - `{api_root}/systems/{parentId}/members/{subsystemId}`
+====
+
+
+=== Procedures
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/resource-update/procedure
+
+conditions:: The server implements <<clause-procedure-features,/req/procedure-features>>
+
+part:: The server SHALL implement support for the PATCH operation, as specified by requirements class "Update" of {ogcapi-features-4}, at the following endpoints:
+  - `{api_root}/procedures/{id}`
+  - `{api_root}/collections/all_procedures/items/{id}`
+
+part:: The server MAY also implement support for PATCH operations in other `Procedure` collections.
+====
+
+
+=== Deployments
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/resource-update/deployment
+
+conditions:: The server implements <<clause-deployment-features,/req/deployment-features>>
+
+part:: The server SHALL implement support for the PATCH operation, as specified by requirements class "Update" of {ogcapi-features-4}, at the following endpoints:
+  - `{api_root}/deployments/{id}`
+  - `{api_root}/collections/all_deployments/items/{id}`
+
+part:: The server MAY also implement support for PATCH operations in other `Deployment` collections.
+====
+
+
+=== Sampling Features
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/resource-update/sampling-feature
+
+conditions:: The server implements <<clause-sampling-features,/req/sampling-features>>
+
+part:: The server SHALL implement support for the PATCH operation, as specified by requirements class "Update" of {ogcapi-features-4}, at the following endpoints:
+  - `{api_root}/systems/{parentId}/samplingFeatures/{id}`
+  - `{api_root}/samplingFeatures/{id}`
+  - `{api_root}/collections/all_sampling_features/items/{id}`
+
+part:: The server MAY also implement support for PATCH operations in other `Sampling Feature` collections.
+====
+
+
+=== Derived Properties
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/resource-update/property
+
+conditions:: The server implements <<clause-derived-properties,/req/derived-properties>>
+
+part:: The server SHALL implement support for the PATCH operation, as specified by requirements class "Update" of {ogcapi-features-4}, at the following endpoints:
+  - `{api_root}/properties/{id}`
+  - `{api_root}/collections/all_properties/items/{id}`
+
+part:: The server MAY also implement support for PATCH operations in other `Property` collections.
+====
+
+
+=== Batch Mode
+
+==== Batch Update
+
+===== Operation
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/resource-update/batch-update-op
+
+The BATCH UPDATE operation SHALL be implemented as an HTTP PATCH request on the resource collection that contains the resources to be updated.
+====
+
+===== Request Body
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/resource-update/batch-update-request
+
+part:: The URL of the PATCH request SHALL identify the representation to be patched.
+
+part:: The body of the PATCH request SHALL contain a list of change instructions for each resource to be updated in the collection.
+
+part:: Each item in the list SHALL contain the `id` of an existing resource to be updated.
+
+part:: The `Content-Type` header SHALL be set to a media type that defines a proper patch format (e.g. JSON Patch, JSON Merge-Patch).
+====
+
+===== Response
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/resource-update/batch-update-response
+
+conditions:: The request is successful or partially successful
+
+part:: The response body SHALL be valid according to the JSON schema {batch-response-schema}.
+
+part:: For each resource patch included in the request, the response SHALL contain exactly one JSON object with the following data:
+  - The `id` attribute SHALL contain the value of the `id` of the resource as provided in the request.
+  - The `status` attribute SHALL contain the HTTP status code that would have been returned if the resource had been added individually using a REPLACE operation.
+  - The `error` attribute MAY contain an error message describing why the operation failed for this resource.
+====
+
+

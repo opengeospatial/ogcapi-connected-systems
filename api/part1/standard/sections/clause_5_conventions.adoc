@@ -1,6 +1,5 @@
 == Conventions
 
-This sections provides details and examples for any conventions used in the document. Examples of conventions are symbols, abbreviations, use of XML schema, or special notes regarding how to read the document.
 
 === Identifiers
 The normative provisions in this standard are denoted by the URI
@@ -10,27 +9,52 @@ The normative provisions in this standard are denoted by the URI
 All requirements and conformance tests that appear in this document are denoted by partial URIs which are relative to this base.
 
 
+=== URL Templates
+
+URL template notation is used in various places in this document.
+
+Fixed parts of the URL are written as plain string while the variable parts of the URL (i.e. the parameters) are surrounded by curly brackets `{ }`.
+
+In particular, the following parameters are used in various places:
+
+- `{api_root}` denotes the base URL of the API, which corresponds to the landing page
+- `{id}` denotes the local ID of a resource
+
+
 === Abbreviated terms
 
 In this document the following abbreviations and acronyms are used or introduced:  
 
 - API: Application Programming Interface
-- CRS:	Coordinate Reference System
+- CPU: Central Processing Unit
+- CRS: Coordinate Reference System
 - CSML:	Climate Science Modeling Language
-- GPS:	Global Positioning System
-- ISO:	International Organization for Standardization
+- ENU: East North Up
+- GPS: Global Positioning System
+- HTTP: Hypertext Transfer Protocol
+- ISO: International Organization for Standardization
+- LTP: Local Tangent Plane
 - MISB:	Motion Imagery Standards Board
-- OGC:	Open Geospatial Consortium
-- SAS:	Sensor Alert Service
+- NED: North East Down
+- OGC: Open Geospatial Consortium
+- SAS: Sensor Alert Service
 - SensorML:	Sensor Model Language
-- SI:	Système International (International System of Units)
-- SOS:	Sensor Observation Service
-- SPS:	Sensor Planning Service
-- SWE:	Sensor Web Enablement
-- TAI:	Temps Atomique International (International Atomic Time)
-- UML:	Unified Modeling Language
-- UTC:	Coordinated Universal Time
-- XML:	eXtended Markup Language
+- SI: Système International (International System of Units)
+- SOS: Sensor Observation Service
+- SPS: Sensor Planning Service
+- SWE: Sensor Web Enablement
+- TAI: Temps Atomique International (International Atomic Time)
+- UAS: Unmanned Aerial System
+- UAV: Unmanned Aerial Vehicle
+- UGV: Unmanned Ground Vehicle
+- UID: Unique Identifier
+- USV: Unmanned Surface Vehicle
+- UUV: Unmanned Underwater Vehicle
+- UML: Unified Modeling Language
+- URL: Uniform Resource Locator
+- URI: Uniform Resource Identifier
+- UTC: Coordinated Universal Time
+- XML: eXtended Markup Language
 - 1D:	One Dimensional
 - 2D:	Two Dimensional
 - 3D:	Three Dimensional

@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+====
+[%metadata]
+type:: class
+identifier:: /req/resource-update
+subject:: Web API
+inherit:: /req/create-replace-delete
+inherit:: http://www.opengis.net/spec/ogcapi-features-4/1.0/req/update[^]
+====

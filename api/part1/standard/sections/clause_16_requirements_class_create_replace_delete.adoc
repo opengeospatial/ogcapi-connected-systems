@@ -1,0 +1,410 @@
+[[clause-resource-crd]]
+== Requirements Class "Create/Replace/Delete"
+
+=== Overview
+include::../requirements/crud/requirements_class_crd.adoc[]
+
+This requirements class specifies how instances of the feature types defined previously are created, replaced and deleted using the API.
+
+All resources are created, replaced and deleted using HTTP POST, PUT and DELETE operations, respectively, following requirements defined in {ogcapi-features-4}.
+
+
+=== Systems
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/system
+
+conditions:: The server implements <<clause-system-features,/req/system-features>>
+
+part:: The server SHALL implement support for the CREATE operation, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
+  - `{api_root}/systems`
+  - `{api_root}/collections/all_systems/items`
+
+part:: The server SHALL implement support for REPLACE and DELETE operations, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
+  - `{api_root}/systems/{id}`
+  - `{api_root}/collections/all_systems/items/{id}`
+
+part:: The server MAY also implement support for CREATE, REPLACE and DELETE operations in other `System` collections.
+====
+
+The following constraints must be implemented by the server.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/system/delete-cascade
+
+conditions:: The server implements <<clause-system-features,/req/system-features>>
+
+part:: By default, the server SHALL reject a DELETE request on a `System` resource that has nested resources (i.e. subsystems, sampling features, datastreams, control streams) or that is associated with a deployment.
+
+part:: If the `System` resource is not associated with any `Deployment` resource, and the request contains the `cascade` parameter, the server SHALL accept the DELETE request and delete the `System` resource as well as all its nested resources.
+
+part:: If the `System` resource is associated with a `Deployment` resource, the `Deployment` resource SHALL be deleted first.
+====
+
+
+
+=== Subsystems
+
+Subsystems can only be created as sub-resources of a parent system, but can be updated/deleted just like any other `System` resource.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/subsystem
+
+conditions:: The server implements <<clause-system-components,/req/system-components>>
+
+part:: The server SHALL implement support for the CREATE operation, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
+  - `{api_root}/systems/{parentId}/members`
+
+part:: The server SHALL implement support for REPLACE and DELETE operations, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
+  - `{api_root}/systems/{parentId}/members/{subsystemId}`
+  - `{api_root}/systems/{subsystemId}`
+====
+
+
+=== Procedures
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/procedure
+
+conditions:: The server implements <<clause-procedure-features,/req/procedure-features>>
+
+part:: The server SHALL implement support for the CREATE operation, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
+  - `{api_root}/procedures`
+  - `{api_root}/collections/all_procedures/items`
+
+part:: The server SHALL implement support for REPLACE and DELETE operations, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
+  - `{api_root}/procedures/{id}`
+  - `{api_root}/collections/all_procedures/items/{id}`
+
+part:: The server MAY also implement support for CREATE, REPLACE and DELETE operations in other `Procedure` collections.
+====
+
+
+=== Deployments
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/deployment
+
+conditions:: The server implements <<clause-deployment-features,/req/deployment-features>>
+
+part:: The server SHALL implement support for the CREATE operation, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
+  - `{api_root}/deployments`
+  - `{api_root}/collections/all_deployments/items`
+
+part:: The server SHALL implement support for REPLACE and DELETE operations, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
+  - `{api_root}/deployments/{id}`
+  - `{api_root}/collections/all_deployments/items/{id}`
+
+part:: The server MAY also implement support for CREATE, REPLACE and DELETE operations in other `Deployment` collections.
+====
+
+
+=== Sampling Features
+
+`Sampling Features` are created as sub-resources of a parent system.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/sampling-feature
+
+conditions:: The server implements <<clause-sampling-features,/req/sampling-features>>
+
+part:: The server SHALL implement support for the CREATE operation, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
+  - `{api_root}/systems/{id}/samplingFeatures`
+
+part:: The server SHALL implement support for REPLACE and DELETE operations, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
+  - `{api_root}/systems/{parentId}/samplingFeatures/{id}`
+  - `{api_root}/samplingFeatures/{id}`
+  - `{api_root}/collections/all_sampling_features/items/{id}`
+
+part:: The server MAY also implement support for CREATE, REPLACE and DELETE operations in other `Sampling Feature` collections.
+====
+
+
+=== Property Definitions
+
+`Property` resources are created, replaced and deleted using HTTP POST, PUT and DELETE operations, respectively.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/property
+
+conditions:: The server implements <<clause-derived-properties,/req/derived-properties>>
+
+part:: The server SHALL implement support for the CREATE operation, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
+  - `{api_root}/properties`
+  - `{api_root}/collections/all_properties/items`
+
+part:: The server SHALL implement support for REPLACE and DELETE operations, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
+  - `{api_root}/properties/{id}`
+  - `{api_root}/collections/all_properties/items/{id}`
+
+part:: The server MAY also implement support for CREATE, REPLACE and DELETE operations in other `Properties` collections.
+====
+
+
+=== Custom Collections
+
+This clause defines the expected behavior of the server when collections other than the catchall collections are exposed by the server (this causes the same resource to be accessible via multiple collections simultanesouly).
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/create-in-collection
+
+part:: When a resource defined in this standard is successfully created by the server at any endpoint, the server SHALL always make it available in the catchall collection for the resource type.
+====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/replace-in-collection
+
+part:: If a resource is successfully replaced by the server, the server SHALL reflect this change in all other collections that the resource is part of.
+====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/delete-in-collection
+
+part:: If a resource is deleted from a catchall collection, the server SHALL also delete it from all other collections that the resource is part of.
+
+part:: If a resource is deleted from a collection other than the catchall collection, the server SHALL only delete it from this collection.
+====
+
+Adding existing resources to one or more custom collections is done by posting a list of resource URIs to the collection endpoint.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/add-to-collection
+
+part:: The server SHALL support adding existing resources to a collection by reference.
+
+part:: The `Content-Type` header of the request SHALL be set to `text/uri-list`.
+
+part:: The body of the POST request SHALL contain the list of URIs of resources that need to be added to the collection, formatted with one URI per line (see https://www.iana.org/assignments/media-types/text/uri-list).
+
+part:: All URIs included in the content body SHALL be canonical URLs or unique identifiers (UID) of resources available at the same API endpoint.
+
+part:: The server MAY also allow creation of resources directly inside a custom collection (i.e. by POSTING the full resource representation to the collection endpoint). In this case, the resource is ingested and must also appear in the catchall collection for this resource type.
+====
+
+
+=== Batch Mode
+
+This standard defines a simple batch protocol so that large numbers of resources can be added, replaced and deleted in a more efficient manner.
+
+This section provides general requirements for the batch mode as well as some request/response payload requirements for the batch operations. For BATCH CREATE and BATCH REPLACE operations, each encoding requirements class must define the payload to use for batching resource representations.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/batch-mode
+
+The server SHALL support batch mode on all resource collection endpoints that support create, replace and delete operations on resources.
+====
+
+
+==== Requirements common to all batch operations
+
+A fully successful execution of a batch operation is always reported as a response with HTTP status code 200 and includes a reponse body.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/batch-mode-success
+
+conditions:: No error occurs during individual resource operations.
+
+part:: The server SHALL respond with an HTTP status code 200.
+
+part:: The response body SHALL be valid according to the JSON schema {batch-response-schema}.
+====
+
+It is up to the server implementation to reject the entire batch request if some of the operations fail, or to allow partial processing. If the server rejects the entire request, it must indicate this with a single error status code, and must also guarantee that any applied changes are rolled back (processed as an atomic transaction).
+
+In all cases, the response body provides detailed status for each individual resource operation.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/batch-mode-partial
+
+conditions::
+  - Some errors occur during individual resource operations.
+  - The server allows for partial processing.
+
+part:: The server SHALL respond with an HTTP status code 200.
+
+part:: The response body SHALL be valid according to the JSON schema {batch-response-schema}.
+====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/batch-mode-atomic
+
+conditions::
+  - Some errors occur during individual resource operations.
+  - The server rejects entire request.
+
+part:: The server SHALL respond with an HTTP status code greater or equal to 400 (i.e. either a client error or server error status code).
+
+part:: All applied changes SHALL be rolled back by the server.
+
+part:: The server MAY include a response body, in which case the response body SHALL be valid according to the JSON schema {batch-response-schema-ref}.
+====
+
+
+==== Batch Create
+
+===== Operation
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/batch-create-op
+
+The BATCH CREATE operation SHALL be implemented as an HTTP POST request on the resource collection where the resources are to be added.
+====
+
+===== Request Body
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/batch-create-request
+
+part:: The body of the POST request SHALL contain the representations of the new resources to be added to the collection.
+
+part:: Each resource representation SHALL include an `id` that will be used to identify the resource in the batch response. The server MAY generate a new `id` for the resource.
+
+part:: The `Content-Type` header SHALL be set to a media type that defines a proper batching format.
+====
+
+===== Response
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/batch-create-response
+
+conditions:: The request is successful or partially successful
+
+part:: The response body SHALL be valid according to the JSON schema {batch-response-schema}.
+
+part:: For each resource included in the request, the response SHALL contain exactly one JSON object with the following data:
+  - The `id` attribute SHALL contain the value of the `id` of the resource as provided in the request  (not the id eventually generated by the server).
+  - The `status` attribute SHALL contain the HTTP status code that would have been returned if the resource had been added individually using a CREATE operation.
+  - The `location` attribute SHALL contain the URL of the newly added resource if successful
+  - The `error` attribute MAY contain an error message describing why the operation failed for this resource.
+====
+
+
+==== Batch Replace
+
+===== Operation
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/batch-replace-op
+
+The BATCH REPLACE operation SHALL be implemented as an HTTP POST request on the sub-resource `/replace` of the resource collection that contains the resources to be replaced (e.g. `{api_root}/systems/replace`).
+====
+
+===== Request Body
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/batch-replace-request
+
+part:: The body of the POST request SHALL contain the new representations of the resources to be replaced in the collection.
+
+part:: Each resource representation in the list SHALL contain the `id` of an existing resource to be replaced.
+
+part:: The `Content-Type` header SHALL be set to a media type that defines a proper batching format.
+====
+
+===== Response
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/batch-replace-response
+
+conditions:: The request is successful or partially successful
+
+part:: The response body SHALL be valid according to the JSON schema {batch-response-schema}.
+
+part:: For each resource included in the request, the response SHALL contain exactly one JSON object with the following data:
+  - The `id` attribute SHALL contain the value of the `id` of the resource as provided in the request.
+  - The `status` attribute SHALL contain the HTTP status code that would have been returned if the resource had been replaced individually using a REPLACE operation.
+  - The `error` attribute MAY contain an error message describing why the operation failed for this resource.
+====
+
+
+==== Batch Delete
+
+===== Operation
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/batch-delete-op
+
+The server SHALL implement the BATCH DELETE request by accepting a POST request on the sub-resource `/delete` on the resource collection that contains the resources to be deleted (e.g. `{api_root}/systems/delete`).
+====
+
+===== Request Body
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/batch-delete-request
+
+part:: The `Content-Type` header SHALL be set to `application/json`. 
+part:: The body of the request SHALL be valid against the JSON schema {batch-delete-schema}.
+====
+
+===== Response
+
+The server must generate the response as specified in the "Error Handling" section.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/batch-delete-response
+
+conditions:: The request is successful or partially successful
+
+part:: The response body SHALL be valid according to the JSON schema {batch-response-schema}.
+
+part:: For each resource included in the request, the response SHALL contain exactly one JSON object with the following data:
+  - The `id` attribute SHALL contain the value of the `id` of the resource as provided in the request.
+  - The `status` attribute SHALL contain the HTTP status code that would have been returned if the resource had been deleted individually using a DELETE operation.
+  - The `error` attribute MAY contain an error message describing why the operation failed for this resource.
+====
+
+
+==== Optimistic Locking
+
+Only the "Optimistic locking using timestamps" method defined in {ogcapi-features-4} can be used when replacing resources using batch mode.
+
+In this case, the value of the `If-Unmodified-Since` header is compared to the last-modified timestamp of each modified resource.
+

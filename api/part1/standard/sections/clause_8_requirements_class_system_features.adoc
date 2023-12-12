@@ -1,0 +1,175 @@
+
+[[clause-system-features]]
+== Requirements Class "System Features"
+
+=== Overview
+include::../requirements/system/requirements_class_system_features.adoc[]
+
+This requirements class specifies how system descriptions are provided using this API.
+
+The `System` resource implements the _http://www.w3.org/ns/ssn/System[System]_ concept defined in the <<SOSA-SSN,SSN Ontology>>. `System` resources are used to expose metadata about several kinds of systems and their components, including sensors, actuators, samplers, processes, platforms, etc.
+
+NOTE: `System` resources describe system instances (e.g. a sensor device, a UAV platform, a human observer) while `Procedure` resources describe types of systems (e.g. a particular model of sensor or vehicle, a well-defined procedure followed by a human operator, etc.). Several `System` instances can implement the same `Procedure` (i.e. be of the same model).
+
+NOTE: `System` resources that are tagged as _http://www.w3.org/ns/sosa/Platform[sosa:Platform]_ implement both _http://www.w3.org/ns/ssn/System[ssn:System]_ and _http://www.w3.org/ns/sosa/Platform[sosa:Platform]_ concepts.
+
+
+=== System Resources
+
+In this API, `System` resources are a special kind of feature resource. This section defines the attributes and associations (links to other resources) that apply to this feature type.
+
+The exact way attributes and associations are encoded in the payload is defined by each encoding. See the <<clause-encodings,Encoding Requirements Classes>> for examples of `System` resource representations.
+
+
+==== Attributes
+
+include::../requirements/system/req_attributes.adoc[]
+
+[#system-attributes,reftext='{table-caption} {counter:table-num}']
+.System Attributes
+[width="100%",cols="4,10,3,3",options="header"]
+|====
+| *Name* | *Definition* | *Data Type* | *Usage*
+| `uniqueIdentifier`   | The unique identifier of the system in the form of a URI (preferably a URN). This identifier should be persistent and independent of the actual resource URL. | URI | Required
+| `name`               | The human readable name of the system. | String | Required
+| `description`        | A human readable description for the system. | String | Optional
+| `systemType`         | The type of system (see <<system-types>>). | URI or CURIE | Required
+| `assetType`          | The type of asset involved in the system (see <<asset-types>>). | URI or CURIE | Optional
+| `validTime`          | The validity period of the system's description. | DateTime | Optional
+| `location`           | The current location of the system. | Point | Optional
+|====
+
+include::../requirements/system/req_other_attributes.adoc[]
+
+More specific system types are implemented by tagging the resource with a more specific concept URI (see <<system-types>>).
+
+include::../requirements/system/req_system_type.adoc[]
+
+[#system-types,reftext='{table-caption} {counter:table-num}']
+.System Types
+[width="100%",cols="5,10,5,15",options="header"]
+|====
+| *System Type* | *URI* | *CURIE* | *Usage*
+| Sensor      | http://www.w3.org/ns/sosa/Sensor           | sosa:Sensor    | When the system's primary activity is 'sensing' or 'observing'.
+| Actuator    | http://www.w3.org/ns/sosa/Actuator         | sosa:Actuator  | When the system's primary activity is 'actuating'.
+| Sampler     | http://www.w3.org/ns/sosa/Sampler          | sosa:Sampler   | When the system's primary activity is 'sampling'.
+| Platform    | http://www.w3.org/ns/sosa/Platform         | sosa:Platform  | When the system's primary activity is 'carrying' other systems.
+| System      | http://www.w3.org/ns/ssn/System            | ssn:System     | For all other system types.
+|====
+
+NOTE: Tagging a `System` resource with a particular type only carries semantic meaning and does not imply any API functionality. In particular, all types of systems can receive commands and generate datastreams.
+
+A `System` resource can also be tagged with an "asset type" attribute used to further qualify the type of assets composing the system.
+
+include::../requirements/system/req_asset_type.adoc[]
+
+[#asset-types,reftext='{table-caption} {counter:table-num}']
+.Asset Types
+[width="100%",cols="5,10,5,15",options="header"]
+|====
+| *Asset Type* | *URI* | *CURIE* | *Usage*
+| Device      | http://dbpedia.org/resource/Equipment        | dbr:Equipment | The system is a hardware device that interacts directly with the real-world. It can be either automated or manually operated.
+| Human       | http://dbpedia.org/resource/Human            | dbr:Human | The system consists of one or more human beings that follow well defined procedures (e.g. polls, surveys, sample collections). 
+| Animal      | http://dbpedia.org/resource/Animal           | dbr:Animal | The system is an animal that carries other systems (i.e. always of type `Platform`).
+| Simulation  | http://dbpedia.org/resource/Simulation       | dbr:Simulation | The system is a software algorithm that simulates the state of the real-world, but has no direct interaction with it (e.g. forecasts, mathematical models, training simulations, etc.).
+| Process     | http://dbpedia.org/resource/Process          | dbr:Process | The system is a process or process chain that transforms data coming from or going to other systems.
+
+| Group       | #http://www.opengis.net/def/x-OGC/TBD/Group#   | cs:Group | The system is simply a group of other systems (e.g. sensor network, vehicle fleet, etc.).
+| Mixed       | #http://www.opengis.net/def/x-OGC/TBD/Mixed#   | cs:Mixed | The system is composed of several parts that can be human operators, automated equipment and/or simulations.
+| Other       | #http://www.opengis.net/def/x-OGC/TBD/Other#   | cs:Other | Any other type of system not accounted for in this list.
+|====
+
+NOTE: Deployments can be used to document how different types of systems are used together. For instance, a deployment may describe how a "human" (system of type platform) uses a "machine" (system of type sensor) according to a well defined procedure.
+
+
+==== Location
+
+It is recommended that the `System` resource representation includes the latest known location of the system. If the implementation decides to report the location, it must be done according to the optional `datetime` request parameter.
+
+include::../requirements/system/req_location.adoc[]
+
+include::../requirements/system/req_location_time.adoc[]
+
+
+==== Associations
+
+A `System` resource is also required to include certain associations with related resources.
+
+include::../requirements/system/req_associations.adoc[]
+
+[#system-assocs,reftext='{table-caption} {counter:table-num}']
+.System Associations
+[width="100%",cols="5,10,10,5",options="header"]
+|====
+| *Name* | *Definition* | *Target Content* | *Usage*
+| `procedure`         | Link to the `Procedure` implemented by the `System` | A single `Procedure` resource. | Required
+| `components`        | Link to the components of the `System` (i.e. subsystems), if any  | A collection of `System` resources. | Required
+| `samplingFeatures`  | Link to the `Sampling Features` associated to the `System` | A collection of `SamplingFeature` resources. | Required
+| `deployments`       | Link to the `Deployments` that the `System` is part of, if any | A collection of `Deployment` resources. | Optional
+|====
+
+NOTE: Required associations may be ommitted only if the target resource does not exist or is not available online.
+
+include::../requirements/system/req_assoc_urls.adoc[]
+
+
+=== System Collections
+
+`System` feature collections are identified with the feature type `system`.
+
+include::../requirements/system/req_collections_type.adoc[]
+
+A default resource collection containing all systems must be available at the API endpoint.
+
+include::../requirements/system/req_collections_catchall.adoc[]
+
+In addition to the default (mandatory) feature collection containing all systems, `System` resources can also be grouped into collections according to any arbitrary criteria. Any number of feature collections containing `System` features can be available at the API endpoint.
+
+include::../requirements/system/req_collections_others.adoc[]
+
+
+[example%unnumbered]
+====
+*Examples*
+
+- All unmanned systems at URL `{api_root}/collections/uxs_systems`
+- All UAV systems at URL `{api_root}/collections/uav_systems`
+- All systems operated by organization X at URL `{api_root}/collections/orgx_systems`
+- All currently deployed systems at URL `{api_root}/collections/deployed_systems`
+
+Note that a given system can be part of all 4 collections at the same time.
+====
+
+
+=== Canonical URLs
+
+As shown in the examples above, it is allowed for any given system to be part of several collections at the same time. Thus this standard also requires that a `System` resource has a canonical URL through which it can be retrieved independently of its membership to any collection.
+
+include::../requirements/system/req_canonical_url.adoc[]
+
+[[example_canonical_link]]
+.Link to Canonical URL
+=================
+This example shows the links that would be embedded in a feature representation retrieved from a feature collection.
+[source%autofit,json]
+----
+{
+  "type": "Feature",
+  "id": "123",
+  ...
+  "links": [
+    {
+      "rel" : "self",
+      "title" : "this document",
+      "href" : "https://data.example.org/api/collections/all_systems/123?f=json",
+      "type" : "application/geo+json"
+    }, {
+      "rel" : "canonical",
+      "title" : "this resource canonical URL",
+      "href" : "https://data.example.org/api/systems/123?f=json",
+      "type" : "application/geo+json"
+    }
+  ]
+}
+----
+=================

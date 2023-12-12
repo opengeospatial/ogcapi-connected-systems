@@ -1,120 +1,138 @@
 
 [[clause-procedure-features]]
 == Requirements Class "Procedure Features"
-include::../requirements/procedure/requirements_class_procedure_features.adoc[]
-
 
 === Overview
+include::../requirements/procedure/requirements_class_procedure_features.adoc[]
 
 This requirements class specifies how `Procedure` descriptions are provided using this API.
 
-A `Procedure` resource implements the _http://www.w3.org/ns/sosa/Procedure[Procedure]_ concept defined in the <<OGC-W3C-SSN,SSN Ontology>>.
-
-A `Procedure` resource provides information about the procedure implemented by a `System` to accomplish its task(s). For hardware equipment, it usually corresponds to the equipment's datasheet. For human sensing or sampling tasks, the procedure describes the steps or methodology that must be followed by the operator.
+A `Procedure` resource implements the _http://www.w3.org/ns/sosa/Procedure[Procedure]_ concept defined in the <<SOSA-SSN,SSN Ontology>>. `Procedure` resources are used to provide information on the procedure/methodology implemented by a `System` to accomplish its task(s).
 
 NOTE: `Procedure` resources describe types of systems (e.g. a particular model of sensor, a well-defined procedure followed by a human operator, etc.) while `System` resources describe system instances (e.g. a sensor device, a human observer). Several `System` instances can implement the same `Procedure`.
+
+[example%unnumbered]
+====
+*Examples*
+
+For hardware equipment operating automatically, the procedure usually corresponds to the equipment's datasheet.
+
+For human sensing or sampling tasks, the procedure describes the steps or methodology that must be followed by the operator.
+
+For cases involving both an instrument and a human operator, the procedure describes what instrument(s) is/are used by the operator and how. In some cases, the human acts as the `Platform` that carries one or more sensors (e.g. a mobile phone, a portable infrared thermometer).
+
+If a human operator follows a different methodology during each mission/deployment, a `Procedure` can also be attached at deployment time.
+====
 
 
 === Procedure Resources
 
-In this API, `Procedure` resources are a special kind of feature resource. This section defines the properties and associations (links to other resources) that apply to this feature type.
+In this API, `Procedure` resources are a special kind of feature resource. This section defines the attributes and associations (links to other resources) that apply to this feature type.
 
-The exact way properties and associations are represented in the payload is defined by each encoding. Examples are provided in the respective encoding sections.
+The exact way attributes and associations are encoded in the payload is defined by each encoding. See the <<clause-encodings,Encoding Requirements Classes>> for examples of `Procedure` resource representations.
 
-==== Properties
 
-[[req_procedure-props]]
-[width="90%",cols="2,6a",options="header"]
-|===
-^|*Requirement {counter:req-id}* |*/req/procedure/properties*
-^| A | A `Procedure` feature resource SHALL include all mandatory properties listed in <<procedure-properties>>.
-|===
+==== Attributes
 
-[#procedure-properties,reftext='{table-caption} {counter:table-num}']
-.Procedure Properties
+include::../requirements/procedure/req_attributes.adoc[]
+
+[#procedure-attributes,reftext='{table-caption} {counter:table-num}']
+.Procedure Attributes
 [width="100%",cols="4,10,3,3",options="header"]
 |====
 | *Name* | *Definition* | *Data Type* | *Usage*
-| Unique Identifier  | The unique identifier of the procedure in the form of a URI (preferably a URN). This identifier should be persistent and independent of the actual resource URL | URI | Mandatory
-| Name               | The human readable name of the procedure | String | Mandatory
-| Description        | A human readable description for the procedure | String | Optional
-| Procedure Type     | The type of procedure (see <<procedure-types>>) | URI | Mandatory
-| Valid Time         | The validity period of the procedure description. | DateTime | Optional
+| `uniqueIdentifier` | The unique identifier of the procedure in the form of a URI (preferably a URN). This identifier should be persistent and independent of the actual resource URL | URI | Required
+| `name`             | The human readable name of the procedure | String | Required
+| `description`      | A human readable description for the procedure | String | Optional
+| `procedureType`    | The type of procedure (see <<procedure-types>>) | URI | Required
+| `validTime`        | The validity period of the procedure description. | DateTime | Optional
 |====
 
-NOTE: The validity time period of a `Procedure` description starts on the date that the model of the equipment was released. No `System` can implement the `Procedure` before this date. The end date should be set to a date after which no instance of the equipment is in use.
+NOTE: The validity time period of a `Procedure` description starts on the date that the model of the equipment was released. No `System` can implement the `Procedure` before this date. The end date should be set to a date after which no instance of the equipment is in use, or unbounded.
 
 
-Subclasses of _SSN System_ defined in the <<OGC-W3C-SSN,SSN Ontology>> are implemented by tagging `System` resources with a more specific concept URI. Specific procedure types are defined in this Standard and must be used when appropriate.
+More specific procedure types are implemented by tagging the resource with a more specific concept URI.
 
-[[req_procedure-type]]
-[width="90%",cols="2,6a",options="header"]
-|===
-^|*Requirement {counter:req-id}* |*/req/procedure/type*
-^| A | A `Procedure` resource encoding SHALL use one of the URIs provided in <<procedure-types>> as the value of the `Procedure Type` property.
-       If using a URI is not practical, the encoding SHALL define a mapping between all possible values used to encode feature types and the URIs defined in this Standard.
-|===
+include::../requirements/procedure/req_procedure_type.adoc[]
 
 [#procedure-types,reftext='{table-caption} {counter:table-num}']
 .Procedure Types
-[width="100%",cols="5,10,2,10",options="header"]
+[width="100%",cols="5,10,5,5,10",options="header"]
 |====
-| *Procedure Type* | *URI*  | *Implemented By* | *Usage*
-| Observing        | #http://www.opengis.net/def/x-OGC/TBD/ObservingProcedure#   | Sensor | To describe a 'sensing' process
-| Actuating        | #http://www.opengis.net/def/x-OGC/TBD/ActuatingProcedure#   | Actuator | To describe an 'actuating' process
-| Sampling         | #http://www.opengis.net/def/x-OGC/TBD/SamplingProcedure#    | Sampler | To describe a 'sampling' process
-| Simulation       | #http://www.opengis.net/def/x-OGC/TBD/SimulationProcedure#  | Sensor or System | To describe a model or simulation
-| Moving           | #http://www.opengis.net/def/x-OGC/TBD/MobilityProcedure#    | Platform | To describe a motion pattern
+| *Procedure Type* | *URI* | *CURIE* | *Implemented By* | *Usage*
+| Observing        | http://www.w3.org/ns/sosa/oms/ObservingProcedure  | oms:ObservingProcedure | Sensor   | A sensor datasheet or an observation method.
+| Actuating        | http://www.w3.org/ns/sosa/oms/ActuatingProcedure  | oms:ActuatingProcedure | Actuator | An actuator datasheet or an actuation method.
+| Sampling         | http://www.w3.org/ns/sosa/oms/SamplingProcedure   | oms:SamplingProcedure  | Sampler  | A sampler datasheet or a sampling method.
+| Other            | http://www.w3.org/ns/sosa/Procedure               | sosa:Procedure         | Platform | A platform datasheet or other carrying/navigation procedure.
 |====
+
+
+[#doc-types,reftext='{table-caption} {counter:table-num}']
+.Document Types
+[width="100%",cols="5,10,5,15",options="header"]
+|====
+| *Document Type* | *URI* | *CURIE* | *Usage*
+| Datasheet       | http://dbpedia.org/resource/Datasheet          | dbr:Datasheet | The procedure is a datasheet that summarizes the performance and other characteristics of the equipment.
+| Methodology     | http://dbpedia.org/resource/Methodology        | dbr:Methodology | The procedure describes the methodology implemented by a human operator. 
+|====
+
+
 
 ==== Location
 
 A `Procedure` feature represents a datasheet or a methodology. It is thus a non-spatial entity.
 
-[[req_procedure-nolocation]]
-[width="90%",cols="2,6a",options="header"]
-|===
-^|*Requirement {counter:rec-id}* |*/req/procedure/nolocation*
-^| A | A `Procedure` feature resource SHALL not include a location or geometry.
-|===
+include::../requirements/procedure/req_location.adoc[]
+
 
 ==== Associations
 
-In addition to the links defined in {ogcapi-features}, a `Procedure` resource may also include the following associations:
+A `Procedure` resource is also required to include certain associations with related resources.
 
-[#procedure-links,reftext='{table-caption} {counter:table-num}']
+include::../requirements/procedure/req_associations.adoc[]
+
+[#procedure-assocs,reftext='{table-caption} {counter:table-num}']
 .Procedure Associations
-[width="100%",cols="5,10,10",options="header"]
+[width="100%",cols="5,10,10,5",options="header"]
 |====
-| *Relation Name* | *Definition* | *Target Content*
-| `systems`        | Link to the `Systems` that implement the `Procedure` | A Collection of `System` resources
+| *Name* | *Definition* | *Target Content* | *Usage*
+| `implementingSystems` | Link to the `Systems` that implement the `Procedure` | A Collection of `System` resources | Optional
 |====
+
+NOTE: The `implementingSystems` association will typically only point to systems that are known to the server, but there can be other systems on external servers that reference the procedure.
+
+NOTE: Required associations may be ommitted only if the target resource does not exist or is not available online.
+
+include::../requirements/procedure/req_assoc_urls.adoc[]
 
 
 === Procedure Collections
 
-`Procedure` feature collections are identified with the feature type `'procedure'`.
+`Procedure` feature collections are identified with the feature type `procedure`.
 
-[[req_procedure-collection]]
-[width="90%",cols="2,6a",options="header"]
-|===
-^|*Requirement {counter:req-id}* |*/req/procedure/collection*
-^|A |The server SHALL expose at least one collection containing `Procedure` resources`.
-|===
+include::../requirements/procedure/req_collections_type.adoc[]
 
-[[req_procedure-collection-type]]
-[width="90%",cols="2,6a",options="header"]
-|===
-^|*Requirement {counter:req-id}* |*/req/procedure/collection-type*
-^|A |The server SHALL identify all collections containing `Procedure` features by setting the value of the `featureType` property to `'procedure'`.
-|===
+A default collection containing all procedures must be available at the API endpoint.
 
-[[req_procedure-catchall-collection]]
-[width="90%",cols="2,6a",options="header"]
-|===
-^|*Requirement {counter:req-id}* |*/req/procedure/catchall-collection*
-^|A |The server SHALL expose a collection containing all available `Procedure` features at URL `{api_root}/procedures`.
-|===
+include::../requirements/procedure/req_collections_catchall.adoc[]
+
+In addition to the default (mandatory) collection containing all procedures, `Procedure` resources can also be grouped into collections according to any arbitrary criteria. Any number of feature collections containing `Procedure` features can be available at the API endpoint.
+
+include::../requirements/procedure/req_collections_others.adoc[]
+
+[example%unnumbered]
+====
+*Examples*
+
+- All weather station datasheets at URL `{api_root}/collections/wx_stations_datasheets`
+- All bird watching procedures at URL `{api_root}/collections/bird_watching_procedures`
+
+Note that a given procedure can be part of multiple collections at the same time.
+====
 
 
-See the <<clause-encoding-geojson,Encoding Requirements Classes>> for examples of `Procedure` features representations.
+=== Canonical URLs
+
+As shown in the examples above, it is allowed for any given procedure to be part of several collections at the same time. Thus this standard also requires that a `Procedure` resource has a canonical URL through which it can be retrieved independently of its membership to any collection.
+
+include::../requirements/procedure/req_canonical_url.adoc[]

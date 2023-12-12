@@ -6,4 +6,5 @@
 | Date | Release | Editor | Primary clauses modified | Description
 | 2022-12-16 | 1.0 draft | Alex Robin | All | Initial draft version
 | 2023-04-21 | 1.0 draft | Alex Robin | All | Migration to Metanorma
+| 2023-12-07 | 1.0 draft | Alex Robin | All | Improvements to all clauses (incorporated feedback from various SWG)
 |===

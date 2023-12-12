@@ -1,0 +1,15 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/system/location-time
+
+conditions:: The API reports location as part of System resources
+
+part:: If the implementation chooses to report the location of a system, it SHALL be done according to the `datetime` request parameter.
+
+part:: When the `datetime` parameter is ommitted, the server SHALL report the latest known location of the system.
+
+part:: When the `datetime` parameter is set to a time instant, the server SHALL report the latest location of the system that was known at this point in time.
+
+part:: When the `datetime` parameter is set to a time period, the server SHALL report the latest location of the system that was known at the end of the specified time period.
+====

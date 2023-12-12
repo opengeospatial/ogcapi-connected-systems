@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sampling/collection-type
+
+The server SHALL identify all collections containing `Sampling Features` by setting the value of the `featureType` attribute to `samplingFeature`.
+====

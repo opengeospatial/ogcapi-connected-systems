@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/system/system-type
+
+A `System` resource SHALL use one of the URIs or CURIEs provided in <<system-types>> as the value of the `System Type` attribute.
+
+If using a URI or CURIE is not practical, the encoding SHALL explicitely define the mapping between the values used and these URIs.
+====

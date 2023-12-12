@@ -2,25 +2,6 @@
 [[Bibliography]]
 == Bibliography
 
-#TODO#
-
-[NOTE]
-.Example Bibliography (Delete this note).
-===============================================
-The TC has approved Springer LNCS as the official document citation type.
-
-Springer LNCS is widely used in technical and computer science journals and other publications
-
-* For citations in the text please use square brackets and consecutive numbers: [1], [2], [3]
-
-– Actual References:
-
-[n] Journal: Author Surname, A.: Title. Publication Title. Volume number, Issue number, Pages Used (Year Published)
-
-[n] Web: Author Surname, A.: Title, http://Website-Url
-
-===============================================
-
 * [[[OGC-SOS, OGC 12-006]]], Sensor Observation Service Interface Standard, Version 2.0. https://www.ogc.org/standards/sos
 
 * [[[OGC-SPS, OGC 19-000]]], OGC Sensor Planning Service Implementation Standard, Version 2.0. at https://www.ogc.org/standards/sps
@@ -29,7 +10,44 @@ Springer LNCS is widely used in technical and computer science journals and othe
 
 * [[[OGC-STA-2, OGC 17-079r1]]], SensorThings API Part 2: Tasking Core, Version 1.0. http://docs.opengeospatial.org/is/17-079r1/17-079r1.html
 
-* [[[OGC-OM-2, OGC 10-004r3]]], Topic 20: Observations and Measurements, version 2.0. https://www.ogc.org/standards/om
+* [[[OGCAPI-MF, OGC 22-003]]], OGC API — Moving Features — Part 1: Core, Version 1.0.draft. https://opengeospatial.github.io/ogcapi-movingfeatures/standard/standard_document.html
 
-* [[[ISO-OMS-3, ISO 19156:2022]]], Geographic information - Observations, measurements and samples (OMS)
+* [[[QUDT, QUDT]]], QUDT Quantity Kinds, Version 2.1. https://www.qudt.org/doc/DOC_VOCAB-QUANTITY-KINDS.html
 
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +

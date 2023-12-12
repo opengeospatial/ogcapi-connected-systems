@@ -6,7 +6,4 @@ identifier:: /req/sampling-features
 subject:: Web API
 inherit:: /req/api-common
 inherit:: /req/system-features
-indirect-dependency:: OGC 10-004r3 - Clause 9: Spatial Sampling Features
-indirect-dependency:: OGC 10-004r3 - Clause 10: Specimens
-indirect-dependency:: OGC 23-001 - #Clause XX#: Sampling Features
 ====

@@ -1,0 +1,73 @@
+
+[[clause-property-definitions]]
+== Requirements Class "Property Definitions"
+
+=== Overview
+include::../requirements/property/requirements_class_property_definitions.adoc[]
+
+This requirements class specifies how property definitions are provided using this API.
+
+Properties in the scope of the API are features of interest properties, including:
+
+- Observable properties (i.e. subject of an observation)
+- Controllable properties (i.e. subject of an actuation)
+- System properties (i.e. system characteristics and capabilities, which are sometimes asserted)
+
+NOTE: The same property can be used in all 3 contexts simultaneously (e.g. the same "engine temperature" property can be measured by a sensor, controlled by the cooling system, and asserted in a min/max specification).
+
+The definition is provided by deriving the property from a well known entity referenced in an ontology such as <<QUDT, QUDT Quantity Kinds>>.
+
+
+=== Property Definition Resources
+
+This section defines the attributes and associations that apply to the `Property` resource type.
+
+The exact way attributes are encoded in the payload is defined by each encoding. See the <<clause-encodings,Encoding Requirements Classes>> for examples of `Property` resource representations.
+
+include::../requirements/property/req_attributes.adoc[]
+
+[#property-attributes,reftext='{table-caption} {counter:table-num}']
+.Property Definition Attributes
+[width="100%",cols="4,10,3,3",options="header"]
+|====
+| *Name* | *Definition* | *Data Type* | *Usage*
+| `uniqueIdentifier`   | The unique identifier of the property in the form of a URI (preferably a URN). This identifier should be persistent and independent of the actual resource URL. | URI | Required
+| `name`               | The human readable name of the property. | String | Required
+| `description`        | A human readable description for the property. | String | Optional
+| `baseProperty`       | Reference to the definition of the base property this property is derived from. | URI or CURIE | Required
+| `object`             | Reference to the type of entity that the base property applies to. | URI or CURIE | Optional
+| `statistic`          | Reference to the definition of the statistic applied to the base property values. | URI or CURIE | Optional
+|====
+
+
+=== Property Collections
+
+`Property` resource collections are identified with the item type `property`.
+
+include::../requirements/property/req_collections_type.adoc[]
+
+A default collection containing all `Property` resources must be available at the API endpoint.
+
+include::../requirements/property/req_collections_catchall.adoc[]
+
+In addition to the default (mandatory) collection containing all `Property` resources, any number of resource collections containing `Property` resources can be available at the API endpoint, so that they can be grouped according to any arbitrary criteria.
+
+include::../requirements/property/req_collections_others.adoc[]
+
+[example%unnumbered]
+====
+*Examples*
+
+- All WMO properties at URL `{api_root}/collections/wmo_properties`
+- All chemical properties at URL `{api_root}/collections/chemical_properties`
+
+Note that a given property can be part of multiple collections at the same time.
+====
+
+
+=== Canonical URLs
+
+As shown in the examples above, it is allowed for any given `Property` resource to be part of several collections at the same time. Thus this standard also requires that a `Property` resource has a canonical URL through which it can be retrieved independently of its membership to any collection.
+
+include::../requirements/property/req_canonical_url.adoc[]
+

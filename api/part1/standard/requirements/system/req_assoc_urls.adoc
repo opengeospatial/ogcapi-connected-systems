@@ -1,0 +1,15 @@
+[recommendation,model=ogc]
+====
+[%metadata]
+identifier:: /req/system/assoc-urls
+
+The following URL templates, rooted at the system's canonical URL, are recommended to access a system's sub-resources:
+
+- For system sampling features, use `/systems/{sysId}/samplingFeatures`
+
+- For system components, use `/systems/{sysId}/members` 
+
+- For system deployments, use `/systems/{sysId}/deployments`
+
+#Should we mandate these specific URLs?#
+====

@@ -1,0 +1,7 @@
+[permission,model=ogc]
+====
+[%metadata]
+identifier:: /req/deployment/other_attributes
+
+A `Deployment` feature resource can include any other attributes, provided they do not duplicate or redefine the semantics of the attributes listed in <<deployment-attributes>>.
+====

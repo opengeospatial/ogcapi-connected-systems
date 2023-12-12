@@ -1,0 +1,11 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/property/attributes
+
+part:: A `Property` resource SHALL include the attributes listed in <<property-attributes>>.
+
+part:: The value assigned to these attributes SHALL conform to the specified definition and data type.
+
+part:: All attributes marked as `Required` SHALL be present on an instance of the class.
+====

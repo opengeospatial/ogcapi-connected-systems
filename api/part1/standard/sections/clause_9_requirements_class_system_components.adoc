@@ -1,0 +1,88 @@
+
+[[clause-system-components]]
+== Requirements Class "System Components (Subsystems)"
+
+=== Overview
+include::../requirements/subsystem/requirements_class_system_components.adoc[]
+
+It is often useful to describe complex systems in terms of a hierarchy of components (or subsystems). This requirements class specifies how such hierarchical systems are described and made discoverable using this API.
+
+System components are regular `System Features` that are made available through a sub-collection of a `System` resource. Components can be any kind of `System` and can be indefinitely nested.
+
+This requirements class defines the `members` sub-collection that allows exposing components of a parent system.
+
+
+=== Types of System/Subsystem Associations
+
+Sytem components (or subsystems) can be associated to their parent system either by **Composition** or **Aggregation**.
+
+**Composition** means that a subsystem is an integral part of a parent system (i.e. the subsystem cannot or is not usually taken apart from its parent system during its lifetime, except for maintenance). Composition is implemented in the API by creating subsystems as nested resources under their parent system.
+
+**Aggregation** means that a subsystem is not permanently attached to its parent system (i.e. it can be taken apart and can be attached to different parent systems at different times). Aggregation is implemented in the API using `Deployment` resources that describe what subsystems are mounted on a parent system at any given time.
+
+NOTE: This definition is slightly looser that the UML definition for **Composition** associations. In UML, composition is used if a child cannot exist independently from the parent. In the context of this API, composition can be used by choice if it is known that the component is rarely taken apart from its parent, even though, in principle the component could exist independently.
+
+
+[example%unnumbered]
+====
+*Examples of systems modeled by composition*
+
+  - A UAV with built-in IMU, GPS and camera that cannot be changed
+  - A weather station with built-in sensors 
+
+*Examples of systems modeled by aggregation*
+
+  - A weather station with interchangeable sensors
+  - A human operator using different sensors according to the mission
+
+*Examples of systems modeled by combining both composition and aggregation*
+
+  - A UAV with IMU, GPS, flight controller (composition since they are built-in) and interchangeable payloads such as RGB camera, thermal camera, LiDAR, etc. (aggregation since they can be changed for each mission).
+  - A mobile phone with integrated sensors (composition since they are built-in) and additional sensors connected via bluetooth (aggregation).
+====
+
+
+=== System Component Resources
+
+Resources representing system components are regular `System` resources that are nested under their parent system.
+
+See <<_system_resources>> for the requirements applying to `System` resources.
+
+==== Associations
+
+A `System` resource that is a component of a parent system is also required to include certain associations with related resources.
+
+include::../requirements/subsystem/req_associations.adoc[]
+
+[#subsystem-assocs,reftext='{table-caption} {counter:table-num}']
+.Subsystem Associations
+[width="100%",cols="5,10,10,5",options="header"]
+|====
+| *Name* | *Definition* | *Target Content* | *Usage*
+| `parentSystem`   | The parent `System` that this subsystem is part of. | A single `System` resource. | Required
+|====
+
+
+=== System Component Collections
+
+Subsystems are accessible as sub-resources of their parent system.
+
+include::../requirements/subsystem/req_subcollection.adoc[]
+
+Some systems have interchangeable components (e.g. platform carrying different payloads at different times). The best way to describe this is by creating a new `Deployment` resource every time the components are changed (the deployment description allows one to explicitely list which components are mounted during a given time period, e.g. mission).
+
+For consistency, it is recommended that the server includes these changing components in the sub-collection, in accordance with the time provided by the `datetime` query parameter.
+
+include::../requirements/subsystem/req_subcollection_time.adoc[]
+
+
+=== Canonical URLs
+
+Since system component (or subsystems) are also `System` resources, they are required to have a canonical URL as specified by xref:/req/system/canonical-url[].
+
+
+=== Recursive System Search
+
+By default, system collections only include top-level systems (i.e. subsystems are not visible). The recursive query parameter allows subsystems to be included in the search results.
+
+include::../requirements/subsystem/req_recursive_search.adoc[]

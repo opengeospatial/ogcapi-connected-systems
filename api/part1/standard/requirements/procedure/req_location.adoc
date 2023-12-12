@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/procedure/location
+
+A `Procedure` feature resource SHALL not include a location or geometry.
+====

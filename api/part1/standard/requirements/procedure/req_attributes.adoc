@@ -1,0 +1,11 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/procedure/attributes
+
+part:: A `Procedure` feature resource SHALL support the attributes listed in <<procedure-attributes>>.
+
+part:: The value assigned to these attributes SHALL conform to the specified definition and data type.
+
+part:: All attributes marked as `Required` SHALL be present on an instance of the class.
+====

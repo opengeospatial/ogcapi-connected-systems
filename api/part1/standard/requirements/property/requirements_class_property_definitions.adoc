@@ -1,0 +1,8 @@
+[requirement,model=ogc]
+====
+[%metadata]
+type:: class
+identifier:: /req/property-definitions
+subject:: Web API
+inherit:: /req/api-common
+====

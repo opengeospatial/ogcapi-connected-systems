@@ -1,0 +1,749 @@
+
+[[clause-sampling-feature-types]]
+== Requirements Classes for Sampling Feature Types
+
+=== Overview
+
+This section specifies requirements for several types of `Sampling Features` that can be used to document different sampling strategies. More sampling feature types can be defined by extensions.
+
+See the <<clause-encodings,Encoding Requirements Classes>> for examples of `Sampling Feature` resource representations. 
+
+
+
+[[clause-sf-spatial]]
+=== Requirements Class "Spatial Sampling Features"
+
+==== Overview
+include::../requirements/sampling/requirements_class_sampling_spatial.adoc[]
+
+`Spatial Sampling Features` are generic sampling features with a sampling location or geometry, in one, two or three dimensions. They are used when no physical sample is collected and observations are made directly on a spatial subset of the sampled feature (e.g. an in-situ measurement station, a profile through a gaseous or liquid medium, an image footprint, etc.). The original model for these feature types is defined as part of <<OGC-OM, Observations and Measurements v2.0>>.
+
+NOTE: The `Spatial Sampling Features` introduced in this section are best used for modeling static or slowly moving features. Although it is possible to handle dynamic use cases using these classes, it requires posting a new feature to the server everytime the location of the feature changes. This can be very inefficient for highly mobile sampling features such as the ones attached to moving platforms or rotating sensors (e.g PTZ cams). Parametric sampling features defined in <<clause-sf-parametric>> are better suited for these use cases since they can be positioned relatively to a moving platform.
+
+NOTE: However, even for mobile cases, `Spatial Sampling Features` can be useful if capturing a different feature for each new observation is desired. For instance, this is the case for space-borne earth observation where the geographic footprint of each acquisition is typically provided along with the collected imagery.
+
+Below are a few examples for each sub-type of `Spatial Sampling Feature`:
+
+[example%unnumbered]
+====
+*Sampling Point Examples*
+
+- Sampling location at a river monitoring station
+- Sampling location at the bottom of a well
+====
+
+[example%unnumbered]
+====
+*Sampling Curve Examples*
+
+- Sampling profile at a river monitoring station
+- Sampling path at the bottom of a well
+====
+
+[example%unnumbered]
+====
+*Sampling Point Examples*
+
+- Sampling location at a river monitoring station
+- Sampling location at the bottom of a well
+====
+
+==== Feature Type
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sampling/spatial/type
+
+A `Spatial Sampling Feature` resource SHALL use one of the URIs or CURIEs provided in <<sf-spatial-types>> as the value of the `Feature Type` attribute.
+
+If using a URI or CURIE is not practical, the encoding SHALL explicitely define the mapping between the values used and these URIs.
+====
+
+[#sf-spatial-types,reftext='{table-caption} {counter:table-num}']
+.Sampling Spatial Feature Types
+[width="100%",cols="5,10,5,5",options="header"]
+|====
+| *System Type* | *URI* | *CURIE* | *Example Usage*
+| Sampling Point    | http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint   | om:SamplingPoint |Observing station location 
+| Sampling Curve    | http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingCurve   | om:SamplingCurve |Profile, Path
+| Sampling Surface  | http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingSurface | om:SamplingSurface | Image footprint
+| Sampling Solid    | http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingSolid   | om:SamplingSolid | Radar lobe
+|====
+
+==== Attributes
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sampling/spatial/om
+
+A `Spatial Sampling Feature` resource SHALL implement the SF_SpatialSamplingFeature class defined in OGC 10-004r3.
+====
+
+Support for attributes listed in the following table is required:
+
+[#sf-spatial-attributes,reftext='{table-caption} {counter:table-num}']
+.Common Sampling Feature Attributes
+[width="100%",cols="4,10,3,3",options="header"]
+|====
+| *Name*    | *Definition* | *Data Type* | *Usage*
+| `shape`   | The location or geometry of the spatial sampling feature. | Geometry | Required
+|====
+
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sampling/spatial/shapes
+
+part:: An implementation of this feature type SHALL support the sub types `SamplingPoint`, `SamplingCurve`, and `SamplingSurface`. Sub type `SamplingSolid` is not required.
+
+part:: An implementation of this feature type SHALL support `Point`, `Linestring` and `Polygon` geometries (to be used respectively with `SamplingPoint`, `SamplingCurve`, and `SamplingSurface` features).
+====
+
+===== Location
+
+Spatial Sampling Features always include a shape (or geometry). For mobile sampling features, this shape must be the latest known location/geometry of the feature.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sampling/spatial/location
+
+A `Sampling Feature` resource SHALL include the latest known location/geometry of the feature.
+====
+
+If the parameter `datetime` is used, the geometry must be the geometry of the feature known at that time.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sampling/spatial/location-time
+
+part:: If the implementation supports mobile sampling features, the location/geometry SHALL be reported according to the `datetime` request parameter.
+
+part:: When the `datetime` parameter is ommitted, the server SHALL report the latest known geometry of the feature.
+
+part:: When the `datetime` parameter is set to a time instant, the server SHALL report the latest geometry of the feature that was known at this point in time.
+
+part:: When the `datetime` parameter is set to a time period, the server SHALL report the latest location of the feature that was known at the end of the specified time period.
+====
+
+
+
+[[clause-sf-specimen]]
+=== Requirements Class "Specimen Features"
+
+==== Overview
+include::../requirements/sampling/requirements_class_sampling_specimen.adoc[]
+
+A `Specimen Feature` respresents a physical sample, obtained for observation(s) carried out ex-situ, sometimes in a laboratory.
+
+NOTE: A generalization of this class is referred to as _Material Sample_ in https://docs.ogc.org/as/20-082r4/20-082r4.html#_materialsample[Clause 13.4] of <<OGC-OMS, Observations, Measurements and Samples, Version 3.0>>.
+
+[example%unnumbered]
+====
+*Examples of Specimens*
+
+- Soil sample
+- Water sample
+- Rock core
+- Blood sample
+- Tissue sample
+- Vegetation sample
+- Food sample
+====
+
+==== Feature Type
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sampling/specimen/type
+
+The `Feature Type` attribute of a `Specimen Feature` resource SHALL be set to:
+
+- The URI http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_Specimen, or
+- The CURIE `om:Specimen`.
+
+If using a URI or CURIE is not practical, the encoding SHALL unambiguously map one of the possible values used to encode feature types to this URI.
+====
+
+==== Attributes
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sampling/specimen/om
+
+A `Specimen Feature` resource SHALL implement the SF_Specimen class defined in <<OGC-OM>>.
+====
+
+The attributes of this class are recalled below:
+
+[#sf-specimen-attributes,reftext='{table-caption} {counter:table-num}']
+.Specimen Attributes
+[width="100%",cols="4,10,3,3",options="header"]
+|====
+| *Name*              | *Definition* | *Data Type* | *Usage*
+| `materialClass`     | Basic classification of the material type of the specimen. +
+                      (e.g. soil, water, rock, aqueous, liquid, tissue, vegetation, food) | QName | Required
+| `samplingTime`      | Time when the specimen was retrieved from the sampled feature. | TimeInstant | Required
+| `samplingLocation`  | The location from where the sample was obtained. | Geometry | Optional
+| `samplingMethod`    | The location from where the sample was obtained. | QName | Optional
+| `storageLocation`   | The location where the sample is stored. | NamedLocation | Optional
+| `specimenType`      | The description of the basic form of the specimen. +
+                      (e.g.  polished section; core; pulp; solution) | QName | Optional
+| `size`              | The physical extent of the sample. (e.g. length, mass, volume, etc. as appropriate for the instance and its 
+                      material type) | Measure | Optional
+|====
+
+
+
+// [[clause-sf-material-sample]]
+// === Requirements Class "Material Sample"
+
+// ==== Overview
+// include::../requirements/sampling/requirements_class_sampling_specimen.adoc[]
+
+// A `Material Sample` respresents a physical sample of a feature of interest, obtained for observation(s) carried out ex-situ, sometimes in a laboratory.
+
+// This type of sampling feature is defined in https://docs.ogc.org/as/20-082r4/20-082r4.html#_materialsample[Clause 13.4] of <<OGC-OMS, Observations, Measurements and Samples, Version 3.0>>.
+
+// ==== Feature Type
+
+// [requirement,model=ogc]
+// ====
+// [%metadata]
+// identifier:: /req/sampling/material-sample/type
+
+// The `Feature Type` property of a `Specimen Feature` resource SHALL be set to:
+
+// - The URI http://www.w3.org/ns/sosa/oms/MaterialSample, or
+// - The CURIE `oms:MaterialSample`.
+
+// If using a URI or CURIE is not practical, the encoding SHALL unambiguously map one of the possible values used to encode feature types to this URI.
+// ====
+
+// ==== Attributes
+
+// [requirement,model=ogc]
+// ====
+// [%metadata]
+// identifier:: /req/sampling/material-sample/attributes
+
+// A `Material Sample` feature resource SHALL implement the `MaterialSample` class defined in <<OGC-OMS>>.
+// ====
+
+// The attributes of this class are recalled below:
+
+// [#sf-material-sample-attributes,reftext='{table-caption} {counter:table-num}']
+// .Material Sample Attributes
+// [width="100%",cols="4,10,3,3",options="header"]
+// |====
+// | *Name*              | *Definition* | *Data Type* | *Usage*
+// | `size`              | The size describes the physical extent of the sample. It can be length, mass, volume, etc. as appropriate for the MaterialSample instance and its material type. | Measure | Optional
+// | `storageLocation`   | The location where the sample is stored. | NamedLocation | Optional
+// | `sourceLocation`    | The location from where the sample was obtained. | Geometry | Optional
+// |====
+
+
+
+[[clause-sf-statistical-sample]]
+=== Requirements Class "Statistical Sample"
+
+==== Overview
+include::../requirements/sampling/requirements_class_sampling_statistical.adoc[]
+
+A `StatisticalSample` is a statistical subset of a feature-of-interest, defined for the purpose of creating observation(s).
+
+This type of sampling feature is defined in https://docs.ogc.org/as/20-082r4/20-082r4.html#_materialsample[Clause 13.5] of <<OGC-OMS, Observations, Measurements and Samples, Version 3.0>>.
+
+[example%unnumbered]
+====
+*Examples of Statistical Samples*
+
+- The male or female subset of a population
+- 200 persons from age group 19-25
+- A random subset of the oak trees in a forest
+- A random subset of the manufactured goods coming out of a production line
+====
+
+==== Feature Type
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sampling/statistical-sample/type
+
+The `Feature Type` attribute of a `Statistical Sample` resource SHALL be set to:
+
+- The URI http://www.w3.org/ns/sosa/oms/StatisticalSample, or
+- The CURIE `oms:StatisticalSample`.
+
+If using a URI or CURIE is not practical, the encoding SHALL unambiguously map one of the possible values used to encode feature types to this URI.
+====
+
+==== Attributes
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sampling/statistical-sample/attributes
+
+A `Statistical Sample` feature resource SHALL implement the `StatisticalSample` class defined in <<OGC-OMS>>.
+====
+
+The attributes of this class are recalled below:
+
+[#sf-material-sample-attributes,reftext='{table-caption} {counter:table-num}']
+.Material Sample Attributes
+[width="100%",cols="4,10,3,3",options="header"]
+|====
+| *Name*            | *Definition* | *Data Type* | *Usage*
+| `classification`  | The criterion by which the subset was defined. | CodeListValue | Optional
+|====
+
+
+
+[[clause-sf-feature-parts]]
+=== Requirements Class "Feature Parts"
+
+==== Overview
+include::../requirements/sampling/requirements_class_sampling_feature_part.adoc[]
+
+`Feature Parts` are used to clearly identify the part of a feature that is being observed or controlled within a larger feature. They are useful to provide more details about the sampling or control point when the part is not itself already described as a feature object. 
+
+NOTE: Feature parts are particularly useful when the feature of interest is a `System` resource. They allow to precisely identify what part of the system is being observed or controlled (e.g. the wing of an aircraft, the engine of a car, etc.)
+
+NOTE: Since this API does not allow linking an observation to the ultimate feature of interest directly, `Feature Parts` can also be used as a proxy to refer to an existing feature of interest as a whole. This is especially useful when referring to ultimate features of interest that are hosted on third party servers.
+
+[example%unnumbered]
+====
+*Examples of Feature Parts*
+
+- The CPU in a computer or robot
+- The center of mass of a UAV
+- The antenna of a GPS receiver
+- The vent of an A/C system
+- A room or door in a building
+- The entire vehicle (proxy to the system feature describing the vehicle as a `Platform`)
+====
+
+==== Feature Type
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sampling/feature-part/type
+
+The `Feature Type` attribute of a `Feature Part` resource SHALL be set to:
+
+- The URI #http://www.opengis.net/def/samplingFeatureType/x-CS-TBD/1.0/FeaturePart#, or
+- The CURIE `cs:FeaturePart`.
+
+If using a URI or CURIE is not practical, the encoding SHALL unambiguously map one of the possible values used to encode feature types to this URI.
+====
+
+==== Attributes
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sampling/feature-part/attributes
+
+part:: A `Feature Part` sampling feature SHALL include all mandatory attributes listed in <<sf-part-attributes>>.
+
+part:: The value assigned to these attributes SHALL conform to the specified definition and data type.
+
+part:: All attributes marked as `Required` SHALL be present on an instance of the class.
+====
+
+[#sf-part-attributes,reftext='{table-caption} {counter:table-num}']
+.Feature Part Attributes
+[width="100%",cols="4,10,3,3",options="header"]
+|====
+| *Name*        | *Definition* | *Data Type* | *Usage*
+| `definition`  | Points to an ontology/dictionary entry that defines the nature of the part. | URI | Optional
+| `partId`      | Identifier of the part if there is one. | string | Optional
+|====
+
+NOTE: The `partId` can refer to the manufacturer nomenclature or to the object ID in a 3D model for example.
+
+
+
+[[clause-sf-parametric]]
+=== Requirements Class "Parametric Sampling Features"
+
+==== Overview
+include::../requirements/sampling/requirements_class_sampling_parametric.adoc[]
+
+Parametric sampling features are special kinds of spatial sampling features whose geometry is defined implicitely by a certain number of parameters, rather than by vertex coordinates. These parameters include extrinsic parameters defining the pose of the feature relative to a coordinate frame of reference (outer frame), and intrinsic parameters defining the shape of the feature in its own coordinate frame (inner frame).
+
+One advantage of parametric sampling features is their capability for relative positioning via the `pose` attribute. Since they can be positionned relatively to a moving object, their parameters don't need to be updated frequently when the object moves. Rather, the sampling feature would "track" the object automatically.
+
+All parametric sampling features share some requirements that are detailed below.
+
+==== Attributes
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sampling/parametric/attributes
+
+part:: A `Parametric Sampling Feature` resource SHALL support the attributes listed in <<sf-parametric-attributes>>.
+
+part:: The value assigned to these attributes SHALL conform to the specified definition and data type.
+
+part:: All attributes marked as `Required` SHALL be present on an instance of the class.
+====
+
+[#sf-parametric-attributes,reftext='{table-caption} {counter:table-num}']
+.Parametric Sampling Feature Attributes
+[width="100%",cols="4,10,3,3",options="header"]
+|====
+| *Name*  | *Definition* | *Data Type* | *Usage*
+| `pose`  | The pose of the sampling feature, relative to the base reference frame. | Pose | Optional
+|====
+
+==== Pose
+
+Every parametric sampling feature has a `pose` attribute that takes an instance of a `Pose` object based on the SensorML Pose model, itself derived from the <<GeoPose,GeoPose>> model.
+
+The `pose` property allows the specification of the feature location and orientation relatively to a frame of reference. More specifically, it provides the pose of the inner frame relative to the outer frame (the frame of reference).
+
+The allowed values for the `pose` attribute are "GeoPose Basic" instances or "SensorML Relative Pose" instances.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sampling/parametric/pose
+
+part:: The value of the `pose` attribute SHALL be one of the following:
+  - A GeoPose Basic-YPR instance
+  - A GeoPose Basic-Quaternion instance
+  - A SensorML Relative-YPR instance
+  - A SensorML Relative-Quaternion instance
+====
+
+When using a GeoPose `Basic-YPR` or `Basic-Quaternion` instance, the position is always a geographic location expressed in the EPSG:4979 (WGS 84, lat/lon/alt) coordinate reference system, and the orientation is relative to the ENU LTP frame located at the geographic location. Thus, this is only suited for static sampling features.
+
+For other use cases (e.g. mobile), a SensorML `Relative-YPR` or `Relative-Quaternion` pose instance is required. In this case, the coordinate frame of reference used to express the pose can be any cartesian coordinate frame, but the most frequently used ones are:
+
+- A local tangent plane (LTP) coordinate frame such as NED or ENU
+- An engineering coordinate frame attached to a system (fixed or mobile, e.g. a UAV platform)
+- An engineering coordinate frame attached to another feature of interest (e.g. building)
+
+When using the SensorML `Relative-YPR` or `Relative-Quaternion` instance with an LTP frame, the location of the frame is provided by the feature location attribute that takes a point geometry, and the position in the pose is an offset from that location, expressed in the LTP frame (before the rotation).
+
+When an LTP coordinate frame is used, the location property of the sampling feature is used to indicate the point in space where the LTP is located (typically a geographic location).
+
+==== Location
+
+#The location can be used as the default point location for clients that don't understand the extended properties.#
+
+
+
+[[clause-sf-sampling-point-xyz]]
+=== Requirements Class "Relative Sampling Point"
+
+==== Overview
+include::../requirements/sampling/requirements_class_sampling_relative_point.adoc[]
+
+The `Relative Sampling Point` class allows to define a sampling point relatively to a cartesian reference frame.
+
+[example%unnumbered]
+====
+*Relative Sampling Points Examples*
+
+- X/Y/Z position relative to a surface location, expressed in the ENU local tangent frame
+- X/Y/Z position relative to a moving platform (e.g. under water sampling point on a USV)
+====
+
+The orientation part of the pose is not used in the `Relative Sampling Point` class and it is illegal to provide it.
+
+==== Feature Type
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sampling/relative-point/type
+
+The `Feature Type` attribute of a `Relative Sampling Point` resource SHALL be set to:
+
+- The URI #http://www.opengis.net/def/samplingFeatureType/x-CS-TBD/1.0/RelativeSamplingPoint#, or
+- The CURIE `cs:RelativeSamplingPoint`.
+
+If using a URI or CURIE is not practical, the encoding SHALL unambiguously map one of the possible values used to encode feature types to this URI.
+====
+
+==== Attributes
+
+This Standard does not define any additional attributes for the `Relative Sampling Point` feature type. However, the following requirements must be fullfilled:
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sampling/relative-point/pose
+
+The `pose` attribute SHALL contain the . It SHALL not contain any orientation information.
+====
+
+
+
+[[clause-sf-sampling-sphere]]
+=== Requirements Class "Sampling Sphere"
+
+==== Overview
+include::../requirements/sampling/requirements_class_sampling_sphere.adoc[]
+
+==== Feature Type
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sampling/sphere/type
+
+The `Feature Type` attribute of a `Sampling Sphere` resource SHALL be set to:
+
+- The URI #http://www.opengis.net/def/samplingFeatureType/x-CS-TBD/1.0/SamplingSphere#, or
+- The CURIE `cs:SamplingSphere`.
+
+If using a URI or CURIE is not practical, the encoding SHALL unambiguously map one of the possible values used to encode feature types to this URI.
+====
+
+==== Attributes
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sampling/sphere/attributes
+
+part:: A `Sampling Sphere` feature SHALL support the attributes listed in <<sf-sphere-attributes>>.
+
+part:: The value assigned to these attributes SHALL conform to the specified definition and data type.
+
+part:: All attributes marked as `Required` SHALL be present on an instance of the class.
+====
+
+[#sf-sphere-attributes,reftext='{table-caption} {counter:table-num}']
+.Sampling Sphere Attributes
+[width="100%",cols="4,10,3,3",options="header"]
+|====
+| *Name*    | *Definition* | *Data Type* | *Usage*
+| `radius`  | Radius of the sphere in meters. | Number | Required
+|====
+
+
+
+[[clause-sf-sampling-profile]]
+=== Requirements Class "Sampling Profile"
+
+==== Overview
+include::../requirements/sampling/requirements_class_sampling_profile.adoc[]
+
+A `Sampling Profile` is used when measurements are taken at various distances along a straight line, at regular or irregular intervals. 
+
+The location of the profile "bins" is defined relatively to the origin of the profile, which makes it suitable for profiles attached to moving platforms.
+
+NOTE: Although a `SamplingCurve` feature can be used to model a profile, it requires the specification of the 3D location of each profile bin, separately. This makes it quite inefficient when ingesting data for mobile profilers. But note that it can still be used to read the data back as the `SamplingCurve` feature can be reconstructed dynamically knowing the platform location and sampling profile parameters. 
+
+[example%unnumbered]
+====
+*Examples of Sampling Profiles*
+
+- Sampling at various depth within a borehole
+- Sampling at various depth by an acoustic doppler current profiler (ADCP) attached to an ocean buoy
+- Sampling at various distances along the radial of a weather Doppler radar
+- Sampling at various heights above an atmospheric sounder
+====
+
+==== Feature Type
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sampling/profile/type
+
+The `Feature Type` attribute of a `Sampling Profile` resource SHALL be set to:
+
+- The URI #http://www.opengis.net/def/samplingFeatureType/x-CS-TBD/1.0/SamplingProfile#, or
+- The CURIE `cs:SamplingProfile`.
+
+If using a URI or CURIE is not practical, the encoding SHALL unambiguously map one of the possible values used to encode feature types to this URI.
+====
+
+==== Attributes
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sampling/profile/attributes
+
+part:: A `Sampling Profile` feature SHALL support the attributes listed in <<sf-profile-attributes>>.
+
+part:: The value assigned to these attributes SHALL conform to the specified definition and data type.
+
+part:: All attributes marked as `Required` SHALL be present on an instance of the class.
+====
+
+[#sf-profile-attributes,reftext='{table-caption} {counter:table-num}']
+.Sampling Profile Attributes
+[width="100%",cols="4,10,3,3",options="header"]
+|====
+| *Name*          | *Definition* | *Data Type* | *Usage*
+| `pose`          | The position and orientation of the profile, relative to the outer reference frame | GeoPose | Required
+| `profileAxis`   | Axis along which the profile bins are located, in the local frame defined by the pose information (the axis is pointing in the direction of increasing range) | Enum +
+                       ['X', 'Y', 'Z', '-X', '-Y', '-Z'] | Required
+| `binDistances`  | Distances of bins along the profile, in meters | Array of Numbers | Required
+| `spreadAngle`   | Beam spread angle, in degrees (defaults to 0) | Number | Optional
+|====
+
+[#sampling-profile,reftext='{figure-caption} {counter:figure-num}']
+.Sampling Profile (along Y)
+image::./figures/FIG003-sampling-profile.png[sampling-profile, align="center"]
+
+
+[[clause-sf-viewing-frustum]]
+=== Requirements Class "Viewing Frustum"
+
+==== Overview
+include::../requirements/sampling/requirements_class_viewing_frustum.adoc[]
+
+`Viewing Frustums` are used to model the sampling volume of remote sensors, such as (pinhole) cameras and other kinds of imagers. For an optical sensor, the viewing frustum contains the extent of the observable world that is visible within its field of view.
+
+NOTE: The real viewing volume of an optical imager has a more complex shape due to distortion but a frustum is usually enough to get a good approximation of the area imaged by such a sensor.
+
+[example%unnumbered]
+====
+*Examples of Viewing Frustums*
+
+- The viewing frustum of a video camera or imager
+- The viewing frustum of the human eye
+- The viewing frustum of an IR motion detector
+- The frustum of a light projection system
+====
+
+==== Feature Type
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sampling/viewing-frustum/type
+
+The `Feature Type` attribute of a `Viewing Frustum` resource SHALL be set to:
+
+- The URI #http://www.opengis.net/def/samplingFeatureType/x-CS-TBD/1.0/ViewingFrustum#, or
+- The CURIE `cs:ViewingFrustum`.
+
+If using a URI or CURIE is not practical, the encoding SHALL unambiguously map one of the possible values used to encode feature types to this URI.
+====
+
+==== Attributes
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sampling/viewing-frustum/attributes
+
+part:: A `Viewing Frustum` feature SHALL support the attributes listed in <<sf-frustum-attributes>>.
+
+part:: The value assigned to these attributes SHALL conform to the specified definition and data type.
+
+part:: All attributes marked as `Required` SHALL be present on an instance of the class.
+====
+
+[#sf-frustum-attributes,reftext='{table-caption} {counter:table-num}']
+.Viewing Frustum Attributes
+[width="100%",cols="4,10,3,3",options="header"]
+|====
+| *Name*          | *Definition* | *Data Type* | *Usage*
+| `pose`          | The position and orientation of the frustum, relative to the outer reference frame. | GeoPose | Required
+| `frustumAxis`   | Longitudinal axis of the frustum, expressed in the inner frame defined by the pose information (the axis is pointing from the frustum apex toward its base). | Enum +
+                                          ['X', 'Y', 'Z', '-X', '-Y', '-Z'] | Required
+| `upAxis`        | Lateral axis of the frustum, pointing in the image up direction, expressed in the inner frame defined by the pose information. | Enum +
+               ['X', 'Y', 'Z', '-X', '-Y', '-Z'] | Required
+| `fov`           | Field of view, in degrees. If the aspect ratio is also provided, this is the horizontal field of view of a pyramidal frustum (orthogonal to the up direction), otherwise the frustum is considered conical. | Number | Required
+| `aspectRatio`   | Aspect ratio of the frustum base rectangle, that is the ratio of its width to its height (unitless). | Number | Optional
+| `length`        | Length of the frustum, in meters. | Number | Optional
+|====
+
+The shape and parameters of a pyramidal frustum are illustrated below:
+
+[#pyramidal-frustum,reftext='{figure-caption} {counter:figure-num}']
+.Pyramidal Viewing Frustum (along -Z)
+image::./figures/FIG004-pyramidal-frustum.png[pyramidal-frustum, align="center"]
+
+The shape and parameters of a conical frustum are illustrated below:
+
+[#conical-frustum,reftext='{figure-caption} {counter:figure-num}']
+.Conical Viewing Frustum (along -Z)
+image::./figures/FIG005-conical-frustum.png[conical-frustum, align="center"]
+
+
+
+[[clause-sf-sector]]
+=== Requirements Class "Spherical Sector"
+
+==== Overview
+include::../requirements/sampling/requirements_class_sampling_spherical_sector.adoc[]
+
+A `Spherical Sectors` is a 3D sampling feature whose geometry is defined as a part of a sphere. `Spherical Sectors` are often used to model the area that is viewable by a remote sensor or reachable by an actuator.
+
+[example%unnumbered]
+====
+*Examples of Spherical Sectors*
+
+- The entire area viewable by a PTZ camera
+- The entire area viewable by a radar
+- The geographic area reachable by a weapon system
+====
+
+==== Feature Type
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sampling/spherical-sector/type
+
+The `Feature Type` attribute of a `Spherical Sector` resource SHALL be set to:
+
+- The URI #http://www.opengis.net/def/samplingFeatureType/x-CS-TBD/1.0/SphericalSector#, or
+- The CURIE `cs:SphericalSector`.
+
+If using a URI or CURIE is not practical, the encoding SHALL unambiguously map one of the possible values used to encode feature types to this URI.
+====
+
+==== Attributes
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sampling/spherical-sector/attributes
+
+part:: A `Spherical Sector` feature SHALL support the attributes listed in <<sf-spherical-sector-attributes>>.
+
+part:: The value assigned to these attributes SHALL conform to the specified definition and data type.
+
+part:: All attributes marked as `Required` SHALL be present on an instance of the class.
+====
+
+[#sf-spherical-sector-attributes,reftext='{table-caption} {counter:table-num}']
+.Spherical Sector Attributes
+[width="100%",cols="4,10,3,3",options="header"]
+|====
+| *Name*          | *Definition* | *Data Type* | *Usage*
+| `radius`        | Radius of the spherical sector, in meters. | Number | Required
+| `innerRadius`   | Inner radius of the spherical sector, in meters (defaults 0). | Number | Optional
+| `minAzimuth`    | Start azimuth of the spherical sector, in degrees (defaults to 0). | Number | Optional
+| `maxAzimuth`    | Start azimuth of the spherical sector, in degrees (defaults to 360). | Number | Optional
+| `minElevation`  | Start elevation of the spherical sector, in degrees (defaults to -90). | Number | Optional
+| `maxElevation`  | End elevation of the spherical sector, in degrees (defaults to +90). | Number | Optional
+|====
+
+The shape and parameters of a spherical sector are illustrated below:
+
+[#spherical-sector,reftext='{figure-caption} {counter:figure-num}']
+.Spherical Sector
+image::./figures/FIG006-spherical-sector.png[spherical-sector, align="center"]

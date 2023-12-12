@@ -2,7 +2,7 @@
 ====
 [%metadata]
 type:: class
-identifier:: /req/encoding/json-fg
+identifier:: /req/json-fg
 subject:: Web API
 inherit:: /req/api-common
 indirect-dependency:: JSON-FG, https://docs.ogc.org/DRAFTS/21-045.html

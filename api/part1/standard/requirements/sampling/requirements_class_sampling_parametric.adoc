@@ -1,0 +1,12 @@
+[requirement,model=ogc]
+====
+[%metadata]
+type:: class
+identifier:: /req/sampling/parametric
+subject:: Web API
+inherit:: /req/sampling-features
+inherit:: http://www.opengis.net/spec/GeoPose/1.0/req/basic-ypr
+inherit:: http://www.opengis.net/spec/GeoPose/1.0/req/basic-quaternion
+inherit:: http://www.opengis.net/spec/SML/2.1/req/relative-ypr
+inherit:: http://www.opengis.net/spec/SML/2.1/req/relative-quaternion
+====

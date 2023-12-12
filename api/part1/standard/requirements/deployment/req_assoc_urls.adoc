@@ -1,0 +1,11 @@
+[recommendation,model=ogc]
+====
+[%metadata]
+identifier:: /req/deployment/assoc-urls
+
+The following URL templates, rooted at the deployment's canonical URL, are recommended to access a deployment's sub-resources:
+
+- For deployed systems, use `/deployments/{id}/systems`
+
+#Should we mandate these specific URLs?#
+====

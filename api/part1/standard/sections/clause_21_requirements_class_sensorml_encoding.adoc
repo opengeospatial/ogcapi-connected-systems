@@ -1,50 +1,130 @@
-:sensorml-schema-root: ../openapi/schemas/sensorml
+:sensorml-schema-root: {jsonschema-root}/sensorml
+:sensorml-json-mediatype: application/sml+json
 
 [[clause-encoding-sensorml]]
-== Requirements Class "SensorML Format"
+=== Requirements Class "SensorML Format"
+
+==== Overview
+
 include::../requirements/encoding/sensorml/requirements_class_sensorml.adoc[]
-
-
-=== Overview
 
 This requirements class specifies how `Feature` descriptions provided through the API are encoded using the SensorML format.
 
 All feature types defined by this Standard, except `Sampling Features`, can be encoded in SensorML to allow provision of more advanced metadata such as application specific identifiers and classifiers, security and legal constraints, characteristics and capabilities, contact information, attached documents, reference frames, etc.
 
 
-=== Media Type
 
-The media type used for SensorML encoded resource is `application/sml+json`.
+==== Media Type
+
+The media type used for SensorML encoded resources is `{sensorml-json-mediatype}`.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sensorml/mediatype-read
+
+The server SHALL support the media type `{sensorml-json-mediatype}` in the HTTP `Accept` header and respond with a JSON document corresponding to the requested resource type.
+====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sensorml/mediatype-write
+
+conditions:: The server implements <<clause-resource-crd,/req/create-replace-delete>>.
+
+The server SHALL support the media type `{sensorml-json-mediatype}` in the HTTP `Content-Type` header and parse the JSON body according to the resource type.
+====
 
 
-=== Common Feature Encoding Rules
 
-The following requirement provides the mapping between common feature properties and the corresponding JSON members when encoded in SensorML-JSON.
+==== Common Encoding Rules
 
-[[req_sensorml-common-mapping]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/encoding/sensorml/property-mapping*
-^| A | The JSON member `uniqueId` SHALL be used to encode the `Unique Identifier` property.
-^| C | The JSON member `name` SHALL be used to encode the `Name` property.
-^| D | The JSON member `description` SHALL be used to encode the `Description` property.
-|===
+The following requirement provides the mapping between common resource properties and the corresponding JSON members when encoded in SensorML-JSON.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sensorml/resource-id
+
+part:: The JSON member `id` SHALL be used to provide the local identifier of the resource.
+part:: The value of the `id` JSON member SHALL be the same as the `{id}` portion in the URL.
+====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sensorml/feature-attribute-mapping
+
+A SensorML JSON document representing a `Feature` resource SHALL implement the mappings specified in <<feature-attribute-sml-mappings>>.
+====
+
+[#feature-attribute-sml-mappings,reftext='{table-caption} {counter:table-num}']
+.SensorML Mappings of Common Attributes
+[width="100%",cols="3,3,10",options="header"]
+|====
+| *Attribute Name*    | *JSON Member*  | *Usage*
+| `uniqueIdentifier` | `uniqueId`     | Value is a JSON string that is a valid URI.
+| `name`             | `label`        | Value is a JSON string.
+| `description`      | `description`  | Value is a JSON string.
+|====
 
 
-=== System Encoding Rules
 
-[[req_sensorml-system-schema]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/encoding/sensorml/system-schema*
-^| Condition | Server implements <<clause-system-features>>.
-^| Condition | The request is made on a collection of `System Features` resources.
-^| A | A 200-response with the media type `application/sml+json` SHALL conform to one of the following schemas:
+==== System Encoding Rules
 
-       - link:{sensorml-schema-root}/systemCollection.json[systemCollection.json] for a collection of systems, and
-       - link:{sensorml-schema-root}/system.json[system.json] for a single system.
-^| B | The JSON member `definition` SHALL be used to encode the `System Type` property.
-|===
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sensorml/system-schema
+
+conditions:: The server implements <<clause-system-features,/req/system-features>>.
+
+part:: A request or response body with media type `{sensorml-json-mediatype}` containing a single `System` resource SHALL be valid against the JSON schema {sensorml-system-schema}.
+
+part:: A request or response body with media type `{sensorml-json-mediatype}` containing a collection of `System` resources SHALL be valid against the JSON schema {sensorml-system-collection-schema}.
+====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sensorml/system-mappings
+
+A SensorML JSON document representing a `System` resource SHALL implement the mappings specified in <<system-attribute-sml-mappings>> and <<system-assoc-sml-mappings>>.
+====
+
+[#system-attribute-sml-mappings,reftext='{table-caption} {counter:table-num}']
+.SensorML Mappings of System Attributes
+[width="100%",cols="3,3,10",options="header"]
+|====
+| *Attribute Name* | *JSON Member* | *Usage*
+| `systemType`    | `definition`  | Use the URI or CURIE from <<system-types>> as the value.
+| `assetType`     | `classifiers` | Use a classifier with definition `cs:AssetType`, and the URI or CURIE from <<asset-types>> as the value.
+| `validTime`     | `validTime`   | -
+| `location`      | `position`    | Include location either as a GeoJSON geometry, or as part of a `GeoPose` or `Pose` object.
+|====
+
+[#system-assoc-sml-mappings,reftext='{table-caption} {counter:table-num}']
+.SensorML Mappings of System Associations
+[width="100%",cols="3,3,10",options="header"]
+|====
+| *Association Name*     | *JSON Member* | *Usage*
+| `procedure`         | `typeOf`      | Value is a weblink resolving to a `Procedure` resource.
+| `members`           | `links`       | Value is a weblink resolving to a `System` collection (i.e. subsystems).
+| `samplingFeatures`  | `links`       | Value is a weblink resolving to a `Sampling Feature` collection.
+| `deployments`       | `links`       | Value is a weblink resolving to a `Deployment` collection.
+|====
+
+NOTE: In SensorML, the location can be augmented with orientation to describe the full pose of the system.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sensorml/system-sml-class
+
+part:: SensorML class `PhysicalComponent` or `PhysicalSystem` SHALL be used to describe hardware equipment or human observers.
+part:: SensorML class `SimpleProcess` or `AggregateProcess` SHALL be used to describe a simulation or process.
+====
 
 [[example_sensorml_sys1]]
 .A System Feature in SensorML format
@@ -58,29 +138,55 @@ include::../openapi/examples/systems/thermometer-sensor-sml.json[]
 =================
 
 
-=== Procedure Encoding Rules
 
-[[req_sensorml-procedure-schema]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/encoding/sensorml/procedure-schema*
-^| Condition | Server implements <<clause-procedure-features>>.
-^| Condition | The request is made on a collection of `Procedure Features` resources.
-^| A | A 200-response with the media type `application/sml+json` SHALL conform to one of the following schemas:
+==== Procedure Encoding Rules
 
-       - link:{sensorml-schema-root}/procedureCollection.json[procedureCollection.json] for a collection of procedures, and
-       - link:{sensorml-schema-root}/procedure.json[procedure.json] for a single procedure.
-^| B | The JSON member `definition` SHALL be used to encode the `Procedure Type` property.
-|===
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sensorml/procedure-schema
 
-[[rec_sensorml-procedure-type]]
-[width="90%",cols="2,6a"]
-|===
-^|*Recommandation {counter:rec-id}* |*/rec/encoding/sensorml/procedure-type*
-^| A | SensorML class `PhysicalComponent` or `PhysicalSystem` SHOULD be used to describe hardware equipment specifications (i.e. datasheet).
-^| B | SensorML class `SimpleProcess` or `AggregateProcess` SHOULD be used to describe a procedure implemented by humans, such as a methodology or steps.
-^| C | No position information SHOULD be provided as part of the procedure description.
-|===
+conditions:: The server implements <<clause-procedure-features,/req/procedure-features>>.
+
+part:: A request or response body with media type `{sensorml-json-mediatype}` containing a single `Procedure` resource SHALL be valid against the JSON schema {sensorml-procedure-schema}.
+
+part:: A request or response body with media type `{sensorml-json-mediatype}` containing a collection of `Procedure` resources SHALL be valid against the JSON schema {sensorml-procedure-collection-schema}.
+====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sensorml/procedure-attribute-mapping
+
+A SensorML JSON document representing a `Procedure` resource SHALL implement the mappings specified in <<procedure-attribute-sml-mappings>> and <<procedure-assoc-sml-mappings>>.
+====
+
+[#procedure-attribute-sml-mappings,reftext='{table-caption} {counter:table-num}']
+.SensorML Mappings of Procedure Attributes
+[width="100%",cols="3,3,10",options="header"]
+|====
+| *Attribute Name* | *JSON Member* | *Usage*
+| `procedureType` | `definition`  | Use the URI or CURIE from <<procedure-types>> as the value.
+| `validTime`     | `validTime`   | -
+|====
+
+[#procedure-assoc-sml-mappings,reftext='{table-caption} {counter:table-num}']
+.SensorML Mappings of Procedure Associations
+[width="100%",cols="3,3,10",options="header"]
+|====
+| *Association Name*     | *JSON Member* | *Usage*
+| `implementingSystems`  | `links`       | Value is a weblink resolving to a `System` collection.
+|====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sensorml/procedure-sml-class
+
+part:: SensorML class `PhysicalComponent` or `PhysicalSystem` SHALL be used to describe hardware equipment specifications (i.e. datasheet).
+part:: SensorML class `SimpleProcess` or `AggregateProcess` SHALL be used to describe a procedure implemented by humans, such as a methodology or steps.
+part:: No position information SHALL be provided as part of the procedure description.
+====
 
 [[example_sensorml_proc1]]
 .A Procedure Feature describing a sensor datasheet in SensorML format
@@ -92,19 +198,48 @@ include::../openapi/examples/procedures/sensor-datasheet-sml.json[]
 =================
 
 
-=== Deployment Encoding Rules
 
-[[req_sensorml-deployment-schema]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/encoding/sensorml/deployment-schema*
-^| Condition | Server implements <<clause-deployment-features>>.
-^| Condition | The request is made on a collection of `Deployment Features` resources.
-^| A | A 200-response with the media type `application/sml+json` SHALL conform to one of the following schemas:
+==== Deployment Encoding Rules
 
-       - link:{sensorml-schema-root}/deploymentCollection.json[deploymentCollection.json] for a collection of deployments, and
-       - link:{sensorml-schema-root}/deployment.json[deployment.json] for a single procedure.
-|===
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sensorml/deployment-schema
+
+conditions:: The server implements <<clause-deployment-features,/req/deployment-features>>.
+
+part:: A request or response body with media type `{sensorml-json-mediatype}` containing a single `Deployment` resource SHALL be valid against the JSON schema {sensorml-deployment-schema}.
+
+part:: A request or response body with media type `{sensorml-json-mediatype}` containing a collection of `Deployment` resources SHALL be valid against the JSON schema {sensorml-deployment-collection-schema}.
+====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sensorml/deployment-attribute-mapping
+
+A SensorML JSON document representing a `Deployment` resource SHALL implement the mappings specified in <<deployment-attribute-sml-mappings>> and <<deployment-assoc-sml-mappings>>.
+====
+
+[#deployment-attribute-sml-mappings,reftext='{table-caption} {counter:table-num}']
+.SensorML Mappings of Deployment Attributes
+[width="100%",cols="3,3,10",options="header"]
+|====
+| *Attribute Name* | *JSON Member* | *Usage*
+| `procedureType` | `definition`  | Use the URI or CURIE from <<deployment-types>> as the value.
+| `validTime`     | `validTime`   | -
+| `location`      | `location`    | Value is a GeoJSON geometry
+|====
+
+[#deployment-assoc-sml-mappings,reftext='{table-caption} {counter:table-num}']
+.SensorML Mappings of Deployment Associations
+[width="100%",cols="3,3,10",options="header"]
+|====
+| *Association Name*    | *JSON Member* | *Usage*
+| `deployedSystems`     | `members`     | Value is a JSON Array with objects containing a weblink resolving to a `System` resource.
+| `featuresOfInterest`  | `links`       | Value is a weblink resolving to a `Feature` collection.
+| `datastreams`         | `links`       | Value is a weblink resolving to a `DataStreams` collection.
+|====
 
 [[example_sensorml_dep1]]
 .A Deployment Feature in SensorML format
@@ -115,3 +250,68 @@ include::../openapi/examples/deployments/deployment-sml.json[]
 ----
 =================
 
+
+
+==== Property Definition Encoding Rules
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sensorml/property-schema
+
+conditions:: The server implements <<clause-property-definitions,/req/property-definitions>>.
+
+part:: A request or response body with media type `{sensorml-json-mediatype}` containing a single `Property` resource SHALL be valid against the JSON schema {sensorml-property-schema}.
+
+part:: A request or response body with media type `{sensorml-json-mediatype}` containing a collection of `Property` resources SHALL be valid against the JSON schema {sensorml-property-collection-schema}.
+====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sensorml/property-attribute-mapping
+
+A SensorML JSON document representing a `Property` resource SHALL implement the mappings specified in <<property-attribute-sml-mappings>>.
+====
+
+[#property-attribute-sml-mappings,reftext='{table-caption} {counter:table-num}']
+.SensorML Mappings of Property Attributes
+[width="100%",cols="3,3,10",options="header"]
+|====
+| *Attribute Name*  | *JSON Member*  | *Usage*
+| `baseProperty`   | `baseProperty` | Value is a JSON string that is a valid URI.
+| `object`         | `object`       | Value is a JSON string that is a valid URI.
+| `statistic`      | `statistic`    | Value is a JSON string that is a valid URI.
+|====
+
+[[example_sensorml_prop1]]
+.A Property Definition in SensorML format
+=================
+[source%autofit,json]
+----
+include::../openapi/examples/properties/avg-cpu-temp.json[]
+----
+=================
+
+
+
+==== Batch Mode
+
+Multiple features can be added using the SensorML JSON format when wrapped into a collection object.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sensorml/batch-format
+
+conditions:: The server implements <<clause-resource-crd,/req/create-replace-delete>>.
+
+part:: A BATCH CREATE or BATCH REPLACE request SHALL have a `Content-Type` header with value `{sensorml-json-mediatype}`
+
+part:: A BATCH CREATE or BATCH REPLACE request body SHALL be valid against one of the following schemas:
+
+- {sensorml-system-collection-schema}
+- {sensorml-procedure-collection-schema}
+- {sensorml-deployment-collection-schema}
+- {sensorml-property-collection-schema}
+====

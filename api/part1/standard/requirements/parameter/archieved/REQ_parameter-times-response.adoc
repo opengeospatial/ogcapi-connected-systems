@@ -1,9 +1,0 @@
-[[req_mf_times-parameter-response]]
-[width="90%",cols="2,6a",options="header"]
-|===
-^|*Requirement {counter:req-id}* |*/req/movingfeatures/param-times-response*
-^|A | If the `snapshot` parameter is provided by the client and supported by the server, then only resources that have a temporal information (i.e., `datetimes` property) that intersects the temporal information in the `snapshot` parameter SHALL be part of the result set.
-^|B | The `snapshot` parameter SHALL match all resources in the moving feature that are associated with temporal information.
-^|C | If `snapshot` parameter is provided by the client and supported by the server, the endpoint SHALL return only temporal geometry coordinate (or temporal property value) with the snapshot query at each time included in the `times` parameter, using interpolated trajectory according to the `interpolation` property.
-^|D | If `snapshot` parameter is provided by the client and supported by the server, the `interpolation` property in the response SHALL be 'Discrete'.
-|===

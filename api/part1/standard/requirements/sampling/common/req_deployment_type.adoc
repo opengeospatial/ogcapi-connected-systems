@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/deployment/deployment-type
+
+A `Deployment` resource SHALL use one of the URIs or CURIEs provided in <<deployment-types>> as the value of the `Deployment Type` attribute.
+
+If using a URI or CURIE is not practical, the encoding SHALL explicitely define the mapping between the values used and these URIs.
+====
