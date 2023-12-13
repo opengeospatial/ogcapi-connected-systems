@@ -58,7 +58,7 @@ All questions regarding this submission should be directed to the editor or the 
 
 Additional contributors to this Standard include the following:
 
-[%unnumbered]
+[%unnumbered,options="header"]
 |===
 | *Name* | *Affiliation*
 | Chris Tucker | GeoRobotix, Inc.

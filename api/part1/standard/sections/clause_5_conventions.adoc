@@ -34,9 +34,11 @@ In this document the following abbreviations and acronyms are used or introduced
 - HTTP: Hypertext Transfer Protocol
 - ISO: International Organization for Standardization
 - LTP: Local Tangent Plane
+- M2M: Machine to Machine
 - MISB:	Motion Imagery Standards Board
 - NED: North East Down
 - OGC: Open Geospatial Consortium
+- RBAC: Role Based Access Control
 - SAS: Sensor Alert Service
 - SensorML:	Sensor Model Language
 - SI: Système International (International System of Units)

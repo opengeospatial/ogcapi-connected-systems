@@ -35,7 +35,7 @@ All resources defined in part 1 of this Standard are feature types, except for t
 
 [#feature-types,reftext='{table-caption} {counter:table-num}']
 .Overview of resource types defined by this Standard
-[width="90%",cols="2,2,6,3"]
+[width="100%",cols="2,2,6,3",options="header"]
 |====
 | *Resource Type*      | *Requirements Class*           | *Description* | *Possible Encodings*
 | System (Feature)     | <<clause-system-features>>     | Description of system instances such as sensors, platforms, human observers, etc.  | GeoJSON, JSON-FG, SML-JSON
@@ -48,7 +48,14 @@ All resources defined in part 1 of this Standard are feature types, except for t
 NOTE: The listed encodings are the ones defined in this Standard but extensions can define additional encodings.
 
 
-=== Collections
+=== Resource Encodings
+
+This Standard also defines encodings that can be used to encode the resource types listed above. Support for these encodings is not required as each encoding is specified in its own requirements class.
+
+Encodings are specified in <<clause-encodings>> of this Standard. Each encoding requirements class provides schemas and examples for the supported reosurce type.
+
+
+=== Resource Collections
 
 <<OGC-API-Features,OGC API - Features>> mandates that its resources be organized into Feature Collections. In addition to the feature types themselves, this Standards specifies how to identify collections that contain a given feature type.
 
@@ -78,7 +85,7 @@ Additional filters are defined on a per resource type basis, as shown in the fol
 
 [#query-params,reftext='{table-caption} {counter:table-num}']
 .Query Parameters
-[width="90%",cols="2,4"]
+[width="100%",cols="2,4",options="header"]
 |====
 | *Requirements Class*       | *Query Parameters*
 | System Features            | `parent`, `procedure`, `foi`, `observedProperty`, `controlledProperty`
@@ -88,24 +95,45 @@ Additional filters are defined on a per resource type basis, as shown in the fol
 | Property Definitions       | `baseProperty`, `object`, `foi`
 |====
 
-See <<clause-advanced-filtering>> for more details.
+See <<clause-advanced-filtering,style=full%>> for more details.
 
 
 === Security Considerations
 
-#TODO#
+==== Authentication
 
-Need for authentication
+It is expected that certain functionality of this API will be protected by an access control mechanism (e.g. RBAC), which requires each user to authenticate.
 
-Need for encryption
+This Standard does not mandate a particular authentication method, but the following methods are commonly used and supported by OpenAPI:
 
-Need for signed content
+- HTTP authentication (basic, bearer),
+- API key (either as a header or as a query parameter),
+- OAuth2 Common Flows (implicit, password, application and access code) as defined in RFC6749, and
+- OpenID Connect Discovery.
 
-Need for business logic to avoid users to alter content created by others 
+NOTE: Some of these authentication methods are only recommended over HTTPS.
+
+==== Encryption
+
+This API will often be used to transmit confidential or sensitive data. Encryption in-transit using HTTPS (i.e. HTTP over TLS/SSL) is thus highly recommended and is now very common practice on the web.
+
+In addition, implementations of this Standard may also store confidential or sensitive data (e.g. in a database) for extended periods of time. In this case, encryption at rest is also recommended, especially if data is hosted on shared infrastructure (e.g. public clouds).
+
+==== M2M Communications
+
+It is expected that clients of this API will sometime be machines that connect to the API automatically without human intervention.
+
+In order to mitigate data spoofing, it is highly recommended that this type of clients use a strong authentication method and digital signatures relying on asymmetric cryptography, and whose access can be easily revoked (e.g. PKI certificates).
+
+==== Common Weaknesses
+
+Please see https://docs.ogc.org/is/17-069r4/17-069r4.html#_security_considerations[Clause 11] of {ogcapi-features} for guidance regarding the mitigation of typical web APIs weaknesses.
 
 
 === Requirements Classes
 
-Most requirements classes of this Standard can be implemented independently. For example, a given implementation can choose to implement only `System` and `Deployment` features and rely on other servers to host complementary data such as `Procedures`, Domain Features, or Dynamic Data (see part 2 of this Standard).
+Most requirements classes of this Standard can be implemented independently.
+
+For example, a given implementation can choose to implement only `System` and `Deployment` features and rely on other servers to host complementary metadata such as `Procedures` and Domain Features. This is a common use cases since procedure descriptions (i.e. system datasheets) and domain features (e.g. geographical or hydrological features) can typically be shared by many different organizations.
 
 This is made possible thanks to the use of hyperlinks that don't require that all resources be hosted at the same endpoint.
