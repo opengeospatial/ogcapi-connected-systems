@@ -30,31 +30,23 @@ The API is comprised of multiple parts, each of them being a separate standard. 
 
 == Security considerations
 
-//If no security considerations have been made for this Standard, use the following text.
-
-No security considerations have been made for this Standard.
-
-////
-If security considerations have been made for this Standard, follow the examples found in IANA or IETF documents. Please see the following example.
-“VRRP is designed for a range of internetworking environments that may employ different security policies. The protocol includes several authentication methods ranging from no authentication, simple clear text passwords, and strong authentication using IP Authentication with MD5 HMAC. The details on each approach including possible attacks and recommended environments follows.
-Independent of any authentication type VRRP includes a mechanism (setting TTL=255, checking on receipt) that protects against VRRP packets being injected from another remote network. This limits most vulnerabilities to local attacks.
-NOTE: The security measures discussed in the following sections only provide various kinds of authentication. No confidentiality is provided at all. This should be explicitly described as outside the scope....”
-////
+No Security considerations are detailed in <<security_considerations>>.
 
 
 == Submitters
 
-All questions regarding this submission should be directed to the editor or the submitters:
+All questions regarding this submission should be directed to the editor or the submitters listed in the following table:
 
+[%unnumbered,options="header"]
 |===
 | *Name* | *Affiliation*
-| Alexandre Robin | GeoRobotix, Inc.
-| Mike Botts | Botts Innovative Research, Inc.
+| Alex Robin | GeoRobotix, Inc.
+| Christian Autermann | 52° North Initiative
+| Chuck Heazel | Heazeltech
+| Glenn Laughlin | Pelagis Data Solutions
+| Nick Garay | Botts Innovative Research, Inc.
+| Patrick Cozzi | Cesium GS, Inc.
 |===
-
-
-[.preface]
-== Contributors
 
 Additional contributors to this Standard include the following:
 
@@ -62,8 +54,8 @@ Additional contributors to this Standard include the following:
 |===
 | *Name* | *Affiliation*
 | Chris Tucker | GeoRobotix, Inc.
-| Nick Garay | Botts Innovative Research, Inc.
-| Christian Autermann | 52° North Initiative
-| Glenn Laughlin | Pelagis Data Solutions
-| Chuck Heazel | Heazeltech
+| Mike Botts | Botts Innovative Research, Inc.
+| Qihua Li | GovTech Singapore
+| Rob Atkinson | Open Geospatial Consortium, Inc.
+| Simon Cox | Open Geospatial Consortium, Inc.
 |===
