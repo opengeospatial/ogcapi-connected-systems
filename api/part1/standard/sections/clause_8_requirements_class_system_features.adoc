@@ -9,17 +9,36 @@ This requirements class specifies how system descriptions are provided using thi
 
 The `System` resource implements the _http://www.w3.org/ns/ssn/System[System]_ concept defined in the <<SOSA-SSN,SSN Ontology>>. `System` resources are used to expose metadata about several kinds of systems and their components, including sensors, actuators, samplers, processes, platforms, etc.
 
-NOTE: `System` resources describe system instances (e.g. a sensor device, a UAV platform, a human observer) while `Procedure` resources describe types of systems (e.g. a particular model of sensor or vehicle, a well-defined procedure followed by a human operator, etc.). Several `System` instances can implement the same `Procedure` (i.e. be of the same model).
+NOTE: `System` resources describe *system instances* (e.g. a sensor device, a UAV platform) while `Procedure` resources are used to describe *system types* (e.g. a particular model of sensor or vehicle, specified using the manufacturer datasheet). Several `System` instances can implement the same `Procedure` (i.e. be of the same model).
 
 NOTE: `System` resources that are tagged as _http://www.w3.org/ns/sosa/Platform[sosa:Platform]_ implement both _http://www.w3.org/ns/ssn/System[ssn:System]_ and _http://www.w3.org/ns/sosa/Platform[sosa:Platform]_ concepts.
+
+[example%unnumbered]
+====
+*System Examples*
+
+- A digital temperature probe (`type: Sensor, assetType: Equipment`)
+- A GPS receiver (`type: Sensor, assetType: Equipment`)
+- A video camera (`type: Sensor, assetType: Equipment`)
+- A weather forecasting system (`type: Sensor, assetType: Simulation`)
+- A human bird watcher (`type: Sensor, assetType: Human`)
+- An electric motor (`type: Actuator, assetType: Equipment`)
+- A motorized window blind (`type: Actuator, assetType: Equipment`)
+- A field technician collecting water samples (`type: Sampler, assetType: Human`)
+- An unmanned vehicle (`type: Platform, assetType: Equipment`)
+- An aircraft (`type: Platform, assetType: Equipment`)
+- A bulldozer (`type: Platform, assetType: Equipment`)
+- The Nexrad radar network (`type: System, assetType: Group`)
+====
 
 
 === System Resources
 
+==== Introduction
+
 In this API, `System` resources are a special kind of feature resource. This section defines the attributes and associations (links to other resources) that apply to this feature type.
 
 The exact way attributes and associations are encoded in the payload is defined by each encoding. See the <<clause-encodings,Encoding Requirements Classes>> for examples of `System` resource representations.
-
 
 ==== Attributes
 
@@ -50,8 +69,8 @@ include::../requirements/system/req_system_type.adoc[]
 [width="100%",cols="5,10,5,15",options="header"]
 |====
 | *System Type* | *URI* | *CURIE* | *Usage*
-| Sensor      | http://www.w3.org/ns/sosa/Sensor           | sosa:Sensor    | When the system's primary activity is 'sensing' or 'observing'.
-| Actuator    | http://www.w3.org/ns/sosa/Actuator         | sosa:Actuator  | When the system's primary activity is 'actuating'.
+| Sensor      | http://www.w3.org/ns/sosa/Sensor           | `sosa:Sensor`    | When the system's primary activity is 'sensing' or 'observing'.
+| Actuator    | http://www.w3.org/ns/sosa/Actuator         | `sosa:Actuator`  | When the system's primary activity is 'actuating'.
 | Sampler     | http://www.w3.org/ns/sosa/Sampler          | sosa:Sampler   | When the system's primary activity is 'sampling'.
 | Platform    | http://www.w3.org/ns/sosa/Platform         | sosa:Platform  | When the system's primary activity is 'carrying' other systems.
 | System      | http://www.w3.org/ns/ssn/System            | ssn:System     | For all other system types.
@@ -81,7 +100,6 @@ include::../requirements/system/req_asset_type.adoc[]
 
 NOTE: Deployments can be used to document how different types of systems are used together. For instance, a deployment may describe how a "human" (system of type platform) uses a "machine" (system of type sensor) according to a well defined procedure.
 
-
 ==== Location
 
 It is recommended that the `System` resource representation includes the latest known location of the system. If the implementation decides to report the location, it must be done according to the optional `datetime` request parameter.
@@ -89,7 +107,6 @@ It is recommended that the `System` resource representation includes the latest 
 include::../requirements/system/req_location.adoc[]
 
 include::../requirements/system/req_location_time.adoc[]
-
 
 ==== Associations
 

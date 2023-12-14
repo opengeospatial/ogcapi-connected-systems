@@ -13,7 +13,7 @@ NOTE: `Procedure` resources describe types of systems (e.g. a particular model o
 
 [example%unnumbered]
 ====
-*Examples*
+*Procedure Examples*
 
 For hardware equipment operating automatically, the procedure usually corresponds to the equipment's datasheet.
 
@@ -27,10 +27,11 @@ If a human operator follows a different methodology during each mission/deployme
 
 === Procedure Resources
 
+==== Introduction
+
 In this API, `Procedure` resources are a special kind of feature resource. This section defines the attributes and associations (links to other resources) that apply to this feature type.
 
 The exact way attributes and associations are encoded in the payload is defined by each encoding. See the <<clause-encodings,Encoding Requirements Classes>> for examples of `Procedure` resource representations.
-
 
 ==== Attributes
 
@@ -50,7 +51,6 @@ include::../requirements/procedure/req_attributes.adoc[]
 
 NOTE: The validity time period of a `Procedure` description starts on the date that the model of the equipment was released. No `System` can implement the `Procedure` before this date. The end date should be set to a date after which no instance of the equipment is in use, or unbounded.
 
-
 More specific procedure types are implemented by tagging the resource with a more specific concept URI.
 
 include::../requirements/procedure/req_procedure_type.adoc[]
@@ -66,7 +66,6 @@ include::../requirements/procedure/req_procedure_type.adoc[]
 | Other            | http://www.w3.org/ns/sosa/Procedure               | sosa:Procedure         | Platform | A platform datasheet or other carrying/navigation procedure.
 |====
 
-
 [#doc-types,reftext='{table-caption} {counter:table-num}']
 .Document Types
 [width="100%",cols="5,10,5,15",options="header"]
@@ -76,14 +75,11 @@ include::../requirements/procedure/req_procedure_type.adoc[]
 | Methodology     | http://dbpedia.org/resource/Methodology        | dbr:Methodology | The procedure describes the methodology implemented by a human operator. 
 |====
 
-
-
 ==== Location
 
 A `Procedure` feature represents a datasheet or a methodology. It is thus a non-spatial entity.
 
 include::../requirements/procedure/req_location.adoc[]
-
 
 ==== Associations
 

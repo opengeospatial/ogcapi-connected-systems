@@ -9,15 +9,27 @@ This requirements class specifies how `Deployment` descriptions are provided usi
 
 The `Deployment` resource implements the _http://www.w3.org/ns/ssn/Deployment[Deployment]_ concept defined in the <<SOSA-SSN,SSN Ontology>> and is used to provide information about the deployment of one or more `Systems` (with or without payloads) for a specific purpose (often at a specific location and time).
 
-NOTE: The deployment concept can be used even with systems that represent simulations or models. In this case, deployments can be used to describe a particular model or simulation run.
+[example%unnumbered]
+====
+*Deployment Examples*
+
+- An in-situ sensor deployed at a given location
+- A network of in-situ sensors deployed along a river
+- A network of security cameras deployed in a city
+- A mission involving one or more unmanned systems (platforms) with payloads
+- A team deployed to collect survey responses
+- A sample collection campaign involving field personnel
+- A forecast model run
+====
 
 
 === Deployment Resources
 
+==== Introduction
+
 In this API, `Deployment` resources are a special kind of feature resource. This section defines the attributes and associations (links to other resources) that apply to this feature type.
 
 The exact way attributes and associations are encoded in the payload is defined by each encoding. See the <<clause-encodings,Encoding Requirements Classes>> for examples of `Deployment` resource representations.
-
 
 ==== Attributes
 
@@ -51,13 +63,11 @@ include::../requirements/deployment/req_deployment_type.adoc[]
 | #TBD#     | #http://www.opengis.net/def/x-OGC/TBD2#     | #TBD# |
 |====
 
-
 ==== Location
 
 include::../requirements/deployment/req_location.adoc[]
 
 NOTE: For simulations and models, the deployment location represents the spatial domain covered by a given run of the model (i.e. where the features of interest of simulated observations are located).
-
 
 ==== Associations
 

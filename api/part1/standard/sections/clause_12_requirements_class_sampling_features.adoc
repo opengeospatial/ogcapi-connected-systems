@@ -13,6 +13,19 @@ By analogy, this Standard also uses the concept of `Sampling Feature` to more pr
 
 While `Features of Interest` exist independently from any system observing or controlling them, `Sampling Features` are always associated to a specific `System` resource (which can be either a `Sensor`, an `Actuator` or a `Sampler`) because they define this particular system's sampling strategy.
 
+[example%unnumbered]
+====
+*Sampling Feature Examples*
+
+- A sampling point along a river
+- A trajectory at the ocean surface
+- A satellite image footprint
+- A profile of the atmosphere
+- The viewing frustum of a video camera
+- The area covered by a weather radar
+- A part in a complex machine
+====
+
 
 === Features of Interest
 
