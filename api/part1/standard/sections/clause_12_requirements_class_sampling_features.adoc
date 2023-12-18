@@ -112,9 +112,13 @@ include::../requirements/sampling/common/req_associations.adoc[]
 | `system`                  | The parent system that created or uses this sampling feature. | A `System` resource | Required
 | `sampledFeature`          | The ultimate feature of interest that is being sampled or controlled. | Any `Feature` resource | Required
 | `relatedSamplingFeatures` | Other sampling features related to this sampling feature via sub-sampling. | A collection of `Sampling Feature` resources | Optional
-| `dataStreams`   | The datastreams that contain observations of this sampling feature. | A collection of `DataStream` resources #(move to part 2?)# | Optional
+| `datastreams`   | The datastreams that contain observations of this sampling feature. | A collection of `DataStream` resources #(move to part 2?)# | Optional
 | `controlStreams` | The control streams that contain commands impacting this sampling feature. | A collection of `ControlStream` resources #(move to part 2?)# | Optional
 |====
+
+NOTE: Required associations may be ommitted only if the target resource does not exist or is not available online.
+
+include::../requirements/sampling/common/req_assoc_urls.adoc[]
 
 
 === Sampling Feature Collections
