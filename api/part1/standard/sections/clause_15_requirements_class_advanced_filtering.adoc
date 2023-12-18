@@ -159,11 +159,14 @@ part:: Filtering on resource properties SHOULD be supported as specified by requ
 
 [example%unnumbered]
 ====
-*Examples of query by property value*
-
-- `{api_root}/systems?name=Weather%20Station`
-- `{api_root}/samplingFeatures?featureType=om:Specimen`
+*Example queries by property value*
+[width="100%",cols="3,10"]
+|===
+| Systems by 'name' | {api_root}/systems?name=Weather%20Station
+| Sampling features by 'featureType' | {api_root}/samplingFeatures?featureType=om:Specimen
+|===
 ====
+
 
 
 === Queries on System Collections
@@ -184,10 +187,12 @@ part:: Only systems that are components of a parent system that has one of the r
 
 [example%unnumbered]
 ====
-*Example queries to find systems by parent*
-
-- `{api_root}/systems?parent=4g4ds54vv`
-- `{api_root}/systems?parent=urn:uuid:31f6865e-f438-430e-9b57-f965a21ee255`
+*Example queries to find `Systems` by parent*
+[width="100%",cols="3,10"]
+|===
+| Subsystems by parent ID  | `{api_root}/systems?parent=4g4ds54vv`
+| Subsystems by parent UID | `{api_root}/systems?parent=urn:uuid:31f6865e-f438-430e-9b57-f965a21ee255`
+|===
 ====
 
 ==== Procedure Filter
@@ -206,10 +211,13 @@ part:: Only systems that implement a procedure that has one of the requested ide
 
 [example%unnumbered]
 ====
-*Example queries to find systems by procedure*
-
-- `{api_root}/systems?procedure=11gsd654g`
-- `{api_root}/systems?procedure=urn:mrn:imo:procedure:451585`
+*Example queries to find `Systems` by procedure*
+[width="100%",cols="3,10"]
+|===
+| Systems by procedure ID             | `{api_root}/systems?procedure=11gsd654g`
+| Systems by procedure ID (multiple)  | `{api_root}/systems?procedure=11gsd654g,fsv4dg62`
+| Systems by procedure UID            | `{api_root}/systems?procedure=urn:example:procedure:451585`
+|===
 ====
 
 ==== Feature of Interest Filter
@@ -232,10 +240,12 @@ part:: If a system has subsystems, it SHALL be included in the result set if any
 
 [example%unnumbered]
 ====
-*Example queries to find systems by feature of interest*
-
-- `{api_root}/systems?foi=4578441,11425`
-- `{api_root}/systems?foi=urn:mrn:itu:mmsi:538070999,`
+*Example queries to find `Systems` by feature of interest*
+[width="100%",cols="3,10"]
+|===
+| Systems by feature of interest ID   | `{api_root}/systems?foi=11gsd654g`
+| Systems by feature of interest UID  | `{api_root}/systems?foi=urn:mrn:itu:mmsi:538070999`
+|===
 ====
 
 ==== Observed Property Filter
@@ -256,10 +266,12 @@ part:: If a system has subsystems, it SHALL be included in the result set if any
 
 [example%unnumbered]
 ====
-*Example queries to find systems by observed property*
-
-- `{api_root}/systems?observedProperty=4578441`
-- `{api_root}/systems?observedProperty=http://qudt.org/vocab/quantitykind/Temperature`
+*Example queries to find `Systems` by observed property*
+[width="100%",cols="3,10"]
+|===
+| Systems by observed property ID    | `{api_root}/systems?observedProperty=4578441`
+| Systems by observed property UID   | `{api_root}/systems?observedProperty=http://qudt.org/vocab/quantitykind/Temperature`
+|===
 ====
 
 ==== Controlled Property Filter
@@ -278,11 +290,23 @@ part:: Only systems that control a property that has one of the requested identi
 part:: If a system has subsystems, it SHALL be included in the result set if any of its subsystems (evaluated recursively) controls one of the listed properties.
 ====
 
+[example%unnumbered]
+====
+*Example queries to find `Systems` by controlled property*
+[width="100%",cols="3,10"]
+|===
+| Systems by controlled property ID    | `{api_root}/systems?controlledProperty=4578441`
+| Systems by controlled property UID   | `{api_root}/systems?controlledProperty=http://qudt.org/vocab/quantitykind/PH`
+|===
+====
+
 
 
 === Queries on Procedure Collections
 
 ==== Feature of Interest Filter
+
+CAUTION: This section is provisional as it requires an association between `Procedure` and `Feature of Interest` that is not specified yet.
 
 This filter is used to select procedures that are designed to observe or control certain features of interest. 
 
@@ -308,6 +332,15 @@ part:: Only procedures that can observe or control a feature of interest that ha
 part:: Only domain features of interest SHALL be included in the search.
 ====
 
+[example%unnumbered]
+====
+*Example queries to find `Procedures` by feature of interest*
+[width="100%",cols="3,10"]
+|===
+| Procedures by feature of interest UID  | `{api_root}/procedures?foi=http://dbpedia.org/resource/Atmosphere`
+|===
+====
+
 ==== Observed Property Filter
 
 This filter is used to select procedures that are designed to observe certain properties.
@@ -322,6 +355,16 @@ part:: HTTP GET operations targeting a collection of `Procedure` resources SHALL
 part:: Only procedures that can observe a property that has one of the requested identifiers SHALL be part of the result set.
 ====
 
+[example%unnumbered]
+====
+*Example queries to find `Procedures` by observed property*
+[width="100%",cols="3,10"]
+|===
+| Procedures by observed property ID    | `{api_root}/procedures?observedProperty=4578441`
+| Procedures by observed property UID   | `{api_root}/procedures?observedProperty=http://mmisw.org/ont/cf/parameter/air_pressure`
+|===
+====
+
 ==== Controlled Property Filter
 
 This filter is used to select procedures that are designed to control certain properties.
@@ -334,6 +377,16 @@ identifier:: /req/advanced-filtering/procedure-by-controlprop
 part:: HTTP GET operations targeting a collection of `Procedure` resources SHALL support a parameter `controlledProperty` of type <<filter-idlist-schema,ID_List>>.
 
 part:: Only procedures that can control a property that has one of the requested identifiers SHALL be part of the result set.
+====
+
+[example%unnumbered]
+====
+*Example queries to find `Procedures` by controlled property*
+[width="100%",cols="3,10"]
+|===
+| Procedures by controlled property ID    | `{api_root}/procedures?controlledProperty=146687`
+| Procedures by controlled property UID   | `{api_root}/procedures?controlledProperty=urn:example:prop:fuelmixratio`
+|===
 ====
 
 
@@ -354,6 +407,16 @@ part:: HTTP GET operations targeting a collection of `Deployment` resources SHAL
 part:: Only deployments during which a system that has one of the requested identifiers is deployed SHALL be part of the result set.
 ====
 
+[example%unnumbered]
+====
+*Example queries to find `Deployments` by deployed systems*
+[width="100%",cols="3,10"]
+|===
+| Deployments by deployed system ID  | `{api_root}/deployments?system=b5bxc988rf`
+| Deployments by deployed system UID  | `{api_root}/deployments?system=urn:mrn:itu:mmsi:538070999`
+|===
+====
+
 ==== Feature of Interest Filter
 
 This filter is used to select deployments during which deployed systems observe or control specific features of interest.
@@ -370,6 +433,16 @@ part:: Only deployments during which a deployed system observe or control a feat
 part:: Both sampling features and domain features of interest SHALL be included in the search.
 ====
 
+[example%unnumbered]
+====
+*Example queries to find `Deployments` by feature of interest*
+[width="100%",cols="3,10"]
+|===
+| Deployments by feature of interest ID  | `{api_root}/deployments?foi=g4sd56ht41`
+| Deployments by feature of interest UID  | `{api_root}/deployments?foi=urn:example:river:41148`
+|===
+====
+
 ==== Observed Property Filter
 
 This filter is used to select deployments during which certain properties are observed.
@@ -384,6 +457,16 @@ part:: HTTP GET operations targeting a collection of `Deployment` resources SHAL
 part:: Only deployments during which a deployed system observes a property that has one of the requested identifiers SHALL be part of the result set.
 ====
 
+[example%unnumbered]
+====
+*Example queries to find `Deployments` by observed property*
+[width="100%",cols="3,10"]
+|===
+| Deployments by observed property ID    | `{api_root}/deployments?observedProperty=4578441`
+| Deployments by observed property UID   | `{api_root}/deployments?observedProperty=http://mmisw.org/ont/cf/parameter/wind_speed`
+|===
+====
+
 ==== Controlled Property Filter
 
 This filter is used to select deployments during which certain properties are controlled.
@@ -396,6 +479,16 @@ identifier:: /req/advanced-filtering/deployment-by-controlprop
 part:: HTTP GET operations targeting a collection of `Deployment` resources SHALL support a parameter `controlledProperty` of type <<filter-idlist-schema,ID_List>>.
 
 part:: Only deployments during which a deployed system controls a property that has one of the requested identifiers SHALL be part of the result set.
+====
+
+[example%unnumbered]
+====
+*Example queries to find `Deployments` by controlled property*
+[width="100%",cols="3,10"]
+|===
+| Deployments by controlled property ID    | `{api_root}/deployments?controlledProperty=146687`
+| Deployments by controlled property UID   | `{api_root}/deployments?controlledProperty=http://qudt.org/vocab/quantitykind/Velocity`
+|===
 ====
 
 
@@ -416,6 +509,16 @@ part:: HTTP GET operations targeting a collection of `Sampling Feature` resource
 part:: Only sampling features that are associated to a feature of interest that has one of the requested identifiers SHALL be part of the result set.
 ====
 
+[example%unnumbered]
+====
+*Example queries to find `Sampling Features` by feature of interest*
+[width="100%",cols="3,10"]
+|===
+| Sampling Features by feature of interest ID  | `{api_root}/samplingFeatures?foi=g4sd56ht41`
+| Sampling Features by feature of interest UID  | `{api_root}/samplingFeatures?foi=urn:example:river:41148`
+|===
+====
+
 ==== Observed Property Filter
 
 This filter is used to select sampling features with certain observed properties.
@@ -430,6 +533,16 @@ part:: HTTP GET operations targeting a collection of `Sampling Feature` resource
 part:: Only sampling features with an observed property that has one of the requested identifiers SHALL be part of the result set.
 ====
 
+[example%unnumbered]
+====
+*Example queries to find `Sampling Features` by observed property*
+[width="100%",cols="3,10"]
+|===
+| Sampling Features by observed property ID    | `{api_root}/samplingFeatures?observedProperty=221785`
+| Sampling Features by observed property UID   | `{api_root}/samplingFeatures?observedProperty=http://qudt.org/vocab/quantitykind/Voltage`
+|===
+====
+
 ==== Controlled Property Filter
 
 This filter is used to select sampling features with certain controlled properties.
@@ -442,6 +555,16 @@ identifier:: /req/advanced-filtering/sf-by-controlprop
 part:: HTTP GET operations targeting a collection of `Sampling Feature` resources SHALL support a parameter `controlledProperty` of type <<filter-idlist-schema,ID_List>>.
 
 part:: Only sampling features with a controlled property that has one of the requested identifiers SHALL be part of the result set.
+====
+
+[example%unnumbered]
+====
+*Example queries to find `Sampling Features` by controlled property*
+[width="100%",cols="3,10"]
+|===
+| Sampling Features by controlled property ID    | `{api_root}/samplingFeatures?controlledProperty=146687`
+| Sampling Features by controlled property UID   | `{api_root}/samplingFeatures?controlledProperty=http://qudt.org/vocab/quantitykind/Velocity`
+|===
 ====
 
 
@@ -462,9 +585,19 @@ part:: HTTP GET operations targeting a collection of `Property Definition` resou
 part:: Only properties that are derived, directly or indirectly, from a base property that has one of the requested identifiers SHALL be part of the result set.
 ====
 
+[example%unnumbered]
+====
+*Example queries to find `Property Definitions` by base property*
+[width="100%",cols="3,10"]
+|===
+| Property by base property ID  | `{api_root}/properties?baseProperty=g4sd56ht41`
+| Property by base property UID  | `{api_root}/properties?baseProperty=http://qudt.org/vocab/quantitykind/AmbientPressure`
+|===
+====
+
 ==== Object Type Filter
 
-This filter is used to select properties that are of a specific object type.
+This filter is used to select properties that are assocaited to a specific kind of object.
 
 [requirement,model=ogc]
 ====
@@ -474,6 +607,16 @@ identifier:: /req/advanced-filtering/prop-by-object
 part:: HTTP GET operations targeting a collection of `Property Definition` resources SHALL support a parameter `object` of type <<filter-idlist-schema,ID_List>>.
 
 part:: Only properties with the `object` attribute set to one of the requested identifiers SHALL be part of the result set.
+====
+
+[example%unnumbered]
+====
+*Example queries to find `Property Definitions` by object*
+[width="100%",cols="3,10"]
+|===
+| Property by object kind UID  | `{api_root}/properties?object=https://dbpedia.org/page/Watercraft`
+| Property by object kind UID  | `{api_root}/properties?object=https://dbpedia.org/page/Engine`
+|===
 ====
 
 ==== Feature of Interest Filter
@@ -492,6 +635,15 @@ part:: Only properties that are observed or controlled on a feature of interest 
 part:: Both sampling features and domain features of interest SHALL be included in the search.
 ====
 
+[example%unnumbered]
+====
+*Example queries to find `Property Definitions` by feature of interest*
+[width="100%",cols="3,10"]
+|===
+| Property by feature of interest UID  | `{api_root}/properties?foi=urn:example:river:41148`
+|===
+====
+
 
 
 === Combination of Filter Parameters
@@ -502,5 +654,38 @@ part:: Both sampling features and domain features of interest SHALL be included 
 identifier:: /req/advanced-filtering/combined-filters
 
 When several filters are used in the same request, they SHALL be combined with the AND operator.
+====
+
+[example%unnumbered]
+====
+*Example queries combining multiple filters*
+[width="100%",cols="3,10"]
+|===
+| Systems by type and keyword                  | `{api_root}/systems?featureType=sosa:Sensor&q=weather`
+| Deployments by deployed system ID and time   | `{api_root}/deployments?datetime=2021-04-01T00:00:00Z/2021-07-01T00:00:00Z&system=gs54v1fds6`
+|===
+====
+
+
+
+=== Indirect Associations
+
+It is recommended that servers implement certain filtering capabilities in a way that does not require a "direct association" to exist between resources.
+
+[recommendation,model=ogc]
+====
+[%metadata]
+identifier:: /rec/advanced-filtering/indirect-prop
+
+When evaluating `observedProperty` or `controlledProperty` filters, the server SHOULD also evaluate all properties that derive from the specified property, that is properties whose `baseProperty` attribute point to the specified property, either directly or transitively.
+====
+
+
+[recommendation,model=ogc]
+====
+[%metadata]
+identifier:: /rec/advanced-filtering/indirect-foi
+
+When evaluating `foi` filters, the server SHOULD also evaluate all sampling features that are related to the specified feature of interest through a `sampledFeature` association. This allows a client to request resources by ultimate feature of interest even if it is not directly associated to the resource.
 ====
 

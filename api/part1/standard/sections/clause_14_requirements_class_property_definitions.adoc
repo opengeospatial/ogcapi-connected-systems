@@ -17,6 +17,16 @@ NOTE: The same property can be used in all 3 contexts simultaneously (e.g. the s
 
 The definition is provided by deriving the property from a well known entity referenced in an ontology such as <<QUDT, QUDT Quantity Kinds>>.
 
+[example%unnumbered]
+====
+*Derived Property Examples*
+
+- Combustion Chamber Temperature (derived from qudt:Temperature)
+- Hourly Average CPU Temperature (derived from qudt:Temperature)
+- Engine Output Power (derived from qudt:Power)
+- Received X-Band RF Power (derived from qudt:Power)
+====
+
 
 === Property Definition Resources
 
