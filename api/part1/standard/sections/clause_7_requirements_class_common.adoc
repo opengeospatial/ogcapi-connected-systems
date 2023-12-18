@@ -70,7 +70,7 @@ Heterogeneous feature collections (i.e. collections containing a mix of feature 
 [permission,model=ogc]
 ====
 [%metadata]
-identifier:: /req/api-common/mixed-types-collection
+identifier:: /per/api-common/mixed-types-collection
 
 The server CAN also offer collections containing mixed feature types. The behavior of these mixed collections in not defined by this Standard.
 ====
@@ -91,7 +91,7 @@ The canonical URL of a resource is based on the URL of the catch-all collection 
 [recommendation,model=ogc]
 ====
 [%metadata]
-identifier:: /req/api-common/canonical-links
+identifier:: /rec/api-common/canonical-links
 
 Any link to a resource whose type is specified by this Standard SHOULD use the resource canonical URL.
 ====
@@ -133,7 +133,7 @@ part:: The server SHALL ensure that resource UIDs (Unique IDs) are unique across
 [recommendation,model=ogc]
 ====
 [%metadata]
-identifier:: /req/api-common/resource-uids-types
+identifier:: /rec/api-common/resource-uids-types
 
 part:: The server SHOULD ensure that resource UIDs are globally unique URIs, that is either:
 

@@ -1,7 +1,7 @@
 [recommendation,model=ogc]
 ====
 [%metadata]
-identifier:: /req/subsystem/collection-datetime
+identifier:: /rec/subsystem/collection-datetime
 
 part:: When the `datetime` parameter is ommitted, the server CAN also include all subsystems that are currently deployed on the parent system (i.e. the association is made via a `Deployment` resource that is currently valid).
 

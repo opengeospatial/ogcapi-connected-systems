@@ -152,7 +152,7 @@ The property filter is used to select resources that have specific property valu
 [recommendation,model=ogc]
 ====
 [%metadata]
-identifier:: /req/advanced-filtering/by-property-param
+identifier:: /rec/advanced-filtering/by-property-param
 
 part:: Filtering on resource properties SHOULD be supported as specified by requirement http://www.opengis.net/spec/ogcapi-features-1/1.0/rec/core/fc-filters[/rec/core/fc-filters] of {ogcapi-features}.
 ====
