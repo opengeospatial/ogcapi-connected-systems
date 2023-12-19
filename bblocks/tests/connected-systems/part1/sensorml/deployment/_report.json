@@ -1,0 +1,37 @@
+{
+  "title": "Validation report for ogc.connected-systems.part1.sensorml.deployment - SensorML Deployment",
+  "bblockName": "SensorML Deployment",
+  "bblockId": "ogc.connected-systems.part1.sensorml.deployment",
+  "generated": "2023-10-16T22:05:14.262640+00:00",
+  "items": [
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "https://ogcincubator.github.io/ogcapi-connected-systems/bblocks/_sources/part1/sensorml/deployment/example_1_1.json",
+        "exampleIndex": 1,
+        "snippetIndex": 1,
+        "language": "json"
+      },
+      "sections": {
+        "FILES": [
+          {
+            "is_error": false,
+            "message": "Using example_1_1.json from examples"
+          }
+        ],
+        "JSON_SCHEMA": [
+          {
+            "op": "validation",
+            "result": false,
+            "exception": "ValidationError",
+            "errorMessage": "'href' is a required property",
+            "is_error": true,
+            "message": "ValidationError: 'href' is a required property\n\nFailed validating 'required' in schema['allOf'][0]['allOf'][1]['properties']['members']['items']:\n    {'$schema': 'http://json-schema.org/draft-07/schema#',\n     'properties': {'href': {'description': 'URL of target resource',\n                             'examples': ['https://data.example.com/link/to/resource'],\n                             'format': 'uri',\n                             'type': 'string'},\n                    'hreflang': {'description': 'Language tag of target '\n                                                'resource (2-letter '\n                                                'language code, followed '\n                                                'by optional 2-letter '\n                                                'region code)',\n                                 'examples': ['en-US', 'fr-FR', 'de'],\n                                 'minLength': 1,\n                                 'pattern': '^([a-z]{2}(-[A-Z]{2})?)|x-default$',\n                                 'type': 'string'},\n                    'if': {'description': 'Interface used to access target '\n                                          'resource (RFC 6690)',\n                           'examples': ['http://www.opengis.net/spec/spec-id/version'],\n                           'format': 'uri',\n                           'type': 'string'},\n                    'rel': {'description': 'Link relation type',\n                            'examples': ['alternate',\n                                         'self',\n                                         'http://www.opengis.net/def/rel/ogc/1.0/conformance'],\n                            'type': 'string'},\n                    'rt': {'description': 'Semantic type of target '\n                                          'resource (RFC 6690)',\n                           'examples': ['http://www.example.org/uri/of/concept'],\n                           'format': 'uri',\n                           'type': 'string'},\n                    'title': {'description': 'Title of target resource',\n                              'examples': ['Resource Name'],\n                              'minLength': 1,\n                              'type': 'string'},\n                    'type': {'description': 'Media type of target resource',\n                             'examples': ['application/json',\n                                          'image/tiff; '\n                                          'application=geotiff'],\n                             'type': 'string'},\n                    'uid': {'description': 'Unique identifier of target '\n                                           'resource',\n                            'examples': ['urn:x-org:resourceType:0001'],\n                            'format': 'uri',\n                            'type': 'string'}},\n     'required': ['href'],\n     'type': 'object'}\n\nOn instance['members'][2]:\n    {'components': [{'href': 'https://data.example.org/api/systems/41548?f=sml',\n                     'name': 'air_temp_sensor',\n                     'title': 'Air Temperature Sensor',\n                     'uid': 'urn:x-saildrone:sensors:temp01'},\n                    {'href': 'https://data.example.org/api/systems/36584?f=sml',\n                     'name': 'water_temp_sensor',\n                     'title': 'Water Temperature Sensor',\n                     'uid': 'urn:x-saildrone:sensors:temp02'},\n                    {'href': 'https://data.example.org/api/systems/47752?f=sml',\n                     'name': 'wind_sensor',\n                     'title': 'Wind Speed and Direction Sensor',\n                     'uid': 'urn:x-saildrone:sensors:wind01'}],\n     'name': 'Saildrone SD-1003',\n     'type': 'PhysicalSystem',\n     'typeOf': {'href': 'https://data.example.org/api/systems/2f35ofoms2l9?f=sml'},\n     'uniqueId': 'urn:x-saildrone:platforms:SD-1003'}"
+          }
+        ]
+      }
+    }
+  ],
+  "globalErrors": {}
+}

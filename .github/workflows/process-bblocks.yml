@@ -1,0 +1,26 @@
+name: Validate and process Building Blocks
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+      - main
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  validate-and-process:
+    uses: opengeospatial/bblocks-postprocess/.github/workflows/validate-and-process.yml@master
+    with:
+      items_dir: bblocks/_sources
+      register_file: bblocks/register.json
+      generated_docs_path: bblocks/generateddocs
+      annotated_path: bblocks/annotated-schemas
+      base_url: https://${{ github.event.repository.owner.login }}.github.io/${{github.event.repository.name}}/
+      fail_on_error: 'false'
+      clean: 'true'
+      test_outputs_path: bblocks/tests
+      config_file: bblocks/bblocks-config.yml

@@ -16,6 +16,8 @@
           "type": "object",
           "properties": {
             "featureType": {
+              "x-json-implements": "bblocks:fg-json#featureType" ,
+              "x-json-version": [ "3.2", ">4.0" ],
               "type": "string",
               "const": "http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint"
             },

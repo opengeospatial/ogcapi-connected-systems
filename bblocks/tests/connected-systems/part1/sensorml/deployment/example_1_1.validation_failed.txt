@@ -1,0 +1,77 @@
+Validation report for ogc.connected-systems.part1.sensorml.deployment - SensorML Deployment
+Generated 2023-10-16T22:05:14.262530+00:00
+=== Files ===
+Using example_1_1.json from examples
+=== End ValidationReportSection.FILES ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: 'href' is a required property
+
+Failed validating 'required' in schema['allOf'][0]['allOf'][1]['properties']['members']['items']:
+    {'$schema': 'http://json-schema.org/draft-07/schema#',
+     'properties': {'href': {'description': 'URL of target resource',
+                             'examples': ['https://data.example.com/link/to/resource'],
+                             'format': 'uri',
+                             'type': 'string'},
+                    'hreflang': {'description': 'Language tag of target '
+                                                'resource (2-letter '
+                                                'language code, followed '
+                                                'by optional 2-letter '
+                                                'region code)',
+                                 'examples': ['en-US', 'fr-FR', 'de'],
+                                 'minLength': 1,
+                                 'pattern': '^([a-z]{2}(-[A-Z]{2})?)|x-default$',
+                                 'type': 'string'},
+                    'if': {'description': 'Interface used to access target '
+                                          'resource (RFC 6690)',
+                           'examples': ['http://www.opengis.net/spec/spec-id/version'],
+                           'format': 'uri',
+                           'type': 'string'},
+                    'rel': {'description': 'Link relation type',
+                            'examples': ['alternate',
+                                         'self',
+                                         'http://www.opengis.net/def/rel/ogc/1.0/conformance'],
+                            'type': 'string'},
+                    'rt': {'description': 'Semantic type of target '
+                                          'resource (RFC 6690)',
+                           'examples': ['http://www.example.org/uri/of/concept'],
+                           'format': 'uri',
+                           'type': 'string'},
+                    'title': {'description': 'Title of target resource',
+                              'examples': ['Resource Name'],
+                              'minLength': 1,
+                              'type': 'string'},
+                    'type': {'description': 'Media type of target resource',
+                             'examples': ['application/json',
+                                          'image/tiff; '
+                                          'application=geotiff'],
+                             'type': 'string'},
+                    'uid': {'description': 'Unique identifier of target '
+                                           'resource',
+                            'examples': ['urn:x-org:resourceType:0001'],
+                            'format': 'uri',
+                            'type': 'string'}},
+     'required': ['href'],
+     'type': 'object'}
+
+On instance['members'][2]:
+    {'components': [{'href': 'https://data.example.org/api/systems/41548?f=sml',
+                     'name': 'air_temp_sensor',
+                     'title': 'Air Temperature Sensor',
+                     'uid': 'urn:x-saildrone:sensors:temp01'},
+                    {'href': 'https://data.example.org/api/systems/36584?f=sml',
+                     'name': 'water_temp_sensor',
+                     'title': 'Water Temperature Sensor',
+                     'uid': 'urn:x-saildrone:sensors:temp02'},
+                    {'href': 'https://data.example.org/api/systems/47752?f=sml',
+                     'name': 'wind_sensor',
+                     'title': 'Wind Speed and Direction Sensor',
+                     'uid': 'urn:x-saildrone:sensors:wind01'}],
+     'name': 'Saildrone SD-1003',
+     'type': 'PhysicalSystem',
+     'typeOf': {'href': 'https://data.example.org/api/systems/2f35ofoms2l9?f=sml'},
+     'uniqueId': 'urn:x-saildrone:platforms:SD-1003'}
+=== End ValidationReportSection.JSON_SCHEMA ===
+

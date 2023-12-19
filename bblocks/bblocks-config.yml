@@ -1,0 +1,5 @@
+identifier-prefix: ogc.connected-systems.
+
+imports:
+  - default
+  - https://opengeospatial.github.io/ogcapi-sosa/build/register.json

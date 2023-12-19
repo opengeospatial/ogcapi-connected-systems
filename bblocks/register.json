@@ -1,0 +1,46 @@
+{
+  "imports": [
+    "https://blocks.ogc.org/register.json",
+    "https://opengeospatial.github.io/ogcapi-sosa/build/register.json"
+  ],
+  "bblocks": [
+    {
+      "itemIdentifier": "ogc.connected-systems.part1.sensorml.deployment",
+      "name": "SensorML Deployment",
+      "abstract": "A Deployment Feature in SensorML format",
+      "status": "invalid",
+      "dateTimeAddition": "2023-10-11T00:00:00Z",
+      "itemClass": "schema",
+      "register": "ogc-building-block-register",
+      "version": "0.1",
+      "scope": "unstable",
+      "tags": [
+        "connected-systems",
+        "sensorml"
+      ],
+      "dateOfLastChange": "2023-10-11",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/ogcapi-connected-systems/bblocks/annotated-schemas/connected-systems/part1/sensorml/deployment/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/ogcapi-connected-systems/bblocks/annotated-schemas/connected-systems/part1/sensorml/deployment/schema.json"
+      },
+      "shaclRules": [],
+      "sourceFiles": "https://ogcincubator.github.io/ogcapi-connected-systems/bblocks/_sources/part1/sensorml/deployment/",
+      "validationPassed": false,
+      "testOutputs": "https://github.com/ogcincubator/ogcapi-connected-systems/blob/master/bblocks/tests/connected-systems/part1/sensorml/deployment/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/ogcapi-connected-systems/bblocks/generateddocs/markdown/connected-systems/part1/sensorml/deployment/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/ogcapi-connected-systems/bblocks/generateddocs/json-full/connected-systems/part1/sensorml/deployment/index.json"
+        },
+        "slate": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/ogcapi-connected-systems/bblocks/generateddocs/slate-build/connected-systems/part1/sensorml/deployment/"
+        }
+      }
+    }
+  ]
+}

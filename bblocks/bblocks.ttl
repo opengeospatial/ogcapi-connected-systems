@@ -1,0 +1,45 @@
+@prefix bblocks: <https://www.opengis.net/def/bblocks/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+bblocks:ogc.connected-systems.part1.sensorml.deployment a skos:Concept,
+        bblocks:Schema ;
+    rdfs:label "SensorML Deployment" ;
+    dct:abstract "A Deployment Feature in SensorML format" ;
+    dct:created "2023-10-11T00:00:00+00:00"^^xsd:dateTime ;
+    dct:description [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/ogcapi-connected-systems/bblocks/generateddocs/markdown/connected-systems/part1/sensorml/deployment/index.md" ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/ogcapi-connected-systems/bblocks/generateddocs/json-full/connected-systems/part1/sensorml/deployment/index.json" ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/ogcapi-connected-systems/bblocks/generateddocs/slate-build/connected-systems/part1/sensorml/deployment/" ] ;
+    dct:hasVersion "0.1" ;
+    dct:modified "2023-10-11"^^xsd:date ;
+    skos:inScheme <https://www.opengis.net/def/bblocks> ;
+    bblocks:hasSchema <https://ogcincubator.github.io/ogcapi-connected-systems/bblocks/annotated-schemas/connected-systems/part1/sensorml/deployment/schema.json>,
+        <https://ogcincubator.github.io/ogcapi-connected-systems/bblocks/annotated-schemas/connected-systems/part1/sensorml/deployment/schema.yaml> ;
+    bblocks:scope <http://www.opengis.net/def/bblocks/scope/unstable> ;
+    bblocks:status <http://www.opengis.net/def/status/invalid> .
+
+<https://www.opengis.net/def/bblocks> a skos:ConceptScheme ;
+    skos:prefLabel "OGC Building Blocks Register" .
+
+[] a prov:Activity ;
+    prov:endedAtTime "2023-10-16T22:05:14.340743"^^xsd:dateTime ;
+    prov:startedAtTime "2023-10-16T22:05:14.265063"^^xsd:dateTime ;
+    prov:used [ a prov:Entity ;
+            dct:format "application/json" ;
+            rdfs:seeAlso <https://ogcincubator.github.io/ogcapi-connected-systems/bblocks/register.json> ],
+        [ a prov:Entity ;
+            dct:format "application/yaml" ;
+            rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ] ;
+    prov:wasAssociatedWith [ a prov:Agent,
+                schema:SoftwareApplication ;
+            rdfs:label "OGC-NA tools" ;
+            dct:hasVersion "0.3.15.dev1+g2b17930" ;
+            rdfs:seeAlso <https://github.com/opengeospatial/ogc-na-tools> ] .
+

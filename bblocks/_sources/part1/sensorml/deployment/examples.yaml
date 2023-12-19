@@ -1,0 +1,4 @@
+- title: SensorML deployment
+  snippets:
+    - language: json
+      ref: ../../../../../api/part1/openapi/examples/deployments/deployment-sml.json
