@@ -6,4 +6,9 @@ identifier:: /req/sampling-spatial
 subject:: Web API
 inherit:: /req/sampling-features
 indirect-dependency:: OGC 10-004r3 - Clause 9: Spatial Sampling Features
+requirement:: /req/sampling-spatial/type
+requirement:: /req/sampling-spatial/om
+requirement:: /req/sampling-spatial/shapes
+requirement:: /req/sampling-spatial/location
+requirement:: /req/sampling-spatial/location-time
 ====

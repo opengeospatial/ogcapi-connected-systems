@@ -6,4 +6,14 @@ identifier:: /req/geojson
 subject:: Web API
 inherit:: /req/api-common
 inherit:: http://www.opengis.net/spec/ogcapi-features-1/1.0/req/geojson
+requirement:: /req/geojson/feature-attribute-mapping
+requirement:: /req/geojson/system-schema
+requirement:: /req/geojson/system-mappings
+requirement:: /req/geojson/procedure-schema
+requirement:: /req/geojson/procedure-mappings
+requirement:: /req/geojson/deployment-schema
+requirement:: /req/geojson/deployment-mappings
+requirement:: /req/geojson/sf-schema
+requirement:: /req/geojson/sf-mappings
+requirement:: /req/geojson/batch-format
 ====

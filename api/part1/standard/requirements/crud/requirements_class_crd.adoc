@@ -5,4 +5,28 @@ identifier:: /req/create-replace-delete
 subject:: Web API
 inherit:: /req/api-common
 inherit:: http://www.opengis.net/spec/ogcapi-features-4/1.0/req/create-replace-delete[^]
+requirement:: /req/create-replace-delete/system
+requirement:: /req/create-replace-delete/system-delete-cascade
+requirement:: /req/create-replace-delete/subsystem
+requirement:: /req/create-replace-delete/procedure
+requirement:: /req/create-replace-delete/deployment
+requirement:: /req/create-replace-delete/sampling-feature
+requirement:: /req/create-replace-delete/property
+requirement:: /req/create-replace-delete/create-in-collection
+requirement:: /req/create-replace-delete/replace-in-collection
+requirement:: /req/create-replace-delete/delete-in-collection
+requirement:: /req/create-replace-delete/add-to-collection
+requirement:: /req/create-replace-delete/batch-mode
+requirement:: /req/create-replace-delete/batch-mode-success
+requirement:: /req/create-replace-delete/batch-mode-partial
+requirement:: /req/create-replace-delete/batch-mode-atomic
+requirement:: /req/create-replace-delete/batch-create-op
+requirement:: /req/create-replace-delete/batch-create-request
+requirement:: /req/create-replace-delete/batch-create-response
+requirement:: /req/create-replace-delete/batch-replace-op
+requirement:: /req/create-replace-delete/batch-replace-request
+requirement:: /req/create-replace-delete/batch-replace-response
+requirement:: /req/create-replace-delete/batch-delete-op
+requirement:: /req/create-replace-delete/batch-delete-request
+requirement:: /req/create-replace-delete/batch-delete-response
 ====

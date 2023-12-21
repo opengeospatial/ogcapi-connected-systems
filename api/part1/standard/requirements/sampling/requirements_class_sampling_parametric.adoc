@@ -9,4 +9,6 @@ inherit:: http://www.opengis.net/spec/GeoPose/1.0/req/basic-ypr
 inherit:: http://www.opengis.net/spec/GeoPose/1.0/req/basic-quaternion
 inherit:: http://www.opengis.net/spec/SML/2.1/req/relative-ypr
 inherit:: http://www.opengis.net/spec/SML/2.1/req/relative-quaternion
+requirement:: /req/sampling-parametric/attributes
+requirement:: /req/sampling-parametric/pose
 ====
