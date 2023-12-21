@@ -109,11 +109,11 @@ include::../requirements/sampling/common/req_associations.adoc[]
 [width="100%",cols="5,10,10,3",options="header"]
 |====
 | *Relation Name*           | *Definition* | *Target Content* | *Usage*
-| `system`                  | The parent system that created or uses this sampling feature. | A `System` resource | Required
-| `sampledFeature`          | The ultimate feature of interest that is being sampled or controlled. | Any `Feature` resource | Required
-| `relatedSamplingFeatures` | Other sampling features related to this sampling feature via sub-sampling. | A collection of `Sampling Feature` resources | Optional
-| `datastreams`   | The datastreams that contain observations of this sampling feature. | A collection of `DataStream` resources #(move to part 2?)# | Optional
-| `controlStreams` | The control streams that contain commands impacting this sampling feature. | A collection of `ControlStream` resources #(move to part 2?)# | Optional
+| `parentSystem`            | The `System` that created or uses this `Sampling Feature`. | A single `System` resource. | Required
+| `sampledFeature`          | The ultimate feature of interest that is being sampled or controlled. | A single `Feature` resource. | Required
+| `relatedSamplingFeatures` | Other `Sampling Features` related to this `Sampling Feature` via sub-sampling. | A collection of `Sampling Feature` resources (inline or by-reference). | Optional
+| `datastreams`   | The `Data Streams` that contain observations of this `Sampling Feature`. | A collection of `DataStream` resources (inline or by-reference). | Optional
+| `controlStreams` | The `Control Streams` that received commands impacting this `Sampling Feature`. | A collection of `ControlStream` resources (inline or by-reference). | Optional
 |====
 
 NOTE: Required associations may be ommitted only if the target resource does not exist or is not available online.

@@ -80,10 +80,10 @@ include::../requirements/deployment/req_associations.adoc[]
 [width="100%",cols="5,10,10,5",options="header"]
 |====
 | *Name* | *Definition* | *Target Content* | *Usage*
-| `deployedSystems`     | The deployed systems. | A collection of `System` resources | Required
-| `featuresOfInterest`  | The ultimate features of interest that are observed and/or controlled during the deployment. | A collection of `Feature` resources | Optional
-| `datastreams`         | The datastreams containing observations collected during the deployment. | A collection of `DataStream` resources | Optional
-| `controlStreams`      | The control streams containing commands issued during the deployment. | A collection of `ControlStream` resources | Optional
+| `deployedSystems`     | The deployed `Systems`. | A collection of `System` resources (inline or by-reference). | Required
+| `featuresOfInterest`  | The ultimate features of interest that are observed and/or controlled during the `Deployment`. | A collection of `Feature` resources (inline or by-reference). | Optional
+| `datastreams`         | The `Data Streams` containing observations collected during the `Deployment`. | A collection of `DataStream` resources (inline or by-reference). | Optional
+| `controlStreams`      | The `Control Streams` that received commands issued during the `Deployment`. | A collection of `ControlStream` resources (inline or by-reference). | Optional
 |====
 
 NOTE: Required associations may be ommitted only if the target resource does not exist or is not available online.
