@@ -28,24 +28,24 @@ Below are a few examples for each sub-type of `Spatial Sampling Feature`:
 ====
 *Sampling Point Examples*
 
-- Sampling location at a river monitoring station
-- Sampling location at the bottom of a well
+- A sampling location at a river monitoring station.
+- A sampling location at the bottom of a well.
 ====
 
 [example%unnumbered]
 ====
 *Sampling Curve Examples*
 
-- Sampling profile at a river monitoring station
-- Sampling path at the bottom of a well
+- A sampling path along a river.
+- A sampling profile below an ocean monitoring buoy.
 ====
 
 [example%unnumbered]
 ====
-*Sampling Point Examples*
+*Sampling Surface Examples*
 
-- Sampling location at a river monitoring station
-- Sampling location at the bottom of a well
+- A satellite image footprint
+- The geospatial extent covered by a weather forecast model.
 ====
 
 ==== Feature Type
