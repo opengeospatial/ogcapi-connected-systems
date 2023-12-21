@@ -59,19 +59,19 @@ Encodings are specified in <<clause-encodings>> of this Standard. Each encoding 
 
 === Resource Collections
 
-<<OGC-API-Features,OGC API - Features>> mandates that its resources be organized into Feature Collections. In addition to the feature types themselves, this Standards specifies how to identify collections that contain a given feature type.
+{ogcapi-features} mandates that its resources be organized into Feature Collections. In addition to the feature types themselves, this Standards specifies how to identify collections that contain a given feature type.
 
 This is done using an additional attribute on the Collection resource called `featureType`. Each requirements class defining a new feature type also defines the value to use for this attribute when creating a collection of this feature type.
 
 
 === Paged Responses
 
-All collections support paging via the `limit` query parameter and the `next` link, as specified by https://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_parameter_limit[OGC API - Features] and {ogcapi-common-2}.
+All collections support paging via the `limit` query parameter and the `next` link, as specified by {ogcapi-features-1} and {ogcapi-common-2}.
 
 
 === Search & Filtering
 
-The core search capability is based on https://ogcapi.ogc.org/common/[OGC API-Common] and thus supports:
+The core search capability is based on {ogcapi-features-1} and thus supports:
 
 * Bounding box searches using the `bbox` parameter,
 * Time instant or time period searches using the `datetime` parameter,
@@ -137,6 +137,6 @@ Please see https://docs.ogc.org/is/17-069r4/17-069r4.html#_security_consideratio
 
 Most requirements classes of this Standard can be implemented independently.
 
-For example, a given implementation can choose to implement only `System` and `Deployment` features and rely on other servers to host complementary metadata such as `Procedures` and Domain Features. This is a common use cases since procedure descriptions (i.e. system datasheets) and domain features (e.g. geographical or hydrological features) can typically be shared by many different organizations.
+For example, a given implementation can choose to implement only `System` and `Deployment` features and rely on other servers to host complementary metadata such as `Procedures` and `Features of Interest` (i.e. domain features). This is a common use cases since procedure descriptions (i.e. system datasheets) and domain features (e.g. geographical or hydrological features) can typically be shared by many different organizations.
 
 This is made possible thanks to the use of hyperlinks that don't require that all resources be hosted at the same endpoint.

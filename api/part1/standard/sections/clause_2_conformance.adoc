@@ -1,8 +1,8 @@
 == Conformance
 
-This standard has been written to be compliant with the OGC Specification Model – A Standard for Modular Specification (OGC 08-131r3). Extensions of this standard shall themselves be conformant to the OGC Specification Model.
+#TODO#
 
-Conformance with this specification shall be checked using all the relevant tests specified in Annex A. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in ISO 19105: Geographic information — Conformance and Testing. In order to conform to this OGC™ encoding standard, a standardization target shall implement the core conformance class, and choose to implement any one of the other conformance classes.
+This standard has been written to be compliant with the OGC Specification Model – A Standard for Modular Specification (OGC 08-131r3). Extensions of this standard shall themselves be conformant to the OGC Specification Model.
 
 This standard defines XXXX.
 
@@ -12,10 +12,3 @@ Requirements for N standardization target types are considered:
 * BBBB
 
 Conformance with this standard shall be checked using all the relevant tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.
-
-In order to conform to this OGC® interface standard, a software implementation shall choose to implement:
-
-* Any one of the conformance levels specified in Annex A (normative).
-* Any one of the Distributed Computing Platform profiles specified in Annexes TBD through TBD (normative).
-
-All requirements-classes and conformance-classes described in this document are owned by the standard(s) identified.

@@ -3,7 +3,7 @@
 [%metadata]
 identifier:: /req/sampling/assoc-urls
 
-The following URL templates, rooted at the sampling feature's canonical URL, SHALLE be used to access a sampling feature's associated resources:
+The following URL templates, rooted at the sampling feature's canonical URL, SHALL be used to access a sampling feature's associated resources:
 
 - For related sampling features, use `/samplingFeatures/{id}/relatedSamplingFeatures`
 - For data streams, use `/samplingFeatures/{id}/datastreams`
