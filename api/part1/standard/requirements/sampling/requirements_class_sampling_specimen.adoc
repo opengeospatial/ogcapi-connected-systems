@@ -6,4 +6,6 @@ identifier:: /req/sampling-specimen
 subject:: Web API
 inherit:: /req/sampling-features
 indirect-dependency:: OGC 10-004r3 - Clause 10: Specimens
+requirement:: /req/sampling-specimen/type
+requirement:: /req/sampling-specimen/om
 ====
