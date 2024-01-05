@@ -4,13 +4,15 @@
 
 * [[[OGC-SOS, OGC 12-006]]], Sensor Observation Service Interface Standard, Version 2.0. https://www.ogc.org/standards/sos
 
-* [[[OGC-SPS, OGC 19-000]]], OGC Sensor Planning Service Implementation Standard, Version 2.0. at https://www.ogc.org/standards/sps
+* [[[OGC-SPS, OGC 09-000]]], OGC Sensor Planning Service Implementation Standard, Version 2.0. at https://www.ogc.org/standards/sps
 
 * [[[OGC-STA-1, OGC 18-088]]], SensorThings API Part 1: Sensing, Version 1.1. https://docs.ogc.org/is/18-088/18-088.html
 
 * [[[OGC-STA-2, OGC 17-079r1]]], SensorThings API Part 2: Tasking Core, Version 1.0. http://docs.opengeospatial.org/is/17-079r1/17-079r1.html
 
 * [[[OGCAPI-MF, OGC 22-003]]], OGC API — Moving Features — Part 1: Core, Version 1.0.draft. https://opengeospatial.github.io/ogcapi-movingfeatures/standard/standard_document.html
+
+* [[[OGCAPI-EDR, OGC 19-086r6]]], OGC API — Environmental Data Retrieval Standard, Version 1.1. https://docs.ogc.org/is/19-086r6/19-086r6.html
 
 * [[[QUDT, QUDT]]], QUDT Quantity Kinds, Version 2.1. https://www.qudt.org/doc/DOC_VOCAB-QUANTITY-KINDS.html
 

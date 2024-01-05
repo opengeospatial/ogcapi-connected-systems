@@ -38,6 +38,8 @@ In this document the following abbreviations and acronyms are used or introduced
 - MISB:	Motion Imagery Standards Board
 - NED: North East Down
 - OGC: Open Geospatial Consortium
+- O&M: Observations and Measurements
+- OMS: Observations, Measurements and Samples
 - RBAC: Role Based Access Control
 - SAS: Sensor Alert Service
 - SensorML:	Sensor Model Language
