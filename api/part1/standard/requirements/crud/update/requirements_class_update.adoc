@@ -6,4 +6,13 @@ identifier:: /req/resource-update
 subject:: Web API
 inherit:: /req/create-replace-delete
 inherit:: http://www.opengis.net/spec/ogcapi-features-4/1.0/req/update[^]
+requirement:: /req/resource-update/system
+requirement:: /req/resource-update/subsystem
+requirement:: /req/resource-update/procedure
+requirement:: /req/resource-update/deployment
+requirement:: /req/resource-update/sampling-feature
+requirement:: /req/resource-update/property
+requirement:: /req/resource-update/batch-update-op
+requirement:: /req/resource-update/batch-update-request
+requirement:: /req/resource-update/batch-update-response
 ====

@@ -5,4 +5,7 @@ type:: class
 identifier:: /req/system-components
 subject:: Web API
 inherit:: /req/system-features
+requirement:: /req/subsystem/associations
+requirement:: /req/subsystem/collection
+requirement:: /req/subsystem/recursive-search
 ====

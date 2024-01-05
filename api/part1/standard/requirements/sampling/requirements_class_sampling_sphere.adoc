@@ -6,4 +6,6 @@ identifier:: /req/sampling-sphere
 subject:: Web API
 inherit:: /req/sampling-features
 inherit:: /req/sampling-parametric
+requirement:: /req/sampling-sphere/type
+requirement:: /req/sampling-sphere/attributes
 ====
