@@ -64,28 +64,19 @@ The following classes from OMS https://docs.ogc.org/as/20-082r4/20-082r4.html#_b
 
 
 
-==== Coverages
-
-Observation results are sometimes coverages (e.g. satellite imagery, weather forecast, etc.). In the case of large coverages, providing access to the observation result is better handled by APIs that allow subsetting the coverage along its various dimensions.
-
-Instead of duplicating existing functionality, OGC API - Connected Systems allows linking to coverage datasets hosted by other APIs or web services when appropriate, instead of including the coverage result data inline in the observation.
-
-In particular, links to the following OGC services and APIs are possible:
-- OGC API - Coverages
-- OGC API - Maps
-- OGC API - EDR
-- OGC Web Coverage Service
-- OGC Web Map Service
-
-Part 2 of this Standard defines cross-service weblinking conventions to achieve this linkage in an interoperable manner.
-
-
-
 === OGC API - Features
 
 The OGC API - Connected Systems Standard is an extension of OGC API - Features, and thus inherits all requirements from {ogcapi-features-1}. In addition, requirements from {ogcapi-features-4} are inherited by <<clause-resource-crd,style=basic%>> and <<clause-resource-update,style=basic%>>. Requirements from {ogcapi-features-2} also apply if coordinate reference systems other than `CRS:84` or `CRS:84h` are to be used.
 
-Some resources defined by this API are designed to link to external feature resources that act as features of interest (e.g. rivers, roads, buildings, etc.). These features of interest can typically be hosted by separate instances of OGC API - Features.
+Additionally, some resources defined by this API are designed to link to feature resources hosted by other servers (e.g. domain features) that act as features of interest of observations (e.g. rivers, roads, buildings, etc.). Such domain features can typically be hosted by separate instances of OGC API - Features. This linking capabilitiy allows OGC API - Connected Systems instances to refer to existing feature repositories such as land registers, building databases, transportation networks, hydrographic networks, oceanic features, etc, without duplicating the data.
+
+
+
+=== OGC API - Moving Features
+
+The OGC API - Moving Features Standard defines an alternative way to provide dynamic feature property data, but is more limited in scope. The key difference between OGC API - Moving Features and OGC API - Connected Systems is that the former does not implement the O&M or SSN models, and thus does not allow the provision of metadata about the observation process, nor does it support tasking capabilities. 
+
+If needed, both APIs can be implemented at the same endpoint (since both extend OGC API - Features) in order to provide two complementary viewpoints of the same underlying dynamic data.
 
 
 
@@ -152,7 +143,7 @@ The next table shows a comparison of SensorThings and OGC API - Connected System
 [width="100%",cols="5,5,10",options="header"]
 |====
 | *STA Resource*         | *CONSYS Resource*    | *Comments*
-| `Thing`                | `System`             |              
+| `Thing`                | `System`             | type = `sosa:Platform`
 | `Location`             | `Observation`        | Location is implemented as a specific kind of observation whose result is a location vector.
 | `HistoricalLocation`   | `DataStream`         | Historical locations are implemented as a DataStream containing location observations (see above).
 | `Datastream`           | `DataStream`         | 
@@ -163,6 +154,8 @@ The next table shows a comparison of SensorThings and OGC API - Connected System
 | `Actuator`             | `System`             | type = `sosa:Actuator`
 | `TaskingCapability`    | `CommandStream`      | 
 | `Task`                 | `Command`            | 
+| -                      | `Procedure`          | 
+| -                      | `Deployment`         | 
 |====
 
 If needed, the following weblinks can be added to OGC API - Connected Systems resources to refer to SensorThings API resources:
@@ -177,6 +170,41 @@ If needed, the following weblinks can be added to OGC API - Connected Systems re
 | `DataStream`             | `Datastream`              | 
 | `ControlStream`          | `TaskingCapability`       | 
 |====
+
+
+
+=== Coverages
+
+Observation results are sometimes coverages (e.g. satellite imagery, weather forecast, etc.). In the case of large coverages, providing access to the observation result is better handled by APIs that allow subsetting the coverage along its various dimensions.
+
+Instead of duplicating existing functionality, OGC API - Connected Systems allows linking to coverage datasets hosted by other APIs or web services when appropriate, instead of including the coverage result data inline in the observation.
+
+In particular, links to the following OGC services and APIs are possible:
+
+- OGC API - Coverages
+- OGC API - Maps
+- OGC API - EDR
+- OGC Web Coverage Service
+- OGC Web Map Service
+
+The exact way linking between Connected Systems resources and Coverage datasets is implemented will be specified in a future Best Practice document.
+
+
+
+=== 3D Features
+
+The following OGC standards can be used to represent and/or transfer complex 3D scenes:
+
+- OGC CityGML and CityJSON
+- OGC 3D Tiles
+- OGC Indexed 3d Scene Layer (I3S)
+- OGC API - 3D GeoVolumes
+
+Such 3D scenes contain feature objects (i.e. features of interest) that can be the target of observations or commands (e.g. a building feature in the 3D model of a city, a mechanical part in the 3D model of an engine, etc.).
+
+These features of interest can be referenced by OGC API - Connected Systems resources, allowing clients to associate the observations to the exact object in the 3D scene (e.g. the user could click an object in the scene and be presented with a chart or a list of dynamic data stream about this object). The reverse link going from the 3D model to the Connected Systems datastream is also desirable.
+
+The exact way linking between Connected Systems resources and 3D objects is implemented will be specified in a future Best Practice document.
 
 
 
