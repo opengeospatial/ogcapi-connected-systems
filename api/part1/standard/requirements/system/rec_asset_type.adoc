@@ -1,0 +1,10 @@
+[recommendation,model=ogc]
+====
+[%metadata]
+identifier:: /rec/system/asset-type
+
+part:: A `System` resource SHOULD use one of the URIs or CURIES provided in <<asset-types>> as the value of the `assetType` attribute.
+If using a URI or CURIE is not practical, the encoding SHALL explicitely define the mapping between the values used and these URIs.
+
+part:: If the classification provided in <<asset-types>> is not sufficient for the application, using other classifiers is permitted.
+====

@@ -7,7 +7,7 @@ subject:: Web API
 inherit:: /req/api-common
 requirement:: /req/system/attributes
 requirement:: /req/system/system-type
-requirement:: /req/system/asset-type
+requirement:: /rec/system/asset-type
 requirement:: /req/system/location-time
 requirement:: /req/system/associations
 requirement:: /req/system/assoc-urls

@@ -46,6 +46,7 @@ include::../requirements/procedure/req_attributes.adoc[]
 | `name`             | The human readable name of the procedure | String | Required
 | `description`      | A human readable description for the procedure | String | Optional
 | `procedureType`    | The type of procedure (see <<procedure-types>>) | URI | Required
+| `documentType`     | The type of information provided by the procedure (see <<document-types>>) | URI | Optional
 | `validTime`        | The validity period of the procedure description. | DateTime | Optional
 |====
 
@@ -66,13 +67,17 @@ include::../requirements/procedure/req_procedure_type.adoc[]
 | Other            | http://www.w3.org/ns/sosa/Procedure               | sosa:Procedure         | Platform | A platform datasheet or other carrying/navigation procedure.
 |====
 
-[#doc-types,reftext='{table-caption} {counter:table-num}']
+A `Procedure` resource can also be tagged with a "document type" attribute used to further qualify the type of information provided by the procedure.
+
+include::../requirements/procedure/rec_document_type.adoc[]
+
+[#document-types,reftext='{table-caption} {counter:table-num}']
 .Document Types
 [width="100%",cols="5,10,5,15",options="header"]
 |====
 | *Document Type* | *URI* | *CURIE* | *Usage*
-| Datasheet       | http://dbpedia.org/resource/Datasheet          | dbr:Datasheet | The procedure is a datasheet that summarizes the performance and other characteristics of the equipment.
-| Methodology     | http://dbpedia.org/resource/Methodology        | dbr:Methodology | The procedure describes the methodology implemented by a human operator. 
+| Datasheet       | #http://www.opengis.net/def/x-OGC/TBD/Datasheet#     | sml:Datasheet | The procedure is a datasheet that documents the capabilities and characteristics of the system.
+| Methodology     | #http://www.opengis.net/def/x-OGC/TBD/Methodology#   | sml:Methodology | The procedure describes the methodology used by a human operator.
 |====
 
 ==== Location
