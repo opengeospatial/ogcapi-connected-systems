@@ -99,7 +99,7 @@ include::sections/clause_20_requirements_class_geojson_encoding.adoc[]
 
 include::sections/clause_21_requirements_class_sensorml_encoding.adoc[]
 
-include::sections/clause_22_requirements_class_jsonfg_encoding.adoc[]
+//include::sections/clause_22_requirements_class_jsonfg_encoding.adoc[]
 
 ////
 Annexes

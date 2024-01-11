@@ -1,3 +1,5 @@
+:jsonfg-mediatype: application/fg+json
+
 
 [[clause-encoding-jsonfg]]
 === Requirements Class "JSON-FG Format"
@@ -10,45 +12,61 @@ This requirements class specifies how `Feature` descriptions provided through th
 All feature types defined by this Standard can be encoded as JSON-FG.
 
 
+
 ==== Media Type
 
+The media type used for GeoJSON encoded resources is `{jsonfg-mediatype}`.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/json-fg/mediatype-read
+
+The server SHALL support the media type `{jsonfg-mediatype}` in the HTTP `Accept` header and respond with a JSON document corresponding to the requested resource type.
+====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/json-fg/mediatype-write
+
+conditions:: The server implements <<clause-resource-crd,/req/create-replace-delete>>.
+
+The server SHALL support the media type `{jsonfg-mediatype}` in the HTTP `Content-Type` header and parse the JSON body according to the resource type.
+====
 
 
-==== Common Feature Encoding Rules
 
-#TODO#
+==== Encoding Rules
 
+A JSON-FG document is also a GeoJSON document, so the encoding rules defined in <<clause-encoding-geojson,style=full%>> are also applicable to resources encoded as JSON-FG.
 
-==== System Encoding Rules
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/json-fg/geojson-encoding-rules
 
-#TODO#
+part:: A JSON-FG document representing any `Feature` resource defined by this Standard SHALL implement all requirements in clause <<clause-encoding-geojson-common,style=full%>>.
 
+part:: A JSON-FG document representing a `System` resource SHALL implement all requirements in clause <<clause-encoding-geojson-system,style=full%>>.
 
-==== Procedure Encoding Rules
+part:: A JSON-FG document representing a `Procedure` resource SHALL implement all requirements in clause <<clause-encoding-geojson-procedure,style=full%>>.
 
-#TODO#
+part:: A JSON-FG document representing a `Deployment` resource SHALL implement all requirements in clause <<clause-encoding-geojson-deployment,style=full%>>.
 
-
-==== Deployment Encoding Rules
-
-#TODO#
-
-
-==== SamplingFeature Encoding Rules
-
-#TODO#
+part:: A JSON-FG document representing a `SamplingFeature` resource SHALL implement all requirements in clause <<clause-encoding-geojson-sf,style=full%>>.
+====
 
 
 
 ==== Batch Mode
 
-Multiple features can be added using the JSON-FG format when wrapped into a FeatureCollection.
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/json-fg/batch-format
 
-===== Create multiple resources in same collection
+conditions:: The server implements <<clause-resource-crd,/req/create-replace-delete>>.
 
-
-
-
-===== Replace multiple resources in same collection
-
-Need to keep the resource ID in the content in this case
+A BATCH CREATE or BATCH REPLACE request body SHALL be a valid JSON-FG `FeatureCollection` document.
+====

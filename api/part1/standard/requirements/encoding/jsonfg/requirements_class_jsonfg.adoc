@@ -6,5 +6,8 @@ identifier:: /req/json-fg
 subject:: Web API
 inherit:: /req/api-common
 indirect-dependency:: JSON-FG, https://docs.ogc.org/DRAFTS/21-045.html
-requirement:: 
+requirement:: /req/json-fg/mediatype-read
+requirement:: /req/json-fg/mediatype-write
+requirement:: /req/json-fg/geojson-encoding-rules
+requirement:: /req/json-fg/batch-format
 ====
