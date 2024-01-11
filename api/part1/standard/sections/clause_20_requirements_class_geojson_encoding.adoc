@@ -1,3 +1,6 @@
+:geojson-mediatype: application/geo+json
+
+
 [[clause-encoding-geojson]]
 === Requirements Class "GeoJSON Format"
 
@@ -9,6 +12,30 @@ This requirements class specifies how `Feature` descriptions provided through th
 All feature types defined by this Standard can be encoded as GeoJSON.
 
 The server must also implement Requirements Class "GeoJSON" of {ogcapi-features-1}.
+
+
+
+==== Media Type
+
+The media type used for GeoJSON encoded resources is `{geojson-mediatype}`.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/geojson/mediatype-read
+
+The server SHALL support the media type `{geojson-mediatype}` in the HTTP `Accept` header and respond with a JSON document corresponding to the requested resource type.
+====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/geojson/mediatype-write
+
+conditions:: The server implements <<clause-resource-crd,/req/create-replace-delete>>.
+
+The server SHALL support the media type `{geojson-mediatype}` in the HTTP `Content-Type` header and parse the JSON body according to the resource type.
+====
 
 
 
