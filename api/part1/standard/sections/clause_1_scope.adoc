@@ -2,9 +2,9 @@
 
 This Standard defines extensions to {ogcapi-features} for exposing metadata regarding all kinds of observing systems and associated resources. It provides an actionnable implementation of concepts defined in the <<SOSA-SSN,Semantic Sensor Network Ontology (SSN)>> and also complies with {ogcapi-common}.
 
-More specifically, Part 1 of the API implements some of the SSN concepts (namely Systems, Platforms, Sensors, Actuators, Samplers, Procedures, Deployments and Sampling artefacts) as regular features, thus making them serializable to GeoJSON or JSON-FG format, and easily accessible by any feature API client. Advanced SensorML encodings are also defined by this standard, allowing the provision of complete system datasheets.
+More specifically, Part 1 of the API, specified in this document, implements some of the SSN concepts (namely Systems, Platforms, Sensors, Actuators, Samplers, Procedures, Deployments and Sampling artefacts) as regular features, thus making them serializable to GeoJSON or JSON-FG format, and easily accessible by any feature API client. Advanced SensorML encodings are also defined by this standard, allowing the provision of complete system datasheets.
 
-The following types of resources are made available through this API:
+The following types of resources are defined by Part 1 of the API:
 
   - *Systems* are features that represent instances of observing systems, platforms, sensors, actuators and samplers.
   - *Deployments* are features that provide information about the deployment of one or more `Systems`. They typically have a temporal and spatial extent.

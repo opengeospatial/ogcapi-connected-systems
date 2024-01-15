@@ -16,7 +16,7 @@ But beyond features, this Standard is also intended to act as a bridge between s
 
 In addition to providing its own mechanism for interacting with static and dynamic data, the API allows linking to other APIs from the OGC ecosystem, such as https://ogcapi.ogc.org/geovolumes[3D GeoVolumes], https://github.com/CesiumGS/3d-tiles/tree/main/specification[3D Tiles], https://ogcapi.ogc.org/coverages[Coverages], https://ogcapi.ogc.org/edr[EDR], https://ogcapi.ogc.org/sensorthings[SensorThings], https://ogcapi.ogc.org/processes[Processes], and other Features API instances. Among other things, this linking capability allows one to retrieve more advanced representations of features of interest (3D buildings, etc.) and gridded data (coverages) than the one that would typically be provided through this API.
 
-The API is comprised of multiple parts, each of them being a separate standard. This part ("Part 1 - Feature Resources") defines the feature types and corresponding schemas for some concepts of the {ogc-w3c-ssn} (SSN). "Part 2 - Dynamic Data" defines additional resources, encodings and protocols that allow efficient exchange of dynamic (time-varying) data related to these features, in a way that is also aligned with SSN.
+The API is comprised of multiple parts, each of them being a separate standard. This part ("Part 1 - Feature Resources") defines the feature types and corresponding schemas for some concepts of the {ogc-w3c-ssn}. "Part 2 - Dynamic Data" defines additional resources, encodings and protocols that allow efficient exchange of dynamic (time-varying) data related to these features, in a way that is also aligned with SSN.
 
 
 == Security considerations
@@ -31,7 +31,7 @@ All questions regarding this submission should be directed to the editor or the 
 [%unnumbered,width="100%",cols="3,10",options="header"]
 |===
 | *Name* | *Affiliation*
-| Alex Robin | GeoRobotix, Inc.
+| Alex Robin (Editor) | GeoRobotix, Inc.
 | Christian Autermann | 52° North Initiative
 | Chuck Heazel | Heazeltech
 | Glenn Laughlin | Pelagis Data Solutions
