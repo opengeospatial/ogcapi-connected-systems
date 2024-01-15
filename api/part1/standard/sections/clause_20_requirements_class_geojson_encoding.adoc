@@ -61,6 +61,7 @@ A GeoJSON document representing a `Feature` resource SHALL implement the mapping
 
 
 
+[[clause-geojson-system]]
 ==== System Encoding Rules
 
 [requirement,model=ogc]
@@ -115,6 +116,7 @@ include::../openapi/examples/systems/thermometer-sensor-geojson.links.json[]
 
 
 
+[[clause-geojson-procedure]]
 ==== Procedure Encoding Rules
 
 [requirement,model=ogc]
@@ -163,6 +165,7 @@ include::../openapi/examples/procedures/sensor-datasheet-geojson.json[]
 
 
 
+[[clause-geojson-deployment]]
 ==== Deployment Encoding Rules
 
 [requirement,model=ogc]
@@ -214,6 +217,7 @@ include::../openapi/examples/deployments/deployment-geojson.json[]
 
 
 
+[[clause-geojson-sf]]
 ==== SamplingFeature Encoding Rules
 
 [requirement,model=ogc]
@@ -286,6 +290,7 @@ include::../openapi/examples/sampling/sampling-part-geojson.json[]
 =================
 
 
+[[clause-geojson-batch]]
 ==== Batch Mode
 
 [requirement,model=ogc]

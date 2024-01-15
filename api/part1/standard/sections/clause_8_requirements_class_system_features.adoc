@@ -38,7 +38,11 @@ NOTE: `System` resources that are tagged as _http://www.w3.org/ns/sosa/Platform[
 
 In this API, `System` resources are a special kind of feature resource. This section defines the attributes and associations (links to other resources) that apply to this feature type.
 
-The exact way attributes and associations are encoded in the payload is defined by each encoding. See the <<clause-encodings,Encoding Requirements Classes>> for examples of `System` resource representations.
+The exact way attributes and associations are encoded in the payload is defined by each encoding. For encodings defined in this Standard, please see:
+
+- <<clause-geojson-system,System resource as GeoJSON>>
+- <<clause-sensorml-system,System resource as SensorML>>
+
 
 ==== Attributes
 
@@ -118,7 +122,7 @@ include::../requirements/system/req_associations.adoc[]
 |====
 | *Name* | *Definition* | *Target Content* | *Usage*
 | `procedure`         | The `Procedure` implemented by the `System`. | A single `Procedure` resource. | Required
-| `components`        | The components of the `System` (i.e. subsystems), if any. | A collection of `System` resources (inline or by-reference). | Required
+| `subsystems`        | The components of the `System`, if any. | A collection of `System` resources (inline or by-reference). | Required
 | `samplingFeatures`  | The `Sampling Features` associated to the `System`, if any. | A collection of `SamplingFeature` resources (inline or by-reference). | Required
 | `deployments`       | The `Deployments` that the `System` is part of, if any. | A collection of `Deployment` resources (inline or by-reference). | Optional
 |====

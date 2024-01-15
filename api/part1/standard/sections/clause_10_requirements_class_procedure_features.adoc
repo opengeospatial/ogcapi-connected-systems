@@ -31,7 +31,10 @@ If a human operator follows a different methodology during each mission/deployme
 
 In this API, `Procedure` resources are a special kind of feature resource. This section defines the attributes and associations (links to other resources) that apply to this feature type.
 
-The exact way attributes and associations are encoded in the payload is defined by each encoding. See the <<clause-encodings,Encoding Requirements Classes>> for examples of `Procedure` resource representations.
+The exact way attributes and associations are encoded in the payload is defined by each encoding. For encodings defined in this Standard, please see:
+
+- <<clause-geojson-procedure,Procedure resource as GeoJSON>>
+- <<clause-sensorml-procedure,Procedure resource as SensorML>>
 
 ==== Attributes
 

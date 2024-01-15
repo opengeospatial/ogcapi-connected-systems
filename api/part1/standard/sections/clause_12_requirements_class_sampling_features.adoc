@@ -70,7 +70,9 @@ In this API, `Sampling Feature` resources are a special kind of feature resource
 
 <<clause-sampling-feature-types,style=full%>> defines several types of `Sampling Features` that can be used to document different sampling strategies. If needed, more sampling feature types can be defined by extensions.
 
-The exact way attributes and associations are encoded in the payload is defined by each encoding. See the <<clause-encodings,Encoding Requirements Classes>> for examples of `Sampling Feature` resource representations.
+The exact way attributes and associations are encoded in the payload is defined by each encoding. For encodings defined in this Standard, please see:
+
+- <<clause-geojson-sf,SamplingFeature resource as GeoJSON>>
 
 ==== Common Attributes
 

@@ -29,7 +29,10 @@ The `Deployment` resource implements the _http://www.w3.org/ns/ssn/Deployment[De
 
 In this API, `Deployment` resources are a special kind of feature resource. This section defines the attributes and associations (links to other resources) that apply to this feature type.
 
-The exact way attributes and associations are encoded in the payload is defined by each encoding. See the <<clause-encodings,Encoding Requirements Classes>> for examples of `Deployment` resource representations.
+The exact way attributes and associations are encoded in the payload is defined by each encoding. For encodings defined in this Standard, please see:
+
+- <<clause-geojson-deployment,Deployment resource as GeoJSON>>
+- <<clause-sensorml-deployment,Deployment resource as SensorML>>
 
 ==== Attributes
 

@@ -71,6 +71,7 @@ A SensorML JSON document representing a `Feature` resource SHALL implement the m
 
 
 
+[[clause-sensorml-system]]
 ==== System Encoding Rules
 
 [requirement,model=ogc]
@@ -83,6 +84,16 @@ conditions:: The server implements <<clause-system-features,/req/system-features
 part:: A request or response body with media type `{sensorml-json-mediatype}` containing a single `System` resource SHALL be valid against the JSON schema {sensorml-system-schema}.
 
 part:: A request or response body with media type `{sensorml-json-mediatype}` containing a collection of `System` resources SHALL be valid against the JSON schema {sensorml-system-collection-schema}.
+====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sensorml/system-sml-class
+
+part:: SensorML class `PhysicalComponent` or `PhysicalSystem` SHALL be used to describe hardware equipment or human observers.
+
+part:: SensorML class `SimpleProcess` or `AggregateProcess` SHALL be used to describe a simulation or process.
 ====
 
 [requirement,model=ogc]
@@ -109,22 +120,13 @@ A SensorML JSON document representing a `System` resource SHALL implement the ma
 [width="100%",cols="3,3,10",options="header"]
 |====
 | *Association Name*     | *JSON Member* | *Usage*
-| `procedure`         | `typeOf`      | Value is a weblink resolving to a `Procedure` resource.
-| `members`           | `links`       | Value is a weblink resolving to a `System` collection (i.e. subsystems).
-| `samplingFeatures`  | `links`       | Value is a weblink resolving to a `Sampling Feature` collection.
-| `deployments`       | `links`       | Value is a weblink resolving to a `Deployment` collection.
+| `procedure`            | `typeOf`      | Value is a weblink resolving to a `Procedure` resource.
+| `subsystems`           | `links`       | Value is a weblink resolving to a `System` collection.
+| `samplingFeatures`     | `links`       | Value is a weblink resolving to a `Sampling Feature` collection.
+| `deployments`          | `links`       | Value is a weblink resolving to a `Deployment` collection.
 |====
 
 NOTE: In SensorML, the location can be augmented with orientation to describe the full pose of the system.
-
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/sensorml/system-sml-class
-
-part:: SensorML class `PhysicalComponent` or `PhysicalSystem` SHALL be used to describe hardware equipment or human observers.
-part:: SensorML class `SimpleProcess` or `AggregateProcess` SHALL be used to describe a simulation or process.
-====
 
 [[example_sensorml_sys1]]
 .A System Feature in SensorML format
@@ -139,6 +141,7 @@ include::../openapi/examples/systems/thermometer-sensor-sml.json[]
 
 
 
+[[clause-sensorml-procedure]]
 ==== Procedure Encoding Rules
 
 [requirement,model=ogc]
@@ -151,6 +154,16 @@ conditions:: The server implements <<clause-procedure-features,/req/procedure-fe
 part:: A request or response body with media type `{sensorml-json-mediatype}` containing a single `Procedure` resource SHALL be valid against the JSON schema {sensorml-procedure-schema}.
 
 part:: A request or response body with media type `{sensorml-json-mediatype}` containing a collection of `Procedure` resources SHALL be valid against the JSON schema {sensorml-procedure-collection-schema}.
+====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sensorml/procedure-sml-class
+
+part:: SensorML class `PhysicalComponent` or `PhysicalSystem` SHALL be used to describe hardware equipment specifications (i.e. datasheet).
+part:: SensorML class `SimpleProcess` or `AggregateProcess` SHALL be used to describe a procedure implemented by humans, such as a methodology or steps.
+part:: No position information SHALL be provided as part of the procedure description.
 ====
 
 [requirement,model=ogc]
@@ -178,16 +191,6 @@ A SensorML JSON document representing a `Procedure` resource SHALL implement the
 | `implementingSystems`  | `links`       | Value is a weblink resolving to a `System` collection.
 |====
 
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/sensorml/procedure-sml-class
-
-part:: SensorML class `PhysicalComponent` or `PhysicalSystem` SHALL be used to describe hardware equipment specifications (i.e. datasheet).
-part:: SensorML class `SimpleProcess` or `AggregateProcess` SHALL be used to describe a procedure implemented by humans, such as a methodology or steps.
-part:: No position information SHALL be provided as part of the procedure description.
-====
-
 [[example_sensorml_proc1]]
 .A Procedure Feature describing a sensor datasheet in SensorML format
 =================
@@ -199,6 +202,7 @@ include::../openapi/examples/procedures/sensor-datasheet-sml.json[]
 
 
 
+[[clause-sensorml-deployment]]
 ==== Deployment Encoding Rules
 
 [requirement,model=ogc]
@@ -236,7 +240,7 @@ A SensorML JSON document representing a `Deployment` resource SHALL implement th
 [width="100%",cols="3,3,10",options="header"]
 |====
 | *Association Name*    | *JSON Member* | *Usage*
-| `deployedSystems`     | `members`     | Value is a JSON Array with objects containing a weblink resolving to a `System` resource.
+| `deployedSystems`     | `deployedSystems`     | Value is a JSON Array of `DeployedSystem` objects.
 | `featuresOfInterest`  | `links`       | Value is a weblink resolving to a `Feature` collection.
 | `datastreams`         | `links`       | Value is a weblink resolving to a `DataStreams` collection.
 |====
@@ -252,6 +256,7 @@ include::../openapi/examples/deployments/deployment-sml.json[]
 
 
 
+[[clause-sensorml-property]]
 ==== Property Definition Encoding Rules
 
 [requirement,model=ogc]
@@ -295,6 +300,7 @@ include::../openapi/examples/properties/avg-cpu-temp.json[]
 
 
 
+[[clause-sensorml-batch]]
 ==== Batch Mode
 
 Multiple features can be added using the SensorML JSON format when wrapped into a collection object.

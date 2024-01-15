@@ -71,7 +71,7 @@ include::../requirements/subsystem/req_subcollection.adoc[]
 
 Some systems have interchangeable components (e.g. platform carrying different payloads at different times). The best way to describe this is by creating a new `Deployment` resource every time the components are changed (the deployment description allows one to explicitely list which components are mounted during a given time period, e.g. mission).
 
-For consistency, it is recommended that the server includes these changing components in the sub-collection, in accordance with the time provided by the `datetime` query parameter.
+For consistency, it is recommended that the server includes these changing components in the subsystem collection, in accordance with the time provided by the `datetime` query parameter.
 
 include::../requirements/subsystem/req_subcollection_time.adoc[]
 
