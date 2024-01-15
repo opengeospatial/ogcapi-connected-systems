@@ -46,7 +46,6 @@ part:: If the `System` resource is associated with a `Deployment` resource, the 
 ====
 
 
-
 === Subsystems
 
 Subsystems can only be created as sub-resources of a parent system, but can be updated/deleted just like any other `System` resource.
@@ -59,11 +58,11 @@ identifier:: /req/create-replace-delete/subsystem
 conditions:: The server implements <<clause-system-components,/req/system-components>>
 
 part:: The server SHALL implement support for the CREATE operation, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
-  - `{api_root}/systems/{parentId}/members`
+  - `{api_root}/systems/{parentId}/subsystems`
 
 part:: The server SHALL implement support for REPLACE and DELETE operations, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
-  - `{api_root}/systems/{parentId}/members/{subsystemId}`
-  - `{api_root}/systems/{subsystemId}`
+  - `{api_root}/systems/{parentId}/subsystems/{id}`
+  - `{api_root}/systems/{id}`
 ====
 
 
@@ -121,10 +120,10 @@ identifier:: /req/create-replace-delete/sampling-feature
 conditions:: The server implements <<clause-sampling-features,/req/sampling-features>>
 
 part:: The server SHALL implement support for the CREATE operation, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
-  - `{api_root}/systems/{id}/samplingFeatures`
+  - `{api_root}/systems/{sysId}/samplingFeatures`
 
 part:: The server SHALL implement support for REPLACE and DELETE operations, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
-  - `{api_root}/systems/{parentId}/samplingFeatures/{id}`
+  - `{api_root}/systems/{sysId}/samplingFeatures/{id}`
   - `{api_root}/samplingFeatures/{id}`
   - `{api_root}/collections/all_sampling_features/items/{id}`
 
