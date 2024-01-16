@@ -1,0 +1,11 @@
+[requirement,model=ogc]
+====
+[%metadata]
+type:: class
+identifier:: /req/subdeployments
+subject:: Web API
+inherit:: /req/deployment-features
+requirement:: /req/subdeployments/associations
+requirement:: /req/subdeployments/collection
+requirement:: /req/subdeployments/recursive-search
+====
