@@ -38,6 +38,18 @@ The server SHALL support the media type `{sensorml-json-mediatype}` in the HTTP 
 
 
 
+==== Link Relation Types
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sensorml/relationtypes
+
+For all associations encoded in the `links` member of the JSON response, the link relation type must be set to the association name.
+====
+
+
+
 ==== Common Encoding Rules
 
 The following requirement provides the mapping between common resource properties and the corresponding JSON members when encoded in SensorML-JSON.
