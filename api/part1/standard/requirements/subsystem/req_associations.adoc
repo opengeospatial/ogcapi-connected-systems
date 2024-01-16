@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/subsystem/associations
-
-A `System` feature resource SHALL support the associations listed in <<system-assocs>>.
-====

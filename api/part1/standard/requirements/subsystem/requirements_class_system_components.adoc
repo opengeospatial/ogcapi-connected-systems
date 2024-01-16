@@ -5,7 +5,11 @@ type:: class
 identifier:: /req/system-components
 subject:: Web API
 inherit:: /req/system-features
-requirement:: /req/subsystem/associations
 requirement:: /req/subsystem/collection
-requirement:: /req/subsystem/recursive-search
+requirement:: /req/subsystem/recursive-param
+requirement:: /req/subsystem/recursive-search-systems
+requirement:: /req/subsystem/recursive-search-subsystems
+requirement:: /req/subsystem/recursive-search-samplingfeatures
+requirement:: /req/subsystem/recursive-search-datastreams
+requirement:: /req/subsystem/recursive-search-controlstreams
 ====
