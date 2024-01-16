@@ -3,8 +3,5 @@
 [%metadata]
 identifier:: /req/deployment/collection-catchall
 
-part:: The server SHALL expose a collection containing all available `Deployment` features at URL `{api_root}/deployments`.
-
-part:: The collection containing all available `Deployment` features SHALL also be available at the following {ogcapi-features}
-collection URL: `{api_root}/collections/all_deployments`
+The server SHALL also expose a feature collection (as defined by {ogcapi-features}) containing all available `Deployment` features at the following URL: `{api_root}/collections/all_deployments`.
 ====

@@ -3,5 +3,7 @@
 [%metadata]
 identifier:: /req/system/collection-type
 
-The server SHALL identify all collections containing `System` features by setting the value of the `featureType` attribute to `system`.
+part:: The server SHALL identify all collections containing `System` resources by setting the value of the `featureType` attribute to `system`.
+
+part:: A successful GET operation on a `System` collection SHALL return a list of items containing only `System` resources.
 ====

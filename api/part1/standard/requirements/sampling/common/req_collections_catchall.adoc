@@ -3,7 +3,5 @@
 [%metadata]
 identifier:: /req/sampling/collection-catchall
 
-part:: The server SHALL expose a collection containing all available `Sampling Features` at URL `{api_root}/samplingFeatures`.
-
-part:: The collection containing all available `Sampling Features` SHALL also be available at the following {ogcapi-features} collection URL: `{api_root}/collections/all_sampling_features`
+The server SHALL also expose a feature collection (as defined by {ogcapi-features}) containing all available `Sampling Feature` resources at the following URL: `{api_root}/collections/all_sampling_features`.
 ====

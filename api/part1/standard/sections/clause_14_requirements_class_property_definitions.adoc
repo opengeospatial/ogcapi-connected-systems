@@ -28,7 +28,9 @@ The definition is provided by deriving the property from a well known entity ref
 ====
 
 
-=== Property Definition Resources
+=== Property Resource
+
+==== Introduction
 
 In this API, `Property` resources are a special kind of resource that implements the _http://www.w3.org/ns/ssn/Property[ssn:Property]_ concept.
 
@@ -38,20 +40,36 @@ This section defines the attributes and associations composing a `Property` reso
 
 include::../requirements/property/req_resource.adoc[]
 
-The following table lists `Property` resource attributes and their mapping to SOSA/SSN.
+==== Properties
+
+The following tables describe the attributes and associations of a `Property` resource and their mapping to SOSA/SSN.
+
+All `Property` resource representations provided by encoding requirements classes map to these properties.
 
 [#property-attributes,reftext='{table-caption} {counter:table-num}']
 .Property Definition Attributes
-[width="100%",cols="4,4,10,3,3",options="header"]
+[width="100%",cols="5,5,17,3,3",options="header"]
 |====
 | *Name*             | *SOSA/SSN Property* | *Definition* | *Data Type* | *Usage*
 | `uniqueIdentifier` | RDF concept URI | The unique identifier of the property in the form of a URI (preferably a URN). This identifier should be persistent and independent of the actual resource URL. | URI | Required
 | `name`             | `rdfs:label` | The human readable name of the property. | String | Required
 | `description`      | `rdfs:comment` | A human readable description for the property. | String | Optional
 | `baseProperty`     | - | Reference to the definition of the base property this property is derived from. | URI or CURIE | Required
-| `object`           | - | Reference to the type of entity that the base property applies to. | URI or CURIE | Optional
+| `objectType`       | - | Reference to the type of entity that the base property applies to. | URI or CURIE | Optional
 | `statistic`        | - | Reference to the definition of the statistic applied to the base property values. | URI or CURIE | Optional
 |====
+
+
+=== Canonical URL
+
+This standard requires that a `Property` resource has a canonical URL through which it can be retrieved independently of its membership to any collection.
+
+include::../requirements/property/req_canonical_url.adoc[]
+
+
+=== Root Collection
+
+include::../requirements/property/req_canonical_collection.adoc[]
 
 
 === Property Collections
@@ -77,11 +95,3 @@ include::../requirements/property/req_collections_others.adoc[]
 
 Note that a given property can be part of multiple collections at the same time.
 ====
-
-
-=== Canonical URLs
-
-As shown in the examples above, it is allowed for any given `Property` resource to be part of several collections at the same time. Thus this standard also requires that a `Property` resource has a canonical URL through which it can be retrieved independently of its membership to any collection.
-
-include::../requirements/property/req_canonical_url.adoc[]
-

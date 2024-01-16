@@ -1,7 +1,7 @@
 [permission,model=ogc]
 ====
 [%metadata]
-identifier:: /per/property-def/collection-others
+identifier:: /per/property/collection-others
 
 part:: The server CAN expose additional collections of `Property` resources using the resource collection mechanism documented in {ogcapi-common-2}.
 ====

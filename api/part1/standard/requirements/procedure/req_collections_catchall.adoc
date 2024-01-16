@@ -3,7 +3,5 @@
 [%metadata]
 identifier:: /req/procedure/collection-catchall
 
-part:: The server SHALL expose a collection containing all available `Procedure` features at URL `{api_root}/procedures`.
-
-part:: The server SHALL also expose a feature collection (as defined by {ogcapi-features}) containing all available `Procedure` features at the following URL: `{api_root}/collections/all_procedures`.
+The server SHALL also expose a feature collection (as defined by {ogcapi-features}) containing all available `Procedure` features at the following URL: `{api_root}/collections/all_procedures`.
 ====

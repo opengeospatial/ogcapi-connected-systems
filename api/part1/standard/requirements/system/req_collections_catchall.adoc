@@ -3,7 +3,5 @@
 [%metadata]
 identifier:: /req/system/collection-catchall
 
-part:: The server SHALL expose a collection containing all available `System` resources at URL `{api_root}/systems`.
-
-part:: The server SHALL also expose a feature collection (as defined by {ogcapi-features}) containing all available `System` features at the following URL: `{api_root}/collections/all_systems`.
+part:: The server SHALL expose a feature collection (as defined by {ogcapi-features}) containing all available `System` features at the following URL: `{api_root}/collections/all_systems`.
 ====

@@ -64,7 +64,7 @@ The sampling feature model used in the API also supports "sampling chains", wher
 In this API, observations and commands are always associated to a `Sampling Feature`, never directly to the ultimate `Feature of Interest`. Each `Sampling Feature` resource has an association to the `sampled feature` (i.e. the feature being sampled) which can be the ultimate `Feature of Interest` or another (larger) `Sampling Feature` in the case of a sampling chain.
 
 
-=== Sampling Feature Resources
+=== Sampling Feature Resource
 
 In this API, `Sampling Feature` resources are a special kind of feature resource that implements the _http://www.w3.org/ns/sosa/Sample[sosa:Sample]_ concept.
 
@@ -76,13 +76,15 @@ This section defines the attributes and associations that are common to all `Sam
 
 include::../requirements/sampling/common/req_resource.adoc[]
 
-==== Common Attributes
+==== Common Properties
 
-The following table lists attributes that are common to all `Sampling Feature` resources and their mapping to SOSA/SSN.
+The following tables describe the attributes and associations that are common to all `Sampling Feature` resource and their mapping to SOSA/SSN. 
+
+All `Sampling Feature` resource representations provided by encoding requirements classes map to these properties.
 
 [#sf-attributes,reftext='{table-caption} {counter:table-num}']
 .Common Sampling Feature Attributes
-[width="100%",cols="4,4,10,3,3",options="header"]
+[width="100%",cols="5,5,17,3,3",options="header"]
 |====
 | *Name*             | *SOSA/SSN Property* | *Definition* | *Data Type* | *Usage*
 | `uniqueIdentifier` | RDF concept URI | The unique identifier of the sampling feature in the form of a URI (preferably a URN). This identifier must be persistent and independent of the actual resource URL. | URI | Required
@@ -100,10 +102,6 @@ Valid time is used when the sampling feature is not meaningful or usable outside
 - Image footprints are synthetic features that are only valid at the time the image was collected.
 ====
 
-==== Common Associations
-
-The following table lists associations that are common to all `Sampling Feature` resources and their mapping to SOSA/SSN.
-
 [#sf-assocs,reftext='{table-caption} {counter:table-num}']
 .Sampling Features Associations
 [width="100%",cols="5,5,10,10,3",options="header"]
@@ -117,7 +115,19 @@ The following table lists associations that are common to all `Sampling Feature`
 |====
 
 
-=== Sampling Feature Collections
+=== Canonical URL
+
+This standard requires that a `Sampling Feature` resource has a canonical URL through which it can be retrieved independently of its membership to any collection.
+
+include::../requirements/sampling/common/req_canonical_url.adoc[]
+
+
+=== Root Collection
+
+include::../requirements/sampling/common/req_canonical_collection.adoc[]
+
+
+=== Feature Collections
 
 `Sampling Feature` collections are identified with the feature type `samplingFeatures`.
 
@@ -140,13 +150,6 @@ include::../requirements/sampling/common/req_collections_others.adoc[]
 
 Note that a given sampling feature can be part of multiple collections at the same time.
 ====
-
-
-=== Canonical URLs
-
-As shown in the examples above, it is allowed for any given sampling feature to be part of several collections at the same time. Thus this standard also requires that a `Sampling Feature` resource has a canonical URL through which it can be retrieved independently of its membership to any collection.
-
-include::../requirements/sampling/common/req_canonical_url.adoc[]
 
 
 === Dynamic properties

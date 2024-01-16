@@ -3,5 +3,5 @@
 [%metadata]
 identifier:: /req/sampling/resource
 
-The server SHALL implement at least one encoding requirements class that provides a serialization for the `Sampling Feature` resource, as defined by the attributes and associations listed in the following tables.
+The server SHALL implement at least one encoding requirements class that provides a representation for the `Sampling Feature` resource.
 ====

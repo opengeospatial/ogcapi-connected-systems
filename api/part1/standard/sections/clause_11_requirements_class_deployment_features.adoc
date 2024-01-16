@@ -23,7 +23,7 @@ The `Deployment` resource implements the _http://www.w3.org/ns/ssn/Deployment[De
 ====
 
 
-=== Deployment Resources
+=== Deployment Resource
 
 ==== Introduction
 
@@ -36,13 +36,15 @@ This section defines the attributes and associations composing the `Deployment` 
 
 include::../requirements/deployment/req_resource.adoc[]
 
-==== Attributes
+==== Properties
 
-The following table lists `Deployment` resource attributes and their mapping to SOSA/SSN.
+The following tables describe the attributes and associations of a `Deployment` resource and their mapping to SOSA/SSN.
+
+All `Deployment` resource representations provided by encoding requirements classes map to these properties.
 
 [#deployment-attributes,reftext='{table-caption} {counter:table-num}']
 .Deployment Attributes
-[width="100%",cols="4,4,10,3,3",options="header"]
+[width="100%",cols="5,5,17,3,3",options="header"]
 |====
 | *Name*              | *SOSA/SSN Property* | *Definition* | *Data Type* | *Usage*
 | `uniqueIdentifier`  | RDF concept URI | The unique identifier of the deployment in the form of a URI (preferably a URN). This identifier should be persistent and independent of the actual resource URL. | URI | Required
@@ -55,19 +57,6 @@ The following table lists `Deployment` resource attributes and their mapping to 
 
 NOTE: For insitu and short range remote sensors, the area of interest is simply the area where the systems are being deployed. For models or long range remote sensing (e.g. space based earth observation), the area of interest is usually the area where the features of interest are located (i.e. the area covered by the model or observable by the deployed systems).
 
-[#deployment-types,reftext='{table-caption} {counter:table-num}']
-.Deployment Types
-[width="100%",cols="5,10,5,10",options="header"]
-|====
-| *Deployment Type* | *URI* | *CURIE* | *Usage*
-| #TBD#     | #http://www.opengis.net/def/x-OGC/TBD1#     | #TBD# |
-| #TBD#     | #http://www.opengis.net/def/x-OGC/TBD2#     | #TBD# |
-|====
-
-==== Associations
-
-The following table lists `Deployment` resource assocations and their mapping to SOSA/SSN.
-
 [#deployment-assocs,reftext='{table-caption} {counter:table-num}']
 .Deployment Associations
 [width="100%",cols="5,5,10,10,3",options="header"]
@@ -79,37 +68,35 @@ The following table lists `Deployment` resource assocations and their mapping to
 | `controlStreams`      | - | The `Control Streams` that received commands issued during the `Deployment`. | A collection of `ControlStream` resources (inline or by-reference). | Optional
 |====
 
+[#deployment-types,reftext='{table-caption} {counter:table-num}']
+.Deployment Types
+[width="100%",cols="5,10,5,10",options="header"]
+|====
+| *Deployment Type* | *URI* | *CURIE* | *Usage*
+| #TBD#     | #http://www.opengis.net/def/x-OGC/TBD1#     | #TBD# |
+| #TBD#     | #http://www.opengis.net/def/x-OGC/TBD2#     | #TBD# |
+|====
+
 ==== Location
 
 include::../requirements/deployment/req_location.adoc[]
 
 NOTE: For simulations and models, the deployment location represents the spatial domain covered by a given run of the model (i.e. where the features of interest of simulated observations are located).
 
-==== Associations
 
-A `Deployment` resource is also required to include certain associations with related resources.
+=== Canonical URL
 
-include::../requirements/deployment/req_associations.adoc[]
+This standard requires that a `Deployment` resource has a canonical URL through which it can be retrieved independently of its membership to any collection.
 
-[#deployment-assocs,reftext='{table-caption} {counter:table-num}']
-.Deployment Associations
-[width="100%",cols="5,10,10,5",options="header"]
-|====
-| *Name* | *Definition* | *Target Content* | *Usage*
-| `deployedSystems`     | The deployed `Systems`. | A collection of `System` resources (inline or by-reference). | Required
-| `featuresOfInterest`  | The ultimate features of interest that are observed and/or controlled during the `Deployment`. | A collection of `Feature` resources (inline or by-reference). | Optional
-| `datastreams`         | The `Data Streams` containing observations collected during the `Deployment`. | A collection of `DataStream` resources (inline or by-reference). | Optional
-| `controlStreams`      | The `Control Streams` that received commands issued during the `Deployment`. | A collection of `ControlStream` resources (inline or by-reference). | Optional
-|====
-
-NOTE: Required associations may be ommitted only if the target resource does not exist or is not available online.
-
-include::../requirements/deployment/req_assoc_urls.adoc[]
-
-Each system link must point to a description of the system that is valid during the deployment (i.e. not always the latest description).
+include::../requirements/deployment/req_canonical_url.adoc[]
 
 
-=== Deployment Collections
+=== Root Collection
+
+include::../requirements/deployment/req_canonical_collection.adoc[]
+
+
+=== Feature Collections
 
 `Deployment` feature collections are identified with the feature type `deployment`.
 
@@ -119,7 +106,7 @@ A default collection containing all deployments must be available at the API end
 
 include::../requirements/deployment/req_collections_catchall.adoc[]
 
-In addition to the default (mandatory) collection containing all deployments, `Deployment` resources can also be grouped into collections according to any arbitrary criteria. Any number of feature collections containing `Deployment` features can be available at the API endpoint.
+`Deployment` resources can also be grouped into collections according to any arbitrary criteria. Any number of feature collections containing `Deployment` features can be available at the API endpoint.
 
 include::../requirements/deployment/req_collections_others.adoc[]
 
@@ -132,10 +119,3 @@ include::../requirements/deployment/req_collections_others.adoc[]
 
 Note that a given deployment can be part of multiple collections at the same time.
 ====
-
-
-=== Canonical URLs
-
-As shown in the examples above, it is allowed for any given deployment to be part of several collections at the same time. Thus this standard also requires that a `Deployment` resource has a canonical URL through which it can be retrieved independently of its membership to any collection.
-
-include::../requirements/deployment/req_canonical_url.adoc[]

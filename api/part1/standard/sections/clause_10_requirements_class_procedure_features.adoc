@@ -25,7 +25,7 @@ If a human operator follows a different methodology during each mission/deployme
 ====
 
 
-=== Procedure Resources
+=== Procedure Resource
 
 ==== Introduction
 
@@ -38,13 +38,15 @@ This section defines the attributes and associations composing the `Procedure` r
 
 include::../requirements/procedure/req_resource.adoc[]
 
-==== Attributes
+==== Properties
 
-The following table lists `Procedure` resource attributes and their mapping to SOSA/SSN.
+The following tables describe the attributes and associations of a `Procedure` resource and their mapping to SOSA/SSN.
+
+All `Procedure` resource representations provided by encoding requirements classes map to these properties.
 
 [#procedure-attributes,reftext='{table-caption} {counter:table-num}']
 .Procedure Attributes
-[width="100%",cols="4,4,10,3,3",options="header"]
+[width="100%",cols="5,5,17,3,3",options="header"]
 |====
 | *Name*             | *SOSA/SSN Property* | *Definition* | *Data Type* | *Usage*
 | `uniqueIdentifier` | RDF concept URI | The unique identifier of the procedure in the form of a URI (preferably a URN). This identifier should be persistent and independent of the actual resource URL | URI | Required
@@ -56,6 +58,14 @@ The following table lists `Procedure` resource attributes and their mapping to S
 |====
 
 NOTE: The validity time period of a `Procedure` description starts on the date that the model of the equipment was released. No `System` can implement the `Procedure` before this date. The end date should be set to a date after which no instance of the equipment is in use, or unbounded.
+
+[#procedure-assocs,reftext='{table-caption} {counter:table-num}']
+.Procedure Associations
+[width="100%",cols="5,5,10,10,3",options="header"]
+|====
+| *Name* | *SOSA/SSN Property* | *Definition* | *Target Content* | *Usage*
+| `implementingSystems` | `implementedBy` | The `Systems` that implement the `Procedure`. | A Collection of `System` resources (inline or by-reference). | Optional
+|====
 
 [#procedure-types,reftext='{table-caption} {counter:table-num}']
 .Procedure Types
@@ -77,20 +87,6 @@ NOTE: The validity time period of a `Procedure` description starts on the date t
 | Methodology     | #http://www.opengis.net/def/x-OGC/TBD/Methodology#   | sml:Methodology | The procedure describes the methodology used by a human operator.
 |====
 
-==== Associations
-
-The following table lists `Procedure` resource assocations and their mapping to SOSA/SSN.
-
-include::../requirements/procedure/req_associations.adoc[]
-
-[#procedure-assocs,reftext='{table-caption} {counter:table-num}']
-.Procedure Associations
-[width="100%",cols="5,5,10,10,3",options="header"]
-|====
-| *Name* | *SOSA/SSN Property* | *Definition* | *Target Content* | *Usage*
-| `implementingSystems` | `implementedBy` | The `Systems` that implement the `Procedure`. | A Collection of `System` resources (inline or by-reference). | Optional
-|====
-
 ==== Location
 
 A `Procedure` feature represents a datasheet or a methodology. It is thus a non-spatial entity.
@@ -98,7 +94,19 @@ A `Procedure` feature represents a datasheet or a methodology. It is thus a non-
 include::../requirements/procedure/req_location.adoc[]
 
 
-=== Procedure Collections
+=== Canonical URL
+
+This standard requires that a `Procedure` resource has a canonical URL through which it can be retrieved independently of its membership to any collection.
+
+include::../requirements/procedure/req_canonical_url.adoc[]
+
+
+=== Root Collection
+
+include::../requirements/procedure/req_canonical_collection.adoc[]
+
+
+=== Feature Collections
 
 `Procedure` feature collections are identified with the feature type `procedure`.
 
@@ -108,7 +116,7 @@ A default collection containing all procedures must be available at the API endp
 
 include::../requirements/procedure/req_collections_catchall.adoc[]
 
-In addition to the default (mandatory) collection containing all procedures, `Procedure` resources can also be grouped into collections according to any arbitrary criteria. Any number of feature collections containing `Procedure` features can be available at the API endpoint.
+`Procedure` resources can also be grouped into collections according to any arbitrary criteria. Any number of feature collections containing `Procedure` features can be available at the API endpoint.
 
 include::../requirements/procedure/req_collections_others.adoc[]
 
@@ -121,10 +129,3 @@ include::../requirements/procedure/req_collections_others.adoc[]
 
 Note that a given procedure can be part of multiple collections at the same time.
 ====
-
-
-=== Canonical URLs
-
-As shown in the examples above, it is allowed for any given procedure to be part of several collections at the same time. Thus this standard also requires that a `Procedure` resource has a canonical URL through which it can be retrieved independently of its membership to any collection.
-
-include::../requirements/procedure/req_canonical_url.adoc[]
