@@ -111,7 +111,7 @@ Valid time is used when the sampling feature is not meaningful or usable outside
 | `sampledFeature`          | `sosa:isSampleOf` | he ultimate feature of interest that is being sampled or controlled. | A single `Feature` resource. | Required
 | `relatedSamplingFeatures` | - | Other `Sampling Features` related to this `Sampling Feature` via sub-sampling. | A collection of `Sampling Feature` resources (inline or by-reference). | Optional
 | `datastreams`             | - | The `Data Streams` that contain observations of this `Sampling Feature`. | A collection of `DataStream` resources (inline or by-reference). | Optional
-| `controlStreams`          | - | The `Control Streams` that received commands impacting this `Sampling Feature`. | A collection of `ControlStream` resources (inline or by-reference). | Optional
+| `controlstreams`          | - | The `Control Streams` that received commands impacting this `Sampling Feature`. | A collection of `ControlStream` resources (inline or by-reference). | Optional
 |====
 
 
