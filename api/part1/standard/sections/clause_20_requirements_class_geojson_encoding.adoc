@@ -99,8 +99,10 @@ A GeoJSON document representing a `System` resource SHALL implement the mappings
 |====
 | *Association Name*  | *JSON Member*                | *Usage*
 | `procedure`         | `properties/procedure@link`  | Value is a weblink resolving to a `Procedure` resource.
-| `members`           | `links`                      | Value is a weblink resolving to a `System` collection (i.e. subsystems).
+| `subsystems`        | `links`                      | Value is a weblink resolving to a `System` collection.
 | `samplingFeatures`  | `links`                      | Value is a weblink resolving to a `Sampling Features` collection.
+| `datastreams`       | `links`                      | Value is a weblink resolving to a `DataStream` collection.
+| `controlstreams`    | `links`                      | Value is a weblink resolving to a `ControlStream` collection.
 | `deployments`       | `links`                      | Value is a weblink resolving to a `Deployment` collection.
 |====
 
@@ -203,7 +205,8 @@ A GeoJSON document representing a `Deployment` resource SHALL implement the mapp
 | *Association Name*    | *JSON Member* | *Usage*
 | `deployedSystems`     | `links`       | Value is a weblink resolving to a `System` collection.
 | `featuresOfInterest`  | `links`       | Value is a weblink resolving to a `Feature` collection.
-| `datastreams`         | `links`       | Value is a weblink resolving to a `Datastream` collection.
+| `datastreams`         | `links`       | Value is a weblink resolving to a `DataStream` collection.
+| `controlstreams`      | `links`       | Value is a weblink resolving to a `ControlStream` collection.
 |====
 
 [[example_geojson_dep1]]

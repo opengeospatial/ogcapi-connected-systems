@@ -64,9 +64,9 @@ A SensorML JSON document representing a `Feature` resource SHALL implement the m
 [width="100%",cols="3,3,10",options="header"]
 |====
 | *Attribute Name*    | *JSON Member*  | *Usage*
-| `uniqueIdentifier` | `uniqueId`     | Value is a JSON string that is a valid URI.
-| `name`             | `label`        | Value is a JSON string.
-| `description`      | `description`  | Value is a JSON string.
+| `uniqueIdentifier`  | `uniqueId`     | Value is a JSON string that is a valid URI.
+| `name`              | `label`        | Value is a JSON string.
+| `description`       | `description`  | Value is a JSON string.
 |====
 
 
@@ -109,10 +109,10 @@ A SensorML JSON document representing a `System` resource SHALL implement the ma
 [width="100%",cols="3,3,10",options="header"]
 |====
 | *Attribute Name* | *JSON Member* | *Usage*
-| `systemType`    | `definition`  | Use the URI or CURIE from <<system-types>> as the value.
-| `assetType`     | `classifiers` | Use a classifier with definition `cs:AssetType`, and the URI or CURIE from <<asset-types>> as the value.
-| `validTime`     | `validTime`   | -
-| `location`      | `position`    | Include location either as a GeoJSON geometry, or as part of a `GeoPose` or `Pose` object.
+| `systemType`     | `definition`  | Use the URI or CURIE from <<system-types>> as the value.
+| `assetType`      | `classifiers` | Use a classifier with definition `cs:AssetType`, and the URI or CURIE from <<asset-types>> as the value.
+| `validTime`      | `validTime`   | -
+| `location`       | `position`    | Include location either as a GeoJSON geometry, or as part of a `GeoPose` or `Pose` object.
 |====
 
 [#system-assoc-sml-mappings,reftext='{table-caption} {counter:table-num}']
@@ -123,6 +123,8 @@ A SensorML JSON document representing a `System` resource SHALL implement the ma
 | `procedure`            | `typeOf`      | Value is a weblink resolving to a `Procedure` resource.
 | `subsystems`           | `links`       | Value is a weblink resolving to a `System` collection.
 | `samplingFeatures`     | `links`       | Value is a weblink resolving to a `Sampling Feature` collection.
+| `datastreams`          | `links`       | Value is a weblink resolving to a `DataStream` collection.
+| `controlstreams`       | `links`       | Value is a weblink resolving to a `ControlStream` collection.
 | `deployments`          | `links`       | Value is a weblink resolving to a `Deployment` collection.
 |====
 
@@ -179,8 +181,8 @@ A SensorML JSON document representing a `Procedure` resource SHALL implement the
 [width="100%",cols="3,3,10",options="header"]
 |====
 | *Attribute Name* | *JSON Member* | *Usage*
-| `procedureType` | `definition`  | Use the URI or CURIE from <<procedure-types>> as the value.
-| `validTime`     | `validTime`   | -
+| `procedureType`  | `definition`  | Use the URI or CURIE from <<procedure-types>> as the value.
+| `validTime`      | `validTime`   | -
 |====
 
 [#procedure-assoc-sml-mappings,reftext='{table-caption} {counter:table-num}']
@@ -230,9 +232,9 @@ A SensorML JSON document representing a `Deployment` resource SHALL implement th
 [width="100%",cols="3,3,10",options="header"]
 |====
 | *Attribute Name* | *JSON Member* | *Usage*
-| `procedureType` | `definition`  | Use the URI or CURIE from <<deployment-types>> as the value.
-| `validTime`     | `validTime`   | -
-| `location`      | `location`    | Value is a GeoJSON geometry
+| `deploymentType` | `definition`  | Use the URI or CURIE from <<deployment-types>> as the value.
+| `validTime`      | `validTime`   | -
+| `location`       | `location`    | Value is a GeoJSON geometry
 |====
 
 [#deployment-assoc-sml-mappings,reftext='{table-caption} {counter:table-num}']
@@ -242,7 +244,8 @@ A SensorML JSON document representing a `Deployment` resource SHALL implement th
 | *Association Name*    | *JSON Member* | *Usage*
 | `deployedSystems`     | `deployedSystems`     | Value is a JSON Array of `DeployedSystem` objects.
 | `featuresOfInterest`  | `links`       | Value is a weblink resolving to a `Feature` collection.
-| `datastreams`         | `links`       | Value is a weblink resolving to a `DataStreams` collection.
+| `datastreams`         | `links`       | Value is a weblink resolving to a `DataStream` collection.
+| `controlstreams`           | `links`       | Value is a weblink resolving to a `ControlStream` collection.
 |====
 
 [[example_sensorml_dep1]]
@@ -283,9 +286,9 @@ A SensorML JSON document representing a `Property` resource SHALL implement the 
 .SensorML Mappings of Property Attributes
 [width="100%",cols="3,3,10",options="header"]
 |====
-| *Attribute Name*  | *JSON Member*  | *Usage*
+| *Attribute Name* | *JSON Member*  | *Usage*
 | `baseProperty`   | `baseProperty` | Value is a JSON string that is a valid URI.
-| `object`         | `object`       | Value is a JSON string that is a valid URI.
+| `objectType`     | `objectType`   | Value is a JSON string that is a valid URI.
 | `statistic`      | `statistic`    | Value is a JSON string that is a valid URI.
 |====
 
