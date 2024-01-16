@@ -7,7 +7,7 @@ include::../requirements/crud/update/requirements_class_update.adoc[]
 
 This requirements class specifies how instances of the feature types defined previously are updated using the API.
 
-All resources are updated using the HTTP PATCH operation as specified by {ogcapi-features-4}.
+All resources are updated using the UPDATE (HTTP PATCH) operation as defined by {ogcapi-features-4}.
 
 
 === Systems

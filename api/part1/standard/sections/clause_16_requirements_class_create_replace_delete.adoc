@@ -6,7 +6,7 @@ include::../requirements/crud/requirements_class_crd.adoc[]
 
 This requirements class specifies how instances of the feature types defined previously are created, replaced and deleted using the API.
 
-All resources are created, replaced and deleted using HTTP POST, PUT and DELETE operations, respectively, following requirements defined in {ogcapi-features-4}.
+All resources are created, replaced and deleted using CREATE (HTTP POST), REPLACE (HTTP PUT) and DELETE (HTTP DELETE) operations, respectively, as defined by {ogcapi-features-4}.
 
 
 === Systems
