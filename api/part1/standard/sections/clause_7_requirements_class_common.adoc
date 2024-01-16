@@ -27,13 +27,13 @@ This API defines several resource types that are intended to be offered by the s
 This API uses two types of collections:
 
   - Root Collections
-  - OGC API Common Resource Collections
+  - OGC API - Common Resource Collections (or OGC API - Feature Collections)
 
 ==== Root Collections
 
-The root (or catch-all) collections are mandatory and have simple URLs located directly at the API root. They contain all resources of a given type exposed by the server. They provide a default endpoint for search queries that target all resources of a given type and are also used to generate canonical resource URLs.
+The root collections are mandatory and have simple URLs located directly at the API root. They expose all resources of a given type hosted by the server, and also provide a default endpoint for search queries that target these resources. Canonical resource URLs are based on the root collections URLs.
 
-The root collections for resource types defined by this Standard are:
+The root collections URLs for resource types defined by this Standard are:
 
 - `{api_root}/systems`
 - `{api_root}/procedures`
@@ -41,7 +41,9 @@ The root collections for resource types defined by this Standard are:
 - `{api_root}/samplingFeatures`
 - `{api_root}/properties`
 
-The catch-all collection for a given resource type is specified by the corresponding requirements class.
+The root collection for a given resource type is specified by the corresponding requirements class.
+
+NOTE: GET operations at these root collections URLs will return a list of items directly, not the collection metadata.
 
 ==== OGC API Common Collections
 
@@ -76,7 +78,7 @@ The server CAN also offer collections containing mixed feature types. The behavi
 ====
 
 
-=== Links
+=== Links and Canonical URLs
 
 Since resources defined by this Standard can be discovered through multiple collections, it is recommended to always link to a given resource using its canonical URL (e.g. `{api_root}/systems/{id}`) instead of the collection based URL (e.g. `{api_root}/collections/my_system_collection/{id}`).
 
@@ -88,12 +90,41 @@ The canonical URL of a resource is based on the URL of the catch-all collection 
 - `{api_root}/samplingFeatures/{id}`
 - `{api_root}/properties/{id}`
 
+When resources are retrieved from a URL that is not their canonical URL (e.g. when they are retrieved through their Feature Collection URL), a link with relation type `canonical` is included, as shown in the following example.
+
+[[example_canonical_link]]
+.Link to Canonical URL
+=================
+This example shows the links that would be embedded in a feature representation to provide its.
+[source%autofit,json]
+----
+{
+  "type": "Feature",
+  "id": "123",
+  ...
+  "links": [
+    {
+      "rel" : "self",
+      "title" : "this document",
+      "href" : "https://data.example.org/api/collections/uav_systems/123?f=json",
+      "type" : "application/geo+json"
+    }, {
+      "rel" : "canonical",
+      "title" : "this resource canonical URL",
+      "href" : "https://data.example.org/api/systems/123?f=json",
+      "type" : "application/geo+json"
+    }
+  ]
+}
+----
+=================
+
 [recommendation,model=ogc]
 ====
 [%metadata]
 identifier:: /rec/api-common/canonical-links
 
-Any link to a resource whose type is specified by this Standard SHOULD use the resource canonical URL.
+Any link to a resource whose type is specified by this Standard SHOULD use its canonical URL.
 ====
 
 
@@ -113,7 +144,7 @@ The server SHALL ensure that resource IDs are unique across all collections of a
 
 === Unique Identifiers (UID)
 
-This standard mandates that some resource types (e.g. feature resources) have a globally unique identifier that is independent from the resource URL. This is needed to carry the identity of the real-world object that a resource represents across services, as multiple servers may host different representations/descriptions of the same object.
+This standard mandates that some resource types (e.g. feature resources) have a globally unique identifier that is independent of the resource URL. This is needed to carry the identity of the real-world object that a resource represents across services, as multiple servers may host different representations/descriptions of the same object.
 
 [example%unnumbered]
 ====
@@ -177,4 +208,4 @@ part:: When the `datetime` query parameter is used to filter a collection of fea
 part:: Only features with a `validTime` period that intersects the value of the `datetime` query parameter, or features that don't report any temporal validity (i.e. `validTime` attribute is `null` or not set), SHALL be included in the result set.
 ====
 
-See <<clause-advanced-filtering>> for more filtering options.
+See <<clause-advanced-filtering,style=full%>> for more filtering options.
