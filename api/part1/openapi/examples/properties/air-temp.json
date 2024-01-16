@@ -3,5 +3,5 @@
   "label": "Air Temperature",
   "description": "Temperature of the air under cover",
   "baseProperty": "http://qudt.org/vocab/quantitykind/Temperature",
-  "object": "http://dbpedia.org/resource/Atmosphere"
+  "objectType": "http://dbpedia.org/resource/Atmosphere"
 }

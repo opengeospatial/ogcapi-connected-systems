@@ -25,7 +25,7 @@
           "format": "uri",
           "example": "https://qudt.org/vocab/quantitykind/Temperature"
         },
-        "object": {
+        "objectType": {
           "description": "URI pointing to the type of entity that the base property applies to",
           "type": "string",
           "format": "uri",
