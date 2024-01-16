@@ -5,7 +5,7 @@ type:: class
 identifier:: /req/property-def
 subject:: Web API
 inherit:: /req/api-common
-requirement:: /req/property-def/attributes
+requirement:: /req/property-def/resource
 requirement:: /req/property-def/collection-type
 requirement:: /req/property-def/collection-catchall
 requirement:: /req/property-def/canonical-url

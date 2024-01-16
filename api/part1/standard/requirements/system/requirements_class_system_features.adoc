@@ -5,12 +5,8 @@ type:: class
 identifier:: /req/system-features
 subject:: Web API
 inherit:: /req/api-common
-requirement:: /req/system/attributes
-requirement:: /req/system/system-type
-requirement:: /rec/system/asset-type
+requirement:: /req/system/resource
 requirement:: /req/system/location-time
-requirement:: /req/system/associations
-requirement:: /req/system/assoc-urls
 requirement:: /req/system/collection-type
 requirement:: /req/system/collection-catchall
 requirement:: /req/system/canonical-url

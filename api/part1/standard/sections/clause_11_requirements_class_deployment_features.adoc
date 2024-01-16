@@ -27,35 +27,33 @@ The `Deployment` resource implements the _http://www.w3.org/ns/ssn/Deployment[De
 
 ==== Introduction
 
-In this API, `Deployment` resources are a special kind of feature resource. This section defines the attributes and associations (links to other resources) that apply to this feature type.
+In this API, `Deployment` resources are a special kind of feature resource that implements the _http://www.w3.org/ns/ssn/Deployment[ssn:Deployment]_ concept.
 
-The exact way attributes and associations are encoded in the payload is defined by each encoding. For encodings defined in this Standard, please see:
+This section defines the attributes and associations composing the `Deployment` resource, but the exact way attributes and associations are encoded in the payload is defined by each encoding. For encodings defined in this document, please see:
 
 - <<clause-geojson-deployment,Deployment resource as GeoJSON>>
 - <<clause-sensorml-deployment,Deployment resource as SensorML>>
 
+include::../requirements/deployment/req_resource.adoc[]
+
 ==== Attributes
 
-include::../requirements/deployment/req_attributes.adoc[]
+The following table lists `Deployment` resource attributes and their mapping to SOSA/SSN.
 
 [#deployment-attributes,reftext='{table-caption} {counter:table-num}']
 .Deployment Attributes
-[width="100%",cols="4,10,3,3",options="header"]
+[width="100%",cols="4,4,10,3,3",options="header"]
 |====
-| *Name* | *Definition* | *Data Type* | *Usage*
-| `uniqueIdentifier`  | The unique identifier of the deployment in the form of a URI (preferably a URN). This identifier should be persistent and independent of the actual resource URL. | URI | Required
-| `name`              | The human readable name of the deployment. | String | Required
-| `description`       | A human readable description for the deployment. | String | Optional
-| `deploymentType`    | The type of deployment (see <<deployment-types>>). | URI | Required
-| `validTime`         | The time period during which the systems are deployed. | DateTime | Required
-| `location`          | The area of interest for this deployment. | Geometry | Required
+| *Name*              | *SOSA/SSN Property* | *Definition* | *Data Type* | *Usage*
+| `uniqueIdentifier`  | RDF concept URI | The unique identifier of the deployment in the form of a URI (preferably a URN). This identifier should be persistent and independent of the actual resource URL. | URI | Required
+| `name`              | `rdfs:label` | The human readable name of the deployment. | String | Required
+| `description`       | `rdfs:comment` | A human readable description for the deployment. | String | Optional
+| `deploymentType`    | `rdfs:type` | The type of deployment (see <<deployment-types>>). | URI | Required
+| `validTime`         | - | The time period during which the systems are deployed. | DateTime | Required
+| `location`          | `geo:lat`/`geo:lon` | The area of interest for this deployment. | Geometry | Required
 |====
 
 NOTE: For insitu and short range remote sensors, the area of interest is simply the area where the systems are being deployed. For models or long range remote sensing (e.g. space based earth observation), the area of interest is usually the area where the features of interest are located (i.e. the area covered by the model or observable by the deployed systems).
-
-More specific deployment types are implemented by tagging the resource with a more specific concept URI.
-
-include::../requirements/deployment/req_deployment_type.adoc[]
 
 [#deployment-types,reftext='{table-caption} {counter:table-num}']
 .Deployment Types
@@ -64,6 +62,21 @@ include::../requirements/deployment/req_deployment_type.adoc[]
 | *Deployment Type* | *URI* | *CURIE* | *Usage*
 | #TBD#     | #http://www.opengis.net/def/x-OGC/TBD1#     | #TBD# |
 | #TBD#     | #http://www.opengis.net/def/x-OGC/TBD2#     | #TBD# |
+|====
+
+==== Associations
+
+The following table lists `Deployment` resource assocations and their mapping to SOSA/SSN.
+
+[#deployment-assocs,reftext='{table-caption} {counter:table-num}']
+.Deployment Associations
+[width="100%",cols="5,5,10,10,3",options="header"]
+|====
+| *Name*                | *SOSA/SSN Property*  | *Definition* | *Target Content* | *Usage*
+| `deployedSystems`     | `ssn:deployedSystem` | The deployed `Systems`. | A collection of `DeployedSystem` resources (inline or by-reference). | Required
+| `featuresOfInterest`  | - | The ultimate features of interest that are observed and/or controlled during the `Deployment`. | A collection of `Feature` resources (inline or by-reference). | Optional
+| `datastreams`         | - | The `Data Streams` containing observations collected during the `Deployment`. | A collection of `DataStream` resources (inline or by-reference). | Optional
+| `controlStreams`      | - | The `Control Streams` that received commands issued during the `Deployment`. | A collection of `ControlStream` resources (inline or by-reference). | Optional
 |====
 
 ==== Location

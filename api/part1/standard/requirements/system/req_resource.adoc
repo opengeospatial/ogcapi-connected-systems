@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/system/resource
+
+The server SHALL implement at least one encoding requirements class that provides a serialization for the `System` resource, as defined by the attributes and associations listed in the following tables.
+====

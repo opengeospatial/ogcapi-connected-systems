@@ -5,11 +5,8 @@ type:: class
 identifier:: /req/deployment-features
 subject:: Web API
 inherit:: /req/api-common
-requirement:: /req/deployment/attributes
-requirement:: /req/deployment/deployment-type
+requirement:: /req/deployment/resource
 requirement:: /req/deployment/location
-requirement:: /req/deployment/associations
-requirement:: /req/deployment/assoc-urls
 requirement:: /req/deployment/collection-type
 requirement:: /req/deployment/collection-catchall
 requirement:: /req/deployment/canonical-url

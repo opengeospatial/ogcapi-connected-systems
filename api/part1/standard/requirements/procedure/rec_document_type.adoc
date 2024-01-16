@@ -1,9 +1,0 @@
-[recommendation,model=ogc]
-====
-[%metadata]
-identifier:: /rec/procedure/document-type
-
-part:: A `Procedure` resource SHOULD use one of the URIs or CURIES provided in <<document-types>> as the value of the `documentType` attribute. If using a URI or CURIE is not practical, the encoding SHALL explicitely define the mapping between the values used and these URIs.
-
-part:: If the classification provided in <<document-types>> is not sufficient for the application, using other classifiers is permitted.
-====

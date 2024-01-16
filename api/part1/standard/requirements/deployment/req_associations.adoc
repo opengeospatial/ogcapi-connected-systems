@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/deployment/associations
-
-A `Deployment` feature resource SHALL support the associations listed in <<deployment-assocs>>.
-====

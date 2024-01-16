@@ -1,9 +1,0 @@
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/procedure/assoc-urls
-
-The following URL templates, rooted at the procedure's canonical URL, SHALL be used to access a procedure's sub-resources:
-
-- For implementing systems, use `/procedures/{id}/systems`
-====

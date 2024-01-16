@@ -29,35 +29,33 @@ If a human operator follows a different methodology during each mission/deployme
 
 ==== Introduction
 
-In this API, `Procedure` resources are a special kind of feature resource. This section defines the attributes and associations (links to other resources) that apply to this feature type.
+In this API, `Procedure` resources are a special kind of feature resource that implements the _http://www.w3.org/ns/sosa/Procedure[sosa:Procedure]_ concept.
 
-The exact way attributes and associations are encoded in the payload is defined by each encoding. For encodings defined in this Standard, please see:
+This section defines the attributes and associations composing the `Procedure` resource, but the exact way attributes and associations are encoded in the payload is defined by each encoding. For encodings defined in this document, please see:
 
 - <<clause-geojson-procedure,Procedure resource as GeoJSON>>
 - <<clause-sensorml-procedure,Procedure resource as SensorML>>
 
+include::../requirements/procedure/req_resource.adoc[]
+
 ==== Attributes
 
-include::../requirements/procedure/req_attributes.adoc[]
+The following table lists `Procedure` resource attributes and their mapping to SOSA/SSN.
 
 [#procedure-attributes,reftext='{table-caption} {counter:table-num}']
 .Procedure Attributes
-[width="100%",cols="4,10,3,3",options="header"]
+[width="100%",cols="4,4,10,3,3",options="header"]
 |====
-| *Name* | *Definition* | *Data Type* | *Usage*
-| `uniqueIdentifier` | The unique identifier of the procedure in the form of a URI (preferably a URN). This identifier should be persistent and independent of the actual resource URL | URI | Required
-| `name`             | The human readable name of the procedure | String | Required
-| `description`      | A human readable description for the procedure | String | Optional
-| `procedureType`    | The type of procedure (see <<procedure-types>>) | URI | Required
-| `documentType`     | The type of information provided by the procedure (see <<document-types>>) | URI | Optional
-| `validTime`        | The validity period of the procedure description. | DateTime | Optional
+| *Name*             | *SOSA/SSN Property* | *Definition* | *Data Type* | *Usage*
+| `uniqueIdentifier` | RDF concept URI | The unique identifier of the procedure in the form of a URI (preferably a URN). This identifier should be persistent and independent of the actual resource URL | URI | Required
+| `name`             | `rdfs:label` | The human readable name of the procedure | String | Required
+| `description`      | `rdfs:comment` | A human readable description for the procedure | String | Optional
+| `procedureType`    | `rdfs:type` | The type of procedure (see <<procedure-types>>) | URI | Required
+| `documentType`     | - | The type of information provided by the procedure (see <<document-types>>) | URI | Optional
+| `validTime`        | - | The validity period of the procedure description. | DateTime | Optional
 |====
 
 NOTE: The validity time period of a `Procedure` description starts on the date that the model of the equipment was released. No `System` can implement the `Procedure` before this date. The end date should be set to a date after which no instance of the equipment is in use, or unbounded.
-
-More specific procedure types are implemented by tagging the resource with a more specific concept URI.
-
-include::../requirements/procedure/req_procedure_type.adoc[]
 
 [#procedure-types,reftext='{table-caption} {counter:table-num}']
 .Procedure Types
@@ -70,10 +68,6 @@ include::../requirements/procedure/req_procedure_type.adoc[]
 | Other            | http://www.w3.org/ns/sosa/Procedure               | sosa:Procedure         | Platform | A platform datasheet or other carrying/navigation procedure.
 |====
 
-A `Procedure` resource can also be tagged with a "document type" attribute used to further qualify the type of information provided by the procedure.
-
-include::../requirements/procedure/rec_document_type.adoc[]
-
 [#document-types,reftext='{table-caption} {counter:table-num}']
 .Document Types
 [width="100%",cols="5,10,5,15",options="header"]
@@ -83,31 +77,25 @@ include::../requirements/procedure/rec_document_type.adoc[]
 | Methodology     | #http://www.opengis.net/def/x-OGC/TBD/Methodology#   | sml:Methodology | The procedure describes the methodology used by a human operator.
 |====
 
-==== Location
-
-A `Procedure` feature represents a datasheet or a methodology. It is thus a non-spatial entity.
-
-include::../requirements/procedure/req_location.adoc[]
-
 ==== Associations
 
-A `Procedure` resource is also required to include certain associations with related resources.
+The following table lists `Procedure` resource assocations and their mapping to SOSA/SSN.
 
 include::../requirements/procedure/req_associations.adoc[]
 
 [#procedure-assocs,reftext='{table-caption} {counter:table-num}']
 .Procedure Associations
-[width="100%",cols="5,10,10,5",options="header"]
+[width="100%",cols="5,5,10,10,3",options="header"]
 |====
-| *Name* | *Definition* | *Target Content* | *Usage*
-| `implementingSystems` | The `Systems` that implement the `Procedure`. | A Collection of `System` resources (inline or by-reference). | Optional
+| *Name* | *SOSA/SSN Property* | *Definition* | *Target Content* | *Usage*
+| `implementingSystems` | `implementedBy` | The `Systems` that implement the `Procedure`. | A Collection of `System` resources (inline or by-reference). | Optional
 |====
 
-NOTE: The `implementingSystems` association will typically only point to systems that are known to the server, but there can be other systems (hosted at other endpoints) that are unknown to the server and also reference the procedure.
+==== Location
 
-NOTE: Required associations may be ommitted only if the target resource does not exist or is not available online.
+A `Procedure` feature represents a datasheet or a methodology. It is thus a non-spatial entity.
 
-include::../requirements/procedure/req_assoc_urls.adoc[]
+include::../requirements/procedure/req_location.adoc[]
 
 
 === Procedure Collections

@@ -7,11 +7,11 @@ include::../requirements/property/requirements_class_property_definitions.adoc[]
 
 This requirements class specifies how property definitions are provided using this API.
 
-Properties in the scope of the API are features of interest properties, including:
+The `Property` resource implements the _http://www.w3.org/ns/ssn/Property[Property]_ concept defined in the <<SOSA-SSN,SSN Ontology>>. Properties in the scope of the API are features of interest properties, including:
 
-- Observable properties (i.e. subject of an observation)
-- Controllable properties (i.e. subject of an actuation)
-- System properties (i.e. system characteristics and capabilities, which are sometimes asserted)
+- Observable properties (i.e. subject of an observation, see _http://www.w3.org/ns/sosa/ObservableProperty[sosa:ObservableProperty]_)
+- Controllable properties (i.e. subject of an actuation, see _http://www.w3.org/ns/sosa/ActuatableProperty[sosa:ActuatableProperty]_)
+- System properties (i.e. system characteristics and capabilities, which are sometimes asserted, see _http://www.w3.org/ns/ssn/systems/SystemCapability[ssn-system:SystemCapability]_)
 
 NOTE: The same property can be used in all 3 contexts simultaneously (e.g. the same "engine temperature" property can be measured by a sensor, controlled by the cooling system, and asserted in a min/max specification).
 
@@ -30,23 +30,27 @@ The definition is provided by deriving the property from a well known entity ref
 
 === Property Definition Resources
 
-This section defines the attributes and associations that apply to the `Property` resource type.
+In this API, `Property` resources are a special kind of resource that implements the _http://www.w3.org/ns/ssn/Property[ssn:Property]_ concept.
 
-The exact way attributes are encoded in the payload is defined by each encoding. See the <<clause-encodings,Encoding Requirements Classes>> for examples of `Property` resource representations.
+This section defines the attributes and associations composing a `Property` resource, but the exact way they are encoded in the payload is defined by each encoding. For encodings defined in this document, please see:
 
-include::../requirements/property/req_attributes.adoc[]
+- <<clause-sensorml-property,Property resource as SensorML>>
+
+include::../requirements/property/req_resource.adoc[]
+
+The following table lists `Property` resource attributes and their mapping to SOSA/SSN.
 
 [#property-attributes,reftext='{table-caption} {counter:table-num}']
 .Property Definition Attributes
-[width="100%",cols="4,10,3,3",options="header"]
+[width="100%",cols="4,4,10,3,3",options="header"]
 |====
-| *Name* | *Definition* | *Data Type* | *Usage*
-| `uniqueIdentifier`   | The unique identifier of the property in the form of a URI (preferably a URN). This identifier should be persistent and independent of the actual resource URL. | URI | Required
-| `name`               | The human readable name of the property. | String | Required
-| `description`        | A human readable description for the property. | String | Optional
-| `baseProperty`       | Reference to the definition of the base property this property is derived from. | URI or CURIE | Required
-| `object`             | Reference to the type of entity that the base property applies to. | URI or CURIE | Optional
-| `statistic`          | Reference to the definition of the statistic applied to the base property values. | URI or CURIE | Optional
+| *Name*             | *SOSA/SSN Property* | *Definition* | *Data Type* | *Usage*
+| `uniqueIdentifier` | RDF concept URI | The unique identifier of the property in the form of a URI (preferably a URN). This identifier should be persistent and independent of the actual resource URL. | URI | Required
+| `name`             | `rdfs:label` | The human readable name of the property. | String | Required
+| `description`      | `rdfs:comment` | A human readable description for the property. | String | Optional
+| `baseProperty`     | - | Reference to the definition of the base property this property is derived from. | URI or CURIE | Required
+| `object`           | - | Reference to the type of entity that the base property applies to. | URI or CURIE | Optional
+| `statistic`        | - | Reference to the definition of the statistic applied to the base property values. | URI or CURIE | Optional
 |====
 
 

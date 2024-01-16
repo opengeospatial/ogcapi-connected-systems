@@ -11,7 +11,7 @@ The `System` resource implements the _http://www.w3.org/ns/ssn/System[System]_ c
 
 NOTE: `System` resources describe *system instances* (e.g. a sensor device, a UAV platform) while `Procedure` resources are used to describe *system types* (e.g. a particular model of sensor or vehicle, specified using the manufacturer datasheet). Several `System` instances can implement the same `Procedure` (i.e. be of the same model).
 
-NOTE: `System` resources that are tagged as _http://www.w3.org/ns/sosa/Platform[sosa:Platform]_ implement both _http://www.w3.org/ns/ssn/System[ssn:System]_ and _http://www.w3.org/ns/sosa/Platform[sosa:Platform]_ concepts.
+NOTE: `System` resources are used to model all subclasses of _http://www.w3.org/ns/ssn/System[ssn:System]_, including _http://www.w3.org/ns/sosa/Sensor[sosa:Sensor]_, _http://www.w3.org/ns/sosa/Actuator[sosa:Actuator]_, _http://www.w3.org/ns/sosa/Sampler[sosa:Sampler]_, as well as _http://www.w3.org/ns/sosa/Platform[sosa:Platform]_. Semantic tagging is used to provide the exact system type.
 
 [example%unnumbered]
 ====
@@ -36,37 +36,32 @@ NOTE: `System` resources that are tagged as _http://www.w3.org/ns/sosa/Platform[
 
 ==== Introduction
 
-In this API, `System` resources are a special kind of feature resource. This section defines the attributes and associations (links to other resources) that apply to this feature type.
+In this API, `System` resources are a special kind of feature resource that implements the _http://www.w3.org/ns/ssn/System[ssn:System]_ concept.
 
-The exact way attributes and associations are encoded in the payload is defined by each encoding. For encodings defined in this Standard, please see:
+This section defines the attributes and associations composing a `System` resource, but the exact way they are encoded in the payload is defined by each encoding. For encodings defined in this document, please see:
 
 - <<clause-geojson-system,System resource as GeoJSON>>
 - <<clause-sensorml-system,System resource as SensorML>>
 
+include::../requirements/system/req_resource.adoc[]
 
 ==== Attributes
 
-include::../requirements/system/req_attributes.adoc[]
+The following table lists `System` resource attributes and their mapping to SOSA/SSN.
 
 [#system-attributes,reftext='{table-caption} {counter:table-num}']
 .System Attributes
-[width="100%",cols="4,10,3,3",options="header"]
+[width="100%",cols="4,4,10,3,3",options="header"]
 |====
-| *Name* | *Definition* | *Data Type* | *Usage*
-| `uniqueIdentifier`   | The unique identifier of the system in the form of a URI (preferably a URN). This identifier should be persistent and independent of the actual resource URL. | URI | Required
-| `name`               | The human readable name of the system. | String | Required
-| `description`        | A human readable description for the system. | String | Optional
-| `systemType`         | The type of system (see <<system-types>>). | URI or CURIE | Required
-| `assetType`          | The type of asset involved in the system (see <<asset-types>>). | URI or CURIE | Optional
-| `validTime`          | The validity period of the system's description. | DateTime | Optional
-| `location`           | The current location of the system. | Point | Optional
+| *Name*               | *SOSA/SSN Property* | *Definition* | *Data Type* | *Usage*
+| `uniqueIdentifier`   | RDF concept URI | The unique identifier of the system in the form of a URI (preferably a URN). This identifier should be persistent and independent of the actual resource URL. | URI | Required
+| `name`               | `rdfs:label` | The human readable name of the system. | String | Required
+| `description`        | `rdfs:comment` | A human readable description for the system. | String | Optional
+| `systemType`         | `rdfs:type` | The type of system (see <<system-types>>). | URI or CURIE | Required
+| `assetType`          | - | The type of asset involved in the system (see <<asset-types>>). | URI or CURIE | Optional
+| `validTime`          | - | The validity period of the system's description. | DateTime | Optional
+| `location`           | `geo:lat`/`geo:lon` | The current location of the system. | Point | Optional
 |====
-
-include::../requirements/system/req_other_attributes.adoc[]
-
-More specific system types are implemented by tagging the resource with a more specific concept URI (see <<system-types>>).
-
-include::../requirements/system/req_system_type.adoc[]
 
 [#system-types,reftext='{table-caption} {counter:table-num}']
 .System Types
@@ -81,10 +76,6 @@ include::../requirements/system/req_system_type.adoc[]
 |====
 
 NOTE: Tagging a `System` resource with a particular type only carries semantic meaning and does not imply any API functionality. In particular, all types of systems can receive commands and generate datastreams.
-
-A `System` resource can also be tagged with an "asset type" attribute used to further qualify the type of assets composing the system.
-
-include::../requirements/system/rec_asset_type.adoc[]
 
 [#asset-types,reftext='{table-caption} {counter:table-num}']
 .Asset Types
@@ -102,38 +93,31 @@ include::../requirements/system/rec_asset_type.adoc[]
 
 NOTE: Deployments can be used to document how different types of systems are used together. For instance, a deployment may describe how a "human" (e.g. system of type platform) uses a piece of "equipment" (e.g. system of type sensor) according to a well defined procedure.
 
+==== Associations
+
+The following table lists `System` resource assocations and their mapping to SOSA/SSN.
+
+[#system-assocs,reftext='{table-caption} {counter:table-num}']
+.System Associations
+[width="100%",cols="5,5,10,10,3",options="header"]
+|====
+| *Name*              | *SOSA/SSN Property* | *Definition* | *Target Content* | *Usage*
+| `procedure`         | `ssn:implements` | The `Procedure` implemented by the `System`. | A single `Procedure` resource. | Required
+| `subsystems`        | `ssn:hasSubSystem` | The components of the `System`, if any. | A collection of `System` resources (inline or by-reference). | Required
+| `samplingFeatures`  | - | The `Sampling Features` associated to the `System`, if any. | A collection of `SamplingFeature` resources (inline or by-reference). | Required
+| `datastreams`       | - | The `DataStreams` generated by the `System`, if any. | A collection of `DataStream` resources (inline or by-reference). | Optional
+| `controlstreams`    | - | The `ControlStreams` receiving commands for the `System`, if any. | A collection of `ControlStream` resources (inline or by-reference). | Optional
+| `deployments`       | `ssn:hasDeployment` | The `Deployments` that the `System` is part of, if any. | A collection of `Deployment` resources (inline or by-reference). | Optional
+|====
+
 ==== Location
 
-It is recommended that the `System` resource representation includes the latest known location of the system. If the implementation decides to report the location, it must be done according to the optional `datetime` request parameter.
+It is recommended that the `System` resource representation includes the location of the system. If the implementation decides to report the location, it must be done according to the optional `datetime` request parameter.
 
 include::../requirements/system/req_location.adoc[]
 
 include::../requirements/system/req_location_time.adoc[]
 
-==== Associations
-
-A `System` resource is also required to include certain associations with related resources.
-
-include::../requirements/system/req_associations.adoc[]
-
-[#system-assocs,reftext='{table-caption} {counter:table-num}']
-.System Associations
-[width="100%",cols="5,10,10,5",options="header"]
-|====
-| *Name* | *Definition* | *Target Content* | *Usage*
-| `procedure`         | The `Procedure` implemented by the `System`. | A single `Procedure` resource. | Required
-| `subsystems`        | The components of the `System`, if any. | A collection of `System` resources (inline or by-reference). | Required
-| `samplingFeatures`  | The `Sampling Features` associated to the `System`, if any. | A collection of `SamplingFeature` resources (inline or by-reference). | Required
-| `datastreams`       | The `DataStreams` that are generated by the `System`, if any. | A collection of `DataStream` resources (inline or by-reference). | Optional
-| `controlstreams`    | The `ControlStreams` that can receive commands for the `System`, if any. | A collection of `ControlStream` resources (inline or by-reference). | Optional
-| `deployments`       | The `Deployments` that the `System` is part of, if any. | A collection of `Deployment` resources (inline or by-reference). | Optional
-|====
-
-NOTE: The `deployments` association will typically only point to deployments that are known to the server, but there can be other deployments (hosted at other endpoints) that are unknown to the server and also include the selected system.
-
-NOTE: Required associations may be ommitted only if the target resource does not exist or is not available online.
-
-include::../requirements/system/req_assoc_urls.adoc[]
 
 
 === System Collections

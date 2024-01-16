@@ -5,12 +5,8 @@ type:: class
 identifier:: /req/procedure-features
 subject:: Web API
 inherit:: /req/api-common
-requirement:: /req/procedure/attributes
-requirement:: /req/procedure/procedure-type
-requirement:: /rec/procedure/document-type
+requirement:: /req/procedure/resource
 requirement:: /req/procedure/location
-requirement:: /req/procedure/associations
-requirement:: /req/procedure/assoc-urls
 requirement:: /req/procedure/collection-type
 requirement:: /req/procedure/collection-catchall
 requirement:: /req/procedure/canonical-url

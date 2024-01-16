@@ -1,7 +1,0 @@
-[permission,model=ogc]
-====
-[%metadata]
-identifier:: /per/procedure/other_attributes
-
-A `Procedure` feature resource can include any other attributes, provided they do not duplicate or redefine the semantics of the attributes listed in <<procedure-attributes>>.
-====

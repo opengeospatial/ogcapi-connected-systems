@@ -1,9 +1,0 @@
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/procedure/procedure-type
-
-A `Procedure` resource SHALL use one of the URIs or CURIEs provided in <<procedure-types>> as the value of the `procedureType` attribute.
-
-If using a URI or CURIE is not practical, the encoding SHALL explicitely define the mapping between the values used and these URIs.
-====

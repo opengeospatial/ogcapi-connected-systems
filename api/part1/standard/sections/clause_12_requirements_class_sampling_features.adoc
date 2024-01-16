@@ -66,30 +66,30 @@ In this API, observations and commands are always associated to a `Sampling Feat
 
 === Sampling Feature Resources
 
-In this API, `Sampling Feature` resources are a special kind of feature resource. This section defines the common attributes and associations (links to other resources) that apply to all sampling feature types.
+In this API, `Sampling Feature` resources are a special kind of feature resource that implements the _http://www.w3.org/ns/sosa/Sample[sosa:Sample]_ concept.
 
 <<clause-sampling-feature-types,style=full%>> defines several types of `Sampling Features` that can be used to document different sampling strategies. If needed, more sampling feature types can be defined by extensions.
 
-The exact way attributes and associations are encoded in the payload is defined by each encoding. For encodings defined in this Standard, please see:
+This section defines the attributes and associations that are common to all `Sampling Feature` resources, but the exact way attributes and associations are encoded in the payload is defined by each encoding. For encodings defined in this document, please see:
 
 - <<clause-geojson-sf,SamplingFeature resource as GeoJSON>>
 
+include::../requirements/sampling/common/req_resource.adoc[]
+
 ==== Common Attributes
 
-All sampling features must include some common attributes.
-
-include::../requirements/sampling/common/req_attributes.adoc[]
+The following table lists attributes that are common to all `Sampling Feature` resources and their mapping to SOSA/SSN.
 
 [#sf-attributes,reftext='{table-caption} {counter:table-num}']
 .Common Sampling Feature Attributes
-[width="100%",cols="4,10,3,3",options="header"]
+[width="100%",cols="4,4,10,3,3",options="header"]
 |====
-| *Name* | *Definition* | *Data Type* | *Usage*
-| `uniqueIdentifier` | The unique identifier of the sampling feature in the form of a URI (preferably a URN). This identifier must be persistent and independent of the actual resource URL. | URI | Required
-| `name`             | The human readable name of the sampling feature. | String | Required
-| `description`      | A human readable description for the sampling feature. | String | Optional
-| `featureType`      | The type of sampling feature. | URI | Required
-| `validTime`        | The validity period of the sampling feature. | DateTime | Optional
+| *Name*             | *SOSA/SSN Property* | *Definition* | *Data Type* | *Usage*
+| `uniqueIdentifier` | RDF concept URI | The unique identifier of the sampling feature in the form of a URI (preferably a URN). This identifier must be persistent and independent of the actual resource URL. | URI | Required
+| `name`             | `rdfs:label` | The human readable name of the sampling feature. | String | Required
+| `description`      | `rdfs:comment` | A human readable description for the sampling feature. | String | Optional
+| `featureType`      | `rdfs:type` | The type of sampling feature. | URI | Required
+| `validTime`        | - | The validity period of the sampling feature. | DateTime | Optional
 |====
 
 [NOTE]
@@ -102,25 +102,19 @@ Valid time is used when the sampling feature is not meaningful or usable outside
 
 ==== Common Associations
 
-A `Sampling Feature` resource is also required to include certain associations with related resources.
-
-include::../requirements/sampling/common/req_associations.adoc[]
+The following table lists associations that are common to all `Sampling Feature` resources and their mapping to SOSA/SSN.
 
 [#sf-assocs,reftext='{table-caption} {counter:table-num}']
 .Sampling Features Associations
-[width="100%",cols="5,10,10,3",options="header"]
+[width="100%",cols="5,5,10,10,3",options="header"]
 |====
-| *Relation Name*           | *Definition* | *Target Content* | *Usage*
-| `parentSystem`            | The `System` that created or uses this `Sampling Feature`. | A single `System` resource. | Required
-| `sampledFeature`          | The ultimate feature of interest that is being sampled or controlled. | A single `Feature` resource. | Required
-| `relatedSamplingFeatures` | Other `Sampling Features` related to this `Sampling Feature` via sub-sampling. | A collection of `Sampling Feature` resources (inline or by-reference). | Optional
-| `datastreams`   | The `Data Streams` that contain observations of this `Sampling Feature`. | A collection of `DataStream` resources (inline or by-reference). | Optional
-| `controlStreams` | The `Control Streams` that received commands impacting this `Sampling Feature`. | A collection of `ControlStream` resources (inline or by-reference). | Optional
+| *Relation Name*           | *SOSA/SSN Property* | *Definition* | *Target Content* | *Usage*
+| `parentSystem`            | - | The `System` that created or uses this `Sampling Feature`. | A single `System` resource. | Required
+| `sampledFeature`          | `sosa:isSampleOf` | he ultimate feature of interest that is being sampled or controlled. | A single `Feature` resource. | Required
+| `relatedSamplingFeatures` | - | Other `Sampling Features` related to this `Sampling Feature` via sub-sampling. | A collection of `Sampling Feature` resources (inline or by-reference). | Optional
+| `datastreams`             | - | The `Data Streams` that contain observations of this `Sampling Feature`. | A collection of `DataStream` resources (inline or by-reference). | Optional
+| `controlStreams`          | - | The `Control Streams` that received commands impacting this `Sampling Feature`. | A collection of `ControlStream` resources (inline or by-reference). | Optional
 |====
-
-NOTE: Required associations may be ommitted only if the target resource does not exist or is not available online.
-
-include::../requirements/sampling/common/req_assoc_urls.adoc[]
 
 
 === Sampling Feature Collections
