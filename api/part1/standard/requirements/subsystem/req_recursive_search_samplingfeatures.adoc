@@ -1,0 +1,17 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/subsystem/recursive-search-samplingfeatures
+
+part:: HTTP GET operations targeting a system's sub-collections at the following URLs SHALL support the parameter `recursive`:
+- `{api_root}/systems/{id}/subsystems`
+- `{api_root}/systems/{id}/samplingFeatures`
+- `{api_root}/systems/{id}/samplingFeatures`
+- `{api_root}/systems/{id}/samplingFeatures`
+
+part:: If the `recursive` parameter is ommitted or set to `false`, the response SHALL only include sampling features associated to the parent system.
+
+part:: If the `recursive` parameter is set to `true`, the response SHALL include sampling features associated to the parent system and all its subsystems, recursively.
+
+part:: Other query string parameters SHALL be applied to all processed `Sampling Features` resources, regardless of whether they are attached to the parent system or one of its subsystems.
+====

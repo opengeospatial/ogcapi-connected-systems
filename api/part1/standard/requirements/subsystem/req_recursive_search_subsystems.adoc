@@ -1,0 +1,13 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/subsystem/recursive-search-subsystems
+
+part:: HTTP GET operations targeting a system's subsystems sub-collection at URL `{api_root}/systems/{id}/subsystems` SHALL support the parameter `recursive`.
+
+part:: If the `recursive` parameter is ommitted or set to `false`, the response SHALL only include the system's direct subsystems.
+
+part:: If the `recursive` parameter is set to `true`, the response SHALL include all nested subsystems, recursively.
+
+part:: Other query string parameters SHALL be applied to all processed `Systems` resources, regardless of whether they are direct subsystem, or transitive subsystems.
+====

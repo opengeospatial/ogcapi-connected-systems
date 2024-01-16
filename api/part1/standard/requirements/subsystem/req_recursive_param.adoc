@@ -1,0 +1,12 @@
+[requirement,model=ogc,identifier=/req/subsystem/recursive-param]
+====
+The server SHALL support a query parameter `recursive` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
+
+```yaml
+name: recursive
+in: query
+required: false
+schema:
+  type: boolean
+```
+====
