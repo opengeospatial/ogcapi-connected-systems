@@ -7,9 +7,7 @@ include::../requirements/subsystem/requirements_class_system_components.adoc[]
 
 It is often useful to describe complex systems in terms of a hierarchy of components (or subsystems). This requirements class specifies how such hierarchical systems are described and made discoverable using this API.
 
-System components are regular `System Features` that are made available through a sub-collection of a `System` resource. Components can be any kind of `System` and can be indefinitely nested.
-
-This requirements class defines the `members` sub-collection that allows exposing components of a parent system.
+System components are regular `System` features that are made available through a sub-collection of a parent `System` resource. Components can be any kind of `System` and can be indefinitely nested.
 
 
 === Types of System/Subsystem Associations
