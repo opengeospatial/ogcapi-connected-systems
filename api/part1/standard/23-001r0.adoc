@@ -40,6 +40,8 @@
 :geojson-procedure-collection-schema: link:{geojson-schema-root}/procedureCollection.json[procedureCollection.json]
 :geojson-deployment-schema: link:{geojson-schema-root}/deployment.json[deployment.json]
 :geojson-deployment-collection-schema: link:{geojson-schema-root}/deploymentCollection.json[deploymentCollection.json]
+:geojson-deployed-system-schema: link:{geojson-schema-root}/deployedSystem.json[deployedSystem.json]
+:geojson-deployed-system-collection-schema: link:{geojson-schema-root}/deployedSystemCollection.json[deployedSystemCollection.json]
 :geojson-samplingFeature-schema: link:{geojson-schema-root}/anySamplingFeature.json[anySamplingFeature.json]
 :geojson-samplingFeature-collection-schema: link:{geojson-schema-root}/samplingFeatureCollection.json[samplingFeatureCollection.json]
 //
@@ -50,6 +52,8 @@
 :sensorml-procedure-collection-schema: link:{sensorml-schema-root}/procedureCollection.json[procedureCollection.json]
 :sensorml-deployment-schema: link:{sensorml-schema-root}/deployment.json[deployment.json]
 :sensorml-deployment-collection-schema: link:{sensorml-schema-root}/deploymentCollection.json[deploymentCollection.json]
+:sensorml-deployed-system-schema: link:{sensorml-schema-root}/deployedSystem.json[deployedSystem.json]
+:sensorml-deployed-system-collection-schema: link:{sensorml-schema-root}/deployedSystemCollection.json[deployedSystemCollection.json]
 :sensorml-property-schema: link:{sensorml-schema-root}/property.json[property.json]
 :sensorml-property-collection-schema: link:{sensorml-schema-root}/propertyCollection.json[propertyCollection.json]
 

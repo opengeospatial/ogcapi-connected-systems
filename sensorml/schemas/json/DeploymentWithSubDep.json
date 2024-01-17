@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "allOf": [
+    { "$ref": "DescribedObject.json" },
+    {
+      "properties": {
+        "type": {
+          "const": "Deployment"
+        },
+        "definition": {
+          "description": "Type of deployment (semantic link)",
+          "type": "string",
+          "format": "uri"
+        },
+        "location": {
+          "description": "The deployment location or area",
+          "$ref": "https://geojson.org/schema/Geometry.json"
+        },
+        "procedure": {
+          "description": "Link to the procedure used for the overall deployment (e.g. mission objective)",
+          "$ref": "commonDefs.json#/definitions/XLink"
+        },
+        "deployedSystem": {
+          "description": "Description of the system being deployed",
+          "$ref": "DeployedSystem.json"
+        },
+        "subDeployments": {
+          "description": "List of sub-deployments",
+          "type": "array",
+          "items": {
+            "description": "Link to sub-deployment",
+            "$ref": "commonDefs.json#/definitions/XLink"
+          }
+        }
+      },
+      "oneOf": [
+        { "required": [ "deployedSystem" ] },
+        { "required": [ "subDeployments" ] }
+      ]
+    }
+  ]
+}
