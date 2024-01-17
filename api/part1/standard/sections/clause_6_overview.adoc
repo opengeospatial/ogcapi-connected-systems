@@ -20,7 +20,7 @@ OGC API - Connected Systems supports all capabilities from these previous Standa
 
 This API is designed as an extension of {ogcapi-features} which makes it entirely compatible with Features API clients, while still allowing more advanced functionality to access dynamic data associated to features. A clear goal of this approach is to better integrate the GIS and sensor/IoT communities. 
 
-Another key design decision was to allow linking to other OGC APIs whenever possible, thus allowing a much better integration with the rest of the OGC API ecosystems.
+Another key design decision was to allow linking to other OGC Web APIs whenever possible, thus allowing a much better integration with the rest of the OGC API ecosystem.
 
 Models from the {ogc-w3c-ssn} are the basis for the API design, with the help of more concrete models like O&M/OMS and SensorML.
 
