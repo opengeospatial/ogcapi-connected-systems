@@ -72,7 +72,7 @@ A GeoJSON document representing a `Feature` resource SHALL implement the mapping
 
 
 [[clause-geojson-system]]
-==== System Encoding Rules
+==== System Representation
 
 [requirement,model=ogc]
 ====
@@ -129,7 +129,7 @@ include::../openapi/examples/systems/thermometer-sensor-geojson.links.json[]
 
 
 [[clause-geojson-procedure]]
-==== Procedure Encoding Rules
+==== Procedure Representation
 
 [requirement,model=ogc]
 ====
@@ -178,7 +178,7 @@ include::../openapi/examples/procedures/sensor-datasheet-geojson.json[]
 
 
 [[clause-geojson-deployment]]
-==== Deployment Encoding Rules
+==== Deployment Representation
 
 [requirement,model=ogc]
 ====
@@ -230,8 +230,49 @@ include::../openapi/examples/deployments/deployment-geojson.json[]
 
 
 
+[[clause-geojson-deployed-system]]
+==== Deployed System Representation
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/geojson/deployed-system-schema
+
+part:: A GeoJSON document containing a single `Deployed System` resource SHALL be valid against the JSON schema {geojson-deployed-system-schema}.
+
+part:: A GeoJSON document containing a collection of `Deployed System` resources SHALL be valid against the JSON schema {geojson-deployed-system-schema}.
+====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/geojson/deployed-system-mappings
+
+A GeoJSON document representing a `Deployed System` resource SHALL implement the mappings specified in <<dep-sys-geojson-mappings>>.
+====
+
+[#dep-sys-geojson-mappings,reftext='{table-caption} {counter:table-num}']
+.GeoJSON Encoding of Deployed System Associations
+[width="100%",cols="3,3,10",options="header"]
+|====
+| *Association Name* | *JSON Member*               | *Usage*
+| `system`           | `properties/system@link`    | Value is a weblink resolving to a single `System` resource.
+| `procedure`        | `properties/procedure@link` | Value is a weblink resolving to a single `Procedure` resource.
+|====
+
+[[example_geojson_depsys1]]
+.A Deployed System resource in GeoJSON format
+=================
+[source%autofit,json]
+----
+include::../openapi/examples/deployments/deployedSystems/deployed-system-geojson.json[]
+----
+=================
+
+
+
 [[clause-geojson-sf]]
-==== SamplingFeature Encoding Rules
+==== Sampling Feature Representation
 
 [requirement,model=ogc]
 ====

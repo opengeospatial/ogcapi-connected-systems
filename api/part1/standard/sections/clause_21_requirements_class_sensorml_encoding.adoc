@@ -84,7 +84,7 @@ A SensorML JSON document representing a `Feature` resource SHALL implement the m
 
 
 [[clause-sensorml-system]]
-==== System Encoding Rules
+==== System Representation
 
 [requirement,model=ogc]
 ====
@@ -156,7 +156,7 @@ include::../openapi/examples/systems/thermometer-sensor-sml.json[]
 
 
 [[clause-sensorml-procedure]]
-==== Procedure Encoding Rules
+==== Procedure Representation
 
 [requirement,model=ogc]
 ====
@@ -217,7 +217,7 @@ include::../openapi/examples/procedures/sensor-datasheet-sml.json[]
 
 
 [[clause-sensorml-deployment]]
-==== Deployment Encoding Rules
+==== Deployment Representation
 
 [requirement,model=ogc]
 ====
@@ -253,11 +253,11 @@ A SensorML JSON document representing a `Deployment` resource SHALL implement th
 .SensorML Mappings of Deployment Associations
 [width="100%",cols="3,3,10",options="header"]
 |====
-| *Association Name*    | *JSON Member* | *Usage*
-| `deployedSystems`     | `deployedSystems`     | Value is a JSON Array of `DeployedSystem` objects.
-| `featuresOfInterest`  | `links`       | Value is a weblink resolving to a `Feature` collection.
-| `datastreams`         | `links`       | Value is a weblink resolving to a `DataStream` collection.
-| `controlstreams`           | `links`       | Value is a weblink resolving to a `ControlStream` collection.
+| *Association Name*    | *JSON Member*      | *Usage*
+| `deployedSystems`     | `deployedSystems`  | Value is a JSON Array of `DeployedSystem` objects.
+| `featuresOfInterest`  | `links`            | Value is a weblink resolving to a `Feature` collection.
+| `datastreams`         | `links`            | Value is a weblink resolving to a `DataStream` collection.
+| `controlstreams`      | `links`            | Value is a weblink resolving to a `ControlStream` collection.
 |====
 
 [[example_sensorml_dep1]]
@@ -271,8 +271,52 @@ include::../openapi/examples/deployments/deployment-sml.json[]
 
 
 
+[[clause-sensorml-deployed-system]]
+==== Deployed System Representation
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sensorml/deployed-system-schema
+
+conditions:: The server implements <<clause-deployment-features,/req/deployment-features>>.
+
+part:: A request or response body with media type `{sensorml-json-mediatype}` containing a single `Deployed System` resource SHALL be valid against the JSON schema {sensorml-deployed-system-schema}.
+
+part:: A request or response body with media type `{sensorml-json-mediatype}` containing a collection of `Deployed System` resources SHALL be valid against the JSON schema {sensorml-deployed-system-collection-schema}.
+====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sensorml/deployed-system-mappings
+
+A SensorML JSON document representing a `Deployed System` resource SHALL implement the mappings specified in <<dep-sys-assoc-sml-mappings>>.
+====
+
+[#dep-sys-assoc-sml-mappings,reftext='{table-caption} {counter:table-num}']
+.SensorML Mappings of Deployed System Associations
+[width="100%",cols="3,3,10",options="header"]
+|====
+| *Association Name* | *JSON Member* | *Usage*
+| `system`           | `system`      | Value is a weblink resolving to a single `System` resource.
+| `procedure`        | `procedure`   | Value is a weblink resolving to a single `Procedure` resource.
+| `payloads`         | `payloads`    | Value is a JSON Array of nested `Deployed System` resources.
+|====
+
+[[example_sensorml_depsys1]]
+.A Deployed System resource in SensorML format
+=================
+[source%autofit,json]
+----
+include::../openapi/examples/deployments/deployedSystems/deployed-system-sml.json[]
+----
+=================
+
+
+
 [[clause-sensorml-property]]
-==== Property Definition Encoding Rules
+==== Property Representation
 
 [requirement,model=ogc]
 ====

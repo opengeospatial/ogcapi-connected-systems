@@ -1,0 +1,34 @@
+{
+  "id": "4g5s5d4vs88",
+  "system": {
+    "href": "https://data.example.org/api/systems/27559?f=sml",
+    "uid": "urn:x-saildrone:platforms:SD-1003",
+    "title": "Saildrone SD-1003"
+  },
+  "payloads": [
+    {
+      "name": "air_temp_sensor",
+      "system": {
+        "href": "https://data.example.org/api/systems/41548?f=sml",
+        "uid": "urn:x-saildrone:sensors:temp01",
+        "title": "Air Temperature Sensor"
+      }
+    },
+    {
+      "name": "water_temp_sensor",
+      "system": {
+        "href": "https://data.example.org/api/systems/36584?f=sml",
+        "uid": "urn:x-saildrone:sensors:temp02",
+        "title": "Water Temperature Sensor"
+      }
+    },
+    {
+      "name": "wind_sensor",
+      "system": {
+        "href": "https://data.example.org/api/systems/47752?f=sml",
+        "uid": "urn:x-saildrone:sensors:wind01",
+        "title": "Wind Speed and Direction Sensor"
+      }
+    }
+  ]
+}

@@ -16,24 +16,24 @@
     "name": "Saildrone - 2017 Arctic Mission",
     "featureType": "http://www.w3.org/ns/ssn/Deployment",
     "description": "In July 2017, three saildrones were launched from Dutch Harbor, Alaska, in partnership with NOAA Research...",
-    "validTime": ["2017-07-17T00:00:00Z", "2017-09-29T00:00:00Z"],
-    "members": {
-      "href" : "https://data.example.org/api/deployments/iv3f2kcq27gfi/systems?f=json",
-      "type" : "application/geo+json",
-      "title" : "Deployed Systems"
-    }
+    "validTime": ["2017-07-17T00:00:00Z", "2017-09-29T00:00:00Z"]
   },
   "links": [
     {
-      "href" : "https://data.example.org/api/deployments/iv3f2kcq27gfi?f=json",
       "rel" : "self",
+      "href" : "https://data.example.org/api/deployments/iv3f2kcq27gfi?f=json",
       "type" : "application/geo+json",
       "title" : "this document"
     }, {
-      "href" : "https://data.example.org/api/deployments/iv3f2kcq27gfi?f=sml",
       "rel" : "alternate",
+      "href" : "https://data.example.org/api/deployments/iv3f2kcq27gfi?f=sml",
       "type" : "application/sml+json",
       "title" : "this resource as SensorML"
+    }, {
+      "rel" : "deployedSystems",
+      "href" : "https://data.example.org/api/deployments/iv3f2kcq27gfi/systems?f=json",
+      "type" : "application/geo+json",
+      "title" : "List of deployed systems"
     }
   ]
 }

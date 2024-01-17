@@ -63,7 +63,7 @@ NOTE: For insitu and short range remote sensors, the area of interest is simply 
 [width="100%",cols="5,5,10,10,3",options="header"]
 |====
 | *Name*                | *SOSA/SSN Property*  | *Definition* | *Target Content* | *Usage*
-| `deployedSystems`     | `ssn:deployedSystem` | The deployed `Systems`. | A collection of `DeployedSystem` resources (inline or by-reference). | Required
+| `deployedSystems`     | `ssn:deployedSystem` | The deployed `Systems`. | A collection of `DeployedSystem` resources (inline or by-reference). See <<clause-deployed-system-resource>> | Required
 | `featuresOfInterest`  | - | The ultimate features of interest that are observed and/or controlled during the `Deployment`. | A collection of `Feature` resources (inline or by-reference). | Optional
 | `datastreams`         | - | The `Data Streams` containing observations collected during the `Deployment`. | A collection of `DataStream` resources (inline or by-reference). | Optional
 | `controlStreams`      | - | The `Control Streams` that received commands issued during the `Deployment`. | A collection of `ControlStream` resources (inline or by-reference). | Optional
@@ -85,12 +85,16 @@ include::../requirements/deployment/req_location.adoc[]
 NOTE: For simulations and models, the deployment location represents the spatial domain covered by a given run of the model (i.e. where the features of interest of simulated observations are located).
 
 
-=== DeployedSystem Resource
+[[clause-deployed-system-resource]]
+=== Deployed System Resource
 
 The list of deployed systems is available as a subcollection of the `Deployment` resource.
 
-A `DeployedSystem` resource contains at least a link to the system being deployed, but encoding formats can include more information, such as the payloads deployed on the system. See the <<sensorml_deployed_system,style=full%>> to handle this type of use cases.
- 
+This section defines the attributes and associations composing the `DeployedSystem` resource, but the exact way attributes and associations are encoded in the payload is defined by each encoding. For encodings defined in this document, please see:
+
+- <<clause-geojson-deployed-system,Deployed System resource as GeoJSON>>
+- <<clause-sensorml-deployed-system,Deployed System resource as SensorML>>
+
 include::../requirements/deployment/req_deployed_system_resource.adoc[]
 
 [#deployed-system-assocs,reftext='{table-caption} {counter:table-num}']

@@ -49,66 +49,22 @@
       [-173.70, 53.76]
     ]]
   },
-  "members": [
-    {
-      "system": {
-        "href": "https://data.example.org/api/systems/2f35ofoms2l6?f=sml",
-        "uid": "urn:x-saildrone:platforms:SD-1001",
-        "title": "Saildrone SD-1001"
-      }
-    },
-    {
-      "system": {
-        "href": "https://data.example.org/api/systems/2f35ofoms2l8?f=sml",
-        "uid": "urn:x-saildrone:platforms:SD-1002",
-        "title": "Saildrone SD-1002"
-      }
-    },
-    {
-      "system": {
-        "href": "https://data.example.org/api/systems/2f35ofoms2l9?f=sml",
-        "uid": "urn:x-saildrone:platforms:SD-1003",
-        "title": "Saildrone SD-1003"
-      },
-      "payloads": [
-        {
-          "name": "air_temp_sensor",
-          "system": {
-            "href": "https://data.example.org/api/systems/41548?f=sml",
-            "uid": "urn:x-saildrone:sensors:temp01",
-            "title": "Air Temperature Sensor"
-          }
-        },
-        {
-          "name": "water_temp_sensor",
-          "system": {
-            "href": "https://data.example.org/api/systems/36584?f=sml",
-            "uid": "urn:x-saildrone:sensors:temp02",
-            "title": "Water Temperature Sensor"
-          }
-        },
-        {
-          "name": "wind_sensor",
-          "system": {
-            "href": "https://data.example.org/api/systems/47752?f=sml",
-            "uid": "urn:x-saildrone:sensors:wind01",
-            "title": "Wind Speed and Direction Sensor"
-          }
-        }
-      ]
-    }
-  ],
   "links": [
     {
-      "href" : "https://data.example.org/api/deployments/iv3f2kcq27gfi?f=sml",
       "rel" : "self",
+      "href" : "https://data.example.org/api/deployments/iv3f2kcq27gfi?f=sml",
       "type" : "application/sml+json",
       "title" : "this document"
     }, {
-      "href" : "https://data.example.org/api/deployments/iv3f2kcq27gfi?f=json",
       "rel" : "alternate",
+      "href" : "https://data.example.org/api/deployments/iv3f2kcq27gfi?f=json",
       "type" : "application/geo+json",
       "title" : "this resource as GeoJSON"
+    }, {
+      "rel" : "deployedSystems",
+      "href" : "https://data.example.org/api/deployments/iv3f2kcq27gfi/systems?f=sml",
+      "type" : "application/sml+json",
+      "title" : "List of deployed systems"
     }
   ]
 }
