@@ -356,27 +356,3 @@ A SensorML JSON document representing a `Property` resource SHALL implement the 
 include::../openapi/examples/properties/avg-cpu-temp.json[]
 ----
 =================
-
-
-
-[[clause-sensorml-batch]]
-==== Batch Mode
-
-Multiple features can be added using the SensorML JSON format when wrapped into a collection object.
-
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/sensorml/batch-format
-
-conditions:: The server implements <<clause-resource-crd,/req/create-replace-delete>>.
-
-part:: A BATCH CREATE or BATCH REPLACE request SHALL have a `Content-Type` header with value `{sensorml-json-mediatype}`
-
-part:: A BATCH CREATE or BATCH REPLACE request body SHALL be valid against one of the following schemas:
-
-- {sensorml-system-collection-schema}
-- {sensorml-procedure-collection-schema}
-- {sensorml-deployment-collection-schema}
-- {sensorml-property-collection-schema}
-====

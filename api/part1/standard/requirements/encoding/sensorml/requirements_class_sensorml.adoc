@@ -23,5 +23,4 @@ requirement:: /req/sensorml/deployed-system-schema
 requirement:: /req/sensorml/deployed-system-mappings
 requirement:: /req/sensorml/property-schema
 requirement:: /req/sensorml/property-mappings
-requirement:: /req/sensorml/batch-format
 ====

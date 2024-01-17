@@ -20,5 +20,4 @@ requirement:: /req/geojson/deployed-system-schema
 requirement:: /req/geojson/deployed-system-mappings
 requirement:: /req/geojson/sf-schema
 requirement:: /req/geojson/sf-mappings
-requirement:: /req/geojson/batch-format
 ====

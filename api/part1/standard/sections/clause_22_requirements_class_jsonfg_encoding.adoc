@@ -56,17 +56,3 @@ part:: A JSON-FG document representing a `Deployment` resource SHALL implement a
 
 part:: A JSON-FG document representing a `SamplingFeature` resource SHALL implement all requirements in clause <<clause-encoding-geojson-sf,style=full%>>.
 ====
-
-
-
-==== Batch Mode
-
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/json-fg/batch-format
-
-conditions:: The server implements <<clause-resource-crd,/req/create-replace-delete>>.
-
-A BATCH CREATE or BATCH REPLACE request body SHALL be a valid JSON-FG `FeatureCollection` document.
-====

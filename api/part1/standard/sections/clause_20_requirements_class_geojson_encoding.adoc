@@ -342,17 +342,3 @@ include::../openapi/examples/sampling/sampling-specimen-geojson.json[]
 include::../openapi/examples/sampling/sampling-part-geojson.json[]
 ----
 =================
-
-
-[[clause-geojson-batch]]
-==== Batch Mode
-
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/geojson/batch-format
-
-conditions:: The server implements <<clause-resource-crd,/req/create-replace-delete>>.
-
-A BATCH CREATE or BATCH REPLACE request body SHALL be a valid GeoJSON `FeatureCollection` document.
-====
