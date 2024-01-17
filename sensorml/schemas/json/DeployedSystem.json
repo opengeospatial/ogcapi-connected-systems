@@ -7,13 +7,15 @@
       "$ref": "commonDefs.json#/definitions/XLink"
     },
     "procedure": {
-      "description": "Link to a procedure implemented by the system during this deployment (e.g. mission plan, methodology for human operator)",
+      "description": "Link to the procedure used by the system, or to operate the system, during the deployment (e.g. mission plan for an autonomous system, methodology for human operator)",
       "$ref": "commonDefs.json#/definitions/XLink"
     },
     "configuration": {
+      "description": "The configuration of the system used during this deployment (e.g. sampling rate setting, etc.)",
       "$ref": "Settings.json"
     },
     "payloads": {
+      "description": "The list of payloads deployed on the system",
       "type": "array",
       "minItems": 1,
       "items": {

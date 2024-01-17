@@ -16,15 +16,14 @@
           "description": "The deployment location or area",
           "$ref": "https://geojson.org/schema/Geometry.json"
         },
-        "members": {
+        "deployedSystems": {
           "description": "The list of deployed systems",
           "type": "array",
           "items": {
             "$ref": "DeployedSystem.json"
           }
         }
-      },
-      "required": [ "members" ]
+      }
     }
   ]
 }
