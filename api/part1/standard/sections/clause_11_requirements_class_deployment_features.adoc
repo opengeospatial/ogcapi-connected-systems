@@ -23,6 +23,7 @@ The `Deployment` resource implements the _http://www.w3.org/ns/ssn/Deployment[De
 ====
 
 
+[[clause-deployment-resource]]
 === Deployment Resource
 
 ==== Introduction
@@ -82,6 +83,25 @@ NOTE: For insitu and short range remote sensors, the area of interest is simply 
 include::../requirements/deployment/req_location.adoc[]
 
 NOTE: For simulations and models, the deployment location represents the spatial domain covered by a given run of the model (i.e. where the features of interest of simulated observations are located).
+
+
+=== DeployedSystem Resource
+
+The list of deployed systems is available as a subcollection of the `Deployment` resource.
+
+A `DeployedSystem` resource contains at least a link to the system being deployed, but encoding formats can include more information, such as the payloads deployed on the system. See the <<sensorml_deployed_system,style=full%>> to handle this type of use cases.
+ 
+include::../requirements/deployment/req_deployed_system_resource.adoc[]
+
+[#deployed-system-assocs,reftext='{table-caption} {counter:table-num}']
+.Deployed System Associations
+[width="100%",cols="5,10,10,5",options="header"]
+|====
+| *Name*          | *Definition* | *Target Content* | *Usage*
+| `system`        | The deployed `System`. | A single `System` resource (inline or by-reference). | Required
+| `procedure`     | The `Procedure` used to operate the system during the `Deployment`. | A single `Procedure` resource (inline or by-reference). | Optional
+| `payloads`      | The list of payloads (subsystems) that are also deployed on the main system. | A list of `DeployedSystem` resources (inline). | Optional
+|====
 
 
 === Canonical URL

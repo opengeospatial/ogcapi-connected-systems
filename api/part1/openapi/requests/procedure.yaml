@@ -2,7 +2,7 @@ required: true
 content:
   application/geo+json:
     schema:
-      $ref: ../schemas/geojson/system.json
+      $ref: ../schemas/geojson/procedure.json
   application/sml+json:
     schema:
-      $ref: ../schemas/sensorml/system.json
+      $ref: ../schemas/sensorml/procedure.json

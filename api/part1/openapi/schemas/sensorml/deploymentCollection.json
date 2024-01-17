@@ -3,11 +3,7 @@
   "type": "object",
   "properties": {
     "items": {
-      "type": "array",
-      "items": {
-        "title": "Deployment Feature",
-        "$ref": "./deployment.json"
-      }
+      "$ref": "deploymentArray.json"
     },
     "links": {
       "description": "Links to related resources (including paging)",

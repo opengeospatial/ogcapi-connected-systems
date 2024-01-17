@@ -1,4 +1,4 @@
-description: One or more procedure resources
+description: One or more deployment resources
 required: true
 content:
   application/geo+json:
@@ -7,27 +7,11 @@ content:
       - title: Single Deployment
         $ref: ../schemas/geojson/deployment.json
       - title: List of Deployments
-        type: array
-        minItems: 1
-        items:
-          $ref: ../schemas/geojson/deployment.json
-    examples:
-      sensor:
-        summary: Unmanned Surface Vehicle (USV) Deployment
-        value:
-          $ref: ../examples/deployments/deployment-geojson.json
+        $ref: ../schemas/geojson/deploymentArray.json
   application/sml+json:
     schema:
       oneOf:
       - title: Single Deployment
         $ref: ../schemas/sensorml/deployment.json
       - title: List of Deployments
-        type: array
-        minItems: 1
-        items:
-          $ref: ../schemas/sensorml/deployment.json
-    examples:
-      sensor:
-        summary: Unmanned Surface Vehicle (USV) Deployment
-        value:
-          $ref: ../examples/deployments/deployment-sml.json
+        $ref: ../schemas/sensorml/deploymentArray.json

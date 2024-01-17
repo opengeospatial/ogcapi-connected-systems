@@ -7,14 +7,7 @@ get:
     #- $ref: '#/components/parameters/select'
   responses:
     '200':
-      description: OK. Successful request
-      content:
-        application/geo+json:
-          schema:
-            $ref: ../schemas/geojson/procedure.json
-        application/sml+json:
-          schema:
-            $ref: ../schemas/sensorml/procedure.json
+      $ref: ../responses/procedure.yaml
     '400':
       $ref: ../responses/StandardResponses.yaml#/400
     '401':
@@ -35,13 +28,7 @@ put:
   parameters:
     - $ref: ../parameters/procedureId.yaml
   requestBody:
-    content:
-      application/geo+json:
-        schema:
-          $ref: ../schemas/geojson/procedure.json
-      application/sml+json:
-        schema:
-          $ref: ../schemas/sensorml/procedure.json
+    $ref: ../requests/procedure.yaml
   responses:
     '204':
       $ref: ../responses/StandardResponses.yaml#/204_PUT

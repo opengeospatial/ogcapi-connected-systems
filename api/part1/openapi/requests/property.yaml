@@ -2,11 +2,4 @@ required: true
 content:
   application/sml+json:
     schema:
-      oneOf:
-      - title: Single Property
-        $ref: ../schemas/sensorml/property.json
-      - title: List of Properties
-        type: array
-        minItems: 1
-        items:
-          $ref: ../schemas/sensorml/property.json
+      $ref: ../schemas/sensorml/property.json

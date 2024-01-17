@@ -1,0 +1,5 @@
+required: true
+content:
+  application/geo+json:
+    schema:
+      $ref: ../schemas/geojson/anySamplingFeature.json

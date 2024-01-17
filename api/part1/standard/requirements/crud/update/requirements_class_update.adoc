@@ -10,6 +10,7 @@ requirement:: /req/resource-update/system
 requirement:: /req/resource-update/subsystem
 requirement:: /req/resource-update/procedure
 requirement:: /req/resource-update/deployment
+requirement:: /req/resource-update/deployed-systems
 requirement:: /req/resource-update/sampling-feature
 requirement:: /req/resource-update/property
 requirement:: /req/resource-update/batch-update-op

@@ -3,11 +3,7 @@
   "type": "object",
   "properties": {
     "items": {
-      "type": "array",
-      "items": {
-        "title": "Property Definition",
-        "$ref": "./property.json"
-      }
+      "$ref": "propertyArray.json"
     },
     "links": {
       "description": "Links to related resources (including paging)",

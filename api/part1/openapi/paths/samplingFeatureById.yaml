@@ -7,11 +7,7 @@ get:
     #- $ref: '#/components/parameters/select'
   responses:
     '200':
-      description: OK. Successful request
-      content:
-        application/geo+json:
-          schema:
-            $ref: ../schemas/geojson/anySamplingFeature.json
+      $ref: ../responses/samplingFeature.yaml
     '400':
       $ref: ../responses/StandardResponses.yaml#/400
     '401':
@@ -32,10 +28,7 @@ put:
   parameters:
     - $ref: ../parameters/featureId.yaml
   requestBody:
-    content:
-      application/geo+json:
-        schema:
-          $ref: ../schemas/geojson/samplingFeature.json
+    $ref: ../requests/samplingFeature.yaml
   responses:
     '204':
       $ref: ../responses/StandardResponses.yaml#/204_PUT

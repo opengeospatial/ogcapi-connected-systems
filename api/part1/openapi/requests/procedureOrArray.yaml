@@ -7,27 +7,11 @@ content:
       - title: Single Procedure
         $ref: ../schemas/geojson/procedure.json
       - title: List of Procedures
-        type: array
-        minItems: 1
-        items:
-          $ref: ../schemas/geojson/procedure.json
-    examples:
-      sensor:
-        summary: Sensor Datasheet
-        value:
-          $ref: ../examples/procedures/sensor-datasheet-geojson.json
+        $ref: ../schemas/geojson/procedureCollection.json
   application/sml+json:
     schema:
       oneOf:
       - title: Single Procedure
         $ref: ../schemas/sensorml/procedure.json
       - title: List of Procedures
-        type: array
-        minItems: 1
-        items:
-          $ref: ../schemas/sensorml/procedure.json
-    examples:
-      sensor:
-        summary: Sensor Datasheet
-        value:
-          $ref: ../examples/procedures/sensor-datasheet-sml.json
+        $ref: ../schemas/sensorml/procedureCollection.json

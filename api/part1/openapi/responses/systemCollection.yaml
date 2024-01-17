@@ -1,17 +1,5 @@
 description: OK. Successful request
 content:
-  application/json:
-    schema:
-      type: object
-      required: items
-      properties:
-        items:
-          type: array
-          items:
-            $ref: ../schemas/geojson/system.json
-        links:
-          description: Links to related resources (including paging)
-          $ref: ../schemas/common/commonDefs.json#/definitions/Links
   application/geo+json:
     schema:
       $ref: ../schemas/geojson/systemCollection.json

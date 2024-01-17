@@ -108,6 +108,23 @@ part:: The server MAY also implement support for CREATE, REPLACE and DELETE oper
 ====
 
 
+=== Deployed Systems
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/deployed-systems
+
+conditions:: The server implements <<clause-deployment-features,/req/deployment-features>>
+
+part:: The server SHALL implement support for the CREATE operation, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
+  - `{api_root}/deployments/{depId}/systems`
+
+part:: The server SHALL implement support for REPLACE and DELETE operations, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
+  - `{api_root}/deployments/{depId}/systems/{id}`
+====
+
+
 === Sampling Features
 
 `Sampling Features` are created as sub-resources of a parent system.
