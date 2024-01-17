@@ -1,0 +1,27 @@
+description: OK. Successful request
+content:
+  application/geo+json:
+    schema:
+      $ref: ../schemas/geojson/deployedSystem.json
+    examples:
+      system-only:
+        summary: Simple System
+        value:
+          $ref: ../examples/deployments/thermometer-sensor-geojson.json
+      system-with-payloads:
+        summary: System with payloads
+        value:
+          $ref: ../examples/deployments/uav-platform-geojson.json      
+  application/sml+json:
+    schema:
+      $ref: ../schemas/sensorml/deployedSystem.json
+    examples:
+      system-only:
+        summary: Simple System
+        value:
+          $ref: ../examples/deployments/thermometer-sensor-geojson.json
+      system-with-payloads:
+        summary: System with payloads
+        value:
+          $ref: ../examples/deployments/uav-platform-geojson.json
+      

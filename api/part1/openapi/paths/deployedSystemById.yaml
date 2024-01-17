@@ -1,0 +1,71 @@
+get:
+  summary: Retrieve a deployed system by ID
+  tags:
+    - Deployments
+  parameters:
+    - $ref: ../parameters/deploymentId.yaml
+    - $ref: ../parameters/deployedSystemId.yaml
+    #- $ref: '#/components/parameters/select'
+  responses:
+    '200':
+      $ref: ../responses/deployedSystem.yaml
+    '400':
+      $ref: ../responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../responses/StandardResponses.yaml#/5XX
+
+put:
+  summary: Update a deployed system
+  description: |-
+    This will completely replace the existing description of the deployed system with the provided content.
+  tags:
+    - Deployments
+  parameters:
+    - $ref: ../parameters/deploymentId.yaml
+    - $ref: ../parameters/deployedSystemId.yaml
+  requestBody:
+    $ref: ../requests/deployedSystem.yaml
+  responses:
+    '204':
+      $ref: ../responses/StandardResponses.yaml#/204_PUT
+    '400':
+      $ref: ../responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../responses/StandardResponses.yaml#/5XX
+
+delete:
+  summary: Delete a deployed system
+  description: |-
+    This will remove the deployed system from its parent deployment.
+  tags:
+    - Deployments
+  parameters:
+    - $ref: ../parameters/deploymentId.yaml
+    - $ref: ../parameters/deployedSystemId.yaml
+  responses:
+    '204':
+      $ref: ../responses/StandardResponses.yaml#/204_DELETE
+    '400':
+      $ref: ../responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../responses/StandardResponses.yaml#/404
+    '409':
+      $ref: ../responses/StandardResponses.yaml#/409_DELETE
+    '5XX':
+      $ref: ../responses/StandardResponses.yaml#/5XX

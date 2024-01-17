@@ -1,0 +1,8 @@
+required: true
+content:
+  application/geo+json:
+    schema:
+      $ref: ../schemas/geojson/deployedSystem.json
+  application/sml+json:
+    schema:
+      $ref: ../schemas/sensorml/deployedSystem.json

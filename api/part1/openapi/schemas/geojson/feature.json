@@ -27,7 +27,8 @@
             "uid": {
               "description": "Globally unique identifier of the feature",
               "type": "string",
-              "format": "uri"
+              "format": "uri",
+              "example": "urn:x-org:namespace:id"
             },
             "name": {
               "description": "Human readable name of the feature",

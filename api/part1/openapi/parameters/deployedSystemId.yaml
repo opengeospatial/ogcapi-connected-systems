@@ -1,0 +1,7 @@
+name: deployedSystemId
+in: path
+description: Local identifier of a Deployed System resource
+required: true
+schema:
+  type: string
+  minLength: 1

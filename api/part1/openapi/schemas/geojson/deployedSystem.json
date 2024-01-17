@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "allOf": [
+    { "$ref": "feature.json" },
+    {
+      "properties": {
+        "properties": {
+          "required": [ "system@link" ],
+          "properties": {
+            "system@link": {
+              "description": "Link to the deployed system.",
+              "$ref": "../common/commonDefs.json#/definitions/Link"
+            },
+            "procedure@link": {
+              "description": "Link to the procedure used by the system, or to operate the system, during the deployment (e.g. mission plan for an autonomous system, methodology for human operator).",
+              "$ref": "../common/commonDefs.json#/definitions/Link"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "items": {
+      "$ref": "deployedSystemArray.json"
+    },
+    "links": {
+      "description": "Links to related resources (including paging)",
+      "$ref": "../common/links.json"
+    }
+  },
+  "required": [ "items" ]
+}

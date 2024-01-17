@@ -1,0 +1,17 @@
+description: One or more deployed system resources
+required: true
+content:
+  application/geo+json:
+    schema:
+      oneOf:
+      - title: Single Deployed System
+        $ref: ../schemas/geojson/deployedSystem.json
+      - title: List of Deployed Systems
+        $ref: ../schemas/geojson/deployedSystemArray.json
+  application/sml+json:
+    schema:
+      oneOf:
+      - title: Single Deployed System
+        $ref: ../schemas/sensorml/deployedSystem.json
+      - title: List of Deployed Systems
+        $ref: ../schemas/sensorml/deployedSystemArray.json

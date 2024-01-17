@@ -138,7 +138,10 @@ paths:
     $ref: paths/deploymentById.yaml
 
   /deployments/{deploymentId}/systems:
-    $ref: paths/deploymentSystems.yaml
+    $ref: paths/deployedSystems.yaml
+
+  /deployments/{deploymentId}/systems/{depSysId}:
+    $ref: paths/deployedSystemById.yaml
 
   /systems/{systemId}/deployments:
     $ref: paths/systemDeployments.yaml

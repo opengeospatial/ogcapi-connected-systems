@@ -5,18 +5,14 @@
     {
       "properties": {
         "properties": {
-          "required": [ "validTime", "members" ],
+          "required": [ "validTime" ],
           "properties": {
             "featureType": {
               "const": "http://www.w3.org/ns/ssn/Deployment"
             },
             "validTime": {
-              "description": "Time period during which the systems where deployed.",
+              "description": "Time period during which the systems are deployed.",
               "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
-            },
-            "members@link": {
-              "description": "Link to the collection of deployed systems.",
-              "$ref": "../common/commonDefs.json#/definitions/Link"
             }
           }
         }

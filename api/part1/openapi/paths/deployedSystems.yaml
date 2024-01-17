@@ -2,8 +2,6 @@ get:
   summary: List deployed systems
   description: |-
     List or search systems deployed during a particular deployment.
-
-    By default, only top level systems are listed (i.e. subsystems are ommitted) unless the "parent" query parameter is set.
   tags:
     - Deployments
   parameters:
@@ -13,7 +11,6 @@ get:
     - $ref: ../parameters/datetime.yaml
     - $ref: ../parameters/geom.yaml
     - $ref: ../parameters/keyword.yaml
-    - $ref: ../parameters/parentIdList.yaml
     - $ref: ../parameters/procedureIdList.yaml
     - $ref: ../parameters/foiIdList.yaml
     - $ref: ../parameters/obsPropIdList.yaml
@@ -22,7 +19,7 @@ get:
     - $ref: ../parameters/limit.yaml
   responses:
     '200':
-      $ref: ../responses/systemCollection.yaml
+      $ref: ../responses/deployedSystemCollection.yaml
     '400':
       $ref: ../responses/StandardResponses.yaml#/400
     '401':
@@ -37,16 +34,11 @@ get:
 post:
   summary: Add systems to a deployment
   description: |-
-    Add one or more systems to a deployment.
-    
-    Only links to the system descriptions are provided, allowing them to be hosted on a different server. 
+    Add one or more systems to a deployment. 
   tags:
     - Deployments
   requestBody:
-    content:
-      application/json:
-        schema:
-          $ref: ../schemas/common/links.json
+    $ref: ../requests/deployedSystemOrArray.yaml
   responses:
     '201':
       $ref: ../responses/StandardResponses.yaml#/201
