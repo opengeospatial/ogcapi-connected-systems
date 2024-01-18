@@ -1,5 +1,5 @@
 get:
-  summary: Retrieve a procedure description by ID
+  summary: Retrieve a procedure by ID
   tags:
     - Procedures
   parameters:

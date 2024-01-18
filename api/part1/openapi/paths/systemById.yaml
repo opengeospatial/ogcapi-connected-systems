@@ -1,5 +1,5 @@
 get:
-  summary: Retrieve a system description by ID
+  summary: Retrieve a system by ID
   description: |-
     This will return the latest description of the system valid before or at the current time, by default.
 

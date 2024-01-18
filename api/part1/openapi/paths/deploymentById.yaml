@@ -1,5 +1,5 @@
 get:
-  summary: Retrieve a deployment description by ID
+  summary: Retrieve a deployment by ID
   tags:
     - Deployments
   parameters:

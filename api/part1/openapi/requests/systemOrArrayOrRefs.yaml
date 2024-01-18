@@ -1,7 +1,22 @@
 required: true
 content:
+  text/uri-list:
+    description: A list of links to system resources
+    schema:
+        type: string
+    examples:
+      links:
+        summary: Using links
+        value: |-
+          https://data.example.org/api/systems/2f35ofoms2l6
+          https://data.example.org/api/systems/PLT412
+      uids:
+        summary: Using UIDs
+        value: |-
+          urn:uuid:b2995d6b-9f25-4cec-869e-0e846b80f39c
+          urn:x-usgs:stations:00125488
   application/json:
-    description: A list of system descriptions or links
+    description: A list of links to system resources
     schema:
       title: One or more links or UIDs of system resources
       type: array
