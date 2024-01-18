@@ -24,28 +24,26 @@ Currently, SensorML is the only encoding format allowing the provision of detail
 
 
 
-=== Observations & Measurements (O&M)
+=== Observations, Measurements and Samples (OMS)
 
-<<OGC-OM,OGC Observations \&amp; Measurements (O\&amp;M)>> is one of the foundational building blocks of OGC API - Connected Systems, through our use of the {ogc-w3c-ssn}. Indeed, SOSA/SSN was originally based on O&M so all of the O&M concepts are naturally carried over to the API.
-
-The new version of O&M now called <<OGC-OMS,Observations, Measurements and Samples (OMS)>> is also in scope as OGC API - Connected Systems is an implementation of several classes defined by this OGC/ISO Standard.
+The <<OGC-OMS,Observations, Measurements and Samples (OMS)>> Standard is one of the foundational building blocks of OGC API - Connected Systems, through our use of the {ogc-w3c-ssn}. Indeed, SOSA/SSN was originally based on a previous version of OMS, <<OGC-OM,Observations and Measurements (O\&amp;M)>>, so many concepts from OMS are naturally carried over to the API.
 
 The following table indicates which classes of OMS https://docs.ogc.org/as/20-082r4/20-082r4.html#_conceptual_observation_schema[Conceptual Observation Schema] and https://docs.ogc.org/as/20-082r4/20-082r4.html#_conceptual_sample_schema[Conceptual Sample Schema] are implemented by OGC API - Connected Systems (CONSYS):
 
 [%unnumbered,#oms-concept-mappings,reftext='{table-caption} {counter:table-num}']
-[width="100%",cols="5,5,5,10",options="header"]
+[width="100%",cols="5,5,10,10",options="header"]
 |====
-| *OMS Class*           | *O&M Class*           | *CONSYS Resource*  | *Comments*
-| `Observation`         | `OM_Observation`      | `Observation`      | 
-| `ObservableProperty`  | `Observation`         | `Property`         | 
-| `Procedure`           | `OM_Process`          | `Procedure`        | type = `sosa:Procedure`
-| `ObservingProcedure`  | `OM_Process`          | `Procedure`        | type = `sosa-oms:ObservingProcedure`
-| `Observer`            | `OM_Process`          | `System`           | type = `sosa:Sensor`
-| `Host`                | -                     | `System`           | type = `sosa:Platform`
-| `Deployment`          | -                     | `Deployment`       | 
-| `Sample`              | `SF_SamplingFeature`  | `SamplingFeature`  | 
-| `SamplingProcedure`   | -                     | `Procedure`        | type = `sosa-oms:SamplingProcedure`
-| `Sampler`             | -                     | `System`           | type = `sosa:Sampler`
+| *OMS Class*           | *O&M Class*           | *CONSYS Resource*                              | *Comments*
+| `Observation`         | `OM_Observation`      | `Observation`                                  | 
+| `ObservableProperty`  | `GFI_PropertyType`    | `Property`                                     | 
+| `Procedure`           | `OM_Process`          | `Procedure (type=sosa:Procedure`)              |
+| `ObservingProcedure`  | `OM_Process`          | `Procedure (type=sosa-oms:ObservingProcedure`) |
+| `Observer`            | `OM_Process`          | `System (type=sosa:Sensor`)                    | 
+| `Host`                | -                     | `System (type=sosa:Platform`)                  | 
+| `Deployment`          | -                     | `Deployment`                                   | 
+| `Sample`              | `SF_SamplingFeature`  | `SamplingFeature`                              | 
+| `SamplingProcedure`   | -                     | `Procedure (type=sosa-oms:SamplingProcedure`)  |
+| `Sampler`             | -                     | `System (type=sosa:Sampler`)                   |
 |====
 
 The following classes from OMS https://docs.ogc.org/as/20-082r4/20-082r4.html#_basic_samples[Basic Samples] are also implemented:
