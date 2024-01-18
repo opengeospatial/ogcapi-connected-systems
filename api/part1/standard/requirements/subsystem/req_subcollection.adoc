@@ -3,7 +3,7 @@
 [%metadata]
 identifier:: /req/subsystem/collection
 
-part:: The server SHALL expose subsystems as a collection of `System` resources at path `{api_root}/systems/{parentId}/members`.
+part:: The server SHALL expose subsystems as a collection of `System` resources at path `{api_root}/systems/{parentId}/components`.
 
 part:: The content of the collection SHALL be the list of `System` resources that are associated to the parent `System` with ID `parentId`.
 

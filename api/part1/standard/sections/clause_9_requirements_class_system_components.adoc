@@ -12,7 +12,7 @@ System components are regular `System` features that are made available through 
 
 === Types of System/Subsystem Associations
 
-Sytem components (or subsystems) can be associated to their parent system either by **Composition** or **Aggregation**.
+Sytem components can be associated to their parent system either by **Composition** or **Aggregation**.
 
 **Composition** means that a subsystem is an integral part of a parent system (i.e. the subsystem cannot or is not usually taken apart from its parent system during its lifetime, except for maintenance). Composition is implemented in the API by creating subsystems as nested resources under their parent system.
 
@@ -61,18 +61,18 @@ A `System` resource that is a component of a parent system also includes the fol
 
 === Canonical URL
 
-Since system component (or subsystems) are also `System` resources, they are required to have a canonical URL as specified by xref:/req/system/canonical-url[].
+Since system components are also `System` resources, they are required to have a canonical URL as specified by xref:/req/system/canonical-url[].
 
 
 === System Component Collections
 
-Subsystems are accessible as sub-resources of their parent system.
+System components are accessible as sub-resources of their parent system.
 
 include::../requirements/subsystem/req_subcollection.adoc[]
 
-Some systems have interchangeable components (e.g. platform carrying different payloads at different times). The best way to describe this is by creating a new `Deployment` resource every time the components are changed (the deployment description allows one to explicitely list which components are mounted during a given time period, e.g. mission).
+Some systems have interchangeable components (e.g. UAV platform carrying different sensors at different times). We call these interchangeable components "payloads". The best way to describe this is by creating a new `Deployment` resource every time the components are changed (the deployment description allows one to explicitely list which payloads are mounted on a platform during a given time period).
 
-For consistency, it is recommended that the server includes these changing components in the subsystem collection, in accordance with the time provided by the `datetime` query parameter.
+For consistency, it is recommended that the server also includes these changing components in the subsystem collection, in accordance with the time provided by the `datetime` query parameter.
 
 include::../requirements/subsystem/req_subcollection_time.adoc[]
 
@@ -81,9 +81,9 @@ include::../requirements/subsystem/req_subcollection_time.adoc[]
 
 By default, `System` feature collections (including the root collection) only include top-level systems (i.e. subsystems are not visible).
 
-Likewise, when listing a system's sub-resources (i.e. subsystems, sampling features, datastreams, control streams), only the resources directly associated to the system are included in the response, but not the ones associated to subsystems that are farther down the tree.
+Likewise, when listing a system's sub-resources (i.e. subsystems, sampling features, datastreams, control streams), only the resources directly associated to the system are included in the response, but not the ones associated to nested subsystems that are farther down the tree.
 
-The `recursive` query parameter changes the default behavior by directing the server to recurse through the system tree to process all subsystems (at all levels below the current level).
+The `recursive` query parameter changes the default behavior by instructing the server to recurse through the system tree to process all subsystems (at all levels below the current level).
 
 include::../requirements/subsystem/req_recursive_param.adoc[]
 

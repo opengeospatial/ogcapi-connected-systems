@@ -27,21 +27,6 @@ part:: The server MAY also implement support for PATCH operations in other `Syst
 ====
 
 
-=== Subsystems
-
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/resource-update/subsystem
-
-conditions:: The server implements <<clause-system-components,/req/system-components>>
-
-part:: The server SHALL implement support for the PATCH operation, as specified by requirements class "Update" of {ogcapi-features-4}, at the following endpoints:
-  - `{api_root}/systems/{subsystemId}`
-  - `{api_root}/systems/{parentId}/members/{subsystemId}`
-====
-
-
 === Procedures
 
 [requirement,model=ogc]
