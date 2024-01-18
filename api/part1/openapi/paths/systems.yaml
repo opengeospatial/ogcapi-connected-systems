@@ -19,6 +19,8 @@ get:
     - $ref: ../parameters/obsPropIdList.yaml
     - $ref: ../parameters/controlPropIdList.yaml
     #- $ref: '#/components/parameters/select'
+    - $ref: ../parameters/recursive.yaml
+      description: If true, instructs the server to include subsystems in the search results.
     - $ref: ../parameters/limit.yaml
   responses:
     '200':

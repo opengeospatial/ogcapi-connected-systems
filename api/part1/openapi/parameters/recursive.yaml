@@ -1,0 +1,10 @@
+name: recursive
+in: query
+description: |-
+  If true, intructs the server to include nested resources in the search results.
+required: false
+schema:
+  type: boolean
+  default: false
+style: form
+explode: false

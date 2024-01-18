@@ -86,7 +86,7 @@ The keyword filter is used to select resources by doing a full-text search on te
 [%metadata]
 identifier:: /req/advanced-filtering/by-keyword-param
 
-HTTP GET operations targeting a collection of resources SHALL support a parameter `q` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
+HTTP GET operations targeting a collection of resources SHALL support a parameter `q` with the following characteristics (using an OpenAPI 3.0 fragment):
 
 ```yaml
 include::../openapi/parameters/keyword.yaml[]
@@ -117,7 +117,7 @@ identifier:: /req/advanced-filtering/by-geom-param
 
 [.component,class=part]
 --
-HTTP GET operations targeting a collection of `Feature` resources SHALL support a parameter `geom` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
+HTTP GET operations targeting a collection of `Feature` resources SHALL support a parameter `geom` with the following characteristics (using an OpenAPI 3.0 fragment):
 
 ```yaml
 include::../openapi/parameters/geom.yaml[]
@@ -162,8 +162,8 @@ part:: Filtering on resource properties SHOULD be supported as specified by requ
 *Example queries by property value*
 [width="100%",cols="3,10"]
 |===
-| Systems by 'name' | {api_root}/systems?name=Weather%20Station
-| Sampling features by 'featureType' | {api_root}/samplingFeatures?featureType=om:Specimen
+| Systems by 'name' | `{api_root}/systems?name=Weather%20Station`
+| Sampling features by 'featureType' | `{api_root}/samplingFeatures?featureType=om:Specimen`
 |===
 ====
 
