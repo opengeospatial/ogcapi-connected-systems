@@ -2,12 +2,12 @@
 ====
 [%metadata]
 type:: class
-identifier:: /req/property
+identifier:: /req/property-definitions
 subject:: Web API
 inherit:: /req/api-common
-requirement:: /req/property/resource
-requirement:: /req/property/canonical-url
-requirement:: /req/property/canonical-collection
-requirement:: /req/property/collection-type
-requirement:: /req/property/collection-catchall
+requirement:: /req/property-definitions/resource
+requirement:: /req/property-definitions/canonical-url
+requirement:: /req/property-definitions/canonical-collection
+requirement:: /req/property-definitions/collection-type
+requirement:: /req/property-definitions/collection-catchall
 ====

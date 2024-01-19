@@ -1,7 +1,7 @@
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/property/collection-catchall
+identifier:: /req/property-definitions/collection-catchall
 
 The server SHALL also expose a resource collection (as defined by {ogcapi-common-2}) containing all available `Property` resources at the following URL: `{api_root}/collections/all_properties`.
 ====
