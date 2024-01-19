@@ -2,7 +2,7 @@
 ====
 [%metadata]
 type:: class
-identifier:: /req/deployment-features
+identifier:: /req/deployment
 subject:: Web API
 inherit:: /req/api-common
 requirement:: /req/deployment/location

@@ -1,7 +1,7 @@
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/property-definitions/canonical-collection
+identifier:: /req/property/canonical-collection
 
 part:: The server SHALL support the HTTP GET operation and expose all available `Property` resources at the path `{api_root}/properties`.
 

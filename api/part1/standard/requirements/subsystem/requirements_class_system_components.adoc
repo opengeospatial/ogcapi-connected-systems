@@ -2,9 +2,9 @@
 ====
 [%metadata]
 type:: class
-identifier:: /req/system-components
+identifier:: /req/subsystem
 subject:: Web API
-inherit:: /req/system-features
+inherit:: /req/system
 requirement:: /req/subsystem/collection
 requirement:: /req/subsystem/recursive-param
 requirement:: /req/subsystem/recursive-search-systems

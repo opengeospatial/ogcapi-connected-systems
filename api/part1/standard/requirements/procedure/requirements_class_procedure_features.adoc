@@ -2,7 +2,7 @@
 ====
 [%metadata]
 type:: class
-identifier:: /req/procedure-features
+identifier:: /req/procedure
 subject:: Web API
 inherit:: /req/api-common
 requirement:: /req/procedure/location

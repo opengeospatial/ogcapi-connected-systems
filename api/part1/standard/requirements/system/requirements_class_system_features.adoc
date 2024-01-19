@@ -2,7 +2,7 @@
 ====
 [%metadata]
 type:: class
-identifier:: /req/system-features
+identifier:: /req/system
 subject:: Web API
 inherit:: /req/api-common
 requirement:: /req/system/location-time
