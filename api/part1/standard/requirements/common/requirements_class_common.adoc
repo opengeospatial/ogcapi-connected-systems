@@ -13,7 +13,5 @@ inherit:: http://www.opengis.net/spec/ogcapi-common-2/1.0/req/simple-query[^]
 requirement:: /req/api-common/collection-type
 requirement:: /req/api-common/resource-ids
 requirement:: /req/api-common/resource-uids
-requirement:: /req/api-common/crs
-requirement:: /req/api-common/simple-query
 requirement:: /req/api-common/datetime
 ====

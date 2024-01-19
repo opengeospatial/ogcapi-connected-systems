@@ -177,26 +177,8 @@ part:: The server SHOULD ensure that resource UIDs are globally unique URIs, tha
 
 As this API extends {ogcapi-features-1}, the server is only required to implement support for `CRS:84` (longitude, latitude) and `CRS:84h` (longitude, latitude, height). However, if support for more CRS is needed, the server can also implement requirements from {ogcapi-features-2}.
 
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/api-common/crs
 
-conditions:: The server needs to support coordinate reference systems other than `CRS:84` and `CRS:84h`.
-
-The server SHALL implement requirements from {ogcapi-features-2}.
-====
-
-
-=== Simple Queries
-
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/api-common/simple-query
-
-HTTP GET operations targeting collections of resource types defined in this Standard SHALL support the query parameters defined by requirements class http://www.opengis.net/spec/ogcapi-common-2/1.0/req/simple-query of {ogcapi-common-2}.
-====
+=== Date/Time Query Parameter
 
 [requirement,model=ogc]
 ====
@@ -207,5 +189,3 @@ part:: When the `datetime` query parameter is used to filter a collection of fea
 
 part:: Only features with a `validTime` period that intersects the value of the `datetime` query parameter, or features that don't report any temporal validity (i.e. `validTime` attribute is `null` or not set), SHALL be included in the result set.
 ====
-
-See <<clause-advanced-filtering,style=full%>> for more filtering options.
