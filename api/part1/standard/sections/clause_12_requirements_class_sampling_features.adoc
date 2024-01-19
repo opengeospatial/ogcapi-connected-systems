@@ -68,13 +68,13 @@ In this API, observations and commands are always associated to a `Sampling Feat
 
 In this API, `Sampling Feature` resources are a special kind of feature resource that implements the _http://www.w3.org/ns/sosa/Sample[sosa:Sample]_ concept.
 
-<<clause-sampling-feature-types,style=full%>> defines several types of `Sampling Features` that can be used to document different sampling strategies. If needed, more sampling feature types can be defined by extensions.
-
 This section defines the attributes and associations that are common to all `Sampling Feature` resources, but the exact way attributes and associations are encoded in the payload is defined by each encoding. For encodings defined in this document, please see:
 
 - <<clause-geojson-sf,SamplingFeature resource as GeoJSON>>
 
-include::../requirements/sampling/common/req_resource.adoc[]
+include::../requirements/sampling/req_resource.adoc[]
+
+Future parts of this standard will define concrete types of `Sampling Features` that can be used to document different sampling strategies.
 
 ==== Common Properties
 
@@ -119,27 +119,27 @@ Valid time is used when the sampling feature is not meaningful or usable outside
 
 This standard requires that a `Sampling Feature` resource has a canonical URL through which it can be retrieved independently of its membership to any collection.
 
-include::../requirements/sampling/common/req_canonical_url.adoc[]
+include::../requirements/sampling/req_canonical_url.adoc[]
 
 
 === Root Collection
 
-include::../requirements/sampling/common/req_canonical_collection.adoc[]
+include::../requirements/sampling/req_canonical_collection.adoc[]
 
 
 === Feature Collections
 
 `Sampling Feature` collections are identified with the feature type `samplingFeatures`.
 
-include::../requirements/sampling/common/req_collections_type.adoc[]
+include::../requirements/sampling/req_collections_type.adoc[]
 
 A default collection containing all sampling features must be available at the API endpoint.
 
-include::../requirements/sampling/common/req_collections_catchall.adoc[]
+include::../requirements/sampling/req_collections_catchall.adoc[]
 
 In addition to the default (mandatory) collection containing all sampling features, `Sampling Feature` resources can also be grouped into collections according to any arbitrary criteria. Any number of feature collections containing `Sampling Features` can be available at the API endpoint.
 
-include::../requirements/sampling/common/req_collections_others.adoc[]
+include::../requirements/sampling/req_collections_others.adoc[]
 
 [example%unnumbered]
 ====

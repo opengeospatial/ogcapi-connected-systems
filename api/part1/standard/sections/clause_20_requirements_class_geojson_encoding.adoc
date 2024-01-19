@@ -299,7 +299,7 @@ A GeoJSON document representing a `Sampling Feature` resource SHALL implement th
 [width="100%",cols="3,3,10",options="header"]
 |====
 | *Attribute Name* | *JSON Member*            | *Usage*
-| `featureType`    | `properties/featureType` | Use the URI or CURIE provided in <<clause-sampling-feature-types>>.
+| `featureType`    | `properties/featureType` | Use the URI or CURIE specific to a sampling feature type.
 | `validTime`      | `properties/validTime`   | Value SHALL be a JSON array with min/max bounds encoded as a ISO8601 date/time string.
 |====
 
