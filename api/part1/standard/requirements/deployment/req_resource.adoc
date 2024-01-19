@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/deployment/resource
-
-part:: The server SHALL implement at least one encoding requirements class that provides a representation for the `Deployment` resource.
-====

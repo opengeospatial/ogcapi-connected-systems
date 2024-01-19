@@ -35,8 +35,6 @@ This section defines the attributes and associations composing the `Deployment` 
 - <<clause-geojson-deployment,Deployment resource as GeoJSON>>
 - <<clause-sensorml-deployment,Deployment resource as SensorML>>
 
-include::../requirements/deployment/req_resource.adoc[]
-
 ==== Properties
 
 The following tables describe the attributes and associations of a `Deployment` resource and their mapping to SOSA/SSN.
@@ -94,8 +92,6 @@ This section defines the attributes and associations composing the `DeployedSyst
 
 - <<clause-geojson-deployed-system,Deployed System resource as GeoJSON>>
 - <<clause-sensorml-deployed-system,Deployed System resource as SensorML>>
-
-include::../requirements/deployment/req_deployed_system_resource.adoc[]
 
 [#deployed-system-assocs,reftext='{table-caption} {counter:table-num}']
 .Deployed System Associations

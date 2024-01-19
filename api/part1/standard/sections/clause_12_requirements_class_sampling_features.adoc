@@ -72,8 +72,6 @@ This section defines the attributes and associations that are common to all `Sam
 
 - <<clause-geojson-sf,SamplingFeature resource as GeoJSON>>
 
-include::../requirements/sampling/req_resource.adoc[]
-
 Future parts of this standard will define concrete types of `Sampling Features` that can be used to document different sampling strategies.
 
 ==== Common Properties

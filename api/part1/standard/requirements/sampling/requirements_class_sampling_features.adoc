@@ -6,7 +6,6 @@ identifier:: /req/sampling-features
 subject:: Web API
 inherit:: /req/api-common
 inherit:: /req/system-features
-requirement:: /req/sampling/resource
 requirement:: /req/sampling/canonical-url
 requirement:: /req/sampling/canonical-collection
 requirement:: /req/sampling/collection-type

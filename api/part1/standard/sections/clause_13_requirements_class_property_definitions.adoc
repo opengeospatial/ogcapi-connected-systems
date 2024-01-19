@@ -38,8 +38,6 @@ This section defines the attributes and associations composing a `Property` reso
 
 - <<clause-sensorml-property,Property resource as SensorML>>
 
-include::../requirements/property/req_resource.adoc[]
-
 ==== Properties
 
 The following tables describe the attributes and associations of a `Property` resource and their mapping to SOSA/SSN.

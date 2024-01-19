@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/sampling/resource
-
-The server SHALL implement at least one encoding requirements class that provides a representation for the `Sampling Feature` resource.
-====

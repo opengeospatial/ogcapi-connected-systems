@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/property-definitions/resource
-
-The server SHALL implement at least one encoding requirements class that provides a representation for the `Property` resource.
-====

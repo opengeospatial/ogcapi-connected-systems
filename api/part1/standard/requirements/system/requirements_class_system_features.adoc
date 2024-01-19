@@ -5,7 +5,6 @@ type:: class
 identifier:: /req/system-features
 subject:: Web API
 inherit:: /req/api-common
-requirement:: /req/system/resource
 requirement:: /req/system/location-time
 requirement:: /req/system/canonical-url
 requirement:: /req/system/canonical-collection

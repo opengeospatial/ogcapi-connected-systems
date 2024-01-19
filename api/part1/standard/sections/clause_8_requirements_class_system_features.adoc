@@ -44,8 +44,6 @@ This section defines the attributes and associations composing a `System` resour
 - <<clause-geojson-system,System resource as GeoJSON>>
 - <<clause-sensorml-system,System resource as SensorML>>
 
-include::../requirements/system/req_resource.adoc[]
-
 ==== Properties
 
 The following tables describe the attributes and associations of a `System` resource and their mapping to SOSA/SSN.

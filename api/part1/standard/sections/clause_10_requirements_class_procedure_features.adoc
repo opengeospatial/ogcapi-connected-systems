@@ -36,8 +36,6 @@ This section defines the attributes and associations composing the `Procedure` r
 - <<clause-geojson-procedure,Procedure resource as GeoJSON>>
 - <<clause-sensorml-procedure,Procedure resource as SensorML>>
 
-include::../requirements/procedure/req_resource.adoc[]
-
 ==== Properties
 
 The following tables describe the attributes and associations of a `Procedure` resource and their mapping to SOSA/SSN.
