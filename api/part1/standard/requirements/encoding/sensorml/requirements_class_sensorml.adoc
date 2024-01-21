@@ -8,7 +8,7 @@ inherit:: /req/api-common
 indirect-dependency:: SensorML, http://www.opengis.net/spec/sensorml/2.1/req/core
 requirement:: /req/sensorml/mediatype-read
 requirement:: /req/sensorml/mediatype-write
-requirement:: /req/sensorml/relationtypes
+requirement:: /req/sensorml/relation-types
 requirement:: /req/sensorml/resource-id
 requirement:: /req/sensorml/feature-attribute-mapping
 requirement:: /req/sensorml/system-schema

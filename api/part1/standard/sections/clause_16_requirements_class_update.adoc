@@ -15,7 +15,7 @@ All resources are updated using the UPDATE (HTTP PATCH) operation as defined by 
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/resource-update/system
+identifier:: /req/update/system
 
 conditions:: The server implements <<clause-system-features,/req/system-features>>
 
@@ -32,7 +32,7 @@ part:: The server MAY also implement support for PATCH operations in other `Syst
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/resource-update/procedure
+identifier:: /req/update/procedure
 
 conditions:: The server implements <<clause-procedure-features,/req/procedure-features>>
 
@@ -49,7 +49,7 @@ part:: The server MAY also implement support for PATCH operations in other `Proc
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/resource-update/deployment
+identifier:: /req/update/deployment
 
 conditions:: The server implements <<clause-deployment-features,/req/deployment-features>>
 
@@ -66,7 +66,7 @@ part:: The server MAY also implement support for PATCH operations in other `Depl
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/resource-update/deployed-systems
+identifier:: /req/update/deployed-system
 
 conditions:: The server implements <<clause-deployment-features,/req/deployment-features>>
 
@@ -80,7 +80,7 @@ part:: The server SHALL implement support for the PATCH operation, as specified 
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/resource-update/sampling-feature
+identifier:: /req/update/sampling-feature
 
 conditions:: The server implements <<clause-sampling-features,/req/sampling-features>>
 
@@ -98,7 +98,7 @@ part:: The server MAY also implement support for PATCH operations in other `Samp
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/resource-update/property
+identifier:: /req/update/property
 
 conditions:: The server implements <<clause-derived-properties,/req/derived-properties>>
 

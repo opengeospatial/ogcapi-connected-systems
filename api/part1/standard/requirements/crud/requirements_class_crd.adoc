@@ -10,7 +10,7 @@ requirement:: /req/create-replace-delete/system-delete-cascade
 requirement:: /req/create-replace-delete/subsystem
 requirement:: /req/create-replace-delete/procedure
 requirement:: /req/create-replace-delete/deployment
-requirement:: /req/create-replace-delete/deployed-systems
+requirement:: /req/create-replace-delete/deployed-system
 requirement:: /req/create-replace-delete/sampling-feature
 requirement:: /req/create-replace-delete/property
 requirement:: /req/create-replace-delete/create-in-collection

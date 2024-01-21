@@ -8,7 +8,7 @@ inherit:: /req/api-common
 inherit:: http://www.opengis.net/spec/ogcapi-features-1/1.0/req/geojson
 requirement:: /req/geojson/mediatype-read
 requirement:: /req/geojson/mediatype-write
-requirement:: /req/geojson/relationtypes
+requirement:: /req/geojson/relation-types
 requirement:: /req/geojson/feature-attribute-mapping
 requirement:: /req/geojson/system-schema
 requirement:: /req/geojson/system-mappings

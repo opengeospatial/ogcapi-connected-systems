@@ -8,12 +8,12 @@ This requirements class regroups core dependencies that all other requirements c
 It also provides clarifications on the use of {ogcapi-common} constructs.
 
 
-=== API landing page
+=== API Landing Page
 
 The landing page provides links to start exploration of the resources offered by an API. {ogcapi-common} already requires some common links, sufficient for this standard.
 
 
-=== API definition
+=== API Definition
 
 Every API is required to provide a definition document that describes the capabilities of that API. This definition document can be used by developers to understand the API, by software clients to connect to the server, or by development tools to support the implementation of servers and clients.
 

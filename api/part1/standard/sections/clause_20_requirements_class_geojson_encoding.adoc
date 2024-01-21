@@ -43,7 +43,7 @@ The server SHALL support the media type `{geojson-mediatype}` in the HTTP `Conte
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/geojson/relationtypes
+identifier:: /req/geojson/relation-types
 
 For all associations encoded in the `links` member of the JSON response, the link relation type must be set to the association name.
 ====

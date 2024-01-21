@@ -2,15 +2,15 @@
 ====
 [%metadata]
 type:: class
-identifier:: /req/resource-update
+identifier:: /req/update
 subject:: Web API
 inherit:: /req/create-replace-delete
 inherit:: http://www.opengis.net/spec/ogcapi-features-4/1.0/req/update[^]
-requirement:: /req/resource-update/system
-requirement:: /req/resource-update/subsystem
-requirement:: /req/resource-update/procedure
-requirement:: /req/resource-update/deployment
-requirement:: /req/resource-update/deployed-systems
-requirement:: /req/resource-update/sampling-feature
-requirement:: /req/resource-update/property
+requirement:: /req/update/system
+requirement:: /req/update/subsystem
+requirement:: /req/update/procedure
+requirement:: /req/update/deployment
+requirement:: /req/update/deployed-systems
+requirement:: /req/update/sampling-feature
+requirement:: /req/update/property
 ====
