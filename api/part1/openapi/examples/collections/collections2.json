@@ -5,7 +5,7 @@
       "title": "Unmanned Systems",
       "description": "All unmanned systems registered on this server",
       "itemType": "feature",
-      "featureType": "system",
+      "featureType": "ssn:System",
       "links": [
         {
           "rel": "items",
@@ -20,7 +20,7 @@
       "title": "Unmanned Systems Datasheets",
       "description": "Datasheets for unmanned systems registered on this server (UAV, UGV, USV, etc.)",
       "itemType": "feature",
-      "featureType": "procedure",
+      "featureType": "sosa:Procedure",
       "links": [
         {
           "rel": "items",
@@ -35,7 +35,7 @@
       "title": "Unmanned System Deployments",
       "description": "All deployments of unmanned systems",
       "itemType": "feature",
-      "featureType": "deployment",
+      "featureType": "ssn:Deployment",
       "links": [
         {
           "rel": "items",
@@ -50,7 +50,7 @@
       "title": "NOAA Observation Systems",
       "description": "Observation systems operated by NOAA",
       "itemType": "feature",
-      "featureType": "systems",
+      "featureType": "ssn:System",
       "links": [
         {
           "rel": "items",
