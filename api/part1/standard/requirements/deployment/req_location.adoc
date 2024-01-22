@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/deployment/location
-
-part:: A `Deployment` feature resource SHALL include a geometry that defines the (geographic) area of the deployment. This area should primarily be used for discovery and thus may be approximate.
-====

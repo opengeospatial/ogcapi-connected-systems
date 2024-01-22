@@ -51,10 +51,10 @@ All `Deployment` resource representations provided by encoding requirements clas
 | `description`       | `rdfs:comment` | A human readable description for the deployment. | String | Optional
 | `deploymentType`    | `rdfs:type` | The type of deployment (see <<deployment-types>>). | URI | Required
 | `validTime`         | - | The time period during which the systems are deployed. | DateTime | Required
-| `location`          | `geo:lat`/`geo:lon` | The area of interest for this deployment. | Geometry | Required
+| `location`          | `geo:lat`/`geo:lon` | The location or area where the systems are deployed. | Geometry | Required
 |====
 
-NOTE: For insitu and short range remote sensors, the area of interest is simply the area where the systems are being deployed. For models or long range remote sensing (e.g. space based earth observation), the area of interest is usually the area where the features of interest are located (i.e. the area covered by the model or observable by the deployed systems).
+NOTE: For insitu and short range remote sensors, the area of interest is simply the area where the systems are being deployed. For models or long range remote sensing (e.g. space based earth observation), the location might not be reported and the user should query the area covered by the feature(s) of interest instead (i.e. the geographic area covered by the model or observable by the remote sensing systems).
 
 [#deployment-assocs,reftext='{table-caption} {counter:table-num}']
 .Deployment Associations
@@ -75,12 +75,6 @@ NOTE: For insitu and short range remote sensors, the area of interest is simply 
 | #TBD#     | #http://www.opengis.net/def/x-OGC/TBD1#     | #TBD# |
 | #TBD#     | #http://www.opengis.net/def/x-OGC/TBD2#     | #TBD# |
 |====
-
-==== Location
-
-include::../requirements/deployment/req_location.adoc[]
-
-NOTE: For simulations and models, the deployment location represents the spatial domain covered by a given run of the model (i.e. where the features of interest of simulated observations are located).
 
 
 [[clause-deployed-system-resource]]
