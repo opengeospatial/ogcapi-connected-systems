@@ -7,11 +7,9 @@ subject:: Web API
 inherit:: /req/api-common
 indirect-dependency:: OGC 06-103r4 - Clause 7: Well-known Text Representation for Geometry
 requirement:: /req/advanced-filtering/id-list-schema
-requirement:: /req/advanced-filtering/by-id-param
-requirement:: /req/advanced-filtering/by-keyword-param
-requirement:: /req/advanced-filtering/by-keyword-response
-requirement:: /req/advanced-filtering/by-geom-param
-requirement:: /req/advanced-filtering/by-geom-response
+requirement:: /req/advanced-filtering/resource-by-id
+requirement:: /req/advanced-filtering/resource-by-keyword
+requirement:: /req/advanced-filtering/feature-by-geom
 requirement:: /req/advanced-filtering/system-by-parent
 requirement:: /req/advanced-filtering/system-by-procedure
 requirement:: /req/advanced-filtering/system-by-foi

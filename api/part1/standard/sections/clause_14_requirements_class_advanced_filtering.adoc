@@ -45,11 +45,11 @@ All items in the list SHALL be of the same ID type (either all resource IDs or a
 
 
 
-=== Common Feature Filters
+=== Common Resource Filters
 
 ==== Overview 
 
-The filtering options defined in this section are common to all feature types defined in this Standard, and may also be used with other feature types that are hosted at the same endpoint.
+The filtering options defined in this section are common to all resource types defined in this Standard, and may also be used with other resource types that are hosted at the same endpoint.
 
 When this requirements class is implemented, the requirements in this class are applicable to all HTTP GET operations used to retrieve items from any collection offered by the server (i.e. it is not allowed to implement this class only for certain collections).
 
@@ -61,15 +61,9 @@ The ID filter is used to select resources that match one of the requested identi
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/advanced-filtering/by-id-param
+identifier:: /req/advanced-filtering/resource-by-id
 
-HTTP GET operations targeting a collection of resources SHALL support a parameter `id` of type <<filter-idlist-schema,ID_List>>.
-====
-
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/advanced-filtering/by-id-response
+part:: HTTP GET operations targeting a collection of resources SHALL support a parameter `id` of type <<filter-idlist-schema,ID_List>>.
 
 part:: Only resources that are assigned one of the specified identifiers SHALL be part of the result set.
 
@@ -84,27 +78,59 @@ The keyword filter is used to select resources by doing a full-text search on te
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/advanced-filtering/by-keyword-param
+identifier:: /req/advanced-filtering/resource-by-keyword
 
+[.component,class=part]
+--
 HTTP GET operations targeting a collection of resources SHALL support a parameter `q` with the following characteristics (using an OpenAPI 3.0 fragment):
 
 ```yaml
 include::../openapi/parameters/keyword.yaml[]
 ```
+--
+
+[.component,class=part]
+--
+Only resources that have human readable content that contains one the specified keywords SHALL be part of the result set.
+--
+
+[.component,class=part]
+--
+At least the `name` and `description` attributes of the resource SHALL be included in the full-text search. It is the decision of the server to choose if other resource attributes are also searched.
+--
+
+[.component,class=part]
+--
+The server is allowed to run the search using the canonical form of the provided keywords rather than their exact value (lemmatization).
+--
 ====
 
-[requirement,model=ogc]
+
+==== Simple Property Filter
+
+The property filter is used to select resources that have specific property values.
+
+[recommendation,model=ogc]
 ====
 [%metadata]
-identifier:: /req/advanced-filtering/by-keyword-response
+identifier:: /rec/advanced-filtering/resource-by-property
 
-part:: Only resources that have human readable content that contains one the specified keywords SHALL be part of the result set.
-
-part:: At least the `name` and `description` attributes of the resource SHALL be included in the full-text search. It is the decision of the server to choose if other resource attributes are also searched.
-
-part:: The server is allowed to run the search using the canonical form of the provided keywords rather than their exact value (lemmatization).
+part:: Filtering on resource properties SHOULD be supported as specified by requirement http://www.opengis.net/spec/ogcapi-features-1/1.0/rec/core/fc-filters[/rec/core/fc-filters] of {ogcapi-features}.
 ====
 
+[example%unnumbered]
+====
+*Example queries by property value*
+[width="100%",cols="3,10"]
+|===
+| Systems by 'name' | `{api_root}/systems?name=Weather%20Station`
+| Sampling features by 'featureType' | `{api_root}/samplingFeatures?featureType=om:Specimen`
+|===
+====
+
+
+
+=== Common Feature Filters
 
 ==== Geometry Filter
 
@@ -113,7 +139,7 @@ The geometry filter is used to select features with a spatial geometry intersect
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/advanced-filtering/by-geom-param
+identifier:: /req/advanced-filtering/feature-by-geom
 
 [.component,class=part]
 --
@@ -128,43 +154,26 @@ include::../openapi/parameters/geom.yaml[]
 --
 The value of the `geom` parameter SHALL be a valid WKT geometry.
 --
-====
 
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/advanced-filtering/by-geom-response
+[.component,class=part]
+--
+Only features that have a spatial geometry that intersects the filter geometry SHALL be part of the result set.
+--
 
-part:: Only features that have a spatial geometry that intersects the filter geometry SHALL be part of the result set.
+[.component,class=part]
+--
+If a feature has multiple spatial geometry properties, it is the decision of the server whether only a single spatial geometry property is used to determine the extent or all relevant geometries.
+--
 
-part:: If a feature has multiple spatial geometry properties, it is the decision of the server whether only a single spatial geometry property is used to determine the extent or all relevant geometries.
+[.component,class=part]
+--
+Features with no spatial geometry SHALL be excluded from the result set.
+--
 
-part:: Features with no spatial geometry SHALL be excluded from the result set.
-
-part:: The coordinate values SHALL be within the extent specified for the coordinate reference system.
-====
-
-
-==== Simple Property Filter
-
-The property filter is used to select resources that have specific property values.
-
-[recommendation,model=ogc]
-====
-[%metadata]
-identifier:: /rec/advanced-filtering/by-property-param
-
-part:: Filtering on resource properties SHOULD be supported as specified by requirement http://www.opengis.net/spec/ogcapi-features-1/1.0/rec/core/fc-filters[/rec/core/fc-filters] of {ogcapi-features}.
-====
-
-[example%unnumbered]
-====
-*Example queries by property value*
-[width="100%",cols="3,10"]
-|===
-| Systems by 'name' | `{api_root}/systems?name=Weather%20Station`
-| Sampling features by 'featureType' | `{api_root}/samplingFeatures?featureType=om:Specimen`
-|===
+[.component,class=part]
+--
+The coordinate values SHALL be within the extent specified for the coordinate reference system.
+--
 ====
 
 
