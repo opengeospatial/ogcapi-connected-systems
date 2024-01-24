@@ -8,5 +8,4 @@ inherit:: /req/api-common
 requirement:: /req/property/canonical-url
 requirement:: /req/property/canonical-collection
 requirement:: /req/property/collection-type
-requirement:: /req/property/collection-catchall
 ====

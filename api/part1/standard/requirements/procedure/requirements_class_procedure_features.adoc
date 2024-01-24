@@ -9,5 +9,4 @@ requirement:: /req/procedure/location
 requirement:: /req/procedure/canonical-url
 requirement:: /req/procedure/canonical-collection
 requirement:: /req/procedure/collection-type
-requirement:: /req/procedure/collection-catchall
 ====

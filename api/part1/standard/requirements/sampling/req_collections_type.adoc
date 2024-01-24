@@ -3,5 +3,5 @@
 [%metadata]
 identifier:: /req/sampling/collection-type
 
-The server SHALL identify all collections containing `Sampling Features` by setting the value of the `featureType` attribute to `sosa:Sample`.
+The server SHALL identify all Feature Collections containing `Sampling Features` by setting the value of the `featureType` attribute to `sosa:Sample` in the Collection Metadata.
 ====

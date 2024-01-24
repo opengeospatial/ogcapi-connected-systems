@@ -125,6 +125,8 @@ include::../requirements/system/req_canonical_url.adoc[]
 
 === Root Collection
 
+A root collection where all `System` resources can be searched must be available at the API endpoint.
+
 include::../requirements/system/req_canonical_collection.adoc[]
 
 
@@ -133,10 +135,6 @@ include::../requirements/system/req_canonical_collection.adoc[]
 `System` feature collections are identified with the feature type `system`.
 
 include::../requirements/system/req_collections_type.adoc[]
-
-A default resource collection containing all systems must be available at the API endpoint.
-
-include::../requirements/system/req_collections_catchall.adoc[]
 
 `System` resources can be grouped into collections according to any arbitrary criteria. Any number of feature collections containing `System` features can be available at the API endpoint.
 

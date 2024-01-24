@@ -3,5 +3,5 @@
 [%metadata]
 identifier:: /req/deployment/collection-type
 
-The server SHALL identify all collections containing `Deployment` features by setting the value of the `featureType` attribute to `ssn:Deployment`.
+The server SHALL identify all Feature Collections containing `Deployment` features by setting the value of the `featureType` attribute to `ssn:Deployment` in the Collection Metadata.
 ====

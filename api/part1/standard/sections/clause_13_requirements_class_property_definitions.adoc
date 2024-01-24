@@ -67,18 +67,16 @@ include::../requirements/property/req_canonical_url.adoc[]
 
 === Root Collection
 
+A root collection where all `Property` resources can be searched must be available at the API endpoint.
+
 include::../requirements/property/req_canonical_collection.adoc[]
 
 
 === Property Collections
 
-`Property` resource collections are identified with the item type `property`.
+`Property` resource collections are identified with the item type `ssn:Property`.
 
 include::../requirements/property/req_collections_type.adoc[]
-
-A default collection containing all `Property` resources must be available at the API endpoint.
-
-include::../requirements/property/req_collections_catchall.adoc[]
 
 In addition to the default (mandatory) collection containing all `Property` resources, any number of resource collections containing `Property` resources can be available at the API endpoint, so that they can be grouped according to any arbitrary criteria.
 

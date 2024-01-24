@@ -3,5 +3,5 @@
 [%metadata]
 identifier:: /req/property/collection-type
 
-The server SHALL identify all collections containing `Property` resources by setting the value of the `itemType` attribute to `ssn:Property`.
+The server SHALL identify all Resource Collections containing `Property` resources by setting the value of the `itemType` attribute to `ssn:Property` in the Collection Metadata.
 ====

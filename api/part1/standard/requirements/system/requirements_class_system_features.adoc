@@ -9,5 +9,4 @@ requirement:: /req/system/location-time
 requirement:: /req/system/canonical-url
 requirement:: /req/system/canonical-collection
 requirement:: /req/system/collection-type
-requirement:: /req/system/collection-catchall
 ====

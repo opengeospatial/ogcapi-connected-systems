@@ -3,5 +3,5 @@
 [%metadata]
 identifier:: /req/system/collection-type
 
-part:: The server SHALL identify all collections containing `System` resources by setting the value of the `featureType` attribute to `ssn:System`.
+part:: The server SHALL identify all Feature Collections containing `System` resources by setting the value of the `featureType` attribute to `ssn:System` in the Collection Metadata.
 ====

@@ -101,18 +101,16 @@ include::../requirements/procedure/req_canonical_url.adoc[]
 
 === Root Collection
 
+A root collection where all `Procedure` resources can be searched must be available at the API endpoint.
+
 include::../requirements/procedure/req_canonical_collection.adoc[]
 
 
 === Feature Collections
 
-`Procedure` feature collections are identified with the feature type `procedure`.
+`Procedure` feature collections are identified with the feature type `sosa:Procedure`.
 
 include::../requirements/procedure/req_collections_type.adoc[]
-
-A default collection containing all procedures must be available at the API endpoint.
-
-include::../requirements/procedure/req_collections_catchall.adoc[]
 
 `Procedure` resources can also be grouped into collections according to any arbitrary criteria. Any number of feature collections containing `Procedure` features can be available at the API endpoint.
 

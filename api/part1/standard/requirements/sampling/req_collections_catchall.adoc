@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/sampling/collection-catchall
-
-The server SHALL also expose a feature collection (as defined by {ogcapi-features}) containing all available `Sampling Feature` resources at the following URL: `{api_root}/collections/all_sampling_features`.
-====

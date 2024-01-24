@@ -33,7 +33,7 @@ This API uses two types of collections:
 
 The root collections are mandatory and have simple URLs located directly at the API root. They expose all resources of a given type hosted by the server, and also provide a default endpoint for search queries that target these resources. Canonical resource URLs are based on the root collections URLs.
 
-The root collections URLs for resource types defined by this Standard are:
+The root collections URLs for resource types defined in this part of the Standard are:
 
 - `{api_root}/systems`
 - `{api_root}/procedures`
@@ -43,7 +43,7 @@ The root collections URLs for resource types defined by this Standard are:
 
 The root collection for a given resource type is specified by the corresponding requirements class.
 
-NOTE: GET operations at these root collections URLs will return a list of items directly, not the collection metadata.
+NOTE: GET operations at these root collections URLs will return a list of items directly, not the collection metadata object.
 
 ==== OGC API Common Collections
 
@@ -82,7 +82,7 @@ The server CAN also offer collections containing mixed feature types. The behavi
 
 Since resources defined by this Standard can be discovered through multiple collections, it is recommended to always link to a given resource using its canonical URL (e.g. `{api_root}/systems/{id}`) instead of the collection based URL (e.g. `{api_root}/collections/my_system_collection/{id}`).
 
-The canonical URL of a resource is based on the URL of the catch-all collection of the corresponding resource type. This leads to the following canonical URLs for resource types defined by this Standard:
+The canonical URL of a resource is based on the URL of the catch-all collection of the corresponding resource type. This leads to the following canonical URLs for resource types defined in this part of the Standard:
 
 - `{api_root}/systems/{id}`
 - `{api_root}/procedures/{id}`

@@ -122,18 +122,16 @@ include::../requirements/sampling/req_canonical_url.adoc[]
 
 === Root Collection
 
+A root collection where all `Sampling Feature` resources can be searched must be available at the API endpoint.
+
 include::../requirements/sampling/req_canonical_collection.adoc[]
 
 
 === Feature Collections
 
-`Sampling Feature` collections are identified with the feature type `samplingFeatures`.
+`Sampling Feature` collections are identified with the feature type `sosa:Sample`.
 
 include::../requirements/sampling/req_collections_type.adoc[]
-
-A default collection containing all sampling features must be available at the API endpoint.
-
-include::../requirements/sampling/req_collections_catchall.adoc[]
 
 In addition to the default (mandatory) collection containing all sampling features, `Sampling Feature` resources can also be grouped into collections according to any arbitrary criteria. Any number of feature collections containing `Sampling Features` can be available at the API endpoint.
 

@@ -107,6 +107,8 @@ include::../requirements/deployment/req_canonical_url.adoc[]
 
 === Root Collection
 
+A root collection where all `Deployment` resources can be searched must be available at the API endpoint.
+
 include::../requirements/deployment/req_canonical_collection.adoc[]
 
 
@@ -115,10 +117,6 @@ include::../requirements/deployment/req_canonical_collection.adoc[]
 `Deployment` feature collections are identified with the feature type `deployment`.
 
 include::../requirements/deployment/req_collections_type.adoc[]
-
-A default collection containing all deployments must be available at the API endpoint.
-
-include::../requirements/deployment/req_collections_catchall.adoc[]
 
 `Deployment` resources can also be grouped into collections according to any arbitrary criteria. Any number of feature collections containing `Deployment` features can be available at the API endpoint.
 
