@@ -254,12 +254,15 @@ part:: If a system has subsystems, it SHALL be included in the result set if any
 |===
 | Systems by feature of interest ID   | `{api_root}/systems?foi=11gsd654g`
 | Systems by feature of interest UID  | `{api_root}/systems?foi=urn:mrn:itu:mmsi:538070999`
+| Systems by feature of interest UID  | `{api_root}/systems?foi=http://dbpedia.org/resource/Seawater`
 |===
+
+In the third example, any system associated to a sampling feature with the `sampledFeature` association referencing `http://dbpedia.org/resource/Seawater` (either directly or transitively via other sampling features) would be included in the result set. 
 ====
 
 ==== Observed Property Filter
 
-This filter is used to select systems that observe specific properties.
+This filter is used to select systems that can observe specific properties.
 
 [requirement,model=ogc]
 ====
@@ -268,7 +271,7 @@ identifier:: /req/advanced-filtering/system-by-obsprop
 
 part:: HTTP GET operations targeting a collection of `System` resources SHALL support a parameter `observedProperty` of type <<filter-idlist-schema,ID_List>>.
 
-part:: Only systems that observe a property that has one of the requested identifiers SHALL be part of the result set.
+part:: Only systems that can observe a property that has one of the requested identifiers SHALL be part of the result set.
 
 part:: If a system has subsystems, it SHALL be included in the result set if any of its subsystems (evaluated recursively) observes one of the listed properties.
 ====
@@ -294,7 +297,7 @@ identifier:: /req/advanced-filtering/system-by-controlprop
 
 part:: HTTP GET operations targeting a collection of `System` resources SHALL support a parameter `controlledProperty` of type <<filter-idlist-schema,ID_List>>.
 
-part:: Only systems that control a property that has one of the requested identifiers SHALL be part of the result set.
+part:: Only systems that can control a property that has one of the requested identifiers SHALL be part of the result set.
 
 part:: If a system has subsystems, it SHALL be included in the result set if any of its subsystems (evaluated recursively) controls one of the listed properties.
 ====
