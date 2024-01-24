@@ -1,0 +1,10 @@
+
+name: baseProperty
+description: |-
+  List of property local IDs or unique IDs (URI).
+  Only properties that are derived from the specified base properties are selected.
+in: query
+required: false
+schema:
+  $ref: idListSchema.yaml
+explode: false

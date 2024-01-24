@@ -606,16 +606,16 @@ part:: Only properties that are derived, directly or indirectly, from a base pro
 
 ==== Object Type Filter
 
-This filter is used to select properties that are assocaited to a specific kind of object.
+This filter is used to select properties that are associated to a specific kind of object.
 
 [requirement,model=ogc]
 ====
 [%metadata]
 identifier:: /req/advanced-filtering/prop-by-object
 
-part:: HTTP GET operations targeting a collection of `Property Definition` resources SHALL support a parameter `object` of type <<filter-idlist-schema,ID_List>>.
+part:: HTTP GET operations targeting a collection of `Property Definition` resources SHALL support a parameter `objectType` of type <<filter-idlist-schema,ID_List>>.
 
-part:: Only properties with the `object` attribute set to one of the requested identifiers SHALL be part of the result set.
+part:: Only properties with the `objectType` attribute set to one of the requested identifiers SHALL be part of the result set.
 ====
 
 [example%unnumbered]

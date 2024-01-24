@@ -7,6 +7,8 @@ get:
   parameters:
     - $ref: ../parameters/idList.yaml
     - $ref: ../parameters/keyword.yaml
+    - $ref: ../parameters/basePropIdList.yaml
+    - $ref: ../parameters/objectTypeUriList.yaml
     #- $ref: '#/components/parameters/select'
     - $ref: ../parameters/limit.yaml
   responses:

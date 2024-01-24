@@ -94,7 +94,7 @@ Additional filters are defined on a per resource type basis, as shown in the fol
 | Procedure Features         | `foi`, `observedProperty`, `controlledProperty`
 | Deployment Features        | `system`, `foi`, `observedProperty`, `controlledProperty`
 | Sampling Features          | `foi`, `observedProperty`, `controlledProperty`
-| Property Definitions       | `baseProperty`, `object`, `foi`
+| Property Definitions       | `baseProperty`, `objectType`, `foi`
 |====
 
 See <<clause-advanced-filtering,style=full%>> for more details.
