@@ -8,7 +8,7 @@ get:
     - $ref: ../parameters/idList.yaml
     - $ref: ../parameters/datetime.yaml
     - $ref: ../parameters/keyword.yaml
-    - $ref: ../parameters/foiIdList.yaml
+    #- $ref: ../parameters/foiIdList.yaml
     - $ref: ../parameters/obsPropIdList.yaml
     - $ref: ../parameters/controlPropIdList.yaml
     #- $ref: '#/components/parameters/select'
