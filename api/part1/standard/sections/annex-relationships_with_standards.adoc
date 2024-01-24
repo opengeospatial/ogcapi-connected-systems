@@ -6,22 +6,21 @@
 
 The {ogc-w3c-ssn} provides the semantic model from which the resource model of OGC API - Connected Systems is derived.
 
-OGC API - Connected Systems does not use any SOSA/SSN serialization (e.g. RDF, Turtle, etc.) directly as a resource representation format. Instead, GeoJSON or plain JSON serializations are used, with references to SOSA/SSN concepts (by URI) whenever appropriate (e.g. System Types, Procedure Types, etc.).
+OGC API - Connected Systems does not use any SOSA/SSN serialization (e.g. RDF, Turtle, etc.) directly as a resource representation format. Instead, GeoJSON, SensorML-JSON or in some cases plain JSON and even binary representations are used, with references to SOSA/SSN concepts (by URI or CURIE) whenever appropriate (e.g. System Types, Procedure Types, etc.).
 
-[[divergence-from-ssn]]
-**Divergence from the SOSA/SSN Models**
+**Divergence from the SOSA/SSN Patterns**
 
-OGC API - Connected Systems (CONSYS) resource model diverges from the pure SOSA/SSN models in the following ways:
+OGC API - Connected Systems (CONSYS) resource model diverges from currently used SOSA/SSN patterns in the following ways:
 
-1. In CONSYS, all systems can have both `datastreams` and `controlstreams`, even though they are tagged with only one type (i.e.`sosa:Sensor`, `sosa:Actuator`, `sosa:Sampler` or `sosa:Platform`). The semantic tagging is only used to provide the main role of the system or subsystem without limiting other API functionality. This design simplifies the description of sensors that can also accept commands (e.g. even simple sensors often have commands to change the sampling rate or the sensitivity), or actuators that output data (e.g. most actuators provide some kind of state information). 
+1. In CONSYS, all systems can have both `datastreams` and `controlstreams`, even though they are tagged with only one type (i.e.`sosa:Sensor`, `sosa:Actuator`, `sosa:Sampler` or `sosa:Platform`). The semantic tagging is only used to provide the main role of the system or subsystem without limiting other API functionality. This design simplifies the description of sensors that can also accept commands (e.g. even simple sensors often have commands to change the sampling rate or the sensitivity), or actuators that output data (e.g. most actuators provide some kind of state information). Note that the same effect can be achieved when using the SOSA/SSN ontology by creating RDF resources that have several parent classes such as `<Motor1> a ssn:System, sosa:Sensor, sosa:Actuator;` or `<UAV> a ssn:System, sosa:Platform;`. 
 
-2. In CONSYS, an observation can be associated to more than one observed property, and a command to more than one controlled property, while SOSA/SSN has a cardinality of one on these associations. This also means that observations are not limited to scalar results, and commands are not limited to scalar parameters.
+2. In CONSYS, an observation can be associated to more than one observed property, and a command to more than one controlled property, while SOSA/SSN has a cardinality of one on these associations. This also means that observations are not limited to scalar results, and commands are not limited to scalar parameters. Discussions in the SOSA/SSN working group have shown that such vectorization of observed properties and corresponding observation results is an accepted practice and will be clearly documented in the next revision of the SOSA/SSN standard.
 
-Although this is a departure from conceptual models, both design decisions were made to reduce the number of resources that one needs to create and maintain in order to fully describe complex systems and their data feeds. Where a few resources are necessary in the API, the SOSA/SSN model would require many more small resources to achieve the same functionality, which leads to complexity for API consumers. 
+3. We use the concepts of `ObservationCollection` and `ActuationCollection` (in the form of `DataStream` and `ControlStream` respectively) in order to factor out many properties that are common to observations/actuations associated to the same sensor/actuator. Note that such collections are not part of the current version of SOSA/SSN at the time of writing but will be incorporated in the next revision.
+
+These patterns are used in CONSYS to reduce the number (and sometimes the size) of resources that one needs to create and maintain in order to fully describe complex systems and their data feeds. Where a few resources are necessary in the API, the SOSA/SSN model would require many more small resources to achieve the same functionality, which leads to complexity for API consumers. 
 
 Rather than imposing a very verbose schema, these changes give more flexibility for choosing the appropriate level of granularity used when describing hierarchical systems, while still allowing the API to exchange all required dynamic data feeds. Granularity can range from creating a different sensor or actuator for every single scalar property observed or acted on, all the way to a single resource that is used to represent an entire complex system as a "black box".
-
-Indeed, some systems that are in scope of the API can generate hundreds of datastreams originating from hundreds of different subsystems (think about a complex industrial robot or unmanned system), and a server implementing the API would often host metadata and dynamic data for many such systems. If such system is described with the highest level of granularity described above, the number of resources to deal with quickly becomes overwhelming (thousands of resources for a single system), and the information difficult to consume by clients. Although breaking things down to that level is completely feasible with the API, a user may instead choose to model the system with only a few subsystems that output records of data and accept more complex commands.
 
 
 
@@ -58,22 +57,6 @@ The following table indicates which classes of OMS https://docs.ogc.org/as/20-08
 | `SamplingProcedure`   | -                     | `Procedure (type=sosa-oms:SamplingProcedure`)  |
 | `Sampler`             | -                     | `System (type=sosa:Sampler`)                   |
 |====
-
-The following classes from OMS https://docs.ogc.org/as/20-082r4/20-082r4.html#_basic_samples[Basic Samples] are also implemented:
-
-[%unnumbered,#oms-basic-mappings,reftext='{table-caption} {counter:table-num}']
-[width="100%",cols="5,10,10,5",options="header"]
-|====
-| *OMS Class*           | *O&M Class*                  | *CONSYS Resource*  | *Comments*
-| `SpatialSample`       | `SF_SpatialSamplingFeature`  | `SamplingFeature`  | type = `om:SamplingPoint`, or +
-                                                                              type = `om:SamplingCurve`, or +
-                                                                              type = `om:SamplingSurface`, or +
-                                                                              type = `om:SamplingSolid`
-| `MaterialSample`      | `SF_Specimen`                | `SamplingFeature`  | type = `om:Specimen`
-| `StatisticalSample`   | -                            | `SamplingFeature`  | type = `oms:StatisticalSample`
-|====
-
-Also see the discussion regarding <<divergence-from-ssn,divergence from the SOSA/SSN models>> since it also applies to OMS.
 
 
 
