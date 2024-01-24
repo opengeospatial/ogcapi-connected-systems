@@ -27,6 +27,7 @@
 :ogcapi-features-2: <<OGCAPI-Features-2, OGC API - Features - Part 2>>
 :ogcapi-features-4: <<OGCAPI-Features-4, OGC API - Features - Part 4>>
 :ogc-w3c-ssn: <<SOSA-SSN, Semantic Sensor Network Ontology (SOSA/SSN)>>
+//
 //:jsonschema-root: https://raw.githubusercontent.com/opengeospatial/connected-systems/master/api/part1/openapi/schemas
 :jsonschema-root: ../openapi/schemas
 :add-byref-schema: link:{jsonschema-root}/common/links.json[links.json]
@@ -56,6 +57,9 @@
 :sensorml-deployed-system-collection-schema: link:{sensorml-schema-root}/deployedSystemCollection.json[deployedSystemCollection.json]
 :sensorml-property-schema: link:{sensorml-schema-root}/property.json[property.json]
 :sensorml-property-collection-schema: link:{sensorml-schema-root}/propertyCollection.json[propertyCollection.json]
+//
+:ogcapi-features-spec-url: http://www.opengis.net/spec/ogcapi-features-1/1.0
+
 
 ////
 Make sure to complete each included document

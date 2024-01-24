@@ -1,2 +1,1523 @@
 [appendix,obligation=normative]
 == Conformance Class Abstract Test Suite
+
+=== Supporting Tests
+
+These tests are not associated to any particular requirement but are referenced by other tests.
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/api-common/collection-items
+
+test-purpose:: Retrieve items of a collection.
+
+test-method::
+step::: Retrieve the media types supported by the server for the collection items by inspecting the links with relation type `items`.
+step::: If the server does not offer any media type supported by the testing engine, issue a warning and skip the test.
+step::: Issue an HTTP GET request to the URL `/collections/{collectionId}/items` where `{collectionId}` is the ID of the desired collection.
+step::: Validate that a document was returned with a status code 200.
+====
+
+
+
+=== Conformance Class "Common"
+
+[conformance_class]
+====
+[%metadata]
+identifier:: /conf/api-common
+target:: /req/api-common
+inherit:: http://www.opengis.net/spec/ogcapi-1/1.0/conf/core
+inherit:: http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/core
+inherit:: http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/landing-page
+inherit:: http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/collections
+inherit:: http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/simple-query
+classification:: Target Type:Web API
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/api-common/collection-type
+target:: /req/api-common/collection-type
+
+test-purpose:: Validate that the resource collection `featureType` property is properly set.
+
+test-method:: For each collection advertised by the server with `itemType=feature`:
+step::: Read the value of the `featureType` property in the collection metadata.
+step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
+step::: Iterate through all items in the collection and identify their type (follow `next` links as appropriate).
+step::: If the collection `featureType` property was set, check that all items are of a type compatible with the specified collection.`featureType`
+step:::: If the collection `featureType` property was not set, check that the items are either of mixed types or not of a type defined by this Standard.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/api-common/resource-ids
+target:: /req/api-common/resource-ids
+
+test-purpose:: Validate that resource IDs assigned by the server are unique for a given resource type.
+
+test-method:: For each collection advertised by the server:
+step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
+step::: Iterate through all items in the collection, following `next` links as appropriate, and retrieve their local ID.
+step::: Compare the ID with all IDs read previously from resources of the same type and make sure it is unique.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/api-common/resource-uids
+target:: /req/api-common/resource-uids
+
+test-purpose:: Validate that resource UIDs exposed by the server are unique across all collections.
+
+test-method:: For each collection advertised by the server:
+step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
+step::: Iterate through all items in the collection, following `next` links as appropriate, and retrieve their unique ID, if any.
+step::: Compare the UID with all UIDs previously read from any resource and make sure it is unique.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/api-common/datetime
+target:: /req/api-common/datetime
+
+test-purpose:: Validate that the server correctly filters features when the `datetime` query parameter is set.
+
+test-method:: For each collection advertised by the server:
+step::: Retrieve the temporal extent of the collection.
+step::: Execute the Date/Time parameter test of {ogcapi-features-spec-url}/conf/core/fc-time-response, using the `validTime` property of the features in the response as the temporal geometry.
+====
+
+
+
+=== Conformance Class "System Features"
+
+[conformance_class]
+====
+[%metadata]
+identifier:: /conf/system
+target:: /req/system
+inherit:: /conf/api-common
+classification:: Target Type:Web API
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/system/location-time
+target:: /req/system/location-time
+
+test-purpose:: Validate that the server updates the system location according to the `datetime` parameter.
+
+test-method:: Given the ID `sysId` of a mobile system that is known to change location between time instants `t1` and `t2`)
+step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}` with the `datetime` query parameter set to `t1`.
+step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}` with the `datetime` query parameter set to `t2`.
+step::: Verify that the locations reported in the two responses are different.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/system/canonical-url
+target:: /req/system/canonical-url
+
+test-purpose:: Validate that every `System` resource is accessible via its canonical URL.
+
+test-method:: For every collection advertised by the server with the `featureType` property set to `ssn:System`:
+step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
+step::: Iterate through all items in the collection, following `next` links as appropriate.
+step::: For each item, check that a link with relation type `canonical` is included.
+step::: Dereference this link and validate that a document is returned with a status code 200.
+step::: Check that the returned document has the same content as the resource originally included in the collection items (except for the canonical link).
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/system/canonical-collection
+target:: /req/system/canonical-collection
+
+test-purpose:: Validate that the server exposes the `System` root collection.
+
+test-method:: 
+step::: Issue an HTTP GET request to the URL `{api_root}/systems`.
+step::: Validate that a document was returned with a status code 200.
+step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
+step:::: If the response content type is `application/geo+json`, execute test xref:/conf/geojson/system-schema[style=id%].
+step:::: If the response content type is `application/sml+json`, execute test xref:/conf/sensorml/system-schema[style=id%].
+step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/system/collection-type
+target:: /req/system/collection-type
+
+test-purpose:: Validate that `System` collections are tagged with the proper feature type.
+
+test-method:: For every collection advertised by the server with the `featureType` property set to `ssn:System`:
+step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
+step::: Iterate through all items in the collection and retrieve their type.
+step::: Check that the reported type is one of the URI or CURIE listed in <<system-types>>.
+step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
+step:::: If the response content type is `application/geo+json`, execute test xref:/conf/geojson/system-schema[style=id%].
+step:::: If the response content type is `application/sml+json`, execute test xref:/conf/sensorml/system-schema[style=id%].
+step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
+====
+
+
+
+=== Conformance Class "System Components"
+
+[conformance_class]
+====
+[%metadata]
+identifier:: /conf/subsystem
+target:: /req/subsystem
+inherit:: /conf/system
+classification:: Target Type:Web API
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/subsystem/collection
+target:: /req/subsystem/collection
+
+test-purpose:: Verify that subsystems are available as a sub-collection of a parent system.
+
+test-method:: Given the ID `sysId` of a parent system that has subsystems:
+step::: Retrieve the parent system resource at `{api_root}/systems/{sysId}`.
+step::: Verify that the response contains a link with relation type `subsystems`.
+step::: Verify that the link target is the URL `{api_root}/systems/{id}/components`.
+step::: Dereference this link and validate that a document is returned with a status code 200.
+step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
+step:::: If the response content type is `application/geo+json`, execute test xref:/conf/geojson/system-schema[style=id%].
+step:::: If the response content type is `application/sml+json`, execute test xref:/conf/sensorml/system-schema[style=id%].
+step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/subsystem/recursive-param
+target:: /req/subsystem/recursive-param
+
+test-purpose:: Validate that the `recursive` query parameter is of type boolean
+
+test-method::
+step::: Validate that the request contains a query parameter named `recursive`.
+step::: Validate that the parameter value is set to `true` or `false`.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/subsystem/recursive-search-systems
+target:: /req/subsystem/recursive-search-systems
+
+test-purpose:: Verify that subsystems can be queried using the `recursive` query parameter.
+
+test-method:: 
+step::: Issue an HTTP GET request to the URL `{api_root}/systems`.
+step::: Verify that subsystems are not included in the response.
+step::: Issue an HTTP GET request to the URL `{api_root}/systems?recursive=false`.
+step::: Verify that subsystems are not included in the response.
+step::: Issue an HTTP GET request to the URL `{api_root}/systems?recursive=true`.
+step::: Verify that all subsystems (at all nesting levels) are included in the response. 
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/subsystem/recursive-search-subsystems
+target:: /req/subsystem/recursive-search-subsystems
+
+test-purpose:: Verify that nested subsystems can be queried using the `recursive` query parameter.
+
+test-method:: Given the ID `sysId` of a parent system that has subsystems:
+step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/components`.
+step::: Verify that only direct subsystems are included in the response.
+step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/components?recursive=false`.
+step::: Verify that only direct subsystems are included in the response.
+step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/components?recursive=true`.
+step::: Verify that all subsystems (at all nesting levels) are included in the response.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/subsystem/recursive-search-samplingfeatures
+target:: /req/subsystem/recursive-search-samplingfeatures
+
+test-purpose:: Verify that nested sampling features can be queried using the `recursive` query parameter.
+
+test-method:: Given the ID `sysId` of a parent system that has subsystems:
+step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/samplingFeatures`.
+step::: Verify that only sampling features of the parent system are included in the response.
+step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/samplingFeatures?recursive=false`.
+step::: Verify that only sampling features of the parent system are included in the response.
+step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/samplingFeatures?recursive=true`.
+step::: Verify that sampling features of the parent system and all its subsystems (at all nesting levels) are included in the response.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/subsystem/recursive-search-datastreams
+target:: /req/subsystem/recursive-search-datastreams
+
+test-purpose:: Verify that nested datastreams can be queried using the `recursive` query parameter.
+
+test-method:: Given the ID `sysId` of a parent system that has subsystems:
+step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/datastreams`.
+step::: Verify that only datastreams of the parent system are included in the response.
+step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/datastreams?recursive=false`.
+step::: Verify that only datastreams of the parent system are included in the response.
+step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/datastreams?recursive=true`.
+step::: Verify that datastreams of the parent system and all its subsystems (at all nesting levels) are included in the response.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/subsystem/recursive-search-controlstreams
+target:: /req/subsystem/recursive-search-controlstreams
+
+test-purpose:: Verify that nested control streams can be queried using the `recursive` query parameter.
+
+test-method:: Given the ID `sysId` of a parent system that has subsystems:
+step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/controlstreams`.
+step::: Verify that only control streams of the parent system are included in the response.
+step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/controlstreams?recursive=false`.
+step::: Verify that only control streams of the parent system are included in the response.
+step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/controlstreams?recursive=true`.
+step::: Verify that control streams of the parent system and all its subsystems (at all nesting levels) are included in the response.
+====
+
+
+
+=== Conformance Class "Procedure Features"
+
+[conformance_class]
+====
+[%metadata]
+identifier:: /conf/procedure
+target:: /req/procedure
+inherit:: /conf/api-common
+classification:: Target Type:Web API
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/procedure/location
+target:: /req/procedure/location
+
+test-purpose:: Validate that `Procedure` features never include a location.
+
+test-method:: 
+step::: Issue an HTTP GET request to the URL `{api_root}/procedures`.
+step::: Iterate through the items of the response, following `next` links as appropriate.
+step::: For each item, check that no location is not provided.
+step:::: If the response content type is `application/geo+json`, check that the `geometry` member is set to `null`.
+step:::: If the response content type is `application/sml+json`, check that the `position` member is not present.
+step:::: For other response content types not supported by the testing engine, issue a warning and skip this test. 
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/procedure/canonical-url
+target:: /req/procedure/canonical-url
+
+test-purpose:: Validate that every `Procedure` resource is accessible via its canonical URL.
+
+test-method:: For every collection advertised by the server with the `featureType` property set to `sosa:Procedure`:
+step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
+step::: Iterate through all items in the collection, following `next` links as appropriate.
+step::: For each item, check that a link with relation type `canonical` is included.
+step::: Dereference this link and validate that a document is returned with a status code 200.
+step::: Check that the returned document has the same content as the resource originally included in the collection items (except for the canonical link).
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/procedure/canonical-collection
+target:: /req/procedure/canonical-collection
+
+test-purpose:: Validate that the server exposes the `Procedure` root collection.
+
+test-method:: 
+step::: Issue an HTTP GET request to the URL `{api_root}/procedures`.
+step::: Validate that a document was returned with a status code 200.
+step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
+step:::: If the response content type is `application/geo+json`, execute test xref:/conf/geojson/procedure-schema[style=id%].
+step:::: If the response content type is `application/sml+json`, execute test xref:/conf/sensorml/procedure-schema[style=id%].
+step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/procedure/collection-type
+target:: /req/procedure/collection-type
+
+test-purpose:: Validate that `Procedure` collections are tagged with the proper feature type.
+
+test-method:: For every collection advertised by the server with the `featureType` property set to `sosa:Procedure`:
+step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
+step::: Iterate through all items in the collection and retrieve their type.
+step::: Check that the reported type is one of the URI or CURIE listed in <<procedure-types>>.
+step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
+step:::: If the response content type is `application/geo+json`, execute test xref:/conf/geojson/procedure-schema[style=id%].
+step:::: If the response content type is `application/sml+json`, execute test xref:/conf/sensorml/procedure-schema[style=id%].
+step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
+====
+
+
+
+=== Conformance Class "Deployment Features"
+
+[conformance_class]
+====
+[%metadata]
+identifier:: /conf/deployment
+target:: /req/deployment
+inherit:: /conf/api-common
+classification:: Target Type:Web API
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/deployment/canonical-url
+target:: /req/deployment/canonical-url
+
+test-method:: For every collection advertised by the server with the `featureType` property set to `ssn:Deployment`:
+step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
+step::: Iterate through all items in the collection, following `next` links as appropriate.
+step::: For each item, check that a link with relation type `canonical` is included.
+step::: Dereference this link and validate that a document is returned with a status code 200.
+step::: Check that the returned document has the same content as the resource originally included in the collection items (except for the canonical link).
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/deployment/canonical-collection
+target:: /req/deployment/canonical-collection
+
+test-purpose:: Validate that the server exposes the `Deployment` root collection.
+
+test-method:: 
+step::: Issue an HTTP GET request to the URL `{api_root}/deployments`.
+step::: Validate that a document was returned with a status code 200.
+step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
+step:::: If the response content type is `application/geo+json`, execute test xref:/conf/geojson/deployment-schema[style=id%].
+step:::: If the response content type is `application/sml+json`, execute test xref:/conf/sensorml/deployment-schema[style=id%].
+step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/deployment/collection-type
+target:: /req/deployment/collection-type
+
+test-purpose:: Validate that `Deployment` collections are tagged with the proper feature type.
+
+test-method:: For every collection advertised by the server with the `featureType` property set to `ssn:Deployment`:
+step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
+step::: Iterate through all items in the collection and retrieve their type.
+step::: Check that the reported type is one of the URI or CURIE listed in <<deployment-types>>.
+step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
+step:::: If the response content type is `application/geo+json`, execute test xref:/conf/geojson/deployment-schema[style=id%].
+step:::: If the response content type is `application/sml+json`, execute test xref:/conf/sensorml/deployment-schema[style=id%].
+step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
+====
+
+
+
+=== Conformance Class "Sampling Features"
+
+[conformance_class]
+====
+[%metadata]
+identifier:: /conf/sampling
+target:: /req/sampling
+inherit:: /conf/system
+classification:: Target Type:Web API
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/sampling/canonical-url
+target:: /req/sampling/canonical-url
+
+test-method:: For every collection advertised by the server with the `featureType` property set to `sosa:Sample`:
+step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
+step::: Iterate through all items in the collection, following `next` links as appropriate.
+step::: For each item, check that a link with relation type `canonical` is included.
+step::: Dereference this link and validate that a document is returned with a status code 200.
+step::: Check that the returned document has the same content as the resource originally included in the collection items (except for the canonical link).
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/sampling/canonical-collection
+target:: /req/sampling/canonical-collection
+
+test-purpose:: Validate that the server exposes the `Sampling Feature` root collection.
+
+test-method:: 
+step::: Issue an HTTP GET request to the URL `{api_root}/samplingFeatures`.
+step::: Validate that a document was returned with a status code 200.
+step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
+step:::: If the response content type is `application/geo+json`, execute test xref:/conf/geojson/sf-schema[style=id%].
+step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/sampling/collection-type
+target:: /req/sampling/collection-type
+
+test-purpose:: Validate that `Sampling Feature` collections are tagged with the proper feature type.
+
+test-method:: For every collection advertised by the server with the `featureType` property set to `sosa:Sample`:
+step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
+step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
+step:::: If the response content type is `application/geo+json`, execute test xref:/conf/geojson/sf-schema[style=id%].
+step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
+====
+
+
+
+=== Conformance Class "Property Definitions"
+
+[conformance_class]
+====
+[%metadata]
+identifier:: /conf/property
+target:: /req/property
+inherit:: /conf/api-common
+classification:: Target Type:Web API
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/property/canonical-url
+target:: /req/property/canonical-url
+
+test-method:: For every collection advertised by the server with the `itemType` property set to `ssn:Property`:
+step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
+step::: Iterate through all items in the collection, following `next` links as appropriate.
+step::: For each item, check that a link with relation type `canonical` is included.
+step::: Dereference this link and validate that a document is returned with a status code 200.
+step::: Check that the returned document has the same content as the resource originally included in the collection items (except for the canonical link).
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/property/canonical-collection
+target:: /req/property/canonical-collection
+
+test-purpose:: Validate that the server exposes the `Property` root collection.
+
+test-method:: 
+step::: Issue an HTTP GET request to the URL `{api_root}/properties`.
+step::: Validate that a document was returned with a status code 200.
+step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
+//step:::: If the response content type is `application/geo+json`, execute test xref:/conf/geojson/property-schema[style=id%].
+step:::: If the response content type is `application/sml+json`, execute test xref:/conf/sensorml/property-schema[style=id%].
+step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/property/collection-type
+target:: /req/property/collection-type
+
+test-purpose:: Validate that `Property` collections are tagged with the proper item type.
+
+test-method:: For every collection advertised by the server with the `itemType` property set to `ssn:Property`:
+step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
+step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
+//step:::: If the response content type is `application/geo+json`, execute test xref:/conf/geojson/property-schema[style=id%].
+step:::: If the response content type is `application/sml+json`, execute test xref:/conf/sensorml/property-schema[style=id%].
+step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
+====
+
+
+
+=== Conformance Class "Advanced Filtering"
+
+[conformance_class]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering
+target:: 	/req/advanced-filtering
+inherit:: /conf/api-common
+classification:: Target Type:Web API
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/id-list-schema
+target:: /req/advanced-filtering/id-list-schema
+
+test-purpose:: Validate that query parameters of type `ID List` are constructed correctly.
+
+test-method:: Validate that the parameter is a list of string values.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/resource-by-id
+target:: /req/advanced-filtering/resource-by-id
+
+test-purpose:: Validate that the `id` query parameter is processed correctly.
+
+test-method:: For every root collection:
+step::: Generate an `id` parameter set to a list of local resource IDs.
+step::: Validate it with test xref:/conf/advanced-filtering/id-list-schema[style=id%].
+step::: Issue an HTTP GET request at the root collection URL with the `id` parameter in the query string.
+step::: Validate that a document was returned with a status code 200.
+step::: Validate that the returned collection only includes the resources with the selected identifiers.
+step::: Repeat the previous steps with an `id` parameter containing a list of UIDs.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/resource-by-keyword
+target:: /req/advanced-filtering/resource-by-keyword
+
+test-purpose:: Validate that the `q` query parameter is processed correctly.
+
+test-method:: For every root collection:
+step::: Generate a `q` parameter set to a list of keywords, as specified by the provided OpenAPI 3.0 schema.
+step::: Issue an HTTP GET request at the root collection URL with the `q` parameter in the query string.
+step::: Validate that a document was returned with a status code 200.
+step::: Validate that the returned collection only includes resources with plain text contents that include the keyword.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/features-by-geom
+target:: /req/advanced-filtering/features-by-geom
+
+test-purpose:: Validate that the `geom` query parameter is processed correctly.
+
+test-method:: For every root feature collection:
+step::: Generate a `geom` parameter set to a WKT geometry conforming to the provided OpenAPI 3.0 schema.
+step::: Issue an HTTP GET request at the root collection URL with the `geom` parameter in the query string.
+step::: Validate that a document was returned with a status code 200.
+step::: Validate that the returned collection only includes resources with a geometry intersecting the provided geometry.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/system-by-parent
+target:: /req/advanced-filtering/system-by-parent
+
+test-purpose:: Validate that the `parent` query parameter is processed correctly.
+
+test-method::
+step::: Generate a `parent` parameter with the value set to a list of local resource IDs and validate it with test xref:/conf/advanced-filtering/id-list-schema[style=id%].
+step::: Issue an HTTP GET request at URL `{api_root}/systems` the root collection URL with the `id` parameter in the query string.
+step::: Validate that a document was returned with a status code 200.
+step::: Validate that the returned collection only includes the resources with the selected identifiers.
+step::: Repeat the previous steps with an `id` parameter containing a list of UIDs.
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/system-by-procedure
+target:: /req/advanced-filtering/system-by-procedure
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/system-by-foi
+target:: /req/advanced-filtering/system-by-foi
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/system-by-obsprop
+target:: /req/advanced-filtering/system-by-obsprop
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/system-by-controlprop
+target:: /req/advanced-filtering/system-by-controlprop
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/procedure-by-foi
+target:: /req/advanced-filtering/procedure-by-foi
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/procedure-by-obsprop
+target:: /req/advanced-filtering/procedure-by-obsprop
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/procedure-by-controlprop
+target:: /req/advanced-filtering/procedure-by-controlprop
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/deployment-by-system
+target:: /req/advanced-filtering/deployment-by-system
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/deployment-by-foi
+target:: /req/advanced-filtering/deployment-by-foi
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/deployment-by-obsprop
+target:: /req/advanced-filtering/deployment-by-obsprop
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/deployment-by-controlprop
+target:: /req/advanced-filtering/deployment-by-controlprop
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/sf-by-foi
+target:: /req/advanced-filtering/sf-by-foi
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/sf-by-obsprop
+target:: /req/advanced-filtering/sf-by-obsprop
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/sf-by-controlprop
+target:: /req/advanced-filtering/sf-by-controlprop
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/prop-by-baseprop
+target:: /req/advanced-filtering/prop-by-baseprop
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/prop-by-object
+target:: /req/advanced-filtering/prop-by-object
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/prop-by-foi
+target:: /req/advanced-filtering/prop-by-foi
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/combined-filters
+target:: /req/advanced-filtering/combined-filters
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+
+
+=== Conformance Class "Create/Replace/Delete"
+
+[conformance_class]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete
+target:: 	/req/create-replace-delete
+inherit:: /conf/api-common
+inherit:: http://www.opengis.net/spec/ogcapi-4/1.0/conf/create-replace-delete
+classification:: Target Type:Web API
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/system
+target:: /req/create-replace-delete/system
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/system-delete-cascade
+target:: /req/create-replace-delete/system-delete-cascade
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/subsystem
+target:: /req/create-replace-delete/subsystem
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/procedure
+target:: /req/create-replace-delete/procedure
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/deployment
+target:: /req/create-replace-delete/deployment
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/deployed-system
+target:: /req/create-replace-delete/deployed-system
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/sampling-feature
+target:: /req/create-replace-delete/sampling-feature
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/property
+target:: /req/create-replace-delete/property
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/create-in-collection
+target:: /req/create-replace-delete/create-in-collection
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/replace-in-collection
+target:: /req/create-replace-delete/replace-in-collection
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/delete-in-collection
+target:: /req/create-replace-delete/delete-in-collection
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/add-to-collection
+target:: /req/create-replace-delete/add-to-collection
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+
+
+=== Conformance Class "Update"
+
+[conformance_class]
+====
+[%metadata]
+identifier:: /conf/update
+target:: 	/req/update
+inherit:: /conf/api-common
+inherit:: http://www.opengis.net/spec/ogcapi-4/1.0/conf/update
+classification:: Target Type:Web API
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/update/system
+target:: /req/update/system
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/update/subsystem
+target:: /req/update/subsystem
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/update/procedure
+target:: /req/update/procedure
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/update/deployment
+target:: /req/update/deployment
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/update/deployed-system
+target:: /req/update/deployed-system
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/update/sampling-feature
+target:: /req/update/sampling-feature
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/update/property
+target:: /req/update/property
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+
+
+=== Conformance Class "GeoJSON"
+
+[conformance_class]
+====
+[%metadata]
+identifier:: /conf/geojson
+target:: 	/req/geojson
+inherit:: /conf/api-common
+inherit:: http://www.opengis.net/spec/ogcapi-1/1.0/conf/geojson
+classification:: Target Type:Web API
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/geojson/mediatype-read
+target:: /req/geojson/mediatype-read
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/geojson/mediatype-write
+target:: /req/geojson/mediatype-write
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/geojson/relation-types
+target:: /req/geojson/relation-types
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/geojson/feature-attribute-mapping
+target:: /req/geojson/feature-attribute-mapping
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/geojson/system-schema
+target:: /req/geojson/system-schema
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/geojson/system-mappings
+target:: /req/geojson/system-mappings
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/geojson/procedure-schema
+target:: /req/geojson/procedure-schema
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/geojson/procedure-mappings
+target:: /req/geojson/procedure-mappings
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/geojson/deployment-schema
+target:: /req/geojson/deployment-schema
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/geojson/deployment-mappings
+target:: /req/geojson/deployment-mappings
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/geojson/deployed-system-schema
+target:: /req/geojson/deployed-system-schema
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/geojson/deployed-system-mappings
+target:: /req/geojson/deployed-system-mappings
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/geojson/sf-schema
+target:: /req/geojson/sf-schema
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/geojson/sf-mappings
+target:: /req/geojson/sf-mappings
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+
+
+=== Conformance Class "SensorML"
+
+[conformance_class]
+====
+[%metadata]
+identifier:: /conf/sensorml
+target:: 	/req/sensorml
+inherit:: /conf/api-common
+indirect-dependency:: http://www.opengis.net/spec/sensorml/2.1/conf/json
+classification:: Target Type:Web API
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/sensorml/mediatype-read
+target:: /req/sensorml/mediatype-read
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/sensorml/mediatype-write
+target:: /req/sensorml/mediatype-write
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/sensorml/relation-types
+target:: /req/sensorml/relation-types
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/sensorml/resource-id
+target:: /req/sensorml/resource-id
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/sensorml/feature-attribute-mapping
+target:: /req/sensorml/feature-attribute-mapping
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/sensorml/system-schema
+target:: /req/sensorml/system-schema
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/sensorml/system-sml-class
+target:: /req/sensorml/system-sml-class
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/sensorml/system-mappings
+target:: /req/sensorml/system-mappings
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/sensorml/procedure-schema
+target:: /req/sensorml/procedure-schema
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/sensorml/procedure-sml-class
+target:: /req/sensorml/procedure-sml-class
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/sensorml/procedure-mappings
+target:: /req/sensorml/procedure-mappings
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/sensorml/deployment-schema
+target:: /req/sensorml/deployment-schema
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/sensorml/deployment-mappings
+target:: /req/sensorml/deployment-mappings
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/sensorml/deployed-system-schema
+target:: /req/sensorml/deployed-system-schema
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/sensorml/deployed-system-mappings
+target:: /req/sensorml/deployed-system-mappings
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/sensorml/property-schema
+target:: /req/sensorml/property-schema
+
+test-purpose:: ...
+
+test-method:: 
+
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/sensorml/property-mappings
+target:: /req/sensorml/property-mappings
+
+test-purpose:: ...
+
+test-method:: 
+
+====
