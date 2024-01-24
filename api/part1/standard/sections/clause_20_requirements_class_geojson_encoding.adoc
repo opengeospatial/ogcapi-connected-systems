@@ -107,13 +107,14 @@ A GeoJSON document representing a `System` resource SHALL implement the mappings
 .GeoJSON Encoding of System Associations
 [width="100%",cols="3,3,10",options="header"]
 |====
-| *Association Name*  | *JSON Member*                | *Usage*
-| `procedure`         | `properties/procedure@link`  | Value is a weblink resolving to a `Procedure` resource.
-| `subsystems`        | `links`                      | Value is a weblink resolving to a `System` collection.
-| `samplingFeatures`  | `links`                      | Value is a weblink resolving to a `Sampling Features` collection.
-| `datastreams`       | `links`                      | Value is a weblink resolving to a `DataStream` collection.
-| `controlstreams`    | `links`                      | Value is a weblink resolving to a `ControlStream` collection.
-| `deployments`       | `links`                      | Value is a weblink resolving to a `Deployment` collection.
+| *Association Name*  | *JSON Member*                  | *Usage*
+| `procedure`         | `properties/procedure@link`    | Value is a weblink resolving to a `Procedure` resource.
+| `parentSystem`      | `properties/parentSystem@link` | Value is a weblink resolving to a `System` resource.
+| `subsystems`        | `links`                        | Value is a weblink resolving to a `System` collection.
+| `samplingFeatures`  | `links`                        | Value is a weblink resolving to a `Sampling Features` collection.
+| `datastreams`       | `links`                        | Value is a weblink resolving to a `DataStream` collection.
+| `controlstreams`    | `links`                        | Value is a weblink resolving to a `ControlStream` collection.
+| `deployments`       | `links`                        | Value is a weblink resolving to a `Deployment` collection.
 |====
 
 [[example_geojson_sys1]]
