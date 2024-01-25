@@ -12,9 +12,9 @@
 | OGC API - Connected Systems
 | https://github.com/alexrobin[Alex Robin]
 
-| TBA
-| TBA
-| TBA
+| https://github.com/52North/pygeoapi/tree/feature/connected-systems[pygeoapi extension]
+| OGC API - Connected Systems
+| https://github.com/autermann[Christian Autermann]
 
 | TBA
 | TBA
