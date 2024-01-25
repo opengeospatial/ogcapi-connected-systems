@@ -7,7 +7,9 @@ include::../requirements/crud/update/requirements_class_update.adoc[]
 
 This requirements class specifies how instances of the feature types defined previously are updated using the API.
 
-All resources are updated using the UPDATE (HTTP PATCH) operation as defined by {ogcapi-features-4}.
+All resources are updated using the UPDATE (HTTP PATCH) operation, as defined by {ogcapi-features-4}.
+
+{ogcapi-features-4} uses the terms "resource endpoint" to identify the paths where the UPDATE operation is supported by the server. The following sections provide these endpoints for each resource type defined by this Standard.
 
 
 === Systems
@@ -19,11 +21,11 @@ identifier:: /req/update/system
 
 conditions:: The server implements <<clause-system-features,/req/system-features>>
 
-part:: The server SHALL implement support for the PATCH operation, as specified by requirements class "Update" of {ogcapi-features-4}, at the following endpoints:
+part:: For `System` features, the resource endpoints used for UPDATE operations shall be the URIs specified by the following URI templates:
   - `{api_root}/systems/{id}`
-  - `{api_root}/collections/all_systems/items/{id}`
+  - `{api_root}/collections/{systemCollectionId}/items/{id}`
 
-part:: The server MAY also implement support for PATCH operations in other `System` collections.
+part:: The parameter `systemCollectionId` SHALL correspond to the `id` property of a `System` feature collection.
 ====
 
 
@@ -36,11 +38,11 @@ identifier:: /req/update/procedure
 
 conditions:: The server implements <<clause-procedure-features,/req/procedure-features>>
 
-part:: The server SHALL implement support for the PATCH operation, as specified by requirements class "Update" of {ogcapi-features-4}, at the following endpoints:
+part:: For `Procedure` features, the resource endpoints used for UPDATE operations shall be the URIs specified by the following URI templates:
   - `{api_root}/procedures/{id}`
-  - `{api_root}/collections/all_procedures/items/{id}`
+  - `{api_root}/collections/{procedureCollectionId}/items/{id}`
 
-part:: The server MAY also implement support for PATCH operations in other `Procedure` collections.
+part:: The parameter `procedureCollectionId` SHALL correspond to the `id` property of a `Procedure` feature collection.
 ====
 
 
@@ -53,11 +55,11 @@ identifier:: /req/update/deployment
 
 conditions:: The server implements <<clause-deployment-features,/req/deployment-features>>
 
-part:: The server SHALL implement support for the PATCH operation, as specified by requirements class "Update" of {ogcapi-features-4}, at the following endpoints:
+part:: For `Deployment` features, the resource endpoints used for UPDATE operations shall be the URIs specified by the following URI templates:
   - `{api_root}/deployments/{id}`
-  - `{api_root}/collections/all_deployments/items/{id}`
+  - `{api_root}/collections/{deploymentCollectionId}/items/{id}`
 
-part:: The server MAY also implement support for PATCH operations in other `Deployment` collections.
+part:: The parameter `deploymentCollectionId` SHALL correspond to the `id` property of a `Deployment` feature collection.
 ====
 
 
@@ -70,7 +72,7 @@ identifier:: /req/update/deployed-system
 
 conditions:: The server implements <<clause-deployment-features,/req/deployment-features>>
 
-part:: The server SHALL implement support for the PATCH operation, as specified by requirements class "Update" of {ogcapi-features-4}, at the following endpoints:
+part:: For `Deployed System` resources, the resource endpoints used for UPDATE operations shall be the URIs specified by the following URI templates:
   - `{api_root}/deployments/{depId}/systems/{id}`
 ====
 
@@ -84,12 +86,12 @@ identifier:: /req/update/sampling-feature
 
 conditions:: The server implements <<clause-sampling-features,/req/sampling-features>>
 
-part:: The server SHALL implement support for the PATCH operation, as specified by requirements class "Update" of {ogcapi-features-4}, at the following endpoints:
+part:: For `Sampling Features`, the resource endpoints used for UPDATE operations shall be the URIs specified by the following URI templates:
   - `{api_root}/systems/{parentId}/samplingFeatures/{id}`
   - `{api_root}/samplingFeatures/{id}`
-  - `{api_root}/collections/all_sampling_features/items/{id}`
+  - `{api_root}/collections/{sfCollectionId}/items/{id}`
 
-part:: The server MAY also implement support for PATCH operations in other `Sampling Feature` collections.
+part:: The parameter `sfCollectionId` SHALL correspond to the `id` property of a `Sampling Feature` collection.
 ====
 
 
@@ -102,9 +104,9 @@ identifier:: /req/update/property
 
 conditions:: The server implements <<clause-derived-properties,/req/derived-properties>>
 
-part:: The server SHALL implement support for the PATCH operation, as specified by requirements class "Update" of {ogcapi-features-4}, at the following endpoints:
+part:: For `Property` features, the resource endpoints used for UPDATE operations shall be the URIs specified by the following URI templates:
   - `{api_root}/properties/{id}`
-  - `{api_root}/collections/all_properties/items/{id}`
+  - `{api_root}/collections/{propertyCollectionId}/items/{id}`
 
-part:: The server MAY also implement support for PATCH operations in other `Property` collections.
+part:: The parameter `propertyCollectionId` SHALL correspond to the `id` property of a `Property` feature collection.
 ====

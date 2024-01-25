@@ -4,9 +4,11 @@
 === Overview
 include::../requirements/crud/requirements_class_crd.adoc[]
 
-This requirements class specifies how instances of the feature types defined previously are created, replaced and deleted using the API.
+This requirements class specifies how instances of the resource types defined previously are created, replaced and deleted using the API.
 
 All resources are created, replaced and deleted using CREATE (HTTP POST), REPLACE (HTTP PUT) and DELETE (HTTP DELETE) operations, respectively, as defined by {ogcapi-features-4}.
+
+{ogcapi-features-4} uses the terms "resources endpoint" and "resource endpoint" to identify the paths where these operations are supported by the server. The following sections provide these endpoints for each resource type defined by this Standard.
 
 
 === Systems
@@ -18,15 +20,15 @@ identifier:: /req/create-replace-delete/system
 
 conditions:: The server implements <<clause-system-features,/req/system-features>>
 
-part:: The server SHALL implement support for the CREATE operation, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
+part:: For `System` features, the resources endpoints used for CREATE operations shall be the URIs specified by the following URI templates:
   - `{api_root}/systems`
-  - `{api_root}/collections/all_systems/items`
+  - `{api_root}/collections/{systemCollectionId}/items`
 
-part:: The server SHALL implement support for REPLACE and DELETE operations, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
+part:: For `System` features, the resource endpoints used for REPLACE and DELETE operations shall be the URIs specified by the following URI templates:
   - `{api_root}/systems/{id}`
-  - `{api_root}/collections/all_systems/items/{id}`
+  - `{api_root}/collections/{systemCollectionId}/items/{id}`
 
-part:: The server MAY also implement support for CREATE, REPLACE and DELETE operations in other `System` collections.
+part:: The parameter `systemCollectionId` SHALL correspond to the `id` property of a `System` feature collection.
 ====
 
 The following constraints must be implemented by the server.
@@ -57,7 +59,7 @@ identifier:: /req/create-replace-delete/subsystem
 
 conditions:: The server implements <<clause-system-components,/req/system-components>>
 
-part:: The server SHALL implement support for the CREATE operation, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
+part:: The resources endpoints used for adding subsystems (CREATE operation) shall be the URIs specified by the following URI template:
   - `{api_root}/systems/{parentId}/components`
 ====
 
@@ -73,15 +75,15 @@ identifier:: /req/create-replace-delete/procedure
 
 conditions:: The server implements <<clause-procedure-features,/req/procedure-features>>
 
-part:: The server SHALL implement support for the CREATE operation, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
+part:: For `Procedure` features, the resources endpoints used for CREATE operations shall be the URIs specified by the following URI templates:
   - `{api_root}/procedures`
-  - `{api_root}/collections/all_procedures/items`
+  - `{api_root}/collections/{procedureCollectionId}/items`
 
-part:: The server SHALL implement support for REPLACE and DELETE operations, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
+part:: For `Procedure` features, the resource endpoints used for REPLACE and DELETE operations shall be the URIs specified by the following URI templates:
   - `{api_root}/procedures/{id}`
-  - `{api_root}/collections/all_procedures/items/{id}`
+  - `{api_root}/collections/{procedureCollectionId}/items/{id}`
 
-part:: The server MAY also implement support for CREATE, REPLACE and DELETE operations in other `Procedure` collections.
+part:: The parameter `procedureCollectionId` SHALL correspond to the `id` property of a `Procedure` feature collection.
 ====
 
 
@@ -94,15 +96,15 @@ identifier:: /req/create-replace-delete/deployment
 
 conditions:: The server implements <<clause-deployment-features,/req/deployment-features>>
 
-part:: The server SHALL implement support for the CREATE operation, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
+part:: For `Deployment` features, the resources endpoints used for CREATE operations shall be the URIs specified by the following URI templates:
   - `{api_root}/deployments`
-  - `{api_root}/collections/all_deployments/items`
+  - `{api_root}/collections/{deploymentCollectionId}/items`
 
-part:: The server SHALL implement support for REPLACE and DELETE operations, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
+part:: For `Deployment` features, the resource endpoints used for REPLACE and DELETE operations shall be the URIs specified by the following URI templates:
   - `{api_root}/deployments/{id}`
-  - `{api_root}/collections/all_deployments/items/{id}`
+  - `{api_root}/collections/{deploymentCollectionId}/items/{id}`
 
-part:: The server MAY also implement support for CREATE, REPLACE and DELETE operations in other `Deployment` collections.
+part:: The parameter `deploymentCollectionId` SHALL correspond to the `id` property of a `Deployment` feature collection.
 ====
 
 
@@ -115,10 +117,10 @@ identifier:: /req/create-replace-delete/deployed-system
 
 conditions:: The server implements <<clause-deployment-features,/req/deployment-features>>
 
-part:: The server SHALL implement support for the CREATE operation, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
+part:: For `Deployed System` resources, the resources endpoints used for CREATE operations shall be the URIs specified by the following URI templates:
   - `{api_root}/deployments/{depId}/systems`
 
-part:: The server SHALL implement support for REPLACE and DELETE operations, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
+part:: For `Deployed System` resources, the resource endpoints used for REPLACE and DELETE operations shall be the URIs specified by the following URI templates:
   - `{api_root}/deployments/{depId}/systems/{id}`
 ====
 
@@ -134,15 +136,15 @@ identifier:: /req/create-replace-delete/sampling-feature
 
 conditions:: The server implements <<clause-sampling-features,/req/sampling-features>>
 
-part:: The server SHALL implement support for the CREATE operation, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
-  - `{api_root}/systems/{sysId}/samplingFeatures`
+part:: For `Sampling Features`, the resources endpoints used for CREATE operations shall be the URIs specified by the following URI templates:
+  - `{api_root}/samplingFeatures`
 
-part:: The server SHALL implement support for REPLACE and DELETE operations, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
+part:: For `Sampling Features`, the resource endpoints used for REPLACE and DELETE operations shall be the URIs specified by the following URI templates:
   - `{api_root}/systems/{sysId}/samplingFeatures/{id}`
   - `{api_root}/samplingFeatures/{id}`
-  - `{api_root}/collections/all_sampling_features/items/{id}`
+  - `{api_root}/collections/{sfCollectionId}/items/{id}`
 
-part:: The server MAY also implement support for CREATE, REPLACE and DELETE operations in other `Sampling Feature` collections.
+part:: The parameter `sfCollectionId` SHALL correspond to the `id` property of a `Sampling Feature` collection.
 ====
 
 
@@ -157,28 +159,28 @@ identifier:: /req/create-replace-delete/property
 
 conditions:: The server implements <<clause-derived-properties,/req/derived-properties>>
 
-part:: The server SHALL implement support for the CREATE operation, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
+part:: For `Property` resources, the resources endpoints used for CREATE operations shall be the URIs specified by the following URI templates:
   - `{api_root}/properties`
-  - `{api_root}/collections/all_properties/items`
+  - `{api_root}/collections/{propertyCollectionId}/items`
 
-part:: The server SHALL implement support for REPLACE and DELETE operations, as specified by requirements class "Create/Replace/Delete" of {ogcapi-features-4}, at the following endpoints:
+part:: For `Property` resources, the resource endpoints used for REPLACE and DELETE operations shall be the URIs specified by the following URI templates:
   - `{api_root}/properties/{id}`
-  - `{api_root}/collections/all_properties/items/{id}`
+  - `{api_root}/collections/{propertyCollectionId}/items/{id}`
 
-part:: The server MAY also implement support for CREATE, REPLACE and DELETE operations in other `Properties` collections.
+part:: The parameter `propertyCollectionId` SHALL correspond to the `id` property of a `Property` resource collection.
 ====
 
 
 === Custom Collections
 
-This clause defines the expected behavior of the server when Resource Collections and Feature Collections other than the root collections are exposed by the server (this causes the same resource to be accessible via multiple collections simultaneously).
+This clause defines the expected behavior of the server when Resource Collections other than the root collections are exposed by the server (this causes the same resource to be accessible via multiple collections simultaneously).
 
 [requirement,model=ogc]
 ====
 [%metadata]
 identifier:: /req/create-replace-delete/create-in-collection
 
-part:: When a resource defined in this standard is successfully created by the server at any endpoint, the server SHALL always make it available in the root collection for the resource type.
+part:: When a resource defined in this standard is successfully created by the server at any endpoint, the server SHALL always make it available in the root collection corresponding to the resource type.
 ====
 
 [requirement,model=ogc]
@@ -213,6 +215,4 @@ part:: The `Content-Type` header of the request SHALL be set to `text/uri-list`.
 part:: The body of the POST request SHALL contain the list of URIs of resources that need to be added to the collection, formatted with one URI per line (see https://www.iana.org/assignments/media-types/text/uri-list).
 
 part:: All URIs included in the content body SHALL be canonical URLs or unique identifiers (UID) of resources available at the same API endpoint.
-
-part:: The server MAY also allow creation of resources directly inside a custom collection (i.e. by POSTING the full resource representation to the collection endpoint). In this case, the resource is ingested and must also bed added in the root collection for this resource type.
 ====

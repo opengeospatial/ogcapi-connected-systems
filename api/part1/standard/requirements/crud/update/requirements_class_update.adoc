@@ -7,10 +7,9 @@ subject:: Web API
 inherit:: /req/create-replace-delete
 inherit:: http://www.opengis.net/spec/ogcapi-features-4/1.0/req/update[^]
 requirement:: /req/update/system
-requirement:: /req/update/subsystem
 requirement:: /req/update/procedure
 requirement:: /req/update/deployment
-requirement:: /req/update/deployed-systems
+requirement:: /req/update/deployed-system
 requirement:: /req/update/sampling-feature
 requirement:: /req/update/property
 ====
