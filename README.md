@@ -38,7 +38,7 @@ Part 1 - Feature Resources ([Current Draft Preview](https://docs.ogc.org/DRAFTS/
 - Subsystems / Components
 - Property Definitions (semantical information for observed properties, controlled properties and system properties)
 
-Part 2 - Dynamic Data ([Current Draft Preview](https://opengeospatial.github.io/ogcapi-connected-systems/api/part2/standard/23-002r0.html), [OpenAPI Docs](https://opengeospatial.github.io/ogcapi-connected-systems/redoc/?url=../api/part2/openapi/openapi-connectedsystems-2.yaml))
+Part 2 - Dynamic Data ([Current Draft Preview](https://docs.ogc.org/DRAFTS/23-002r0.html), [OpenAPI Docs](https://opengeospatial.github.io/ogcapi-connected-systems/redoc/?url=../api/part2/openapi/openapi-connectedsystems-2.yaml))
 - Dynamic Feature Properties
 - Data Streams
 - Observations
