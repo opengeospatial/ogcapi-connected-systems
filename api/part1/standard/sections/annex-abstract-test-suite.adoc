@@ -90,7 +90,7 @@ test-purpose:: Validate that the server correctly filters features when the `dat
 
 test-method:: For each collection advertised by the server:
 step::: Retrieve the temporal extent of the collection.
-step::: Execute the Date/Time parameter test of {ogcapi-features-spec-url}/conf/core/fc-time-response, using the `validTime` property of the features in the response as the temporal geometry.
+step::: Execute the Date/Time parameter test of {ogcapi-features-1-spec-url}/conf/core/fc-time-response, using the `validTime` property of the features in the response as the temporal geometry.
 ====
 
 
@@ -114,7 +114,7 @@ target:: /req/system/location-time
 
 test-purpose:: Validate that the server updates the system location according to the `datetime` parameter.
 
-test-method:: Given the ID `sysId` of a mobile system that is known to change location between time instants `t1` and `t2`)
+test-method:: Given the ID `sysId` of a mobile system that is known to change location between time instants `t1` and `t2`.
 step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}` with the `datetime` query parameter set to `t1`.
 step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}` with the `datetime` query parameter set to `t2`.
 step::: Verify that the locations reported in the two responses are different.
@@ -583,7 +583,7 @@ target:: /req/advanced-filtering/id-list-schema
 
 test-purpose:: Validate that query parameters of type `ID List` are constructed correctly.
 
-test-method:: Validate that the parameter is a list of string values.
+test-method:: Validate that the parameter is a comma separated list of string values.
 ====
 
 [abstract_test]
@@ -595,9 +595,8 @@ target:: /req/advanced-filtering/resource-by-id
 test-purpose:: Validate that the `id` query parameter is processed correctly.
 
 test-method:: For every root collection:
-step::: Generate an `id` parameter set to a list of local resource IDs.
-step::: Validate it with test xref:/conf/advanced-filtering/id-list-schema[style=id%].
-step::: Issue an HTTP GET request at the root collection URL with the `id` parameter in the query string.
+step::: Generate an `id` parameter set to a list of resource IDs (see test xref:/conf/advanced-filtering/id-list-schema[style=id%]).
+step::: Issue an HTTP GET request at the root collection URL with the previously generated `id` parameter in the query string.
 step::: Validate that a document was returned with a status code 200.
 step::: Validate that the returned collection only includes the resources with the selected identifiers.
 step::: Repeat the previous steps with an `id` parameter containing a list of UIDs.
@@ -615,23 +614,25 @@ test-method:: For every root collection:
 step::: Generate a `q` parameter set to a list of keywords, as specified by the provided OpenAPI 3.0 schema.
 step::: Issue an HTTP GET request at the root collection URL with the `q` parameter in the query string.
 step::: Validate that a document was returned with a status code 200.
-step::: Validate that the returned collection only includes resources with plain text contents that include the keyword.
+step::: Validate that the returned collection only includes resources with plain text content that includes the keyword.
 ====
 
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/advanced-filtering/features-by-geom
-target:: /req/advanced-filtering/features-by-geom
+identifier:: /conf/advanced-filtering/feature-by-geom
+target:: /req/advanced-filtering/feature-by-geom
 
 test-purpose:: Validate that the `geom` query parameter is processed correctly.
 
-test-method:: For every root feature collection:
+test-method:: For each of the `systems`, `deployments` and `samplingFeatures` root collections:
 step::: Generate a `geom` parameter set to a WKT geometry conforming to the provided OpenAPI 3.0 schema.
 step::: Issue an HTTP GET request at the root collection URL with the `geom` parameter in the query string.
 step::: Validate that a document was returned with a status code 200.
 step::: Validate that the returned collection only includes resources with a geometry intersecting the provided geometry.
 ====
+
+// Systems
 
 [abstract_test]
 ====
@@ -642,12 +643,13 @@ target:: /req/advanced-filtering/system-by-parent
 test-purpose:: Validate that the `parent` query parameter is processed correctly.
 
 test-method::
-step::: Generate a `parent` parameter with the value set to a list of local resource IDs and validate it with test xref:/conf/advanced-filtering/id-list-schema[style=id%].
-step::: Issue an HTTP GET request at URL `{api_root}/systems` the root collection URL with the `id` parameter in the query string.
-step::: Validate that a document was returned with a status code 200.
-step::: Validate that the returned collection only includes the resources with the selected identifiers.
-step::: Repeat the previous steps with an `id` parameter containing a list of UIDs.
-
+step::: Issue an HTTP GET request at URL `{api_root}/systems?parent={idList}` where `{idList}` is a list of one or more local IDs of `System` resources. +
+See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
+step::: Validate the response using the steps described in test xref:/conf/system/canonical-collection[style=id%].
+step::: For each `System` resource in the returned collection:
+step:::: Follow the `parentSystem` association to retrieve the parent system description.
+step:::: Verify that the system has one of the identifiers included in `{idList}`.
+step::: Repeat the previous steps with the `parent` parameter set to a list of one or more UIDs of `System` resources..
 ====
 
 [abstract_test]
@@ -656,10 +658,16 @@ step::: Repeat the previous steps with an `id` parameter containing a list of UI
 identifier:: /conf/advanced-filtering/system-by-procedure
 target:: /req/advanced-filtering/system-by-procedure
 
-test-purpose:: ...
+test-purpose:: Validate that the `procedure` query parameter is processed correctly.
 
-test-method:: 
-
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/systems?procedure={idList}` where `{idList}` is a list of one or more local IDs of `Procedure` resources. +
+See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
+step::: Validate the response using the steps described in test xref:/conf/system/canonical-collection[style=id%].
+step::: For each `System` resource in the returned collection:
+step:::: Follow the `procedure` association to retrieve the procedure description.
+step:::: Verify that the procedure has one of the identifiers included in `{idList}`.
+step::: Repeat the previous steps with the `procedure` parameter set to a list of one or more UIDs of `Procedure` resources.
 ====
 
 [abstract_test]
@@ -668,10 +676,18 @@ test-method::
 identifier:: /conf/advanced-filtering/system-by-foi
 target:: /req/advanced-filtering/system-by-foi
 
-test-purpose:: ...
+test-purpose:: Validate that the `foi` query parameter is processed correctly.
 
-test-method:: 
-
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/systems?foi={idList}` where `{idList}` is a list of one or more local IDs of `Feature` resources. +
+See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
+step::: Validate the response using the steps described in test xref:/conf/system/canonical-collection[style=id%].
+step::: For each `System` resource in the returned collection:
+step:::: Retrieve the system's sampling features by issuing an HTTP GET request at `{systemCanonicalUrl}/samplingFeatures?recursive=true`.
+step:::: For each `Sampling Feature` resource in the returned collection:
+step::::: Follow the `sampledFeature` links to retrieve the target features, recursively. If a link does not resolve or the link media type is not supported by the testing engine, use the link target as the identifier of the feature.
+step:::: Verify that at least one of the collected features has one of the identifiers included in `{idList}`.
+step::: Repeat the previous steps with the `foi` parameter set to a list of one or more UIDs of `Feature` resources.
 ====
 
 [abstract_test]
@@ -680,10 +696,17 @@ test-method::
 identifier:: /conf/advanced-filtering/system-by-obsprop
 target:: /req/advanced-filtering/system-by-obsprop
 
-test-purpose:: ...
+test-purpose:: Validate that the `observedProperty` query parameter is processed correctly.
 
-test-method:: 
-
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/systems?observedProperty={idList}` where `{idList}` is a list of one or more local IDs of `Property` resources. +
+See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
+step::: Validate the response using the steps described in test xref:/conf/system/canonical-collection[style=id%].
+step::: For each `System` resource in the returned collection:
+step:::: Retrieve all its nested subsystems by issuing an HTTP GET request at `{systemCanonicalUrl}/components?recursive=true`.
+step:::: Retrieve all observed properties referenced by the main system or one of its subsystems.
+step:::: Verify that at least one of the collected properties has one of the identifiers included in `{idList}`.
+step::: Repeat the previous steps with the `observedProperty` parameter set to a list of one or more URIs of `Property` resources.
 ====
 
 [abstract_test]
@@ -692,23 +715,20 @@ test-method::
 identifier:: /conf/advanced-filtering/system-by-controlprop
 target:: /req/advanced-filtering/system-by-controlprop
 
-test-purpose:: ...
+test-purpose:: Validate that the `controlledProperty` query parameter is processed correctly.
 
-test-method:: 
-
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/systems?controlledProperty={idList}` where `{idList}` is a list of one or more local IDs of `Property` resources. +
+See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
+step::: Validate the response using the steps described in test xref:/conf/system/canonical-collection[style=id%].
+step::: For each `System` resource in the returned collection:
+step:::: Retrieve all its nested subsystems by issuing an HTTP GET request at `{systemCanonicalUrl}/components?recursive=true`.
+step:::: Retrieve all controlled properties referenced by the main system or one of its subsystems.
+step:::: Verify that at least one of the collected properties has one of the identifiers included in `{idList}`.
+step::: Repeat the previous steps with the `controlledProperty` parameter set to a list of one or more URIs of `Property` resources.
 ====
 
-[abstract_test]
-====
-[%metadata]
-identifier:: /conf/advanced-filtering/procedure-by-foi
-target:: /req/advanced-filtering/procedure-by-foi
-
-test-purpose:: ...
-
-test-method:: 
-
-====
+// Procedures
 
 [abstract_test]
 ====
@@ -716,10 +736,16 @@ test-method::
 identifier:: /conf/advanced-filtering/procedure-by-obsprop
 target:: /req/advanced-filtering/procedure-by-obsprop
 
-test-purpose:: ...
+test-purpose:: Validate that the `observedProperty` query parameter is processed correctly.
 
-test-method:: 
-
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/procedures?observedProperty={idList}` where `{idList}` is a list of one or more local IDs of `Property` resources. +
+See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
+step::: Validate the response using the steps described in test xref:/conf/procedure/canonical-collection[style=id%].
+step::: For each `Procedure` resource in the returned collection:
+step:::: Retrieve all observed properties referenced by the procedure description.
+step:::: Verify that at least one of the collected properties has one of the identifiers included in `{idList}`.
+step::: Repeat the previous steps with the `observedProperty` parameter set to a list of one or more URIs of `Property` resources.
 ====
 
 [abstract_test]
@@ -728,11 +754,19 @@ test-method::
 identifier:: /conf/advanced-filtering/procedure-by-controlprop
 target:: /req/advanced-filtering/procedure-by-controlprop
 
-test-purpose:: ...
+test-purpose:: Validate that the `controlledProperty` query parameter is processed correctly.
 
-test-method:: 
-
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/procedures?controlledProperty={idList}` where `{idList}` is a list of one or more local IDs of `Property` resources. +
+See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
+step::: Validate the response using the steps described in test xref:/conf/procedure/canonical-collection[style=id%].
+step::: For each `Procedure` resource in the returned collection:
+step:::: Retrieve all controlled properties referenced by the procedure description.
+step:::: Verify that at least one of the collected properties has one of the identifiers included in `{idList}`.
+step::: Repeat the previous steps with the `controlledProperty` parameter set to a list of one or more URIs of `Property` resources.
 ====
+
+// Deployments
 
 [abstract_test]
 ====
@@ -740,10 +774,16 @@ test-method::
 identifier:: /conf/advanced-filtering/deployment-by-system
 target:: /req/advanced-filtering/deployment-by-system
 
-test-purpose:: ...
+test-purpose:: Validate that the `system` query parameter is processed correctly.
 
-test-method:: 
-
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/deployments?system={idList}` where `{idList}` is a list of one or more local IDs of `System` resources. +
+See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
+step::: Validate the response using the steps described in test xref:/conf/deployment/canonical-collection[style=id%].
+step::: For each `Deployment` resource in the returned collection:
+step:::: Retrieve all deployed systems by issuing an HTTP GET request at `{deploymentCanonicalUrl}/deployedSystems?recursive=true`.
+step:::: Verify that at least one of the systems has one of the identifiers included in `{idList}`.
+step::: Repeat the previous steps with the `foi` parameter set to a list of one or more UIDs of `System` resources.
 ====
 
 [abstract_test]
@@ -752,10 +792,16 @@ test-method::
 identifier:: /conf/advanced-filtering/deployment-by-foi
 target:: /req/advanced-filtering/deployment-by-foi
 
-test-purpose:: ...
+test-purpose:: Validate that the `foi` query parameter is processed correctly.
 
-test-method:: 
-
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/deployments?foi={idList}` where `{idList}` is a list of one or more local IDs of `Feature` resources. +
+See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
+step::: Validate the response using the steps described in test xref:/conf/deployment/canonical-collection[style=id%].
+step::: For each `Deployment` resource in the returned collection:
+step:::: Retrieve the deployment's features of interest by issuing an HTTP GET request at `{deploymentCanonicalUrl}/featuresOfInterest`
+step:::: Verify that at least one of the features has one of the identifiers included in `{idList}`.
+step::: Repeat the previous steps with the `foi` parameter set to a list of one or more UIDs of `Feature` resources.
 ====
 
 [abstract_test]
@@ -764,10 +810,19 @@ test-method::
 identifier:: /conf/advanced-filtering/deployment-by-obsprop
 target:: /req/advanced-filtering/deployment-by-obsprop
 
-test-purpose:: ...
+test-purpose:: Validate that the `observedProperty` query parameter is processed correctly.
 
-test-method:: 
-
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/deployments?observedProperty={idList}` where `{idList}` is a list of one or more local IDs of `Property` resources. +
+See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
+step::: Validate the response using the steps described in test xref:/conf/deployment/canonical-collection[style=id%].
+step::: For each `Deployment` resource in the returned collection:
+step:::: Retrieve all deployed systems by issuing an HTTP GET request at `{deploymentCanonicalUrl}/deployedSystems?recursive=true`.
+step:::: For each `Deployed System` resource in the returned collection:
+         . Retrieve the system description by following the system association link.
+         . Collect all observed properties referenced by the system description.
+step:::: Verify that at least one of the collected properties has one of the identifiers included in `{idList}`.
+step::: Repeat the previous steps with the `observedProperty` parameter set to a list of one or more URIs of `Property` resources.
 ====
 
 [abstract_test]
@@ -776,11 +831,22 @@ test-method::
 identifier:: /conf/advanced-filtering/deployment-by-controlprop
 target:: /req/advanced-filtering/deployment-by-controlprop
 
-test-purpose:: ...
+test-purpose:: Validate that the `controlledProperty` query parameter is processed correctly.
 
-test-method:: 
-
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/deployments?controlledProperty={idList}` where `{idList}` is a list of one or more local IDs of `Property` resources. +
+See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
+step::: Validate the response using the steps described in test xref:/conf/deployment/canonical-collection[style=id%].
+step::: For each `Deployment` resource in the returned collection:
+step:::: Retrieve all deployed systems by issuing an HTTP GET request at `{deploymentCanonicalUrl}/deployedSystems?recursive=true`.
+step:::: For each `Deployed System` resource in the returned collection:
+         . Retrieve the system description by following the system association link.
+         . Collect all controlled properties referenced by the system description.
+step:::: Verify that at least one of the collected properties has one of the identifiers included in `{idList}`.
+step::: Repeat the previous steps with the `controlledProperty` parameter set to a list of one or more URIs of `Property` resources.
 ====
+
+// Sampling Features
 
 [abstract_test]
 ====
@@ -788,10 +854,16 @@ test-method::
 identifier:: /conf/advanced-filtering/sf-by-foi
 target:: /req/advanced-filtering/sf-by-foi
 
-test-purpose:: ...
+test-purpose:: Validate that the `foi` query parameter is processed correctly.
 
 test-method:: 
-
+step::: Issue an HTTP GET request at URL `{api_root}/samplingFeatures?foi={idList}` where `{idList}` is a list of one or more local IDs of `Feature` resources. +
+See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
+step::: Validate the response using the steps described in test xref:/conf/sampling/canonical-collection[style=id%].
+step::: For each `Sampling Feature` resource in the returned collection:
+step:::: Follow the `sampledFeature` links to collect the target features, recursively. If a link does not resolve or the link media type is not supported by the testing engine, use the link target as the identifier of the feature.
+step::: Verify that at least one of the collected features has one of the identifiers included in `{idList}`.
+step::: Repeat the previous steps with the `foi` parameter set to a list of one or more UIDs of `Feature` resources.
 ====
 
 [abstract_test]
@@ -818,16 +890,24 @@ test-method::
 
 ====
 
+// Properties
+
 [abstract_test]
 ====
 [%metadata]
 identifier:: /conf/advanced-filtering/prop-by-baseprop
 target:: /req/advanced-filtering/prop-by-baseprop
 
-test-purpose:: ...
+test-purpose:: Validate that the `baseProperty` query parameter is processed correctly.
 
 test-method:: 
-
+step::: Issue an HTTP GET request at URL `{api_root}/properties?baseProperty={idList}` where `{idList}` is a list of one or more local IDs of `Property` resources. +
+See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
+step::: Validate the response using the steps described in test xref:/conf/property/canonical-collection[style=id%].
+step::: For each `Property` resource in the returned collection:
+step:::: Follow the `baseProperty` links to collect the base property, recursively. If a link does not resolve or the link media type is not supported by the testing engine, use the link target as the identifier of the property.
+step::: Verify that at least one of the collected properties has one of the identifiers included in `{idList}`.
+step::: Repeat the previous steps with the `baseProperty` parameter set to a list of one or more UIDs of `Property` resources.
 ====
 
 [abstract_test]
@@ -836,22 +916,13 @@ test-method::
 identifier:: /conf/advanced-filtering/prop-by-object
 target:: /req/advanced-filtering/prop-by-object
 
-test-purpose:: ...
+test-purpose:: Validate that the `objectType` query parameter is processed correctly.
 
 test-method:: 
-
-====
-
-[abstract_test]
-====
-[%metadata]
-identifier:: /conf/advanced-filtering/prop-by-foi
-target:: /req/advanced-filtering/prop-by-foi
-
-test-purpose:: ...
-
-test-method:: 
-
+step::: Issue an HTTP GET request at URL `{api_root}/properties?objectType={uriList}` where `{uriList}` is a list of one or more URIs of feature/object types. +
+See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
+step::: Validate the response using the steps described in test xref:/conf/property/canonical-collection[style=id%].
+step::: Verify that each `Property` resource in the result set has its `objectType` property set to one of the URIs included in `{uriList}`.
 ====
 
 [abstract_test]
@@ -860,10 +931,11 @@ test-method::
 identifier:: /conf/advanced-filtering/combined-filters
 target:: /req/advanced-filtering/combined-filters
 
-test-purpose:: ...
+test-purpose:: Validate that the server correctly implements a logical AND between query filters.
 
-test-method:: 
-
+test-method:: For each root collection: 
+step::: Issue HTTP GET requests at the root collection URL with different combinations of query parameters that are available for this resource type.
+step::: Verify that each resource in the result set passes the checks described in the test corresponding to each filter.
 ====
 
 
@@ -886,10 +958,16 @@ classification:: Target Type:Web API
 identifier:: /conf/create-replace-delete/system
 target:: /req/create-replace-delete/system
 
-test-purpose:: ...
+test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operations correctly on `System` collections.
 
-test-method:: 
-
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
+step:::: For the `System` root collection:
+         - Resources endpoint `{api_root}/systems` (for CREATE)
+         - Resource endpoint `{api_root}/systems/{id}` (for REPLACE and DELETE)
+step:::: For each `System` Feature Collection advertised by the server:
+         - Resources endpoint `{api_root}/collections/{systemCollectionId}/items` (for CREATE)
+         - Resource endpoint `{api_root}/collections/{systemCollectionId}/items/{id}` (for REPLACE and DELETE)
 ====
 
 [abstract_test]
@@ -898,10 +976,20 @@ test-method::
 identifier:: /conf/create-replace-delete/system-delete-cascade
 target:: /req/create-replace-delete/system-delete-cascade
 
-test-purpose:: ...
+test-purpose:: Validate that the server implements the `cascade` query parameter correctly.
 
 test-method:: 
+step::: Given a `System` resource with ID `sysId` that has sub-resources:
+step:::: Issue an HTTP DELETE request at URL `{api_root}/systems/{sysId}?cascade=false`.
+step:::: Verify that the server responds with an error code 409.
+step:::: Issue an HTTP DELETE request at URL `{api_root}/systems/{sysId}?cascade=true`.
+step:::: Verify that the system and all its sub-resources have been deleted.
 
+step::: Given a `System` resource with ID `sysId` that is referenced by a `Deployed System` resource:
+step:::: Issue an HTTP DELETE request at URL `{api_root}/systems/{sysId}?cascade=false`.
+step:::: Verify that the server responds with an error code 409.
+step:::: Issue an HTTP DELETE request at URL `{api_root}/systems/{sysId}?cascade=true`.
+step:::: Verify that the server responds with an error code 409.
 ====
 
 [abstract_test]
@@ -910,10 +998,12 @@ test-method::
 identifier:: /conf/create-replace-delete/subsystem
 target:: /req/create-replace-delete/subsystem
 
-test-purpose:: ...
+test-purpose:: Validate that the server implements the CREATE operation correctly on subsystem collections.
 
-test-method:: 
-
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
+step:::: For each subsystem collection nested in a parent system:
+         - Resources endpoint `{api_root}/systems/{sysId}/components` (for CREATE)
 ====
 
 [abstract_test]
@@ -922,10 +1012,16 @@ test-method::
 identifier:: /conf/create-replace-delete/procedure
 target:: /req/create-replace-delete/procedure
 
-test-purpose:: ...
+test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operations correctly on `Procedure` collections.
 
-test-method:: 
-
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
+step:::: For the `Procedure` root collection:
+         - Resources endpoint `{api_root}/procedures` (for CREATE)
+         - Resource endpoint `{api_root}/procedures/{id}` (for REPLACE and DELETE)
+step:::: For each `Procedure` feature collection advertised by the server:
+         - Resources endpoint `{api_root}/collections/{procedureCollectionId}/items` (for CREATE)
+         - Resource endpoint `{api_root}/collections/{procedureCollectionId}/items/{id}` (for REPLACE and DELETE)
 ====
 
 [abstract_test]
@@ -934,10 +1030,16 @@ test-method::
 identifier:: /conf/create-replace-delete/deployment
 target:: /req/create-replace-delete/deployment
 
-test-purpose:: ...
+test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operations correctly on `Deployment` collections.
 
-test-method:: 
-
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
+step:::: For the `Deployment` root collection:
+         - Resources endpoint `{api_root}/deployments` (for CREATE)
+         - Resource endpoint `{api_root}/deployments/{id}` (for REPLACE and DELETE)
+step:::: For each `Deployment` feature collection advertised by the server:
+         - Resources endpoint `{api_root}/collections/{deploymentCollectionId}/items` (for CREATE)
+         - Resource endpoint `{api_root}/collections/{deploymentCollectionId}/items/{id}` (for REPLACE and DELETE)
 ====
 
 [abstract_test]
@@ -946,10 +1048,13 @@ test-method::
 identifier:: /conf/create-replace-delete/deployed-system
 target:: /req/create-replace-delete/deployed-system
 
-test-purpose:: ...
+test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operations correctly on `Deployed System` collections.
 
-test-method:: 
-
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
+step:::: For each `Deployed System` collection nested in a deployment:
+         - Resources endpoint `{api_root}/deployments/{depId}/deployedSystems` (for CREATE)
+         - Resource endpoint `{api_root}/deployments/{depId}/deployedSystems/{id}` (for REPLACE and DELETE)
 ====
 
 [abstract_test]
@@ -958,10 +1063,16 @@ test-method::
 identifier:: /conf/create-replace-delete/sampling-feature
 target:: /req/create-replace-delete/sampling-feature
 
-test-purpose:: ...
+test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operations correctly on `Sampling Feature` collections.
 
-test-method:: 
-
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
+step:::: For the `Sampling Feature` root collection:
+         - Resources endpoint `{api_root}/samplingFeatures` (for CREATE)
+         - Resource endpoint `{api_root}/samplingFeatures/{id}` (for REPLACE and DELETE)
+step:::: For each `Sampling Feature` collection advertised by the server:
+         - Resources endpoint `{api_root}/collections/{sfCollectionId}/items` (for CREATE)
+         - Resource endpoint `{api_root}/collections/{sfCollectionId}/items/{id}` (for REPLACE and DELETE)
 ====
 
 [abstract_test]
@@ -970,10 +1081,16 @@ test-method::
 identifier:: /conf/create-replace-delete/property
 target:: /req/create-replace-delete/property
 
-test-purpose:: ...
+test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operations correctly on `Property` collections.
 
-test-method:: 
-
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
+step:::: For the `Property` root collection:
+         - Resources endpoint `{api_root}/properties` (for CREATE)
+         - Resource endpoint `{api_root}/properties/{id}` (for REPLACE and DELETE)
+step:::: For each `Property` resource collection advertised by the server:
+         - Resources endpoint `{api_root}/collections/{propertyCollectionId}/items` (for CREATE)
+         - Resource endpoint `{api_root}/collections/{propertyCollectionId}/items/{id}` (for REPLACE and DELETE)
 ====
 
 [abstract_test]

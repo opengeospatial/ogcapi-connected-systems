@@ -58,7 +58,8 @@
 :sensorml-property-schema: link:{sensorml-schema-root}/property.json[property.json]
 :sensorml-property-collection-schema: link:{sensorml-schema-root}/propertyCollection.json[propertyCollection.json]
 //
-:ogcapi-features-spec-url: http://www.opengis.net/spec/ogcapi-features-1/1.0
+:ogcapi-features-1-spec-url: http://www.opengis.net/spec/ogcapi-features-1/1.0
+:ogcapi-features-4-spec-url: http://www.opengis.net/spec/ogcapi-features-4/1.0
 
 
 ////
