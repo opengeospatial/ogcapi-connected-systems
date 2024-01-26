@@ -30,7 +30,7 @@ The API is intended to act as a bridge between static data (geographic and other
 
 The proposed API Standard consists of the following parts:
 
-Part 1 - Feature Resources ([Current Draft Preview](https://opengeospatial.github.io/ogcapi-connected-systems/api/part1/standard/23-001r0.html), [OpenAPI Docs](https://opengeospatial.github.io/ogcapi-connected-systems/redoc/?url=../api/part1/openapi/openapi-connectedsystems-1.yaml))
+Part 1 - Feature Resources ([Current Draft Preview](https://docs.ogc.org/DRAFTS/23-001r0.html), [OpenAPI Docs](https://opengeospatial.github.io/ogcapi-connected-systems/redoc/?url=../api/part1/openapi/openapi-connectedsystems-1.yaml))
 - Systems (metadata of sensors, actuators, platforms, simulations, etc.)
 - Procedures (metadata of procedures implemented by system, which includes automated system specs/datasheets and human driven activities)
 - Deployments (metadata of system deployments)
