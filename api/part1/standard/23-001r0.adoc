@@ -28,8 +28,8 @@
 :ogcapi-features-4: <<OGCAPI-Features-4, OGC API - Features - Part 4>>
 :ogc-w3c-ssn: <<SOSA-SSN, Semantic Sensor Network Ontology (SOSA/SSN)>>
 //
-//:jsonschema-root: https://raw.githubusercontent.com/opengeospatial/connected-systems/master/api/part1/openapi/schemas
-:jsonschema-root: ../openapi/schemas
+:jsonschema-root: https://opengeospatial.github.io/ogcapi-connected-systems/api/part1/openapi/schemas
+//:jsonschema-root: ../openapi/schemas
 :add-byref-schema: link:{jsonschema-root}/common/links.json[links.json]
 :batch-response-schema: link:{jsonschema-root}/common/batch_response.json[batch_response.json]
 :batch-delete-schema: link:{jsonschema-root}/common/batch_delete.json[batch_delete.json]
