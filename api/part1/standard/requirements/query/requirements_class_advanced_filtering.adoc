@@ -15,7 +15,7 @@ requirement:: /req/advanced-filtering/system-by-procedure
 requirement:: /req/advanced-filtering/system-by-foi
 requirement:: /req/advanced-filtering/system-by-obsprop
 requirement:: /req/advanced-filtering/system-by-controlprop
-requirement:: /req/advanced-filtering/procedure-by-foi
+//requirement:: /req/advanced-filtering/procedure-by-foi
 requirement:: /req/advanced-filtering/procedure-by-obsprop
 requirement:: /req/advanced-filtering/procedure-by-controlprop
 requirement:: /req/advanced-filtering/deployment-by-system
@@ -27,6 +27,6 @@ requirement:: /req/advanced-filtering/sf-by-obsprop
 requirement:: /req/advanced-filtering/sf-by-controlprop
 requirement:: /req/advanced-filtering/prop-by-baseprop
 requirement:: /req/advanced-filtering/prop-by-object
-requirement:: /req/advanced-filtering/prop-by-foi
+//requirement:: /req/advanced-filtering/prop-by-foi
 requirement:: /req/advanced-filtering/combined-filters
 ====
