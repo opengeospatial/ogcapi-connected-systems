@@ -1,7 +1,7 @@
 {
   "type": "PhysicalSystem",
   "id": "INS001",
-  "definition": "http://www.w3.org/ns/sosa/oms/ObservingProcedure",
+  "definition": "http://www.w3.org/ns/sosa/ObservingProcedure",
   "uniqueId": "urn:x-vectornav:sensor:vn200",
   "label": "VectorNav VN-200",
   "description": "Datasheet of VN-200 GNSS-aided inertial navigation system",
