@@ -9,13 +9,23 @@
     "uid": "urn:x-noaa:npn:HWPA2:spf",
     "name": "Homer Wind Profiler Beam 1",
     "featureType": "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/SamplingProfile",
+    "parentSystem@link": {
+      "href": "https://data.example.org/api/systems/72562?f=json",
+      "type": "application/geo+json",
+      "title": "Homer Wind Profiler"
+    },
     "sampledFeature@link": {
       "href": "http://dbpedia.org/resource/Atmosphere_of_Earth",
       "type" : "text/html",
       "title": "Atmosphere"
     },
     "pose": {
-      "ltpReferenceFrame": "http://www.opengis.net/def/cs/OGC/0/NED",
+      "referenceFrame": "http://www.opengis.net/def/cs/OGC/0/NED",
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
       "angles": {
         "yaw": 0.0,
         "pitch": 0.0,

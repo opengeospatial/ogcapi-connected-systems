@@ -10,6 +10,11 @@
     "name": "Camera Viewing Frustum",
     "description": "Viewing frustum of fixed camera",
     "featureType": "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/ViewingFrustum",
+    "parentSystem@link": {
+      "href": "https://data.example.org/api/systems/751588?f=json",
+      "type": "application/geo+json",
+      "title": "Traffic Camera 456"
+    },
     "sampledFeature@link": {
       "href": "https://data.example.org/api/collections/roads/PIE12",
       "type" : "application/geo+json",

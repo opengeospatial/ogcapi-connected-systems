@@ -12,10 +12,15 @@
     "featureType": "http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_Specimen",
     "samplingTime": "2007-01-24T12:14:50Z",
     "materialClass": "http://www.opengis.net/def/material/OGC-OM/2.0/rock",
+    "parentSystem@link": {
+      "href": "https://data.example.org/api/systems/2ad45f69?f=json",
+      "type" : "application/geo+json",
+      "title": "Field Technician #123 (Rock Sampler)"
+    },
     "sampledFeature@link": {
       "href": "https://api.usgs.gov/collections/geological_features/items/1458955?f=json",
-      "title": "Geological Unit 235",
-      "type" : "application/geo+json"
+      "type" : "application/geo+json",
+      "title": "Geological Unit 235"
     }
   }
 }

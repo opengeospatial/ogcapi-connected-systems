@@ -7,6 +7,11 @@
     "name": "Water Sampling Point",
     "description": "Sampling point for the CTD measurements",
     "featureType": "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/SamplingPointXYZ",
+    "parentSystem@link": {
+      "href": "https://data.example.org/api/systems/fs4g5sd6?f=json",
+      "type" : "application/geo+json",
+      "title": "CTD Sensor"
+    },
     "sampledFeature@link": {
       "href": "http://dbpedia.org/resource/Seawater",
       "type" : "text/html",
@@ -18,6 +23,11 @@
         "x": 0.0,
         "y": 0.0,
         "z": -0.5
+      },
+      "angles": {
+        "yaw": 0,
+        "pitch": 0,
+        "roll": 0
       }
     }
   }

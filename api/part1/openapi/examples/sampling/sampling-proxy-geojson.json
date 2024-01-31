@@ -6,10 +6,14 @@
     "uid": "urn:x-ogc:sf:456",
     "name": "Pan-Island Expressway",
     "featureType": "Road",
-    "sampledFeature@link": {
-      "href": "https://data.example.org/api/systems/8624d054?f=json",
+    "parentSystem@link": {
+      "href": "https://data.example.org/api/systems/447845?f=json",
       "type" : "application/geo+json",
-      "uid": "urn:x-ogc:systems:robot445"
+      "title": "Traffic Camera RT123"
+    },
+    "sampledFeature@link": {
+      "href": "https://ext.features.org/api/collections/roads/EW145?f=json",
+      "type" : "application/geo+json"
     }
   }
 }

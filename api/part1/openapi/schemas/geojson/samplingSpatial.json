@@ -3,18 +3,25 @@
   "allOf": [
     { "$ref": "samplingFeature.json" },
     {
-      "type": "object",
-      "required": [ "geometry" ],
-      "properties": {
-        "properties": {
+      "oneOf": [
+        {
           "type": "object",
           "properties": {
-            "validTime": {
-              "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
+            "geometry": {
+              "type": "object"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "properties": {
+              "type": "object",
+              "required": [ "pose" ]
             }
           }
         }
-      }
+      ]
     }
   ]
 }

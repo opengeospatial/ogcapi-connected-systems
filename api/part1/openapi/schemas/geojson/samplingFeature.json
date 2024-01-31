@@ -8,8 +8,14 @@
       "properties": {
         "properties": {
           "type": "object",
-          "required": [ "featureType", "sampledFeature@link" ],
+          "required": [ "featureType", "parentSystem@link", "sampledFeature@link" ],
           "properties": {
+            "validTime": {
+              "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
+            },
+            "parentSystem@link": {
+              "$ref": "../common/commonDefs.json#/definitions/Link"
+            },
             "sampledFeature@link": {
               "$ref": "../common/commonDefs.json#/definitions/Link"
             }

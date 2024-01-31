@@ -7,6 +7,11 @@
     "name": "Camera Viewing Frustum",
     "description": "Viewing frustum of camera attached to the boom",
     "featureType": "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/ViewingFrustum",
+    "parentSystem@link": {
+      "href": "https://data.example.org/api/systems/422381?f=json",
+      "type" : "application/geo+json",
+      "title": "Saildrone 1001"
+    },
     "sampledFeature@link": {
       "href": "http://dbpedia.org/resource/Atmosphere_of_Earth",
       "type" : "text/html",
