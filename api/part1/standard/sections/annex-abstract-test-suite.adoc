@@ -148,8 +148,8 @@ test-method::
 step::: Issue an HTTP GET request to the URL `{api_root}/systems`.
 step::: Validate that a document was returned with a status code 200.
 step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
-step:::: If the response content type is `application/geo+json`, execute test xref:/conf/geojson/system-schema[style=id%].
-step:::: If the response content type is `application/sml+json`, execute test xref:/conf/sensorml/system-schema[style=id%].
+step:::: If the response content type is `{geojson-mediatype}`, execute test xref:/conf/geojson/system-schema[style=id%].
+step:::: If the response content type is `{sensorml-json-mediatype}`, execute test xref:/conf/sensorml/system-schema[style=id%].
 step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
 ====
 
@@ -166,8 +166,8 @@ step::: Retrieve the collection items as described in test xref:/conf/api-common
 step::: Iterate through all items in the collection and retrieve their type.
 step::: Check that the reported type is one of the URI or CURIE listed in <<system-types>>.
 step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
-step:::: If the response content type is `application/geo+json`, execute test xref:/conf/geojson/system-schema[style=id%].
-step:::: If the response content type is `application/sml+json`, execute test xref:/conf/sensorml/system-schema[style=id%].
+step:::: If the response content type is `{geojson-mediatype}`, execute test xref:/conf/geojson/system-schema[style=id%].
+step:::: If the response content type is `{sensorml-json-mediatype}`, execute test xref:/conf/sensorml/system-schema[style=id%].
 step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
 ====
 
@@ -198,8 +198,8 @@ step::: Verify that the response contains a link with relation type `subsystems`
 step::: Verify that the link target is the URL `{api_root}/systems/{id}/components`.
 step::: Dereference this link and validate that a document is returned with a status code 200.
 step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
-step:::: If the response content type is `application/geo+json`, execute test xref:/conf/geojson/system-schema[style=id%].
-step:::: If the response content type is `application/sml+json`, execute test xref:/conf/sensorml/system-schema[style=id%].
+step:::: If the response content type is `{geojson-mediatype}`, execute test xref:/conf/geojson/system-schema[style=id%].
+step:::: If the response content type is `{sensorml-json-mediatype}`, execute test xref:/conf/sensorml/system-schema[style=id%].
 step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
 ====
 
@@ -326,8 +326,8 @@ test-method::
 step::: Issue an HTTP GET request to the URL `{api_root}/procedures`.
 step::: Iterate through the items of the response, following `next` links as appropriate.
 step::: For each item, check that no location is not provided.
-step:::: If the response content type is `application/geo+json`, check that the `geometry` member is set to `null`.
-step:::: If the response content type is `application/sml+json`, check that the `position` member is not present.
+step:::: If the response content type is `{geojson-mediatype}`, check that the `geometry` member is set to `null`.
+step:::: If the response content type is `{sensorml-json-mediatype}`, check that the `position` member is not present.
 step:::: For other response content types not supported by the testing engine, issue a warning and skip this test. 
 ====
 
@@ -359,8 +359,8 @@ test-method::
 step::: Issue an HTTP GET request to the URL `{api_root}/procedures`.
 step::: Validate that a document was returned with a status code 200.
 step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
-step:::: If the response content type is `application/geo+json`, execute test xref:/conf/geojson/procedure-schema[style=id%].
-step:::: If the response content type is `application/sml+json`, execute test xref:/conf/sensorml/procedure-schema[style=id%].
+step:::: If the response content type is `{geojson-mediatype}`, execute test xref:/conf/geojson/procedure-schema[style=id%].
+step:::: If the response content type is `{sensorml-json-mediatype}`, execute test xref:/conf/sensorml/procedure-schema[style=id%].
 step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
 ====
 
@@ -377,8 +377,8 @@ step::: Retrieve the collection items as described in test xref:/conf/api-common
 step::: Iterate through all items in the collection and retrieve their type.
 step::: Check that the reported type is one of the URI or CURIE listed in <<procedure-types>>.
 step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
-step:::: If the response content type is `application/geo+json`, execute test xref:/conf/geojson/procedure-schema[style=id%].
-step:::: If the response content type is `application/sml+json`, execute test xref:/conf/sensorml/procedure-schema[style=id%].
+step:::: If the response content type is `{geojson-mediatype}`, execute test xref:/conf/geojson/procedure-schema[style=id%].
+step:::: If the response content type is `{sensorml-json-mediatype}`, execute test xref:/conf/sensorml/procedure-schema[style=id%].
 step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
 ====
 
@@ -401,6 +401,8 @@ classification:: Target Type:Web API
 identifier:: /conf/deployment/canonical-url
 target:: /req/deployment/canonical-url
 
+test-purpose:: Validate that every `Deployment` resource is accessible via its canonical URL.
+
 test-method:: For every collection advertised by the server with the `featureType` property set to `ssn:Deployment`:
 step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
 step::: Iterate through all items in the collection, following `next` links as appropriate.
@@ -421,8 +423,8 @@ test-method::
 step::: Issue an HTTP GET request to the URL `{api_root}/deployments`.
 step::: Validate that a document was returned with a status code 200.
 step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
-step:::: If the response content type is `application/geo+json`, execute test xref:/conf/geojson/deployment-schema[style=id%].
-step:::: If the response content type is `application/sml+json`, execute test xref:/conf/sensorml/deployment-schema[style=id%].
+step:::: If the response content type is `{geojson-mediatype}`, execute test xref:/conf/geojson/deployment-schema[style=id%].
+step:::: If the response content type is `{sensorml-json-mediatype}`, execute test xref:/conf/sensorml/deployment-schema[style=id%].
 step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
 ====
 
@@ -439,8 +441,8 @@ step::: Retrieve the collection items as described in test xref:/conf/api-common
 step::: Iterate through all items in the collection and retrieve their type.
 step::: Check that the reported type is one of the URI or CURIE listed in <<deployment-types>>.
 step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
-step:::: If the response content type is `application/geo+json`, execute test xref:/conf/geojson/deployment-schema[style=id%].
-step:::: If the response content type is `application/sml+json`, execute test xref:/conf/sensorml/deployment-schema[style=id%].
+step:::: If the response content type is `{geojson-mediatype}`, execute test xref:/conf/geojson/deployment-schema[style=id%].
+step:::: If the response content type is `{sensorml-json-mediatype}`, execute test xref:/conf/sensorml/deployment-schema[style=id%].
 step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
 ====
 
@@ -463,6 +465,8 @@ classification:: Target Type:Web API
 identifier:: /conf/sampling/canonical-url
 target:: /req/sampling/canonical-url
 
+test-purpose:: Validate that every `Sampling Feature` resource is accessible via its canonical URL.
+
 test-method:: For every collection advertised by the server with the `featureType` property set to `sosa:Sample`:
 step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
 step::: Iterate through all items in the collection, following `next` links as appropriate.
@@ -483,7 +487,7 @@ test-method::
 step::: Issue an HTTP GET request to the URL `{api_root}/samplingFeatures`.
 step::: Validate that a document was returned with a status code 200.
 step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
-step:::: If the response content type is `application/geo+json`, execute test xref:/conf/geojson/sf-schema[style=id%].
+step:::: If the response content type is `{geojson-mediatype}`, execute test xref:/conf/geojson/sf-schema[style=id%].
 step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
 ====
 
@@ -498,7 +502,7 @@ test-purpose:: Validate that `Sampling Feature` collections are tagged with the 
 test-method:: For every collection advertised by the server with the `featureType` property set to `sosa:Sample`:
 step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
 step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
-step:::: If the response content type is `application/geo+json`, execute test xref:/conf/geojson/sf-schema[style=id%].
+step:::: If the response content type is `{geojson-mediatype}`, execute test xref:/conf/geojson/sf-schema[style=id%].
 step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
 ====
 
@@ -521,6 +525,8 @@ classification:: Target Type:Web API
 identifier:: /conf/property/canonical-url
 target:: /req/property/canonical-url
 
+test-purpose:: Validate that every `Property` resource is accessible via its canonical URL.
+
 test-method:: For every collection advertised by the server with the `itemType` property set to `ssn:Property`:
 step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
 step::: Iterate through all items in the collection, following `next` links as appropriate.
@@ -541,8 +547,8 @@ test-method::
 step::: Issue an HTTP GET request to the URL `{api_root}/properties`.
 step::: Validate that a document was returned with a status code 200.
 step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
-//step:::: If the response content type is `application/geo+json`, execute test xref:/conf/geojson/property-schema[style=id%].
-step:::: If the response content type is `application/sml+json`, execute test xref:/conf/sensorml/property-schema[style=id%].
+//step:::: If the response content type is `{geojson-mediatype}`, execute test xref:/conf/geojson/property-schema[style=id%].
+step:::: If the response content type is `{sensorml-json-mediatype}`, execute test xref:/conf/sensorml/property-schema[style=id%].
 step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
 ====
 
@@ -557,8 +563,8 @@ test-purpose:: Validate that `Property` collections are tagged with the proper i
 test-method:: For every collection advertised by the server with the `itemType` property set to `ssn:Property`:
 step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
 step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
-//step:::: If the response content type is `application/geo+json`, execute test xref:/conf/geojson/property-schema[style=id%].
-step:::: If the response content type is `application/sml+json`, execute test xref:/conf/sensorml/property-schema[style=id%].
+//step:::: If the response content type is `{geojson-mediatype}`, execute test xref:/conf/geojson/property-schema[style=id%].
+step:::: If the response content type is `{sensorml-json-mediatype}`, execute test xref:/conf/sensorml/property-schema[style=id%].
 step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
 ====
 
@@ -872,10 +878,16 @@ step::: Repeat the previous steps with the `foi` parameter set to a list of one 
 identifier:: /conf/advanced-filtering/sf-by-obsprop
 target:: /req/advanced-filtering/sf-by-obsprop
 
-test-purpose:: ...
+test-purpose:: Validate that the `observedProperty` query parameter is processed correctly.
 
 test-method:: 
-
+step::: Issue an HTTP GET request at URL `{api_root}/samplingFeatures?observedProperty={idList}` where `{idList}` is a list of one or more local IDs of `Property` resources. +
+See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
+step::: Validate the response using the steps described in test xref:/conf/sampling/canonical-collection[style=id%].
+step::: For each `Sampling Feature` resource in the returned collection:
+step:::: Follow the `datastreams` links to get the datastreams containing observations for this sampling feature.
+step:::: Verify that at least one of the datastreams has one or more of the observed properties included in `{idList}`.
+step::: Repeat the previous steps with the `observedProperty` parameter set to a list of one or more URIs of `Property` resources.
 ====
 
 [abstract_test]
@@ -884,10 +896,16 @@ test-method::
 identifier:: /conf/advanced-filtering/sf-by-controlprop
 target:: /req/advanced-filtering/sf-by-controlprop
 
-test-purpose:: ...
+test-purpose:: Validate that the `controlledProperty` query parameter is processed correctly.
 
 test-method:: 
-
+step::: Issue an HTTP GET request at URL `{api_root}/samplingFeatures?controlledProperty={idList}` where `{idList}` is a list of one or more local IDs of `Property` resources. +
+See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
+step::: Validate the response using the steps described in test xref:/conf/sampling/canonical-collection[style=id%].
+step::: For each `Sampling Feature` resource in the returned collection:
+step:::: Follow the `controlstreams` links to get the control streams with commands  targeting this sampling feature.
+step:::: Verify that at least one of the control streams has one or more of the controlled properties included in `{idList}`.
+step::: Repeat the previous steps with the `controlledPropertyProperty` parameter set to a list of one or more URIs of `Property` resources.
 ====
 
 // Properties
@@ -1004,6 +1022,10 @@ test-method::
 step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
 step:::: For each subsystem collection nested in a parent system:
          - Resources endpoint `{api_root}/systems/{sysId}/components` (for CREATE)
+step::: Verify that the subsystem is also available at its canonical URL:
+step:::: Issue an HTTP GET request at the system canonical URL.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Validate that the received document has the same content as the one provided for the CREATE operation.
 ====
 
 [abstract_test]
@@ -1099,10 +1121,16 @@ step:::: For each `Property` resource collection advertised by the server:
 identifier:: /conf/create-replace-delete/create-in-collection
 target:: /req/create-replace-delete/create-in-collection
 
-test-purpose:: ...
+test-purpose:: Validate that the server implements the correct behavior when creating new resources in custom collections.
 
-test-method:: 
-
+test-method:: For each resource type among `System`, `Procedure`, `Deployment`, `Sampling Feature`, `Property`:
+step::: Find a resource collection for a resource of that type. Assume its ID is `colId`.
+step::: Add a new resource at the resources endpoint `{api_root}/collections/{colId}/items` by following requirements for the CREATE operation (see tests {ogcapi-features-4-spec-url}/create-replace-delete/conf/post*).
+step::: Retrieve the canonical URL of the resource that must be included in the response.
+step::: Verify that the new resource exists in the root collection:
+step:::: Issue an HTTP GET request at the resource's canonical URL.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Validate that the received document has the same content as the one provided in the POST request.
 ====
 
 [abstract_test]
@@ -1111,10 +1139,15 @@ test-method::
 identifier:: /conf/create-replace-delete/replace-in-collection
 target:: /req/create-replace-delete/replace-in-collection
 
-test-purpose:: ...
+test-purpose:: Validate that the server implements the correct behavior when replacing resources in custom collections.
 
-test-method:: 
-
+test-method:: For each resource type among `System`, `Procedure`, `Deployment`, `Sampling Feature`, `Property`:
+step::: Find a resource collection for a resource of that type. Assume its ID is `colId`.
+step::: Replace the resource at the resource endpoint `{api_root}/collections/{colId}/items/{id}` by following requirements for the REPLACE operation (see tests {ogcapi-features-4-spec-url}/create-replace-delete/conf/put*).
+step::: Verify that the resource has been updated in the root collection:
+step:::: Issue an HTTP GET request at the resource's canonical URL.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Validate that the received document has the same content as the one provided in the PUT request.
 ====
 
 [abstract_test]
@@ -1123,10 +1156,14 @@ test-method::
 identifier:: /conf/create-replace-delete/delete-in-collection
 target:: /req/create-replace-delete/delete-in-collection
 
-test-purpose:: ...
+test-purpose:: Validate that the server implements the correct behavior when deleting resources in custom collections.
 
-test-method:: 
-
+test-method:: For each resource type among `System`, `Procedure`, `Deployment`, `Sampling Feature`, `Property`:
+step::: Find a resource collection for a resource of that type. Assume its ID is `colId`.
+step::: Delete the resource at the resource endpoint `{api_root}/collections/{colId}/items/{id}` by following requirements for the DELETE operation (see tests {ogcapi-features-4-spec-url}/create-replace-delete/conf/delete*).
+step::: Verify that the resource is still present in the root collection:
+step:::: Issue an HTTP GET request at the resource's canonical URL.
+step:::: Validate that a document was returned with a status code 200.
 ====
 
 [abstract_test]
@@ -1135,10 +1172,19 @@ test-method::
 identifier:: /conf/create-replace-delete/add-to-collection
 target:: /req/create-replace-delete/add-to-collection
 
-test-purpose:: ...
+test-purpose:: Validate that the server implements the correct behavior when adding existing resources to custom collections.
 
-test-method:: 
-
+test-method:: For each resource type among `System`, `Procedure`, `Deployment`, `Sampling Feature`, `Property`:
+step::: Find a resource collection for a resource of that type. Assume its ID is `colId`.
+step::: Add links to existing resources by issuing a POST request at the resources endpoint `{api_root}/collections/{colId}/items`.
+step:::: Follow requirements for the CREATE operation (see tests {ogcapi-features-4-spec-url}/create-replace-delete/conf/post*).
+step:::: Set the POST request `Content-Type` header to `text/uri-list`.
+step:::: Set the POST request body to a list of canonical URLs of existing resources on the same server, and of a type compatible with the selected resource collection.
+step::: Verify that the resources have been added to the custom collection:
+step:::: For each added resource, extract its `id` from the canonical URL.
+         . Issue an HTTP GET request at the resource endpoint `{api_root}/collections/{colId}/items/{id}`.
+         . Validate that a document was returned with a status code 200.
+         . Validate that the received document has the same content as the one received when connecting at the canonical URL.
 ====
 
 
@@ -1161,22 +1207,14 @@ classification:: Target Type:Web API
 identifier:: /conf/update/system
 target:: /req/update/system
 
-test-purpose:: ...
+test-purpose:: Validate that the server implements the UPDATE operation correctly on `System` collections.
 
-test-method:: 
-
-====
-
-[abstract_test]
-====
-[%metadata]
-identifier:: /conf/update/subsystem
-target:: /req/update/subsystem
-
-test-purpose:: ...
-
-test-method:: 
-
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/update at the following endpoints:
+step:::: For the `System` root collection:
+         - Resource endpoint `{api_root}/systems/{id}`
+step:::: For each `System` Feature Collection advertised by the server:
+         - Resource endpoint `{api_root}/collections/{systemCollectionId}/items/{id}`
 ====
 
 [abstract_test]
@@ -1185,10 +1223,14 @@ test-method::
 identifier:: /conf/update/procedure
 target:: /req/update/procedure
 
-test-purpose:: ...
+test-purpose:: Validate that the server implements the UPDATE operation correctly on `Procedure` collections.
 
-test-method:: 
-
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/update at the following endpoints:
+step:::: For the `Procedure` root collection:
+         - Resource endpoint `{api_root}/procedures/{id}`
+step:::: For each `Procedure` Feature Collection advertised by the server:
+         - Resource endpoint `{api_root}/collections/{procedureCollectionId}/items/{id}`
 ====
 
 [abstract_test]
@@ -1197,10 +1239,14 @@ test-method::
 identifier:: /conf/update/deployment
 target:: /req/update/deployment
 
-test-purpose:: ...
+test-purpose:: Validate that the server implements the UPDATE operation correctly on `Deployment` collections.
 
-test-method:: 
-
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/update at the following endpoints:
+step:::: For the `Deployment` root collection:
+         - Resource endpoint `{api_root}/deployments/{id}`
+step:::: For each `Deployment` Feature Collection advertised by the server:
+         - Resource endpoint `{api_root}/collections/{deploymentCollectionId}/items/{id}`
 ====
 
 [abstract_test]
@@ -1209,10 +1255,12 @@ test-method::
 identifier:: /conf/update/deployed-system
 target:: /req/update/deployed-system
 
-test-purpose:: ...
+test-purpose:: Validate that the server implements the UPDATE operation correctly on `Deployed System` collections.
 
 test-method:: 
-
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/update at the following endpoints:
+step:::: For each `Deployed System` collection nested in a deployment:
+         - Resource endpoint `{api_root}/deployments/{depId}/deployedSystems/{id}`
 ====
 
 [abstract_test]
@@ -1221,10 +1269,14 @@ test-method::
 identifier:: /conf/update/sampling-feature
 target:: /req/update/sampling-feature
 
-test-purpose:: ...
+test-purpose:: Validate that the server implements the UPDATE operation correctly on `Sampling Feature` collections.
 
-test-method:: 
-
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/update at the following endpoints:
+step:::: For the `Sampling Feature` root collection:
+         - Resource endpoint `{api_root}/samplingFeatures/{id}`
+step:::: For each `Sampling Feature` Collection advertised by the server:
+         - Resource endpoint `{api_root}/collections/{sfCollectionId}/items/{id}`
 ====
 
 [abstract_test]
@@ -1233,10 +1285,14 @@ test-method::
 identifier:: /conf/update/property
 target:: /req/update/property
 
-test-purpose:: ...
+test-purpose:: Validate that the server implements the UPDATE operation correctly on `Property` collections.
 
-test-method:: 
-
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/update at the following endpoints:
+step:::: For the `Property` root collection:
+         - Resource endpoint `{api_root}/properties/{id}`
+step:::: For each `Property` Resource Collection advertised by the server:
+         - Resource endpoint `{api_root}/collections/{sfCollectionId}/items/{id}`
 ====
 
 
@@ -1259,10 +1315,13 @@ classification:: Target Type:Web API
 identifier:: /conf/geojson/mediatype-read
 target:: /req/geojson/mediatype-read
 
-test-purpose:: ...
+test-purpose:: Verify that the server advertises support for the GeoJSON format on retrieval operations.
 
 test-method:: 
-
+step::: Execute test {ogcapi-features-1-spec-url}/conf/geojson/definition.
+step::: Verify that server advertises support for media type `{geojson-mediatype}` in the API definition for GET operations:
+step:::: On the root collection endpoints of resource types supported by the server.
+step:::: On the custom collection endpoints advertised by the server.
 ====
 
 [abstract_test]
@@ -1271,10 +1330,11 @@ test-method::
 identifier:: /conf/geojson/mediatype-write
 target:: /req/geojson/mediatype-write
 
-test-purpose:: ...
+test-purpose:: Verify that the server advertises support for the GeoJSON format on transactional operations.
 
 test-method:: 
-
+step::: Verify that server advertises support for media type `{geojson-mediatype}` in the API definition for CREATE or REPLACE operations:
+step:::: On at least one root collection endpoint.
 ====
 
 [abstract_test]
@@ -1283,10 +1343,13 @@ test-method::
 identifier:: /conf/geojson/relation-types
 target:: /req/geojson/relation-types
 
-test-purpose:: ...
+test-purpose:: Verify that correct link relation types are used.
 
-test-method:: 
+test-method-type:: Manual Inspection
 
+test-method:: Given the GeoJSON representation of a resource returned by the server:
+step::: Inspect the links in the `links` property of the response document.
+step::: Check that the relation types are used as described in the associations mapping table of <<clause-encoding-geojson>> corresponding to the resource type.
 ====
 
 [abstract_test]
@@ -1295,10 +1358,13 @@ test-method::
 identifier:: /conf/geojson/feature-attribute-mapping
 target:: /req/geojson/feature-attribute-mapping
 
-test-purpose:: ...
+test-purpose:: Verify that common feature properties are used correctly.
 
-test-method:: 
+test-method-type:: Manual Inspection
 
+test-method:: Given the GeoJSON representation of a feature resource returned by the server:
+step::: Inspect the contents of the GeoJSON Feature object.
+step::: Check that the properties are used as described in the mapping table <<feature-attribute-geojson-mappings>>.
 ====
 
 [abstract_test]
@@ -1307,10 +1373,18 @@ test-method::
 identifier:: /conf/geojson/system-schema
 target:: /req/geojson/system-schema
 
-test-purpose:: ...
+test-purpose:: Validate that the GeoJSON representation of `System` resources is valid.
 
-test-method:: 
+test-method::
+step::: Request a single `System` resource.
+step:::: Issue an HTTP GET request at `{api_root}/systems/{id}` with the `Accept` header set to `{geojson-mediatype}`.
+step:::: Validate that a document was returned with a status code 200. 
+step:::: Validate the document against the schema {geojson-system-schema} using a JSON Schema validator.
 
+step::: Request multiple `System` resources.
+step:::: Issue an HTTP GET request at `{api_root}/systems` with the `Accept` header set to `{geojson-mediatype}`.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Validate the document against the schema {geojson-system-collection-schema} using a JSON Schema validator.
 ====
 
 [abstract_test]
@@ -1319,10 +1393,13 @@ test-method::
 identifier:: /conf/geojson/system-mappings
 target:: /req/geojson/system-mappings
 
-test-purpose:: ...
+test-purpose:: Verify that `System` properties are used correctly.
 
-test-method:: 
+test-method-type:: Manual Inspection
 
+test-method:: Given the GeoJSON representation of a `System` resource returned by the server:
+step::: Inspect the contents of the GeoJSON Feature object.
+step::: Check that the properties are used as described in <<system-attribute-geojson-mappings>> and <<system-assoc-geojson-mappings>>.
 ====
 
 [abstract_test]
@@ -1331,10 +1408,18 @@ test-method::
 identifier:: /conf/geojson/procedure-schema
 target:: /req/geojson/procedure-schema
 
-test-purpose:: ...
+test-purpose:: Validate that the GeoJSON representation of `Procedure` resources is valid.
 
-test-method:: 
+test-method::
+step::: Request a single `Procedure` resource.
+step:::: Issue an HTTP GET request at `{api_root}/procedures/{id}` with the `Accept` header set to `{geojson-mediatype}`.
+step:::: Validate that a document was returned with a status code 200. 
+step:::: Validate the document against the schema {geojson-procedure-schema} using a JSON Schema validator.
 
+step::: Request multiple `Procedure` resources.
+step:::: Issue an HTTP GET request at `{api_root}/procedures` with the `Accept` header set to `{geojson-mediatype}`.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Validate the document against the schema {geojson-procedure-collection-schema} using a JSON Schema validator.
 ====
 
 [abstract_test]
@@ -1343,10 +1428,13 @@ test-method::
 identifier:: /conf/geojson/procedure-mappings
 target:: /req/geojson/procedure-mappings
 
-test-purpose:: ...
+test-purpose:: Verify that `Procedure` properties are used correctly.
 
-test-method:: 
+test-method-type:: Manual Inspection
 
+test-method:: Given the GeoJSON representation of a `Procedure` resource returned by the server:
+step::: Inspect the contents of the GeoJSON Feature object.
+step::: Check that the properties are used as described in <<procedure-attribute-geojson-mappings>> and <<procedure-assoc-geojson-mappings>>.
 ====
 
 [abstract_test]
@@ -1355,10 +1443,18 @@ test-method::
 identifier:: /conf/geojson/deployment-schema
 target:: /req/geojson/deployment-schema
 
-test-purpose:: ...
+test-purpose:: Validate that the GeoJSON representation of `Deployment` resources is valid.
 
-test-method:: 
+test-method::
+step::: Request a single `Deployment` resource.
+step:::: Issue an HTTP GET request at `{api_root}/deployments/{id}` with the `Accept` header set to `{geojson-mediatype}`.
+step:::: Validate that a document was returned with a status code 200. 
+step:::: Validate the document against the schema {geojson-deployment-schema} using a JSON Schema validator.
 
+step::: Request multiple `Deployment` resources.
+step:::: Issue an HTTP GET request at `{api_root}/deployments` with the `Accept` header set to `{geojson-mediatype}`.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Validate the document against the schema {geojson-deployment-collection-schema} using a JSON Schema validator.
 ====
 
 [abstract_test]
@@ -1367,10 +1463,13 @@ test-method::
 identifier:: /conf/geojson/deployment-mappings
 target:: /req/geojson/deployment-mappings
 
-test-purpose:: ...
+test-purpose:: Verify that `Deployment` properties are used correctly.
 
-test-method:: 
+test-method-type:: Manual Inspection
 
+test-method:: Given the GeoJSON representation of a `Deployment` resource returned by the server:
+step::: Inspect the contents of the GeoJSON Feature object.
+step::: Check that the properties are used as described in <<deployment-attribute-geojson-mappings>> and <<deployment-assoc-geojson-mappings>>.
 ====
 
 [abstract_test]
@@ -1379,10 +1478,18 @@ test-method::
 identifier:: /conf/geojson/deployed-system-schema
 target:: /req/geojson/deployed-system-schema
 
-test-purpose:: ...
+test-purpose:: Validate that the GeoJSON representation of `Deployed System` resources is valid.
 
-test-method:: 
+test-method::
+step::: Request a single `Deployed System` resource.
+step:::: Issue an HTTP GET request at `{api_root}/deployments/{depId}/deployedSystems/{id}` with the `Accept` header set to `{geojson-mediatype}`.
+step:::: Validate that a document was returned with a status code 200. 
+step:::: Validate the document against the schema {geojson-deployed-system-schema} using a JSON Schema validator.
 
+step::: Request multiple `Deployed System` resources.
+step:::: Issue an HTTP GET request at `{api_root}/deployments/{depId}/deployedSystems/{id}` with the `Accept` header set to `{geojson-mediatype}`.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Validate the document against the schema {geojson-deployed-system-collection-schema} using a JSON Schema validator.
 ====
 
 [abstract_test]
@@ -1391,10 +1498,13 @@ test-method::
 identifier:: /conf/geojson/deployed-system-mappings
 target:: /req/geojson/deployed-system-mappings
 
-test-purpose:: ...
+test-purpose:: Verify that `Deployed System` properties are used correctly.
 
-test-method:: 
+test-method-type:: Manual Inspection
 
+test-method:: Given the GeoJSON representation of a `Deployed System` resource returned by the server:
+step::: Inspect the contents of the GeoJSON Feature object.
+step::: Check that the properties are used as described in <<dep-sys-geojson-mappings>>.
 ====
 
 [abstract_test]
@@ -1403,10 +1513,18 @@ test-method::
 identifier:: /conf/geojson/sf-schema
 target:: /req/geojson/sf-schema
 
-test-purpose:: ...
+test-purpose:: Validate that the GeoJSON representation of `Sampling Feature` resources is valid.
 
-test-method:: 
+test-method::
+step::: Request a single `Sampling Feature` resource.
+step:::: Issue an HTTP GET request at `{api_root}/samplingFeatures/{id}` with the `Accept` header set to `{geojson-mediatype}`.
+step:::: Validate that a document was returned with a status code 200. 
+step:::: Validate the document against the schema {geojson-samplingFeature-schema} using a JSON Schema validator.
 
+step::: Request multiple `Sampling Feature` resources.
+step:::: Issue an HTTP GET request at `{api_root}/samplingFeatures` with the `Accept` header set to `{geojson-mediatype}`.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Validate the document against the schema {geojson-samplingFeature-collection-schema} using a JSON Schema validator.
 ====
 
 [abstract_test]
@@ -1415,10 +1533,13 @@ test-method::
 identifier:: /conf/geojson/sf-mappings
 target:: /req/geojson/sf-mappings
 
-test-purpose:: ...
+test-purpose:: Verify that `Sampling Feature` properties are used correctly.
 
-test-method:: 
+test-method-type:: Manual Inspection
 
+test-method:: Given the GeoJSON representation of a `Sampling Feature` resource returned by the server:
+step::: Inspect the contents of the GeoJSON Feature object.
+step::: Check that the properties are used as described in <<sf-attribute-geojson-mappings>> and <<sf-assoc-geojson-mappings>>.
 ====
 
 
@@ -1441,10 +1562,12 @@ classification:: Target Type:Web API
 identifier:: /conf/sensorml/mediatype-read
 target:: /req/sensorml/mediatype-read
 
-test-purpose:: ...
+test-purpose:: Verify that the server advertises support for the SensorML format on retrieval operations.
 
 test-method:: 
-
+step::: Verify that server advertises support for media type `{sensorml-json-mediatype}` in the API definition for GET operations:
+step:::: On the root collection endpoints of resource types supported by the server.
+step:::: On the custom collection endpoints advertised by the server.
 ====
 
 [abstract_test]
@@ -1453,10 +1576,10 @@ test-method::
 identifier:: /conf/sensorml/mediatype-write
 target:: /req/sensorml/mediatype-write
 
-test-purpose:: ...
+test-purpose:: Verify that the server advertises support for the SensorML format on transactional operations.
 
-test-method:: 
-
+step::: Verify that server advertises support for media type `{sensorml-json-mediatype}` in the API definition for CREATE or REPLACE operations:
+step:::: On at least one root collection endpoint.
 ====
 
 [abstract_test]
@@ -1465,10 +1588,13 @@ test-method::
 identifier:: /conf/sensorml/relation-types
 target:: /req/sensorml/relation-types
 
-test-purpose:: ...
+test-purpose:: Verify that correct link relation types are used.
 
-test-method:: 
+test-method-type:: Manual Inspection
 
+test-method:: Given the SensorML representation of a resource returned by the server:
+step::: Inspect the links in the `links` property of the response document.
+step::: Check that the relation types are used as described in the associations mapping table of <<clause-encoding-sensorml>> corresponding to the resource type.
 ====
 
 [abstract_test]
@@ -1477,10 +1603,11 @@ test-method::
 identifier:: /conf/sensorml/resource-id
 target:: /req/sensorml/resource-id
 
-test-purpose:: ...
+test-purpose:: Verify that the resource ID is set properly in the response.
 
-test-method:: 
-
+test-method:: Given the SensorML representation of a resource obtained from its canonical URL:
+step::: Inspect the contents of the SensorML object.
+step::: Verify that the `id` property is set to the same value as the `{id}` portion of the canonical resource URL.
 ====
 
 [abstract_test]
@@ -1489,10 +1616,13 @@ test-method::
 identifier:: /conf/sensorml/feature-attribute-mapping
 target:: /req/sensorml/feature-attribute-mapping
 
-test-purpose:: ...
+test-purpose:: Verify that common feature properties are used correctly.
 
-test-method:: 
+test-method-type:: Manual Inspection
 
+test-method:: Given the SensorML representation of a resource returned by the server:
+step::: Inspect the contents of the SensorML object.
+step::: Check that the properties are used as described in the mapping table <<feature-attribute-sml-mappings>>.
 ====
 
 [abstract_test]
@@ -1501,10 +1631,18 @@ test-method::
 identifier:: /conf/sensorml/system-schema
 target:: /req/sensorml/system-schema
 
-test-purpose:: ...
+test-purpose:: Validate that the SensorML representation of `System` resources is valid.
 
-test-method:: 
+test-method::
+step::: Request a single `System` resource.
+step:::: Issue an HTTP GET request at `{api_root}/systems/{id}` with the `Accept` header set to `{sensorml-json-mediatype}`.
+step:::: Validate that a document was returned with a status code 200. 
+step:::: Validate the document against the schema {sensorml-system-schema} using a JSON Schema validator.
 
+step::: Request multiple `System` resources.
+step:::: Issue an HTTP GET request at `{api_root}/systems` with the `Accept` header set to `{sensorml-json-mediatype}`.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Validate the document against the schema {sensorml-system-collection-schema} using a JSON Schema validator.
 ====
 
 [abstract_test]
@@ -1513,10 +1651,13 @@ test-method::
 identifier:: /conf/sensorml/system-sml-class
 target:: /req/sensorml/system-sml-class
 
-test-purpose:: ...
+test-purpose:: Verify that `System` SensorML types are used correctly.
 
-test-method:: 
+test-method-type:: Manual Inspection
 
+test-method:: Given the SensorML representation of a `System` resource returned by the server:
+step::: Inspect the contents of the SensorML object.
+step::: Check that the value of the `type` property is compatible with the system being described (i.e. process/simulation vs. physical thing).
 ====
 
 [abstract_test]
@@ -1525,10 +1666,13 @@ test-method::
 identifier:: /conf/sensorml/system-mappings
 target:: /req/sensorml/system-mappings
 
-test-purpose:: ...
+test-purpose:: Verify that `System` properties are used correctly.
 
-test-method:: 
+test-method-type:: Manual Inspection
 
+test-method:: Given the SensorML representation of a `System` resource returned by the server:
+step::: Inspect the contents of the SensorML object.
+step::: Check that the properties are used as described in <<system-attribute-sml-mappings>> and <<system-assoc-sml-mappings>>.
 ====
 
 [abstract_test]
@@ -1537,10 +1681,18 @@ test-method::
 identifier:: /conf/sensorml/procedure-schema
 target:: /req/sensorml/procedure-schema
 
-test-purpose:: ...
+test-purpose:: Validate that the SensorML representation of `Procedure` resources is valid.
 
-test-method:: 
+test-method::
+step::: Request a single `Procedure` resource.
+step:::: Issue an HTTP GET request at `{api_root}/procedures/{id}` with the `Accept` header set to `{sensorml-json-mediatype}`.
+step:::: Validate that a document was returned with a status code 200. 
+step:::: Validate the document against the schema {sensorml-procedure-schema} using a JSON Schema validator.
 
+step::: Request multiple `Procedure` resources.
+step:::: Issue an HTTP GET request at `{api_root}/procedures` with the `Accept` header set to `{sensorml-json-mediatype}`.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Validate the document against the schema {sensorml-procedure-collection-schema} using a JSON Schema validator.
 ====
 
 [abstract_test]
@@ -1549,10 +1701,13 @@ test-method::
 identifier:: /conf/sensorml/procedure-sml-class
 target:: /req/sensorml/procedure-sml-class
 
-test-purpose:: ...
+test-purpose:: Verify that `Procedure` SensorML types are used correctly.
 
-test-method:: 
+test-method-type:: Manual Inspection
 
+test-method:: Given the SensorML representation of a `Procedure` resource returned by the server:
+step::: Inspect the contents of the SensorML object.
+step::: Check that the value of the `type` property is compatible with the procedure being described (i.e. process/simulation/methodology vs. datasheet of hardware equipment).
 ====
 
 [abstract_test]
@@ -1561,10 +1716,13 @@ test-method::
 identifier:: /conf/sensorml/procedure-mappings
 target:: /req/sensorml/procedure-mappings
 
-test-purpose:: ...
+test-purpose:: Verify that `Procedure` properties are used correctly.
 
-test-method:: 
+test-method-type:: Manual Inspection
 
+test-method:: Given the SensorML representation of a `Procedure` resource returned by the server:
+step::: Inspect the contents of the SensorML object.
+step::: Check that the properties are used as described in <<procedure-attribute-sml-mappings>> and <<procedure-assoc-sml-mappings>>.
 ====
 
 [abstract_test]
@@ -1573,10 +1731,18 @@ test-method::
 identifier:: /conf/sensorml/deployment-schema
 target:: /req/sensorml/deployment-schema
 
-test-purpose:: ...
+test-purpose:: Validate that the SensorML representation of `Deployment` resources is valid.
 
-test-method:: 
+test-method::
+step::: Request a single `Deployment` resource.
+step:::: Issue an HTTP GET request at `{api_root}/deployments/{id}` with the `Accept` header set to `{sensorml-json-mediatype}`.
+step:::: Validate that a document was returned with a status code 200. 
+step:::: Validate the document against the schema {sensorml-deployment-schema} using a JSON Schema validator.
 
+step::: Request multiple `Deployment` resources.
+step:::: Issue an HTTP GET request at `{api_root}/deployments` with the `Accept` header set to `{sensorml-json-mediatype}`.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Validate the document against the schema {sensorml-deployment-collection-schema} using a JSON Schema validator.
 ====
 
 [abstract_test]
@@ -1585,10 +1751,13 @@ test-method::
 identifier:: /conf/sensorml/deployment-mappings
 target:: /req/sensorml/deployment-mappings
 
-test-purpose:: ...
+test-purpose:: Verify that `Deployment` properties are used correctly.
 
-test-method:: 
+test-method-type:: Manual Inspection
 
+test-method:: Given the SensorML representation of a `Deployment` resource returned by the server:
+step::: Inspect the contents of the SensorML object.
+step::: Check that the properties are used as described in <<deployment-attribute-sml-mappings>> and <<deployment-assoc-sml-mappings>>.
 ====
 
 [abstract_test]
@@ -1597,10 +1766,18 @@ test-method::
 identifier:: /conf/sensorml/deployed-system-schema
 target:: /req/sensorml/deployed-system-schema
 
-test-purpose:: ...
+test-purpose:: Validate that the SensorML representation of `Deployed System` resources is valid.
 
-test-method:: 
+test-method::
+step::: Request a single `Deployed System` resource.
+step:::: Issue an HTTP GET request at `{api_root}/deployments/{depId}/deployedSystems/{id}` with the `Accept` header set to `{sensorml-json-mediatype}`.
+step:::: Validate that a document was returned with a status code 200. 
+step:::: Validate the document against the schema {sensorml-system-schema} using a JSON Schema validator.
 
+step::: Request multiple `Deployed System` resources.
+step:::: Issue an HTTP GET request at `{api_root}/deployments/{depId}/deployedSystems` with the `Accept` header set to `{sensorml-json-mediatype}`.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Validate the document against the schema {sensorml-system-collection-schema} using a JSON Schema validator.
 ====
 
 [abstract_test]
@@ -1609,10 +1786,13 @@ test-method::
 identifier:: /conf/sensorml/deployed-system-mappings
 target:: /req/sensorml/deployed-system-mappings
 
-test-purpose:: ...
+test-purpose:: Verify that `Deployed System` properties are used correctly.
 
-test-method:: 
+test-method-type:: Manual Inspection
 
+test-method:: Given the SensorML representation of a `Deployed System` resource returned by the server:
+step::: Inspect the contents of the SensorML object.
+step::: Check that the properties are used as described in <<dep-sys-assoc-sml-mappings>>.
 ====
 
 [abstract_test]
@@ -1621,10 +1801,18 @@ test-method::
 identifier:: /conf/sensorml/property-schema
 target:: /req/sensorml/property-schema
 
-test-purpose:: ...
+test-purpose:: Validate that the SensorML representation of `Property` resources is valid.
 
-test-method:: 
+test-method::
+step::: Request a single `Property` resource.
+step:::: Issue an HTTP GET request at `{api_root}/properties/{id}` with the `Accept` header set to `{sensorml-json-mediatype}`.
+step:::: Validate that a document was returned with a status code 200. 
+step:::: Validate the document against the schema {sensorml-property-schema} using a JSON Schema validator.
 
+step::: Request multiple `Property` resources.
+step:::: Issue an HTTP GET request at `{api_root}/properties` with the `Accept` header set to `{sensorml-json-mediatype}`.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Validate the document against the schema {sensorml-property-collection-schema} using a JSON Schema validator.
 ====
 
 [abstract_test]
@@ -1633,8 +1821,11 @@ test-method::
 identifier:: /conf/sensorml/property-mappings
 target:: /req/sensorml/property-mappings
 
-test-purpose:: ...
+test-purpose:: Verify that `Property` properties are used correctly.
 
-test-method:: 
+test-method-type:: Manual Inspection
 
+test-method:: Given the SensorML representation of a `Property` resource returned by the server:
+step::: Inspect the contents of the SensorML object.
+step::: Check that the properties are used as described in <<property-attribute-sml-mappings>>.
 ====
