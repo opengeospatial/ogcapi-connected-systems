@@ -70,10 +70,10 @@ NOTE: The validity time period of a `Procedure` description starts on the date t
 [width="100%",cols="5,10,5,5,10",options="header"]
 |====
 | *Procedure Type* | *URI* | *CURIE* | *Implemented By* | *Usage*
-| Observing        | http://www.w3.org/ns/sosa/oms/ObservingProcedure  | oms:ObservingProcedure | Sensor   | A sensor datasheet or an observation method.
-| Actuating        | http://www.w3.org/ns/sosa/oms/ActuatingProcedure  | oms:ActuatingProcedure | Actuator | An actuator datasheet or an actuation method.
-| Sampling         | http://www.w3.org/ns/sosa/oms/SamplingProcedure   | oms:SamplingProcedure  | Sampler  | A sampler datasheet or a sampling method.
-| Other            | http://www.w3.org/ns/sosa/Procedure               | sosa:Procedure         | Platform | A platform datasheet or other carrying/navigation procedure.
+| Observing        | http://www.w3.org/ns/sosa/ObservingProcedure  | sosa:ObservingProcedure | Sensor   | A sensor datasheet or an observation method.
+| Actuating        | http://www.w3.org/ns/sosa/ActuatingProcedure  | sosa:ActuatingProcedure | Actuator | An actuator datasheet or an actuation method.
+| Sampling         | http://www.w3.org/ns/sosa/SamplingProcedure   | sosa:SamplingProcedure  | Sampler  | A sampler datasheet or a sampling method.
+| Other            | http://www.w3.org/ns/sosa/Procedure           | sosa:Procedure          | Platform | A platform datasheet or a carrying/navigation procedure.
 |====
 
 [#document-types,reftext='{table-caption} {counter:table-num}']
