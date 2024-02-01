@@ -31,7 +31,7 @@
       "title" : "this resource as HTML"
     }, {
       "href" : "https://data.example.org/api/systems/PLT412/components?f=json",
-      "rel" : "components",
+      "rel" : "subsystems",
       "type" : "application/geo+json",
       "title" : "List of subsystems"
     }, {

@@ -2,12 +2,12 @@
   "type": "PhysicalSystem",
   "id": "PLT412",
   "definition": "http://www.w3.org/ns/sosa/Platform",
-  "uniqueId": "urn:x-ogc:systems:aircraft:101",
+  "uniqueId": "urn:x-usaf:systems:aircraft:101",
   "label": "Global Hawk 101",
   "description": "Example UAV platform",
   "typeOf": {
     "href": "https://data.example.org/api/procedures/ge4pjqq0hq6y?f=json",
-    "uid": "urn:x-ogc:datasheets:uav:RQ-4",
+    "uid": "urn:x-ngc:datasheets:uav:RQ-4B",
     "type" : "application/sml+json"
   },
   "identifiers": [
@@ -35,7 +35,7 @@
         },
         {
           "name": "y",
-          "description": "Transverse or pitch axis, parallel to the libne drawn from wingtop to wingtip, directed to the right"
+          "description": "Transverse or pitch axis, parallel to the line drawn from wingtip to wingtip, directed to the right of the aircraft when looking forward"
         },
         {
           "name": "z",
