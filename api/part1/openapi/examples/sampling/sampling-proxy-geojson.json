@@ -3,16 +3,17 @@
   "id": "1a0f80f9",
   "geometry": null,
   "properties": {
-    "uid": "urn:x-ogc:sf:456",
-    "name": "Pan-Island Expressway",
-    "featureType": "Road",
+    "uid": "x-safecity:sg:traffic:sf:PIE12-34",
+    "name": "PIE Junction 34",
+    "description": "Junction 34 on Pan-Island Expressway",
+    "featureType": "Junction",
     "parentSystem@link": {
-      "href": "https://data.example.org/api/systems/447845?f=json",
+      "href": "https://data.example.org/api/systems/751588?f=json",
       "type" : "application/geo+json",
-      "title": "Traffic Camera RT123"
+      "title": "Traffic Camera 456"
     },
     "sampledFeature@link": {
-      "href": "https://ext.features.org/api/collections/roads/EW145?f=json",
+      "href": "https://ext.features.org/api/collections/roads/PIE12?f=json",
       "type" : "application/geo+json"
     }
   }

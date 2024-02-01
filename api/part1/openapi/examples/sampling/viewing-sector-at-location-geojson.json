@@ -16,7 +16,7 @@
       "title": "Traffic Camera 456"
     },
     "sampledFeature@link": {
-      "href": "https://data.example.org/api/collections/roads/PIE12",
+      "href": "https://ext.features.org/api/collections/roads/PIE12?f=json",
       "type" : "application/geo+json",
       "title": "Pan-Island Expressway"
     },

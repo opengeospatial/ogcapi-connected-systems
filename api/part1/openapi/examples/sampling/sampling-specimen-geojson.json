@@ -6,12 +6,12 @@
     "coordinates": [ 30.706, -134.196, 272 ]
   },
   "properties": {
-    "uid": "urn:x-usgs:samples:1114457888",
-    "name": "USGS Site #301244087575701",
+    "uid": "urn:x-csiro:samples:1114457888",
+    "name": "Rock Sample CSIRO:1114457888",
     "description": "Rock sample collected on traverse",
     "featureType": "http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_Specimen",
     "samplingTime": "2007-01-24T12:14:50Z",
-    "materialClass": "http://www.opengis.net/def/material/OGC-OM/2.0/rock",
+    "materialClass": "http://dbpedia.org/resource/Rock_(geology)",
     "parentSystem@link": {
       "href": "https://data.example.org/api/systems/2ad45f69?f=json",
       "type" : "application/geo+json",
