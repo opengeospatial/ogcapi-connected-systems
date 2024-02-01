@@ -120,7 +120,7 @@ A SensorML JSON document representing a `System` resource SHALL implement the ma
 .SensorML Mappings of System Attributes
 [width="100%",cols="3,3,10",options="header"]
 |====
-| *Attribute Name* | *JSON Member* | *Usage*
+| *Attribute Name (see <<system-attributes>>)* | *JSON Member* | *Usage*
 | `systemType`     | `definition`  | Use the URI or CURIE from <<system-types>> as the value.
 | `assetType`      | `classifiers` | Use a classifier with definition `cs:AssetType`, and the URI or CURIE from <<asset-types>> as the value.
 | `validTime`      | `validTime`   | -
@@ -131,17 +131,16 @@ A SensorML JSON document representing a `System` resource SHALL implement the ma
 .SensorML Mappings of System Associations
 [width="100%",cols="3,3,10",options="header"]
 |====
-| *Association Name*     | *JSON Member* | *Usage*
+| *Association Name (see <<system-assocs>>)* | *JSON Member* | *Usage*
 | `procedure`            | `typeOf`      | Value is a weblink resolving to a `Procedure` resource.
 | `parentSystem`         | `attachedTo`  | Value is a weblink resolving to a `System` resource.
-| `subsystems`           | `links`       | Value is a weblink resolving to a `System` collection.
-| `samplingFeatures`     | `links`       | Value is a weblink resolving to a `Sampling Feature` collection.
-| `datastreams`          | `links`       | Value is a weblink resolving to a `DataStream` collection.
-| `controlstreams`       | `links`       | Value is a weblink resolving to a `ControlStream` collection.
-| `deployments`          | `links`       | Value is a weblink resolving to a `Deployment` collection.
+| `subsystems`           | `links`       | Value is a weblink* resolving to a `System` collection.
+| `samplingFeatures`     | `links`       | Value is a weblink* resolving to a `Sampling Feature` collection.
+| `datastreams`          | `links`       | Value is a weblink* resolving to a `DataStream` collection.
+| `controlstreams`       | `links`       | Value is a weblink* resolving to a `ControlStream` collection.
+| `deployments`          | `links`       | Value is a weblink* resolving to a `Deployment` collection.
+3+| {weblinks-footnote} 
 |====
-
-NOTE: In SensorML, the location can be augmented with orientation to describe the full pose of the system.
 
 [[example_sensorml_sys1]]
 .A System Feature in SensorML format
@@ -193,7 +192,7 @@ A SensorML JSON document representing a `Procedure` resource SHALL implement the
 .SensorML Mappings of Procedure Attributes
 [width="100%",cols="3,3,10",options="header"]
 |====
-| *Attribute Name* | *JSON Member* | *Usage*
+| *Attribute Name (see <<procedure-attributes>>)* | *JSON Member* | *Usage*
 | `procedureType`  | `definition`  | Use the URI or CURIE from <<procedure-types>> as the value.
 | `validTime`      | `validTime`   | -
 |====
@@ -202,8 +201,9 @@ A SensorML JSON document representing a `Procedure` resource SHALL implement the
 .SensorML Mappings of Procedure Associations
 [width="100%",cols="3,3,10",options="header"]
 |====
-| *Association Name*     | *JSON Member* | *Usage*
-| `implementingSystems`  | `links`       | Value is a weblink resolving to a `System` collection.
+| *Association Name (see <<procedure-assocs>>)* | *JSON Member* | *Usage*
+| `implementingSystems`  | `links`       | Value is a weblink* resolving to a `System` collection.
+3+| {weblinks-footnote} 
 |====
 
 [[example_sensorml_proc1]]
@@ -244,7 +244,7 @@ A SensorML JSON document representing a `Deployment` resource SHALL implement th
 .SensorML Mappings of Deployment Attributes
 [width="100%",cols="3,3,10",options="header"]
 |====
-| *Attribute Name* | *JSON Member* | *Usage*
+| *Attribute Name (see <<deployment-attributes>>)* | *JSON Member* | *Usage*
 | `deploymentType` | `definition`  | Use the URI or CURIE from <<deployment-types>> as the value.
 | `validTime`      | `validTime`   | -
 | `location`       | `location`    | Value is a GeoJSON geometry
@@ -254,11 +254,12 @@ A SensorML JSON document representing a `Deployment` resource SHALL implement th
 .SensorML Mappings of Deployment Associations
 [width="100%",cols="3,3,10",options="header"]
 |====
-| *Association Name*    | *JSON Member*      | *Usage*
+| *Association Name (see <<deployment-assocs>>)* | *JSON Member*      | *Usage*
 | `deployedSystems`     | `deployedSystems`  | Value is a JSON Array of `DeployedSystem` objects.
-| `featuresOfInterest`  | `links`            | Value is a weblink resolving to a `Feature` collection.
-| `datastreams`         | `links`            | Value is a weblink resolving to a `DataStream` collection.
-| `controlstreams`      | `links`            | Value is a weblink resolving to a `ControlStream` collection.
+| `featuresOfInterest`  | `links`            | Value is a weblink* resolving to a `Feature` collection.
+| `datastreams`         | `links`            | Value is a weblink* resolving to a `DataStream` collection.
+| `controlstreams`      | `links`            | Value is a weblink* resolving to a `ControlStream` collection.
+3+| {weblinks-footnote} 
 |====
 
 [[example_sensorml_dep1]]
@@ -299,7 +300,7 @@ A SensorML JSON document representing a `Deployed System` resource SHALL impleme
 .SensorML Mappings of Deployed System Associations
 [width="100%",cols="3,3,10",options="header"]
 |====
-| *Association Name* | *JSON Member* | *Usage*
+| *Association Name (see <<deployed-system-assocs>>)* | *JSON Member* | *Usage*
 | `system`           | `system`      | Value is a weblink resolving to a single `System` resource.
 | `procedure`        | `procedure`   | Value is a weblink resolving to a single `Procedure` resource.
 | `payloads`         | `payloads`    | Value is a JSON Array of nested `Deployed System` resources.
@@ -343,7 +344,7 @@ A SensorML JSON document representing a `Property` resource SHALL implement the 
 .SensorML Mappings of Property Attributes
 [width="100%",cols="3,3,10",options="header"]
 |====
-| *Attribute Name* | *JSON Member*  | *Usage*
+| *Attribute Name (see <<property-attributes>>)* | *JSON Member*  | *Usage*
 | `baseProperty`   | `baseProperty` | Value is a JSON string that is a valid URI.
 | `objectType`     | `objectType`   | Value is a JSON string that is a valid URI.
 | `statistic`      | `statistic`    | Value is a JSON string that is a valid URI.
