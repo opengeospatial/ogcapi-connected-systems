@@ -3,7 +3,7 @@
   "allOf": [
     { "$ref": "samplingFeature.json" },
     {
-      "oneOf": [
+      "anyOf": [
         {
           "type": "object",
           "properties": {
