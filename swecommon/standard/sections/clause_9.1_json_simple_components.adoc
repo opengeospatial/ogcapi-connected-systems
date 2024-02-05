@@ -40,11 +40,11 @@ These values also correspond to infinities and NaN values defined in <<IEEE754>>
 ====
 
 
-===== IDs and Linkable Properties
+// ===== IDs and Linkable Properties
 
-Links are represented by a link object that is modeled on the <<WebLinking>> standard.
+// Links are represented by a link object that is modeled on the <<WebLinking>> standard.
 
-include::../requirements/json/simple_components/requirement3.adoc[]
+// include::../requirements/json/simple_components/requirement3.adoc[]
 
 
 ==== Abstract Base Classes

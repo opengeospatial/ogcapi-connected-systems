@@ -18,7 +18,7 @@
 :local-cache-only:
 :data-uri-image:
 :edition: 2.1.0
-
+//
 :xsd-base-url: https://schemas.opengis.net/sweCommon/2.0
 :jsonschema-base-url: https://raw.githubusercontent.com/opengeospatial/connected-systems/master/swecommon/schemas/json
 

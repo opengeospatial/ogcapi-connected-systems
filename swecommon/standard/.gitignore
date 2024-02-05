@@ -1,9 +1,11 @@
 .DS_Store/
 08-094r2.err
+08-094r2.err.html
 08-094r2.xml
 08-094r2.presentation.xml
 08-094r2.html
 08-094r2.pdf
+08-094r2.pdf.err
 *.abort
 relaton/
 iev/

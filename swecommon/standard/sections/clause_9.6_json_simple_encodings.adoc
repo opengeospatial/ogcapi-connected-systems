@@ -30,12 +30,12 @@ include::../schemas/json/examples/spec/xml-encoding.json[]
 ----
 
 
-[[json_jsonencoding_obj]]
-==== JSONEncoding Object
+// [[json_jsonencoding_obj]]
+// ==== JSONEncoding Object
 
-The “JSONEncoding” object is the JSON schema implementation of the “JSONEncoding” UML class defined in <<uml_jsonencoding_class>>. The schema for this class is provided in {jsonschema-base-url}/encodings.json[encodings.json#/definitions/JSONEncoding].
+// The “JSONEncoding” object is the JSON schema implementation of the “JSONEncoding” UML class defined in <<uml_jsonencoding_class>>. The schema for this class is provided in {jsonschema-base-url}/encodings.json[encodings.json#/definitions/JSONEncoding].
 
-[source%unnumbered,json]
-----
-include::../schemas/json/examples/spec/json-encoding.json[]
-----
+// [source%unnumbered,json]
+// ----
+// include::../schemas/json/examples/spec/json-encoding.json[]
+// ----
