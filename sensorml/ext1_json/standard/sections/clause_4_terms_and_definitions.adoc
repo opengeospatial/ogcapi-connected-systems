@@ -1,0 +1,38 @@
+== Terms and definitions
+
+
+=== Deployment
+Describes the Deployment of one or more Systems for a particular purpose. Deployment may be done on a Platform.
+
+[.source]
+<<SOSA-SSN, SOSA/SSN Ontology, definition 4.9.2.6>>
+
+
+=== Pose
+Representation of a frame transform mapping the space of an outer frame to the space of an inner frame.
+
+[.source]
+<<OGC-GeoPose, OGC 21-056r11, definition 4.2.3>>
+
+
+=== Procedure
+Specified way to carry out an activity or a process.
+
+[.source]
+<<ISO9000, ISO 9000:2015, definition 3.4.5>>
+
+
+=== Property
+Facet or attribute of an object referenced by a name. +
+Example: Abby's car has the colour red, where "colour red" is a property of the car instance
+
+[.source]
+<<ISO19143, ISO-19143, definition 4.21>>
+
+
+=== System
+System is a unit of abstraction for pieces of infrastructure that implement Procedures. A System may have components, its subsystems, which are other Systems.
+
+[.source]
+<<SOSA-SSN, SOSA/SSN Ontology, definition 4.9.2.4>>
+

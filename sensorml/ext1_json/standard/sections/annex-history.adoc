@@ -1,0 +1,12 @@
+[appendix]
+== Revision History
+
+[%unnumbered,width="90%",options="header"]
+|===
+| Date | Release | Editor | Primary clauses modified | Description
+| 2023-10-08 | 1.0 draft | Alex Robin | All | Initial version
+| 2023-10-08 | 1.0 draft | Alex Robin | Clause 6 | Added Deployment requirements class
+| 2023-12-16 | 1.0 draft | Alex Robin | Clause 7 | Added DerivedProperty requirements class
+| 2023-12-20 | 1.0 draft | Alex Robin | Clause 8 | Added 3D Pose requirements class
+| 2023-02-01 | 1.0 draft | Alex Robin | Clause 9 | Added requirements classes for JSON implementation
+|===

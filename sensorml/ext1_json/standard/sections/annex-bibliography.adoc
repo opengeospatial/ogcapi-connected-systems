@@ -1,0 +1,49 @@
+[bibliography]
+[[Bibliography]]
+== Bibliography
+
+* [[[OGC-OMS, OGC 20-082r4]]], Topic 20: Observations, measurements and samples (OMS), Version 3.0. https://docs.ogc.org/as/20-082r4/20-082r4.html
+
+* [[[SOSA-SSN, OGC/W3C]]], Semantic Sensor Network Ontology, (October 19 2017). https://www.w3.org/TR/vocab-ssn
+
+* [[[QUDT, QUDT]]], QUDT Quantity Kinds, Version 2.1. https://www.qudt.org/doc/DOC_VOCAB-QUANTITY-KINDS.html
+
+* [[[I-ADOPT, I-ADOPT]]], I-ADOPT Framework ontology, Version 1.0.3. https://i-adopt.github.io/index.html
+
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +

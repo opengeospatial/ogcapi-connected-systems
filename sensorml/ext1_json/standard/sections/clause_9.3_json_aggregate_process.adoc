@@ -1,0 +1,32 @@
+[[clause_json_aggregate_process]]
+=== Requirements Class: Aggregate Process Schema
+
+==== Overview
+[requirement,model=ogc]
+====
+[%metadata]
+type:: class
+identifier:: /req/json-aggregate-process
+subject:: JSON Document
+inherit:: /req/json-simple-process
+indirect-dependency:: {sml-spec-url}/req/model/aggregateProcess
+====
+
+
+==== Aggregate Process
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/json-aggregate-process/schema-valid
+
+The JSON document instance shall be valid with respect to the JSON schema {jsonschema-base-url}/AggregateProcess.json[“AggregateProcess.json”].
+====
+
+
+
+==== Components
+
+
+
+==== Connections

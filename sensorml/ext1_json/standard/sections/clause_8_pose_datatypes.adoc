@@ -1,0 +1,29 @@
+[[clause_model_3dpose]]
+== Requirements Class: 3D Pose
+
+=== Overview
+[requirement,model=ogc]
+====
+[%metadata]
+type:: class
+identifier:: /req/model-3d-pose
+subject:: Derived Models, Encodings, and Software Implementations
+inherit:: {geopose-spec-url}/req/basic-ypr
+inherit:: {geopose-spec-url}/req/basic-quaternion
+====
+
+
+=== 3D Pose
+
+This requirements class defines new data types for expressing 3D pose information in a more formal way within SensorML documents. It builds on the <<OGC-GeoPose,GeoPose Standard>> that was released after version 2.1 of SensorML.
+
+[#pose-class-diagram,reftext='{figure-caption} {counter:figure-num}']
+.Pose Data Types
+image::./figures/FIG004-pose-datatypes.png[pose-class-diagram, align="center"]
+
+
+=== Relative Pose
+
+
+
+=== GeoPose

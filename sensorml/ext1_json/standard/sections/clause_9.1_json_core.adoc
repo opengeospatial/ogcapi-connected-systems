@@ -1,0 +1,32 @@
+[[clause_json_core]]
+=== Requirements Class: Core Schema
+
+==== Overview
+[requirement,model=ogc]
+====
+[%metadata]
+type:: class
+identifier:: /req/json-core
+subject:: JSON Document
+inherit:: {swecommon-spec-url}/req/json-block-components
+indirect-dependency:: {sml-spec-url}/req/model/coreProcess
+====
+
+
+==== General Encoding Principles
+
+===== Unique Identifiers
+
+===== References
+
+
+
+
+==== Described Object Class
+
+
+
+
+==== Abstract Process Class
+
+

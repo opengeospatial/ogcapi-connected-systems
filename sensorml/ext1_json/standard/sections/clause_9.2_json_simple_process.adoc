@@ -1,0 +1,30 @@
+[[clause_json_simple_process]]
+=== Requirements Class: Simple Process Schema
+
+==== Overview
+[requirement,model=ogc]
+====
+[%metadata]
+type:: class
+identifier:: /req/json-simple-process
+subject:: JSON Document
+inherit:: /req/json-core
+indirect-dependency:: {sml-spec-url}/req/model/simpleProcess
+====
+
+
+==== Simple Process
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/json-simple-process/schema-valid
+
+The JSON document instance shall be valid with respect to the JSON schema {jsonschema-base-url}/SimpleProcess.json[“SimpleProcess.json”].
+====
+
+
+
+
+==== Process Method
+
