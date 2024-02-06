@@ -1,0 +1,56 @@
+{
+  "type": "Feature",
+  "id": "iv3f2kcq27gfi",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [[
+      [53.76,-173.7],
+      [53.76,-155.07],
+      [75.03,-155.07],
+      [75.03,-173.7],
+      [53.76,-173.7]
+    ]]
+  },
+  "properties": {
+    "uid": "urn:x-ogc:deployments:D001",
+    "name": "Saildrone - 2017 Arctic Mission",
+    "featureType": "http://www.w3.org/ns/ssn/Deployment",
+    "description": "In July 2017, three saildrones were launched from Dutch Harbor, Alaska, in partnership with NOAA Research...",
+    "validTime": ["2017-07-17T00:00:00Z", "2017-09-29T00:00:00Z"],
+    "platform": {
+      "href": "https://data.example.org/api/systems/27559?f=sml",
+      "uid": "urn:x-saildrone:platforms:SD-1003",
+      "title": "Saildrone SD-1003"
+    },
+    "deployedSystems": [
+      {
+        "href": "https://data.example.org/api/systems/41548?f=sml",
+        "uid": "urn:x-saildrone:sensors:temp01",
+        "title": "Air Temperature Sensor"
+      },
+      {
+        "href": "https://data.example.org/api/systems/36584?f=sml",
+        "uid": "urn:x-saildrone:sensors:temp02",
+        "title": "Water Temperature Sensor"
+      },
+      {
+        "href": "https://data.example.org/api/systems/47752?f=sml",
+        "uid": "urn:x-saildrone:sensors:wind01",
+        "title": "Wind Speed and Direction Sensor"
+      }
+    ]
+  },
+  "links": [
+    {
+      "rel" : "self",
+      "href" : "https://data.example.org/api/deployments/iv3f2kcq27gfi?f=json",
+      "type" : "application/geo+json",
+      "title" : "this document"
+    }, {
+      "rel" : "alternate",
+      "href" : "https://data.example.org/api/deployments/iv3f2kcq27gfi?f=sml",
+      "type" : "application/sml+json",
+      "title" : "this resource as SensorML"
+    }
+  ]
+}
