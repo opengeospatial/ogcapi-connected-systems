@@ -17,6 +17,12 @@
       "type": "object",
       "properties": {
         "label": {
+          "description": "A human readable label for the unit",
+          "type": "string",
+          "minLength": 1
+        },
+        "symbol": {
+          "description": "The preferred unit symbol to use when presenting the data in a UI (use the UCUM code instead if no symbol is provided)",
           "type": "string",
           "minLength": 1
         }
