@@ -5,7 +5,10 @@ type:: class
 identifier:: /req/sensorml
 subject:: Web API
 inherit:: /req/api-common
-indirect-dependency:: SensorML, http://www.opengis.net/spec/sensorml/2.1/req/core
+inherit:: http://www.opengis.net/spec/SensorML-Ext/1.0/req/json-simple-process
+inherit:: http://www.opengis.net/spec/SensorML-Ext/1.0/req/json-physical-system
+inherit:: http://www.opengis.net/spec/SensorML-Ext/1.0/req/json-deployment
+inherit:: http://www.opengis.net/spec/SensorML-Ext/1.0/req/json-derived-property
 requirement:: /req/sensorml/mediatype-read
 requirement:: /req/sensorml/mediatype-write
 requirement:: /req/sensorml/relation-types
