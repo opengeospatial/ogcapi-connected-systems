@@ -2,6 +2,10 @@
 [[Bibliography]]
 == Bibliography
 
+* [[[OGC-OM, OGC 10-004r3]]], Observations and Measurements, version 2.0
+
+* [[[OGC-OMS, OGC 20-082r4]]], Topic 20: Observations, measurements and samples (OMS), Version 3.0, https://docs.ogc.org/as/20-082r4/20-082r4.html
+
 * [[[OGC-SOS, OGC 12-006]]], Sensor Observation Service Interface Standard, Version 2.0. https://www.ogc.org/standards/sos
 
 * [[[OGC-SPS, OGC 09-000]]], OGC Sensor Planning Service Implementation Standard, Version 2.0. at https://www.ogc.org/standards/sps

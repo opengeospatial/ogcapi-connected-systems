@@ -1,41 +1,32 @@
 {
   "type": "DataArray",
-  "label": "Measurement Table",
+  "label": "Calibration Table",
   "elementType": {
-    "name": "measurement",
+    "name": "point",
     "type": "DataRecord",
-    "label": "Weather Data Record",
+    "label": "Data Point",
     "fields": [
       {
-        "name": "time",
-        "type": "Time",
-        "definition": "http://www.opengis.net/def/property/OGC/0/SamplingTime",
-        "referenceFrame": "http://www.opengis.net/def/trs/BIPM/0/UTC",
-        "label": "Sampling Time",
-        "uom": {
-          "href": "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"
-        }
-      },
-      {
-        "name": "temperature",
+        "name": "t",
         "type": "Quantity",
-        "definition": "http://mmisw.org/ont/cf/parameter/air_temperature",
-        "label": "Air Temperature",
+        "definition": "https://qudt.org/vocab/quantitykind/Temperature",
+        "label": "Temperature",
         "uom": { "code": "Cel" }
       },
       {
-        "name": "pressure",
+        "name": "r",
         "type": "Quantity",
-        "definition": "http://mmisw.org/ont/cf/parameter/air_pressure_at_mean_sea_level",
-        "label": "Air Pressure",
-        "uom": { "code": "mbar" }
+        "definition": "https://qudt.org/vocab/quantitykind/Resistance",
+        "label": "Resistance",
+        "uom": { "code": "KOhm" }
       }
     ]
   },
   "values": [
-    ["2009-02-10T10:42:56Z",25.4,1020],
-    ["2009-02-10T10:43:06Z",25.3,1021],
-    ["2009-02-10T10:44:16Z",25.3,1020],
-    ["2009-02-10T10:44:17Z",25.2,1020]
+    {"t": 12, "r": 3.03},
+    {"t": 30.1, "r": 1.68},
+    {"t": 40.0, "r": 1.16},
+    {"t": 50.1, "r": 0.85},
+    {"t": 59.8, "r": 0.62}
   ]
 }

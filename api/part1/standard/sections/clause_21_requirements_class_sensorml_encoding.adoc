@@ -8,7 +8,7 @@
 
 include::../requirements/encoding/sensorml/requirements_class_sensorml.adoc[]
 
-This requirements class specifies how `Feature` descriptions provided through the API are encoded using the SensorML format.
+This requirements class specifies how `Feature` descriptions provided through the API are encoded using the <<OGC-SML-JSON, SensorML JSON>> format.
 
 All feature types defined by this Standard, except `Sampling Features`, can be encoded in SensorML to allow provision of more advanced metadata such as application specific identifiers and classifiers, security and legal constraints, characteristics and capabilities, contact information, attached documents, reference frames, etc.
 
