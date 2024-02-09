@@ -140,6 +140,7 @@ The geometry filter is used to select features with a spatial geometry intersect
 ====
 [%metadata]
 identifier:: /req/advanced-filtering/feature-by-geom
+inherit:: OGC 06-103r4 — Clause 7: Well-known Text Representation (WKT) for Geometry
 
 [.component,class=part]
 --
@@ -152,7 +153,7 @@ include::../openapi/parameters/geom.yaml[]
 
 [.component,class=part]
 --
-The value of the `geom` parameter SHALL be a valid WKT geometry.
+The value of the `geom` parameter SHALL be a valid WKT geometry (as defined by BNF syntax provided in OGC 06-103r4).
 --
 
 [.component,class=part]
