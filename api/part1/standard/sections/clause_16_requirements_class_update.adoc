@@ -5,11 +5,11 @@
 === Overview
 include::../requirements/crud/update/requirements_class_update.adoc[]
 
-This requirements class specifies how instances of the feature types defined previously are updated using the API.
+The "Update" requirements class specifies how instances of the feature types defined previously are updated via a CS API endpoint.
 
-All resources are updated using the UPDATE (HTTP PATCH) operation, as defined by {ogcapi-features-4}.
+All resources are updated using the UPDATE (HTTP PATCH) operation, as defined by the {ogcapi-features-4} Standard.
 
-{ogcapi-features-4} uses the terms "resource endpoint" to identify the paths where the UPDATE operation is supported by the server. The following sections provide these endpoints for each resource type defined by this Standard.
+{ogcapi-features-4} uses the terms "resource endpoint" to identify the paths where the UPDATE operation is supported by the server. The following sections provide these endpoints for each resource type defined by the CS API Standard.
 
 
 === Systems
@@ -21,7 +21,7 @@ identifier:: /req/update/system
 
 conditions:: The server implements <<clause-system-features,/req/system-features>>
 
-part:: For `System` features, the resource endpoints used for UPDATE operations shall be the URIs specified by the following URI templates:
+part:: For `System` features, the resource endpoints used for UPDATE operations SHALL be the URIs specified by the following URI templates:
   - `{api_root}/systems/{id}`
   - `{api_root}/collections/{systemCollectionId}/items/{id}`
 
@@ -38,7 +38,7 @@ identifier:: /req/update/procedure
 
 conditions:: The server implements <<clause-procedure-features,/req/procedure-features>>
 
-part:: For `Procedure` features, the resource endpoints used for UPDATE operations shall be the URIs specified by the following URI templates:
+part:: For `Procedure` features, the resource endpoints used for UPDATE operations SHALL be the URIs specified by the following URI templates:
   - `{api_root}/procedures/{id}`
   - `{api_root}/collections/{procedureCollectionId}/items/{id}`
 
@@ -55,7 +55,7 @@ identifier:: /req/update/deployment
 
 conditions:: The server implements <<clause-deployment-features,/req/deployment-features>>
 
-part:: For `Deployment` features, the resource endpoints used for UPDATE operations shall be the URIs specified by the following URI templates:
+part:: For `Deployment` features, the resource endpoints used for UPDATE operations SHALL be the URIs specified by the following URI templates:
   - `{api_root}/deployments/{id}`
   - `{api_root}/collections/{deploymentCollectionId}/items/{id}`
 
@@ -72,7 +72,7 @@ identifier:: /req/update/deployed-system
 
 conditions:: The server implements <<clause-deployment-features,/req/deployment-features>>
 
-part:: For `Deployed System` resources, the resource endpoints used for UPDATE operations shall be the URIs specified by the following URI templates:
+part:: For `Deployed System` resources, the resource endpoints used for UPDATE operations SHALL be the URIs specified by the following URI templates:
   - `{api_root}/deployments/{depId}/systems/{id}`
 ====
 
@@ -86,7 +86,7 @@ identifier:: /req/update/sampling-feature
 
 conditions:: The server implements <<clause-sampling-features,/req/sampling-features>>
 
-part:: For `Sampling Features`, the resource endpoints used for UPDATE operations shall be the URIs specified by the following URI templates:
+part:: For `Sampling Features`, the resource endpoints used for UPDATE operations SHALL be the URIs specified by the following URI templates:
   - `{api_root}/systems/{parentId}/samplingFeatures/{id}`
   - `{api_root}/samplingFeatures/{id}`
   - `{api_root}/collections/{sfCollectionId}/items/{id}`
@@ -104,7 +104,7 @@ identifier:: /req/update/property
 
 conditions:: The server implements <<clause-derived-properties,/req/derived-properties>>
 
-part:: For `Property` features, the resource endpoints used for UPDATE operations shall be the URIs specified by the following URI templates:
+part:: For `Property` features, the resource endpoints used for UPDATE operations SHALL be the URIs specified by the following URI templates:
   - `{api_root}/properties/{id}`
   - `{api_root}/collections/{propertyCollectionId}/items/{id}`
 

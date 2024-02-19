@@ -4,7 +4,7 @@
 
 === Supporting Tests
 
-These tests are not associated to any particular requirement but are referenced by other tests.
+These tests are not associated to any specific requirement but are referenced by other tests.
 
 [abstract_test]
 ====
@@ -692,7 +692,7 @@ step::: Validate the response using the steps described in test xref:/conf/syste
 step::: For each `System` resource in the returned collection:
 step:::: Retrieve the system's sampling features by issuing an HTTP GET request at `{systemCanonicalUrl}/samplingFeatures?recursive=true`.
 step:::: For each `Sampling Feature` resource in the returned collection:
-step::::: Follow the `sampledFeature` links to retrieve the target features, recursively. If a link does not resolve or the link media type is not supported by the testing engine, use the link target as the identifier of the feature.
+         . Follow the `sampledFeature` links to retrieve the target features, recursively. If a link does not resolve or the link media type is not supported by the testing engine, use the link target as the identifier of the feature.
 step:::: Verify that at least one of the collected features has one of the identifiers included in `{idList}`.
 step::: Repeat the previous steps with the `foi` parameter set to a list of one or more UIDs of `Feature` resources.
 ====

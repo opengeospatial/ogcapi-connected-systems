@@ -5,7 +5,7 @@
 === Overview
 include::../requirements/sampling/requirements_class_sampling_features.adoc[]
 
-This requirements class specifies how `Sampling Feature` descriptions are provided using this API.
+The "Sampling Features" requirements class specifies how `Sampling Feature` descriptions are provided using the CS API.
 
 A `Sampling Feature` resource implements the _http://www.w3.org/ns/sosa/Sample[Sample]_ concept defined in the <<SOSA-SSN,SSN Ontology>>. `Sampling Features` provide information about the sampling strategy used when observing the property of a larger feature (the `Feature of Interest`).
 
@@ -29,7 +29,7 @@ While `Features of Interest` exist independently from any system observing or co
 
 === Features of Interest
 
-In this Standard, the term _Feature of Interest_ is used to specifically mean the _Ultimate Feature of Interest_ whose properties are observed by a sensing system or changed by a controlling system. Features of interest are real-world features from an application domain and they exist independently from any sampling strategy.
+In the CS API Standard, the term _Feature of Interest_ is used to specifically mean the _Ultimate Feature of Interest_ whose properties are observed by a sensing system or changed by a controlling system. Features of interest are real-world features from an application domain and they exist independently from any sampling strategy.
 
 While many features of interest represent physical entities or are geospatial in nature, they can also be used to model more abstract concepts.
 
@@ -44,11 +44,11 @@ While many features of interest represent physical entities or are geospatial in
 - Conceptual things (e.g. an administrative area, a legal entity)
 ====
 
-NOTE: A `System` feature hosted by this API can also take the role of the `Feature of Interest` of some observations. For example, an aircraft platform modeled as a `System` using the API may carry a GPS sensor to measure its location. In this case, the feature of interest of the GPS observations is the platform itself because the GPS observes the location of the platform. The `Sampling Feature` would typically be a sampling point where the GPS antenna is located.
+NOTE: A `System` feature made available through the CS API can also take the role of the `Feature of Interest` of some observations. For example, an aircraft platform modeled as a `System` using the CS API may carry a GPS sensor to measure its location. In this case, the feature of interest of the GPS observations is the platform itself because the GPS observes the location of the platform. The `Sampling Feature` would typically be a sampling point where the GPS antenna is located.
 
 NOTE: Application domain features of interest can be hosted at the same API endpoint as the other feature types defined in this Standard since they are just another type of feature; but in many cases they will be hosted by third party servers. This API is designed to allow linking to such external entities (although implementations are encouraged to cache some of this data locally to allow for faster join queries).
 
-The sampling feature model used in the API also supports "sampling chains", where several samples are linked via sub-sampling relationships. This is often done when analysing specimens (or material samples) in a lab, but can also be applied to other types of sampling features. A few examples are provided below:
+The sampling feature model used in the CS API also supports "sampling chains", where several samples are linked via sub-sampling relationships. This is often done when analyzing specimens (or material samples) in a lab, but can also be applied to other types of sampling features. A few examples are provided below:
 
 [example%unnumbered]
 ====
@@ -66,13 +66,13 @@ In this API, observations and commands are always associated to a `Sampling Feat
 
 === Sampling Feature Resource
 
-In this API, `Sampling Feature` resources are a special kind of feature resource that implements the _http://www.w3.org/ns/sosa/Sample[sosa:Sample]_ concept.
+In the CS API Standard, `Sampling Feature` resources are a special kind of feature resource that implements the _http://www.w3.org/ns/sosa/Sample[sosa:Sample]_ concept.
 
 This section defines the attributes and associations that are common to all `Sampling Feature` resources, but the exact way attributes and associations are encoded in the payload is defined by each encoding. For encodings defined in this document, please see:
 
 - <<clause-geojson-sf,SamplingFeature resource as GeoJSON>>
 
-Future parts of this standard will define concrete types of `Sampling Features` that can be used to document different sampling strategies.
+Future parts of this Standard will define concrete types of `Sampling Features` that can be used to document different sampling strategies.
 
 ==== Common Properties
 
@@ -115,14 +115,14 @@ Valid time is used when the sampling feature is not meaningful or usable outside
 
 === Canonical URL
 
-This standard requires that a `Sampling Feature` resource has a canonical URL through which it can be retrieved independently of its membership to any collection.
+The CS API Standard requires that a `Sampling Feature` resource has a canonical URL through which it can be retrieved independently of its membership to any collection.
 
 include::../requirements/sampling/req_canonical_url.adoc[]
 
 
 === Root Collection
 
-A root collection where all `Sampling Feature` resources can be searched must be available at the API endpoint.
+A root collection where all `Sampling Feature` resources can be searched must be available at a CS API endpoint.
 
 include::../requirements/sampling/req_canonical_collection.adoc[]
 
@@ -133,7 +133,7 @@ include::../requirements/sampling/req_canonical_collection.adoc[]
 
 include::../requirements/sampling/req_collections_type.adoc[]
 
-In addition to the default (mandatory) collection containing all sampling features, `Sampling Feature` resources can also be grouped into collections according to any arbitrary criteria. Any number of feature collections containing `Sampling Features` can be available at the API endpoint.
+In addition to the default (mandatory) collection containing all sampling features, `Sampling Feature` resources can also be grouped into collections according to any arbitrary criteria. Any number of feature collections containing `Sampling Features` can be available at a CS API endpoint.
 
 include::../requirements/sampling/req_collections_others.adoc[]
 

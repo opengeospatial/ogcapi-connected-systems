@@ -5,35 +5,35 @@
 include::../requirements/common/requirements_class_common.adoc[]
 
 This requirements class regroups core dependencies that all other requirements class inherit.
-It also provides clarifications on the use of {ogcapi-common} constructs.
+It also provides clarifications on the use of the {ogcapi-common} Standard constructs.
 
 
 === API Landing Page
 
-The landing page provides links to start exploration of the resources offered by an API. {ogcapi-common} already requires some common links, sufficient for this standard.
+The landing page provides links to start exploration of the resources offered by an OGC API implementation instance. The {ogcapi-common} Standard already requires some common links, sufficient for this Standard.
 
 
 === API Definition
 
-Every API is required to provide a definition document that describes the capabilities of that API. This definition document can be used by developers to understand the API, by software clients to connect to the server, or by development tools to support the implementation of servers and clients.
+Every OGC API implementation instance is required to provide a definition document that describes the capabilities of that instance. This definition document can be used by developers to understand the API capabilities, by software clients to connect to the server, or by development tools to support the implementation of servers and clients.
 
-Implementation must comply with requirements defined in {ogcapi-common} when generating the API definition document.
+Implementation must comply with requirements defined in the {ogcapi-common} Standard when generating the API definition document.
 
 
 === Collections
 
-This API defines several resource types that are intended to be offered by the server via separate collections. 
+This CS API Standard defines several resource types that are intended to be offered by the server via separate collections. 
 
-This API uses two types of collections:
+This CS API uses two types of collections:
 
   - Root Collections
   - OGC API - Common Resource Collections (or OGC API - Feature Collections)
 
 ==== Root Collections
 
-The root collections are mandatory and have simple URLs located directly at the API root. They expose all resources of a given type hosted by the server, and also provide a default endpoint for search queries that target these resources. Canonical resource URLs are based on the root collections URLs.
+The root collections are mandatory and have simple URLs located directly at the API root. They expose all resources of a given type hosted by the server, and provide a default endpoint for search queries that target these resources. Canonical resource URLs are based on the root collections URLs.
 
-The root collections URLs for resource types defined in this part of the Standard are:
+The root collections URLs for resource types defined in Part 1 of the CS API Standard are:
 
 - `{api_root}/systems`
 - `{api_root}/procedures`
@@ -49,11 +49,11 @@ NOTE: GET operations at these root collections URLs will return a list of items 
 
 These resource collections are governed by requirements from {ogcapi-common-2} (and also from {ogcapi-features-1} for feature collections).
 
-This API makes use of the collection mechanism specified in these two Standards to allow a server to provide a more organized view of its content, by grouping them into logical collections according to any criteria. Thus, OGC API Common collections provide a secondary way of getting to the resources that are already available through the root collections.
+The CS API makes use of the collection mechanism specified in these two Standards to allow a server to provide a more organized view of its content, by grouping them into logical collections according to any criteria. Thus, a conformant OGC API Common collection endpoint provides a secondary way of getting to the resources that are already available through the root collections.
 
-Note that a given resource can be made available trough one or more OGC API Common collections (i.e. collections can overlap). This provides great flexibility for a server to organize resources according to multiple criterias and thus provide different view points to the client simultaneously. See the requirements classes of the different feature types for examples.
+Note that a given resource can be made available through one or more OGC API Common collection endpoints (i.e. collections can overlap). This provides great flexibility for a server to organize resources according to multiple criteria and thus provide different view points to the client simultaneously. See the requirements classes of the different feature types for examples.
 
-When exposing resources via OGC API Common collections, the server must indicate the type of the items contained in the collection. This is done using the `itemType` attribute of the collection. For feature collections, the `itemType` is always set to `feature`, so this Standard defines the `featureType` attribute to further specify the type of features contained in the collection.  
+When exposing resources via an OGC API Common collection endpoint, the server must indicate the type of the items contained in the collection. This is done using the `itemType` attribute of the collection. For feature collections, the `itemType` is always set to `feature`, so this Standard defines the `featureType` attribute to further specify the type of features contained in the collection.  
 
 [requirement,model=ogc]
 ====
@@ -80,7 +80,7 @@ The server CAN also offer collections containing mixed feature types. The behavi
 
 === Links and Canonical URLs
 
-Since resources defined by this Standard can be discovered through multiple collections, it is recommended to always link to a given resource using its canonical URL (e.g. `{api_root}/systems/{id}`) instead of the collection based URL (e.g. `{api_root}/collections/my_system_collection/{id}`).
+Since resources defined by this Standard can be discovered through multiple collections, it is recommended to always link to a given resource using its canonical URL (e.g. it's primary URL, such as `{api_root}/systems/{id}`) instead of the collection based URL (e.g. `{api_root}/collections/my_system_collection/{id}`).
 
 The canonical URL of a resource is based on the URL of the catch-all collection of the corresponding resource type. This leads to the following canonical URLs for resource types defined in this part of the Standard:
 
@@ -144,13 +144,13 @@ The server SHALL ensure that resource IDs are unique across all collections of a
 
 === Unique Identifiers (UID)
 
-This standard mandates that some resource types (e.g. feature resources) have a globally unique identifier that is independent of the resource URL. This is needed to carry the identity of the real-world object that a resource represents across services, as multiple servers may host different representations/descriptions of the same object.
+This Standard mandates that some resource types (e.g. feature resources) have a globally unique identifier that is independent of the resource URL. This is needed to carry the identity of the real-world object that a resource represents across services, as multiple servers may host different representations/descriptions of the same object.
 
 [example%unnumbered]
 ====
 *Example*
 
-A Connected Systems API server may hold the summary representation of a building, while the feature API server of the land register contains its 2D footprint, and the emergency response server contains its detailed 3D structure. All 3 representations should refer to the same identifier so they can be related to each other.
+A Connected Systems API server implementation may hold the summary representation of a building, while the feature API server of the land register contains its 2D footprint, and the emergency response server contains its detailed 3D structure. All 3 representations should refer to the same identifier so they can be related to each other.
 ====
 
 [requirement,model=ogc]
@@ -175,7 +175,7 @@ part:: The server SHOULD ensure that resource UIDs are globally unique URIs, tha
 
 === Coordinate Reference Systems
 
-As this API extends {ogcapi-features-1}, the server is only required to implement support for `CRS:84` (longitude, latitude) and `CRS:84h` (longitude, latitude, height). However, if support for more CRS is needed, the server can also implement requirements from {ogcapi-features-2}.
+As the CS API Standard extends {ogcapi-features-1}, the server is only required to implement support for `CRS:84` (longitude, latitude) and `CRS:84h` (longitude, latitude, height). However, if support for a CRS other than `CRS:84` or `CRS:84h` is needed, the server can also implement requirements from the {ogcapi-features-2} Standard.
 
 
 === Date/Time Query Parameter

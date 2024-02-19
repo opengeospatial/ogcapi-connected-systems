@@ -1,6 +1,16 @@
 .Preface
 
-#TODO#
+The OGC API - Connected Systems Standard is part of the suite of OGC API Standards.
+
+To increase the brevity and readability of this Standard, many OGC document titles are shortened and/or abbreviated. Therefore, in the context of this document, the following phrases are defined:
+
+- “this Standard” shall be interpreted as equivalent to “OGC API - Connected Systems - Part 1: Feature Resources Standard”.
+
+- “CS API” or “CS API Standard” shall be interpreted as equivalent to “OGC API - Connected Systems Standard” (including all its parts).
+
+- “OGC API - Features” shall be interpreted as equivalent to “OGC API - Features - Part 1: Core corrigendum”.
+
+- “OGC API - Common” shall be interpreted as equivalent to “OGC API - Common - Part 1: Core”.
 
 
 [abstract]
@@ -8,15 +18,15 @@
 
 https://ogcapi.ogc.org/#standards[OGC API Standards] define modular API building blocks to spatially enable Web APIs in a consistent way. The https://www.openapis.org[OpenAPI] specification is used to define the API building blocks.
 
-The OGC API family of Standards is organized by resource type. This Standard specifies the fundamental API building blocks for interacting with Connected Systems and associated resources. A Connected System represents any kind of system that can either directly transmit data via communication networks (being connected to them in a permanent or temporary fashion), or whose data is made available in one form or another via such networks. This definition encompasses systems of all kinds, including in-situ and remote sensors, actuators, fixed and mobile platforms, airborne and space-borne systems, robots and drones, and even humans who collect data or execute specific tasks.
+The OGC API family of Standards is organized by resource type. The OGC API - Connected Systems Standard (aka “this Standard” or “CS API”) specifies the fundamental API building blocks for interacting with Connected Systems and associated resources. A Connected System represents any kind of system that can either directly transmit data via communication networks (being connected to them in a permanent or temporary fashion), or whose data is made available in one form or another via such networks. This definition encompasses systems of all kinds, including in-situ and remote sensors, actuators, fixed and mobile platforms, airborne and space-borne systems, robots and drones, and even humans who collect data or execute specific tasks.
 
-Since many of the resource types defined in this document, including the systems themselves, are also features, the OGC API - Connected Systems Standard is logically written as an extension of {ogcapi-features}.
+Since many of the resource types defined in this Standard, including the systems themselves, are also features, the OGC API - Connected Systems Standard is logically written as an extension of the {ogcapi-features} Standard (Parts 1 and 4).
 
 But beyond features, this Standard is also intended to act as a bridge between static data (geographic and other application domain features) and dynamic data (observations of these features properties, and commands/actuations that change these features properties). To this end, this Standard also describes protocols and formats to transmit dynamic data to/from connected systems through the API. Some of these protocols allow efficient real-time delivery of data while some others are more suited for transmitting data in batch.
 
-In addition to providing its own mechanism for interacting with static and dynamic data, the API allows linking to other APIs from the OGC ecosystem, such as https://ogcapi.ogc.org/geovolumes[3D GeoVolumes], https://github.com/CesiumGS/3d-tiles/tree/main/specification[3D Tiles], https://ogcapi.ogc.org/coverages[Coverages], https://ogcapi.ogc.org/edr[EDR], https://ogcapi.ogc.org/sensorthings[SensorThings], https://ogcapi.ogc.org/processes[Processes], and other Features API instances. Among other things, this linking capability allows one to retrieve more advanced representations of features of interest (3D buildings, etc.) and gridded data (coverages) than the one that would typically be provided through this API.
+In addition to providing its own mechanism for interacting with static and dynamic data, the API allows linking to resources defined by other OGC Standards, such as https://www.ogc.org/standard/3dtiles/[3D Tiles], https://ogcapi.ogc.org/coverages[Coverages], https://ogcapi.ogc.org/edr[EDR], https://ogcapi.ogc.org/sensorthings[SensorThings], https://ogcapi.ogc.org/processes[Processes], and other instances of {ogcapi-features}. Among other things, this linking capability enables retrieving more advanced representations of features of interest (3D buildings, etc.) and gridded data (coverages) than the one that would typically be provided through this API.
 
-The API is comprised of multiple parts, each of them being a separate standard. This part ("Part 1 - Feature Resources") defines the feature types and corresponding schemas for some concepts of the {ogc-w3c-ssn}. "Part 2 - Dynamic Data" defines additional resources, encodings and protocols that allow efficient exchange of dynamic (time-varying) data related to these features, in a way that is also aligned with SSN.
+The CS API is comprised of multiple parts, each of them being a separate standard. This part ("Part 1 - Feature Resources") defines the feature types and corresponding schemas for some concepts of the {ogc-w3c-ssn}. "Part 2 - Dynamic Data" defines additional resources, encodings and protocols that allow efficient exchange of dynamic (time-varying) data related to these features, in a way that is also aligned with SSN.
 
 
 == Security considerations
@@ -33,7 +43,7 @@ All questions regarding this submission should be directed to the editor or the 
 | *Name* | *Affiliation*
 | Alex Robin (Editor) | GeoRobotix, Inc.
 | Christian Autermann | 52° North Initiative
-| Chuck Heazel | Heazeltech
+| Chuck Heazel | Heazeltech (for NGA)
 | Glenn Laughlin | Pelagis Data Solutions
 | Nick Garay | Botts Innovative Research, Inc.
 | Patrick Cozzi | Cesium GS, Inc.

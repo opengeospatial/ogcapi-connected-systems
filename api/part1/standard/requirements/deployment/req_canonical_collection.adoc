@@ -5,7 +5,7 @@ identifier:: /req/deployment/canonical-collection
 
 part:: The server SHALL support the HTTP GET operation and expose all available `Deployment` resources at the path `{api_root}/deployments`.
 
-part:: The operation SHALL support the same query parameters as OGC API Feature collections.
+part:: The operation SHALL support the same query parameters as the ones defined for "Features" endpoints in {ogcapi-features-1}.
 
-part:: The server response SHALL be a collection of `Deployment` resources.
+part:: The server response SHALL be a collection of `Deployment` resources, and fulfill all requirements for a "Features" endpoint response, as defined in {ogcapi-features-1}.
 ====

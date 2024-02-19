@@ -3,5 +3,5 @@
 [%metadata]
 identifier:: /per/property/collection-others
 
-part:: The server CAN expose additional collections of `Property` resources using the resource collection mechanism documented in {ogcapi-common-2}.
+part:: The server MAY expose additional collections of `Property` resources using the resource collection mechanism documented in the {ogcapi-common-2} Standard.
 ====

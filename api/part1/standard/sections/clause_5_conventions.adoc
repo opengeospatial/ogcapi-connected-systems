@@ -58,6 +58,7 @@ In this document the following abbreviations and acronyms are used or introduced
 - URL: Uniform Resource Locator
 - URI: Uniform Resource Identifier
 - UTC: Coordinated Universal Time
+- WKT: Well-Known Text
 - XML: eXtended Markup Language
 - 1D:	One Dimensional
 - 2D:	Two Dimensional

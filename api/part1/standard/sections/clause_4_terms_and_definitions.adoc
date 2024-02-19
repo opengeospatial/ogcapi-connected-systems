@@ -71,7 +71,7 @@ A workflow, protocol, plan, algorithm, or computational method specifying how to
 === Property
 Facet or attribute of an object referenced by a name.
 
-Example	: Abby's car has the colour red, where "colour red" is a property of the car instance
+Example	: Abby's car has the color red, where "color red" is a property of the car instance
 
 [.source]
 <<ISO19143, ISO-19143>>

@@ -3,26 +3,26 @@
 
 OGC Web API Standards enable access to resources using the HTTP protocol and its associated operations (GET, PUT, POST, DELETE, etc.). 
 
-This Standard defines resource types that allow the provision of metadata about all kinds of devices, hardware components or processes that can transmit and/or receive data via communication networks (a.k.a. connected systems), including sensors, platforms, robots, human observers, forecast models, computer simulations, etc.
+OGC API - Connected Systems Standard - Part 1 (aka “this Standard” or “CS API”) defines resource types that allow the provision of metadata about all kinds of devices, hardware components or processes that can transmit and/or receive data via communication networks (a.k.a. connected systems), including sensors, platforms, robots, human observers, forecast models, computer simulations, etc.
 
-This Standard is an extension of {ogcapi-features} and defines specific feature collections, feature types and filtering mechanisms that are also dependent on building blocks from {ogcapi-common}. Therefore, an implementation of this Standard shall first satisfy the appropriate Requirements Classes from these two Standards. In addition, this Standard has dependencies on some OGC and non-OGC encoding standards. All dependencies are clearly identified in each Requirements Class.
-
-In the rest of the document, the term "This API" is sometimes used to refer to the "OGC API - Connected Systems" Standard.
+This Standard is an extension of the {ogcapi-features} Standard and defines specific feature collections, feature types and filtering mechanisms that are also dependent on building blocks from the {ogcapi-common} Standard. Therefore, an implementation of this Standard shall first satisfy the appropriate Requirements Classes from these two Standards. In addition, this Standard has dependencies on some OGC and non-OGC encoding standards. All dependencies are clearly identified in each Requirements Class.
 
 
 === Design Considerations
 
 While this is the first version of the OGC API - Connected Systems series, the fine-grained access to sensor related data, including sensor metadata, observations and tasking over the Web has been supported by the <<OGC-SOS,OGC Sensor Observation Service (SOS)>>, <<OGC-SPS,OGC Sensor Planning Service (SPS)>> and <<OGC-STA-1,SensorThings API>> Standards and their various implementations for many years.
 
-SOS and SPS were designed in the early 2000s and use a Remote-Procedure-Call-over-HTTP architectural style and XML for any payloads, while SensorThings is a newer OGC Standard that was the first to adopt the REST architecture style with JSON payloads.
+SOS and SPS were designed in the early 2000s and use a Remote-Procedure-Call-over-HTTP architectural style and XML for any payloads, while the SensorThings API Standard is a newer OGC Standard that was the first to adopt the REST architecture style with JSON payloads.
 
-OGC API - Connected Systems supports all capabilities from these previous Standards, but using a modernized approach that follows the current Web architecture and in particular the W3C/OGC best practices for sharing Spatial Data on the Web as well as the latest OGC API guidelines.
+Requirements in the OGC API - Connected Systems Standard (CS API) support all capabilities from these previous Standards, but using a modernized approach that follows the current Web architecture and in particular the W3C/OGC best practices for sharing Spatial Data on the Web as well as the latest OGC API guidelines.
 
-This API is designed as an extension of {ogcapi-features} which makes it entirely compatible with Features API clients, while still allowing more advanced functionality to access dynamic data associated to features. A clear goal of this approach is to better integrate the GIS and sensor/IoT communities. 
+The CS API is designed as an extension of the {ogcapi-features} Standard which makes it entirely compatible with Features API clients, while still allowing more advanced functionality to access dynamic data associated to features. A clear goal of this approach is to better integrate the GIS and sensor/IoT communities. 
 
 Another key design decision was to allow linking to implementations of other OGC API Standards whenever possible, thus allowing a much better integration with the rest of the OGC API ecosystem.
 
-Models from the {ogc-w3c-ssn} are the basis for the API design, with the help of more concrete models like O&M/OMS and SensorML.
+Models from the {ogc-w3c-ssn} are the basis for the design of the CS API, and the <<OGC-SML,SensorML>> language is used as an implementation model to provide concrete implementations of the SOSA/SSN concepts. An alternative GeoJSON encoding of these concepts is also defined.
+
+The CS API defines several resource/feature types in separate requirements classes, any combination of which can be implemented by the server. This allows resources to be distributed across several servers (potentially different implementations of the CS API) and connected via hyperlinks. For example, a given implementation can choose to implement only `System` and `Deployment` features and rely on other servers to host complementary metadata such as `Procedures`, `Property Definitions` and `Features of Interest` (i.e. domain features). This is a common use cases since procedure descriptions (i.e. system datasheets) and domain features (e.g. geographical or hydrological features) can typically be shared by many different organizations.
 
 
 === Resource Types
@@ -33,7 +33,7 @@ Models from the {ogc-w3c-ssn} are the basis for the API design, with the help of
 .Class diagram of API resources
 image::./figures/FIG001-resource-diagram.png[api-class-diagram, align="center"]
 
-All resources defined in part 1 of this Standard are feature types, except for the `Property Definition` resource. Each resource type is defined in its own requirements class. The table below provides an overview of these resource types:
+All resources defined in Part 1 of this Standard are feature types, except for the `Property Definition` resource. Each resource type is defined in its own requirements class. The table below provides an overview of these resource types:
 
 [#feature-types,reftext='{table-caption} {counter:table-num}']
 .Overview of resource types defined by this Standard
@@ -43,44 +43,44 @@ All resources defined in part 1 of this Standard are feature types, except for t
 | System (Feature)     | <<clause-system-features>>     | Description of system instances such as sensors, platforms, human observers, etc.  | GeoJSON, JSON-FG, SML-JSON
 | Procedure (Feature)  | <<clause-procedure-features>>  | Description of procedures implemented by systems such as datasheets or methods (e.g. system types). | GeoJSON, JSON-FG, SML-JSON
 | Deployment (Feature) | <<clause-deployment-features>> | Description of deployments involving one or more systems for a particular purpose. | GeoJSON, JSON-FG, SML-JSON
-| Sampling Feature     | <<clause-sampling-features>>   | Description of sampling strategies associated to particular systems (e.g. sampling geometry or method). | GeoJSON, JSON-FG
+| Sampling Feature     | <<clause-sampling-features>>   | Description of sampling strategies associated with specific systems (e.g. sampling geometry or method). | GeoJSON, JSON-FG
 | Property Definition  | <<clause-property-definitions>>  | Description of feature properties (observable properties, controllable properties, system properties). | SML-JSON
 |====
 
-NOTE: The listed encodings are the ones defined in this Standard but extensions can define additional encodings.
+NOTE: The listed encodings are the ones defined in this Standard, but extensions can define additional encodings.
 
 
 === Resource Encodings
 
 This Standard also defines encodings that can be used to encode the resource types listed above. Support for these encodings is not required as each encoding is specified in its own requirements class.
 
-Encodings are specified in <<clause-encodings>> of this Standard. Each encoding requirements class provides schemas and examples for the supported reosurce type.
+Encodings are specified in <<clause-encodings>> of this Standard. Each encoding requirements class provides schemas and examples for the supported resource types.
 
 
 === Resource Collections
 
-{ogcapi-features} mandates that its resources be organized into Feature Collections. In addition to the feature types themselves, this Standards specifies how to identify collections that contain a given feature type.
+The {ogcapi-features} Standard mandates that its resources be organized into Feature Collections. In addition to the feature types themselves, this Standard specifies how to identify collections that contain a given feature type.
 
 This is done using an additional attribute on the Collection resource called `featureType`. Each requirements class defining a new feature type also defines the value to use for this attribute when creating a collection of this feature type.
 
 
 === Paged Responses
 
-All collections support paging via the `limit` query parameter and the `next` link, as specified by {ogcapi-features-1} and {ogcapi-common-2}.
+All resource collections support paging via the `limit` query parameter and the `next` link, as specified by the {ogcapi-features-1} and {ogcapi-common-2} Standards.
 
 
 === Search & Filtering
 
-The core search capability is based on {ogcapi-features-1} and thus supports:
+The core search capability is based on the {ogcapi-features-1} Standard and thus supports:
 
 * Bounding box searches using the `bbox` parameter,
 * Time instant or time period searches using the `datetime` parameter,
 * Equality predicates on feature properties (i.e. _property_=_value_).
 
-This API extends these core search capabilities to include:
+The CS API Standard extends these core search capabilities to include:
 
 * Search by resource local ID or UID using the `id` parameter.
-* Geospatial searches using the `geom` parameter that takes a WKT geometry,
+* Geospatial searches using the `geom` parameter encoded as a WKT geometry,
 * Full-text searches using the `q` parameter (prefix search only).
 
 Additional filters are defined on a per resource type basis, as shown in the following table:
@@ -105,7 +105,7 @@ See <<clause-advanced-filtering,style=full%>> for more details.
 
 ==== Authentication
 
-It is expected that certain functionality of this API will be protected by an access control mechanism (e.g. RBAC), which requires each user to authenticate.
+The expectation is that certain functionality of the CS API will be protected by an access control mechanism (e.g. RBAC), which requires each user to authenticate.
 
 This Standard does not mandate a particular authentication method, but the following methods are commonly used and supported by OpenAPI:
 
@@ -118,25 +118,17 @@ NOTE: Some of these authentication methods are only recommended over HTTPS.
 
 ==== Encryption
 
-This API will often be used to transmit confidential or sensitive data. Encryption in-transit using HTTPS (i.e. HTTP over TLS/SSL) is thus highly recommended and is now very common practice on the web.
+A CS API implementation will often be used to transmit confidential or sensitive data. Encryption in-transit using HTTPS (i.e. HTTP over TLS/SSL) is thus highly recommended and is now very common practice on the web.
 
-In addition, implementations of this Standard may also store confidential or sensitive data (e.g. in a database) for extended periods of time. In this case, encryption at rest is also recommended, especially if data is hosted on shared infrastructure (e.g. public clouds).
+In addition, implementations of this Standard may also store confidential or sensitive data (e.g. in a database) for extended periods of time. In this case, encryption at rest is also recommended, especially if data is hosted on a shared infrastructure (e.g. public clouds).
 
 ==== M2M Communications
 
-It is expected that clients of this API will sometime be machines that connect to the API automatically without human intervention.
+It is expected that clients implementing the CS API Standard will sometime be machines that connect to the API automatically without human intervention.
 
-In order to mitigate data spoofing, it is highly recommended that this type of clients use a strong authentication method and digital signatures relying on asymmetric cryptography, and whose access can be easily revoked (e.g. PKI certificates).
+To mitigate data spoofing, it is highly recommended that this type of clients use a strong authentication method and digital signatures relying on asymmetric cryptography, and whose access can be easily revoked (e.g. PKI certificates).
 
 ==== Common Weaknesses
 
-Please see https://docs.ogc.org/is/17-069r4/17-069r4.html#_security_considerations[Clause 11] of {ogcapi-features} for guidance regarding the mitigation of typical web APIs weaknesses.
+Please see https://docs.ogc.org/is/17-069r4/17-069r4.html#_security_considerations[Clause 11] of {ogcapi-features-1} for guidance regarding the mitigation of typical web APIs weaknesses.
 
-
-=== Requirements Classes
-
-Most requirements classes of this Standard can be implemented independently.
-
-For example, a given implementation can choose to implement only `System` and `Deployment` features and rely on other servers to host complementary metadata such as `Procedures` and `Features of Interest` (i.e. domain features). This is a common use cases since procedure descriptions (i.e. system datasheets) and domain features (e.g. geographical or hydrological features) can typically be shared by many different organizations.
-
-This is made possible thanks to the use of hyperlinks that don't require that all resources be hosted at the same endpoint.

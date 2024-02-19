@@ -5,7 +5,7 @@
 === Overview
 include::../requirements/query/requirements_class_advanced_filtering.adoc[]
 
-This requirements class specifies additional filtering options that may be used to select only a subset of the resources in a collection.
+The "Advanced Filtering" requirements class specifies additional filtering options that may be used to select only a subset of the resources in a collection.
 
 All filters defined in this section are implemented using URL query parameters and can be used in addition to the ones required by <<clause-api-common>>.
 
@@ -49,7 +49,7 @@ All items in the list SHALL be of the same ID type (either all resource IDs or a
 
 ==== Overview 
 
-The filtering options defined in this section are common to all resource types defined in this Standard, and may also be used with other resource types that are hosted at the same endpoint.
+The filtering options defined in this section are common to all resource types defined in this Standard, and may also be used with other resource types that are hosted at the same CS API endpoint.
 
 When this requirements class is implemented, the requirements in this class are applicable to all HTTP GET operations used to retrieve items from any collection offered by the server (i.e. it is not allowed to implement this class only for certain collections).
 
@@ -173,7 +173,7 @@ Features with no spatial geometry SHALL be excluded from the result set.
 
 [.component,class=part]
 --
-The coordinate values SHALL be within the extent specified for the coordinate reference system.
+The coordinate values SHALL be within the extent specified for the coordinate reference system (CRS).
 --
 ====
 
@@ -441,7 +441,7 @@ identifier:: /req/advanced-filtering/deployment-by-foi
 
 part:: HTTP GET operations targeting a collection of `Deployment` resources SHALL support a parameter `foi` of type <<filter-idlist-schema,ID_List>>.
 
-part:: Only deployments during which a deployed system observe or control a feature of interest that has one of the reauested identifiers SHALL be part of the result set.
+part:: Only deployments during which a deployed system observe or control a feature of interest that has one of the requested identifiers SHALL be part of the result set.
 
 part:: Both sampling features and domain features of interest SHALL be included in the search.
 ====

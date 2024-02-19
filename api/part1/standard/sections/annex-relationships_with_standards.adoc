@@ -2,52 +2,52 @@
 == Relationship with other OGC/ISO standards (Informative)
 
 
-=== Semantic Sensor Network Ontology
+=== W3C Semantic Sensor Network Ontology
 
-The {ogc-w3c-ssn} provides the semantic model from which the resource model of OGC API - Connected Systems is derived.
+The W3C {ogc-w3c-ssn} Recommendation provides the semantic model from which the resource model of the OGC API - Connected Systems Standard (CS API) is derived.
 
-OGC API - Connected Systems does not use any SOSA/SSN serialization (e.g. RDF, Turtle, etc.) directly as a resource representation format. Instead, GeoJSON, SensorML-JSON or in some cases plain JSON and even binary representations are used, with references to SOSA/SSN concepts (by URI or CURIE) whenever appropriate (e.g. System Types, Procedure Types, etc.).
+The CS API does not use any SOSA/SSN serialization (e.g. RDF, Turtle, etc.) directly as a resource representation format. Instead, GeoJSON, SensorML-JSON or in some cases plain JSON and even binary representations are used, with references to SOSA/SSN concepts (by URI or CURIE) whenever appropriate (e.g. System Types, Procedure Types, etc.).
 
 **Divergence from the SOSA/SSN Patterns**
 
-OGC API - Connected Systems (CONSYS) resource model diverges from currently used SOSA/SSN patterns in the following ways:
+The CS API resource model diverges from currently used SOSA/SSN patterns in the following ways:
 
-1. In CONSYS, all systems can have both `datastreams` and `controlstreams`, even though they are tagged with only one type (i.e.`sosa:Sensor`, `sosa:Actuator`, `sosa:Sampler` or `sosa:Platform`). The semantic tagging is only used to provide the main role of the system or subsystem without limiting other API functionality. This design simplifies the description of sensors that can also accept commands (e.g. even simple sensors often have commands to change the sampling rate or the sensitivity), or actuators that output data (e.g. most actuators provide some kind of state information). The same effect can be achieved when using the SOSA/SSN ontology by creating RDF resources that have several parent classes such as: +
+1. In the CS API, all systems can have both `datastreams` and `controlstreams`, even though they are tagged with only one type (i.e.`sosa:Sensor`, `sosa:Actuator`, `sosa:Sampler` or `sosa:Platform`). Semantic tagging is only used to provide the main role of the system or subsystem without limiting other API functionality. This design simplifies the description of sensors that can also accept commands (e.g. even simple sensors often have commands to change the sampling rate or the sensitivity), or actuators that output data (e.g. most actuators provide some kind of state information). The same effect can be achieved when using the SOSA/SSN ontology by creating RDF resources that have several parent classes such as: +
 `<Motor1> a ssn:System, sosa:Sensor, sosa:Actuator ; ...` +
 `<UAV1> a ssn:System, sosa:Platform ; ...`
 
-2. In CONSYS, an observation can be associated to more than one observed property, and a command to more than one controlled property, while SOSA/SSN has a cardinality of one on these associations. This also means that observations are not limited to scalar results, and commands are not limited to scalar parameters. Discussions in the SOSA/SSN working group have shown that such vectorization of observed properties and corresponding observation results is an accepted practice and will be clearly documented in the next revision of the SOSA/SSN standard.
+2. In the CS API, an observation can be associated to more than one observed property, and a command to more than one controlled property, while SOSA/SSN has a cardinality of one on these associations. This also means that observations are not limited to scalar results, and commands are not limited to scalar parameters. Discussions in the SOSA/SSN working group have shown that such vectorization of observed properties and corresponding observation results is an accepted practice and will be clearly documented in the next revision of the SOSA/SSN standard.
 
-3. We use the concepts of `ObservationCollection` and `ActuationCollection` (in the form of `DataStream` and `ControlStream` respectively) in order to factor out many properties that are common to observations/actuations associated to the same sensor/actuator. Note that such collections are not part of the current version of SOSA/SSN at the time of writing but will be incorporated in the next revision.
+3. We use the concepts of `ObservationCollection` and `ActuationCollection` (in the form of `DataStream` and `ControlStream` respectively) to factor out many properties that are common to observations/actuations associated to the same sensor/actuator. Note that such collections are not part of the current version of SOSA/SSN at the time of writing but will be incorporated in the next revision.
 
-These patterns are used in CONSYS to reduce the number (and sometimes the size) of resources that one needs to create and maintain in order to fully describe complex systems and their data feeds. Where a few resources are necessary in the API, the SOSA/SSN model would require many more small resources to achieve the same functionality, which leads to complexity for API consumers. 
+These patterns are used in the CS API to reduce the number (and sometimes the size) of resources that one needs to create and maintain in order to fully describe complex systems and their data feeds. Where a few resources are necessary using the CS API, the SOSA/SSN model would require many more small resources to achieve the same functionality, which leads to complexity for API consumers.
 
-Rather than imposing a very verbose schema, these changes give more flexibility for choosing the appropriate level of granularity used when describing hierarchical systems, while still allowing the API to exchange all required dynamic data feeds. Granularity can range from creating a different sensor or actuator for every single scalar property observed or acted on, all the way to a single resource that is used to represent an entire complex system as a "black box".
-
-
-
-=== Sensor Modeling Language (SensorML)
-
-<<OGC-SML,OGC Sensor Model Language (SensorML)>> is one of the foundational building blocks of OGC API - Connected Systems.
-
-Many of the foundational ideas of OGC API - Connected Systems are inherited from SensorML, although original models have been converted to a resource oriented approach and aligned with SOSA/SSN in the process of creating the API.
-
-OGC API - Connected Systems specifies how to use SensorML JSON encodings as a resource encoding format, but the XML version of SensorML can also be used as a response format by the API server.
-
-Currently, SensorML is the only encoding format allowing the provision of detailed specsheets for systems, procedures, and deployments.
+Rather than imposing a very verbose schema, these changes give more flexibility for choosing the appropriate level of granularity used when describing hierarchical systems, while still allowing the API implementation to exchange all required dynamic data feeds. Granularity can range from creating a different sensor or actuator for every single scalar property observed or acted on, all the way to a single resource that is used to represent an entire complex system as a "black box".
 
 
 
-=== Observations, Measurements and Samples (OMS)
+=== OGC Sensor Modeling Language (SensorML) Standard
 
-The <<OGC-OMS,Observations, Measurements and Samples (OMS)>> Standard is one of the foundational building blocks of OGC API - Connected Systems, through our use of the {ogc-w3c-ssn}. Indeed, SOSA/SSN was originally based on a previous version of OMS, <<OGC-OM,Observations and Measurements (O\&amp;M)>>, so many concepts from OMS are naturally carried over to the API.
+<<OGC-SML,OGC Sensor Model Language (SensorML)>> is one of the foundational building blocks of the OGC API - Connected Systems Standard (CS API).
 
-The following table indicates which classes of OMS https://docs.ogc.org/as/20-082r4/20-082r4.html#_conceptual_observation_schema[Conceptual Observation Schema] and https://docs.ogc.org/as/20-082r4/20-082r4.html#_conceptual_sample_schema[Conceptual Sample Schema] are implemented by OGC API - Connected Systems (CONSYS):
+Many of the foundational ideas for the CS API Standard are inherited from SensorML, although original models have been converted to a resource oriented approach and aligned with SOSA/SSN in the process of creating the API.
+
+The CS API Standard specifies how to use SensorML JSON encodings as a resource encoding format, but the XML version of SensorML can also be used as a response format by the API server.
+
+Currently, SensorML is the only encoding format supporting the provision of detailed specsheets for systems, procedures, and deployments.
+
+
+
+=== OGC/ISO Observations, Measurements and Samples (OMS) Standard
+
+The <<OGC-OMS,Observations, Measurements and Samples (OMS)>> Standard is one of the foundational building blocks of the OGC API - Connected Systems Standard, through the use of the {ogc-w3c-ssn}. Indeed, SOSA/SSN was originally based on a previous version of OMS, <<OGC-OM,Observations and Measurements (O\&amp;M)>>, so many concepts from OMS are naturally carried over to the CS API Standard.
+
+The following table indicates which classes of OMS https://docs.ogc.org/as/20-082r4/20-082r4.html#_conceptual_observation_schema[Conceptual Observation Schema] and https://docs.ogc.org/as/20-082r4/20-082r4.html#_conceptual_sample_schema[Conceptual Sample Schema] are implemented by OGC API - Connected Systems (CS API):
 
 [%unnumbered,#oms-concept-mappings,reftext='{table-caption} {counter:table-num}']
 [width="100%",cols="5,5,10,10",options="header"]
 |====
-| *OMS Class*           | *O&M Class*           | *CONSYS Resource*                              | *Comments*
+| *OMS Class*           | *O&M Class*           | *CS API Resource*                              | *Comments*
 | `Observation`         | `OM_Observation`      | `Observation`                                  | 
 | `ObservableProperty`  | `GFI_PropertyType`    | `Property`                                     | 
 | `Procedure`           | `OM_Process`          | `Procedure (type=sosa:Procedure`)              |
@@ -62,54 +62,54 @@ The following table indicates which classes of OMS https://docs.ogc.org/as/20-08
 
 
 
-=== GeoJSON
+=== IETF GeoJSON
 
-GeoJSON is one of the main encoding formats used in OGC API - Connected Systems. A GeoJSON profile for each feature type is provided in <<clause-encoding-geojson>>, with complete JSON schemas and mappings to the abstract resource model.
+GeoJSON is one of the main encoding formats specified in the OGC API - Connected Systems Standard. A GeoJSON profile for each feature type is provided in <<clause-encoding-geojson>>, with complete JSON schemas and mappings to the abstract resource model.
 
 Since SensorML is available for cases where detailed information about systems, procedures and deployments is needed (e.g. contact information, detailed system datasheets, etc.), the GeoJSON profile is intentionally kept simple and is intended to be used as a summary representation.
 
-Although not mandated by the Standard, a typical workflow would be to retrieve collections of feature descriptions (e.g. as the result of search) by requesting the GeoJSON representation first, since it leads to much smaller documents than the SensorML-JSON encoding. Then, after reviewing the summary descriptions provided as GeoJSON, the full SensorML description could be fetched (typically only for some of the features of the collection).
+Although not mandated by the Standard, a typical workflow would be to retrieve collections of feature descriptions (e.g. as the result of search) by requesting the GeoJSON representation first, since the GeoJSON encoding leads to much smaller documents than the SensorML-JSON encoding. Then, after reviewing the summary descriptions provided as GeoJSON, the full SensorML description could be fetched (typically only for some of the features of the collection).
 
 
 
-=== JSON-FG
+=== OGC Features and Geometries JSON (JSON-FG)
 
-Similarly to GeoJSON, a profile of JSON-FG could be defined to provide an alternative representation of feature types defined in this Standard. The JSON-FG requirements class has been left out of Part 1 but will be considered at a later stage once more implementation experience has been collected.
-
-
-
-=== OGC API - Features
-
-The OGC API - Connected Systems Standard is an extension of OGC API - Features, and thus inherits all requirements from {ogcapi-features-1}. In addition, requirements from {ogcapi-features-4} are inherited by <<clause-resource-crd,style=basic%>> and <<clause-resource-update,style=basic%>>. Requirements from {ogcapi-features-2} also apply if coordinate reference systems other than `CRS:84` or `CRS:84h` are to be used.
-
-Additionally, some resources defined by this API are designed to link to feature resources hosted by other servers (e.g. domain features) that act as features of interest of observations (e.g. rivers, roads, buildings, etc.). Such domain features can typically be hosted by separate instances of OGC API - Features. This linking capability allows OGC API - Connected Systems instances to refer to existing feature repositories such as land registers, building databases, transportation networks, hydrographic networks, oceanic features, etc, without duplicating the data.
+Similarly to GeoJSON, a profile of JSON-FG could be defined to provide an alternative representation of feature types defined in the CS API Standard. The JSON-FG requirements class has been left out of Part 1 but will be considered at a later stage once more implementation experience has been collected.
 
 
 
-=== OGC API - Moving Features
+=== OGC API - Features Standard
 
-The OGC API - Moving Features Standard defines an alternative way to provide dynamic feature property data, but is more limited in scope. The key difference between OGC API - Moving Features and OGC API - Connected Systems is that the former does not implement the O&M or SSN models, and thus does not allow the provision of metadata about the observation process, nor does it support tasking capabilities. 
+The OGC API - Connected Systems Standard is an extension of the OGC API - Features Standard, and thus inherits all requirements from {ogcapi-features-1}. In addition, requirements from {ogcapi-features-4} are inherited by <<clause-resource-crd,style=basic%>> and <<clause-resource-update,style=basic%>>. Requirements from {ogcapi-features-2} also apply if coordinate reference systems other than `CRS:84` or `CRS:84h` are to be used.
 
-If needed, both APIs can be implemented at the same endpoint (since both extend OGC API - Features) in order to provide two complementary viewpoints of the same underlying dynamic data.
+Additionally, some resources defined by the CS API Standard are designed to link to feature resources hosted by other servers (e.g. domain features) that act as features of interest of observations (e.g. rivers, roads, buildings, etc.). Such domain features can typically be hosted by separate implementation instances of OGC API - Features. This linking capability allows OGC API - Connected Systems implementation instances to refer to existing feature repositories such as land registers, building databases, transportation networks, hydrographic networks, oceanic features, etc, without duplicating the data.
 
 
 
-=== OGC API - Environmental Data Retrieval (EDR)
+=== OGC API - Moving Features Standard
 
-<<OGCAPI-EDR,OGC API - Environmental Data Retrieval (EDR)>> can also be used to retrieve observation data. It is especially suited for extracting data from large multi-dimensional coverages and can be used jointly with OGC API - Connected Systems.
+The OGC API - Moving Features Standard defines an alternative way to provide dynamic feature property data, but is more limited in scope. The key difference between OGC API - Moving Features and OGC API - Connected Systems is that the former does not implement the O&M or SSN models, and thus does not support the provision of metadata about the observation process, nor does it support tasking capabilities. 
 
-Weblinks can be used to associate resources exposed by OGC API - EDR and OGC API - Connected Systems (CONSYS). Such links can be used to implement the following client functionality:
+If needed, both APIs can be implemented at the same endpoint (since both extend OGC API - Features) to provide two complementary viewpoints of the same underlying dynamic data.
 
-- An EDR API client can retrieve more information about the observing system that produced the data in a collection or instance from the CONSYS API.
 
-- Conversely, a Connected Systems API client can be redirected to an EDR collection or instance in order to benefit from EDR advanced query operators (e.g. radius, cube, trajectory, corridor, etc.), and thus extract data from large coverage results more efficiently.
 
-To this effect, the following weblinks can be added to OGC API - EDR resources to refer to OGC API - Connected Systems (CONSYS) resources:
+=== OGC API - Environmental Data Retrieval (EDR) Standard
 
-[%unnumbered,#edr-to-consys-links,reftext='{table-caption} {counter:table-num}']
+The <<OGCAPI-EDR,OGC API - Environmental Data Retrieval (EDR)>> Standard can also be used to retrieve observation data. EDR is especially suited for extracting data from large multi-dimensional coverages and can be used jointly with the OGC API - Connected Systems Standard.
+
+Weblinks can be used to associate resources exposed by OGC API - EDR and OGC API - Connected Systems (CS API). Such links can be used to implement the following client functionality:
+
+- An EDR API client can retrieve more information about the observing system that produced the data (i.e. the data in an EDR collection or instance) from the CS API.
+
+- Conversely, a Connected Systems API client can be redirected to an EDR accessible collection or instance in order to benefit from the advanced query operators defined in the EDR Standard (e.g. radius, cube, trajectory, corridor, etc.), and thus extract data from large coverage results more efficiently.
+
+To this effect, the following weblinks can be added to OGC API - EDR resources to refer to OGC API - Connected Systems (CS API) resources:
+
+[%unnumbered,#edr-to-csapi-links,reftext='{table-caption} {counter:table-num}']
 [width="100%",cols="5,5,10",options="header"]
 |====
-| *EDR Resource*            | *Target CONSYS Resources*  | *Comments*
+| *EDR Resource*            | *Target CS API Resources*  | *Comments*
 | `Collection Metadata`     | `System` +
                               `Deployment` +
                               `DataStream` |
@@ -120,10 +120,10 @@ To this effect, the following weblinks can be added to OGC API - EDR resources t
 
 And the following weblinks can be added to OGC API - Connected Systems resources to refer to OGC API - EDR resources:
 
-[%unnumbered,#consys-to-edr-links,reftext='{table-caption} {counter:table-num}']
+[%unnumbered,#csapi-to-edr-links,reftext='{table-caption} {counter:table-num}']
 [width="100%",cols="5,5,10",options="header"]
 |====
-| *CONSYS Resource*        | *Target EDR Resources*      | *Comments*
+| *CS API Resource*        | *Target EDR Resources*      | *Comments*
 | `System`                 | `Collection` +
                               `Instance`    | 
 | `DataStream`             | `Collection` +
@@ -132,31 +132,32 @@ And the following weblinks can be added to OGC API - Connected Systems resources
 
 
 
-=== SensorThings API
+=== OGC SensorThings API Standard
 
-<<OGC-STA-1,SensorThings API (STA)>> is another OGC Standard aiming at providing access to sensor observations and tasking through a REST API.
+The <<OGC-STA-1,SensorThings API (STA)>> is another OGC Standard designed to provide access to sensor observations and tasking through a REST API.
 
-Although the two APIs are in some ways similar, SensorThings API was designed to solve IoT use cases and does not address the need of all sensor systems. OGC API - Connected Systems takes a more generic approach to the problem by extending OGC API - Features and using SOSA/SSN and SensorML as the main conceptual and implementation models behind the API.
+Although the two API Standards are in some ways similar, the SensorThings API was designed to solve IoT use cases and does not address the need of all sensor systems. OGC API - Connected Systems takes a more generic approach to the problem by extending OGC API - Features and using SOSA/SSN and SensorML as the main conceptual and implementation models behind the API.
 
 The following table compares the design choices made in OGC API - Connected Systems and SensorThings API:
 
 [%unnumbered,#design-comparison,reftext='{table-caption} {counter:table-num}']
-[width="100%",cols="5,5,5",options="header"]
+[width="100%",cols="3,5,5",options="header"]
 |====
 | *Design Choice*                 | *Connected Systems*                                        | *SensorThings*
 | API Platform                    | Extension of OGC API Common and OGC - API Features.        | OData Version 4.0
 | Query Language                  | Query string arguments, decoupled from resource encoding.  | Generic query language inherited from OData.
-| Resource Model                  | Based on SOSA/SSN/OMS and SensorML.                        | Simplified and adapted form O&M.
+| Resource Model                  | Based on SOSA/SSN/OMS and SensorML.                        | Simplified and adapted from O&M.
 | Supported Observation Types     | Scalar, vector, N-D coverage, video.                       | Scalar and simple records only.
-| Multiple Format Support         | Yes, including non-JSON such as protobuf/binary.           | JSON only.
+| Multiple Format Support         | Yes, including non-JSON such as https://protobuf.dev/[Protocol Buffers]
+                                    or other binary formats.                                   | OData compatible JSON only.
 |====
 
-The next table shows a comparison of SensorThings and OGC API - Connected Systems (CONSYS) resources:
+The next table shows a comparison of SensorThings and OGC API - Connected Systems (CS API) resources:
 
 [%unnumbered,#sta-mappings,reftext='{table-caption} {counter:table-num}']
 [width="100%",cols="5,5,10",options="header"]
 |====
-| *STA Resource*         | *CONSYS Resource*    | *Comments*
+| *STA Resource*         | *CS API Resource*    | *Comments*
 | `Thing`                | `System`             | type = `sosa:Platform`
 | `Location`             | `Observation`        | Location is implemented as a specific kind of observation whose result is a location vector.
 | `HistoricalLocation`   | `DataStream`         | Historical locations are implemented as a DataStream containing location observations (see above).
@@ -174,10 +175,10 @@ The next table shows a comparison of SensorThings and OGC API - Connected System
 
 If needed, the following weblinks can be added to OGC API - Connected Systems resources to refer to SensorThings API resources:
 
-[%unnumbered,#consys-to-sta-links,reftext='{table-caption} {counter:table-num}']
+[%unnumbered,#csapi-to-sta-links,reftext='{table-caption} {counter:table-num}']
 [width="100%",cols="5,5,10",options="header"]
 |====
-| *CONSYS Resource*        | *Target STA Resources*    | *Comments*
+| *CS API Resource*        | *Target STA Resources*    | *Comments*
 | `System`                 | `Thing` +
                              `Sensor` + 
                              `Actuator` +              | 
@@ -191,9 +192,9 @@ If needed, the following weblinks can be added to OGC API - Connected Systems re
 
 Observation results are sometimes coverages (e.g. satellite imagery, weather forecast, etc.). In the case of large coverages, providing access to the observation result is better handled by APIs that allow subsetting the coverage along its various dimensions.
 
-Instead of duplicating existing functionality, OGC API - Connected Systems allows linking to coverage datasets hosted by other APIs or web services when appropriate, instead of including the coverage result data inline in the observation.
+Instead of duplicating existing functionality, OGC API - Connected Systems supports linking to coverage datasets hosted by other API implementations or web services when appropriate, instead of including the coverage result data inline in the observation.
 
-In particular, links to the following OGC services and APIs are possible:
+In particular, links to implementation instances of the following OGC services and APIs are possible:
 
 - OGC API - Coverages
 - OGC API - Maps
@@ -201,35 +202,36 @@ In particular, links to the following OGC services and APIs are possible:
 - OGC Web Coverage Service
 - OGC Web Map Service
 
-The exact way linking between Connected Systems resources and Coverage datasets is implemented will be specified in a future Best Practice document.
+The exact mechanism for linking Connected Systems resources and Coverage datasets is implemented will be specified in a future OGC Best Practice document.
 
 
 
 === 3D Features
 
-The following OGC standards can be used to represent and/or transfer complex 3D scenes:
+The following OGC Standards can be used to represent and/or transfer complex 3D content and/or scenes:
 
-- OGC CityGML and CityJSON
-- OGC 3D Tiles
-- OGC Indexed 3d Scene Layer (I3S)
-- OGC API - 3D GeoVolumes
+- OGC CityGML Standard
+- OGC CityJSON Community Standard
+- OGC 3D Tiles Community Standard
+- OGC Indexed 3d Scene Layer (I3S) Community Standard
+- OGC API - 3D GeoVolumes (Draft)
 
 Such 3D scenes contain feature objects (i.e. features of interest) that can be the target of observations or commands (e.g. a building feature in the 3D model of a city, a mechanical part in the 3D model of an engine, etc.).
 
-These features of interest can be referenced by OGC API - Connected Systems resources, allowing clients to associate the observations to the exact object in the 3D scene (e.g. the user could click an object in the scene and be presented with a chart or a list of dynamic data stream about this object). The reverse link going from the 3D model to the Connected Systems datastream is also desirable.
+These features of interest can be referenced by OGC API - Connected Systems resources, enabling clients to associate the observations to the exact object in the 3D scene (e.g. the user could click an object in the scene and be presented with a chart or a list of dynamic data stream about this object). The reverse link going from the 3D model to the Connected Systems datastream is also desirable.
 
-The exact way linking between Connected Systems resources and 3D objects is implemented will be specified in a future Best Practice document.
+The exact mechanism for linking Connected Systems resources and 3D objects is implemented will be specified in a future OGC Best Practice document.
 
 
 
-=== Sensor Observation Service (SOS)
+=== OGC Sensor Observation Service (SOS) Standard
 
-The functionality provided by the SOS web service is fully supported by parts 1 and 2 of the OGC API - Connected Systems Standard. The following table lists the mappings between SOS service operations and corresponding OGC API - Connected Systems (CONSYS) resources:
+The functionality provided by a conformant implementation of the OGC SOS Standard (web service) is fully supported by Parts 1 and 2 of the OGC API - Connected Systems Standard. The following table lists the mappings between SOS service operations and corresponding OGC API - Connected Systems (CS API) resources:
 
 [%unnumbered,#sos-mappings,reftext='{table-caption} {counter:table-num}']
 [width="100%",cols="5,5,3,10",options="header"]
 |====
-| *SOS Operation*           | *CONSYS Resource*  | *API Verb*      |   *Comments*
+| *SOS Operation*           | *CS API Resource*  | *API Verb*      |   *Comments*
 | `GetCapabilities`         | Landing Page       | GET             |
 | `DescribeSensor`          | `System`           | GET             | GET on collection using the UID filter.
 | `InsertSensor`            | `System`           | POST            |
@@ -246,14 +248,14 @@ The functionality provided by the SOS web service is fully supported by parts 1 
 
 
 
-=== Sensor Planning Service (SPS)
+=== OGC Sensor Planning Service (SPS) Standard
 
-The functionality provided by the SPS web service is fully supported by parts 1 and 2 of the OGC API - Connected Systems Standard. The following table lists the mappings between SPS service operations and corresponding OGC API - Connected Systems (CONSYS) resources:
+The functionality provided by a conformant implementation of the SPS Standard (web service) is fully supported by Parts 1 and 2 of the OGC API - Connected Systems Standard. The following table lists the mappings between SPS service operations and corresponding OGC API - Connected Systems (CS API) resources:
 
 [%unnumbered,#sos-mappings,reftext='{table-caption} {counter:table-num}']
 [width="100%",cols="5,5,3,10",options="header"]
 |====
-| *SPS Operation*           | *CONSYS Resource*  | *API Verb*      |   *Comments*
+| *SPS Operation*           | *CS API Resource*  | *API Verb*      |   *Comments*
 | `GetCapabilities`         | Landing Page       | GET             |
 | `DescribeSensor`          | `System`           | GET             | GET on collection using the UID filter.
 | `DescribeTasking`         | `ControlStream`    | GET             | Retrieve the ControlStream schema.

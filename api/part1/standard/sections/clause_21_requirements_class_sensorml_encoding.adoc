@@ -8,9 +8,9 @@
 
 include::../requirements/encoding/sensorml/requirements_class_sensorml.adoc[]
 
-This requirements class specifies how `Feature` descriptions provided through the API are encoded using the <<OGC-SML-JSON, SensorML JSON>> format.
+The "SensorML Format" requirements class specifies how resources defined by the CS API Standard are encoded using the <<OGC-SML-JSON, SensorML JSON>> format.
 
-All feature types defined by this Standard, except `Sampling Features`, can be encoded in SensorML to allow provision of more advanced metadata such as application specific identifiers and classifiers, security and legal constraints, characteristics and capabilities, contact information, attached documents, reference frames, etc.
+All feature types defined by this Standard, except `Sampling Features`, can be encoded in SensorML. The SensorML format allows the provision of more advanced metadata such as application specific identifiers and classifiers, security and legal constraints, characteristics and capabilities, contact information, attached documents, reference frames, etc.
 
 
 
@@ -124,7 +124,7 @@ A SensorML JSON document representing a `System` resource SHALL implement the ma
 | `systemType`     | `definition`  | Use the URI or CURIE from <<system-types>> as the value.
 | `assetType`      | `classifiers` | Use a classifier with definition `cs:AssetType`, and the URI or CURIE from <<asset-types>> as the value.
 | `validTime`      | `validTime`   | -
-| `location`       | `position`    | Include location either as a GeoJSON geometry, or as part of a `GeoPose` or `Pose` object.
+| `location`       | `position`    | Include location either as a GeoJSON geometry, or as part of a 3D Pose object (see <<OGC-SML-JSON>> for a description of the 3D Pose object).
 |====
 
 [#system-assoc-sml-mappings,reftext='{table-caption} {counter:table-num}']
@@ -207,7 +207,7 @@ A SensorML JSON document representing a `Procedure` resource SHALL implement the
 |====
 
 [[example_sensorml_proc1]]
-.A Procedure Feature describing a sensor datasheet in SensorML format
+.A Procedure Feature (datasheet) in SensorML format
 =================
 [source%autofit,json]
 ----

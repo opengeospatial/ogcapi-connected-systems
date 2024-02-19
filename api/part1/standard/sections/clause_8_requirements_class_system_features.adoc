@@ -5,7 +5,7 @@
 === Overview
 include::../requirements/system/requirements_class_system_features.adoc[]
 
-This requirements class specifies how system descriptions are provided using this API.
+The "System Features" requirements class specifies how system descriptions are provided using the CS API.
 
 The `System` resource implements the _http://www.w3.org/ns/ssn/System[System]_ concept defined in the <<SOSA-SSN,SSN Ontology>>. `System` resources are used to expose metadata about several kinds of systems and their components, including sensors, actuators, samplers, processes, platforms, etc.
 
@@ -37,7 +37,7 @@ NOTE: `System` resources are used to model all subclasses of _http://www.w3.org/
 
 ==== Introduction
 
-In this API, `System` resources are a special kind of feature resource that implements the _http://www.w3.org/ns/ssn/System[ssn:System]_ concept.
+In the CS API Standard, `System` resources are a special kind of feature resource that implements the _http://www.w3.org/ns/ssn/System[ssn:System]_ concept.
 
 This section defines the attributes and associations composing a `System` resource, but the exact way they are encoded in the payload is defined by each encoding. For encodings defined in this document, please see:
 
@@ -89,7 +89,7 @@ All `System` resource representations provided by encoding requirements classes 
 | System      | http://www.w3.org/ns/ssn/System            | ssn:System     | For all other system types.
 |====
 
-NOTE: Tagging a `System` resource with a particular type only carries semantic meaning and does not imply any API functionality. In particular, all types of systems can receive commands and generate datastreams.
+NOTE: Tagging a `System` resource with a particular type only carries semantic meaning and does not imply any API functionality. All types of systems can receive commands and generate datastreams.
 
 [#asset-types,reftext='{table-caption} {counter:table-num}']
 .Asset Types
@@ -118,14 +118,14 @@ include::../requirements/system/req_location_time.adoc[]
 
 === Canonical URL
 
-This standard requires that a `System` resource has a canonical URL through which it can be retrieved independently of its membership to any collection.
+The CS API Standard requires that a `System` resource has a canonical URL through which it can be retrieved independently of its membership to any collection.
 
 include::../requirements/system/req_canonical_url.adoc[]
 
 
 === Root Collection
 
-A root collection where all `System` resources can be searched must be available at the API endpoint.
+A root collection where all `System` resources can be searched must be available at a CS API endpoint.
 
 include::../requirements/system/req_canonical_collection.adoc[]
 
@@ -136,7 +136,7 @@ include::../requirements/system/req_canonical_collection.adoc[]
 
 include::../requirements/system/req_collections_type.adoc[]
 
-`System` resources can be grouped into collections according to any arbitrary criteria. Any number of feature collections containing `System` features can be available at the API endpoint.
+`System` resources can be grouped into collections according to any arbitrary criteria. Any number of feature collections containing `System` features can be available at a CS API endpoint.
 
 include::../requirements/system/req_collections_others.adoc[]
 

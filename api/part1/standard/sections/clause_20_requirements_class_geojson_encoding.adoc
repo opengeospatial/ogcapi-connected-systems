@@ -8,10 +8,9 @@
 
 include::../requirements/encoding/geojson/requirements_class_geojson.adoc[]
 
-This requirements class specifies how `Feature` descriptions provided through the API are encoded using the GeoJSON format.
-All feature types defined by this Standard can be encoded as GeoJSON.
+The "GeoJSON Format" requirements class specifies how resources defined by the CS API Standard are encoded using the GeoJSON format. All feature types defined by this Standard can be encoded as GeoJSON.
 
-The server must also implement Requirements Class "GeoJSON" of {ogcapi-features-1}.
+The server must also implement Requirements Class "GeoJSON" as specified in the {ogcapi-features-1} Standard.
 
 
 

@@ -1,24 +1,24 @@
 
 [[clause-system-components]]
-== Requirements Class "System Components (Subsystems)"
+== Requirements Class "Subsystems"
 
 === Overview
 include::../requirements/subsystem/requirements_class_system_components.adoc[]
 
-It is often useful to describe complex systems in terms of a hierarchy of components (or subsystems). This requirements class specifies how such hierarchical systems are described and made discoverable using this API.
+Describing complex systems in terms of a hierarchy of components (or subsystems) is often useful. The "Subsystems" requirements class specifies how such hierarchical systems are described and made discoverable in an implementation of the CS API Standard.
 
-System components are regular `System` features that are made available through a sub-collection of a parent `System` resource. Components can be any kind of `System` and can be indefinitely nested.
+Subsystems (i.e. System components) are regular `System` features that are made available through a sub-collection of a parent `System` resource. Components can be any kind of `System` and can be indefinitely nested.
 
 
 === Types of System/Subsystem Associations
 
-Sytem components can be associated to their parent system either by **Composition** or **Aggregation**.
+Subsystems can be associated to their parent system either by **Composition** or **Aggregation**.
 
 **Composition** means that a subsystem is an integral part of a parent system (i.e. the subsystem cannot or is not usually taken apart from its parent system during its lifetime, except for maintenance). Composition is implemented in the API by creating subsystems as nested resources under their parent system.
 
 **Aggregation** means that a subsystem is not permanently attached to its parent system (i.e. it can be taken apart and can be attached to different parent systems at different times). Aggregation is implemented in the API using `Deployment` resources that describe what subsystems are mounted on a parent system at any given time.
 
-NOTE: This definition is slightly looser that the UML definition for **Composition** associations. In UML, composition is used if a child cannot exist independently from the parent. In the context of this API, composition can be used by choice if it is known that the component is rarely taken apart from its parent, even though, in principle the component could exist independently.
+NOTE: This definition is slightly looser that the UML definition for **Composition** associations. In UML, composition is used if a child cannot exist independently from the parent. In the context of the CS API Standard, composition can be used by choice if it is known that the component is rarely taken apart from its parent, even though, in principle the component could exist independently.
 
 
 [example%unnumbered]
@@ -36,13 +36,13 @@ NOTE: This definition is slightly looser that the UML definition for **Compositi
 *Examples of systems modeled by combining both composition and aggregation*
 
   - A UAV with IMU, GPS, flight controller (composition since they are built-in) and interchangeable payloads such as RGB camera, thermal camera, LiDAR, etc. (aggregation since they can be changed for each mission).
-  - A mobile phone with integrated sensors (composition since they are built-in) and additional sensors connected via bluetooth (aggregation).
+  - A mobile phone with integrated sensors (composition since they are built-in) and additional sensors connected via Bluetooth (aggregation).
 ====
 
 
-=== System Component Resource
+=== Subsystem Resource
 
-Resources representing system components are regular `System` resources that are nested under their parent system.
+Resources representing subsystems are regular `System` resources that are nested under their parent system.
 
 See <<clause-system-resource>> for the requirements applying to `System` resources.
 
@@ -61,16 +61,16 @@ A `System` resource that is a component of a parent system also includes the fol
 
 === Canonical URL
 
-Since system components are also `System` resources, they are required to have a canonical URL as specified by xref:/req/system/canonical-url[].
+Since subsystems are also `System` resources, they are required to have a canonical URL as specified by xref:/req/system/canonical-url[].
 
 
 === System Component Collections
 
-System components are accessible as sub-resources of their parent system.
+Subsystems are accessible as sub-resources of their parent system.
 
 include::../requirements/subsystem/req_subcollection.adoc[]
 
-Some systems have interchangeable components (e.g. UAV platform carrying different sensors at different times). We call these interchangeable components "payloads". The best way to describe this is by creating a new `Deployment` resource every time the components are changed (the deployment description allows one to explicitely list which payloads are mounted on a platform during a given time period).
+Some systems have interchangeable components (e.g. UAV platform carrying different sensors at different times). We call these interchangeable components "payloads". The best way to describe this is by creating a new `Deployment` resource every time the components are changed (the deployment description allows one to explicitly list which payloads are mounted on a platform during a given time period).
 
 For consistency, it is recommended that the server also includes these changing components in the subsystem collection, in accordance with the time provided by the `datetime` query parameter.
 

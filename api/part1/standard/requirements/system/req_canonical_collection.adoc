@@ -5,7 +5,7 @@ identifier:: /req/system/canonical-collection
 
 part:: The server SHALL support the HTTP GET operation and expose all available `System` resources at the path `{api_root}/systems`.
 
-part:: The operation SHALL support the same query parameters as OGC API Feature collections.
+part:: The operation SHALL support the same query parameters as the ones defined for "Features" endpoints in {ogcapi-features-1}.
 
-part:: The server response SHALL be a collection of `System` resources.
+part:: The server response SHALL be a collection of `System` resources, and fulfill all requirements of a "Features" endpoint response, as defined in {ogcapi-features-1}.
 ====

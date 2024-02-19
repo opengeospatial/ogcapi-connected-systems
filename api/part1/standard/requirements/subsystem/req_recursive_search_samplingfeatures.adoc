@@ -9,7 +9,7 @@ part:: HTTP GET operations targeting a system's sub-collections at the following
 - `{api_root}/systems/{id}/samplingFeatures`
 - `{api_root}/systems/{id}/samplingFeatures`
 
-part:: If the `recursive` parameter is ommitted or set to `false`, the response SHALL only include sampling features associated to the parent system.
+part:: If the `recursive` parameter is omitted or set to `false`, the response SHALL only include sampling features associated to the parent system.
 
 part:: If the `recursive` parameter is set to `true`, the response SHALL include sampling features associated to the parent system and all its subsystems, recursively.
 

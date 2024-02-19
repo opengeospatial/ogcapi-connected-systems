@@ -1,8 +1,8 @@
 == Conformance
 
-This standard has been written to be compliant with the OGC Specification Model – A Standard for Modular Specification (OGC 08-131r3). Extensions of this standard shall themselves be conformant to the OGC Specification Model.
+This Standard was written to be compliant with the OGC Specification Model – A Standard for Modular Specification (OGC 08-131r3). Extensions of this Standard shall themselves be conformant to the OGC Specification Model.
 
-This standard defines the following requirements classes:
+This Standard defines the following requirements classes:
 
 - <<clause-api-common,style=full%>> defines requirements that are shared by several other requirements classes. +
   {empty} +
@@ -18,21 +18,21 @@ This standard defines the following requirements classes:
   {empty} +
 - <<clause-property-definitions,style=full%>> defines requirements for `Property` resources. +
   {empty} +
-- <<clause-advanced-filtering,style=full%>> defines requirements for additional filters that can be used to query _CONSYS resources_*. +
+- <<clause-advanced-filtering,style=full%>> defines requirements for additional filters that can be used to query _CS resources_*. +
   {empty} +
-- <<clause-resource-crd,style=full%>> defines requirements for creating, replacing, and deleting _CONSYS resources_*. +
+- <<clause-resource-crd,style=full%>> defines requirements for creating, replacing, and deleting _CS resources_*. +
   {empty} +
-- <<clause-resource-update,style=full%>> defines requirements for updating _CONSYS resources_*. +
+- <<clause-resource-update,style=full%>> defines requirements for updating _CS resources_*. +
   {empty} +
-- <<clause-encoding-geojson,style=full%>> defines requirements for encoding _CONSYS resources_* as GeoJSON. +
+- <<clause-encoding-geojson,style=full%>> defines requirements for encoding _CS resources_* as GeoJSON. +
   {empty} +
-- <<clause-encoding-sensorml,style=full%>> defines requirements for encoding _CONSYS resources_* as SensorML-JSON. +
+- <<clause-encoding-sensorml,style=full%>> defines requirements for encoding _CS resources_* as SensorML-JSON. +
   {empty} +
 
 The standardization target for these requirements classes is an implementation of the Web API.
 
-There is no _Core_ requirements class but an implementation target is expected to implement at least one of the _CONSYS resource_* types and one encoding.
+There is no _Core_ requirements class but an implementation target is expected to implement at least one of the _CS resource_* types and one encoding.
 
-The conformance classes corresponding to these requirements classes are presented in <<annex_ats,Annex A (normative)>>. Conformance with this standard shall be checked using all the relevant tests specified in Annex A. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.
+The conformance classes corresponding to these requirements classes are presented in <<annex_ats,Annex A (normative)>>. Conformance with this Standard shall be checked using all the relevant tests specified in Annex A. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.
 
-[*] _"CONSYS resources" refers to the resource types defined in <<clause-system-features;clause-procedure-features;clause-deployment-features;clause-sampling-features;clause-property-definitions>>._
+[*] _"CS resources" means "Connected Systems resources" and refers to the resource types defined in <<clause-system-features;clause-procedure-features;clause-deployment-features;clause-sampling-features;clause-property-definitions>>._

@@ -4,11 +4,11 @@
 === Overview
 include::../requirements/crud/requirements_class_crd.adoc[]
 
-This requirements class specifies how instances of the resource types defined previously are created, replaced and deleted using the API.
+The "Create/Replace/Delete" requirements class specifies how instances of the resource types defined previously are created, replaced and deleted via a CS API endpoint.
 
-All resources are created, replaced and deleted using CREATE (HTTP POST), REPLACE (HTTP PUT) and DELETE (HTTP DELETE) operations, respectively, as defined by {ogcapi-features-4}.
+All resources are created, replaced and deleted using CREATE (HTTP POST), REPLACE (HTTP PUT) and DELETE (HTTP DELETE) operations, respectively, as defined by the {ogcapi-features-4} Standard.
 
-{ogcapi-features-4} uses the terms "resources endpoint" and "resource endpoint" to identify the paths where these operations are supported by the server. The following sections provide these endpoints for each resource type defined by this Standard.
+{ogcapi-features-4} uses the terms "resources endpoint" and "resource endpoint" to identify the paths where these operations are supported by the server. The following sections provide these endpoints for each resource type defined by the CS API Standard.
 
 
 === Systems
@@ -20,11 +20,11 @@ identifier:: /req/create-replace-delete/system
 
 conditions:: The server implements <<clause-system-features,/req/system-features>>
 
-part:: For `System` features, the resources endpoints used for CREATE operations shall be the URIs specified by the following URI templates:
+part:: For `System` features, the resources endpoints used for CREATE operations SHALL be the URIs specified by the following URI templates:
   - `{api_root}/systems`
   - `{api_root}/collections/{systemCollectionId}/items`
 
-part:: For `System` features, the resource endpoints used for REPLACE and DELETE operations shall be the URIs specified by the following URI templates:
+part:: For `System` features, the resource endpoints used for REPLACE and DELETE operations SHALL be the URIs specified by the following URI templates:
   - `{api_root}/systems/{id}`
   - `{api_root}/collections/{systemCollectionId}/items/{id}`
 
@@ -59,7 +59,7 @@ identifier:: /req/create-replace-delete/subsystem
 
 conditions:: The server implements <<clause-system-components,/req/system-components>>
 
-part:: The resources endpoints used for adding subsystems (CREATE operation) shall be the URIs specified by the following URI template:
+part:: The resources endpoints used for adding subsystems (CREATE operation) SHALL be the URIs specified by the following URI template:
   - `{api_root}/systems/{parentId}/components`
 ====
 
@@ -75,11 +75,11 @@ identifier:: /req/create-replace-delete/procedure
 
 conditions:: The server implements <<clause-procedure-features,/req/procedure-features>>
 
-part:: For `Procedure` features, the resources endpoints used for CREATE operations shall be the URIs specified by the following URI templates:
+part:: For `Procedure` features, the resources endpoints used for CREATE operations SHALL be the URIs specified by the following URI templates:
   - `{api_root}/procedures`
   - `{api_root}/collections/{procedureCollectionId}/items`
 
-part:: For `Procedure` features, the resource endpoints used for REPLACE and DELETE operations shall be the URIs specified by the following URI templates:
+part:: For `Procedure` features, the resource endpoints used for REPLACE and DELETE operations SHALL be the URIs specified by the following URI templates:
   - `{api_root}/procedures/{id}`
   - `{api_root}/collections/{procedureCollectionId}/items/{id}`
 
@@ -96,11 +96,11 @@ identifier:: /req/create-replace-delete/deployment
 
 conditions:: The server implements <<clause-deployment-features,/req/deployment-features>>
 
-part:: For `Deployment` features, the resources endpoints used for CREATE operations shall be the URIs specified by the following URI templates:
+part:: For `Deployment` features, the resources endpoints used for CREATE operations SHALL be the URIs specified by the following URI templates:
   - `{api_root}/deployments`
   - `{api_root}/collections/{deploymentCollectionId}/items`
 
-part:: For `Deployment` features, the resource endpoints used for REPLACE and DELETE operations shall be the URIs specified by the following URI templates:
+part:: For `Deployment` features, the resource endpoints used for REPLACE and DELETE operations SHALL be the URIs specified by the following URI templates:
   - `{api_root}/deployments/{id}`
   - `{api_root}/collections/{deploymentCollectionId}/items/{id}`
 
@@ -117,10 +117,10 @@ identifier:: /req/create-replace-delete/deployed-system
 
 conditions:: The server implements <<clause-deployment-features,/req/deployment-features>>
 
-part:: For `Deployed System` resources, the resources endpoints used for CREATE operations shall be the URIs specified by the following URI templates:
+part:: For `Deployed System` resources, the resources endpoints used for CREATE operations SHALL be the URIs specified by the following URI templates:
   - `{api_root}/deployments/{depId}/systems`
 
-part:: For `Deployed System` resources, the resource endpoints used for REPLACE and DELETE operations shall be the URIs specified by the following URI templates:
+part:: For `Deployed System` resources, the resource endpoints used for REPLACE and DELETE operations SHALL be the URIs specified by the following URI templates:
   - `{api_root}/deployments/{depId}/systems/{id}`
 ====
 
@@ -136,10 +136,10 @@ identifier:: /req/create-replace-delete/sampling-feature
 
 conditions:: The server implements <<clause-sampling-features,/req/sampling-features>>
 
-part:: For `Sampling Features`, the resources endpoints used for CREATE operations shall be the URIs specified by the following URI templates:
+part:: For `Sampling Features`, the resources endpoints used for CREATE operations SHALL be the URIs specified by the following URI templates:
   - `{api_root}/samplingFeatures`
 
-part:: For `Sampling Features`, the resource endpoints used for REPLACE and DELETE operations shall be the URIs specified by the following URI templates:
+part:: For `Sampling Features`, the resource endpoints used for REPLACE and DELETE operations SHALL be the URIs specified by the following URI templates:
   - `{api_root}/systems/{sysId}/samplingFeatures/{id}`
   - `{api_root}/samplingFeatures/{id}`
   - `{api_root}/collections/{sfCollectionId}/items/{id}`
@@ -159,11 +159,11 @@ identifier:: /req/create-replace-delete/property
 
 conditions:: The server implements <<clause-derived-properties,/req/derived-properties>>
 
-part:: For `Property` resources, the resources endpoints used for CREATE operations shall be the URIs specified by the following URI templates:
+part:: For `Property` resources, the resources endpoints used for CREATE operations SHALL be the URIs specified by the following URI templates:
   - `{api_root}/properties`
   - `{api_root}/collections/{propertyCollectionId}/items`
 
-part:: For `Property` resources, the resource endpoints used for REPLACE and DELETE operations shall be the URIs specified by the following URI templates:
+part:: For `Property` resources, the resource endpoints used for REPLACE and DELETE operations SHALL be the URIs specified by the following URI templates:
   - `{api_root}/properties/{id}`
   - `{api_root}/collections/{propertyCollectionId}/items/{id}`
 
@@ -180,7 +180,7 @@ This clause defines the expected behavior of the server when Resource Collection
 [%metadata]
 identifier:: /req/create-replace-delete/create-in-collection
 
-part:: When a resource defined in this standard is successfully created by the server at any endpoint, the server SHALL always make it available in the root collection corresponding to the resource type.
+part:: When a resource defined in the CS API Standard is successfully created by the server at any endpoint, the server SHALL always make it available in the root collection corresponding to the resource type.
 ====
 
 [requirement,model=ogc]

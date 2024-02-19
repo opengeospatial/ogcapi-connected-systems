@@ -5,9 +5,9 @@
 === Overview
 include::../requirements/property/requirements_class_property_definitions.adoc[]
 
-This requirements class specifies how property definitions are provided using this API.
+The "Property Definitions" requirements class specifies how property definitions are provided using the CS API.
 
-The `Property` resource implements the _http://www.w3.org/ns/ssn/Property[Property]_ concept defined in the <<SOSA-SSN,SSN Ontology>>. Properties in the scope of the API are features of interest properties, including:
+The `Property` resource implements the _http://www.w3.org/ns/ssn/Property[Property]_ concept defined in the <<SOSA-SSN,SSN Ontology>>. Properties in the scope of the CS API are features of interest properties, including:
 
 - Observable properties (i.e. subject of an observation, see _http://www.w3.org/ns/sosa/ObservableProperty[sosa:ObservableProperty]_)
 - Controllable properties (i.e. subject of an actuation, see _http://www.w3.org/ns/sosa/ActuatableProperty[sosa:ActuatableProperty]_)
@@ -32,7 +32,7 @@ The definition is provided by deriving the property from a well known entity ref
 
 ==== Introduction
 
-In this API, `Property` resources are a special kind of resource that implements the _http://www.w3.org/ns/ssn/Property[ssn:Property]_ concept.
+In the CS API Standard, `Property` resources are a special kind of resource that implements the _http://www.w3.org/ns/ssn/Property[ssn:Property]_ concept.
 
 This section defines the attributes and associations composing a `Property` resource, but the exact way they are encoded in the payload is defined by each encoding. For encodings defined in this document, please see:
 
@@ -60,14 +60,14 @@ All `Property` resource representations provided by encoding requirements classe
 
 === Canonical URL
 
-This standard requires that a `Property` resource has a canonical URL through which it can be retrieved independently of its membership to any collection.
+The CS API standard requires that a `Property` resource has a canonical URL through which it can be retrieved independently of its membership to any collection.
 
 include::../requirements/property/req_canonical_url.adoc[]
 
 
 === Root Collection
 
-A root collection where all `Property` resources can be searched must be available at the API endpoint.
+A root collection where all `Property` resources can be searched must be available at a CS API endpoint.
 
 include::../requirements/property/req_canonical_collection.adoc[]
 
@@ -78,7 +78,7 @@ include::../requirements/property/req_canonical_collection.adoc[]
 
 include::../requirements/property/req_collections_type.adoc[]
 
-In addition to the default (mandatory) collection containing all `Property` resources, any number of resource collections containing `Property` resources can be available at the API endpoint, so that they can be grouped according to any arbitrary criteria.
+In addition to the default (mandatory) collection containing all `Property` resources, any number of resource collections containing `Property` resources can be available at a CS API endpoint, so that they can be grouped according to any arbitrary criteria.
 
 include::../requirements/property/req_collections_others.adoc[]
 

@@ -5,7 +5,7 @@ identifier:: /req/subsystem/recursive-search-datastreams
 
 part:: HTTP GET operations targeting a system's datastream sub-collection at URL `{api_root}/systems/{id}/datastreams` SHALL support the parameter `recursive`.
 
-part:: If the `recursive` parameter is ommitted or set to `false`, the response SHALL only include datastreams of the parent system.
+part:: If the `recursive` parameter is omitted or set to `false`, the response SHALL only include datastreams of the parent system.
 
 part:: If the `recursive` parameter is set to `true`, the response SHALL include datastreams of the parent system and all its subsystems, recursively.
 

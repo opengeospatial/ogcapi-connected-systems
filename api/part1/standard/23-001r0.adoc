@@ -20,12 +20,12 @@
 :edition: 1.0
 //
 :ogcapi-common: <<OGCAPI-Common-1, OGC API - Common>>
-:ogcapi-common-1: <<OGCAPI-Common-1, OGC API - Common - Part 1>>
-:ogcapi-common-2: <<OGCAPI-Common-2, OGC API - Common - Part 2>>
+:ogcapi-common-1: <<OGCAPI-Common-1, OGC API - Common - Part 1: Core>>
+:ogcapi-common-2: <<OGCAPI-Common-2, OGC API - Common - Part 2: Collections>>
 :ogcapi-features: <<OGCAPI-Features-1, OGC API - Features>>
-:ogcapi-features-1: <<OGCAPI-Features-1, OGC API - Features - Part 1>>
-:ogcapi-features-2: <<OGCAPI-Features-2, OGC API - Features - Part 2>>
-:ogcapi-features-4: <<OGCAPI-Features-4, OGC API - Features - Part 4>>
+:ogcapi-features-1: <<OGCAPI-Features-1, OGC API - Features - Part 1: Core>>
+:ogcapi-features-2: <<OGCAPI-Features-2, OGC API - Features - Part 2: Coordinate Reference Systems by Reference>>
+:ogcapi-features-4: <<OGCAPI-Features-4, OGC API - Features - Part 4: Create, Replace, Update and Delete>>
 :ogc-w3c-ssn: <<SOSA-SSN, Semantic Sensor Network Ontology (SOSA/SSN)>>
 :weblinks-footnote: pass:quotes[* The link relation type (`rel` property) must be set to the association name.]
 //
@@ -84,7 +84,7 @@ include::sections/clause_7_requirements_class_common.adoc[]
 
 include::sections/clause_8_requirements_class_system_features.adoc[]
 
-include::sections/clause_9_requirements_class_system_components.adoc[]
+include::sections/clause_9_requirements_class_subsystems.adoc[]
 
 include::sections/clause_10_requirements_class_procedure_features.adoc[]
 

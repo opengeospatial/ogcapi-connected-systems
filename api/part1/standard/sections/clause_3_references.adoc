@@ -22,7 +22,7 @@ References are to follow the Springer LNCS style, with the exception that option
 
 * [[[OGCAPI-Common-2, OGC 20-024]]], OGC API - Common - Part 2: Geospatial Data, version 0.0.9. https://docs.ogc.org/DRAFTS/20-024.html
 
-* [[[SOSA-SSN, OGC/W3C]]], Semantic Sensor Network Ontology, (October 19 2017), https://www.w3.org/TR/vocab-ssn
+* [[[SOSA-SSN, SOSA/SSN]]], Semantic Sensor Network Ontology, (October 19 2017), https://www.w3.org/TR/vocab-ssn
 
 * [[[OGC-SML, OGC 12-000r2]]], OGC SensorML: Model and XML Encoding Standard, version 2.1
 

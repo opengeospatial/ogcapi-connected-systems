@@ -3,5 +3,5 @@
 [%metadata]
 identifier:: /per/deployment/collection-others
 
-part:: The server CAN expose additional collections of `Deployment` resources using the feature collection mechanism documented in {ogcapi-features-1}.
+part:: The server MAY expose additional collections of `Deployment` resources using the feature collection mechanism documented in the {ogcapi-features-1} Standard.
 ====
