@@ -17,8 +17,8 @@
           "$ref": "https://geojson.org/schema/Geometry.json"
         },
         "platform": {
-          "description": "Link to the platform that the systems are deployed on",
-          "$ref": "commonDefs.json#/definitions/XLink"
+          "description": "The platform that the systems are deployed on",
+          "$ref": "DeployedSystem.json"
         },
         "deployedSystems": {
           "description": "The list of deployed systems",
