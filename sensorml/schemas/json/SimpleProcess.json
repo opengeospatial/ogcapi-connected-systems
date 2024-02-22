@@ -18,7 +18,16 @@
   ],
   "definitions": {
     "ProcessMethod": {
-
+      "type": "object",
+      "properties": {
+        "algorithm": {
+          "title": "A description of the algorithm using a machine readable language, either inline or by reference"
+        },
+        "description": {
+          "title": "A description of the method in natural language",
+          "type": "string"
+        }
+      }
     }
   }
 }
