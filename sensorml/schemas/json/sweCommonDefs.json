@@ -7,6 +7,9 @@
     "AbstractSWEIdentifiable": {
       "$ref": "../../../swecommon/schemas/json/AbstractSweIdentifiable.json"
     },
+    "DataRecord": {
+      "$ref": "../../../swecommon/schemas/json/DataRecord.json"
+    },
     "Vector": {
       "$ref": "../../../swecommon/schemas/json/Vector.json"
     },
@@ -15,6 +18,12 @@
     },
     "DataArray": {
       "$ref": "../../../swecommon/schemas/json/DataArray.json"
+    },
+    "Text": {
+      "$ref": "../../../swecommon/schemas/json/Text.json"
+    },
+    "Category": {
+      "$ref": "../../../swecommon/schemas/json/Category.json"
     },
     "AnySimpleComponent": {
       "$ref": "../../../swecommon/schemas/json/sweCommon.json#/definitions/AnySimpleComponent"

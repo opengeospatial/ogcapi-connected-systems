@@ -1,9 +1,10 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "A Pose object based on extensions of the GeoPose standard.",
+  "description": "A Pose object that can be either a GeoPose Basic instance of a relative pose.",
   "oneOf": [
     {
       "type": "object",
+      "title": "GeoPose YPR",
       "description": "Basic-YPR: Basic GeoPose using yaw, pitch, and roll to specify orientation",
       "properties": {
         "type": {
@@ -21,12 +22,14 @@
         }
       },
       "required": [
+        "type",
         "position",
         "angles"
       ]
     },
     {
       "type": "object",
+      "title": "GeoPose Quaternion",
       "description": "Basic-Quaternion: Basic GeoPose using quaternion to specify orientation",
       "properties": {
         "type": {
@@ -44,16 +47,18 @@
         }
       },
       "required": [
+        "type",
         "position",
         "quaternion"
       ]
     },
     {
       "type": "object",
+      "title": "Relative Pose YPR",
       "description": "Relative-YPR: Relative pose using yaw, pitch, and roll to specify orientation",
       "properties": {
         "type": {
-          "const": "Pose"
+          "const": "RelativePose"
         },
         "referenceFrame": {
           "type": "string",
@@ -67,6 +72,7 @@
         }
       },
       "required": [
+        "type",
         "referenceFrame",
         "position",
         "angles"
@@ -74,10 +80,11 @@
     },
     {
       "type": "object",
+      "title": "Relative Pose Quaternion",
       "description": "Relative-Quaternion: Relative pose using quaternion to specify orientation",
       "properties": {
         "type": {
-          "const": "Pose"
+          "const": "RelativePose"
         },
         "referenceFrame": {
           "type": "string",
@@ -91,6 +98,7 @@
         }
       },
       "required": [
+        "type",
         "referenceFrame",
         "position",
         "quaternion"
