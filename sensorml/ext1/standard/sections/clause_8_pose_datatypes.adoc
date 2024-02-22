@@ -17,18 +17,18 @@ inherit:: {geopose-spec-url}/req/basic-quaternion
 
 This requirements class defines new data types for expressing 3D pose information in a more formal way within SensorML documents. It builds on the <<OGC-GeoPose,GeoPose Standard>> that was released after version 2.1 of SensorML.
 
+When a 3D Pose object is used as the value of the `position` property within a SensorML `PhysicalComponent` or `PhysicalSystem` instance, it defines the pose of the local reference frame attached to the component (intrinsic reference frame), relative to an external reference frame (extrinsic reference frame). 
+
 [#pose-class-diagram,reftext='{figure-caption} {counter:figure-num}']
 .Pose Data Types
 image::./figures/FIG004-pose-datatypes.png[pose-class-diagram, align="center"]
-
-When a 3D Pose object is used as the value of the `position` property within a SensorML `PhysicalComponent` or `PhysicalSystem` instance, it defines the pose of the local reference frame attached to the component (intrinsic reference frame), relative to an external reference frame (extrinsic reference frame). 
 
 
 === GeoPose
 
 The GeoPose Basic classes are used to define a pose relative to a tangent reference frame associated to the WGS84 ellipsoid. The location of the local tangent plane (LTP) is provided using EPSG:4979 coordinates and orientation is provided as yaw/pitch/roll angles or quaternion in the local tangent frame.
 
-SensorML uses the link::https://docs.ogc.org/is/21-056r11/21-056r11.html#_requirements_for_standardization_target_1_basic_ypr[Basic-YPR] and link::https://docs.ogc.org/is/21-056r11/21-056r11.html#_requirements_for_standardization_target_1_basic_quaterni[Basic-Quaternion] classes defined in the <<OGC-GeoPose,GeoPose Standard>>.
+SensorML uses the link:https://docs.ogc.org/is/21-056r11/21-056r11.html#_requirements_for_standardization_target_1_basic_ypr[Basic-YPR] and link:https://docs.ogc.org/is/21-056r11/21-056r11.html#_requirements_for_standardization_target_2_basic_quaternion[Basic-Quaternion] classes defined in the <<OGC-GeoPose,GeoPose Standard>>.
 
 These classes are used to define the pose of an object relatively to the earth ellipsoid.
 
