@@ -24,7 +24,10 @@
           "description": "The list of deployed systems",
           "type": "array",
           "items": {
-            "$ref": "DeployedSystem.json"
+            "allOf": [
+              { "$ref": "sweCommonDefs.json#/definitions/SoftNamedProperty" },
+              { "$ref": "DeployedSystem.json" }
+            ]
           }
         }
       }

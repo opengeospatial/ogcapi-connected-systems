@@ -2,11 +2,6 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
-    "label": {
-      "description": "A human readable name for the deployed system",
-      "type": "string",
-      "minLength": 1
-    },
     "description": {
       "description": "A textual description of the deployed system",
       "type": "string",
