@@ -34,7 +34,7 @@ image::./figures/FIG002-deployment-class.png[deployment-class-diagram, align="ce
 | *Name*           | *Definition*
 | `location`       | The geographic location or area where the systems are deployed.
 | `platform`       | Reference to the platform on which the systems are deployed.
-| `deployedSystem` | List of deployed systems (as `DeployedSystem` objects, see below).
+| `deployedSystem` | Description of a deployed system (as a `DeployedSystem` object, see below).
 |====
 
 === DeployedSystem Class
