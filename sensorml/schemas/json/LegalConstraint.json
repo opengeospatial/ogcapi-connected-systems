@@ -1,5 +1,45 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object"
-  
+  "type": "object",
+  "properties": {
+    "useLimitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "accessConstraints": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/CodeListValue"
+      }
+    },
+    "useConstraints": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/CodeListValue"
+      }
+    },
+    "otherConstraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "definitions": {
+    "CodeListValue": {
+      "type": "object",
+      "properties": {
+        "codeSpace": {
+          "type": "string",
+          "format": "uri"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
 }
