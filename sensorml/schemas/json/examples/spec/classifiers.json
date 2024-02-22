@@ -1,0 +1,18 @@
+"classifiers": [
+  {
+    "definition": "http://sensorml.com/ont/swe/property/SensorType",
+    "label": "Sensor Type",
+    "value": "Motion Detector"
+  },
+  {
+    "definition": "http://sensorml.com/ont/swe/property/PlatformType",
+    "label": "Platform Type",
+    "value": "Unmanned Aerial Vehicle"
+  },
+  {
+    "definition": "http://sensorml.com/ont/swe/property/PlatformType",
+    "codeSpace": "https://mmisw.org/ont/ioos/platform",
+    "label": "Platform Type",
+    "value": "subsurface_float"
+  }
+]

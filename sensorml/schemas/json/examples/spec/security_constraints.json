@@ -1,0 +1,8 @@
+"securityConstraints": [
+  {
+    "type": "urn:us:gov:ic:ism:v2",
+    "classification": "TS",
+    "classifiedBy": "USCG",
+    "ownerProducer": "USA"
+  }
+]

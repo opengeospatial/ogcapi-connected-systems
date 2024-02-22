@@ -1,0 +1,5 @@
+Ship identifier in Maritime Resource Name (MRN) namespace
+"uniqueId": "urn:mrn:itu:mmsi:538070999"
+
+Navigation aid identifier in Maritime Resource Name (MRN) namespace
+"uniqueId": "urn:mrn:iala:aton:us:1234.5"

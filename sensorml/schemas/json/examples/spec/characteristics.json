@@ -1,0 +1,34 @@
+"characteristics": [
+  {
+    "label": "Battery Characteristics",
+    "characteristics": [
+      {
+        "type": "Quantity",
+        "name": "bat_cap",
+        "definition": "http://sensorml.com/ont/swe/property/BatteryCapacity",
+        "label": "Battery Capacity",
+        "uom": {
+          "code": "W.h"
+        },
+        "value": 43.6
+      },
+      {
+        "type": "Quantity",
+        "name": "bat_volt",
+        "definition": "http://qudt.org/vocab/quantitykind/Voltage",
+        "label": "Operating Voltage",
+        "uom": {
+          "code": "V"
+        },
+        "value": 11.4
+      },
+      {
+        "type": "Category",
+        "name": "type",
+        "definition": "http://dbpedia.org/resource/Battery_types",
+        "label": "Battery Type",
+        "value": "LiPo 3S"
+      }
+    ]
+  }
+]

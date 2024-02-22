@@ -1,0 +1,35 @@
+{
+  "$schema": "../../SimpleProcess.json",
+  "type": "SimpleProcess",
+  "uniqueId": "urn:x-org:process:windchill:001",
+  "label": "Wind Chill Process",
+  "description": "A simple process for taking temperature and wind speed and determining wind chill.",
+  "inputs": [
+    {
+      "name": "temp",
+      "type": "Quantity",
+      "definition": "http://mmisw.org/ont/cf/parameter/air_temperature",
+      "label": "Air Temperature",
+      "uom": { "code": "Cel", "symbol": "°C" }
+    },
+    {
+      "name": "wind",
+      "type": "Quantity",
+      "definition": "http://mmisw.org/ont/cf/parameter/wind_speed",
+      "label": "Wind Speed",
+      "uom": { "code": "km/h" }
+    }
+  ],
+  "outputs": [
+    {
+      "name": "wind_chill",
+      "type": "Quantity",
+      "definition": "http://mmisw.org/ont/cf/parameter/wind_chill_of_air_temperature",
+      "label": "Wind Chill Factor",
+      "uom": { "code": "Cel", "symbol": "°C" }
+    }
+  ],
+  "method": {
+    "description": "The formula used to compute windchill is:\nTwc = 13.12 + 0.6215*Ta - 11.37*v^0.16 + 0.3965*Ta*v^0.16, where\nTwc is the wind chill index on the Celsius temperature scale;\nTa is the air temperature in degrees Celsius;\nv is the wind speed at 10 m AGL, in km/h"
+  }
+}

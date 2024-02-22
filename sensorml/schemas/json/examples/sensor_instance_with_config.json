@@ -3,7 +3,7 @@
   "type": "PhysicalSystem",
   "id": "123",
   "definition": "http://www.w3.org/ns/sosa/Sensor",
-  "uniqueId": "urn:x-ogc:systems:001",
+  "uniqueId": "urn:x-org:systems:001",
   "label": "Outdoor Thermometer 001",
   "description": "Digital thermometer located on first floor window 1",
   "typeOf": {

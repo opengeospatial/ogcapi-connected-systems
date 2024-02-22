@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Profile schema for satellite coverage tasking",
+  "type": "object",
+  "properties": {
+    "survey_period": {
+      "@swe.definition": "http://www.opengis.net/def/property/OGC-EO/0/SurveyPeriod",
+      "@swe.referenceFrame": "http://www.opengis.net/def/trs/BIPM/0/UTC",
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "region_of_interest": {
+      "@swe.definition": "http://www.opengis.net/def/property/OGC-EO/0/RegionOfInterest",
+      "@swe.srs": "http://www.opengis.net/def/crs/EPSG/0/4326",
+      "oneOf": [
+        { "$ref": "https://geojson.org/schema/Point.json" },
+        { "$ref": "https://geojson.org/schema/Polygon.json" }
+      ]
+    },
+    "acquisition_angle": {
+      "@swe.definition": "http://www.opengis.net/def/property/OGC-EO/0/IncidenceRange",
+      "description": "Incidence Range",
+      "type": "object",
+      "properties": {
+        "azimuth": {
+          "@swe.definition": "http://www.opengis.net/def/property/OGC-EO/0/AzimuthAngle",
+          "@swe.uomCode": "deg",
+          "description": "Azimuth Angle",
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "number",
+            "minimum": -180.0,
+            "maximum": 180.0
+          }
+        },
+        "elevation": {
+          "@swe.definition": "http://www.opengis.net/def/property/OGC-EO/0/ElevationAngle",
+          "@swe.uomCode": "deg",
+          "description": "Elevation Angle",
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 60.0
+          }
+        }
+      },
+      "required": ["azimuth", "elevation"],
+      "additionalProperties": false
+    },
+    "acquisition_parameters": {
+      "@swe.definition": "http://www.opengis.net/def/property/OGC-EO/0/opt/AcquisitionParametersOPT",
+      "description": "Acquisition Parameters",
+      "type": "object",
+      "properties": {
+        "ground_resolution": {
+          "@swe.definition": "http://www.opengis.net/def/property/OGC-EO/0/GroundResolution",
+          "@swe.uomCode": "m",
+          "description": "Ground Resolution",
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 10.0
+          }
+        },
+        "instrument_mode": {
+          "@swe.definition": "http://www.opengis.net/def/property/OGC-EO/0/InstrumentMode",
+          "description": "Instrument Mode",
+          "type": "string",
+          "enum": ["PANCHROMATIC", "MULTISPECTRAL"]
+        }
+      },
+      "required": ["ground_resolution", "instrument_mode"],
+      "additionalProperties": false
+    },
+    "priority_level": {
+      "type": "string",
+      "enum": ["STANDARD", "HIGH", "P0", "P1"]
+    }
+  },
+  "required": ["survey_period", "region_of_interest"],
+  "additionalProperties": {
+    "propertyNames": {
+      "const": "$schema"
+    }
+  }
+}

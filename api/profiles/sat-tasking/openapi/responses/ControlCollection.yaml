@@ -1,0 +1,8 @@
+description: The metadata being returned.
+content:
+  application/json:
+    schema:
+      type: array
+      items:
+        $ref: ../schemas/controlStream.yaml
+      

@@ -1,0 +1,12 @@
+"history": [
+  {
+    "label": "Scheduled Maintenance",
+    "description": "Monthly maintenance of station hardware.\n-Checked electronics\n-Checked casing\nChecked power supply.\nEverything OK.",
+    "time": [ "2002-03-01T10:00:00Z", "2002-03-01T11:00:00Z" ]
+  },
+  {
+    "label": "Calibration",
+    "description": "Recalibration of acquisition electronics using temperature reference",
+    "time": "2002-03-01T18:00:00Z"
+  }
+]

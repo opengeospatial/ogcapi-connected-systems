@@ -2,7 +2,7 @@
   "$schema": "../PhysicalSystem.json",
   "type": "PhysicalSystem",
   "definition": "http://www.w3.org/ns/sosa/ObservingProcedure",
-  "uniqueId": "urn:osh:sensors:S0001_modes",
+  "uniqueId": "urn:x-org:sensors:S0001_modes",
   "label": "Sensor With Modes",
   "description": "Sensor with Modes: example where sensor modes can be changed externally and reported in the output",
   "validTime": [

@@ -1,0 +1,63 @@
+{
+  "$schema": "../../AggregateProcess.json",
+  "type": "AggregateProcess",
+  "uniqueId": "urn:x-ogc:process-chain:001",
+  "label": "Simple Process Chain",
+  "description": "A simple process chain that applies a linear transformation and clips the value to a threshold.",
+  "inputs": [
+    {
+      "name": "valueIn",
+      "type": "Quantity",
+      "definition": "http://sensorml.com/ont/swe/property/DN",
+      "label": "Input Value",
+      "uom": { "href": "http://www.opengis.net/def/nil/OGC/0/unknown" }
+    }
+  ],
+  "outputs": [
+    {
+      "name": "valueOut",
+      "type": "Quantity",
+      "definition": "http://sensorml.com/ont/swe/property/DN",
+      "label": "Output Value",
+      "uom": { "href": "http://www.opengis.net/def/nil/OGC/0/unknown" }
+    }
+  ],
+  "components": [
+    {
+      "name": "scale",
+      "type": "SimpleProcess",
+      "label": "Linear Transform 01",
+      "typeOf": {
+        "href": "http://example.org/processlib/linearTransform.json",
+        "uid": "urn:x-org:process:LinearTransform:v1.0",
+        "title": "Linear Transform"
+      },
+      "configuration": {
+        "setValues": [
+          { "ref": "parameters/slope", "value": 2.3 },
+          { "ref": "parameters/intercept", "value": 1.76 }
+        ]
+      }
+    },
+    {
+      "name": "clip",
+      "type": "SimpleProcess",
+      "label": "Threshold Clipper 01",
+      "typeOf": {
+        "href": "http://example.org/processlib/thresholdClipper.json",
+        "uid": "urn:x-org:process:ThresholdClipper:v1.0",
+        "title": "Threshold Clip"
+      },
+      "configuration": {
+        "setValues": [
+          { "ref": "parameters/threshold", "value": 15.0 }
+        ]
+      }
+    }
+  ],
+  "connections": [
+    { "source": "inputs/valueIn", "destination": "components/scale/inputs/x" },
+    { "source": "components/scale/outputs/y", "destination": "components/clip/inputs/valueIn" },
+    { "source": "components/clip/outputs/passValue", "destination": "outputs/valueOut" }
+  ]
+}

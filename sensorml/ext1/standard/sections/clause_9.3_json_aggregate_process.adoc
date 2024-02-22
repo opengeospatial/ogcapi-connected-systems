@@ -13,7 +13,7 @@ indirect-dependency:: {sml-spec-url}/req/model/aggregateProcess
 ====
 
 
-==== Aggregate Process
+==== AggregateProcess
 
 [requirement,model=ogc]
 ====
@@ -23,10 +23,19 @@ identifier:: /req/json-aggregate-process/schema-valid
 The JSON document instance shall be valid with respect to the JSON schema {jsonschema-base-url}/AggregateProcess.json[“AggregateProcess.json”].
 ====
 
+The snippet below shows a simple process chain example with 2 child processes and their connections.
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/process_chain.json[lines="1,3..-1"]
+----
 
 
 ==== Components
 
+The `components` property takes a `ComponentList` as its value, that is a list of nested `AbstractProcess` instances. 
 
 
 ==== Connections
+
+The `connections` property takes a `ConnectionList` as its value, that is a list of nested `Link` instances that specify the source and destination of each connection. 

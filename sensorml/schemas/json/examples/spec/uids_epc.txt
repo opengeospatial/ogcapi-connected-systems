@@ -1,0 +1,11 @@
+Global Individual Asset Identifier (GIAI):
+"uniqueId": "urn:epc:id:giai:0614141.12345400"
+
+Component/Part Identifier (CPI):
+"uniqueId": "urn:epc:id:cpi:0614141.123ABC.123456789"
+
+Serialised Global Trade Item Number (SGTIN):
+"uniqueId": "urn:epc:id:sgtin:123456789012.0.4711"
+
+Global Document Type Identifier (GDTI):
+"uniqueId": "urn:epc:id:gdti:0614141.12345.006847"

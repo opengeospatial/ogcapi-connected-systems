@@ -1,0 +1,17 @@
+{
+  "$schema": "../../PhysicalComponent.json",
+  "type": "PhysicalComponent",
+  "definition": "http://www.w3.org/ns/sosa/Sensor",
+  "uniqueId": "urn:x-org:systems:001",
+  "label": "Outdoor Thermometer 001",
+  "description": "Digital thermometer located on first floor window 1",
+  "typeOf": {
+    "href": "https://data.example.org/api/procedures/TP60S?f=sml",
+    "title": "ThermoPro TP60S",
+    "type" : "application/sml+json"
+  },
+  "position": {
+    "type": "Point",
+    "coordinates": [41.8781, -87.6298]
+  }
+}

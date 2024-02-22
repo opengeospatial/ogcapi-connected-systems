@@ -1,0 +1,10 @@
+"configuration": {
+  "setValues": [{
+    "ref": "parameters/gain",
+    "value": 1.25
+  }],
+  "setModes": [{
+    "ref": "modes/THREAT_LEVEL_MODE",
+    "value": "lowThreat"
+  }]
+}
