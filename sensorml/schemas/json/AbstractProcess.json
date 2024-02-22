@@ -43,8 +43,7 @@
             "$ref": "Mode.json"
           }
         }
-      },
-      "required": ["uniqueId"]
+      }
     }
   ],
   "definitions": {

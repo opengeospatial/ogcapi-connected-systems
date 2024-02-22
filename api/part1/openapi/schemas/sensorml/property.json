@@ -10,7 +10,8 @@
           "description": "Links to related resources",
           "$ref": "../common/links.json"
         }
-      }
+      },
+      "required": [ "uniqueId" ]
     }
   ]
 }
