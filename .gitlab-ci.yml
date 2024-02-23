@@ -13,3 +13,10 @@ build:
   artifacts:
     paths:
       - published
+
+pages:
+  script:
+    - apt-get update -yqqq
+    - apt-get install -y nodejs
+    - bundle install --path vendor
+    - bundle exec middleman build
