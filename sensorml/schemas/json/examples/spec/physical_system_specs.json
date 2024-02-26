@@ -1,0 +1,43 @@
+{
+  "$schema": "../../PhysicalSystem.json",
+  "type": "PhysicalSystem",
+  "definition": "http://www.w3.org/ns/sosa/Sensor",
+  "uniqueId": "urn:x-davis:station:vantagepro2",
+  "label": "Davis Vantage Pro2 Weather Station",
+  "description": "An industrial-grade weather station engineered to handle the harshest environments...",
+  "identifiers": [ ... ],
+  "classifiers": [ ... ],
+  "characteristics": [ ... ],
+  "capabilities": [ ... ],
+  "contacts": [ ... ],
+  "documents": [ ... ],
+  "components": [
+    {
+      "type": "PhysicalComponent",
+      "name": "temp_sensor",
+      "definition": "http://www.w3.org/ns/sosa/Sensor",
+      "label": "Temperature Sensor",
+       ...
+    },
+    {
+      "type": "PhysicalComponent",
+      "name": "press_sensor",
+      "definition": "http://www.w3.org/ns/sosa/Sensor",
+      "label": "Pressure Sensor",
+       ...
+    },
+    {
+      "type": "PhysicalComponent",
+      "name": "hum_sensor",
+      "definition": "http://www.w3.org/ns/sosa/Sensor",
+      "label": "Humidity Sensor",
+       ...
+    },
+    {
+      "type": "PhysicalComponent",
+      "name": "wind_sensor",
+      "definition": "http://www.w3.org/ns/sosa/Sensor",
+      "label": "Wind Sensor",
+       ...
+    }
+  }

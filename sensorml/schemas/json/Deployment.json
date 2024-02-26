@@ -16,11 +16,18 @@
           "description": "The deployment location or area",
           "$ref": "https://geojson.org/schema/Geometry.json"
         },
+        "platform": {
+          "description": "The platform that the systems are deployed on",
+          "$ref": "DeployedSystem.json"
+        },
         "deployedSystems": {
           "description": "The list of deployed systems",
           "type": "array",
           "items": {
-            "$ref": "DeployedSystem.json"
+            "allOf": [
+              { "$ref": "sweCommonDefs.json#/definitions/SoftNamedProperty" },
+              { "$ref": "DeployedSystem.json" }
+            ]
           }
         }
       }

@@ -1,0 +1,20 @@
+"contacts": [
+  {
+    "role": "http://sensorml.com/ont/swe/property/Manufacturer",
+    "organisationName": "Davis Instruments Corp.",
+    "contactInfo": {
+      "website": "https://www.davisinstruments.com",
+      "phone": {
+        "voice": "+1 (510) 732-7814"
+      },
+      "address": {
+        "deliveryPoint": "3465 Diablo Avenue",
+        "city": "Hayward",
+        "postalCode": "94545",
+        "administrativeArea": "CA",
+        "country": "USA",
+        "electronicMailAddress": "support@davisinstruments.com"
+      }
+    }
+  }
+]

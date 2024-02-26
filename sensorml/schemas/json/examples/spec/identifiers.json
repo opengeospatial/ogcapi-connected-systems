@@ -1,0 +1,17 @@
+"identifiers": [
+  {
+    "definition": "http://sensorml.com/ont/swe/property/ShortName",
+    "label": "Short Name",
+    "value": "Davis Vantage Pro2"
+  },
+  {
+    "definition": "http://sensorml.com/ont/swe/property/Manufacturer",
+    "label": "Manufacturer Name",
+    "value": "Davis Instruments"
+  },
+  {
+    "definition": "http://sensorml.com/ont/swe/property/ModelNumber",
+    "label": "Model Number",
+    "value": "Vantage Pro2"
+  }
+]

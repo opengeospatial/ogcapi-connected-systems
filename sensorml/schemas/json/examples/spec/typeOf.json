@@ -1,0 +1,6 @@
+"typeOf": {
+  "href": "http://data.example.org/api/procedures/123",
+  "uid": "urn:x-davis:station:vantagepro2",
+  "title": "Davis Vantage Pro 2",
+  "type": "application/sml+json"
+}

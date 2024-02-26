@@ -9,6 +9,9 @@
       "properties": {
         "type": {
           "const": "PhysicalComponent"
+        },
+        "method": {
+          "$ref": "SimpleProcess.json#/definitions/ProcessMethod"
         }
       }
     }

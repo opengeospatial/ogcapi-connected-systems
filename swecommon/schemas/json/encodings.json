@@ -63,10 +63,6 @@
           "properties": {
             "type": {
               "const": "JSONEncoding"
-            },
-            "vectorAsArrays": {
-              "description": "Indicates whether vectors are encoded as JSON arrays (if true) or JSON objects (if false)",
-              "type": "boolean"
             }
           },
           "required": [

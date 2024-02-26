@@ -1,8 +1,8 @@
-openapi: 3.0.2
+openapi: 3.1.0
 info:
   title: "OGC API - Connected Systems - EO Satellite Tasking Profile"
   version: 0.0.1
-  description: >-
+  description: |-
     This is the OpenAPI definition of a Connected Systems API profile for satellite tasking.
   contact:
     name: Alex Robin (GeoRobotix, Inc.)
@@ -11,7 +11,7 @@ info:
     name: OGC License
     url: "https://www.ogc.org/ogc/Document"
   x-logo:
-    url: "https://www.ogc.org/pub/www/files/OGC_Logo_2D_Blue_x_0_0.png"
+    url: "https://www.ogc.org/wp-content/uploads/2023/03/OGC-1.svg"
     backgroundColor: "#FFFFFF"
     altText: "OGC logo"
     href: "https://www.ogc.org/contacts"
@@ -39,7 +39,7 @@ paths:
 
   /conformance:
     get:
-      summary: Information about specifications that this API conforms to
+      summary: Conformance
       description: A list of all conformance classes specified in a standard that the server conforms to.
       tags:
         - Capabilities
@@ -49,9 +49,8 @@ paths:
 
   /collections:
     get:
-      summary: Retrieve list of feature collections
-      description: |
-        A user can retrieve catalogs to access collections by simple filtering and a limit.
+      summary: Available Collections
+      description: A list of collections available from the server.
       tags:
         - Collections
       parameters:
@@ -62,7 +61,8 @@ paths:
 
   /collections/{collectionId}:
     get:
-      summary: Access metadata about a specific collection (here an example of System collection)
+      summary: Collection Metadata
+      description: Metadata about a specific collection.
       tags:
         - Collections
       parameters:

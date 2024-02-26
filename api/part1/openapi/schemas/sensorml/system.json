@@ -25,7 +25,7 @@
           "$ref": "../common/links.json"
         }
       },
-      "required": [ "definition" ]
+      "required": [ "definition", "uniqueId" ]
     }
   ]
 }

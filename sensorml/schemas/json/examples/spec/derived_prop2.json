@@ -1,0 +1,7 @@
+{
+  "label": "Average CPU Temp",
+  "description": "Hourly average of the CPU temperature",
+  "baseProperty": "http://qudt.org/vocab/quantitykind/Temperature",
+  "objectType": "http://dbpedia.org/resource/Central_processing_unit",
+  "statistic": "http://sensorml.com/ont/x-stats/HourlyMean"
+}

@@ -2,24 +2,16 @@
 
 This standard has been written to be compliant with the OGC Specification Model – A Standard for Modular Specification (OGC 08-131r3). Extensions of this standard shall themselves be conformant to the OGC Specification Model.
 
-Conformance with this specification shall be checked using all the relevant tests specified in Annex A. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in ISO 19105: Geographic information — Conformance and Testing. In order to conform to this OGC™ encoding standard, a standardization target shall implement the core conformance class, and choose to implement any one of the other conformance classes.
+This Standard defines the following requirements classes:
 
-Additionally, it is highly recommended that XML and JSON based implementations of the conceptual models do implement requirement classes from clause 8 and clause 9 of this standard, respectively, and pass the corresponding conformance classes instead of defining new encodings.
+- <<clause_model_deployment,style=full%>> defines requirements for the `Deployment` class. +
+  {empty} +
+- <<clause_model_derived_property,style=full%>> defines requirements for the `DerivedProperty` class. +
+  {empty} +
+- <<clause_model_3dpose,style=full%>> defines requirements for 3D pose data types. +
+  {empty} +
+- <<clause_json_core;to!clause_json_derived_property,style=full%>> define requirements for the JSON encoding. +
+  {empty} +
 
-#TODO#
 
-This standard defines XXXX.
-
-Requirements for N standardization target types are considered:
-
-* AAAA
-* BBBB
-
-Conformance with this standard shall be checked using all the relevant tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.
-
-In order to conform to this OGC® interface standard, a software implementation shall choose to implement:
-
-* Any one of the conformance levels specified in Annex A (normative).
-* Any one of the Distributed Computing Platform profiles specified in Annexes TBD through TBD (normative).
-
-All requirements-classes and conformance-classes described in this document are owned by the standard(s) identified.
+Conformance with this standard shall be checked using all the relevant tests specified in <<annex_ats,Annex A (normative)>> of this document. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.

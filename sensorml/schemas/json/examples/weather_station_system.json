@@ -1,77 +1,195 @@
 {
   "$schema": "../PhysicalSystem.json",
   "type": "PhysicalSystem",
-  "id": "qgqjt7276pa",
-  "uniqueId": "urn:osh:sensor:simweather:0123456879",
+  "id": "2ev1rrr8dkeuu",
+  "uniqueId": "urn:x-davis:station:vantagepro2",
   "definition": "http://www.w3.org/ns/sosa/Sensor",
-  "label": "Simulated Weather Sensor",
-  "description": "Simulated weather station generating realistic pseudo-random measurements",
+  "label": "Davis Vantage Pro2 Weather Station",
+  "description": "An industrial-grade weather station engineered to handle the harshest environments and deliver data with scientific precision, year after year. The Vantage Pro2 and Vantage Pro2 Plus offer the professional weather observer or serious weather enthusiast robust performance with a wide range of options and sensors.",
   "identifiers": [
+    {
+      "definition": "http://sensorml.com/ont/swe/property/ShortName",
+      "label": "Short Name",
+      "value": "Davis Vantage Pro2"
+    },
     {
       "definition": "http://sensorml.com/ont/swe/property/LongName",
       "label": "Long Name",
       "value": "Davis Vantage Pro2 Weather Station"
     },
     {
-      "definition": "http://sensorml.com/ont/swe/property/ShortName",
-      "label": "Short Name",
-      "value": "Vantage Pro2"
-    },
-    {
       "definition": "http://sensorml.com/ont/swe/property/Manufacturer",
-      "label": "Manufacturer",
+      "label": "Manufacturer Name",
       "value": "Davis Instruments"
     },
     {
-      "definition": "http://sensorml.com/ont/swe/property/SerialNumber",
-      "label": "Serial Number",
-      "value": "0123456879"
+      "definition": "http://sensorml.com/ont/swe/property/ModelNumber",
+      "label": "Model Number",
+      "value": "Vantage Pro2"
     }
   ],
   "classifiers": [
     {
-      "definition": "http://sensorml.com/ont/swe/property/Application",
-      "label": "Intended Application",
-      "value": "weather"
-    },
-    {
       "definition": "http://sensorml.com/ont/swe/property/SensorType",
-      "label": "Instrument Type",
-      "codeSpace": "https://gcmd.earthdata.nasa.gov/kms/concepts/concept_scheme/instruments",
-      "value": "weather station"
+      "label": "Sensor Type",
+      "value": "Weather Station"
     }
-  ],
-  "validTime": [
-    "2015-08-02T20:00:00Z",
-    "now"
   ],
   "characteristics": [
     {
-      "definition": "http://www.w3.org/ns/ssn/systems/OperatingRange",
-      "label": "Operating Characteristics",
-      "conditions": [
-        
-      ],
+      "label": "Mechanical Characteristics (Console)",
       "characteristics": [
         {
+          "type": "Quantity",
+          "name": "weight",
+          "definition": "http://qudt.org/vocab/quantitykind/Mass",
+          "label": "Mass",
+          "uom": {
+            "code": "g"
+          },
+          "value": 850.0
+        },
+        {
+          "type": "Quantity",
+          "name": "length",
+          "definition": "http://qudt.org/vocab/quantitykind/Length",
+          "label": "Length",
+          "uom": {
+            "code": "mm"
+          },
+          "value": 245.0
+        },
+        {
+          "type": "Quantity",
+          "name": "width",
+          "definition": "http://sensorml.com/ont/swe/property/Width",
+          "label": "Width",
+          "uom": {
+            "code": "mm"
+          },
+          "value": 156.0
+        },
+        {
+          "type": "Quantity",
+          "name": "height",
+          "definition": "http://sensorml.com/ont/swe/property/Height",
+          "label": "Height",
+          "uom": {
+            "code": "mm"
+          },
+          "value": 41.0
+        },
+        {
+          "type": "Category",
+          "name": "material",
+          "definition": "http://dbpedia.org/resource/Material",
+          "label": "Housing Material",
+          "value": "UV-resistant ABS plastic"
+        }
+      ]
+    },
+    {
+      "label": "Mechanical Characteristics (Sensor Suite)",
+      "characteristics": [
+        {
+          "type": "Quantity",
+          "name": "weight",
+          "definition": "http://qudt.org/vocab/quantitykind/Mass",
+          "label": "Mass",
+          "uom": {
+            "code": "g"
+          },
+          "value": 850.0
+        },
+        {
+          "type": "Quantity",
+          "name": "length",
+          "definition": "http://qudt.org/vocab/quantitykind/Length",
+          "label": "Length",
+          "uom": {
+            "code": "mm"
+          },
+          "value": 356.0
+        },
+        {
+          "type": "Quantity",
+          "name": "width",
+          "definition": "http://sensorml.com/ont/swe/property/Width",
+          "label": "Width",
+          "uom": {
+            "code": "mm"
+          },
+          "value": 239.0
+        },
+        {
+          "type": "Quantity",
+          "name": "height",
+          "definition": "http://sensorml.com/ont/swe/property/Height",
+          "label": "Height",
+          "uom": {
+            "code": "mm"
+          },
+          "value": 368.0
+        }
+      ]
+    },
+    {
+      "label": "Electrical Characteristics",
+      "characteristics": [
+        {
+          "type": "Quantity",
           "name": "voltage",
-          "type": "QuantityRange",
           "definition": "http://qudt.org/vocab/quantitykind/Voltage",
-          "label": "Operating Voltage Range",
+          "label": "Input Voltage (DC)",
           "uom": {
             "code": "V"
           },
-          "value": [110.0,250.0]
+          "value": 5.0
         },
         {
-          "name": "temperature",
+          "type": "Quantity",
+          "name": "current",
+          "definition": "http://qudt.org/vocab/quantitykind/Current",
+          "label": "Max Current",
+          "uom": {
+            "code": "mA"
+          },
+          "value": 10.0
+        },
+        {
+          "type": "Text",
+          "name": "if_type",
+          "definition": "http://dbpedia.org/resource/Interface_(computing)",
+          "label": "Interface Type",
+          "value": "RS-232"
+        }
+      ]
+    }
+  ],
+  "capabilities": [
+    {
+      "definition": "http://www.w3.org/ns/ssn/systems/OperatingRange",
+      "label": "Operating Range",
+      "capabilities": [
+        {
           "type": "QuantityRange",
+          "name": "temperature",
           "definition": "http://qudt.org/vocab/quantitykind/Temperature",
           "label": "Temperature Range",
           "uom": {
             "code": "Cel"
           },
-          "value": [-20.0,90.0]
+          "value": [-40.0, 65.0]
+        },
+        {
+          "type": "QuantityRange",
+          "name": "humidity",
+          "definition": "http://qudt.org/vocab/quantitykind/RelativeHumidity",
+          "label": "Humidity Range",
+          "uom": {
+            "code": "%"
+          },
+          "value": [0.0, 100.0]
         }
       ]
     }
@@ -81,21 +199,540 @@
       "role": "http://sensorml.com/ont/swe/property/Manufacturer",
       "organisationName": "Davis Instruments Corp.",
       "contactInfo": {
+        "website": "https://www.davisinstruments.com",
         "phone": {
           "voice": "+1 (510) 732-7814"
         },
         "address": {
           "deliveryPoint": "3465 Diablo Avenue",
           "city": "Hayward",
-          "administrativeArea": "CA",
           "postalCode": "94545",
-          "country": "USA"
+          "administrativeArea": "CA",
+          "country": "USA",
+          "electronicMailAddress": "support@davisinstruments.com"
         }
       }
     }
   ],
-  "position": {
-    "type": "Point",
-    "coordinates": [-86.7228, 34.8038, 0]
-  }
+  "documents": [
+    {
+      "role": "http://dbpedia.org/resource/Web_page",
+      "name": "Product Web Site",
+      "description": "Webpage with specs an other resources",
+      "link": {
+        "href": "https://www.davisinstruments.com/pages/vantage-pro2",
+        "type": "text/html"
+      }
+    },
+    {
+      "role": "http://dbpedia.org/resource/Datasheet",
+      "name": "Spec Sheet",
+      "link": {
+        "href": "https://cdn.shopify.com/s/files/1/0515/5992/3873/files/6152c_6162c_ss.pdf",
+        "type": "application/pdf"
+      }
+    },
+    {
+      "role": "http://dbpedia.org/resource/Photograph",
+      "name": "Photo",
+      "link": {
+        "href": "https://m.media-amazon.com/images/I/71rycLk7sFL.jpg",
+        "type": "image/jpg"
+      }
+    }
+  ],
+  "components": [
+    {
+      "type": "PhysicalComponent",
+      "name": "temp_sensor",
+      "definition": "http://www.w3.org/ns/sosa/Sensor",
+      "label": "Temperature Sensor",
+      "identifiers": [
+        {
+          "definition": "http://sensorml.com/ont/swe/property/Manufacturer",
+          "label": "Manufacturer Name",
+          "value": "Davis Instruments"
+        }
+      ],
+      "classifiers": [
+        {
+          "definition": "http://sensorml.com/ont/swe/property/SensorType",
+          "label": "Sensor Type",
+          "value": "Thermometer"
+        }
+      ],
+      "capabilities": [
+        {
+          "definition": "http://www.w3.org/ns/ssn/systems/SystemCapability",
+          "label": "Measurement Capabilities",
+          "capabilities": [
+            {
+              "type": "QuantityRange",
+              "name": "range",
+              "definition": "http://www.w3.org/ns/ssn/systems/MeasurementRange",
+              "label": "Measurement Range",
+              "uom": {
+                "code": "Cel"
+              },
+              "value": [-40.0, 60.0]
+            },
+            {
+              "type": "Quantity",
+              "name": "resolution",
+              "definition": "http://www.w3.org/ns/ssn/systems/Resolution",
+              "label": "Resolution",
+              "uom": {
+                "code": "Cel"
+              },
+              "value": 0.1
+            },
+            {
+              "type": "Quantity",
+              "name": "accuracy",
+              "definition": "http://sensorml.com/ont/swe/property/AbsoluteAccuracy",
+              "label": "Absolute Accuracy",
+              "uom": {
+                "code": "Cel"
+              },
+              "value": 0.3
+            },
+            {
+              "type": "Quantity",
+              "name": "samp_freq",
+              "definition": "http://sensorml.com/ont/swe/property/SamplingFrequency",
+              "label": "Sampling Frequency",
+              "uom": {
+                "code": "Hz"
+              },
+              "value": 0.1
+            }
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "name": "temp",
+          "type": "ObservableProperty",
+          "definition": "http://mmisw.org/ont/cf/parameter/air_temperature",
+          "label": "Air Temperature"
+        }
+      ]
+    },
+    {
+      "type": "PhysicalComponent",
+      "name": "press_sensor",
+      "definition": "http://www.w3.org/ns/sosa/Sensor",
+      "label": "Pressure Sensor",
+      "identifiers": [
+        {
+          "definition": "http://sensorml.com/ont/swe/property/Manufacturer",
+          "label": "Manufacturer Name",
+          "value": "Davis Instruments"
+        }
+      ],
+      "classifiers": [
+        {
+          "definition": "http://sensorml.com/ont/swe/property/SensorType",
+          "label": "Sensor Type",
+          "value": "Barometer"
+        }
+      ],
+      "capabilities": [
+        {
+          "definition": "http://www.w3.org/ns/ssn/systems/SystemCapability",
+          "label": "Measurement Capabilities",
+          "capabilities": [
+            {
+              "type": "QuantityRange",
+              "name": "range",
+              "definition": "http://www.w3.org/ns/ssn/systems/MeasurementRange",
+              "label": "Measurement Range",
+              "uom": {
+                "code": "hPa"
+              },
+              "value": [540.0, 1100.0]
+            },
+            {
+              "type": "Quantity",
+              "name": "resolution",
+              "definition": "http://www.w3.org/ns/ssn/systems/Resolution",
+              "label": "Resolution",
+              "uom": {
+                "code": "hPa"
+              },
+              "value": 0.1
+            },
+            {
+              "type": "Quantity",
+              "name": "accuracy",
+              "definition": "http://sensorml.com/ont/swe/property/AbsoluteAccuracy",
+              "label": "Absolute Accuracy",
+              "uom": {
+                "code": "hPa"
+              },
+              "value": 1.0
+            },
+            {
+              "type": "Quantity",
+              "name": "samp_freq",
+              "definition": "http://sensorml.com/ont/swe/property/SamplingFrequency",
+              "label": "Sampling Frequency",
+              "uom": {
+                "code": "Hz"
+              },
+              "value": 0.016
+            }
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "name": "press",
+          "type": "ObservableProperty",
+          "definition": "http://mmisw.org/ont/cf/parameter/air_pressure",
+          "label": "Air Pressure"
+        }
+      ]
+    },
+    {
+      "type": "PhysicalComponent",
+      "name": "hum_sensor",
+      "definition": "http://www.w3.org/ns/sosa/Sensor",
+      "label": "Humidity Sensor",
+      "identifiers": [
+        {
+          "definition": "http://sensorml.com/ont/swe/property/Manufacturer",
+          "label": "Manufacturer Name",
+          "value": "Davis Instruments"
+        }
+      ],
+      "classifiers": [
+        {
+          "definition": "http://sensorml.com/ont/swe/property/SensorType",
+          "label": "Sensor Type",
+          "value": "Hygrometer"
+        }
+      ],
+      "capabilities": [
+        {
+          "definition": "http://www.w3.org/ns/ssn/systems/SystemCapability",
+          "label": "Measurement Capabilities",
+          "capabilities": [
+            {
+              "type": "QuantityRange",
+              "name": "range",
+              "definition": "http://www.w3.org/ns/ssn/systems/MeasurementRange",
+              "label": "Measurement Range",
+              "uom": {
+                "code": "%"
+              },
+              "value": [1.0, 100.0]
+            },
+            {
+              "type": "Quantity",
+              "name": "resolution",
+              "definition": "http://www.w3.org/ns/ssn/systems/Resolution",
+              "label": "Resolution",
+              "uom": {
+                "code": "%"
+              },
+              "value": 1.0
+            },
+            {
+              "type": "Quantity",
+              "name": "accuracy",
+              "definition": "http://sensorml.com/ont/swe/property/AbsoluteAccuracy",
+              "label": "Absolute Accuracy",
+              "uom": {
+                "code": "%"
+              },
+              "value": 2.0
+            },
+            {
+              "type": "Quantity",
+              "name": "samp_freq",
+              "definition": "http://sensorml.com/ont/swe/property/SamplingFrequency",
+              "label": "Sampling Frequency",
+              "uom": {
+                "code": "Hz"
+              },
+              "value": 0.016
+            }
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "name": "hum",
+          "type": "ObservableProperty",
+          "definition": "http://mmisw.org/ont/cf/parameter/relative_humidity",
+          "label": "Relative Humidity"
+        }
+      ]
+    },
+    {
+      "type": "PhysicalComponent",
+      "name": "wind_sensor",
+      "definition": "http://www.w3.org/ns/sosa/Sensor",
+      "label": "Wind Sensor",
+      "identifiers": [
+        {
+          "definition": "http://sensorml.com/ont/swe/property/Manufacturer",
+          "label": "Manufacturer Name",
+          "value": "Davis Instruments"
+        }
+      ],
+      "classifiers": [
+        {
+          "definition": "http://sensorml.com/ont/swe/property/SensorType",
+          "label": "Sensor Type",
+          "value": "Anemometer"
+        }
+      ],
+      "capabilities": [
+        {
+          "definition": "http://www.w3.org/ns/ssn/systems/SystemCapability",
+          "label": "Speed Measurement Capabilities",
+          "capabilities": [
+            {
+              "type": "QuantityRange",
+              "name": "range",
+              "definition": "http://www.w3.org/ns/ssn/systems/MeasurementRange",
+              "label": "Measurement Range",
+              "uom": {
+                "code": "km/h"
+              },
+              "value": [1.0, 322.0]
+            },
+            {
+              "type": "Quantity",
+              "name": "resolution",
+              "definition": "http://www.w3.org/ns/ssn/systems/Resolution",
+              "label": "Resolution",
+              "uom": {
+                "code": "km/h"
+              },
+              "value": 1.0
+            },
+            {
+              "type": "Quantity",
+              "name": "accuracy",
+              "definition": "http://sensorml.com/ont/swe/property/AbsoluteAccuracy",
+              "label": "Absolute Accuracy",
+              "uom": {
+                "code": "km/h"
+              },
+              "value": 3.2
+            },
+            {
+              "type": "Quantity",
+              "name": "rel_accuracy",
+              "definition": "http://sensorml.com/ont/swe/property/RelativeAccuracy",
+              "label": "Relative Accuracy",
+              "uom": {
+                "code": "%"
+              },
+              "value": 0.5
+            },
+            {
+              "type": "Quantity",
+              "name": "samp_freq",
+              "definition": "http://sensorml.com/ont/swe/property/SamplingFrequency",
+              "label": "Sampling Frequency",
+              "uom": {
+                "code": "Hz"
+              },
+              "value": 0.4
+            }
+          ]
+        },
+        {
+          "definition": "http://www.w3.org/ns/ssn/systems/SystemCapability",
+          "label": "Direction Measurement Capabilities",
+          "capabilities": [
+            {
+              "type": "QuantityRange",
+              "name": "range",
+              "definition": "http://www.w3.org/ns/ssn/systems/MeasurementRange",
+              "label": "Measurement Range",
+              "uom": {
+                "code": "deg"
+              },
+              "value": [0.0, 360.0]
+            },
+            {
+              "type": "Quantity",
+              "name": "resolution",
+              "definition": "http://www.w3.org/ns/ssn/systems/Resolution",
+              "label": "Resolution",
+              "uom": {
+                "code": "deg"
+              },
+              "value": 1.0
+            },
+            {
+              "type": "Quantity",
+              "name": "accuracy",
+              "definition": "http://sensorml.com/ont/swe/property/AbsoluteAccuracy",
+              "label": "Absolute Accuracy",
+              "uom": {
+                "code": "deg"
+              },
+              "value": 3.0
+            },
+            {
+              "type": "Quantity",
+              "name": "samp_freq",
+              "definition": "http://sensorml.com/ont/swe/property/SamplingFrequency",
+              "label": "Sampling Frequency",
+              "uom": {
+                "code": "Hz"
+              },
+              "value": 0.4
+            }
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "name": "hum",
+          "type": "ObservableProperty",
+          "definition": "http://mmisw.org/ont/cf/parameter/wind_speed",
+          "label": "Wind Speed"
+        }
+      ]
+    },
+    {
+      "type": "PhysicalComponent",
+      "name": "rain_sensor",
+      "definition": "http://www.w3.org/ns/sosa/Sensor",
+      "label": "Rainfall Sensor",
+      "identifiers": [
+        {
+          "definition": "http://sensorml.com/ont/swe/property/Manufacturer",
+          "label": "Manufacturer Name",
+          "value": "Davis Instruments"
+        }
+      ],
+      "classifiers": [
+        {
+          "definition": "http://sensorml.com/ont/swe/property/SensorType",
+          "label": "Sensor Type",
+          "value": "Rain Gauge"
+        }
+      ],
+      "capabilities": [
+        {
+          "definition": "http://www.w3.org/ns/ssn/systems/SystemCapability",
+          "label": "Measurement Capabilities",
+          "capabilities": [
+            {
+              "type": "QuantityRange",
+              "name": "range",
+              "definition": "http://www.w3.org/ns/ssn/systems/MeasurementRange",
+              "label": "Measurement Range",
+              "uom": {
+                "code": "mm"
+              },
+              "value": [0.0, 999.8]
+            },
+            {
+              "type": "Quantity",
+              "name": "resolution",
+              "definition": "http://www.w3.org/ns/ssn/systems/Resolution",
+              "label": "Resolution",
+              "uom": {
+                "code": "mm"
+              },
+              "value": 0.2
+            },
+            {
+              "type": "Quantity",
+              "name": "accuracy",
+              "definition": "http://sensorml.com/ont/swe/property/AbsoluteAccuracy",
+              "label": "Absolute Accuracy",
+              "uom": {
+                "code": "mm"
+              },
+              "value": 0.2
+            },
+            {
+              "type": "Quantity",
+              "name": "rel_accuracy",
+              "definition": "http://sensorml.com/ont/swe/property/RelativeAccuracy",
+              "label": "Relative Accuracy",
+              "uom": {
+                "code": "%"
+              },
+              "value": 3.0
+            },
+            {
+              "type": "Quantity",
+              "name": "samp_freq",
+              "definition": "http://sensorml.com/ont/swe/property/SamplingFrequency",
+              "label": "Sampling Frequency",
+              "uom": {
+                "code": "Hz"
+              },
+              "value": 0.05
+            }
+          ]
+        },
+        {
+          "definition": "http://www.w3.org/ns/ssn/systems/SystemCapability",
+          "label": "Rate Measurement Capabilities",
+          "capabilities": [
+            {
+              "type": "QuantityRange",
+              "name": "range",
+              "definition": "http://www.w3.org/ns/ssn/systems/MeasurementRange",
+              "label": "Measurement Range",
+              "uom": {
+                "code": "mm/h"
+              },
+              "value": [0.0, 762.0]
+            },
+            {
+              "type": "Quantity",
+              "name": "resolution",
+              "definition": "http://www.w3.org/ns/ssn/systems/Resolution",
+              "label": "Resolution",
+              "uom": {
+                "code": "mm/h"
+              },
+              "value": 0.1
+            },
+            {
+              "type": "Quantity",
+              "name": "rel_accuracy",
+              "definition": "http://sensorml.com/ont/swe/property/RelativeAccuracy",
+              "label": "Relative Accuracy",
+              "uom": {
+                "code": "%"
+              },
+              "value": 5.0
+            },
+            {
+              "type": "Quantity",
+              "name": "samp_freq",
+              "definition": "http://sensorml.com/ont/swe/property/SamplingFrequency",
+              "label": "Sampling Frequency",
+              "uom": {
+                "code": "Hz"
+              },
+              "value": 0.05
+            }
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "name": "rain",
+          "type": "ObservableProperty",
+          "definition": "http://mmisw.org/ont/cf/parameter/rainfall_amount",
+          "label": "Rainfall Amount"
+        }
+      ]
+    }
+  ]
 }

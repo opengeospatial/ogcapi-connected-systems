@@ -17,7 +17,7 @@ The `Deployment` class is used to describe when, where, why and how physical or 
 
 In particular, the deployment metadata allows for the provision of:
 
-- Contact information (e.g. the organization responsible for operating/maintaining the deployed systems)
+- Contact information (e.g. the organization operating/maintaining the deployed systems, the pilot of an unmanned vehicle, etc.)
 - Domain specific identifiers and classifiers for the deployment (e.g. mission number, mission type, etc.)
 - Characteristics of the deployment (e.g. sensor is mounted under shelter at 2m above ground)
 
@@ -33,8 +33,8 @@ image::./figures/FIG002-deployment-class.png[deployment-class-diagram, align="ce
 |====
 | *Name*           | *Definition*
 | `location`       | The geographic location or area where the systems are deployed.
-| `deployedSystem` | List of deployed systems (as `DeployedSystem` objects, see below).
-| `procedure`      | Reference to the procedure used to orchestrate the whole deployment.
+| `platform`       | Reference to the platform on which the systems are deployed.
+| `deployedSystem` | Description of a deployed system (as a `DeployedSystem` object, see below).
 |====
 
 === DeployedSystem Class
@@ -47,10 +47,8 @@ The `DeployedSystem` class is used to describe each system deployed as part of a
 |====
 | *Name*           | *Definition*
 | `name`           | A code name for the system within the deployment (e.g. UAV1).
-| `description`    | The description of the deployed system that is specific to the deployment.
+| `description`    | A description of the deployed system that is specific to the deployment.
 | `system`         | Reference to the system, component, or process being deployed.
-| `attachedTo`     | Reference to the platform on which the system is being deployed on.
 | `configuration`  | The configuration of the system used during this deployment.
-| `procedure`      | Reference to the procedure used by the system or to operate the system during the deployment.
 |====
 

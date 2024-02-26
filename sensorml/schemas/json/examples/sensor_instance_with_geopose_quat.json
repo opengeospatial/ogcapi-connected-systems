@@ -2,7 +2,7 @@
   "$schema": "../PhysicalSystem.json",
   "type": "PhysicalSystem",
   "definition": "http://www.w3.org/ns/sosa/Sensor",
-  "uniqueId": "urn:x-ogc:sensors:001",
+  "uniqueId": "urn:x-org:sensors:001",
   "label": "Sensor with GeoPose",
   "position": {
     "type": "GeoPose",

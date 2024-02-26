@@ -10,6 +10,12 @@
     "TimePeriod": {
       "$ref": "../../../common/timePeriod.json"
     },
+    "TimeInstantOrPeriod": {
+      "oneOf": [
+        { "$ref": "../../../common/timeInstant.json" },
+        { "$ref": "../../../common/timePeriod.json" }
+      ]
+    },
     "ObservableProperty": {
       "description": "A physical property that can be observed and possibly measured (e.g. temperature, color, position). An ObservableProperty has unambiguous definition, but does not have units of measure.",
       "type": "object",

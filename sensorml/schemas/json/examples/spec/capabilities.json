@@ -1,0 +1,43 @@
+"capabilities": [
+  {
+    "definition": "http://www.w3.org/ns/ssn/systems/SystemCapability",
+    "label": "System Capabilities (No Wind)",
+    "conditions": [
+      {
+        "type": "Quantity",
+        "name": "wind_speed",
+        "definition": "http://mmisw.org/ont/cf/parameter/wind_speed",
+        "label": "Wind Speed",
+        "uom": { "code": "m/s" },
+        "value": 0
+      }
+    ],
+    "capabilities": [
+      {
+        "type": "Quantity",
+        "name": "flight_range",
+        "definition": "http://qudt.org/vocab/quantitykind/Distance",
+        "label": "Max Travel Distance",
+        "uom": { "code": "km" },
+        "value": 13
+      },
+      {
+        "type": "Quantity",
+        "name": "max_speed",
+        "definition": "http://qudt.org/vocab/quantitykind/Speed",
+        "label": "Max Speed",
+        "uom": { "code": "km/h" },
+        "value": 65
+      },
+      {
+        "type": "Quantity",
+        "name": "flight_time",
+        "definition": "http://www.w3.org/ns/ssn/systems/BatteryLifetime",
+        "label": "Battery Lifetime",
+        "description": "Maximum flight time in stationary flight",
+        "uom": { "code": "min" },
+        "value": 24
+      }
+    ]
+  }
+]

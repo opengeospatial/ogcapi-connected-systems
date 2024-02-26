@@ -1,0 +1,37 @@
+{
+  "$schema": "../../PhysicalSystem.json",
+  "type": "PhysicalSystem",
+  "definition": "http://www.w3.org/ns/sosa/Sensor",
+  "uniqueId": "urn:x-meteofrance:stations:davis:WS00010",
+  "label": "Meteo France Weather Station WS00010",
+  "typeOf": {
+    "href": "http://example.org/api/procedures/2ev1rrr8dkeuu",
+    "uid": "urn:x-davis:station:vantagepro2",
+    "type": "application/sml+json"
+  },
+  "contacts": [
+    {
+      "role": "http://sensorml.com/ont/swe/property/Operator",
+      "organisationName": "Meteo France",
+      "contactInfo": {
+        "website": "https://www.meteo.fr",
+        "phone": {
+          "voice": "+33 5 61 07 80 80"
+        },
+        "address": {
+          "deliveryPoint": "42 avenue Gaspard-Coriolis",
+          "city": "TOULOUSE",
+          "postalCode": "31057 Cedex 1",
+          "country": "France"
+        }
+      }
+    }
+  ],
+  "position": {
+    "type": "Point",
+    "coordinates": [
+      1.35997,
+      43.637788
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+"documents": [
+  {
+    "role": "http://dbpedia.org/resource/Web_page",
+    "name": "Product Web Site",
+    "description": "Webpage with specs an other resources",
+    "link": {
+      "href": "https://www.davisinstruments.com/pages/vantage-pro2",
+      "type": "text/html"
+    }
+  },
+  {
+    "role": "http://dbpedia.org/resource/Datasheet",
+    "name": "Spec Sheet",
+    "link": {
+      "href": "https://cdn.shopify.com/s/files/1/0515/5992/3873/files/6152c_6162c_ss.pdf",
+      "type": "application/pdf"
+    }
+  },
+  {
+    "role": "http://dbpedia.org/resource/Photograph",
+    "name": "Photo",
+    "link": {
+      "href": "https://m.media-amazon.com/images/I/71rycLk7sFL.jpg",
+      "type": "image/jpg"
+    }
+  }
+]

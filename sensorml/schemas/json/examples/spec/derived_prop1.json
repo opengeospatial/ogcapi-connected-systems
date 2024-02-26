@@ -1,0 +1,6 @@
+{
+  "label": "Engine Power",
+  "description": "Mechanical power produced by the engine",
+  "baseProperty": "http://qudt.org/vocab/quantitykind/Power",
+  "objectType": "http://dbpedia.org/resource/Engine"
+}

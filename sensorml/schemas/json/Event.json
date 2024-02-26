@@ -43,7 +43,7 @@
         },
         "time": {
           "description": "Time of the event",
-          "$ref": "commonDefs.json#/definitions/TimeInstant"
+          "$ref": "commonDefs.json#/definitions/TimeInstantOrPeriod"
         },
         "properties": {
           "description": "A list of additional properties of interest to the event (e.g. calibration values, condition category, error codes, etc).",
@@ -59,7 +59,6 @@
       },
       "required": [
         "label",
-        "definition",
         "time"
       ]
     }
