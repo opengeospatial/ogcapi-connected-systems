@@ -1,0 +1,5 @@
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/model/coreProcess/package-fully-implemented +
+An encoding or software shall correctly implement all UML classes defined in the “Core” package and described in this section
+|===

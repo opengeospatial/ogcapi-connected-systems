@@ -1,0 +1,5 @@
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/model/coreProcess/dependency-core +
+An encoding or software passing the “Core Abstract Process” model conformance class shall first pass the “Core Concepts” conformance test class.
+|===
