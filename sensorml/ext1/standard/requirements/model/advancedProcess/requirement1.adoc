@@ -3,6 +3,5 @@
 [%metadata]
 identifier:: /req/model/advancedProcess/dependency-core
 
-An encoding or software passing the “Advanced Process” model conformance class shall first pass the “Simple Process” requirements test class.
-
+An encoding or software passing the “Advanced Data Types” model conformance class shall first pass the “Abstract Core Process” conformance test class.
 ====
