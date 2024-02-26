@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/model/aggregateProcess/components
+
+An encoding or software implementation of the AggregateProcess class shall support the inclusion of one or more component processes and a means for explicitly specifying data flow between these components.
+====
