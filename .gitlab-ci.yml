@@ -1,0 +1,22 @@
+image:
+  name: ribose/metanorma
+  entrypoint: [""]
+
+cache:
+  paths:
+
+build:
+  stage: build
+  script:
+    - bundle
+    - make clean all publish
+  artifacts:
+    paths:
+      - published
+
+pages:
+  script:
+    - apt-get update -yqqq
+    - apt-get install -y nodejs
+    - bundle install --path vendor
+    - bundle exec middleman build
