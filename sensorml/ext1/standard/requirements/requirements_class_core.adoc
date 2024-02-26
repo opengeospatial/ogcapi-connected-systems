@@ -1,0 +1,14 @@
+[[rc_core]]
+[cols="1,4",width="90%"]
+|===
+2+|*Requirements Class* 
+2+|http://www.opengis.net/spec/sensorml/2.1/req/core
+|Target type | Derived Model, Encoding, and Software Implementation
+
+|Dependency | OGC SensorML 2.1 Conceptual Model
+|Dependency | OGC SensorML 2.1 XML Implementation
+|Dependency | ISO/IEC 11404 General-Purpose Datatypes
+|Dependency | ISO 19156 Observations and Measurements
+|Dependency | IETF RFC 3986 Uniform Resource Identifier (URI): Generic Syntax
+|Dependency | IETF RFC 3987 Internationalized Resource Identifiers (IRIs)  
+|===

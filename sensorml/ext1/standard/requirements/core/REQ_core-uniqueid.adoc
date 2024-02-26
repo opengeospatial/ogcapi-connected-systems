@@ -1,0 +1,6 @@
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/core/uniqueID +
+The core model for a process shall include a unique ID for distinguishing that process from all others
+|===
+
