@@ -1,6 +1,7 @@
-[width="90%",cols="2,6a"]
-|===
-|*Requirement {counter:req-id}* |/req/core/concepts-used +
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/core/concepts-used
 
 Any derived model or encoding shall correctly implement the modeling concepts defined in the core of this specification.
-|===
+====

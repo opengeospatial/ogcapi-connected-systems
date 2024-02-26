@@ -1,7 +1,0 @@
-[[rc_core]]
-[cols="1,4",width="90%"]
-|===
-2+|*Requirements Class* 
-2+|http://www.opengis.net/spec/sensorml/2.1/req/core
-|Target type | Derived Model, Encoding, and Software Implementation
-|===
