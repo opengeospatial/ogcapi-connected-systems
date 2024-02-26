@@ -1,0 +1,12 @@
+[[rc_coreprocess]]
+[cols="1,4",width="90%"]
+|===
+2+|*Requirements Class* 
+2+|http://www.opengis.net/spec/sensorml/2.1/req/model/coreProcess
+|Target type | Derived Model, Encoding, and Software Implementation
+
+|Dependency | http://www.opengis.net/spec/SensorML/2.1/req/core
+|Dependency | http://www.opengis.net/spec/SWE/2.0/req/uml-block-components
+|Dependency | ISO 19115:2006 (All Metadata)
+|Dependency | ISO 19136 (GML)
+|===
