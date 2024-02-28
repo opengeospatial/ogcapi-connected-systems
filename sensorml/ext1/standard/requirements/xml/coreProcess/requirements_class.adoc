@@ -1,0 +1,14 @@
+[requirement,model=ogc]
+.Core Abstract Process Schema
+====
+[%metadata]
+type:: class
+identifier:: /req/xml/coreProcess
+subject:: XML Instance
+inherit:: /req/model/coreProcess
+inherit:: http://www.opengis.net/spec/SWE/2.0/req/xml-encoding-principles
+inherit:: http://schemas.opengis.net/gml/3.2.1/gml.xsd
+inherit:: http://schemas.opengis.net/sweCommon/2.0/swe.xsd
+inherit:: http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd
+inherit:: http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd
+====
