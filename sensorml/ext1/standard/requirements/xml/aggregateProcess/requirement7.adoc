@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====   
+[%metadata]
+identifier:: /req/xml/aggregateProcess/propertyConnectionRestrictions
+
+Process properties other than inputs, outputs, or parameters can only serve as sources of data not destinations.
+====

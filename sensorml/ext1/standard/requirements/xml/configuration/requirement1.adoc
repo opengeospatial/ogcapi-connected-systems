@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====   
+[%metadata]
+identifier:: /req/xml/configuration/schema-valid
+
+The XML instance shall be valid with respect to the XML grammar defined in the “configuration.xsd”, as well as satisfy all Schematron patterns defined in “configuration.sch”.
+====
