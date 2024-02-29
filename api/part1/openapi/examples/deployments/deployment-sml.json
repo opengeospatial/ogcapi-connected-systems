@@ -49,6 +49,48 @@
       [-173.70, 53.76]
     ]]
   },
+  "platform": {
+    "system": {
+      "href": "https://data.example.org/api/systems/27559?f=sml",
+      "uid": "urn:x-saildrone:platforms:SD-1003",
+      "title": "Saildrone SD-1003"
+    }
+  },
+  "deployedSystems": [
+    {
+      "name": "air_temp_sensor",
+      "description": "Air temperature sensor installed in the boom",
+      "system": {
+        "href": "https://data.example.org/api/systems/41548?f=sml",
+        "uid": "urn:x-saildrone:sensors:temp01",
+        "title": "Air Temperature Sensor"
+      },
+      "configuration": {
+        "setValues": [{
+          "ref": "parameters/sampling_rate",
+          "value": 0.1
+        }]
+      }
+    },
+    {
+      "name": "water_temp_sensor",
+      "description": "Water temperature sensor installed on the keel",
+      "system": {
+        "href": "https://data.example.org/api/systems/36584?f=sml",
+        "uid": "urn:x-saildrone:sensors:temp02",
+        "title": "Water Temperature Sensor"
+      }
+    },
+    {
+      "name": "wind_sensor",
+      "description": "Wind sensor installed at the top of the mast",
+      "system": {
+        "href": "https://data.example.org/api/systems/47752?f=sml",
+        "uid": "urn:x-saildrone:sensors:wind01",
+        "title": "Wind Speed and Direction Sensor"
+      }
+    }
+  ],
   "links": [
     {
       "rel" : "self",
@@ -60,11 +102,6 @@
       "href" : "https://data.example.org/api/deployments/iv3f2kcq27gfi?f=json",
       "type" : "application/geo+json",
       "title" : "this resource as GeoJSON"
-    }, {
-      "rel" : "deployedSystems",
-      "href" : "https://data.example.org/api/deployments/iv3f2kcq27gfi/systems?f=sml",
-      "type" : "application/sml+json",
-      "title" : "List of deployed systems"
     }
   ]
 }

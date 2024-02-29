@@ -63,20 +63,6 @@ part:: The parameter `deploymentCollectionId` SHALL correspond to the `id` prope
 ====
 
 
-=== Deployed Systems
-
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/update/deployed-system
-
-conditions:: The server implements <<clause-deployment-features,/req/deployment-features>>
-
-part:: For `Deployed System` resources, the resource endpoints used for UPDATE operations SHALL be the URIs specified by the following URI templates:
-  - `{api_root}/deployments/{depId}/systems/{id}`
-====
-
-
 === Sampling Features
 
 [requirement,model=ogc]

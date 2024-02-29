@@ -1,0 +1,13 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/subdeployment/recursive-search-subdeployments
+
+part:: HTTP GET operations targeting a deployment's subdeployments collection at URL `{api_root}/deployments/{id}/subdeployments` SHALL support the parameter `recursive`.
+
+part:: If the `recursive` parameter is omitted or set to `false`, the response SHALL only include the deployment's direct subdeployments.
+
+part:: If the `recursive` parameter is set to `true`, the response SHALL include all nested subdeployments, recursively.
+
+part:: Other query string parameters SHALL be applied to all processed `Deployment` resources, regardless of whether they are direct subdeployments, or transitive subdeployments.
+====

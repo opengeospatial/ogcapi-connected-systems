@@ -108,20 +108,19 @@ part:: The parameter `deploymentCollectionId` SHALL correspond to the `id` prope
 ====
 
 
-=== Deployed Systems
+=== Subdeployments
+
+Subdeployments can only be created as sub-resources of a parent deployment, but are updated/deleted at their canonical URL just like any other `Deployment` resource.
 
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/create-replace-delete/deployed-system
+identifier:: /req/create-replace-delete/subdeployment
 
-conditions:: The server implements <<clause-deployment-features,/req/deployment-features>>
+conditions:: The server implements <<clause-subdeployments,/req/subdeployment>>
 
-part:: For `Deployed System` resources, the resources endpoints used for CREATE operations SHALL be the URIs specified by the following URI templates:
-  - `{api_root}/deployments/{depId}/systems`
-
-part:: For `Deployed System` resources, the resource endpoints used for REPLACE and DELETE operations SHALL be the URIs specified by the following URI templates:
-  - `{api_root}/deployments/{depId}/systems/{id}`
+part:: The resources endpoints used for adding subdeployments (CREATE operation) SHALL be the URIs specified by the following URI template:
+  - `{api_root}/deployments/{parentId}/subdeployments`
 ====
 
 

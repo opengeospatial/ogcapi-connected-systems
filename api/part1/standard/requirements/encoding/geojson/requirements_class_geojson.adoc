@@ -16,8 +16,6 @@ requirement:: /req/geojson/procedure-schema
 requirement:: /req/geojson/procedure-mappings
 requirement:: /req/geojson/deployment-schema
 requirement:: /req/geojson/deployment-mappings
-requirement:: /req/geojson/deployed-system-schema
-requirement:: /req/geojson/deployed-system-mappings
 requirement:: /req/geojson/sf-schema
 requirement:: /req/geojson/sf-mappings
 ====

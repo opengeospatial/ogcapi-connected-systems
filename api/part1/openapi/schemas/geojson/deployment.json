@@ -13,6 +13,17 @@
             "validTime": {
               "description": "Time period during which the systems are deployed.",
               "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
+            },
+            "platform@link": {
+              "description": "Link to the platform on which the systems are deployed.",
+              "$ref": "../common/commonDefs.json#/definitions/Link"
+            },
+            "deployedSystems@link": {
+              "type": "array",
+              "items": {
+                "description": "Link to the system being deployed.",
+                "$ref": "../common/commonDefs.json#/definitions/Link"
+              }
             }
           }
         }

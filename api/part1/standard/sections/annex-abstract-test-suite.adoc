@@ -449,6 +449,153 @@ step:::: For other response content types not supported by the testing engine, i
 
 
 
+=== Conformance Class "Subdeployments"
+
+[conformance_class]
+====
+[%metadata]
+identifier:: /conf/subdeployment
+target:: /req/subdeployment
+inherit:: /conf/deployment
+classification:: Target Type:Web API
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/subdeployment/collection
+target:: /req/subdeployment/collection
+
+test-purpose:: Verify that subdeployments are available as a sub-collection of a parent deployment.
+
+test-method:: Given the ID `depId` of a parent deployment that has subdeployments:
+step::: Retrieve the parent deployment resource at `{api_root}/deployments/{depId}`.
+step::: Verify that the response contains a link with relation type `subdeployments`.
+step::: Verify that the link target is the URL `{api_root}/deployments/{id}/subdeployments`.
+step::: Dereference this link and validate that a document is returned with a status code 200.
+step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
+step:::: If the response content type is `{geojson-mediatype}`, execute test xref:/conf/geojson/deployment-schema[style=id%].
+step:::: If the response content type is `{sensorml-json-mediatype}`, execute test xref:/conf/sensorml/deployment-schema[style=id%].
+step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/subdeployment/recursive-param
+target:: /req/subdeployment/recursive-param
+
+test-purpose:: Validate that the `recursive` query parameter is of type boolean
+
+test-method::
+step::: Validate that the request contains a query parameter named `recursive`.
+step::: Validate that the parameter value is set to `true` or `false`.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/subdeployment/recursive-search-deployments
+target:: /req/subdeployment/recursive-search-deployments
+
+test-purpose:: Verify that subdeployments can be queried using the `recursive` query parameter.
+
+test-method:: 
+step::: Issue an HTTP GET request to the URL `{api_root}/deployments`.
+step::: Verify that subdeployments are not included in the response.
+step::: Issue an HTTP GET request to the URL `{api_root}/deployments?recursive=false`.
+step::: Verify that subdeployments are not included in the response.
+step::: Issue an HTTP GET request to the URL `{api_root}/deployments?recursive=true`.
+step::: Verify that all subdeployments (at all nesting levels) are included in the response. 
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/subdeployment/recursive-search-subdeployments
+target:: /req/subdeployment/recursive-search-subdeployments
+
+test-purpose:: Verify that nested subdeployments can be queried using the `recursive` query parameter.
+
+test-method:: Given the ID `depId` of a parent deployment that has subdeployments:
+step::: Issue an HTTP GET request to the URL `{api_root}/deployments/{depId}/subdeployments`.
+step::: Verify that only direct subdeployments are included in the response.
+step::: Issue an HTTP GET request to the URL `{api_root}/deployments/{depId}/subdeployments?recursive=false`.
+step::: Verify that only direct subdeployments are included in the response.
+step::: Issue an HTTP GET request to the URL `{api_root}/deployments/{depId}/subdeployments?recursive=true`.
+step::: Verify that all subdeployments (at all nesting levels) are included in the response.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/subdeployment/recursive-search-deployedsystems
+target:: /req/subdeployment/recursive-search-deployedsystems
+
+test-purpose:: Verify that nested deployed systems can be queried using the `recursive` query parameter.
+
+test-method:: Given the ID `depId` of a parent deployment that has subdeployments:
+step::: Issue an HTTP GET request to the URL `{api_root}/deployments/{depId}/deployedsystems`.
+step::: Verify that only systems deployed in the parent deployment are included in the response.
+step::: Issue an HTTP GET request to the URL `{api_root}/deployments/{depId}/deployedsystems?recursive=false`.
+step::: Verify that only systems deployed in the parent deployment are included in the response.
+step::: Issue an HTTP GET request to the URL `{api_root}/deployments/{depId}/deployedsystems?recursive=true`.
+step::: Verify that all systems deployed in the parent deployment and all its subdeployments (at all nesting levels) are included in the response.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/subdeployment/recursive-search-fois
+target:: /req/subdeployment/recursive-search-fois
+
+test-purpose:: Verify that features of interest can be queried using the `recursive` query parameter.
+
+test-method:: Given the ID `depId` of a parent deployment that has subdeployments:
+step::: Issue an HTTP GET request to the URL `{api_root}/deployments/{depId}/featuresOfInterest`.
+step::: Verify that only features of interest of the parent deployment are included in the response.
+step::: Issue an HTTP GET request to the URL `{api_root}/deployments/{depId}/featuresOfInterest?recursive=false`.
+step::: Verify that only features of interest of the parent deployment are included in the response.
+step::: Issue an HTTP GET request to the URL `{api_root}/deployments/{depId}/featuresOfInterest?recursive=true`.
+step::: Verify that features of interest of the parent deployment and all its subdeployments (at all nesting levels) are included in the response.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/subdeployment/recursive-search-datastreams
+target:: /req/subdeployment/recursive-search-datastreams
+
+test-purpose:: Verify that nested datastreams can be queried using the `recursive` query parameter.
+
+test-method:: Given the ID `depId` of a parent deployment that has subdeployments:
+step::: Issue an HTTP GET request to the URL `{api_root}/deployments/{depId}/datastreams`.
+step::: Verify that only datastreams associated to the parent deployment are included in the response.
+step::: Issue an HTTP GET request to the URL `{api_root}/deployments/{depId}/datastreams?recursive=false`.
+step::: Verify that only datastreams associated to the parent deployment are included in the response.
+step::: Issue an HTTP GET request to the URL `{api_root}/deployments/{depId}/datastreams?recursive=true`.
+step::: Verify that datastreams associated to the parent deployment and all its subdeployments (at all nesting levels) are included in the response.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/subdeployment/recursive-search-controlstreams
+target:: /req/subdeployment/recursive-search-controlstreams
+
+test-purpose:: Verify that nested control streams can be queried using the `recursive` query parameter.
+
+test-method:: Given the ID `depId` of a parent deployment that has subdeployments:
+step::: Issue an HTTP GET request to the URL `{api_root}/deployments/{depId}/controlstreams`.
+step::: Verify that only control streams associated to the parent deployment are included in the response.
+step::: Issue an HTTP GET request to the URL `{api_root}/deployments/{depId}/controlstreams?recursive=false`.
+step::: Verify that only control streams associated to the parent deployment are included in the response.
+step::: Issue an HTTP GET request to the URL `{api_root}/deployments/{depId}/controlstreams?recursive=true`.
+step::: Verify that control streams associated to the parent deployment and all its subdeployments (at all nesting levels) are included in the response.
+====
+
+
+
 === Conformance Class "Sampling Features"
 
 [conformance_class]
@@ -1068,16 +1215,19 @@ step:::: For each `Deployment` feature collection advertised by the server:
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/create-replace-delete/deployed-system
-target:: /req/create-replace-delete/deployed-system
+identifier:: /conf/create-replace-delete/subdeployment
+target:: /req/create-replace-delete/subdeployment
 
-test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operations correctly on `Deployed System` collections.
+test-purpose:: Validate that the server implements the CREATE operation correctly on subdeployment collections.
 
 test-method::
 step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
-step:::: For each `Deployed System` collection nested in a deployment:
-         - Resources endpoint `{api_root}/deployments/{depId}/deployedSystems` (for CREATE)
-         - Resource endpoint `{api_root}/deployments/{depId}/deployedSystems/{id}` (for REPLACE and DELETE)
+step:::: For each subdeployment collection nested in a parent deployment:
+         - Resources endpoint `{api_root}/deployments/{depId}/subdeployments` (for CREATE)
+step::: Verify that the subdeployment is also available at its canonical URL:
+step:::: Issue an HTTP GET request at the system canonical URL.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Validate that the received document has the same content as the one provided for the CREATE operation.
 ====
 
 [abstract_test]
@@ -1248,20 +1398,6 @@ step:::: For the `Deployment` root collection:
          - Resource endpoint `{api_root}/deployments/{id}`
 step:::: For each `Deployment` Feature Collection advertised by the server:
          - Resource endpoint `{api_root}/collections/{deploymentCollectionId}/items/{id}`
-====
-
-[abstract_test]
-====
-[%metadata]
-identifier:: /conf/update/deployed-system
-target:: /req/update/deployed-system
-
-test-purpose:: Validate that the server implements the UPDATE operation correctly on `Deployed System` collections.
-
-test-method:: 
-step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/update at the following endpoints:
-step:::: For each `Deployed System` collection nested in a deployment:
-         - Resource endpoint `{api_root}/deployments/{depId}/deployedSystems/{id}`
 ====
 
 [abstract_test]
@@ -1471,41 +1607,6 @@ test-method-type:: Manual Inspection
 test-method:: Given the GeoJSON representation of a `Deployment` resource returned by the server:
 step::: Inspect the contents of the GeoJSON Feature object.
 step::: Check that the properties are used as described in <<deployment-attribute-geojson-mappings>> and <<deployment-assoc-geojson-mappings>>.
-====
-
-[abstract_test]
-====
-[%metadata]
-identifier:: /conf/geojson/deployed-system-schema
-target:: /req/geojson/deployed-system-schema
-
-test-purpose:: Validate that the GeoJSON representation of `Deployed System` resources is valid.
-
-test-method::
-step::: Request a single `Deployed System` resource.
-step:::: Issue an HTTP GET request at `{api_root}/deployments/{depId}/deployedSystems/{id}` with the `Accept` header set to `{geojson-mediatype}`.
-step:::: Validate that a document was returned with a status code 200. 
-step:::: Validate the document against the schema {geojson-deployed-system-schema} using a JSON Schema validator.
-
-step::: Request multiple `Deployed System` resources.
-step:::: Issue an HTTP GET request at `{api_root}/deployments/{depId}/deployedSystems/{id}` with the `Accept` header set to `{geojson-mediatype}`.
-step:::: Validate that a document was returned with a status code 200.
-step:::: Validate the document against the schema {geojson-deployed-system-collection-schema} using a JSON Schema validator.
-====
-
-[abstract_test]
-====
-[%metadata]
-identifier:: /conf/geojson/deployed-system-mappings
-target:: /req/geojson/deployed-system-mappings
-
-test-purpose:: Verify that `Deployed System` properties are used correctly.
-
-test-method-type:: Manual Inspection
-
-test-method:: Given the GeoJSON representation of a `Deployed System` resource returned by the server:
-step::: Inspect the contents of the GeoJSON Feature object.
-step::: Check that the properties are used as described in <<dep-sys-geojson-mappings>>.
 ====
 
 [abstract_test]
@@ -1759,41 +1860,6 @@ test-method-type:: Manual Inspection
 test-method:: Given the SensorML representation of a `Deployment` resource returned by the server:
 step::: Inspect the contents of the SensorML object.
 step::: Check that the properties are used as described in <<deployment-attribute-sml-mappings>> and <<deployment-assoc-sml-mappings>>.
-====
-
-[abstract_test]
-====
-[%metadata]
-identifier:: /conf/sensorml/deployed-system-schema
-target:: /req/sensorml/deployed-system-schema
-
-test-purpose:: Validate that the SensorML representation of `Deployed System` resources is valid.
-
-test-method::
-step::: Request a single `Deployed System` resource.
-step:::: Issue an HTTP GET request at `{api_root}/deployments/{depId}/deployedSystems/{id}` with the `Accept` header set to `{sensorml-json-mediatype}`.
-step:::: Validate that a document was returned with a status code 200. 
-step:::: Validate the document against the schema {sensorml-system-schema} using a JSON Schema validator.
-
-step::: Request multiple `Deployed System` resources.
-step:::: Issue an HTTP GET request at `{api_root}/deployments/{depId}/deployedSystems` with the `Accept` header set to `{sensorml-json-mediatype}`.
-step:::: Validate that a document was returned with a status code 200.
-step:::: Validate the document against the schema {sensorml-system-collection-schema} using a JSON Schema validator.
-====
-
-[abstract_test]
-====
-[%metadata]
-identifier:: /conf/sensorml/deployed-system-mappings
-target:: /req/sensorml/deployed-system-mappings
-
-test-purpose:: Verify that `Deployed System` properties are used correctly.
-
-test-method-type:: Manual Inspection
-
-test-method:: Given the SensorML representation of a `Deployed System` resource returned by the server:
-step::: Inspect the contents of the SensorML object.
-step::: Check that the properties are used as described in <<dep-sys-assoc-sml-mappings>>.
 ====
 
 [abstract_test]

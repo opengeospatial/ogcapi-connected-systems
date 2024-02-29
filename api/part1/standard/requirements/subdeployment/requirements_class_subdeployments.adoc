@@ -2,10 +2,15 @@
 ====
 [%metadata]
 type:: class
-identifier:: /req/subdeployments
+identifier:: /req/subdeployment
 subject:: Web API
 inherit:: /req/deployment
-requirement:: /req/subdeployments/associations
-requirement:: /req/subdeployments/collection
-requirement:: /req/subdeployments/recursive-search
+requirement:: /req/subdeployment/collection
+requirement:: /req/subdeployment/recursive-param
+requirement:: /req/subdeployment/recursive-search-deployments
+requirement:: /req/subdeployment/recursive-search-subdeployments
+requirement:: /req/subdeployment/recursive-search-deployedsystems
+requirement:: /req/subdeployment/recursive-search-fois
+requirement:: /req/subdeployment/recursive-search-datastreams
+requirement:: /req/subdeployment/recursive-search-controlstreams
 ====

@@ -5,7 +5,6 @@ type:: class
 identifier:: /req/deployment
 subject:: Web API
 inherit:: /req/api-common
-requirement:: /req/deployment/location
 requirement:: /req/deployment/canonical-url
 requirement:: /req/deployment/canonical-collection
 requirement:: /req/deployment/collection-type
