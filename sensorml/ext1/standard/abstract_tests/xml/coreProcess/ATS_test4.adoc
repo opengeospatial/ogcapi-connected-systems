@@ -1,0 +1,15 @@
+[abstract_test]
+.Extensions do not redefine XML elements or types
+====
+[%metadata]
+identifier:: /conf/xml/coreProcess/extension-coherent-with-core
+
+target:: /req/xml/coreProcess/extension-coherent-with-core
+test-purpose:: Verify that the target implementation is coherent with the core specification.
+[.component,class=test method]
+=====
+Verify that all XML elements of the XML instance containing extensions can still be interpreted correctly without reading the extended information.
+
+_Note: This test cannot be run automatically as the meaning the extension must be known and thus is not required to be implemented in the Executable Test Suite._
+=====
+====

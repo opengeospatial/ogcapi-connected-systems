@@ -1,0 +1,13 @@
+[abstract_test]
+.XML property values are included inline or by reference
+====
+[%metadata]
+identifier:: /conf/xml/coreProcess/ref-or-inline-value-present 
+
+target:: /req/xml/coreProcess/ref-or-inline-value-present 
+test-purpose:: Verify that the target implementation supports either inline or reference values for XML properties.
+[.component,class=test method]
+=====
+Check that all properties either include an inline value or an “xlink:href” attribute. 
+=====
+====

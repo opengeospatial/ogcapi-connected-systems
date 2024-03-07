@@ -1,0 +1,13 @@
+[abstract_test]
+.Input Connection Restrictions
+====
+[%metadata]
+identifier:: /conf/xml/aggregateProcess/inputConnectionRestrictions  
+
+target:: /req/xml/aggregateProcess/inputConnectionRestrictions 
+test-purpose:: Verify that the target implementation supports the same input connection restrictions as the reference implementation.
+[.component,class=test method]
+=====
+Validate that there are no input-to-input connections, other than from the aggregate process to one or more of its components.  
+=====
+====

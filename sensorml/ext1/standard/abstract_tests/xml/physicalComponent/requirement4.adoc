@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====   
+[%metadata]
+identifier:: /req/xml/physicalComponent/position-by-position
+
+The position property shall take a swe:DataRecord as its value when both location and orientation are relevant. This swe:DataRecord shall consist of two swe:Vector fields, the first for location and the second for orientation.
+====

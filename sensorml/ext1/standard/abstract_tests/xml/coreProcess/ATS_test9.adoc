@@ -1,0 +1,13 @@
+[abstract_test]
+.External namespace required for security constraints 
+====
+[%metadata]
+identifier:: /conf/xml/coreProcess/documentSecurityTags 
+
+target:: /req/xml/coreProcess/documentSecurityTags
+test-purpose:: Verify that the target implementation does not use namespaces used in this specification for the value of the securityConstraint property.
+[.component,class=test method]
+=====
+Validate the XML Instance does not use namespaces used in this specification for the value of the securityConstraint property.
+=====
+====
