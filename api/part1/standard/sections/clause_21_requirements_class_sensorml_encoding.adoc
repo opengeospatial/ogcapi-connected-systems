@@ -132,13 +132,14 @@ A SensorML JSON document representing a `System` resource SHALL implement the ma
 [width="100%",cols="3,3,10",options="header"]
 |====
 | *Association Name (see <<system-assocs>>)* | *JSON Member* | *Usage*
-| `procedure`            | `typeOf`      | Value is a weblink resolving to a `Procedure` resource.
-| `parentSystem`         | `attachedTo`  | Value is a weblink resolving to a `System` resource.
-| `subsystems`           | `links`       | Value is a weblink* resolving to a `System` collection.
-| `samplingFeatures`     | `links`       | Value is a weblink* resolving to a `Sampling Feature` collection.
-| `datastreams`          | `links`       | Value is a weblink* resolving to a `DataStream` collection.
-| `controlstreams`       | `links`       | Value is a weblink* resolving to a `ControlStream` collection.
-| `deployments`          | `links`       | Value is a weblink* resolving to a `Deployment` collection.
+| `systemKind`        | `typeOf`      | Value is a weblink resolving to a `Procedure` resource.
+| `parentSystem`      | `attachedTo`  | Value is a weblink resolving to a `System` resource.
+| `subsystems`        | `links`       | Value is a weblink* resolving to a `System` collection.
+| `samplingFeatures`  | `links`       | Value is a weblink* resolving to a `Sampling Feature` collection.
+| `datastreams`       | `links`       | Value is a weblink* resolving to a `DataStream` collection.
+| `controlstreams`    | `links`       | Value is a weblink* resolving to a `ControlStream` collection.
+| `deployments`       | `links`       | Value is a weblink* resolving to a `Deployment` collection.
+| `procedures`        | `links`       | Value is a weblink* resolving to a `Procedure` collection.
 3+| {weblinks-footnote} 
 |====
 

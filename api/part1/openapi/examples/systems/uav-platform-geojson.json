@@ -7,7 +7,7 @@
     "name": "UAV System 412",
     "description": "3DR Solo UAV",
     "featureType": "http://www.w3.org/ns/sosa/Platform",
-    "procedure@link": {
+    "systemKind@link": {
       "href": "https://data.example.org/api/procedures/nrof8qi7wc9a?f=json",
       "uid": "urn:x-ogc:datasheets:uav:3dr-solo:v1",
       "type" : "application/geo+json"
