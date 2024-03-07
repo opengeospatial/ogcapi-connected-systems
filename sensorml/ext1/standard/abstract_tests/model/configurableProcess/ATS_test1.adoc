@@ -1,0 +1,13 @@
+[abstract_test]
+.Dependency on Core Process 
+====
+[%metadata]
+identifier:: /conf/model/configurableProcess/dependency-core 
+
+target:: /req/model/configurableProcess/dependency-core 
+test-purpose:: Verify that the target implementation passes the "Core Abstract Process" conformance test class.
+[.component,class=test method]
+=====
+Apply all tests described in section A.2. 
+=====
+====

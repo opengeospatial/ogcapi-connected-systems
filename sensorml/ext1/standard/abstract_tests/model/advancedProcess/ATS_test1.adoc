@@ -1,0 +1,13 @@
+[abstract_test]
+.Advanced Process dependence
+====
+[%metadata]
+identifier:: /conf/model/advancedProcess/dependency-core 
+
+target:: /req/model/advancedProcess/dependency-core 
+test-purpose:: Verify that the target implementation passes the "Abstract Core Process" conformance test class.
+[.component,class=test method]
+=====
+Apply all tests described in section A.2.
+=====
+====

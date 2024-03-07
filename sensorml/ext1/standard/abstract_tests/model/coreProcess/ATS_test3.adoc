@@ -1,0 +1,14 @@
+[abstract_test]
+.DescribedObject derived from GML AbstractFeature
+====
+[%metadata]
+identifier:: /conf/model/coreProcess/gmlDependency
+
+target:: /req/model/coreProcess/gmlDependency
+test-purpose:: Verify that the target implementation is derived from GML AbstractFeature.
+
+[.component,class=test method]
+=====
+Inspect the model or software implementation to verify the above.
+=====
+====

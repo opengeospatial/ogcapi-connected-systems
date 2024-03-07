@@ -1,0 +1,13 @@
+[abstract_test]
+.Position by trajectory 
+====
+[%metadata]
+identifier:: /conf/model/physicalComponent/byTrajectory  
+
+target:: /req/model/physicalComponent/byTrajectory 
+test-purpose:: Verify that the target implementation correctly specifies "byTrajectory" reference frame origin.
+[.component,class=test method]
+=====
+Verify that the implementation of the conceptual model has a constraint that enforces the above. 
+=====
+====

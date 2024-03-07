@@ -1,0 +1,13 @@
+[abstract_test]
+.Position by point 
+====
+[%metadata]
+identifier:: /conf/model/physicalComponent/byPointOrLocation 
+
+target:: /req/model/physicalComponent/byPointOrLocation 
+test-purpose:: Verify that the target implementation correctly specifies reference frame origin.
+[.component,class=test method]
+=====
+Verify that the implementation of the conceptual model has a constraint that enforces the above. 
+=====
+====

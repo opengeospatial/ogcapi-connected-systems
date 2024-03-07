@@ -1,0 +1,13 @@
+[abstract_test]
+.Fully Implement Aggregate Process
+====
+[%metadata]
+identifier:: /conf/model/aggregateProcess/package-fully-implemented  
+
+target:: /req/model/aggregateProcess/package-fully-implemented  
+test-purpose:: Verify that the target implementation correctly and fully defines "AggregateProcess" UML classes.
+[.component,class=test method]
+=====
+Verify that the implementation fully implements all of the package. 
+=====
+====
