@@ -65,7 +65,7 @@ NOTE: For deployments of models or processes, the location would usually not be 
 |====
 | *Name*                | *SOSA/SSN Property*  | *Definition* | *Target Content* | *Usage*
 | `platform`            | `ssn:deployedOnPlatform` | The platform on which the systems are deployed. | A single `System` resource (inline or by-reference). | Optional
-| `deployedSystems`     | `ssn:deployedOnPlatform` | The list of `Systems` deployed during the `Deployment`, if any. | A collection of `System` resources (inline or by-reference). | Required
+| `deployedSystems`     | `ssn:deployedSystem` | The list of `Systems` deployed during the `Deployment`, if any. | A collection of `System` resources (inline or by-reference). | Required
 | `subdeployments`      | - | The list of subdeployments that are part of the `Deployment`, if any. | A collection of `Deployment` resources (inline or by-reference). | Required
 | `featuresOfInterest`  | - | The ultimate features of interest that are observed and/or controlled during the `Deployment`. | A collection of `Feature` resources (inline or by-reference). | Optional
 | `datastreams`         | - | The `Data Streams` containing observations collected during the `Deployment`. | A collection of `DataStream` resources (inline or by-reference). | Optional
