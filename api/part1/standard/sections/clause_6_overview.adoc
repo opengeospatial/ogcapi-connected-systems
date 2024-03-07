@@ -40,10 +40,10 @@ All resources defined in Part 1 of this Standard are feature types, except for t
 [width="100%",cols="2,2,6,3",options="header"]
 |====
 | *Resource Type*      | *Requirements Class*           | *Description* | *Possible Encodings*
-| System (Feature)     | <<clause-system-features>>     | Description of system instances such as sensors, platforms, human observers, etc.  | GeoJSON, JSON-FG, SML-JSON
-| Deployment (Feature) | <<clause-deployment-features>> | Description of deployments involving one or more systems for a particular purpose. | GeoJSON, JSON-FG, SML-JSON
-| Procedure (Feature)  | <<clause-procedure-features>>  | Description of procedures implemented by systems such as datasheets or methods (e.g. system types). | GeoJSON, JSON-FG, SML-JSON
-| Sampling Feature     | <<clause-sampling-features>>   | Description of sampling strategies associated with specific systems (e.g. sampling geometry or method). | GeoJSON, JSON-FG
+| System (Feature)     | <<clause-system-features>>     | Description of system instances such as sensors, platforms, human observers, etc.  | GeoJSON, SML-JSON
+| Deployment (Feature) | <<clause-deployment-features>> | Description of deployments involving one or more systems for a particular purpose. | GeoJSON, SML-JSON
+| Procedure (Feature)  | <<clause-procedure-features>>  | Description of procedures implemented by systems such as datasheets or methods (e.g. system types). | GeoJSON, SML-JSON
+| Sampling Feature     | <<clause-sampling-features>>   | Description of sampling strategies associated with specific systems (e.g. sampling geometry or method). | GeoJSON
 | Property Definition  | <<clause-property-definitions>>  | Description of feature properties (observable properties, controllable properties, system properties). | SML-JSON
 |====
 
