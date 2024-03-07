@@ -66,27 +66,6 @@ part:: The resources endpoints used for adding subsystems (CREATE operation) SHA
 NOTE: There is no operation to "move" a subsystem from one parent to another. To achieve this, the client must delete the subsystem and recreate it under another parent system.
 
 
-=== Procedures
-
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/create-replace-delete/procedure
-
-conditions:: The server implements <<clause-procedure-features,/req/procedure-features>>
-
-part:: For `Procedure` features, the resources endpoints used for CREATE operations SHALL be the URIs specified by the following URI templates:
-  - `{api_root}/procedures`
-  - `{api_root}/collections/{procedureCollectionId}/items`
-
-part:: For `Procedure` features, the resource endpoints used for REPLACE and DELETE operations SHALL be the URIs specified by the following URI templates:
-  - `{api_root}/procedures/{id}`
-  - `{api_root}/collections/{procedureCollectionId}/items/{id}`
-
-part:: The parameter `procedureCollectionId` SHALL correspond to the `id` property of a `Procedure` feature collection.
-====
-
-
 === Deployments
 
 [requirement,model=ogc]
@@ -121,6 +100,27 @@ conditions:: The server implements <<clause-subdeployments,/req/subdeployment>>
 
 part:: The resources endpoints used for adding subdeployments (CREATE operation) SHALL be the URIs specified by the following URI template:
   - `{api_root}/deployments/{parentId}/subdeployments`
+====
+
+
+=== Procedures
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/procedure
+
+conditions:: The server implements <<clause-procedure-features,/req/procedure-features>>
+
+part:: For `Procedure` features, the resources endpoints used for CREATE operations SHALL be the URIs specified by the following URI templates:
+  - `{api_root}/procedures`
+  - `{api_root}/collections/{procedureCollectionId}/items`
+
+part:: For `Procedure` features, the resource endpoints used for REPLACE and DELETE operations SHALL be the URIs specified by the following URI templates:
+  - `{api_root}/procedures/{id}`
+  - `{api_root}/collections/{procedureCollectionId}/items/{id}`
+
+part:: The parameter `procedureCollectionId` SHALL correspond to the `id` property of a `Procedure` feature collection.
 ====
 
 

@@ -17,11 +17,11 @@ requirement:: /req/sensorml/feature-attribute-mapping
 requirement:: /req/sensorml/system-schema
 requirement:: /req/sensorml/system-sml-class
 requirement:: /req/sensorml/system-mappings
+requirement:: /req/sensorml/deployment-schema
+requirement:: /req/sensorml/deployment-mappings
 requirement:: /req/sensorml/procedure-schema
 requirement:: /req/sensorml/procedure-sml-class
 requirement:: /req/sensorml/procedure-mappings
-requirement:: /req/sensorml/deployment-schema
-requirement:: /req/sensorml/deployment-mappings
 requirement:: /req/sensorml/property-schema
 requirement:: /req/sensorml/property-mappings
 ====
