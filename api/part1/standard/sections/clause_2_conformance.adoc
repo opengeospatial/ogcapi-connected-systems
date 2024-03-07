@@ -8,7 +8,7 @@ This Standard defines the following requirements classes:
   {empty} +
 - <<clause-system-features,style=full%>> defines requirements for `System` resources. +
   {empty} +
-- <<clause-system-components,style=full%>> defines requirements for `Subsystem` resources. +
+- <<clause-subsystems,style=full%>> defines requirements for `Subsystem` resources. +
   {empty} +
 - <<clause-procedure-features,style=full%>> defines requirements for `Procedure` resources. +
   {empty} +

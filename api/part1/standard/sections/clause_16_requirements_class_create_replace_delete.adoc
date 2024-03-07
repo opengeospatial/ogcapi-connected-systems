@@ -48,19 +48,19 @@ part:: If the `System` resource is associated with a `Deployment` resource, the 
 ====
 
 
-=== System Components (Subsystems)
+=== Subsystems
 
-System components can only be created as sub-resources of a parent system, but are updated/deleted at their canonical URL just like any other `System` resource.
+Subsystems (i.e. system components) can only be created as sub-resources of a parent system, but are updated/deleted at their canonical URL just like any other `System` resource.
 
 [requirement,model=ogc]
 ====
 [%metadata]
 identifier:: /req/create-replace-delete/subsystem
 
-conditions:: The server implements <<clause-system-components,/req/system-components>>
+conditions:: The server implements <<clause-subsystems,/req/subsystem>>
 
 part:: The resources endpoints used for adding subsystems (CREATE operation) SHALL be the URIs specified by the following URI template:
-  - `{api_root}/systems/{parentId}/components`
+  - `{api_root}/systems/{parentId}/subsystems`
 ====
 
 NOTE: There is no operation to "move" a subsystem from one parent to another. To achieve this, the client must delete the subsystem and recreate it under another parent system.

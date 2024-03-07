@@ -174,7 +174,7 @@ step:::: For other response content types not supported by the testing engine, i
 
 
 
-=== Conformance Class "System Components"
+=== Conformance Class "Subsystems"
 
 [conformance_class]
 ====
@@ -196,7 +196,7 @@ test-purpose:: Verify that subsystems are available as a sub-collection of a par
 test-method:: Given the ID `sysId` of a parent system that has subsystems:
 step::: Retrieve the parent system resource at `{api_root}/systems/{sysId}`.
 step::: Verify that the response contains a link with relation type `subsystems`.
-step::: Verify that the link target is the URL `{api_root}/systems/{id}/components`.
+step::: Verify that the link target is the URL `{api_root}/systems/{id}/subsystems`.
 step::: Dereference this link and validate that a document is returned with a status code 200.
 step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
 step:::: If the response content type is `{geojson-mediatype}`, execute test xref:/conf/geojson/system-schema[style=id%].
@@ -243,11 +243,11 @@ target:: /req/subsystem/recursive-search-subsystems
 test-purpose:: Verify that nested subsystems can be queried using the `recursive` query parameter.
 
 test-method:: Given the ID `sysId` of a parent system that has subsystems:
-step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/components`.
+step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/subsystems`.
 step::: Verify that only direct subsystems are included in the response.
-step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/components?recursive=false`.
+step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/subsystems?recursive=false`.
 step::: Verify that only direct subsystems are included in the response.
-step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/components?recursive=true`.
+step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/subsystems?recursive=true`.
 step::: Verify that all subsystems (at all nesting levels) are included in the response.
 ====
 
@@ -1169,7 +1169,7 @@ test-purpose:: Validate that the server implements the CREATE operation correctl
 test-method::
 step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
 step:::: For each subsystem collection nested in a parent system:
-         - Resources endpoint `{api_root}/systems/{sysId}/components` (for CREATE)
+         - Resources endpoint `{api_root}/systems/{sysId}/subsystems` (for CREATE)
 step::: Verify that the subsystem is also available at its canonical URL:
 step:::: Issue an HTTP GET request at the system canonical URL.
 step:::: Validate that a document was returned with a status code 200.

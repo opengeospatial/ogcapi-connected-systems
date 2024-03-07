@@ -1,5 +1,5 @@
 
-[[clause-system-components]]
+[[clause-subsystems]]
 == Requirements Class "Subsystems"
 
 === Overview
@@ -7,7 +7,7 @@ include::../requirements/subsystem/requirements_class_system_components.adoc[]
 
 Describing complex systems in terms of a hierarchy of components (or subsystems) is often useful. The "Subsystems" requirements class specifies how such hierarchical systems are described and made discoverable in an implementation of the CS API Standard.
 
-Subsystems (i.e. System components) are regular `System` features that are made available through a sub-collection of a parent `System` resource. Components can be any kind of `System` and can be indefinitely nested.
+Subsystems (i.e. system components) are regular `System` features that are made available through a sub-collection of a parent `System` resource. Subsystems can be any kind of `System` and can be indefinitely nested.
 
 
 === Types of System/Subsystem Associations
@@ -48,14 +48,14 @@ See <<clause-system-resource>> for the requirements applying to `System` resourc
 
 ==== Properties
 
-A `System` resource that is a component of a parent system also includes the following associations:
+A `System` resource that is a subsystem of a parent system also includes the following associations:
 
 [#subsystem-assocs,reftext='{table-caption} {counter:table-num}']
 .Subsystem Associations
-[width="100%",cols="5,10,10,5",options="header"]
+[width="100%",cols="5,5,10,10,3",options="header"]
 |====
-| *Name* | *Definition* | *Target Content* | *Usage*
-| `parentSystem`   | The parent `System` that this subsystem is part of. | A single `System` resource. | Required
+| *Name* | *SOSA/SSN Property* | *Definition* | *Target Content* | *Usage*
+| `parentSystem` | inverse Of `ssn:hasSubSystem` | The parent `System` that this subsystem is part of. | A single `System` resource. | Required
 |====
 
 
@@ -64,13 +64,13 @@ A `System` resource that is a component of a parent system also includes the fol
 Since subsystems are also `System` resources, they are required to have a canonical URL as specified by xref:/req/system/canonical-url[].
 
 
-=== System Component Collections
+=== Subsystem Collections
 
 Subsystems are accessible as sub-resources of their parent system.
 
 include::../requirements/subsystem/req_subcollection.adoc[]
 
-Some systems have interchangeable components (e.g. UAV platform carrying different sensors at different times). We call these interchangeable components "payloads". The best way to describe this is by creating a new `Deployment` resource every time the components are changed (the deployment description allows one to explicitly list which payloads are mounted on a platform during a given time period).
+Some systems have interchangeable components (e.g. UAV platform carrying different sensors at different times). These interchangeable components are often called "payloads". The best way to describe this is by creating a new `Deployment` resource every time the components are changed (the deployment description allows one to explicitly list which payloads are mounted on a platform during a given time period).
 
 For consistency, it is recommended that the server also includes these changing components in the subsystem collection, in accordance with the time provided by the `datetime` query parameter.
 

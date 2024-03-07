@@ -5,7 +5,7 @@ identifier:: /req/subsystem/collection
 
 part:: The server SHALL expose subsystems as a collection of `System` resources at path `{api_root}/systems/{parentId}/subsystems`.
 
-part:: The content of the collection SHALL be the list of `System` resources that are associated to the parent `System` with ID `parentId`.
+part:: The content of the collection SHALL be the list of `System` resources that are part of the parent `System` with ID `parentId`.
 
 part:: The content of the collection SHALL always include the list of `System` resources that are permanently attached to the parent system, and CAN also include subsystems that are currently deployed on the parent.
 
