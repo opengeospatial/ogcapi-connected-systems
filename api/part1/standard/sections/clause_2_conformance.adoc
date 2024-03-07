@@ -10,9 +10,11 @@ This Standard defines the following requirements classes:
   {empty} +
 - <<clause-subsystems,style=full%>> defines requirements for `Subsystem` resources. +
   {empty} +
-- <<clause-procedure-features,style=full%>> defines requirements for `Procedure` resources. +
-  {empty} +
 - <<clause-deployment-features,style=full%>> defines requirements for `Deployment` resources. +
+  {empty} +
+- <<clause-subdeployments,style=full%>> defines requirements for `Subdeployment` resources. +
+  {empty} +
+- <<clause-procedure-features,style=full%>> defines requirements for `Procedure` resources. +
   {empty} +
 - <<clause-sampling-features,style=full%>> defines requirements for `Sampling Feature` resources. +
   {empty} +
