@@ -1,15 +1,13 @@
-[requirement,model=ogc]
-====   
+[abstract_test]
+.Designating Link Paths
+====
 [%metadata]
-identifier:: /req/xml/aggregateProcess/designatingLinkPaths
+identifier:: /conf/xml/aggregateProcess/designatingLinkPaths 
 
-The following rules shall be used for designating the source and destination paths within the Linked element.
-
-a) The path begins at the base of the current process
-
-b) The path includes only property elements (lowerCamelCase) and not value objects (UpperCamelCase)
-
-c) If the property has an attribute name and it has a value, then it shall be used; otherwise the unqualified name of the property element should be used  
-
-d) The path can follow properties that are byReference
+target:: /req/xml/aggregateProcess/designatingLinkPaths
+test-purpose:: Verify that the target implementation only allows valid ports as destinations in links.
+[.component,class=test method]
+=====
+Validate that all paths lead to valid ports. 
+=====
 ====

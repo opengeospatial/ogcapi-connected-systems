@@ -2,12 +2,12 @@
 .Parameter Connections Restrictions
 ====
 [%metadata]
-identifier:: /conf/xml/aggregateProcess/multipleConnections
+identifier:: /conf/xml/aggregateProcess/parameterConnectionRestrictions
 
-target:: /req/xml/aggregateProcess/multipleConnections
-test-purpose:: Verify that the target implementation only supports a single source connection per input port.
+target:: /req/xml/aggregateProcess/parameterConnectionRestrictions
+test-purpose:: Verify that the target implementation does not allow parameter ports in any destination path of an aggregate process.
 [.component,class=test method]
 =====
-Validate that there are no multiple connection within any given input port. 
+Validate that there are no parameter ports in any destination path. 
 =====
 ====

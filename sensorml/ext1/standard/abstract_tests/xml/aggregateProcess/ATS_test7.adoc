@@ -1,7 +1,13 @@
-[requirement,model=ogc]
-====   
+[abstract_test]
+.Property Connection Restrictions
+====
 [%metadata]
-identifier:: /req/xml/aggregateProcess/propertyConnectionRestrictions
+identifier:: /conf/xml/aggregateProcess/propertyConnectionRestrictions 
 
-Process properties other than inputs, outputs, or parameters can only serve as sources of data not destinations.
+target:: /req/xml/aggregateProcess/propertyConnectionRestrictions
+test-purpose:: Verify that the target implementation only allows input, output, and parameter ports as destinations.
+[.component,class=test method]
+=====
+Validate that no properties other than inputs, outputs, and parameters are included as a destination.
+=====
 ====

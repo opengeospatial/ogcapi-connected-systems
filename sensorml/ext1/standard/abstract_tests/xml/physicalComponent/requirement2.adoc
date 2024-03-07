@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====   
-[%metadata]
-identifier:: /req/xml/physicalComponent/attachedToTarget
-
-The attachedTo property shall provide a reference to an object of type PhysicalComponent or PhysicalSystem.
-====

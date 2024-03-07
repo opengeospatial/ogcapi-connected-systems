@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====   
-[%metadata]
-identifier:: /req/xml/physicalComponent/schema-valid
-
-The XML instance shall be valid with respect to the XML grammar defined in the “physical_component.xsd”, as well as satisfy all Schematron patterns defined in “physical_component.sch”.
-====
