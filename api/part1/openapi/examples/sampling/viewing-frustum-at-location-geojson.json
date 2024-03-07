@@ -21,6 +21,7 @@
       "title": "Pan-Island Expressway"
     },
     "pose": {
+      "type": "RelativePose",
       "referenceFrame": "http://www.opengis.net/def/cs/OGC/0/NED",
       "position": {
         "x": 0,
