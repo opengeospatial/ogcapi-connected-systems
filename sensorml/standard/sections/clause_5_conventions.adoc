@@ -1,0 +1,38 @@
+== Conventions
+
+This sections provides details and examples for any conventions used in the document. Examples of conventions are symbols, abbreviations, use of XML schema, or special notes regarding how to read the document.
+
+=== Abbreviated terms
+
+In this document the following abbreviations and acronyms are used or introduced:  
+
+- CRS:	Coordinate Reference System
+- DN:	Digital Number
+- ECEF:	Earth-Centered Earth-Fixed
+- ECI:	Earth Centered Inertial
+- GPS:	Global Positioning System
+- ISO:	International Organization for Standardization
+- MISB:	Motion Imagery Standards Board
+- OGC:	Open Geospatial Consortium
+- SAS:	Sensor Alert Service
+- SensorML:	Sensor Model Language
+- SI:	Système International (International System of Units)
+- SOS:	Sensor Observation Service
+- SPS:	Sensor Planning Service
+- SWE:	Sensor Web Enablement
+- TAI:	Temps Atomique International (International Atomic Time)
+- uom:	Unit(s) of measure
+- UCUM:	Unified Code for Units of Measure
+- UML:	Unified Modeling Language
+- UTC:	Coordinated Universal Time
+- XML:	eXtended Markup Language
+- 1D:	One Dimensional
+- 2D:	Two Dimensional
+- 3D:	Three Dimensional
+
+
+=== UML notation
+
+The diagrams that appear in this standard are presented using the Unified Modeling Language (UML) static structure diagram.  The UML notations used in this standard are described in the diagram below.
+
+image::../figures/fig5.1.png[UML Notation]

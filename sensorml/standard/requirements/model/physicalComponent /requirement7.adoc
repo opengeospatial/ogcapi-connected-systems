@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/model/physicalComponent/definition
+
+A process shall be modeled as a “Physical Component” if it provides a processing function with well-defined inputs and outputs, if there is no intent to further divide the device description into sub-process components, and if knowledge of its physical location is of importance.
+====

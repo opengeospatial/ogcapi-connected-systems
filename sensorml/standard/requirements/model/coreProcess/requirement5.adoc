@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/model/coreProcess/extensionIndependence
+
+Models inside of the extension property must exist within a namespace other than SensorML.
+====

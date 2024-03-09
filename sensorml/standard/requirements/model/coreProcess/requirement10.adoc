@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/model/coreProcess/simpleInheritance
+
+A process instance that references another process through the typeOf property, but does not include the configuration property, shall inherit properties of the referenced process through simple inheritance. The complete description of that process is thus the addition of information from both process descriptions.
+====

@@ -1,0 +1,10 @@
+[requirement,model=ogc]
+.Aggregate Process Schema
+====
+[%metadata]
+type:: class
+identifier:: /req/xml/physicalComponent
+subject:: XML Instance
+inherit:: /req/model/physicalComponent
+inherit:: /req/xml/SimpleProcess
+====

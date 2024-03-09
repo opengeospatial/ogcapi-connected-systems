@@ -1,0 +1,15 @@
+[abstract_test]
+.Dependency on Core
+====
+[%metadata]
+identifier:: /conf/model/coreProcess/dependency-core
+
+target:: /req/model/coreProcess/dependency-core
+
+test-purpose:: Verify that the target implementation passes the "Core Concepts" conformance test class.
+
+[.component,class=test method]
+=====
+Apply all tests described in section A.1
+=====
+====

@@ -1,0 +1,13 @@
+[abstract_test]
+.Dependency on core
+====
+[%metadata]
+identifier:: /conf/model/simpleProcess/dependency-core 
+
+target:: /req/model/simpleProcess/dependency-core 
+test-purpose:: Verify that the target implementation passes the test class.
+[.component,class=test method]
+=====
+Apply all tests described in section A.2. 
+=====
+====

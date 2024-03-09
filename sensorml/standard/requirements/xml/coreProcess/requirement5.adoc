@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====   
+[%metadata]
+identifier:: /req/xml/coreProcess/extension-process-execution
+
+Extensions of this standard shall not exclusively contain information required for the successful execution of the process.
+====

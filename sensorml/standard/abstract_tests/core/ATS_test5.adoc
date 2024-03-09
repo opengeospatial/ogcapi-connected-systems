@@ -1,0 +1,15 @@
+[abstract_test]
+.Metadata not used in process execution
+====
+[%metadata]
+identifier:: /conf/execution
+
+target:: /req/core/execution
+
+test-purpose:: Verify that the target implementation does not require metadata for successful execution.
+
+[.component,class=test method]
+=====
+Verify that the implementation of the conceptual model has a constraint that enforces the above. 
+=====
+====

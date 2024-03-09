@@ -1,0 +1,13 @@
+[abstract_test]
+.Simple process definition
+====
+[%metadata]
+identifier:: /conf/model/simpleProcess/definition
+
+target:: /req/model/simpleProcess/definition
+test-purpose:: Verify that the target conforms to the definition of a "Simple Process".
+[.component,class=test method]
+=====
+Verify that the implementation of the conceptual model has a constraint that enforces the above. 
+=====
+====

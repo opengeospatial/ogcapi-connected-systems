@@ -1,0 +1,13 @@
+[abstract_test]
+.Extension element used for security tagging of individual properties
+====
+[%metadata]
+identifier:: /conf/xml/coreProcess/individualSecurityTags
+
+target:: /req/xml/coreProcess/individualSecurityTags
+test-purpose:: Verify that the target implementation supports the extension element for security tagging of individual properties.
+[.component,class=test method]
+=====
+Validate that security tagging of individual properties uses the extension element.
+=====
+====

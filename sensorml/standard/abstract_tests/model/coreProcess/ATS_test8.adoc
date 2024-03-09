@@ -1,0 +1,14 @@
+[abstract_test]
+.Use of SWE Common Data aggregate models for process input, output, and parameters
+====
+[%metadata]
+identifier:: /conf/model/coreProcess/aggregateData  
+
+target:: /req/model/coreProcess/aggregateData 
+test-purpose:: Verify that the target implementation models tightly related data as an SWE Common Data aggregate type.
+
+[.component,class=test method]
+=====
+Verify that the implementation of the conceptual model has a constraint that enforces the above. 
+=====
+====

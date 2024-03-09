@@ -1,0 +1,13 @@
+[abstract_test]
+.Globally unique ID required
+====
+[%metadata]
+identifier:: /conf/xml/coreProcess/globallyUniqueID
+
+target:: /req/xml/coreProcess/globallyUniqueID
+test-purpose:: Verify that the target implementation contains a globally unique identifier for the core process.
+[.component,class=test method]
+=====
+Validate the XML Instance contains a unique ID for gml:identifier based on a well-defined protocol.
+=====
+====

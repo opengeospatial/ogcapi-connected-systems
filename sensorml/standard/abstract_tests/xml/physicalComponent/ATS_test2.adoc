@@ -1,0 +1,13 @@
+[abstract_test]
+.A physical process can only attach to a physical process 
+====
+[%metadata]
+identifier:: /conf/xml/physicalComponent/attachedToTarget  
+
+target:: /req/xml/physicalComponent/attachedToTarget 
+test-purpose:: Verify that the target implementation only allows a physical process to attach to another physical process using the attachedTo property.
+[.component,class=test method]
+=====
+Validate that the target for the attachedTo property is a PhysicalComponent or PhysicalSystem.  
+=====
+====

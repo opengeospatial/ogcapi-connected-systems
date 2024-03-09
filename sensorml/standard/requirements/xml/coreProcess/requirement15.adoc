@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====   
+[%metadata]
+identifier:: /req/xml/coreProcess/DataRecord
+
+Input, output, and parameter data components that are dependent on one another or represent the state at a given time, shall be surrounded by an appropriate aggregate data component, such as swe:DataRecord, swe:Vector, or swe:Matrix.
+====

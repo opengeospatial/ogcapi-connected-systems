@@ -1,0 +1,11 @@
+[requirement,model=ogc]
+.Physical System Schema
+====
+[%metadata]
+type:: class
+identifier:: /req/xml/physicalSystem
+subject:: XML Instance
+inherit:: /req/model/physicalSystem
+inherit:: /req/xml/aggregateProcess
+inherit:: /req/xml/physicalComponent
+====

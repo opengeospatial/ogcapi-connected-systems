@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+.Deployment
+====
+[%metadata]
+type:: class
+identifier:: /req/model-deployment
+subject:: Derived Models, Encodings, and Software Implementations
+inherit:: /req/model/coreProcess
+====
