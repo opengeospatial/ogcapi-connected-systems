@@ -1,0 +1,39 @@
+[[uml_simple_process]]
+=== Requirements Class: Simple Process
+
+include::../requirements/model/simpleProcess/requirements_class.adoc[]
+
+A simple process is derived from abstract process model, as presented in Clause 7.2.
+
+include::../requirements/model/simpleProcess/requirement1.adoc[]
+include::../requirements/model/simpleProcess/requirement2.adoc[]
+
+==== Simple Process Definition
+A simple process is a process that, for whatever reason, is considered indivisible. That is, there is no intent to further divide the process description into an aggregation of sub-processes. While the process method may describe several steps within the algorithm, the actual execution of this process is expected to occur as a single modular unit.
+
+Often simple processes are computational processes that can be executed with an associated piece of software. Simple processes are often one component of a physical or non-physical aggregate process.
+
+include::../requirements/model/simpleProcess/requirement3.adoc[]
+
+The SimpleProcess model, as shown in Figure 14, is a concrete instantiation of the AbstractProcess model. The SimpleProcess requires a method description.
+
+include::../requirements/model/simpleProcess/requirement4.adoc[]
+
+.Model for Simple Process
+image::../figures/simpleProcess.png[]
+
+====
+Example 
+
+A process computing a simple mathematical function such as sine, cosine or square root is usually modeled as a SimpleProcess instance. However, even more complex processes can be modeled this way if there is no intent to break down the implementation of the process into sub-processes.
+====
+
+==== Process Method Definition
+The ProcessMethod provides a description of the methodology used by the process to execute and generate output based on the input and parameter values. This includes a textual description, as well as an optional description of the algorithm in an appropriate format (e.g., mathML) and optional references to particular executable implementations.
+
+The ProcessMethod definition should be sufficient to allow one to understand how input values are converted to output values, given a particular set of parameter values, and be able to write software that is capable of executing this process.
+
+A ProcessMethod description may be protected by security or legal constraints, which would purposely prevent access to the method description as well as restrict knowledge of the methodology to authorized personnel only. However, regardless of access restrictions, a ProcessMethod should always be able to be referenced and identified by a unique identifier.
+
+.Model for ProcessMethod
+image::../figures/processMethod.png[]

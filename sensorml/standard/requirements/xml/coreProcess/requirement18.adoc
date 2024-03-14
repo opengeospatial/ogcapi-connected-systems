@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====   
+[%metadata]
+identifier:: /req/xml/coreProcess/MultiplexedDataStream
+
+When the values of a DataStream consist of a series of multiplexed packets, the value of the elementType property shall be specified using the SWE Common Data DataChoice element.
+====

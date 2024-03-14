@@ -1,0 +1,653 @@
+[[xsd_aggregate_process]]
+=== Requirements Class: Aggregate Process Schema
+include::../requirements/xml/aggregateProcess/requirements_class.adoc[]
+
+XML Schema elements and types defined in the “aggregate_process.xsd” schema file implement all classes defined respectively in the “aggregateProcess” UML package defined in Clause 7.4.
+
+include::../requirements/xml/aggregateProcess/requirement1.adoc[]
+
+The following XML snippet provides the appropriate header and import statements for the simple_process.xsd:
+
+[source,xml]
+====
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sml="http://www.opengis.net/SensorML/2.1"
+     xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:swe="http://www.opengis.net/swe/2.0"
+     targetNamespace="http://www.opengis.net/SensorML/2.1" elementFormDefault="qualified"
+     attributeFormDefault="unqualified">
+     <annotation>
+          <documentation>The elements of a concrete aggregate non-physical process derived from the core process model.
+          </documentation>
+     </annotation>
+     <import namespace="http://www.opengis.net/gml/3.2"
+          schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+     <import namespace="http://www.opengis.net/swe/2.0"
+          schemaLocation="http://schemas.opengis.net/sweCommon/2.0/swe.xsd"/>
+     <include schemaLocation="simple_process.xsd"/>
+====
+
+==== Aggregate Process
+
+The “AggregateProcess” element is the XML schema implementation of the “AggregateProcess” UML class defined in clause 7.4.1. The schema snippet for this element and its corresponding complex type is shown below:
+
+[source,xml]
+====
+     <element name="AggregateProcess" type="sml:AggregateProcessType" substitutionGroup="sml:AbstractProcess">
+          <annotation>
+               <documentation>A process that consist of a collection of linked component processes resulting in a specified output.
+               </documentation>
+          </annotation>
+     </element>
+ 
+     <complexType name="AggregateProcessType">
+          <complexContent>
+               <extension base="sml:AbstractProcessType">
+                    <sequence>
+                         <element name="components" type="sml:ComponentListPropertyType" minOccurs="0" maxOccurs="1"/>
+                         <element name="connections" type="sml:ConnectionListPropertyType" minOccurs="0" maxOccurs="1">
+                              <annotation>
+                                   <documentation>The explicit definition of data links between outputs, inputs, and parameters of the components within an aggregate process.
+                                   </documentation>
+                              </annotation>
+                         </element>
+                    </sequence>
+               </extension>
+          </complexContent>
+     </complexType>
+ 
+     <complexType name="AggregateProcessPropertyType">
+          <sequence minOccurs="0">
+               <element ref="sml:AggregateProcess"/>
+          </sequence>
+          <attributeGroup ref="gml:AssociationAttributeGroup"/>
+          <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+     </complexType>
+==== 
+
+The AggregateProcess element and complex type is derived from AbstractProcess and adds components and connections properties to the properties inherited from AbstractProcess. The components and connections properties take ComponentList and ConnectionList as their values, respectively.
+
+The following two examples show the same aggregate process. A graphic of this “Slice and Clip” AggregateProcess is shown in Figure 23. In this diagram, inputs to the aggregate process and its components are shown on the left of the object, while outputs are on the right and parameters are on top. In this example, the parameter values are set and constant, as shown by the values assigned them. However, parameters can be variable and supplied by connections as can inputs.
+
+This diagram and the following SensorML instances illustrate that an AggregateProcess can have multiple components and connections that will be discussed in more detail in the following Sections 8.3.2 and 8.3.3. Notice that inputs, outputs, and parameters can be defined for the aggregate process as well as for the individual components.
+
+[[scale_and_clip]]
+.A diagram showing the components and connections of the “Scale and Clip” AggregateProcess.
+image::../figures/scale_and_clip.png[]
+
+The first example provides a complete definition of the component processes and the setting of parameter values inline.
+
+[source,xml]
+====
+<?xml version=“1.0” encoding=“UTF-8”?>
+<sml:AggregateProcess gml:id="scaleAndClip01"
+    xmlns:sml="http://www.opengis.net/SensorML/2.1"
+    xmlns:swe="http://www.opengis.net/swe/2.0"
+    xmlns:gml="http://www.opengis.net/gml/3.2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xsi:schemaLocation="http://www.opengis.net/SensorML/2.1 http://schemas.opengis.net/SensorML/2.1/sensorML.xsd "
+    definition="http://sensors.ws/process/linearInterpolator">
+ 
+    <!– ============================= –>
+    <!–       Descriptions            –>
+    <!– ============================= –>
+    <gml:description>
+          A simple aggregate process that scales according to linear equation y = 2.3x + 1.76 and then clips if below 15.0
+          In this example all processes are defined inline with no configuration settings. Parameter values are set inline.
+     </gml:description>
+    <gml:identifier codeSpace="uid">urn:myCompany:swe:process:scaleAndClip01</gml:identifier>
+    <gml:name>Scale and Clip Aggregate Process 01</gml:name>
+ 
+    <!– ============================= –>
+    <!–            Aggregate Process Inputs            –>
+    <!– ============================= –>
+    <sml:inputs>
+        <sml:InputList>
+            <sml:input name="valueIn">
+                <swe:Quantity definition="http://sensorml.com/def/propertysimpleDN">
+       <swe:uom code="any"/>
+                </swe:Quantity>
+            </sml:input>
+        </sml:InputList>   
+    </sml:inputs>
+ 
+    <!– ============================= –>
+    <!–            Aggregate Process Outputs            –>
+    <!– ============================= –>
+    <sml:outputs>
+        <sml:OutputList>
+            <sml:output name="valueOut">
+                <swe:Quantity definition="http://sensorml.com/def/propertysimpleDN">
+       <swe:uom code="any"/>
+                </swe:Quantity>               
+            </sml:output>
+         </sml:OutputList>    
+     </sml:outputs>
+ 
+     <!– ======================================= –>
+    <!–         Aggregate process components declared             –>
+    <!– ======================================== –>
+    <sml:components>
+          <sml:ComponentList >
+                                   
+               <!– Component 1 - Linear Interpolator –>
+               <sml:component name="scale">              
+                    <sml:SimpleProcess gml:id="linearInterpolator01"
+                         definition="http://sensors.ws/process/linearInterpolator">
+                         <!– ============================= –>
+                         <!–       Linear Interpolator Descriptions            –>
+                         <!– ============================= –>
+                         <gml:description>A linear interpolator based on equation y = mx + b </gml:description>
+                         <gml:identifier codeSpace="uid">urn:myCompany:process:8755d73ab</gml:identifier>
+                         <gml:name>Linear Equation 01</gml:name>
+                         <!– ============================= –>
+                         <!–            Linear Interpolator Inputs            –>
+                         <!– ============================= –>
+                         <sml:inputs>
+                              <sml:InputList>
+                                   <sml:input name="x">
+                                        <swe:Quantity definition="http://sensorml.com/def/propertyxCoordinate">
+                                             <swe:uom code="any"/>
+                                        </swe:Quantity>
+                                   </sml:input>
+                              </sml:InputList>   
+                         </sml:inputs>
+                         <!– ============================= –>
+                         <!–            Linear Interpolator Outputs           –>
+                         <!– ============================= –>
+                         <sml:outputs>
+                              <sml:OutputList>
+                              <!– scaled output value –>
+                                   <sml:output name="y">
+                                        <swe:Quantity definition="http://sensorml.com/def/propertysimpleDN">
+                                             <swe:uom code="any"/>
+                                        </swe:Quantity>               
+                                   </sml:output>
+                              </sml:OutputList>    
+                          </sml:outputs>
+                         <!– ============================= –>
+                         <!–         Linear Interpolator Parameters        –>
+                         <!– ============================= –>
+                         <sml:parameters>
+                              <sml:ParameterList>
+                                   <sml:parameter name="slope-intercept">
+                                        <swe:DataRecord>
+                                             <swe:field name="slope">
+                                                  <swe:Quantity definition="http://sensorml.com/def/propertylinearSlope">
+                                                                                 <swe:uom code="any"/>
+                                                                                 <!– slope value set inline –>
+                                                                                 <swe:value>2.3</swe:value>
+                                                               </swe:Quantity>
+                                             </swe:field>
+                                             <swe:field name="intercept">
+                                                               <swe:Quantity definition="http://sensorml.com/def/propertylinearAxisIntercept">
+                                                                                 <!– y-intercept value set inline –>
+                                                                                 <swe:uom code="any"/>
+                                                                                 <swe:value>1.76</swe:value>
+                                                               </swe:Quantity>
+                                             </swe:field>
+                                        </swe:DataRecord>               
+                                   </sml:parameter>
+                              </sml:ParameterList>      
+                         </sml:parameters>
+                    </sml:SimpleProcess>                               
+               </sml:component>
+                                                     
+ 
+               <!– Component 2 - Threshold clipper –>
+               <sml:component name="clip">                 
+                    <sml:SimpleProcess gml:id="thresholdClipper"
+                         definition="http://sensors.ws/process/thresholdClipper">
+                         <!– ============================= –>
+                         <!–      Threshold Clipper  Descriptions            –>
+                         <!– ============================= –>
+                         <gml:description>
+                              A process that clips anything below threshold;
+                              values higher than threshold to passValue output;
+                              Values below threshold sent to failValue output</gml:description>
+                         <gml:identifier codeSpace="uid">urn:myCompany:swe:process:65d74a65c</gml:identifier>
+                         <gml:name>Threshold Clipper  01</gml:name>
+                         <!– ============================= –>
+                         <!–             Threshold Clipper Inputs            –>
+                         <!– ============================= –>
+                         <sml:inputs>
+                              <sml:InputList>
+                                   <sml:input name="valueIn">
+                                        <swe:Quantity definition="http://sensorml.com/def/propertysimpleDN">
+                                             <swe:uom code="any"/>
+                                        </swe:Quantity>
+                                   </sml:input>
+                              </sml:InputList>   
+                         </sml:inputs>
+                         <!– ============================= –>
+                         <!–            Threshold Clipper Outputs            –>
+                         <!– ============================= –>
+                         <sml:outputs>
+                              <sml:OutputList>
+                              <!– output for values that pass –>
+                                   <sml:output name="passValue">
+                                        <swe:Quantity definition="http://sensorml.com/def/propertypassValue">
+                                             <swe:uom code="any"/>
+                                        </swe:Quantity>               
+                                   </sml:output>
+                                   <!– output for values that fail –>
+                                   <sml:output name="failValue">
+                                        <swe:Quantity definition="http://sensorml.com/def/propertyfailValue">
+                                             <swe:uom code="any"/>
+                                        </swe:Quantity>               
+                                   </sml:output>
+                              </sml:OutputList>    
+                          </sml:outputs>
+                         <!– ============================= –>
+                         <!–        Threshold Clipper Parameters            –>
+                         <!– ============================= –>
+                         <sml:parameters>
+                              <sml:ParameterList>
+                                   <sml:parameter name="threshold">
+                                        <swe:Quantity definition="http://sensorml.com/def/propertylowerThreshold">
+                                             <swe:uom code="any"/>
+                                             <!– threshold value set inline –>
+                                             <swe:value>15.0</swe:value>
+                                        </swe:Quantity>
+                                   </sml:parameter>
+                              </sml:ParameterList>      
+                         </sml:parameters>
+                    </sml:SimpleProcess>                               
+               </sml:component>
+                                                     
+          </sml:ComponentList>
+    </sml:components>
+ 
+     <!– ======================================= –>
+    <!–         Aggregate process links declared             –>
+    <!– ======================================== –>
+    <sml:connections>
+          <sml:ConnectionList>
+ 
+          <!– Connect AggregateProcess input to LinearInterpolator (scale) input –>
+               <sml:connection>
+                    <sml:Link>
+                         <sml:source ref="inputs/valueIn"/>
+                         <sml:destination ref="components/scale/inputs/x"/>
+                    </sml:Link>
+               </sml:connection>
+                                                     
+               <!– Connect LinearInterpolator (scale) output to ThresholdClipper (clip) input –>
+               <sml:connection>
+                    <sml:Link>
+                         <sml:source ref="components/scale/outputs/y"/>
+                         <sml:destination ref="components/clip/inputs/valueIn"/>
+                    </sml:Link>
+               </sml:connection>
+ 
+               <!– Connect ThresholdClipper (clip) passValue output to AggregateProcess passValue output –>
+               <sml:connection>
+                    <sml:Link>
+                         <sml:source ref="components/clip/outputs/passValue"/>
+                         <sml:destination ref="outputs/valueOut"/>
+                    </sml:Link>
+               </sml:connection>
+ 
+               <!– Note: ThresholdClipper (clip) failValue output is ignored in this example –>
+ 
+          </sml:ConnectionList>
+    </sml:connections>
+</sml:AggregateProcess>
+==== 
+
+Typically, however, aggregate processes will consist of well-defined, modular component processes that exist in a process repository and can be referenced and configured using the typeOf and configuration properties, respectively (discussed in subsequent Section 8.6).  The second example utilizes components that are externally defined but are referenced and configured within the aggregate process description.
+
+[source,xml]
+====
+<?xml version=“1.0” encoding=“UTF-8”?>
+<sml:AggregateProcess gml:id="scaleAndClip06"
+    xmlns:sml="http://www.opengis.net/SensorML/2.1"
+    xmlns:swe="http://www.opengis.net/swe/2.0"
+    xmlns:gml="http://www.opengis.net/gml/3.2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xsi:schemaLocation="http://www.opengis.net/SensorML/2.1 http://schemas.opengis.net/SensorML/2.1/sensorML.xsd"
+    definition="http://sensors.ws/process/linearInterpolator">
+    <!– ============================= –>
+    <!–       Descriptions            –>
+    <!– ============================= –>
+    <gml:description>
+     A simple aggregate process that scales according to linear equation y = 2.3x + 1.76 and then clips if below 15.0
+     In this example all processes are defined externally and configured.
+     </gml:description>
+    <gml:identifier codeSpace="uid">urn:myCompany:process:scaleAndClip06</gml:identifier>
+    <gml:name>Scale and Clip Aggregate Process 06</gml:name>
+    <!– ============================= –>
+    <!–            Aggregate Process Inputs            –>
+    <!– ============================= –>
+    <sml:inputs>
+        <sml:InputList>
+            <sml:input name="valueIn">
+                <swe:Quantity definition="http://sensorml.com/def/propertysimpleDN">
+       <swe:uom code="any"/>
+                </swe:Quantity>
+            </sml:input>
+        </sml:InputList>   
+    </sml:inputs>
+    <!– ============================= –>
+    <!–            Aggregate Process Outputs            –>
+    <!– ============================= –>
+    <sml:outputs>
+        <sml:OutputList>
+            <sml:output name="valueOut">
+                <swe:Quantity definition="http://sensorml.com/def/propertysimpleDN">
+       <swe:uom code="any"/>
+                </swe:Quantity>               
+            </sml:output>
+         </sml:OutputList>    
+     </sml:outputs>
+ 
+     <!– ======================================= –>
+    <!–         Aggregate process components declared             –>
+    <!– ======================================== –>
+    <sml:components>
+          <sml:ComponentList >
+                                   
+               <!– Component 1 - Linear Interpolator –>
+               <sml:component name="scale">              
+                    <sml:SimpleProcess gml:id="linearInterpolatorConfigured"
+                         definition="http://sensors.ws/process/linearInterpolator">
+                         <!– ============================= –>
+                         <!–       Linear Interpolator Descriptions            –>
+                         <!– ============================= –>
+                         <gml:description>A linear interpolator with slope of 2.3 and intercept of 1.76</gml:description>
+                         <gml:identifier codeSpace="uid">urn:myCompany:swe:process:09h57b21</gml:identifier>
+                         <gml:name>Linear Equation 01 Configured</gml:name>
+                          <sml:typeOf xlink:title="urn:net:swe:process:linearEquation01"
+                              xlink:href="http://sensors.ws/processes/LinearInterpolator01"/>
+                         <sml:configuration>
+                              <sml:Settings>
+                                   <sml:setValue ref="parameters/slope-intercept/slope">2.3</sml:setValue>
+                                   <sml:setValue ref="parameters/slope-intercept/intercept">1.76</sml:setValue>
+                              </sml:Settings>
+                         </sml:configuration>
+                    </sml:SimpleProcess>                               
+               </sml:component>
+                                                     
+ 
+               <!– Component 2 - Threshold clipper –>
+               <sml:component name="clip">                 
+                    <sml:SimpleProcess gml:id="thresholdClipperConfigured"
+                         definition="http://sensors.ws/process/thresholdClipper">
+                         <!– ============================= –>
+                         <!–      Threshold Clipper  Descriptions            –>
+                         <!– ============================= –>
+                         <gml:description>
+                              A process that passes values of 15.0 and above to the passValue output;
+                         </gml:description>
+                         <gml:identifier codeSpace="uid">urn:myCompany:swe:process:0678b365a</gml:identifier>
+                         <gml:name>Threshold Clipper  01 Configured</gml:name>
+                          <sml:typeOf xlink:title="urn:net:swe:process:thresholdClip01"
+                              xlink:href="http://sensors.ws/processes/ThresholdClipper01"/>
+                         <sml:configuration>
+                              <sml:Settings>
+                                   <sml:setValue ref="parameters/threshold">15.0</sml:setValue>
+                              </sml:Settings>
+                         </sml:configuration>
+                    </sml:SimpleProcess>                               
+               </sml:component>
+                                                     
+          </sml:ComponentList>
+    </sml:components>
+ 
+     <!– ======================================= –>
+    <!–         Aggregate process links declared                       –>
+    <!– ======================================== –>
+    <sml:connections>
+          <sml:ConnectionList>
+ 
+          <!– Connect AggregateProcess input to LinearInterpolator (scale) input –>
+               <sml:connection>
+                    <sml:Link>
+                         <sml:source ref="inputs/valueIn"/>
+                         <sml:destination ref="components/scale/inputs/x"/>
+                    </sml:Link>
+               </sml:connection>
+                                                     
+               <!– Connect LinearInterpolator (scale) output to ThresholdClipper (clip) input –>
+               <sml:connection>
+                    <sml:Link>
+                         <sml:source ref="components/scale/outputs/y"/>
+                         <sml:destination ref="components/clip/inputs/valueIn"/>
+                    </sml:Link>
+               </sml:connection>
+ 
+               <!– Connect ThresholdClipper (clip) passValue output to AggregateProcess passValue output –>
+               <sml:connection>
+                    <sml:Link>
+                         <sml:source ref="components/clip/outputs/passValue"/>
+                         <sml:destination ref="outputs/valueOut"/>
+                    </sml:Link>
+               </sml:connection>
+ 
+               <!– Note: ThresholdClipper (clip) failValue output is ignored in this example –>
+ 
+          </sml:ConnectionList>
+    </sml:connections>
+</sml:AggregateProcess>
+====
+ 
+==== Components
+
+The components property and the ComponentList elements are XML Schema implementations of the UML classes defined in clause 7.4. The components property takes a ComponentList as its value. The ComponentList component property takes an AbstractProcess as its value. Thus any SensorML process can be a component of an aggregate process, whether that process is itself simple or aggregate, non-physical or physical.
+
+The XML snippet for the ComponentList element and its corresponding complex types is shown below:
+
+[source,xml]
+====
+     <element name="ComponentList" type="sml:ComponentListType" substitutionGroup="swe:AbstractSWE"/>
+ 
+     <complexType name="ComponentListType">
+          <complexContent>
+               <extension base="swe:AbstractSWEType">
+                    <sequence>
+                         <element name="component" minOccurs="1" maxOccurs="unbounded">
+                              <annotation>
+                                   <documentation>A description of a component of the aggregate process. If by reference, the uniqueID of the referenced process must be provided using the xlink:title attribute while the URL to the process  description must be provided by the xlink:href attribute. 
+                                   </documentation>
+                              </annotation>
+                              <complexType>
+                                   <complexContent>
+                                        <extension base="sml:AbstractProcessPropertyType">
+                                             <attribute name="name" type="NCName" use="required"/>
+                                        </extension>
+                                   </complexContent>
+                              </complexType>
+                         </element>
+                    </sequence>
+               </extension>
+          </complexContent>
+     </complexType>
+ 
+     <complexType name="ComponentListPropertyType">
+          <sequence minOccurs="0">
+               <element ref="sml:ComponentList"/>
+          </sequence>
+          <attributeGroup ref="swe:AssociationAttributeGroup"/>
+     </complexType>
+==== 
+
+The component process can be described inline or be referenced through the xlink:href property. For a reference to an external process description, two pieces of information are required in order to reference a component process instance, the uniqueID of the process and a resolvable URL referencing the process description. These shall be provided by the xlink:title and xlink:href attributes, respectively.
+
+include::../requirements/xml/aggregateProcess/requirement2.adoc[]
+
+
+The examples in Section 8.3.1 show that the components of an aggregate process can be fully described inline, or be externally referenced processes that are configurable.
+
+==== Connections
+
+The connections property and the ConnectionList elements are XML Schema implementations of the UML classes defined in clause 7.4. The connections property takes a ConnectionList as its value. The ConnectionList connection property takes a Link as its value.
+
+The XML snippet for the ConnectionList and Link elements and their corresponding complex types is shown below:
+
+_ConnectionList:_
+
+[source,xml]
+====
+     <element name="ConnectionList" type="sml:ConnectionListType" substitutionGroup="swe:AbstractSWE"/>
+ 
+     <complexType name="ConnectionListType">
+          <complexContent>
+               <extension base="swe:AbstractSWEType">
+                    <sequence>
+                         <element name="connection" minOccurs="1" maxOccurs="unbounded">
+                              <complexType>
+                                   <sequence>
+                                        <element ref="sml:Link"/>
+                                   </sequence>
+                              </complexType>
+                         </element>
+                    </sequence>
+               </extension>
+          </complexContent>
+     </complexType>
+ 
+     <complexType name="ConnectionListPropertyType">
+          <sequence minOccurs="0">
+               <element ref="sml:ConnectionList"/>
+          </sequence>
+          <attributeGroup ref="swe:AssociationAttributeGroup"/>
+     </complexType>
+====
+
+ 
+
+_Link:_
+
+[source,xml]
+====
+     <element name="Link" type="sml:LinkType" substitutionGroup="gml:AbstractObject"/>
+ 
+     <complexType name="LinkType">
+          <sequence>
+               <element name="source" type="sml:DataComponentRefPropertyType">
+                    <annotation>
+                         <documentation>The output from which the link originates.</documentation>
+                    </annotation>
+               </element>
+               <element name="destination" type="sml:DataComponentRefPropertyType">
+                    <annotation>
+                         <documentation>The input or parameter into which the data flows.</documentation>
+                    </annotation>
+               </element>
+          </sequence>
+          <attribute ref="gml:id" use="optional"/>
+     </complexType>
+ 
+     <complexType name="LinkPropertyType">
+          <sequence minOccurs="0">
+               <element ref="sml:Link"/>
+          </sequence>
+          <attributeGroup ref="swe:AssociationAttributeGroup"/>
+     </complexType>
+====
+
+ 
+
+From core.xsd:
+
+[source,xml]
+====
+     <complexType name="DataComponentRefPropertyType">
+          <attribute name="ref" type="sml:DataComponentPathPropertyType" use="required"/>
+     </complexType>
+ 
+     <simpleType name="DataComponentPathPropertyType">
+          <restriction base="token">
+               <pattern value="([a-zA-Z_][a-zA-Z0-9_\-\.]*)(/[a-zA-Z_][a-zA-Z0-9_\-\.]*)*"/>
+          </restriction>
+     </simpleType>
+====
+
+ 
+===== Rules for Connections
+
+The Link element may define a data connection between any properties of a process, but it typically connects inputs, outputs, and parameters. However, certain rules apply regarding sources for data (provided by the source property of the Link element) and destinations for data (provided by the destination property of the Link element).
+
+Typical data flow is from an aggregate processes input to one or more component’s input, from a component output to another component’s input, or from a component’s output to an output of the aggregate process.
+
+include::../requirements/xml/aggregateProcess/requirement3.adoc[]
+
+include::../requirements/xml/aggregateProcess/requirement4.adoc[]
+
+include::../requirements/xml/aggregateProcess/requirement5.adoc[]
+
+include::../requirements/xml/aggregateProcess/requirement6.adoc[]  
+
+include::../requirements/xml/aggregateProcess/requirement7.adoc[] 
+
+===== Rules for Path Designation
+
+While the use of XPath was considered as a means of designating Link sources and destinations, this protocol was rejected on the grounds that its was too complicated for our needs and because it did not allow continues designation of paths for “byReference” objects. The designation of a path starts at the base element of the aggregate process and only uses property elements. Where the attribute name exists for an element, it is used; otherwise the element name is used.
+
+include::../requirements/xml/aggregateProcess/requirement8.adoc[]
+
+As an example, a snippet of the previous example is given below, highlighting the source path parts in yellow and the destination path parts in cyan. The subsequent example shows the appropriate source link path (in yellow) and the destination link path (in cyan).
+
+[source,xml]
+====
+<?xml version=“1.0” encoding=“UTF-8”?>
+<sml:AggregateProcess gml:id="scaleAndClip06"
+
+    … deleted for brevity sake …
+
+    <!– ============================= –>
+    <!–            Aggregate Process Inputs            –>
+    <!– ============================= –>
+    <sml:inputs>
+        <sml:InputList>
+            <sml:input name="valueIn">
+                <swe:Quantity definition="http://sensorml.com/def/propertysimpleDN">
+       <swe:uom code="any"/>
+                </swe:Quantity>
+            </sml:input>
+        </sml:InputList>   
+    </sml:inputs>
+
+    … deleted for brevity sake …
+
+   <sml:components>
+          <sml:ComponentList >
+                                   
+               <!– Component 1 - Linear Interpolator –>
+               <sml:component name="scale">              
+                    <sml:SimpleProcess gml:id="linearInterpolator01"
+                         definition="http://sensors.ws/process/linearInterpolator">
+                         <!– ============================= –>
+                         <!–       Linear Interpolator Descriptions            –>
+                         <!– ============================= –>
+                         <gml:description>A linear interpolator based on equation y = mx + b </gml:description>
+                         <gml:identifier codeSpace="uid">urn:myCompany:process:8755d73ab</gml:identifier>
+                         <gml:name>Linear Equation 01</gml:name>
+                         <!– ============================= –>
+                         <!–            Linear Interpolator Inputs            –>
+                         <!– ============================= –>
+                         <sml:inputs>
+                              <sml:InputList>
+                                   <sml:input name="x">
+                                        <swe:Quantity definition="http://sensorml.com/def/propertyxCoordinate">
+                                             <swe:uom code="any"/>
+                                        </swe:Quantity>
+                                   </sml:input>
+                              </sml:InputList>   
+                         </sml:inputs>
+
+    … deleted for brevity sake …
+
+    <sml:connections>
+          <sml:ConnectionList>
+ 
+               <!– Connect AggregateProcess input to LinearInterpolator (scale) input –>
+               <sml:connection>
+                    <sml:Link>
+                         <sml:source ref="inputs/valueIn"/>
+                         <sml:destination ref="components/scale/inputs/x"/>
+                    </sml:Link>
+               </sml:connection>
+
+… deleted for brevity sake …
+====

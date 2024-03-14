@@ -1,0 +1,5 @@
+[bibliography]
+[[Bibliography]]
+== Bibliography
+
+[1] Web: OGC Compliance Testing, www.opengeospatial.org/cite
