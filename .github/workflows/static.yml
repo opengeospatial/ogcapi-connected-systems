@@ -24,8 +24,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Cache Metanorma assets
+        uses: cam-s-hunt/cache@patch-1
+
       - name: Metanorma generate site
-        uses: actions-mn/build-and-publish@main
+        uses: cam-s-hunt/build-and-publish@patch-1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           agree-to-terms: true
