@@ -1,4 +1,4 @@
-name: generate
+name: sensorml
 
 on:
   push:
@@ -23,6 +23,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          path: sensorml/standard/
 
       - name: Cache Metanorma assets
         uses: cam-s-hunt/cache@patch-1
