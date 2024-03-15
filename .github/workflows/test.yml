@@ -12,14 +12,7 @@ jobs:
     container: metanorma/metanorma:latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
-        with:
-          path: main
-      - name: checkout other repo
-        uses: actions/checkout@v3 # checkout the repository content to github runner
-        with:
-          repository: cam-s-hunt/ogcapi-connected-systems
-          path: sensorml/standard
+        uses: actions/checkout@v4.1
       - name: Generate document
         run: |
           cd sensorml/standard
