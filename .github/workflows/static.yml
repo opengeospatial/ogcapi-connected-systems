@@ -1,4 +1,4 @@
-name: sensorml
+name: sensorml-pages
 
 on:
   push:
