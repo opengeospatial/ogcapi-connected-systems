@@ -23,7 +23,7 @@ jobs:
       - name: Generate document
         run: |
           cd sensorml/standard
-          metanorma compile --agree-to-terms -t ogc -x html document.adoc
+          metanorma compile --agree-to-terms -t ogc -x html ./document.adoc
           mv document.html 12-000r2.html
           git config --global user.name 'cam-s-hunt'
           git config --global user.email 'cam-s-hunt@users.noreply.github.com'
