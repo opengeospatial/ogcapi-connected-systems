@@ -24,4 +24,3 @@ jobs:
           git add 12-000r2.html
           git commit -am "Automated generation of HTML documents"
           git push
-        uses: actions/deploy-pages@v1
