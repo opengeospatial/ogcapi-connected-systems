@@ -40,7 +40,7 @@ include::sections/clause_5_conventions.adoc[]
 
 include::sections/clause_6_core_concepts.adoc[]
 
-include::sections/clause_7_uml_conceptual_model.adoc[]
+include::sections/clause_7_uml_conceptual_models.adoc[]
 
 include::sections/clause_7.2_uml_core_abstract_process.adoc[]
 
