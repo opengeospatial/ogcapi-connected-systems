@@ -51,20 +51,25 @@ All `Deployment` resource representations provided by encoding requirements clas
 | `description`       | `rdfs:comment` | A human readable description for the deployment. | String | Optional
 | `deploymentType`    | `rdfs:type` | The type of deployment (see <<deployment-types>>). | URI | Required
 | `validTime`         | - | The time period during which the systems are deployed. | DateTime | Required
-| `location`          | `geo:lat`/`geo:lon` | The location or area where the systems are deployed. | Geometry | Required
+| `location`          | `geo:lat`/`geo:lon` | The location or area where the systems are deployed. | Geometry | Optional
 |====
 
-NOTE: For in-situ and short-range remote sensors, the area of interest is simply the area where the systems are being deployed. For models or long range remote sensing (e.g. space based earth observation), the location might not be reported and the user should query the area covered by the feature(s) of interest instead (i.e. the geographic area covered by the model or observable by the remote sensing systems).
+NOTE: The deployment location is not to be confused with the features of interest or sampling features location/geometry. For in-situ and short-range remote sensors, the deployment location may include the sampling features, but it is usually not true for long range remote sensing such as space based earth observation. If the deployed systems are mobile, the deployment location should be the entire area where the systems can be moved to.
+
+NOTE: For deployments of models or processes, the location would usually not be provided, and the user should query the area covered by the sampling feature(s) instead (i.e. the geographic area covered by the model). If a deployment location is provided, it should be the location where the hardware executing the process is located, not the location of the sampling features.
+
 
 [#deployment-assocs,reftext='{table-caption} {counter:table-num}']
 .Deployment Associations
 [width="100%",cols="5,5,10,10,3",options="header"]
 |====
 | *Name*                | *SOSA/SSN Property*  | *Definition* | *Target Content* | *Usage*
-| `deployedSystems`     | `ssn:deployedSystem` | The deployed `Systems`. | A collection of `DeployedSystem` resources (inline or by-reference). See <<clause-deployed-system-resource>> | Required
+| `platform`            | `ssn:deployedOnPlatform` | The platform on which the systems are deployed. | A single `System` resource (inline or by-reference). | Optional
+| `deployedSystems`     | `ssn:deployedSystem` | The list of `Systems` deployed during the `Deployment`, if any. | A collection of `System` resources (inline or by-reference). | Required
+| `subdeployments`      | - | The list of subdeployments that are part of the `Deployment`, if any. | A collection of `Deployment` resources (inline or by-reference). | Required
 | `featuresOfInterest`  | - | The ultimate features of interest that are observed and/or controlled during the `Deployment`. | A collection of `Feature` resources (inline or by-reference). | Optional
 | `datastreams`         | - | The `Data Streams` containing observations collected during the `Deployment`. | A collection of `DataStream` resources (inline or by-reference). | Optional
-| `controlStreams`      | - | The `Control Streams` that received commands issued during the `Deployment`. | A collection of `ControlStream` resources (inline or by-reference). | Optional
+| `controlstreams`      | - | The `Control Streams` that received commands issued during the `Deployment`. | A collection of `ControlStream` resources (inline or by-reference). | Optional
 |====
 
 [#deployment-types,reftext='{table-caption} {counter:table-num}']
@@ -74,27 +79,6 @@ NOTE: For in-situ and short-range remote sensors, the area of interest is simply
 | *Deployment Type* | *URI* | *CURIE* | *Usage*
 | #TBD#     | #http://www.opengis.net/def/x-OGC/TBD1#     | #TBD# |
 | #TBD#     | #http://www.opengis.net/def/x-OGC/TBD2#     | #TBD# |
-|====
-
-
-[[clause-deployed-system-resource]]
-=== Deployed System Resource
-
-The list of deployed systems is available as a subcollection of the `Deployment` resource.
-
-This section defines the attributes and associations composing the `DeployedSystem` resource, but the exact way attributes and associations are encoded in the payload is defined by each encoding. For encodings defined in this document, please see:
-
-- <<clause-geojson-deployed-system,Deployed System resource as GeoJSON>>
-- <<clause-sensorml-deployed-system,Deployed System resource as SensorML>>
-
-[#deployed-system-assocs,reftext='{table-caption} {counter:table-num}']
-.Deployed System Associations
-[width="100%",cols="5,10,10,5",options="header"]
-|====
-| *Name*          | *Definition* | *Target Content* | *Usage*
-| `system`        | The deployed `System`. | A single `System` resource (inline or by-reference). | Required
-| `procedure`     | The `Procedure` used to operate the system during the `Deployment`. | A single `Procedure` resource (inline or by-reference). | Optional
-| `payloads`      | The list of payloads (subsystems) that are also deployed on the main system. | A list of `DeployedSystem` resources (inline). | Optional
 |====
 
 

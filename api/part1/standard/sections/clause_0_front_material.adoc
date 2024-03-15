@@ -26,7 +26,14 @@ But beyond features, this Standard is also intended to act as a bridge between s
 
 In addition to providing its own mechanism for interacting with static and dynamic data, the API allows linking to resources defined by other OGC Standards, such as https://www.ogc.org/standard/3dtiles/[3D Tiles], https://ogcapi.ogc.org/coverages[Coverages], https://ogcapi.ogc.org/edr[EDR], https://ogcapi.ogc.org/sensorthings[SensorThings], https://ogcapi.ogc.org/processes[Processes], and other instances of {ogcapi-features}. Among other things, this linking capability enables retrieving more advanced representations of features of interest (3D buildings, etc.) and gridded data (coverages) than the one that would typically be provided through this API.
 
-The CS API is comprised of multiple parts, each of them being a separate standard. This part ("Part 1 - Feature Resources") defines the feature types and corresponding schemas for some concepts of the {ogc-w3c-ssn}. "Part 2 - Dynamic Data" defines additional resources, encodings and protocols that allow efficient exchange of dynamic (time-varying) data related to these features, in a way that is also aligned with SSN.
+The CS API is comprised of multiple parts, each of them being a separate standard.
+
+"Part 1 - Feature Resources" (this Part) defines resource types and encodings for providing metadata about systems and their deployments, as well as the procedures and sampling strategies used by these systems. Resource types defined in Part 1 are modeled on concepts from the {ogc-w3c-ssn}. They are all feature types except for the `Property` resource that is used to describe feature properties. Part 1 also defines additional filtering capabilities and requirements for the Create/Replace/Delete/Update operations.
+
+"Part 2 - Dynamic Data" defines additional resource types and encodings that implement the SSN concepts needed for exchanging dynamic data related to the features defined in Part 1. It defines efficient ways of encoding this dynamic (time-varying) information (including observations, commands and system events), and mechanisms allowing bi-directional streaming of real-time data as well as access to historical data. Part 2 also defines a snapshot mechanism for dynamic feature properties.
+
+Other parts will be developed to define additional functionality such as pub/sub protocols, binary encodings, and concrete sampling feature types.
+
 
 
 == Security considerations

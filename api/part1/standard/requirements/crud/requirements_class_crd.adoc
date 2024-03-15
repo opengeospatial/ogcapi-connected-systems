@@ -8,9 +8,9 @@ inherit:: http://www.opengis.net/spec/ogcapi-features-4/1.0/req/create-replace-d
 requirement:: /req/create-replace-delete/system
 requirement:: /req/create-replace-delete/system-delete-cascade
 requirement:: /req/create-replace-delete/subsystem
-requirement:: /req/create-replace-delete/procedure
 requirement:: /req/create-replace-delete/deployment
-requirement:: /req/create-replace-delete/deployed-system
+requirement:: /req/create-replace-delete/subdeployment
+requirement:: /req/create-replace-delete/procedure
 requirement:: /req/create-replace-delete/sampling-feature
 requirement:: /req/create-replace-delete/property
 requirement:: /req/create-replace-delete/create-in-collection

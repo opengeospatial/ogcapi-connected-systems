@@ -1,11 +1,11 @@
 
-[[clause-system-components]]
-== Requirements Class "Sub-Deployments"
+[[clause-subdeployments]]
+== Requirements Class "Subdeployments"
 
 === Overview
 include::../requirements/subdeployment/requirements_class_subdeployments.adoc[]
 
-It is often useful to describe complex deployments in terms of a hierarchy of deployments. This requirements class specifies how such hierarchical deployments are described and made discoverable using this API.
+Describing complex deployments in terms of a hierarchy of deployments is often useful. This requirements class specifies how such hierarchical deployments are described and made discoverable using the CS API Standard.
 
 Subdeployments are regular `Deployment` features that are made available through a sub-collection of a parent `Deployment` resource.
 
@@ -13,9 +13,9 @@ Subdeployments are regular `Deployment` features that are made available through
 ====
 *Examples of deployments with subdeployments*
 
-- A large deployment of sensors along a river, where each monitoring station is described as a sub-deployment
-- A deployment of multiple unmanned systems to cover a large area divided into smaller regions, with sub-deployments describing what systems are deployed in each region
-- A tactical military operation, where each unit is described as a sub-deployment
+- A deployment of many monitoring sensors along a river, where each monitoring site is described as a subdeployment.
+- A deployment of multiple unmanned systems to cover a large area divided into smaller regions, with subdeployments describing which platforms/payloads are deployed in each region.
+- A tactical military operation, where each unit is described as a subdeployment.
 ====
 
 
@@ -34,7 +34,7 @@ A `Deployment` resource that is a subdeployment of a parent deployment also incl
 [width="100%",cols="5,10,10,5",options="header"]
 |====
 | *Name* | *Definition* | *Target Content* | *Usage*
-| `parentDeployment`   | The parent `Deployment` that this subdeployment is part of. | A single `Deployment` resource. | Required
+| `parentDeployment` | The parent `Deployment` that this subdeployment is part of. | A single `Deployment` resource. | Required
 |====
 
 
@@ -64,7 +64,7 @@ include::../requirements/subdeployment/req_recursive_search_deployments.adoc[]
 
 include::../requirements/subdeployment/req_recursive_search_subdeployments.adoc[]
 
-include::../requirements/subdeployment/req_recursive_search_systems.adoc[]
+include::../requirements/subdeployment/req_recursive_search_deployedsystems.adoc[]
 
 include::../requirements/subdeployment/req_recursive_search_fois.adoc[]
 

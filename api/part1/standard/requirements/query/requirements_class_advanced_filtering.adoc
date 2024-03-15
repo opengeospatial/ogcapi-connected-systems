@@ -18,6 +18,7 @@ requirement:: /req/advanced-filtering/system-by-controlprop
 //requirement:: /req/advanced-filtering/procedure-by-foi
 requirement:: /req/advanced-filtering/procedure-by-obsprop
 requirement:: /req/advanced-filtering/procedure-by-controlprop
+requirement:: /req/advanced-filtering/deployment-by-parent
 requirement:: /req/advanced-filtering/deployment-by-system
 requirement:: /req/advanced-filtering/deployment-by-foi
 requirement:: /req/advanced-filtering/deployment-by-obsprop

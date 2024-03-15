@@ -18,6 +18,7 @@
       "title": "Seawater"
     },
     "pose": {
+      "type": "RelativePose",
       "referenceFrame": "urn:x-osh:saildrone:1001#PLATFORM_FRAME",
       "position": {
         "x": 0.0,

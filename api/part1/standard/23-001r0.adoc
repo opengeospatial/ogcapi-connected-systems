@@ -86,19 +86,21 @@ include::sections/clause_8_requirements_class_system_features.adoc[]
 
 include::sections/clause_9_requirements_class_subsystems.adoc[]
 
-include::sections/clause_10_requirements_class_procedure_features.adoc[]
+include::sections/clause_10_requirements_class_deployment_features.adoc[]
 
-include::sections/clause_11_requirements_class_deployment_features.adoc[]
+include::sections/clause_11_requirements_class_subdeployments.adoc[]
 
-include::sections/clause_12_requirements_class_sampling_features.adoc[]
+include::sections/clause_12_requirements_class_procedure_features.adoc[]
 
-include::sections/clause_13_requirements_class_property_definitions.adoc[]
+include::sections/clause_13_requirements_class_sampling_features.adoc[]
 
-include::sections/clause_14_requirements_class_advanced_filtering.adoc[]
+include::sections/clause_14_requirements_class_property_definitions.adoc[]
 
-include::sections/clause_15_requirements_class_create_replace_delete.adoc[]
+include::sections/clause_15_requirements_class_advanced_filtering.adoc[]
 
-include::sections/clause_16_requirements_class_update.adoc[]
+include::sections/clause_16_requirements_class_create_replace_delete.adoc[]
+
+include::sections/clause_17_requirements_class_update.adoc[]
 
 [[clause-encodings]]
 == Requirements Classes for Encodings

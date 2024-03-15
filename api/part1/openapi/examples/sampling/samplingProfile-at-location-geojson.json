@@ -20,6 +20,7 @@
       "title": "Atmosphere"
     },
     "pose": {
+      "type": "RelativePose",
       "referenceFrame": "http://www.opengis.net/def/cs/OGC/0/NED",
       "position": {
         "x": 0,

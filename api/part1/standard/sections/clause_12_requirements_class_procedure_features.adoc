@@ -7,21 +7,19 @@ include::../requirements/procedure/requirements_class_procedure_features.adoc[]
 
 The "Procedure Features" requirements class specifies how `Procedure` descriptions are provided using the CS API.
 
-A `Procedure` resource implements the _http://www.w3.org/ns/sosa/Procedure[Procedure]_ concept defined in the <<SOSA-SSN,SSN Ontology>>. `Procedure` resources are used to provide information on the procedure/methodology implemented by a `System` to accomplish its task(s).
+A `Procedure` resource implements the _http://www.w3.org/ns/sosa/Procedure[Procedure]_ concept defined in the <<SOSA-SSN,SSN Ontology>>. `Procedure` resources are used to provide the specifications or methodology implemented by a `System` to accomplish its task(s).
 
-NOTE: `Procedure` resources describe types of systems (e.g. a particular model of sensor, a well-defined procedure followed by a human operator, etc.) while `System` resources describe system instances (e.g. a sensor device, a human observer). Several `System` instances can implement the same `Procedure`.
+NOTE: `Procedure` resources describe types of systems (e.g. a particular model of sensor) or procedures implemented by systems (e.g. followed by a human operator or programmed into a piece of equipment), while `System` resources describe system instances (e.g. a sensor device, a human observer). Several `System` instances can be associated to the same `Procedure`.
 
 [example%unnumbered]
 ====
 *Procedure Examples*
 
-For hardware equipment operating automatically, the procedure usually corresponds to the equipment's datasheet.
+For hardware equipment operating automatically, a procedure is used to describe the equipment's specifications (i.e. datasheet).
 
 For human sensing or sampling tasks, the procedure describes the steps or methodology that must be followed by the operator.
 
 For cases involving both an instrument and a human operator, the procedure describes what instrument(s) is/are used by the operator and how. In some cases, the human acts as the `Platform` that carries one or more sensors (e.g. a mobile phone, a portable infrared thermometer).
-
-If a human operator follows a different methodology during each mission/deployment, a `Procedure` can also be attached at deployment time.
 ====
 
 
@@ -82,7 +80,7 @@ NOTE: The validity time period of a `Procedure` description starts on the date t
 |====
 | *Document Type* | *URI* | *CURIE* | *Usage*
 | Datasheet       | #http://www.opengis.net/def/x-OGC/TBD/Datasheet#     | sml:Datasheet | The procedure is a datasheet that documents the capabilities and characteristics of the system.
-| Methodology     | #http://www.opengis.net/def/x-OGC/TBD/Methodology#   | sml:Methodology | The procedure describes the methodology used by a human operator.
+| Methodology     | #http://www.opengis.net/def/x-OGC/TBD/Methodology#   | sml:Methodology | The procedure describes the methodology implemented by the system (e.g. used by a human operator).
 |====
 
 ==== Location
@@ -121,7 +119,7 @@ include::../requirements/procedure/req_collections_others.adoc[]
 *Examples*
 
 - All weather station datasheets at URL `{api_root}/collections/wx_stations_datasheets`
-- All bird watching procedures at URL `{api_root}/collections/bird_watching_procedures`
+- All bird watching procedure at URL `{api_root}/collections/bird_watching_procedures`
 
 Note that a given procedure can be part of multiple collections at the same time.
 ====

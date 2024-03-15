@@ -406,6 +406,30 @@ part:: Only procedures that can be used to control a property that has one of th
 
 === Queries on Deployment Collections
 
+==== Parent Deployment Filter
+
+This filter is used to select subdeployments of a specific parent deployment.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/advanced-filtering/deployment-by-parent
+
+part:: HTTP GET operations targeting a collection of `Deployment` resources SHALL support a parameter `parent` of type <<filter-idlist-schema,ID_List>>.
+
+part:: Only deployments that are part of a parent deployment that has one of the requested identifiers SHALL be part of the result set.
+====
+
+[example%unnumbered]
+====
+*Example queries to find `Deployments` by parent*
+[width="100%",cols="3,10"]
+|===
+| Subdeployments by parent ID  | `{api_root}/deployments?parent=4g4ds54vv`
+| Subdeployments by parent UID | `{api_root}/deployments?parent=urn:uuid:31f6865e-f438-430e-9b57-f965a21ee255`
+|===
+====
+
 ==== Deployed System Filter
 
 This filter is used to select deployments during which certain systems are deployed.

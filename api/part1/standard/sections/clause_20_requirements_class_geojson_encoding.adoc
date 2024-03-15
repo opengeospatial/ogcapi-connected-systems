@@ -107,13 +107,14 @@ A GeoJSON document representing a `System` resource SHALL implement the mappings
 [width="100%",cols="3,3,10",options="header"]
 |====
 | *Association Name (see <<system-assocs>>)* | *JSON Member* | *Usage*
-| `procedure`         | `properties/procedure@link`     | Value is a weblink resolving to a `Procedure` resource.
-| `parentSystem`      | `properties/parentSystem@link`  | Value is a weblink resolving to a `System` resource.
+| `systemKind`        | `properties/systemKind@link`    | Value is a weblink resolving to a `System` resource.
+| `parentSystem`      | `links`                         | Value is a weblink* resolving to a `System` resource.
 | `subsystems`        | `links`                         | Value is a weblink* resolving to a `System` collection.
 | `samplingFeatures`  | `links`                         | Value is a weblink* resolving to a `Sampling Features` collection.
 | `datastreams`       | `links`                         | Value is a weblink* resolving to a `DataStream` collection.
 | `controlstreams`    | `links`                         | Value is a weblink* resolving to a `ControlStream` collection.
 | `deployments`       | `links`                         | Value is a weblink* resolving to a `Deployment` collection.
+| `procedures`        | `links`                         | Value is a weblink* resolving to a `Procedure` collection.
 3+| {weblinks-footnote} 
 |====
 
@@ -205,9 +206,9 @@ A GeoJSON document representing a `Deployment` resource SHALL implement the mapp
 [width="100%",cols="3,3,10",options="header"]
 |====
 | *Attribute Name (see <<deployment-attributes>>)* | *JSON Member* | *Usage*
-| `deploymentType` | `properties/featureType`     | Use the URI or CURIE from <<deployment-types>> as the value.
-| `validTime`      | `properties/validTime`       | -
-| `location`       | `geometry`                   | Value is a GeoJSON geometry
+| `deploymentType`   | `properties/featureType`     | Use the URI or CURIE from <<deployment-types>> as the value.
+| `validTime`        | `properties/validTime`       | -
+| `location`         | `geometry`                   | Value is a GeoJSON geometry.
 |====
 
 [#deployment-assoc-geojson-mappings,reftext='{table-caption} {counter:table-num}']
@@ -215,10 +216,13 @@ A GeoJSON document representing a `Deployment` resource SHALL implement the mapp
 [width="100%",cols="3,3,10",options="header"]
 |====
 | *Association Name (see <<deployment-assocs>>)* | *JSON Member* | *Usage*
-| `deployedSystems`     | `links`       | Value is a weblink* resolving to a `System` collection.
-| `featuresOfInterest`  | `links`       | Value is a weblink* resolving to a `Feature` collection.
-| `datastreams`         | `links`       | Value is a weblink* resolving to a `DataStream` collection.
-| `controlstreams`      | `links`       | Value is a weblink* resolving to a `ControlStream` collection.
+| `platform`            | `platform@link` | Value is a weblink resolving to a `System` resource.
+| `deployedSystems`     | `deployedSystems@link` | Value is a JSON Array of links to `System` resources.
+| `parentDeployment`    | `links`  | Value is a weblink* resolving to a `Deployment` resource.
+| `subdeployments`      | `links`  | Value is a weblink* resolving to a `Deployment` collection.
+| `featuresOfInterest`  | `links`  | Value is a weblink* resolving to a `Feature` collection.
+| `datastreams`         | `links`  | Value is a weblink* resolving to a `DataStream` collection.
+| `controlstreams`      | `links`  | Value is a weblink* resolving to a `ControlStream` collection.
 3+| {weblinks-footnote} 
 |====
 
@@ -230,48 +234,6 @@ A GeoJSON document representing a `Deployment` resource SHALL implement the mapp
 include::../openapi/examples/deployments/deployment-geojson.json[]
 ----
 =================
-
-
-
-[[clause-geojson-deployed-system]]
-==== Deployed System Representation
-
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/geojson/deployed-system-schema
-
-part:: A GeoJSON document containing a single `Deployed System` resource SHALL be valid against the JSON schema {geojson-deployed-system-schema}.
-
-part:: A GeoJSON document containing a collection of `Deployed System` resources SHALL be valid against the JSON schema {geojson-deployed-system-schema}.
-====
-
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/geojson/deployed-system-mappings
-
-A GeoJSON document representing a `Deployed System` resource SHALL implement the mappings specified in <<dep-sys-geojson-mappings>>.
-====
-
-[#dep-sys-geojson-mappings,reftext='{table-caption} {counter:table-num}']
-.GeoJSON Encoding of Deployed System Associations
-[width="100%",cols="3,3,10",options="header"]
-|====
-| *Association Name (see <<deployed-system-assocs>>)* | *JSON Member* | *Usage*
-| `system`           | `properties/system@link`    | Value is a weblink resolving to a single `System` resource.
-| `procedure`        | `properties/procedure@link` | Value is a weblink resolving to a single `Procedure` resource.
-|====
-
-[[example_geojson_depsys1]]
-.A Deployed System resource in GeoJSON format
-=================
-[source%autofit,json]
-----
-include::../openapi/examples/deployments/deployedSystems/deployed-system-geojson.json[]
-----
-=================
-
 
 
 [[clause-geojson-sf]]
@@ -311,9 +273,9 @@ A GeoJSON document representing a `Sampling Feature` resource SHALL implement th
 [width="100%",cols="3,3,10",options="header"]
 |====
 | *Association Name (see <<sf-assocs>>)* | *JSON Member*        | *Usage*
-| `parentSystem`             | `properties/parentSystem@link`   | Value is a weblink resolving to a `System` resource.
 | `sampledFeature`           | `properties/sampledFeature@link` | Value is a weblink resolving to a `Feature` resource.
 | `relatedSamplingFeatures`  | `links`                          | Value is a weblink* resolving to a `Sampling Feature` collection.
+| `parentSystem`             | `links`                          | Value is a weblink* resolving to a `System` resource.
 | `dataStreams`              | `links`                          | Value is a weblink* resolving to a `DataStream` collection.
 | `controlStreams`           | `links`                          | Value is a weblink* resolving to a `ControlStream` collection.
 3+| {weblinks-footnote} 

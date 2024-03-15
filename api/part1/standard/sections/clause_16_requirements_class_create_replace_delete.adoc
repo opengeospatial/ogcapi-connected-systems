@@ -48,43 +48,22 @@ part:: If the `System` resource is associated with a `Deployment` resource, the 
 ====
 
 
-=== System Components (Subsystems)
+=== Subsystems
 
-System components can only be created as sub-resources of a parent system, but are updated/deleted at their canonical URL just like any other `System` resource.
+Subsystems (i.e. system components) can only be created as sub-resources of a parent system, but are updated/deleted at their canonical URL just like any other `System` resource.
 
 [requirement,model=ogc]
 ====
 [%metadata]
 identifier:: /req/create-replace-delete/subsystem
 
-conditions:: The server implements <<clause-system-components,/req/system-components>>
+conditions:: The server implements <<clause-subsystems,/req/subsystem>>
 
 part:: The resources endpoints used for adding subsystems (CREATE operation) SHALL be the URIs specified by the following URI template:
-  - `{api_root}/systems/{parentId}/components`
+  - `{api_root}/systems/{parentId}/subsystems`
 ====
 
 NOTE: There is no operation to "move" a subsystem from one parent to another. To achieve this, the client must delete the subsystem and recreate it under another parent system.
-
-
-=== Procedures
-
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/create-replace-delete/procedure
-
-conditions:: The server implements <<clause-procedure-features,/req/procedure-features>>
-
-part:: For `Procedure` features, the resources endpoints used for CREATE operations SHALL be the URIs specified by the following URI templates:
-  - `{api_root}/procedures`
-  - `{api_root}/collections/{procedureCollectionId}/items`
-
-part:: For `Procedure` features, the resource endpoints used for REPLACE and DELETE operations SHALL be the URIs specified by the following URI templates:
-  - `{api_root}/procedures/{id}`
-  - `{api_root}/collections/{procedureCollectionId}/items/{id}`
-
-part:: The parameter `procedureCollectionId` SHALL correspond to the `id` property of a `Procedure` feature collection.
-====
 
 
 === Deployments
@@ -108,20 +87,40 @@ part:: The parameter `deploymentCollectionId` SHALL correspond to the `id` prope
 ====
 
 
-=== Deployed Systems
+=== Subdeployments
+
+Subdeployments can only be created as sub-resources of a parent deployment, but are updated/deleted at their canonical URL just like any other `Deployment` resource.
 
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/create-replace-delete/deployed-system
+identifier:: /req/create-replace-delete/subdeployment
 
-conditions:: The server implements <<clause-deployment-features,/req/deployment-features>>
+conditions:: The server implements <<clause-subdeployments,/req/subdeployment>>
 
-part:: For `Deployed System` resources, the resources endpoints used for CREATE operations SHALL be the URIs specified by the following URI templates:
-  - `{api_root}/deployments/{depId}/systems`
+part:: The resources endpoints used for adding subdeployments (CREATE operation) SHALL be the URIs specified by the following URI template:
+  - `{api_root}/deployments/{parentId}/subdeployments`
+====
 
-part:: For `Deployed System` resources, the resource endpoints used for REPLACE and DELETE operations SHALL be the URIs specified by the following URI templates:
-  - `{api_root}/deployments/{depId}/systems/{id}`
+
+=== Procedures
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/procedure
+
+conditions:: The server implements <<clause-procedure-features,/req/procedure-features>>
+
+part:: For `Procedure` features, the resources endpoints used for CREATE operations SHALL be the URIs specified by the following URI templates:
+  - `{api_root}/procedures`
+  - `{api_root}/collections/{procedureCollectionId}/items`
+
+part:: For `Procedure` features, the resource endpoints used for REPLACE and DELETE operations SHALL be the URIs specified by the following URI templates:
+  - `{api_root}/procedures/{id}`
+  - `{api_root}/collections/{procedureCollectionId}/items/{id}`
+
+part:: The parameter `procedureCollectionId` SHALL correspond to the `id` property of a `Procedure` feature collection.
 ====
 
 

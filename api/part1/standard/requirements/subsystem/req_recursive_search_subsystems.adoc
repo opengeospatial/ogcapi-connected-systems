@@ -9,5 +9,5 @@ part:: If the `recursive` parameter is omitted or set to `false`, the response S
 
 part:: If the `recursive` parameter is set to `true`, the response SHALL include all nested subsystems, recursively.
 
-part:: Other query string parameters SHALL be applied to all processed `Systems` resources, regardless of whether they are direct subsystem, or transitive subsystems.
+part:: Other query string parameters SHALL be applied to all processed `System` resources, regardless of whether they are direct subsystem, or transitive subsystems.
 ====

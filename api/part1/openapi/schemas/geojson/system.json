@@ -30,12 +30,12 @@
               "description": "Time period during which the system description is valid.",
               "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
             },
-            "parentSystem@link": {
-              "description": "Link to the parent system.",
+            "systemKind@link": {
+              "description": "Link to the system kind description (i.e. its nature or specifications).",
               "$ref": "../common/commonDefs.json#/definitions/Link"
             },
-            "procedure@link": {
-              "description": "Link to the procedure implemented by this system (i.e. its specifications).",
+            "parentSystem@link": {
+              "description": "Link to the parent system.",
               "$ref": "../common/commonDefs.json#/definitions/Link"
             }
           }

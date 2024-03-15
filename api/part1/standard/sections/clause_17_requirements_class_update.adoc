@@ -29,23 +29,6 @@ part:: The parameter `systemCollectionId` SHALL correspond to the `id` property 
 ====
 
 
-=== Procedures
-
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/update/procedure
-
-conditions:: The server implements <<clause-procedure-features,/req/procedure-features>>
-
-part:: For `Procedure` features, the resource endpoints used for UPDATE operations SHALL be the URIs specified by the following URI templates:
-  - `{api_root}/procedures/{id}`
-  - `{api_root}/collections/{procedureCollectionId}/items/{id}`
-
-part:: The parameter `procedureCollectionId` SHALL correspond to the `id` property of a `Procedure` feature collection.
-====
-
-
 === Deployments
 
 [requirement,model=ogc]
@@ -63,17 +46,20 @@ part:: The parameter `deploymentCollectionId` SHALL correspond to the `id` prope
 ====
 
 
-=== Deployed Systems
+=== Procedures
 
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/update/deployed-system
+identifier:: /req/update/procedure
 
-conditions:: The server implements <<clause-deployment-features,/req/deployment-features>>
+conditions:: The server implements <<clause-procedure-features,/req/procedure-features>>
 
-part:: For `Deployed System` resources, the resource endpoints used for UPDATE operations SHALL be the URIs specified by the following URI templates:
-  - `{api_root}/deployments/{depId}/systems/{id}`
+part:: For `Procedure` features, the resource endpoints used for UPDATE operations SHALL be the URIs specified by the following URI templates:
+  - `{api_root}/procedures/{id}`
+  - `{api_root}/collections/{procedureCollectionId}/items/{id}`
+
+part:: The parameter `procedureCollectionId` SHALL correspond to the `id` property of a `Procedure` feature collection.
 ====
 
 

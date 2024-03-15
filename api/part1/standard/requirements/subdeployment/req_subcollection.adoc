@@ -1,0 +1,11 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/subdeployment/collection
+
+part:: The server SHALL expose subdeployments as a collection of `Deployment` resources at path `{api_root}/deployments/{parentId}/subdeployments`.
+
+part:: The content of the collection SHALL be the list of `Deployment` resources that are part of the parent `Deployment` with ID `parentId`.
+
+part:: The collection SHALL support the same query parameters as the ones supported by the catch-all collection `{api_root}/deployments`.
+====
