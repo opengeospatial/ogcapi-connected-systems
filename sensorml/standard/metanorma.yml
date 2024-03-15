@@ -1,7 +1,5 @@
 ---
 metanorma:
-  type: ogc
-  extension: html
-  
-  deploy:
-    email: "cameron.s.hunt@noblehunt.org"
+  collection:
+    organization: "Noble Hunt"
+    name: "OGC Pipeline Test"
