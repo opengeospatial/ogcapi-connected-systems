@@ -1,7 +1,7 @@
 ---
 metanorma:
-  type: html
-  doctype: ogc
+  type: ogc
+  extension: html
   
   deploy:
     email: "cameron.s.hunt@noblehunt.org"
