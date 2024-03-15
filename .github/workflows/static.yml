@@ -32,7 +32,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           agree-to-terms: true
-          source-path: cam-s-hunt/ogcapi-connected-systems/sensorml/standard
+          source-path: sensorml/standard
 
   deploy:
     if: ${{ github.ref == 'refs/heads/main' }}
