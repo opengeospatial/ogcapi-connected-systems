@@ -2,7 +2,7 @@ name: sensorml-test
 
 on:
   push:
-    branches: [ meta-test ]
+    branches: [ main ]
   pull_request:
   workflow_dispatch:
 
