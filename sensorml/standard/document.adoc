@@ -14,7 +14,7 @@
 :keywords: ogcdoc, OGC document, html, SWE, sensor, sensorweb, connected systems, xml, encoding, observation, command, tasking, property
 :submitting-organizations: Botts Innovative Research, Inc.; GeoRobotix, Inc.; 52° North Initiative for Geospatial Open Source Software GmbH; National Geospatial-Intelligence Agency (NGA); Cesium GS, Inc.; Pelagis Data Solutions; 
 :mn-document-class: ogc
-:mn-output-extensions: xml,html,doc,pdf
+:mn-output-extensions: xml,html
 :local-cache-only:
 :data-uri-image:
 :edition: 2.1
