@@ -32,7 +32,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           agree-to-terms: true
-          source-path: sensorml/standard/
+          source-path: sensorml/standard
 
   deploy:
     environment:
