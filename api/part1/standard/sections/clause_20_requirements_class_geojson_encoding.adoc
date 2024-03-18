@@ -206,7 +206,7 @@ A GeoJSON document representing a `Deployment` resource SHALL implement the mapp
 [width="100%",cols="3,3,10",options="header"]
 |====
 | *Attribute Name (see <<deployment-attributes>>)* | *JSON Member* | *Usage*
-| `deploymentType`   | `properties/featureType`     | Use the URI or CURIE from <<deployment-types>> as the value.
+| `deploymentType`   | `properties/featureType`     | Use the URI or CURIE identifying the type of deployment as the value.
 | `validTime`        | `properties/validTime`       | -
 | `location`         | `geometry`                   | Value is a GeoJSON geometry.
 |====

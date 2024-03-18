@@ -359,7 +359,7 @@ test-purpose:: Validate that `Deployment` collections are tagged with the proper
 test-method:: For every collection advertised by the server with the `featureType` property set to `ssn:Deployment`:
 step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
 step::: Iterate through all items in the collection and retrieve their type.
-step::: Check that the reported type is one of the URI or CURIE listed in <<deployment-types>>.
+step::: Check that the reported type a valid URI or CURIE.
 step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
 step:::: If the response content type is `{geojson-mediatype}`, execute test xref:/conf/geojson/deployment-schema[style=id%].
 step:::: If the response content type is `{sensorml-json-mediatype}`, execute test xref:/conf/sensorml/deployment-schema[style=id%].

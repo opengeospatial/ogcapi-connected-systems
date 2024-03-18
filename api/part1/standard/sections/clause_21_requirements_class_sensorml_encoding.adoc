@@ -246,7 +246,7 @@ A SensorML JSON document representing a `Deployment` resource SHALL implement th
 [width="100%",cols="3,3,10",options="header"]
 |====
 | *Attribute Name (see <<deployment-attributes>>)* | *JSON Member* | *Usage*
-| `deploymentType` | `definition`  | Use the URI or CURIE from <<deployment-types>> as the value.
+| `deploymentType` | `definition`  | Use the URI or CURIE identifying the type of deployment as the value.
 | `validTime`      | `validTime`   | -
 | `location`       | `location`    | Value is a GeoJSON geometry
 |====

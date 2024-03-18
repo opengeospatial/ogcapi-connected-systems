@@ -49,7 +49,7 @@ All `Deployment` resource representations provided by encoding requirements clas
 | `uniqueIdentifier`  | RDF concept URI | The unique identifier of the deployment in the form of a URI (preferably a URN). This identifier should be persistent and independent of the actual resource URL. | URI | Required
 | `name`              | `rdfs:label` | The human readable name of the deployment. | String | Required
 | `description`       | `rdfs:comment` | A human readable description for the deployment. | String | Optional
-| `deploymentType`    | `rdfs:type` | The type of deployment (see <<deployment-types>>). | URI | Required
+| `deploymentType`    | `rdfs:type` | The type of deployment. | URI | Optional
 | `validTime`         | - | The time period during which the systems are deployed. | DateTime | Required
 | `location`          | `geo:lat`/`geo:lon` | The location or area where the systems are deployed. | Geometry | Optional
 |====
@@ -70,15 +70,6 @@ NOTE: For deployments of models or processes, the location would usually not be 
 | `featuresOfInterest`  | - | The ultimate features of interest that are observed and/or controlled during the `Deployment`. | A collection of `Feature` resources (inline or by-reference). | Optional
 | `datastreams`         | - | The `Data Streams` containing observations collected during the `Deployment`. | A collection of `DataStream` resources (inline or by-reference). | Optional
 | `controlstreams`      | - | The `Control Streams` that received commands issued during the `Deployment`. | A collection of `ControlStream` resources (inline or by-reference). | Optional
-|====
-
-[#deployment-types,reftext='{table-caption} {counter:table-num}']
-.Deployment Types
-[width="100%",cols="5,10,5,10",options="header"]
-|====
-| *Deployment Type* | *URI* | *CURIE* | *Usage*
-| #TBD#     | #http://www.opengis.net/def/x-OGC/TBD1#     | #TBD# |
-| #TBD#     | #http://www.opengis.net/def/x-OGC/TBD2#     | #TBD# |
 |====
 
 
