@@ -8,4 +8,4 @@ A few changes have been introduced to GML encoding rules in order to accommodate
 * Relaxed rule on the mandatory gml:id attribute. gml:id is thus optional in SWE schemas.
 * Introduced new stereotype for soft-typed-properties.
 * Added support for encoding simple-type properties as XML attributes.
-* Use different base type for <<Type>> stereotype (Elements are derived from anyType and made substitutable for gml:AbstractValue instead of gml:AbstractGML).
+* Use different base type for _Type_ stereotype (Elements are derived from anyType and made substitutable for gml:AbstractValue instead of gml:AbstractGML).
