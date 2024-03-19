@@ -42,10 +42,10 @@ include::../requirements/model/coreProcess/requirement5.adoc[]
 include::../requirements/model/coreProcess/requirement6.adoc[]
 
 .DescribedObject with Metadata Properties
-image::figures/describedobject.png[]
+image::../figures/describedobject.png[]
 
 .Models for Metadata Elements
-image::figures/metadata_models.png[]
+image::../figures/metadata_models.png[]
 
 ===== Keywords
 Keywords provide a simple means of discovery using short tokens that may be recognized by the general audience or specific communities. Keywords are unqualified terms in that they are not necessarily required to be related to a specific codespace or ontology, as are classifiers and identifiers.
@@ -129,14 +129,14 @@ Documentation can be provided which provides further clarification about the Des
 Within SensorML, the history of a process can be provided through a collection of Event objects. These are provided within an EventList that serves as the value of the history property. Events might for instance, specify calibration or maintenance history of a sensor, changes to an algorithm or parameter within a computational process, or deployment and maintenance events.
 
 .Model for history events
-image::figures/history_events_model.png[]
+image::../figures/history_events_model.png[]
 
 ==== AbstractProcess
 As discussed in the Core Concepts, the major elements of SensorML are modeled as physical and non-physical processes. All SensorML process elements shall derive from AbstractProcess,shown in <<abstract_process_uml>>. The class AbstractProcess itself derives from the DescribedObject class and thus inherits a wide range of optional metadata supporting discovery, identification, and qualification and an option for domain and community-specific extensions. In addition to the metadata provided by DescribedObject, the AbstractProcess includes the properties of inputs, outputs, and parameters, as required by the process model defined in the Core Concepts, as well as the properties typeOf, featureOfInterest, configuration, and modes which will be discussed below. 
 
 [[abstract_process_uml]]
 .UML models for DescribedObject and AbstractProcess
-image::figures/abstract_process_uml.png[]
+image::../figures/abstract_process_uml.png[]
 
 ===== Inputs, Outputs, and Parameters
 
@@ -151,7 +151,7 @@ A digital thermometer is stimulated by an observable property of the environment
 Thus, an AbstractProcess model supports the inputs, outputs, and parameters properties in conformance with the Core Concepts. These properties can accept ObservableProperty or SWE Common elements AbstractDataComponent or DataStream as their values. Classes derived from AbstractDataComponent include Quantity, Count, Category, Boolean, Text, and Time, as well as ranges and aggregates of these simple data types.
 
 .UML models for process inputs, outputs, and parameters
-image::figures/process_iops_uml.png[]
+image::../figures/process_iops_uml.png[]
 
 The core process model will utilize the SWE Common Data Models for defining inputs, outputs, and parameters, as well as for other metadata properties. SensorML models are required to support the SWE Common Data Model up to the Block Components Requirements Class, but many instances of SensorML will find ALL conformance levels of SWE Common Data to be useful, including binary encodings.
 

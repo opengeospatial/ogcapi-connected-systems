@@ -22,6 +22,6 @@ The model for PhysicalSystem, as shown in <<physical_system_model>>, is derived 
 
 [[physical_system_model]]
 .Model for Physical Processing System
-image::figures/physicalSystem.png[]
+image::../figures/physicalSystem.png[]
 
 include::../requirements/model/physicalSystem/requirement3.adoc[]
