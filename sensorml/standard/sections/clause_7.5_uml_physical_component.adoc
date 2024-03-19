@@ -23,7 +23,7 @@ The model for AbstractPhysicalProcess is shown in <<uml_physical_process>> below
 
 [[uml_physical_process]]
 .Model for Physical Process Component
-image::../figures/physicalProcess.png[]
+image::figures/physicalProcess.png[]
 
 ===== attachedTo Property
 
@@ -43,7 +43,7 @@ A reference frame is defined by its origin and its axes, which are described rel
 de style="display: block; background: #f1efee; color: #000000; padding: 0.5em; white-space: pre-wrap;white-space: -moz-pre-wrap; white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;" > Example The origin of an airplane’s spatial reference frame can be defined as the being at the center of the Inertial Navigation Unit main gyro. The axes can be defined by the following statements: “X is along the symmetric axis of the airplane’s fuselage from the gyro to the nose of the airplane (along the platform roll axis of the airplane), Z is perpendicular to X and toward the belly of the airplane (along the yaw axis of the aircraft), and Y is Z cross X (in the direction of of the right wing and along the pitch axis of the airplane)”. The location of this aircraft can then be given as the spatial relationship of the origin of this reference frame to some external reference frame (e.g., Earth-Centered-Earth-Fixed XYZ or latitude-longitude-altitude). Likewise, the orientation of the aircraft can be specified as the angular relationship of the axes of its reference frame to the axes of some external reference frame (e.g., ECEF or North-East-Down). 
 
 .Models for SpatialFrame and PositionUnion
-image::../figures/spatialReferenceFrame.png[]
+image::figures/spatialReferenceFrame.png[]
 
 In this standard, position is defined as the combination of location and orientation. Location is the llinear displacement (translation) of the origin of the object’s spatial reference frame relative to the origin of some external reference frame (which must be designated). The orientation of an object is the angular relationship between the axes of the object’s reference axes to those of some external reference frame. The dynamic state of an object can include its time-tagged location, orientation, linear velocity, angular velocity, and higher-order derivatives when required (e.g., linear and angular acceleration, jerk, etc.).
 

@@ -6,7 +6,7 @@ This standard defines normative UML models with which derived encoding models as
 The packages defined by the SensorML Model and their dependencies are shown in the figure below:
 
 .Internal Package Dependencies
-image::../figures/package_dependencies.png[]
+image::figures/package_dependencies.png[]
 
 SensorML also has dependencies on several external packages defined within other standards, namely GML 3.2, ISO 19103, ISO 19108, ISO 19111, and ISO 19115, as described below.
 
@@ -14,25 +14,25 @@ SensorML also has dependencies on several external packages defined within other
 A process represents a feature type as defined by the ISO General Feature Model and is thus modeled as an instance of the <<metaclass>> GF_FeatureType (ISO 19109:2006). These models are further refined within the GML 3.2 standard (ISO 19136) which will provide the basis for XML encodings in the following section 8 of this specification document. This association of SensorML process with GML primarily brings recognition of SensorML processes as features and provides important identity properties.
 
 .External Package Dependencies – GML 
-image::../figures/gml_dependency.png[]
+image::figures/gml_dependency.png[]
 The base feature classes in GML from which all processes in SensorML derive include AbstractGML and AbstractFeature, as shown in the figure below:
 
 .Models for dependent GML Feature classes 
-image::../figures/gml_base_classes.png[]
+image::figures/gml_base_classes.png[]
 SensorML is dependent on ISO 19108:206 for Temporal Schema. In particular, the temporal elements, TM_Instant and TM_Period are used within the core SensorML model for Abstract Process. Additionally, SensorML depends on ISO 19115 for general metadata elements.
 
 .External Package Dependencies – ISO TC 211
-image::../figures/iso_dependencies.png[]
+image::figures/iso_dependencies.png[]
 The SensorML standard utilizes the ISO 19115 models for common metadata properties such as citations, online resources, responsible party, and constraints. While Version 1.0 of SensorML defined encoding based on the ISO 19115 models, this version utilizes these models directly.
 
 .ISO 19115 Models for dependent classes. 
-image::../figures/iso19115_dependencies.png[]
+image::figures/iso19115_dependencies.png[]
 
 ==== Dependency on SWE Common Data Models
 In particular, SensorML is heavily dependent on the SWE Common Data Model standard for defining inputs, outputs, and parameters, as well as for specifying characteristics, capabilities, interfaces, and event properties. The SWE Common Data Models, which were originally defined within the version 1.0 SensorML specification, are in version 2.1 defined as a separate specification and are utilized throughout the SWE family of encoding and web service specifications.
 
 .External Package Dependencies - SWE Common Data
-image::../figures/swe_dependencies.png[]
+image::figures/swe_dependencies.png[]
 
 The SWE Common specification provides a flexible yet robust means of defining data types and data values, including support for simple data types such as Quantity, Boolean, Category, Count, Text, and Time, as well as aggregate data such as DataRecord, DataArray, Vector, and Matrix. Additionally, SWE Common supports the concept of DataChoice, which will be utilized by SensorML for providing multiplexed messages in data streams and configurable options for processes and physical systems.
 
@@ -45,7 +45,7 @@ SensorML depends heavily on the AbstractDataComponent element defined in SWE Com
 The model for the SWE Common AbstractDataComponent is given in the figure below:
 
 .Models for dependent SWE Common AbstractDataComponent class. 
-image::../figures/swe_abstractdatacomponent.png[]
+image::figures/swe_abstractdatacomponent.png[]
 
 ==== Relationship to Observations and Measurements (O&M)
 Conceptual models for Observations and Measurements are provided by ISO 19156, which also provides models for sampling feature types. XML Schema encodings of these models are provided by the OGC Observations and Measurements XML Implementation Document (OGC 10-025). The model for Observation defines a procedure of type AbstractFeature which references or describes the origin of the observation (i.e., how the observation came to be).
