@@ -14,7 +14,7 @@ All requirements-classes and conformance-classes described in this document are 
 
 The conformance rules are based on XML validation using the XML Schema representation of SensorML, together with processing of constraints expressed using Schematron assertions and reports.
 
-Conformance with this specification shall be checked using all the relevant tests specified in <<annex-a,Annex A>>. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in ISO 19105: Geographic information — Conformance and Testing. In order to conform to this OGC(TM) encoding standard, a standardization target shall implement the core conformance class, and choose to implement any one or more of the other conformance classes.
+Conformance with this specification shall be checked using all the relevant tests specified in <<abstract_test_suite>>. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in ISO 19105: Geographic information — Conformance and Testing. In order to conform to this OGC(TM) encoding standard, a standardization target shall implement the core conformance class, and choose to implement any one or more of the other conformance classes.
 
 The conformance rules for the XML implementation are based on XML validation using XML Schema representation of SensorML, together with processing constraints expressed using Schematron assertions and reports.
 
