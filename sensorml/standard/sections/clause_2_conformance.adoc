@@ -19,6 +19,7 @@ Conformance with this specification shall be checked using all the relevant test
 The conformance rules for the XML implementation are based on XML validation using XML Schema representation of SensorML, together with processing constraints expressed using Schematron assertions and reports.
 
 [cols="1,3,1"]
+.Conformance classes related SensorML instances
 |===
 |Conformance class |Description |Clause
 
@@ -69,3 +70,12 @@ The conformance rules for the XML implementation are based on XML validation usi
 |http://www.opengis.net/spec/SensorML/2.1/req/xml/physicalComponent
 |Physical Component
 |
+
+|http://www.opengis.net/spec/SensorML/2.1/req/xml/physicalSystem
+|Physical System
+|
+
+|http://www.opengis.net/spec/SensorML/2.1/req/xml/configurableProcess
+|Configurable Process
+|
+|===
