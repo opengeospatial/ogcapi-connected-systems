@@ -2,4 +2,4 @@
 [[Bibliography]]
 == Bibliography
 
-[1] Web: OGC Compliance Testing, www.opengeospatial.org/cite
+* [[[1, OGC Compliance Testing]]], www.opengeospatial.org/cite
