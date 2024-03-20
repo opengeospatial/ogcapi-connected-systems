@@ -1,11 +1,11 @@
 [[xsd_advanced_encodings]]
 === Requirements Class: Advanced Encodings XML Schema
 
-include::requirements/xsd/advanced_encodings/requirements_class.adoc[]
+include::../requirements/xsd/advanced_encodings/requirements_class.adoc[]
 
 This requirement class defines an additional encoding method that is used to encode data values as raw or base64 binary blocks.
 
-include::requirements/xsd/advanced_encodings/requirement1.adoc[]
+include::../requirements/xsd/advanced_encodings/requirement1.adoc[]
 
 NOTE: _The raw binary encoding option is not usable within an XML document since it makes use of characters not allowed in XML. Raw binary data can only be provided separately from the XML document and eventually referenced via an xlink. If there is a requirement for binary data to be included as text content of an XML element, the ‘base64’ byte encoding option should be used._
 
@@ -72,7 +72,7 @@ The member property allow a choice of “Component” or “Block” sub-element
 
 The exact encoding rules to be followed when encoding array or stream value with the binary method are specified in <<encoding_rules_binary>>.
 
-include::requirements/xsd/advanced_encodings/requirement2.adoc[]
+include::../requirements/xsd/advanced_encodings/requirement2.adoc[]
 
 
 [[xsd_binarycomponent_elt]]
@@ -101,15 +101,15 @@ The “Component” element implements the UML class with the same name. It is u
 
 These elements allow for the detailed specification of the encoding parameters associated to components of the data description tree as discussed in <<uml_binaryencoding_class>>. The “ref” attribute takes a value of a particular syntax that allows pointing to any data component. The syntax is a ‘/’ separated list of component names, starting with the name of the root component and listed hierarchically. Each of these component names shall match the value of the “name” attribute defined in the data definition tree.
 
-include::requirements/xsd/advanced_encodings/requirement3.adoc[]
+include::../requirements/xsd/advanced_encodings/requirement3.adoc[]
 
 The “ref” attribute used on the “Component” element shall point exclusively to a scalar component.
 
-include::requirements/xsd/advanced_encodings/requirement4.adoc[]
+include::../requirements/xsd/advanced_encodings/requirement4.adoc[]
 
 This standard defines the list of data types that are allowed for scalar values when encoded with the binary encoding method. The corresponding URIs listed below shall be used as the value of the datatype attribute of an instance of the “Component” element.
 
-include::requirements/xsd/advanced_encodings/requirement5.adoc[]
+include::../requirements/xsd/advanced_encodings/requirement5.adoc[]
 
 These data types are specified in the normative table below:
 
@@ -149,11 +149,11 @@ These data types are specified in the normative table below:
 
 The data type should be chosen so that its range allows the encoding of all possible values for a field (i.e. compatible with the field representation and constraints) including NIL values. This means that certain combinations of data type and components are not allowed. If a scalar component does not specify any constraint, any data type compatible with its representation can be used and it is the responsibility of the implementation to insure that all future values for the component will “fit” in the data type.
 
-include::requirements/xsd/advanced_encodings/requirement6.adoc[]
+include::../requirements/xsd/advanced_encodings/requirement6.adoc[]
 
 Only data types marked with an asterisk allow the usage of the “byteLength” or “bitLength” attribute to customize their size. Usage of these attributes is forbidden on all other data types since their size is fixed and already specified in this standard (in the case of a variable length string, the size is included in the stream). This is enforced by a Schematron pattern.
 
-include::requirements/xsd/advanced_encodings/requirement7.adoc[]
+include::../requirements/xsd/advanced_encodings/requirement7.adoc[]
 
 The value of the “byteEncoding” XML attribute allows the selection of either the ‘raw’ or ‘base64’ encoding methods. When ‘base64’ is selected each byte is converted to its base 64 representation before it is included in encoded block, making it possible to include the values directly inline in the XML instance.
 
@@ -243,7 +243,7 @@ The “Block” element implements the UML class with the same name. It is used 
 
 The “ref” attribute shall point to an aggregate component in the data description and set one or more of the “compression”, “encryption” or “padding” attributes.
 
-include::requirements/xsd/advanced_encodings/requirement8.adoc[]
+include::../requirements/xsd/advanced_encodings/requirement8.adoc[]
 
 When padding is specified, padding bytes with a value of zero are inserted before (when “paddingBytesBefore” is set) and/or after (when “paddingBytesAfter” is set) the whole block of values corresponding to the aggregate components. Decoders should skip these bytes completely.
 

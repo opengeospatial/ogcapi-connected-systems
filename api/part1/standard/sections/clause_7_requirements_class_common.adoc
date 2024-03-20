@@ -2,7 +2,7 @@
 == Requirements Class "Common"
 
 === Overview
-include::requirements/common/requirements_class_common.adoc[]
+include::../requirements/common/requirements_class_common.adoc[]
 
 This requirements class regroups core dependencies that all other requirements class inherit.
 It also provides clarifications on the use of the {ogcapi-common} Standard constructs.

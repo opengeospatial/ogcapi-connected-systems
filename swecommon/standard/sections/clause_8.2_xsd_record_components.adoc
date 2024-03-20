@@ -1,11 +1,11 @@
 [[xsd_record_components]]
 === Requirements Class: Record Components XML Schema
 
-include::requirements/xsd/record_components/requirements_class.adoc[]
+include::../requirements/xsd/record_components/requirements_class.adoc[]
 
 XML Schema elements and types defined in the “record_components.xsd” schema implement all classes defined in the “Record Components” UML packages. 
 
-include::requirements/xsd/record_components/requirement1.adoc[]
+include::../requirements/xsd/record_components/requirement1.adoc[]
 
 
 [[xsd_datarecord_elt]]

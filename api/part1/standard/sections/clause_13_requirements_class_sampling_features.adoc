@@ -3,7 +3,7 @@
 == Requirements Class "Sampling Features"
 
 === Overview
-include::requirements/sampling/requirements_class_sampling_features.adoc[]
+include::../requirements/sampling/requirements_class_sampling_features.adoc[]
 
 The "Sampling Features" requirements class specifies how `Sampling Feature` descriptions are provided using the CS API.
 
@@ -117,25 +117,25 @@ Valid time is used when the sampling feature is not meaningful or usable outside
 
 The CS API Standard requires that a `Sampling Feature` resource has a canonical URL through which it can be retrieved independently of its membership to any collection.
 
-include::requirements/sampling/req_canonical_url.adoc[]
+include::../requirements/sampling/req_canonical_url.adoc[]
 
 
 === Root Collection
 
 A root collection where all `Sampling Feature` resources can be searched must be available at a CS API endpoint.
 
-include::requirements/sampling/req_canonical_collection.adoc[]
+include::../requirements/sampling/req_canonical_collection.adoc[]
 
 
 === Feature Collections
 
 `Sampling Feature` collections are identified with the feature type `sosa:Sample`.
 
-include::requirements/sampling/req_collections_type.adoc[]
+include::../requirements/sampling/req_collections_type.adoc[]
 
 In addition to the default (mandatory) collection containing all sampling features, `Sampling Feature` resources can also be grouped into collections according to any arbitrary criteria. Any number of feature collections containing `Sampling Features` can be available at a CS API endpoint.
 
-include::requirements/sampling/req_collections_others.adoc[]
+include::../requirements/sampling/req_collections_others.adoc[]
 
 [example%unnumbered]
 ====

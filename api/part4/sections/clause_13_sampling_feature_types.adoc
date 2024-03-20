@@ -14,7 +14,7 @@ See the <<clause-encodings,Encoding Requirements Classes>> for examples of `Samp
 === Requirements Class "Spatial Sampling Features"
 
 ==== Overview
-include::requirements/sampling/requirements_class_sampling_spatial.adoc[]
+include::../requirements/sampling/requirements_class_sampling_spatial.adoc[]
 
 `Spatial Sampling Features` are generic sampling features with a sampling location or geometry, in one, two or three dimensions. They are used when no physical sample is collected and observations are made directly on a spatial subset of the sampled feature (e.g. an in-situ measurement station, a profile through a gaseous or liquid medium, an image footprint, etc.). The original model for these feature types is defined as part of <<OGC-OM, Observations and Measurements v2.0>>.
 
@@ -136,7 +136,7 @@ part:: When the `datetime` parameter is set to a time period, the server SHALL r
 === Requirements Class "Specimen Features"
 
 ==== Overview
-include::requirements/sampling/requirements_class_sampling_specimen.adoc[]
+include::../requirements/sampling/requirements_class_sampling_specimen.adoc[]
 
 A `Specimen Feature` respresents a physical sample, obtained for observation(s) carried out ex-situ, sometimes in a laboratory.
 
@@ -205,7 +205,7 @@ The attributes of this class are recalled below:
 // === Requirements Class "Material Sample"
 
 // ==== Overview
-// include::requirements/sampling/requirements_class_sampling_specimen.adoc[]
+// include::../requirements/sampling/requirements_class_sampling_specimen.adoc[]
 
 // A `Material Sample` respresents a physical sample of a feature of interest, obtained for observation(s) carried out ex-situ, sometimes in a laboratory.
 
@@ -254,7 +254,7 @@ The attributes of this class are recalled below:
 === Requirements Class "Statistical Sample"
 
 ==== Overview
-include::requirements/sampling/requirements_class_sampling_statistical.adoc[]
+include::../requirements/sampling/requirements_class_sampling_statistical.adoc[]
 
 A `StatisticalSample` is a statistical subset of a feature-of-interest, defined for the purpose of creating observation(s).
 
@@ -311,7 +311,7 @@ The attributes of this class are recalled below:
 === Requirements Class "Feature Parts"
 
 ==== Overview
-include::requirements/sampling/requirements_class_sampling_feature_part.adoc[]
+include::../requirements/sampling/requirements_class_sampling_feature_part.adoc[]
 
 `Feature Parts` are used to clearly identify the part of a feature that is being observed or controlled within a larger feature. They are useful to provide more details about the sampling or control point when the part is not itself already described as a feature object. 
 
@@ -377,7 +377,7 @@ NOTE: The `partId` can refer to the manufacturer nomenclature or to the object I
 === Requirements Class "Parametric Sampling Features"
 
 ==== Overview
-include::requirements/sampling/requirements_class_sampling_parametric.adoc[]
+include::../requirements/sampling/requirements_class_sampling_parametric.adoc[]
 
 Parametric sampling features are special kinds of spatial sampling features whose geometry is defined implicitely by a certain number of parameters, rather than by vertex coordinates. These parameters include extrinsic parameters defining the pose of the feature relative to a coordinate frame of reference (outer frame), and intrinsic parameters defining the shape of the feature in its own coordinate frame (inner frame).
 
@@ -449,7 +449,7 @@ When an LTP coordinate frame is used, the location property of the sampling feat
 === Requirements Class "Relative Sampling Point"
 
 ==== Overview
-include::requirements/sampling/requirements_class_sampling_relative_point.adoc[]
+include::../requirements/sampling/requirements_class_sampling_relative_point.adoc[]
 
 The `Relative Sampling Point` class allows to define a sampling point relatively to a cartesian reference frame.
 
@@ -496,7 +496,7 @@ The `pose` attribute SHALL contain the . It SHALL not contain any orientation in
 === Requirements Class "Sampling Sphere"
 
 ==== Overview
-include::requirements/sampling/requirements_class_sampling_sphere.adoc[]
+include::../requirements/sampling/requirements_class_sampling_sphere.adoc[]
 
 ==== Feature Type
 
@@ -541,7 +541,7 @@ part:: All attributes marked as `Required` SHALL be present on an instance of th
 === Requirements Class "Sampling Profile"
 
 ==== Overview
-include::requirements/sampling/requirements_class_sampling_profile.adoc[]
+include::../requirements/sampling/requirements_class_sampling_profile.adoc[]
 
 A `Sampling Profile` is used when measurements are taken at various distances along a straight line, at regular or irregular intervals. 
 
@@ -609,7 +609,7 @@ image::./figures/FIG003-sampling-profile.png[sampling-profile, align="center"]
 === Requirements Class "Viewing Frustum"
 
 ==== Overview
-include::requirements/sampling/requirements_class_viewing_frustum.adoc[]
+include::../requirements/sampling/requirements_class_viewing_frustum.adoc[]
 
 `Viewing Frustums` are used to model the sampling volume of remote sensors, such as (pinhole) cameras and other kinds of imagers. For an optical sensor, the viewing frustum contains the extent of the observable world that is visible within its field of view.
 
@@ -687,7 +687,7 @@ image::./figures/FIG005-conical-frustum.png[conical-frustum, align="center"]
 === Requirements Class "Spherical Sector"
 
 ==== Overview
-include::requirements/sampling/requirements_class_sampling_spherical_sector.adoc[]
+include::../requirements/sampling/requirements_class_sampling_spherical_sector.adoc[]
 
 A `Spherical Sectors` is a 3D sampling feature whose geometry is defined as a part of a sphere. `Spherical Sectors` are often used to model the area that is viewable by a remote sensor or reachable by an actuator.
 

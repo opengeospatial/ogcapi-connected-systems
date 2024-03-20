@@ -3,7 +3,7 @@
 == Requirements Class "Subsystems"
 
 === Overview
-include::requirements/subsystem/requirements_class_system_components.adoc[]
+include::../requirements/subsystem/requirements_class_system_components.adoc[]
 
 Describing complex systems in terms of a hierarchy of components (or subsystems) is often useful. The "Subsystems" requirements class specifies how such hierarchical systems are described and made discoverable in an implementation of the CS API Standard.
 
@@ -68,13 +68,13 @@ Since subsystems are also `System` resources, they are required to have a canoni
 
 Subsystems are accessible as sub-resources of their parent system.
 
-include::requirements/subsystem/req_subcollection.adoc[]
+include::../requirements/subsystem/req_subcollection.adoc[]
 
 Some systems have interchangeable components (e.g. UAV platform carrying different sensors at different times). These interchangeable components are often called "payloads". The best way to describe this is by creating a new `Deployment` resource every time the components are changed (the deployment description allows one to explicitly list which payloads are mounted on a platform during a given time period).
 
 For consistency, it is recommended that the server also includes these changing components in the subsystem collection, in accordance with the time provided by the `datetime` query parameter.
 
-include::requirements/subsystem/req_subcollection_time.adoc[]
+include::../requirements/subsystem/req_subcollection_time.adoc[]
 
 
 === Recursive Search
@@ -85,15 +85,15 @@ Likewise, when listing a system's sub-resources (i.e. subsystems, sampling featu
 
 The `recursive` query parameter changes the default behavior by instructing the server to recurse through the system tree to process all subsystems (at all levels below the current level).
 
-include::requirements/subsystem/req_recursive_param.adoc[]
+include::../requirements/subsystem/req_recursive_param.adoc[]
 
-include::requirements/subsystem/req_recursive_search_systems.adoc[]
+include::../requirements/subsystem/req_recursive_search_systems.adoc[]
 
-include::requirements/subsystem/req_recursive_search_subsystems.adoc[]
+include::../requirements/subsystem/req_recursive_search_subsystems.adoc[]
 
-include::requirements/subsystem/req_recursive_search_samplingfeatures.adoc[]
+include::../requirements/subsystem/req_recursive_search_samplingfeatures.adoc[]
 
-include::requirements/subsystem/req_recursive_search_datastreams.adoc[]
+include::../requirements/subsystem/req_recursive_search_datastreams.adoc[]
 
-include::requirements/subsystem/req_recursive_search_controlstreams.adoc[]
+include::../requirements/subsystem/req_recursive_search_controlstreams.adoc[]
 

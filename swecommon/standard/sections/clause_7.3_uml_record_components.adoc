@@ -1,7 +1,7 @@
 [[uml_record_components]]
 === Requirements Class: Record Components Package
 
-include::requirements/uml/record_components/requirements_class.adoc[]
+include::../requirements/uml/record_components/requirements_class.adoc[]
 
 As detailed in the following clauses, this package defines classes modeling record style component types that can be nested to build complex structures from the simple component types introduced in <<uml_simple_components>>.
 
@@ -10,7 +10,7 @@ The classes defined in this package are “DataRecord” and “Vector” (other
 .Record Data Components
 image::figures/fig7.24.png[]
 
-include::requirements/uml/record_components/requirement1.adoc[]
+include::../requirements/uml/record_components/requirement1.adoc[]
 
 As with simple component types, all data aggregates inherit attributes from the “AbstractDataComponent” class. In this case, however, these attributes provide information about the group as a whole rather than its individual components.
 
@@ -42,7 +42,7 @@ The “DataRecord” class derives from the “AbstractDataComponent” class, w
 
 Each “field” attribute can take an instance of any concrete sub-class of “AbstractDataComponent”, which is the superset of all data component types defined in this standard. The name of each field must be unique within a given “DataRecord” instance so that it can be used as a key to uniquely identify and/or index each one of the record components.
 
-include::requirements/uml/record_components/requirement2.adoc[]
+include::../requirements/uml/record_components/requirement2.adoc[]
 
 [example%unnumbered]
 ====
@@ -70,7 +70,7 @@ image::figures/fig7.26.png[]
 
 Just like record fields, vector coordinates must have a unique name:
 
-include::requirements/uml/record_components/requirement3.adoc[]
+include::../requirements/uml/record_components/requirement3.adoc[]
 
 *Reference Frame*
 
@@ -78,15 +78,15 @@ This class contains a mandatory “referenceFrame” attribute that identifies t
 
 The “referenceFrame” attribute is inherited by all components of the “Vector”, so that it shall not be redefined for each coordinate. However the “axisID” attribute shall be specified for each coordinate, in order to unambiguously indicate what axis of the reference frame it corresponds to.
 
-include::requirements/uml/record_components/requirement4.adoc[]
+include::../requirements/uml/record_components/requirement4.adoc[]
 
-include::requirements/uml/record_components/requirement5.adoc[]
+include::../requirements/uml/record_components/requirement5.adoc[]
 
 *Local Frame*
 
 The optional “localFrame” attribute allows identifying the frame of interest, that is to say the frame we are positioning with the coordinate values associated to this component (by opposition to the “referenceFrame” that specifies the frame with respect to which the values of the coordinates are expressed). 
 
-include::requirements/uml/record_components/requirement6.adoc[]
+include::../requirements/uml/record_components/requirement6.adoc[]
 
 Correctly identifying the local and reference frame is an important feature that allows chaining several relative positions, something that is essential to correctly compute accurate position of sensor data (especially remote sensing data).
 

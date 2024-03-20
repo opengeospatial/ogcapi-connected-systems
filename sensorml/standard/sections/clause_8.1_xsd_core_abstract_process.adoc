@@ -1,10 +1,10 @@
 [[xsd_core_abstract_process]]
 === Requirements Class: Core Abstract Process Schema
-include::requirements/xml/coreProcess/requirements_class.adoc[]
+include::../requirements/xml/coreProcess/requirements_class.adoc[]
 
 XML Schema elements and types defined in the “core.xsd” schema file implements all classes defined in the “Core Abstract Process” UML package.
 
-include::requirements/xml/coreProcess/requirement1.adoc[]     
+include::../requirements/xml/coreProcess/requirement1.adoc[]     
 
 ==== General XML Principles
 
@@ -53,7 +53,7 @@ An object within an external document can also be referenced by including the fu
 
 Typically, "xlink" references will be specified as resolvable URLs. It is required that the property has either the "xlink:href" attribute set or contain an inline value, even though this cannot be enforced by XML schema.
 
-include::requirements/xml/coreProcess/requirement2.adoc[]
+include::../requirements/xml/coreProcess/requirement2.adoc[]
 
 
 As later specified, further requirements may be placed on the use of objects reference by xlink. This includes in some case, the use of both xlink:href to provide a resolvable link to the object’s description as well as the use of an xlink:title to provide the uniqueID of the object. Particular properties may also require the application of xlink:role or xlink:arcrole to provide the absolute and relative role of the object, respectively.
@@ -68,15 +68,15 @@ The recommended way of extending the XML schema of this standard is to define ne
 
 In any case, all extensions of the XML schema described in this standard shall be defined in a new namespace (other than the namespaces used by this standard and its dependencies) in order to allow easy detection of extensions by implementations.
 
-include::requirements/xml/coreProcess/requirement3.adoc[]
+include::../requirements/xml/coreProcess/requirement3.adoc[]
 
 Extensions are not allowed to change the meaning or behavior of elements and types defined by this standard in any way (in this case, new classes or properties shall me defined). This guarantees that implementations that have no knowledge of an extension can still properly use XML instances containing these extensions.
 
-include::requirements/xml/coreProcess/requirement4.adoc[]
+include::../requirements/xml/coreProcess/requirement4.adoc[]
 
 The execution of the process should not depend on information contained within an extension. Data values required for process execution must be provided within the input, output, and parameter properties, and within the SensorML and SWE Common Data namespace elements (i.e., sml and swe, respectively), and cannot exclusively be contained in the extension classes.
 
-include::requirements/xml/coreProcess/requirement5.adoc[]
+include::../requirements/xml/coreProcess/requirement5.adoc[]
 
 Note that extension points are also supported by the SWE Common Data specification such that community-specific XML elements can be added to any property value that uses a SWE Common data type element as its value. Common anticipated applications of property-specific extension points include security tagging of individual properties and community-specific quality control characterization of property values.
 
@@ -107,9 +107,9 @@ The header for all specified schema provides namespaces and dependencies. The he
 
  
 
-include::requirements/xml/coreProcess/requirement6.adoc[]
+include::../requirements/xml/coreProcess/requirement6.adoc[]
 
-include::requirements/xml/coreProcess/requirement7.adoc[]
+include::../requirements/xml/coreProcess/requirement7.adoc[]
 
 Several base abstract types are defined in the SWE Common Data standard are used for derivation of elements within this SensorML specification. These are defined in the “swe” namespace and defined in: http://schemas.opengis.net/sweCommon/2.0/basic_types.xsd
 
@@ -382,7 +382,7 @@ An example of the name property is given below:
 
 This specification reserves the gml:identifier, inherited from gml:AbstractFeature, as a means of providing a unique identifier for the DescribedObject. This unique identifier should be referenced in any other specification that involves this object, thereby providing a means of searching for all references to this object.
 
-include::requirements/xml/coreProcess/requirement8.adoc[]
+include::../requirements/xml/coreProcess/requirement8.adoc[]
 
 The value of the gml:identifier can be a URI (e.g., URL or URN) or a series of string characters that uniquely identify the object. An example of a globally unique identifier for a weather station is given below:
 
@@ -609,13 +609,13 @@ The securityConstraints property provides an overall security tagging for the ov
 
 Because various nations and other entities may have developed their own XML schema for supporting security tagging, the value of the securityConstraints property is provide as xs:any. Thus, like the extension property, the value of the securityConstraint property can be any XML, but this XML must be defined in a namespace other than those used in this standard.
 
-include::requirements/xml/coreProcess/requirement9.adoc[]
+include::../requirements/xml/coreProcess/requirement9.adoc[]
 
 ===== Note on Security Tagging Individual Properties
 
 It is often required or desireable that security tagging exists not only for the entire document but for individual property values as well. SensorML supports tagging of individual property values and lists through the extension property that is inherited by all elements derived from AbstractSWEType and AbstractSWEIdentifiableType.
 
-include::requirements/xml/coreProcess/requirement10.adoc[]
+include::../requirements/xml/coreProcess/requirement10.adoc[]
 
 ===== Valid Time Constraints
 
@@ -927,7 +927,7 @@ The XML snippet for the ContactList element and its corresponding complex types 
 
 A contact can have multiple roles for which it is responsible. What is of most interest in this standard is the role the responsible party plays relative to the object being described. Therefore, the role of the responsible party (e.g., manufacturer, expert, owner, etc.) shall be given by the xlink:arcrole attribute in the member property of the ContactList.
 
-include::requirements/xml/coreProcess/requirement11.adoc[]
+include::../requirements/xml/coreProcess/requirement11.adoc[]
 
 An example of a ContactList is shown below (note that the gmd schema requires a CharacterString element before the values of properties).
 
@@ -1329,7 +1329,7 @@ The typeOf property provides a reference to a base process from which this proce
 
 Two pieces of information required in order to reference a base process instance, the uniqueID of the process and a resolvable URL reference to the process description. These shall be provided by the xlink:title and xlink:href attributes, respectively.
 
-include::requirements/xml/coreProcess/requirement12.adoc[]
+include::../requirements/xml/coreProcess/requirement12.adoc[]
 
  
 
@@ -1392,7 +1392,7 @@ An example for a Feature-of-Interest list is given below. In this case, all feat
 
 To better understand the role that the feature of interest plays with regard to the process, the xlink:arcrole attribute of the feature property shall be used to specify this relationship. To aid in discovery, the unique ID or name of the feature shall be provided in the xlink:title attribute if it exists.
 
-include::requirements/xml/coreProcess/requirement13.adoc[]
+include::../requirements/xml/coreProcess/requirement13.adoc[]
 
 ===== Inputs, Outputs, and Parameters
 
@@ -1656,7 +1656,7 @@ The XML snippet defining ObservableProperty and its associated complex types is 
 
 The ObservableProperty element requires a URL as the value of its definition attribute, which shall resolve to a definition for the observable within an online dictionary or ontology.
 
-include::requirements/xml/coreProcess/requirement14.adoc[]
+include::../requirements/xml/coreProcess/requirement14.adoc[]
 
 An minimal example of the use of ObservableProperty as a value for an input property is given below:
 
@@ -1675,7 +1675,7 @@ SWE Common data types support the description and encoding of determined values,
 
 In addition to simple data types such as Quantity, Count, Boolean, Category, Time, and Text, SWE Common Data also supports several aggregate data types, such as DataRecord, DataArray, Vector, and Matrix. These allow appropriate grouping of data components, such as a DataRecord including an instantaneous snapshot of the atmosphere (e.g., temperature, pressure, wind direction, and wind speed), a DataArray providing the axes definitions and values for a calibration curve, a Vector providing the GPS location (e.g., latitude, longitude, and altitude) of a dynamic platform, or a Matrix providing the covariance of a set of measurements.
 
-include::requirements/xml/coreProcess/requirement15.adoc[]
+include::../requirements/xml/coreProcess/requirement15.adoc[]
 
 The following example for a wind chill calculation process uses only SWE Common Quantity elements for inputs and outputs. Note that the input fields are surrounded by a swe:DataRecord element since the temperature and wind speed fields express the condition of the environment at a given time instance.
 
@@ -1716,7 +1716,7 @@ The following example for a wind chill calculation process uses only SWE Common 
     </sml:outputs>
 ====
 
-include::requirements/xml/coreProcess/requirement16.adoc[]
+include::../requirements/xml/coreProcess/requirement16.adoc[]
 
 An example of position output provided as output of a system is given below. This example uses both Vector and DataRecord elements to group the fields appropriately.
 
@@ -2015,7 +2015,7 @@ Since SWE Common also supports binary encodings, the same sensor system could de
        </sml:output>
 ==== 
 
-include::requirements/xml/coreProcess/requirement17.adoc[]
+include::../requirements/xml/coreProcess/requirement17.adoc[]
 
 Using the SWE Common Data element, DataChoice, it is also possible to define and stream a collection of disparate packets within the same DataStream. According to the SWE Common Data specification, the structure of each packet shall be defined as a separate item within the DataChoice object. The subsequent values of each packet shall  be preceded by the item name, as in the example XML and data stream below:
 
@@ -2093,7 +2093,7 @@ With an example streaming values looking like:
 
 `WIND,2009-05-23T19:38:16Z,58.4,225.1` 
 
-include::requirements/xml/coreProcess/requirement18.adoc[]
+include::../requirements/xml/coreProcess/requirement18.adoc[]
 
 In addition to online interfaces to data, DataInterface can also support physical interfaces such as RS232 or USB. In such cases, the value property is ignored, and the interfaceParameters property of the DataInterface element shall be used to specify the interface characteristics.
 

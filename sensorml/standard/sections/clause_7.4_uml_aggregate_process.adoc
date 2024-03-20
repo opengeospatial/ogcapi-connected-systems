@@ -1,17 +1,17 @@
 [[uml_aggregate_process]]
 === Requirements Class: Aggregate Process
-include::requirements/model/aggregateProcess/requirements_class.adoc[]
+include::../requirements/model/aggregateProcess/requirements_class.adoc[]
 
 An aggregate process is derived from abstract process model, as presented in Clause 7.2.
 
-include::requirements/model/aggregateProcess/requirement1.adoc[]
-include::requirements/model/aggregateProcess/requirement2.adoc[]
+include::../requirements/model/aggregateProcess/requirement1.adoc[]
+include::../requirements/model/aggregateProcess/requirement2.adoc[]
 
 ==== Aggregate Process Definition
 An aggregate process is a collection of autonomous component processes with an explicit mapping of the data flow between these processes. Components of an aggregate process can be simple processes (i.e., atomic) or be aggregate process themselves. Aggregate processes can include both physical and non-physical (i.e., logical) components.
 
-include::requirements/model/aggregateProcess/requirement3.adoc[]
-include::requirements/model/aggregateProcess/requirement4.adoc[]
+include::../requirements/model/aggregateProcess/requirement3.adoc[]
+include::../requirements/model/aggregateProcess/requirement4.adoc[]
 
 In SensorML, an aggregate process is agnostic to the execution engine that may perform the actual execution of individual sub-processes and manage the execution sequencing and the flow of data between the components. Also, while it is possible in SensorML to more explicitly define the data encoding if desired by using the encoding specifications defined in the SWE Common Data Specification, SensorML is typically agnostic to the protocol and format of data flowing between logical processes.
 

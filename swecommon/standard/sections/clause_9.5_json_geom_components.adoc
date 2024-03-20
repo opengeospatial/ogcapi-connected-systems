@@ -1,7 +1,7 @@
 [[json_geom_components]]
 === Requirements Class: Geometry Components JSON Schema
 
-include::requirements/json/geom_components/requirements_class.adoc[]
+include::../requirements/json/geom_components/requirements_class.adoc[]
 
 
 [[json_geometry_obj]]

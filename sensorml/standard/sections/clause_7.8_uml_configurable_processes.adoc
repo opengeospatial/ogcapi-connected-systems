@@ -1,6 +1,6 @@
 [[uml_configurable_processes]]
 === Requirements Class: Configurable Processes
-include::requirements/model/configurableProcess/requirements_class.adoc[]
+include::../requirements/model/configurableProcess/requirements_class.adoc[]
 
 Many processes, both physical and non-physical, are configurable in that they provide one with the ability to set parameters values, enable options, or select modes before or during execution/operation. Thus a general configurable process can be defined and published specifying allowed values for parameters, modes that can be selected, and options that can be enabled or disabled.
 
@@ -8,8 +8,8 @@ A specific process that inherits from this general process can then refine the p
 
 In this document, we will refer to the more general process as the “configurable process”, and the more specific process that inherits from it, as the “configured process”.
 
-include::requirements/model/configurableProcess/requirement1.adoc[]
-include::requirements/model/configurableProcess/requirement2.adoc[]
+include::../requirements/model/configurableProcess/requirement1.adoc[]
+include::../requirements/model/configurableProcess/requirement2.adoc[]
 
 A process shall be considered “configurable” if it provides options, variable parameters, or modes that can be selected or set before or during deployment or execution.
 
@@ -43,7 +43,7 @@ A configurable process can but is not required to contain one or more modes prop
 
 ModeChoice shall include two or more mode properties that take Mode as their value. In addition to metadata provided by the base DescribedObject class, Mode includes a configuration property that allows one to define a collection of settings for that mode.
 
-include::requirements/model/configurableProcess/requirement3.adoc[]
+include::../requirements/model/configurableProcess/requirement3.adoc[]
 
 [[modes]]
 .Model for Modes
@@ -58,7 +58,7 @@ The configuration property and it Settings value can be utilized in two cases:
 
 * as a required property within a configured process for setting one or more configurable properties
 
-include::requirements/model/configurableProcess/requirement4.adoc[]
+include::../requirements/model/configurableProcess/requirement4.adoc[]
 
 The Settings class is shown in <<modes>> with its possible property values shown in <<configured_process_settings>>. For all settings, the property in the configurable process is specified by the DataComponentPath reference. 
 
@@ -68,9 +68,9 @@ Within the Settings class, one may (a) set particular values for parameters, (b)
 .Model for Configured Process Settings
 image::figures/configured_process_settings.png[]
 
-include::requirements/model/configurableProcess/requirement5.adoc[]
-include::requirements/model/configurableProcess/requirement6.adoc[]
-include::requirements/model/configurableProcess/requirement7.adoc[]
+include::../requirements/model/configurableProcess/requirement5.adoc[]
+include::../requirements/model/configurableProcess/requirement6.adoc[]
+include::../requirements/model/configurableProcess/requirement7.adoc[]
 
 [[]]
 .Model for Settings Elements 

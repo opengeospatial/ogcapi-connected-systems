@@ -1,13 +1,13 @@
 [[json_simple_components]]
 === Requirements Class: Basic Types and Simple Components JSON Schemas
 
-include::requirements/json/simple_components/requirements_class.adoc[]
+include::../requirements/json/simple_components/requirements_class.adoc[]
 
 Validation patterns that implement all classes defined respectively in the “Basic Types” and “Simple Components” UML packages are provided as JSON schema files at {jsonschema-base-url}.
 
 The entry point schema used for validation is {jsonschema-base-url}/sweCommon.json[“sweCommon.json”].
 
-include::requirements/json/simple_components/requirement1.adoc[]
+include::../requirements/json/simple_components/requirement1.adoc[]
 
 
 ==== General JSON Principles
@@ -30,7 +30,7 @@ The following rules were used when generating the JSON schemas:
 
 JSON does not define special decimal values for 'Not a Number', positive infinity and negative infinity. It is thus necessary to encode them as strings.
 
-include::requirements/json/simple_components/requirement2.adoc[]
+include::../requirements/json/simple_components/requirement2.adoc[]
 
 [NOTE]
 ====
@@ -44,7 +44,7 @@ These values also correspond to infinities and NaN values defined in <<IEEE754>>
 
 // Links are represented by a link object that is modeled on the <<WebLinking>> standard.
 
-// include::requirements/json/simple_components/requirement3.adoc[]
+// include::../requirements/json/simple_components/requirement3.adoc[]
 
 
 ==== Abstract Base Classes
@@ -55,9 +55,9 @@ The three abstract base classes defined in the UML models are implemented by the
 - {jsonschema-base-url}/AbstractDataComponent.json[AbstractDataComponent.json]
 - {jsonschema-base-url}/AbstractSimpleComponent.json[AbstractSimpleComponent.json]
 
-include::requirements/json/simple_components/requirement4.adoc[]
+include::../requirements/json/simple_components/requirement4.adoc[]
 
-include::requirements/json/simple_components/requirement5.adoc[]
+include::../requirements/json/simple_components/requirement5.adoc[]
 
 
 [[json_boolean_obj]]
@@ -153,7 +153,7 @@ Constraints on a “Quantity” representation are expressed using the <<json_al
 
 The unit of measure is defined using either a URI or a code expressed using the Unified Code for Units of Measure (<<UCUM>>) standard.
 
-include::requirements/json/simple_components/requirement6.adoc[]
+include::../requirements/json/simple_components/requirement6.adoc[]
 
 The following snippets show how “Quantity” components are used to define various (observable or controllable) properties with continuous decimal representations:
 
@@ -182,7 +182,7 @@ Constraints on a “Time” representation are expressed using the <<json_allowe
 
 The unit of measure is defined using either a URI or a code expressed using the Unified Code for Units of Measure (<<UCUM>>) standard. When the temporal property is provided in the <<ISO8601>> format, this is indicated by using a specific URI.
 
-include::requirements/json/simple_components/requirement7.adoc[]
+include::../requirements/json/simple_components/requirement7.adoc[]
 
 The following snippets show how “Time” components are used to define various temporal properties, with different time scales:
 

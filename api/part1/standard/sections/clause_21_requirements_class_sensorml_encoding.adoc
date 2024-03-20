@@ -6,7 +6,7 @@
 
 ==== Overview
 
-include::requirements/encoding/sensorml/requirements_class_sensorml.adoc[]
+include::../requirements/encoding/sensorml/requirements_class_sensorml.adoc[]
 
 The "SensorML Format" requirements class specifies how resources defined by the CS API Standard are encoded using the <<OGC-SML-JSON, SensorML JSON>> format.
 

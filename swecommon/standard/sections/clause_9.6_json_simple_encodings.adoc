@@ -1,7 +1,7 @@
 [[json_simple_encodings]]
 === Requirements Class: Simple Encodings JSON Schema
 
-include::requirements/json/simple_encodings/requirements_class.adoc[]
+include::../requirements/json/simple_encodings/requirements_class.adoc[]
 
 Validation patterns that implement classes defined respectively in the “Simple Encodings” UML packages are provided in the JSON schema {jsonschema-base-url}/encodings.json[encodings.json].
 

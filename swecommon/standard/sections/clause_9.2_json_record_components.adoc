@@ -1,7 +1,7 @@
 [[json_record_components]]
 === Requirements Class: Record Components JSON Schema
 
-include::requirements/json/record_components/requirements_class.adoc[]
+include::../requirements/json/record_components/requirements_class.adoc[]
 
 
 [[json_datarecord_obj]]

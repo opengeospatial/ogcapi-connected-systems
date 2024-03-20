@@ -3,7 +3,7 @@
 == Requirements Class "Subdeployments"
 
 === Overview
-include::requirements/subdeployment/requirements_class_subdeployments.adoc[]
+include::../requirements/subdeployment/requirements_class_subdeployments.adoc[]
 
 Describing complex deployments in terms of a hierarchy of deployments is often useful. This requirements class specifies how such hierarchical deployments are described and made discoverable using the CS API Standard.
 
@@ -47,7 +47,7 @@ Since subdeployments are also `Deployment` resources, they are required to have 
 
 Subdeployments are accessible as sub-resources of their parent deployment.
 
-include::requirements/subdeployment/req_subcollection.adoc[]
+include::../requirements/subdeployment/req_subcollection.adoc[]
 
 
 === Recursive Search
@@ -58,17 +58,17 @@ Likewise, when listing a deployment's sub-resources (i.e. deployed systems featu
 
 The `recursive` query parameter changes the default behavior by instructing the server to recurse through the deployment tree to process all subdeployments (at all levels below the current level).
 
-include::requirements/subdeployment/req_recursive_param.adoc[]
+include::../requirements/subdeployment/req_recursive_param.adoc[]
 
-include::requirements/subdeployment/req_recursive_search_deployments.adoc[]
+include::../requirements/subdeployment/req_recursive_search_deployments.adoc[]
 
-include::requirements/subdeployment/req_recursive_search_subdeployments.adoc[]
+include::../requirements/subdeployment/req_recursive_search_subdeployments.adoc[]
 
-include::requirements/subdeployment/req_recursive_search_deployedsystems.adoc[]
+include::../requirements/subdeployment/req_recursive_search_deployedsystems.adoc[]
 
-include::requirements/subdeployment/req_recursive_search_fois.adoc[]
+include::../requirements/subdeployment/req_recursive_search_fois.adoc[]
 
-include::requirements/subdeployment/req_recursive_search_datastreams.adoc[]
+include::../requirements/subdeployment/req_recursive_search_datastreams.adoc[]
 
-include::requirements/subdeployment/req_recursive_search_controlstreams.adoc[]
+include::../requirements/subdeployment/req_recursive_search_controlstreams.adoc[]
 

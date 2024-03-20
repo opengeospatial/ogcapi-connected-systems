@@ -1,11 +1,11 @@
 [[uml_geom_components]]
 === Requirements Class: Geometry Components Package
 
-include::requirements/uml/geom_components/requirements_class.adoc[]
+include::../requirements/uml/geom_components/requirements_class.adoc[]
 
 This package defines an additional component for representing simple feature geometries, as defined by <<OGC_SFA>>, within an encoded SWE Common data block or stream.
 
-include::requirements/uml/geom_components/requirement1.adoc[]
+include::../requirements/uml/geom_components/requirement1.adoc[]
 
 
 [[uml_geometry_class]]
@@ -21,7 +21,7 @@ image::figures/fig7.36.png[]
 
 The “crs” attribute provides the URI of the coordinate reference system w.r.t which the geometry coordinates are expressed. The unit of the coordinates is also provided by the coordinate reference system.
 
-include::requirements/uml/geom_components/requirement2.adoc[]
+include::../requirements/uml/geom_components/requirement2.adoc[]
 
 
 *Constraints*
@@ -33,7 +33,7 @@ The “constraint” attribute is used to restrict the possible geometries that 
 
 The value of this component must be a geometry instance, whether it's provided inline using the “value” attribute, or as part of a datastream.
 
-include::requirements/uml/geom_components/requirement3.adoc[]
+include::../requirements/uml/geom_components/requirement3.adoc[]
 
 
 [NOTE]

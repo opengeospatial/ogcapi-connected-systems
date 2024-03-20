@@ -1,11 +1,11 @@
 [[xsd_geom_components]]
 === Requirements Class: Geometry Components XML Schema
 
-include::requirements/xsd/geom_components/requirements_class.adoc[]
+include::../requirements/xsd/geom_components/requirements_class.adoc[]
 
 XML Schema elements and types defined in the “geom_components.xsd” schema implement all classes defined in the Geometry Components” UML packages. 
 
-include::requirements/xsd/geom_components/requirement1.adoc[]
+include::../requirements/xsd/geom_components/requirement1.adoc[]
 
 
 [[xsd_geometry_elt]]

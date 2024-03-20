@@ -1,10 +1,10 @@
 [[xsd_physical_component]]
 === Requirements Class: Physical Component Schema
-include::requirements/xml/physicalComponent/requirements_class.adoc[]
+include::../requirements/xml/physicalComponent/requirements_class.adoc[]
 
 XML Schema elements and types defined in the “physical_component.xsd” schema file implement all classes defined respectively in the “physicalComponent” UML package defined in Clause 7.6.
 
-include::requirements/xml/physicalComponent/requirement1.adoc[]
+include::../requirements/xml/physicalComponent/requirement1.adoc[]
 
 The following XML snippet provides the appropriate header and import statements for the physical_component.xsd:
 
@@ -106,12 +106,12 @@ AbstractPhysicalProcess element adds the following properties to the AbstractPro
 
 The attachedTo property provides a reference to either a PhysicalComponent or PhysicalSystem. It provides a means for an attached component to reference back to the component or system to which it is attached. This is particularly useful when the movement of the parent affects the movement of the component.
 
-include::requirements/xml/physicalComponent/requirement2.adoc[]
+include::../requirements/xml/physicalComponent/requirement2.adoc[]
 
 
 The same rules shall apply as those for component references stated earlier.
 
-include::requirements/xml/physicalComponent/requirement3.adoc[]
+include::../requirements/xml/physicalComponent/requirement3.adoc[]
 
  
 ===== Local Reference Frame
@@ -305,7 +305,7 @@ As an alternative to using the gml:Point, a static location can also be provided
 
 Position is defined here as consisting of both location and orientation. A static position shall be provided using a swe:DataRecord consisting of twoswe:Vector elements, one for location and one for orientation.
 
-include::requirements/xml/physicalComponent/requirement4.adoc[]
+include::../requirements/xml/physicalComponent/requirement4.adoc[]
 
  An example of location and orientation defined for the position is shown below:
 
@@ -365,12 +365,12 @@ include::requirements/xml/physicalComponent/requirement4.adoc[]
 
 For components moving within an external reference frame, the state of the component through time shall be expressed using a swe:DataArray or process (described in the following section).
 
-include::requirements/xml/physicalComponent/requirement5.adoc[]
+include::../requirements/xml/physicalComponent/requirement5.adoc[]
 
  
 The data array shall describe the time-dependent state of the physical component as appropriate and may include location, orientation, linear and angular velocity, and linear and angular acceleration.
 
-include::requirements/xml/physicalComponent/requirement6.adoc[]
+include::../requirements/xml/physicalComponent/requirement6.adoc[]
 
 An example of dynamic position being defined as a trajectory is shown below. In this example the values for the location are provided inline within the DataArray element.
 
@@ -492,7 +492,7 @@ Finally, if part of the physical process (e.g., a sensor system) outputs its own
 
 With dynamic sensor systems, it is often necessary or more efficient to calculate position or dynamic state as-needed, on-demand or to retrieve position values from a web service as-needed.
 
-include::requirements/xml/physicalComponent/requirement7.adoc[]
+include::../requirements/xml/physicalComponent/requirement7.adoc[]
 
 The following example shows a configured SimpleProcess that calculates position on-demand using an orbital mechanics model. The process takes time as input and provides dynamic state as output. The example utilizes a configurable process to be discussed in a later section.
 

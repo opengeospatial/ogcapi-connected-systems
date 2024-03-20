@@ -1,11 +1,11 @@
 [[xsd_choice_components]]
 === Requirements Class: Choice Components XML Schema
 
-include::requirements/xsd/choice_components/requirements_class.adoc[]
+include::../requirements/xsd/choice_components/requirements_class.adoc[]
 
 XML Schema elements and types defined in the “choice_components.xsd” schema implement all classes defined in the “Choice Components” UML packages. 
 
-include::requirements/xsd/choice_components/requirement1.adoc[]
+include::../requirements/xsd/choice_components/requirement1.adoc[]
 
 
 [[xsd_datachoice_elt]]

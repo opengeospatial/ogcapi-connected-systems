@@ -3,7 +3,7 @@
 == Requirements Class "System Features"
 
 === Overview
-include::requirements/system/requirements_class_system_features.adoc[]
+include::../requirements/system/requirements_class_system_features.adoc[]
 
 The "System Features" requirements class specifies how system descriptions are provided using the CS API.
 
@@ -112,34 +112,34 @@ NOTE: Deployments can be used to document how different types of systems are use
 
 It is recommended that the `System` resource representation includes the location of the system. If the implementation decides to report the location, it must be done according to the optional `datetime` request parameter.
 
-include::requirements/system/req_location.adoc[]
+include::../requirements/system/req_location.adoc[]
 
-include::requirements/system/req_location_time.adoc[]
+include::../requirements/system/req_location_time.adoc[]
 
 
 === Canonical URL
 
 The CS API Standard requires that a `System` resource has a canonical URL through which it can be retrieved independently of its membership to any collection.
 
-include::requirements/system/req_canonical_url.adoc[]
+include::../requirements/system/req_canonical_url.adoc[]
 
 
 === Root Collection
 
 A root collection where all `System` resources can be searched must be available at a CS API endpoint.
 
-include::requirements/system/req_canonical_collection.adoc[]
+include::../requirements/system/req_canonical_collection.adoc[]
 
 
 === Feature Collections
 
 `System` feature collections are identified with the feature type `system`.
 
-include::requirements/system/req_collections_type.adoc[]
+include::../requirements/system/req_collections_type.adoc[]
 
 `System` resources can be grouped into collections according to any arbitrary criteria. Any number of feature collections containing `System` features can be available at a CS API endpoint.
 
-include::requirements/system/req_collections_others.adoc[]
+include::../requirements/system/req_collections_others.adoc[]
 
 
 [example%unnumbered]

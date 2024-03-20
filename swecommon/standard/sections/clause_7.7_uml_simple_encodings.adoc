@@ -1,7 +1,7 @@
 [[uml_simple_encodings]]
 === Requirements Class: Simple Encodings Package
 
-include::requirements/uml/simple_encodings/requirements_class.adoc[]
+include::../requirements/uml/simple_encodings/requirements_class.adoc[]
 
 Encoding methods describe how structured array and stream data is encoded into a low level byte stream (see related concepts in <<core_data_encoding>>). Once encoded as a sequence of bytes, the data can then be transmitted using various digital means such as files on a disk or network connections.
 
@@ -10,7 +10,7 @@ This package includes two classes that provide definitions of simple encoding me
 .Simple Encodings
 image::figures/fig7.32.png[]
 
-include::requirements/uml/simple_encodings/requirement1.adoc[]
+include::../requirements/uml/simple_encodings/requirement1.adoc[]
 
 All classes defining encoding methods derive from a common abstract class called “AbstractEncoding”. Extensions to this standard that define new encoding methods shall derive encoding classes from this abstract class.
 

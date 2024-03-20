@@ -1,10 +1,10 @@
 [[xsd_physical_system]]
 === Requirements Class: Physical System Schema
-include::requirements/xml/physicalSystem/requirements_class.adoc[]
+include::../requirements/xml/physicalSystem/requirements_class.adoc[]
 
 XML Schema elements and types defined in the “physical_system.xsd” schema file implement all classes defined respectively in the “physicalSystem” UML package defined in Clause 7.7.
 
-include::requirements/xml/physicalSystem/requirement1.adoc[]
+include::../requirements/xml/physicalSystem/requirement1.adoc[]
 
 The following XML snippet provides the appropriate header and import statements for the physical_component.xsd:
 

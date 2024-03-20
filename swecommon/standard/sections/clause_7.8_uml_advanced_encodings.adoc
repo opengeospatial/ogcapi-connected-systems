@@ -1,11 +1,11 @@
 [[uml_advanced_encodings]]
 === Requirements Class: Advanced Encodings Package
 
-include::requirements/uml/advanced_encodings/requirements_class.adoc[]
+include::../requirements/uml/advanced_encodings/requirements_class.adoc[]
 
 This package defines an additional encoding method for packaging sensor data as raw or base 64 binary blocks. When this package is implemented, the binary encoding method is usable, as any other encoding method, within the “DataArray” and “DataStream” classes.
 
-include::requirements/uml/advanced_encodings/requirement1.adoc[]
+include::../requirements/uml/advanced_encodings/requirement1.adoc[]
 
 
 [[uml_binaryencoding_class]]

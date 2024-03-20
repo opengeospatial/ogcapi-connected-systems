@@ -1,11 +1,11 @@
 [[encoding_rules_json]]
 === Requirements Class: JSON Encoding Rules
 
-include::requirements/encoding_rules/json/requirements_class.adoc[]
+include::../requirements/encoding_rules/json/requirements_class.adoc[]
 
 The “JSON Encoding” method encodes field values by their <<JSON,JSON>> representation.
 
-include::requirements/encoding_rules/json/requirement1.adoc[]
+include::../requirements/encoding_rules/json/requirement1.adoc[]
 
 The encoding rules defined in this document refer to JSON data types defined by <<JSON>>. Their definitions are recalled below:
 
@@ -22,7 +22,7 @@ The encoding rules defined in this document refer to JSON data types defined by 
 
 Scalar components are encoded as specified in <<json_value_types_mappings>>. Special numerical values allowed for “Quantity” and “Time” components are defined in <<json_special_numerical_values>>.
 
-include::requirements/encoding_rules/json/requirement2.adoc[]
+include::../requirements/encoding_rules/json/requirement2.adoc[]
 
 [[json_value_types_mappings]]
 .Simple Component to JSON Value Types Mapping
@@ -66,7 +66,7 @@ include::requirements/encoding_rules/json/requirement2.adoc[]
 
 A range component is encoded using a JSON array of two values.
 
-include::requirements/encoding_rules/json/requirement3.adoc[]
+include::../requirements/encoding_rules/json/requirement3.adoc[]
 
 .Range Component to JSON Mapping
 |===
@@ -94,9 +94,9 @@ include::requirements/encoding_rules/json/requirement3.adoc[]
 
 “DataRecord” components are encoded using a JSON Object whose members are named like the record fields.
 
-include::requirements/encoding_rules/json/requirement4.adoc[]
+include::../requirements/encoding_rules/json/requirement4.adoc[]
 
-include::requirements/encoding_rules/json/requirement5.adoc[]
+include::../requirements/encoding_rules/json/requirement5.adoc[]
 
 When a field has its 'optional' flag set to true, its value can be either omitted or set to the literal value `null`.
 
@@ -111,7 +111,7 @@ See the following examples:
 
 Values of “DataChoice” components are encoded using a JSON Object with a single member whose name is the name of the selected choice item.
 
-include::requirements/encoding_rules/json/requirement6.adoc[]
+include::../requirements/encoding_rules/json/requirement6.adoc[]
 
 See example: <<enc_json_choice_example,style=basic%>>
 
@@ -120,7 +120,7 @@ See example: <<enc_json_choice_example,style=basic%>>
 
 Values of “DataArray” and “Matrix” components are encoded using a JSON Array, containing as many elements as there are elements in the Array component.
 
-include::requirements/encoding_rules/json/requirement7.adoc[]
+include::../requirements/encoding_rules/json/requirement7.adoc[]
 
 See the following examples:
 
@@ -132,7 +132,7 @@ See the following examples:
 
 The value of a “Geometry” component is encoded using a GeoJSON Geometry object.
 
-include::requirements/encoding_rules/json/requirement8.adoc[]
+include::../requirements/encoding_rules/json/requirement8.adoc[]
 
 See example: <<enc_json_geom_example,style=basic%>>
 

@@ -1,7 +1,7 @@
 [[encoding_rules_xml]]
 === Requirements Class: XML Encoding Rules
 
-include::requirements/encoding_rules/xml/requirements_class.adoc[]
+include::../requirements/encoding_rules/xml/requirements_class.adoc[]
 
 The “XMLEncoding” method encodes field values by their text representation according to XML schema data type definitions and wraps them with XML tags carrying the name of the corresponding field. The hierarchy of components is fully represented by XML tags, which makes this encoding more verbose but also well suited for processing and validation with existing XML frameworks.
 
@@ -10,7 +10,7 @@ The “XMLEncoding” method encodes field values by their text representation a
 
 Each data component of the tree is represented by an XML element whose local name corresponds to the “name” attribute of the soft-typed property containing the component description. This property is most often “field”, “coordinate” or “elementType”, depending on the parent aggregate.
 
-include::requirements/encoding_rules/xml/requirement1.adoc[]
+include::../requirements/encoding_rules/xml/requirement1.adoc[]
 
 Scalar components are thus encoded by an XML element with a text value whereas aggregate components are encoded by an XML element itself containing sub-elements representing the aggregate’s children. The namespace URI and namespace prefix can be freely defined by the application but it is recommended that they are different from the namespace defined in this standard.
 
@@ -19,7 +19,7 @@ Scalar components are thus encoded by an XML element with a text value whereas a
 
 Scalar components are encoded by an XML element whose name corresponds to the soft-typed property containing the component.
 
-include::requirements/encoding_rules/xml/requirement2.adoc[]
+include::../requirements/encoding_rules/xml/requirement2.adoc[]
 
 Examples of scalar values encoded in XML are given below:
 
@@ -39,7 +39,7 @@ NIL values are included as the text content of the XML element representing scal
 
 Range components are encoded by an XML element whose name corresponds to the soft-typed property containing the component which itself contain two min/max elements carrying the range extreme values.
 
-include::requirements/encoding_rules/xml/requirement3.adoc[]
+include::../requirements/encoding_rules/xml/requirement3.adoc[]
 
 Let us consider the example of “TimeRange” below:
 
@@ -67,9 +67,9 @@ The component's values are encoded in XML as shown below:
 
 Aggregate components are encoded by using a parent element with the proper local name (see xref:/req/xml-encoding-rules/local-names-valid[]) to which elements for sub-components are appended (recursively). Elements normally corresponding to record fields marked as optional can be completely omitted since parsers can use element names to unambiguously know the ones that are missing.
 
-include::requirements/encoding_rules/xml/requirement4.adoc[]
+include::../requirements/encoding_rules/xml/requirement4.adoc[]
 
-include::requirements/encoding_rules/xml/requirement5.adoc[]
+include::../requirements/encoding_rules/xml/requirement5.adoc[]
 
 See the following examples:
 
@@ -81,7 +81,7 @@ See the following examples:
 
 “DataChoice” components are encoded by using a parent element whose local name (see xref:/req/xml-encoding-rules/local-names-valid[]) corresponds to the name of the selected choice item.
 
-include::requirements/encoding_rules/xml/requirement6.adoc[]
+include::../requirements/encoding_rules/xml/requirement6.adoc[]
 
 See example: <<enc_xml_choice_example,style=basic%>>
 
@@ -92,11 +92,11 @@ Block components are slightly different because they can either include the enco
 
 In the case of all “DataStream” instances or when the “DataArray” or “Matrix” includes its own encoded values, only the array elements are actually encoded within the “values” XML element. The two previous examples of this section illustrate this case.
 
-include::requirements/encoding_rules/xml/requirement7.adoc[]
+include::../requirements/encoding_rules/xml/requirement7.adoc[]
 
 When a “DataArray” or “Matrix” is nested in a parent block component (and thus does not encapsulate encoded values itself), array elements are encoded as defined above but are also wrapped in an element carrying the array name.
 
-include::requirements/encoding_rules/xml/requirement8.adoc[]
+include::../requirements/encoding_rules/xml/requirement8.adoc[]
 
 See example: <<enc_xml_profile_series_example,style=basic%>>
 
@@ -105,7 +105,7 @@ See example: <<enc_xml_profile_series_example,style=basic%>>
 
 The value of a “Geometry” component is encoded using <<OGC_GML_SFA,GML Simple Features Profile>>.
 
-include::requirements/encoding_rules/xml/requirement9.adoc[]
+include::../requirements/encoding_rules/xml/requirement9.adoc[]
 
 See example: <<enc_xml_geom_example,style=basic%>>
 

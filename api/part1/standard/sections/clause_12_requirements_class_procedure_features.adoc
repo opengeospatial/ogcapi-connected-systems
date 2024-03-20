@@ -3,7 +3,7 @@
 == Requirements Class "Procedure Features"
 
 === Overview
-include::requirements/procedure/requirements_class_procedure_features.adoc[]
+include::../requirements/procedure/requirements_class_procedure_features.adoc[]
 
 The "Procedure Features" requirements class specifies how `Procedure` descriptions are provided using the CS API.
 
@@ -87,32 +87,32 @@ NOTE: The validity time period of a `Procedure` description starts on the date t
 
 A `Procedure` feature represents a datasheet or a methodology. It is thus a non-spatial entity.
 
-include::requirements/procedure/req_location.adoc[]
+include::../requirements/procedure/req_location.adoc[]
 
 
 === Canonical URL
 
 The CS API Standard requires that a `Procedure` resource has a canonical URL through which it can be retrieved independently of its membership to any collection.
 
-include::requirements/procedure/req_canonical_url.adoc[]
+include::../requirements/procedure/req_canonical_url.adoc[]
 
 
 === Root Collection
 
 A root collection where all `Procedure` resources can be searched must be available at a CS API endpoint.
 
-include::requirements/procedure/req_canonical_collection.adoc[]
+include::../requirements/procedure/req_canonical_collection.adoc[]
 
 
 === Feature Collections
 
 `Procedure` feature collections are identified with the feature type `sosa:Procedure`.
 
-include::requirements/procedure/req_collections_type.adoc[]
+include::../requirements/procedure/req_collections_type.adoc[]
 
 `Procedure` resources can also be grouped into collections according to any arbitrary criteria. Any number of feature collections containing `Procedure` features can be available at a CS API endpoint.
 
-include::requirements/procedure/req_collections_others.adoc[]
+include::../requirements/procedure/req_collections_others.adoc[]
 
 [example%unnumbered]
 ====

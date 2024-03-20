@@ -3,7 +3,7 @@
 == Requirements Class "Property Definitions"
 
 === Overview
-include::requirements/property/requirements_class_property_definitions.adoc[]
+include::../requirements/property/requirements_class_property_definitions.adoc[]
 
 The "Property Definitions" requirements class specifies how property definitions are provided using the CS API.
 
@@ -62,25 +62,25 @@ All `Property` resource representations provided by encoding requirements classe
 
 The CS API standard requires that a `Property` resource has a canonical URL through which it can be retrieved independently of its membership to any collection.
 
-include::requirements/property/req_canonical_url.adoc[]
+include::../requirements/property/req_canonical_url.adoc[]
 
 
 === Root Collection
 
 A root collection where all `Property` resources can be searched must be available at a CS API endpoint.
 
-include::requirements/property/req_canonical_collection.adoc[]
+include::../requirements/property/req_canonical_collection.adoc[]
 
 
 === Property Collections
 
 `Property` resource collections are identified with the item type `ssn:Property`.
 
-include::requirements/property/req_collections_type.adoc[]
+include::../requirements/property/req_collections_type.adoc[]
 
 In addition to the default (mandatory) collection containing all `Property` resources, any number of resource collections containing `Property` resources can be available at a CS API endpoint, so that they can be grouped according to any arbitrary criteria.
 
-include::requirements/property/req_collections_others.adoc[]
+include::../requirements/property/req_collections_others.adoc[]
 
 [example%unnumbered]
 ====

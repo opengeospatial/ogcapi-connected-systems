@@ -1,11 +1,11 @@
 [[uml_core_abstract_process]]
 === Requirements Class: Core Abstract Process
-include::requirements/model/coreProcess/requirements_class.adoc[]
+include::../requirements/model/coreProcess/requirements_class.adoc[]
 
 All major classes in SensorML are based on a process model, as presented in the core concepts. Processes are features as defined in ISO 19109:2006 and modeled in GML 3.2. SensorML also supports interoperable discovery, identification, and qualification of these processes through the definition of a standard collection of metadata.
 
-include::requirements/model/coreProcess/requirement1.adoc[]
-include::requirements/model/coreProcess/requirement2.adoc[]
+include::../requirements/model/coreProcess/requirement1.adoc[]
+include::../requirements/model/coreProcess/requirement2.adoc[]
 
 ==== ObservableProperty
 An ObservableProperty is a physical property of a phenomenon that can be observed and measured (e.g., temperature, gravitational force, position, chemical concentration, orientation, number-of-individuals, physical switch status, etc.), or a characteristic of one or more feature types, the value for which must be estimated by application of some procedure in an observation. It is thus a physical stimulus that can be sensed by a detector or created by an actuator.
@@ -23,11 +23,11 @@ In ObservableProperty the phenomenon property will be defined by reference using
 ==== DescribedObject
 As shown in the UML model below, the DescribedObject class provides a specific set of metadata for all process classes in SensorML. Since DescribedObject is itself derived from GML AbstractFeature, all processes in SensorML are themselves features, which conforms to the conceptual models for processes as stated in Section 6.
 
-include::requirements/model/coreProcess/requirement3.adoc[]
+include::../requirements/model/coreProcess/requirement3.adoc[]
 
 The GML AbstractFeature inheritance provides a unique ID, and support for multiple names and a description. The unique ID in SensorML will be supported by a single gml:identifier property inherited from GML AbstractFeature.
 
-include::requirements/model/coreProcess/requirement4.adoc[]
+include::../requirements/model/coreProcess/requirement4.adoc[]
 
 Metadata about each process is essential to supporting identification, discovery, and qualification of the process. Metadata is provided by the base class, DescribedObject, from which AbstractProcess is derived. While these metadata may provide relevant information to understand quality of output from the process, the values of properties within the DescribedObject should not be required for execution of the process. The model for the DescribedObject is shown in Figure 9, while the models for the individual property values are provided in either Figure 10 or in the ISO 19115 models in Figure 11.
 
@@ -38,8 +38,8 @@ The extension property allows one to add domain or community-specific content to
 
 The constraints on the extension property include: (a) the extension model must be defined in a separate namespace, (b) the information added by the extension model must not be required for execution of the process, and (c) SensorML-compliant parsers may parse and utilize the information within these extensions but they are not required to do so in order to be compliant to the SensorML standard.
 
-include::requirements/model/coreProcess/requirement5.adoc[]
-include::requirements/model/coreProcess/requirement6.adoc[]
+include::../requirements/model/coreProcess/requirement5.adoc[]
+include::../requirements/model/coreProcess/requirement6.adoc[]
 
 .DescribedObject with Metadata Properties
 image::figures/describedobject.png[]
@@ -155,7 +155,7 @@ image::figures/process_iops_uml.png[]
 
 The core process model will utilize the SWE Common Data Models for defining inputs, outputs, and parameters, as well as for other metadata properties. SensorML models are required to support the SWE Common Data Model up to the Block Components Requirements Class, but many instances of SensorML will find ALL conformance levels of SWE Common Data to be useful, including binary encodings.
 
-include::requirements/model/coreProcess/requirement7.adoc[]
+include::../requirements/model/coreProcess/requirement7.adoc[]
 
 The input, output, or parameters of many processes include multiple values, possibly of different data types, that are tightly related to one another. Sometimes referred to as tuples or records, these data aggregates can consist of values that are perhaps meaningless without the other associated values (e.g., the coordinates within a spatial reference system), or provide a more complete understanding because of their association with one another (e.g., a set of measured values taken by a sensor at a given time). Such data shall be modelled using the aggregate data types defined by the SWE Common Data standard.
 
@@ -167,7 +167,7 @@ The location of a dynamic object can be specified through the aggregate values o
 Weather stations often express a set of measurements of the atmosphere as a single record that might include for instance temperature, pressure, relative humidity, cloudiness, wind speed, and wind direction. These would be considered a tuple of values that provides a more complete picture of the environment at a particular time. This tuple should be modeled as a DataRecord with 7 fields (one for each measured parameters listed above + one time stamp) to indicate that the sampling time applies to all observable values included in the record. 
 ====
 
-include::requirements/model/coreProcess/requirement8.adoc[]
+include::../requirements/model/coreProcess/requirement8.adoc[]
 
 ===== Feature of Interest
 
@@ -191,7 +191,7 @@ The inheritance model will support two cases:
 
 The key to inheritance, extension, and configuration of a process lies in the typeOf property, by which a specific process can reference its more general base process. The typeOf property takes as its value any process model derived from AbstractProcess. This will be “by-reference-only” meaning that the value must be in the form of a resolvable link to another process instance.
 
-include::requirements/model/coreProcess/requirement9.adoc[]
+include::../requirements/model/coreProcess/requirement9.adoc[]
 
 ====== Simple Inheritance
 In the simple inheritance model, a process (referred to as the “specific process”) inherits and augments information from another process (referred to as the “general process”).
@@ -204,7 +204,7 @@ An Original Equipment Manufacturer (OEM) provides a description of a particular 
 
 The simple inheritance model is fully supported in the Core Process conformance class and will be supported solely through the use of the typeOf property within the specific process. The typeOf property within the specific process will reference the general process through a resolvable reference.
 
-include::requirements/model/coreProcess/requirement10.adoc[]
+include::../requirements/model/coreProcess/requirement10.adoc[]
 
 ====== Support for Configurable Processes
 A configurable process is one that includes options or choices that can be selected, restricted, or enabled during deployment, operation, or execution of that process.
@@ -219,7 +219,7 @@ When one purchases and deploys an instance of that model of sensor, the owner ca
 
 The configuration model will utilize both the typeOf and configuration properties. The typeOf property references the more general process as with simple inheritance, while the configuration property provides a means to further restrict the options and allowed values for the specific process. The configuration property in the AbstractProcess takes an AbstractSettings class as its value.
 
-include::requirements/model/coreProcess/requirement11.adoc[]
+include::../requirements/model/coreProcess/requirement11.adoc[]
 
 A concrete implementation of a Settings class will be provided in a later Conformance Clause.
 
@@ -228,6 +228,6 @@ Many properties in the DescribedObject and AbstractProcess classes described abo
 
 This requirements class only mandates the support of the “Simple Components” and “Record Components” as defined in the SWE Common Data Model standard. These includes the scalar data types Boolean, Text, Count, Quantity, Category, Time and their range equivalents, as well as DataRecord and Vector.
 
-include::requirements/model/coreProcess/requirement12.adoc[]
+include::../requirements/model/coreProcess/requirement12.adoc[]
 
 However, many implementations of SensorML will find ALL conformance levels of the SWE Common Data Model to be useful, including arrays, choices and encodings. An implementation claiming support for more than the record components can pass the “Processes with Advanced Data Types” conformance test class of this standard.

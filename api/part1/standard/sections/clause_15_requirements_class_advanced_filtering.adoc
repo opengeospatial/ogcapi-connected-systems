@@ -3,7 +3,7 @@
 == Requirements Class "Advanced Filtering"
 
 === Overview
-include::requirements/query/requirements_class_advanced_filtering.adoc[]
+include::../requirements/query/requirements_class_advanced_filtering.adoc[]
 
 The "Advanced Filtering" requirements class specifies additional filtering options that may be used to select only a subset of the resources in a collection.
 
