@@ -36,7 +36,6 @@ digital number representing some quantity representation of that observed proper
 
 Fundamentally, a process is a physical or computational operation that may receive input and based on configurable parameters and a methodology, generate output.
 
-
 Inputs and outputs may be digital numbers or physical stimuli (i.e., observable properties of the environment). Parameters can be variable or constant, but they don’t typically vary at the same frequency as the input values. In essence, however, parameters can be viewed as just another input into the process that is either fixed or changes less frequently than inputs
 
 A process can consist of a single atomic operation, or an explicitly defined network of operations (e.g., an aggregate process or system). 

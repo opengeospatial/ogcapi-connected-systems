@@ -20,7 +20,7 @@ The SimpleProcess model, as shown in Figure 14, is a concrete instantiation of t
 include::../requirements/model/simpleProcess/requirement4.adoc[]
 
 .Model for Simple Process
-image::../figures/simpleProcess.png[]
+image::figures/simpleProcess.png[]
 
 ====
 Example 
@@ -36,4 +36,4 @@ The ProcessMethod definition should be sufficient to allow one to understand how
 A ProcessMethod description may be protected by security or legal constraints, which would purposely prevent access to the method description as well as restrict knowledge of the methodology to authorized personnel only. However, regardless of access restrictions, a ProcessMethod should always be able to be referenced and identified by a unique identifier.
 
 .Model for ProcessMethod
-image::../figures/processMethod.png[]
+image::figures/processMethod.png[]

@@ -71,7 +71,7 @@ This diagram and the following SensorML instances illustrate that an AggregatePr
 
 [[scale_and_clip]]
 .A diagram showing the components and connections of the “Scale and Clip” AggregateProcess.
-image::../figures/scale_and_clip.png[]
+image::figures/scale_and_clip.png[]
 
 The first example provides a complete definition of the component processes and the setting of parameter values inline.
 
