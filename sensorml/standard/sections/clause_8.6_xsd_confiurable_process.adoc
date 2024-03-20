@@ -1,10 +1,10 @@
 [[xsd_configurable_process]]
 === Requirements Class: Configurable Process Schema
-include::../requirements/xml/configuration/requirements_class.adoc[]
+include::requirements/xml/configuration/requirements_class.adoc[]
 
 XML Schema elements and types defined in the “configurable_process.xsd” schema file implement all classes defined respectively in the “configurable_process” UML package defined in Clause 7.7.
 
-include::../requirements/xml/configuration/requirement1.adoc[]
+include::requirements/xml/configuration/requirement1.adoc[]
 
 The following XML snippet provides the appropriate header and import statements for the configurable_process.xsd:
 
@@ -85,9 +85,9 @@ _ModeChoice:_
 
 A Mode is restricted in the values that it can set. In essence, a Mode is restricted to setting only the values of previously defined parameters of the enclosed process and its base processes, and the values of these parameters must be set consistent with the parameters allowed values.
 
-include::../requirements/xml/configuration/requirement2.adoc[]
+include::requirements/xml/configuration/requirement2.adoc[]
 
-include::../requirements/xml/configuration/requirement3.adoc[]
+include::requirements/xml/configuration/requirement3.adoc[]
 
 In the following example, the definition of the parameters, samplingRate and gain are defined within the parameters section of the process description. Then two modes (“lowThreat” and “highThreat”) are defined, each of which defines specific values for these the two parameters.
 

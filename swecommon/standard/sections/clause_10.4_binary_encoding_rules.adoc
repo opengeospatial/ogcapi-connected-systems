@@ -1,11 +1,11 @@
 [[encoding_rules_binary]]
 === Requirements Class: Binary Encoding Rules
 
-include::../requirements/encoding_rules/binary/requirements_class.adoc[]
+include::requirements/encoding_rules/binary/requirements_class.adoc[]
 
 The “BinaryEncoding” method encodes field values by their binary representation. The ABNF syntax defined in IETF RFC 5234 is used to formalize the encoding rules, and thus all ABNF snippets provided in this section are normative.
 
-include::../requirements/encoding_rules/binary/requirement1.adoc[]
+include::requirements/encoding_rules/binary/requirement1.adoc[]
 
 The encoding rules are similar to those of the “TextEncoding” method except that numerical values are encoded directly as their binary representation and that no separators are used. Separators are not needed because data types have either a fixed size or contain length information (See String encoding).
 
@@ -21,13 +21,13 @@ scalar-value = < binary value encoded according to data type, byte encoding and 
 
 The last column of <<binary-datatypes-table>> in <<xsd_binarycomponent_elt>> indicates how each data type shall be binary encoded into a low level byte sequence. The actual order of bytes composing a multi-bytes data type depends on the value of the “byteOrder” attribute. The ‘bigEndian’ option indicates that muti-bytes data types are encoded with the most significant byte (MSB) first, while selecting ‘littleEndian’ signifies that encoding is done with the less significant byte (LSB) first. A UTF-8 string is not considered as a multi-byte data type and is always encoded in the same order, as specified by the Unicode Standard.
 
-include::../requirements/encoding_rules/binary/requirement2.adoc[]
+include::requirements/encoding_rules/binary/requirement2.adoc[]
 
 Nil values are included in the stream just like normal scalar values. Since their data type has to match the field data type, there is no special treatment necessary for a decoder or encoder. It is the responsibility of the application to match the data value against the list of registered nil values for a given field in order to detect if it is associated to a nil reason or if it is an actual measurement value.
 
 When the ‘raw’ byte encoding option is selected, bytes resulting from the data type encoding process defined above are inserted in the binary stream directly. This is refered to as ‘raw binary’ encoding. When the ‘base64’ option is selected, each byte resulting from the binary encoding process is also encoded in Base64 before being included in the stream. Scalar values can be Base 64 encoded one by one or by blocks as long as the resulting stream is compatible with requirements of IETF RFC 2045.
 
-include::../requirements/encoding_rules/binary/requirement3.adoc[]
+include::requirements/encoding_rules/binary/requirement3.adoc[]
 
 
 ==== Rules for Range Components
@@ -67,7 +67,7 @@ record-values = <field-count>*field-values
 
 When a field is marked as optional in the definition, the 1-byte value ‘Y’ (ASCII code 89) or ‘N’ (ASCII code 78) shall be inserted in the data block. When the field value is omitted, the token ‘N’ is inserted alone. When it is included, the token ‘Y’ is inserted followed by the actual field value.
 
-include::../requirements/encoding_rules/binary/requirement4.adoc[]
+include::requirements/encoding_rules/binary/requirement4.adoc[]
 
 Coordinate values of “Vector” components are encoded with a similar syntax, but a coordinate value can only be scalar and cannot be omitted:
 
@@ -94,7 +94,7 @@ selected-item-value = scalar-value / range-values / record-values / choice-value
 choice-values = selected-item-idx selected-item-value
 ----
 
-include::../requirements/encoding_rules/binary/requirement5.adoc[]
+include::requirements/encoding_rules/binary/requirement5.adoc[]
 
 
 ==== Rules for DataArray and Matrix
@@ -147,7 +147,7 @@ A data stream usually contains at least one value but could be empty.
 
 The value of “Geometry” is encoded using the WKB format defined in the Simple Feature Access Standard (<<OGC_SFA>>).
 
-include::../requirements/encoding_rules/binary/requirement6.adoc[]
+include::requirements/encoding_rules/binary/requirement6.adoc[]
 
 No specific marker or length information needs to be pre-pended to the binary representation since the WKB format is self descriptive and parsable without knowing the total length ahead of time.
 

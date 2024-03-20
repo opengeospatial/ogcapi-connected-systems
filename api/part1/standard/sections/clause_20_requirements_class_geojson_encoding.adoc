@@ -6,7 +6,7 @@
 
 ==== Overview
 
-include::../requirements/encoding/geojson/requirements_class_geojson.adoc[]
+include::requirements/encoding/geojson/requirements_class_geojson.adoc[]
 
 The "GeoJSON Format" requirements class specifies how resources defined by the CS API Standard are encoded using the GeoJSON format. All feature types defined by this Standard can be encoded as GeoJSON.
 

@@ -1,7 +1,7 @@
 [[core_concepts]]
 == Requirements Class: Core Concepts (normative core)
 
-include::../requirements/core/requirements_class.adoc[]
+include::requirements/core/requirements_class.adoc[]
 
 === Introduction
 
@@ -19,7 +19,7 @@ A dataset is composed of Data Components whose values need to be put into contex
 
 This requirement class constitutes the core of this standard. The standardization target types of this core are all models or software implementations seeking compliance with this standard.
 
-include::../requirements/core/requirement1.adoc[]
+include::requirements/core/requirement1.adoc[]
 
 [[core_data_rep]]
 === Data Representation
@@ -44,7 +44,7 @@ On/Off status of a measurement system can be represented by a boolean value
 – TRUE if the system in on, FALSE if the system is off.
 ====
 
-include::../requirements/core/requirement2.adoc[]
+include::requirements/core/requirement2.adoc[]
 
 The “Boolean” class described in <<uml_boolean_class>> is used to define a data component with a Boolean representation.
 
@@ -64,7 +64,7 @@ Biological or chemical species data is usually represented by a categorical data
 A camera mode can be represented by a categorical value: AUTO_FOCUS, MANUAL_FOCUS, etc...
 ====
 
-include::../requirements/core/requirement3.adoc[]
+include::requirements/core/requirement3.adoc[]
 
 The “Category” class described in <<uml_category_class>> is used to define a data component with a categorical representation.
 
@@ -84,7 +84,7 @@ Temperature measurements can be represented by a number associated to a unit suc
 A velocity vector is composed of several values (usually 2 or 3) associated to a unit of speed: [1.0 2.0 3.0] m/s.
 ====
 
-include::../requirements/core/requirement4.adoc[]
+include::requirements/core/requirement4.adoc[]
 
 The “Quantity” class described in <<uml_quantity_class>> is used to define a data component with a decimal representation and a unit of measure.
 
@@ -104,7 +104,7 @@ There are numerous other countable properties such as number of persons, number 
 
 A discrete countable representation should not be confused with a continuous numerical representation whose scale and precision allow encoding the property value as an integer.
 
-include::../requirements/core/requirement5.adoc[]
+include::requirements/core/requirement5.adoc[]
 
 The “Count” class described in <<uml_count_class>> is used to define a data component with an integer representation and no unit of measure.
 
@@ -124,7 +124,7 @@ Machine generated messages for which there is no taxonomy (ex: automatic alert m
 Alphanumeric identifier schemes leading to a large number of possibilities that cannot be explicitly enumerated (ex: UUID, ISBN code, URN).
 ====
 
-include::../requirements/core/requirement6.adoc[]
+include::requirements/core/requirement6.adoc[]
 
 The “Text” class described in <<uml_text_class>> is used to define a data component with a textual representation.
 
@@ -167,7 +167,7 @@ It is not recommended to use the concepts of “description” and “label” i
 
 All SWE Common data types allow for associating each data component in a dataset with the definition of the Property that it represents.
 
-include::../requirements/core/requirement7.adoc[]
+include::requirements/core/requirement7.adoc[]
 
 It is recommended that a model uses references to out-of-band dictionaries rather than inline information because semantics are supposed to be shared by multiple datasets. Using references also helps by providing a framework that is independent from the actual semantic technology used.
 
@@ -175,7 +175,7 @@ The SWE Common UML models and XML schemas desribed in this standard can be used 
 
 These semantic references point to out-of-band semantic information that can be encoded in various languages, such as the Ontology Web Language (OWL) or GML dictionary.
 
-include::../requirements/core/requirement8.adoc[]
+include::requirements/core/requirement8.adoc[]
 
 [[core_time_space]]
 ==== Time, space and projected quantities
@@ -193,9 +193,9 @@ Angular velocity data from an Inertial Measurement Unit can be defined as a vect
 Relative time data can be given with respect to an arbitrary epoch itself positioned in a well defined reference frame such as TAI (from the French “Temps Atomique International” = International Atomic Time).
 ====
 
-include::../requirements/core/requirement9.adoc[]
+include::requirements/core/requirement9.adoc[]
 
-include::../requirements/core/requirement10.adoc[]
+include::requirements/core/requirement10.adoc[]
 
 The “Time” class described in <<uml_time_class>> is designed for carrying a temporal reference frame or a time of reference in the case of relative time data.
 
@@ -245,7 +245,7 @@ In low level satellite imagery with, for instance, 8-bits per channel, the image
 - A reserved value to indicate that a pixel value was “Above Detection Limit” usually set to ‘255’
 ====
 
-include::../requirements/core/requirement11.adoc[]
+include::requirements/core/requirement11.adoc[]
 
 [[core_full_lineage]]
 ==== Full lineage and traceability
@@ -267,7 +267,7 @@ Classical aggregate datatypes are defined below:
 
 - Choice: consists of a list of alternatives, each of them being keyed by a tag value and having its own type. Only values for one alternative at a time are actually present in the data stream described by such a structure.
 
-include::../requirements/core/requirement12.adoc[]
+include::requirements/core/requirement12.adoc[]
 
 This standard also defines the concept of “data component” as any part of the structure of a dataset, aggregate or not. It is thus the superset of all the aggregate structures described above and of all scalar elements implementing the representations described in <<core_data_rep>>.
 
@@ -298,4 +298,4 @@ A key concept of the SWE Common Data Model is the ability to separate data value
 
 Data encoding methods define how the data is packed as blocks that can efficiently be transferred or stored using various protocols and formats. Different methods allow encoding the data as XML, text (CSV like), binary and even compressed or encrypted formats in a way that is agnostic to a particular structure. This allows any of the encodings methods to be selected and used based on a particular requirement, such as performance, re-use of tools, alignment with existing standards and so on.
 
-include::../requirements/core/requirement13.adoc[]
+include::requirements/core/requirement13.adoc[]

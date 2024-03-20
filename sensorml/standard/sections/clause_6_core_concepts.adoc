@@ -1,7 +1,7 @@
 [[core_concepts]]
 == Requirements Class: Core Concepts (normative core)
 
-include::../requirements/core/requirements_class.adoc[]
+include::requirements/core/requirements_class.adoc[]
 
 === Introduction
 
@@ -13,7 +13,7 @@ In order to support the use of SensorML within specialized applications (e.g., p
 
 However, all derived model and encodings based on SensorML must implement the core concepts of SensorML, regardless of whether they deal strictly with non-physical computational processes or sensor systems.
 
-include::../requirements/core/requirement1.adoc[]
+include::requirements/core/requirement1.adoc[]
 
 [[core_process_def]]
 === Process Definitions
@@ -42,17 +42,17 @@ A process can consist of a single atomic operation, or an explicitly defined net
 
 Any process must have a definable method of operation. In the case of an aggregate process or physical system, the explicit description of the process components and the flow of data between them will itself serve as the process methodology.
 
-include::../requirements/core/requirement2.adoc[]
+include::requirements/core/requirement2.adoc[]
 
 Any process description must provide a unique ID that can be used for discovery of that process and for retrieving the definition of that process.
 
-include::../requirements/core/requirement3.adoc[]
+include::requirements/core/requirement3.adoc[]
 
 To be useful, the core process model shall include metadata about the process that aid in identification, discovery, and qualification of the process but do not themselves affect the execution of the process.
 
-include::../requirements/core/requirement4.adoc[]
+include::requirements/core/requirement4.adoc[]
 
-include::../requirements/core/requirement5.adoc[]
+include::requirements/core/requirement5.adoc[]
 
 Process definitions can support general representations of a process or a specific instance of a process.
 

@@ -1,10 +1,10 @@
 [[xsd_aggregate_process]]
 === Requirements Class: Aggregate Process Schema
-include::../requirements/xml/aggregateProcess/requirements_class.adoc[]
+include::requirements/xml/aggregateProcess/requirements_class.adoc[]
 
 XML Schema elements and types defined in the “aggregate_process.xsd” schema file implement all classes defined respectively in the “aggregateProcess” UML package defined in Clause 7.4.
 
-include::../requirements/xml/aggregateProcess/requirement1.adoc[]
+include::requirements/xml/aggregateProcess/requirement1.adoc[]
 
 The following XML snippet provides the appropriate header and import statements for the simple_process.xsd:
 
@@ -473,7 +473,7 @@ The XML snippet for the ComponentList element and its corresponding complex type
 
 The component process can be described inline or be referenced through the xlink:href property. For a reference to an external process description, two pieces of information are required in order to reference a component process instance, the uniqueID of the process and a resolvable URL referencing the process description. These shall be provided by the xlink:title and xlink:href attributes, respectively.
 
-include::../requirements/xml/aggregateProcess/requirement2.adoc[]
+include::requirements/xml/aggregateProcess/requirement2.adoc[]
 
 
 The examples in Section 8.3.1 show that the components of an aggregate process can be fully described inline, or be externally referenced processes that are configurable.
@@ -570,21 +570,21 @@ The Link element may define a data connection between any properties of a proces
 
 Typical data flow is from an aggregate processes input to one or more component’s input, from a component output to another component’s input, or from a component’s output to an output of the aggregate process.
 
-include::../requirements/xml/aggregateProcess/requirement3.adoc[]
+include::requirements/xml/aggregateProcess/requirement3.adoc[]
 
-include::../requirements/xml/aggregateProcess/requirement4.adoc[]
+include::requirements/xml/aggregateProcess/requirement4.adoc[]
 
-include::../requirements/xml/aggregateProcess/requirement5.adoc[]
+include::requirements/xml/aggregateProcess/requirement5.adoc[]
 
-include::../requirements/xml/aggregateProcess/requirement6.adoc[]  
+include::requirements/xml/aggregateProcess/requirement6.adoc[]  
 
-include::../requirements/xml/aggregateProcess/requirement7.adoc[] 
+include::requirements/xml/aggregateProcess/requirement7.adoc[] 
 
 ===== Rules for Path Designation
 
 While the use of XPath was considered as a means of designating Link sources and destinations, this protocol was rejected on the grounds that its was too complicated for our needs and because it did not allow continues designation of paths for “byReference” objects. The designation of a path starts at the base element of the aggregate process and only uses property elements. Where the attribute name exists for an element, it is used; otherwise the element name is used.
 
-include::../requirements/xml/aggregateProcess/requirement8.adoc[]
+include::requirements/xml/aggregateProcess/requirement8.adoc[]
 
 As an example, a snippet of the previous example is given below, highlighting the source path parts in yellow and the destination path parts in cyan. The subsequent example shows the appropriate source link path (in yellow) and the destination link path (in cyan).
 

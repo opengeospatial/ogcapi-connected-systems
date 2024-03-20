@@ -1,7 +1,7 @@
 [[json_advanced_encodings]]
 === Requirements Class: Advanced Encodings JSON Schema
 
-include::../requirements/json/advanced_encodings/requirements_class.adoc[]
+include::requirements/json/advanced_encodings/requirements_class.adoc[]
 
 
 [[json_binaryencoding_obj]]

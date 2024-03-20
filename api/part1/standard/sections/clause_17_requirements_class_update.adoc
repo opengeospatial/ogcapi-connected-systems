@@ -3,7 +3,7 @@
 == Requirements Class "Update"
 
 === Overview
-include::../requirements/crud/update/requirements_class_update.adoc[]
+include::requirements/crud/update/requirements_class_update.adoc[]
 
 The "Update" requirements class specifies how instances of the feature types defined previously are updated via a CS API endpoint.
 

@@ -1,10 +1,10 @@
 [[xsd_simple_process]]
 === Requirements Class: Simple Process Schema
-include::../requirements/xml/simpleProcess/requirements_class.adoc[]
+include::requirements/xml/simpleProcess/requirements_class.adoc[]
 
 XML Schema elements and types defined in the “simple_process.xsd” schema file implement all classes defined respectively in the “simpleProcess” UML package defined in Clause 7.3.
 
-include::../requirements/xml/simpleProcess/requirement1.adoc[]
+include::requirements/xml/simpleProcess/requirement1.adoc[]
 
 The following XML snippet provides the appropriate header and import statements for the simple_process.xsd:
 

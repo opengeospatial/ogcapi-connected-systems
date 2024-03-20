@@ -1,11 +1,11 @@
 [[xsd_simple_encodings]]
 === Requirements Class: Simple Encodings XML Schema
 
-include::../requirements/xsd/simple_encodings/requirements_class.adoc[]
+include::requirements/xsd/simple_encodings/requirements_class.adoc[]
 
 XML Schema elements and types defined in the “simple_encodings.xsd” schema implement all classes defined in the “Simple Encodings” UML packages. 
 
-include::../requirements/xsd/simple_encodings/requirement1.adoc[]
+include::requirements/xsd/simple_encodings/requirement1.adoc[]
 
 This requirements class defines a set of core encodings that have been chosen to cover the needs of simple applications that need to encode data as efficient data blocks. The “TextEncoding” method allows encodings datasets in a human readable textual format, while the “XMLEncoding” method allows encoding data with light weight XML tagged values.
 
@@ -54,7 +54,7 @@ The “TextEncoding” element is the XML schema implementation of the “TextEn
 
 This element is used to specify encoding of data values in a “Delimiter Separated Values” format (a generalization of CSV) that is parameterized by its 4 XML attributes. The exact encoding rules to be followed are specified in <<encoding_rules_text>>.
 
-include::../requirements/xsd/simple_encodings/requirement2.adoc[]
+include::requirements/xsd/simple_encodings/requirement2.adoc[]
 
 The following example shows a set of commonly used parameters:
 
@@ -130,4 +130,4 @@ The “XMLEncoding” element is the XML schema implementation of the “XMLEnco
 
 The XML Block encoding method is used when data values are to be encoded as light weight XML elements. The way the XML elements are named and structured are tied to the data structure specified using a hierarchy of data components. The exact encoding rules to be followed are specified in <<encoding_rules_xml>>.
 
-include::../requirements/xsd/simple_encodings/requirement3.adoc[]
+include::requirements/xsd/simple_encodings/requirement3.adoc[]

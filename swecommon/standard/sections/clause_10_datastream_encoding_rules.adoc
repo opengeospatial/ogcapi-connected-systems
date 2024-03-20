@@ -3,7 +3,7 @@
 
 === Requirements Class: General Encoding Rules
 
-include::../requirements/encoding_rules/general/requirements_class.adoc[]
+include::requirements/encoding_rules/general/requirements_class.adoc[]
 
 All encodings defined in this standard follow general principles so that it is possible to implement them in a similar way.
 
@@ -35,7 +35,7 @@ image::figures/encoding_record.png[]
 
 The data block corresponding to such a structure would sequentially include all values for field 1, then all values for field 2, etc. until the last field is reached. Each field may consist of a single value if it is a scalar but may also consist of multiple values if it is itself an aggregate or a range component.
 
-include::../requirements/encoding_rules/general/requirement1.adoc[]
+include::requirements/encoding_rules/general/requirement1.adoc[]
 
 
 ==== Rules for DataChoice
@@ -47,7 +47,7 @@ image::figures/encoding_choice.png[]
 
 The data block corresponding to such a structure would then sequentially include the item identifier (i.e. the choice value) and then the value(s) for the selected item. The item may consist of a single value if it is a scalar or multiple values if it is itself an aggregate or a range component.
 
-include::../requirements/encoding_rules/general/requirement2.adoc[]
+include::requirements/encoding_rules/general/requirement2.adoc[]
 
 
 ==== Rules for DataArray and Matrix
@@ -61,9 +61,9 @@ image::figures/encoding_array.png[]
 
 The data block corresponding to such a structure would sequentially include the number representing the array size (only if it is variable) followed by one or more values corresponding to each array element. The number of values encoded for each element depends only on the array element definition, and the total number of values also depends on the array size.
 
-include::../requirements/encoding_rules/general/requirement3.adoc[]
+include::requirements/encoding_rules/general/requirement3.adoc[]
 
-include::../requirements/encoding_rules/general/requirement4.adoc[]
+include::requirements/encoding_rules/general/requirement4.adoc[]
 
 
 // other subsections

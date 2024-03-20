@@ -1,7 +1,7 @@
 [[uml_simple_components]]
 === Requirements Class: Basic Types and Simple Components Packages
 
-include::../requirements/uml/simple_components/requirements_class.adoc[]
+include::requirements/uml/simple_components/requirements_class.adoc[]
 
 Data components are the most essential part of the SWE Common Data Model. They are used to describe all types of data structures, whether they represent data stream contents, tasking messages, alert messages or process inputs/outputs.
 
@@ -23,17 +23,17 @@ image::figures/fig7.4.png[]
 
 Details and requirements about each of these classes are given in the following sections.
 
-include::../requirements/uml/simple_components/requirement1.adoc[]
+include::requirements/uml/simple_components/requirement1.adoc[]
 
 Several dependencies to ISO standards exist and are detailed below.
 
 Data types from several packages of the ISO 19103 standard are used directly which makes this requirement class dependent on it. These data types are “CharacterString”, “Boolean”, “Real”, “Integer”, “Date”, “Time”, “DateTime”, “ScopedName”, “UnitOfMeasure” and “UomTime”.
 
-include::../requirements/uml/simple_components/requirement2.adoc[]
+include::requirements/uml/simple_components/requirement2.adoc[]
 
 The “TM_Position” data type from the “Temporal Reference System” package of the ISO 19108 standard is also used.
 
-include::../requirements/uml/simple_components/requirement3.adoc[]
+include::requirements/uml/simple_components/requirement3.adoc[]
 
 The “SC_CRS” and “TM_Temporal_CRS” classifiers are referenced conceptually from ISO 19111 but their implementation is not required by this standard. Implementations are allowed to simply use a CRS identifier as a mean of recognizing predefined coordinate reference systems. The use of identifiers from the EPSG database is recommended in this case. However, when new CRS definitions need to be created (e.g. engineering CRS attached to sensors or platforms), the models defined in ISO 19111 shall be used.
 
@@ -115,7 +115,7 @@ image::figures/fig7.7.png[]
 
 The definition attribute inherited from the “AbstractDataComponent” class is mandatory on this class and thus on all its descendants.
 
-include::../requirements/uml/simple_components/requirement4.adoc[]
+include::requirements/uml/simple_components/requirement4.adoc[]
 
 **Reference Frames and Axes**
 
@@ -123,15 +123,15 @@ It provides two attributes allowing the association of a data component to a ref
 
 The “referenceFrame” attribute identifies the reference frame (as defined by the “SC_CRS” object) relative to which the coordinate value is given. The “axisID” attribute takes a string that uniquely identifies one of the reference frame’s axes along which the coordinate value is given.
 
-include::../requirements/uml/simple_components/requirement5.adoc[]
+include::requirements/uml/simple_components/requirement5.adoc[]
 
 The union of these two attributes thus uniquely identifies one axis of one given reference frame along which the value of the component is expressed. Note that even though the ISO 19111 model assigns units to CRS axes in addition to a direction, only the direction is used in this standard and the unit is defined by the data component itself. This allows expressing other quantities than the one predefined along the CRS’s axes such as velocity, acceleration or rotation.
 
 A component representing a projected quantity can be defined in isolation or can be contained within a “Vector” or ”Matrix” aggregate when it contributes to the specification of a multi-dimensional quantity (see <<uml_vector_class;uml_matrix_class>>). In this last case the reference frame definition is usually inherited from the parent “Vector” or ”Matrix” instance and is thus omitted from the scalar component itself. However, the “axisID” attribute still needs to be specified on “Vector” components.
 
-include::../requirements/uml/simple_components/requirement6.adoc[]
+include::requirements/uml/simple_components/requirement6.adoc[]
 
-include::../requirements/uml/simple_components/requirement7.adoc[]
+include::requirements/uml/simple_components/requirement7.adoc[]
 
 **Quality**
 
@@ -152,11 +152,11 @@ Concrete sub-classes of “AbstractSimpleComponent” can also define a “const
 
 **Constraints**
 
-include::../requirements/uml/simple_components/requirement8.adoc[]
+include::requirements/uml/simple_components/requirement8.adoc[]
 
 All concrete sub-classes of “AbstractSimpleComponent” also define a “value” attribute. This attribute is not defined in this abstract class because it has a different primitive type in each concrete data component class (See following clauses).
 
-include::../requirements/uml/simple_components/requirement9.adoc[]
+include::requirements/uml/simple_components/requirement9.adoc[]
 
 The “value” attribute is always optional on any simple data component in order to allow for both data descriptor and data container cases:
 
@@ -217,17 +217,17 @@ The “codeSpace” attribute is of type “Dictionary” and allows listing and
 
 The “constraint” attribute allows further restricting the list of possible values by using the “AllowedTokens” class defined in <<uml_allowedtokens_class>>. This is usually done by specifying a limited list of possible values, which have to be extracted from the code space.
 
-include::../requirements/uml/simple_components/requirement10.adoc[]
+include::requirements/uml/simple_components/requirement10.adoc[]
 
 It is also possible to use this class without a code space, even though it is not recommended as values allowed in the component would then not be formally defined. However, as the intent of this class is to always represent a value extracted from a set of possible options, a constraint shall be defined if no code space is specified.
 
-include::../requirements/uml/simple_components/requirement11.adoc[]
+include::requirements/uml/simple_components/requirement11.adoc[]
 
 *Value*
 
 The “value” attribute (or the corresponding value in out-of-band data) is a string that must be one of the items of the code space and also match the constraint.
 
-include::../requirements/uml/simple_components/requirement12.adoc[]
+include::requirements/uml/simple_components/requirement12.adoc[]
 
 
 [[uml_count_class]]
@@ -282,7 +282,7 @@ Time is treated as a special type of continuous numerical quantity that can be e
 
 As time is always expressed relative to a particular reference frame, the “referenceFrame” attribute inherited from the parent class “AbstractSimpleComponent” shall always be set on instances on this class unless the default ‘UTC’ is meant.
 
-include::../requirements/uml/simple_components/requirement13.adoc[]
+include::requirements/uml/simple_components/requirement13.adoc[]
 
 Note that specifying the frame of reference is required even when using ISO notation because there can be ambiguities between several universal time references such as UTC, TAI, GPS, UT1, etc… Differences between these different time reference systems are indeed in the order of a few seconds (and increasing), that is to say not negligible in various situations.
 
@@ -305,7 +305,7 @@ The “axisID” attribute inherited from the parent class does not need to be s
 
 The “referenceTime” attribute is used to specify a different time origin than the one sometimes implied by the “referenceFrame”. This is used to express a time relative to an arbitrary epoch (i.e. different from the origin of a well known reference frame). The new time origin specified by “referenceTime” shall be expressed with respect to the reference frame specified and is of type “DateTime”. This forces the definition of this origin as a calendar date/time combination.
 
-include::../requirements/uml/simple_components/requirement14.adoc[]
+include::requirements/uml/simple_components/requirement14.adoc[]
 
 [example%unnumbered]
 ====
@@ -324,7 +324,7 @@ See definitions of some commonly accepted time standards at http://en.wikipedia.
 
 The optional “localFrame” attribute allows for the definition of a local temporal frame of reference through the value of the component (i.e. we are specifying a time origin), as opposed to the referenceFrame which specifies that the value of the component is in reference to this frame.
 
-include::../requirements/uml/simple_components/requirement15.adoc[]
+include::requirements/uml/simple_components/requirement15.adoc[]
 
 This feature allows chaining several relative time positions. This is similar to what is done with spatial position in a geopositioning algorithm (and which is also supported by this standard using the “Vector” class).
 
@@ -358,7 +358,7 @@ This UML package defines four classes “CategoryRange”, “CountRange”, “
 
 The “value” attribute of all these classes takes a pair of values (with a datatype corresponding to the representation) that represent the inclusive minimum and maximum bounds of the extent. These values must both satisfy the constraints specified by an instance of the class, and be expressed in the unit specified when applicable.
 
-include::../requirements/uml/simple_components/requirement16.adoc[]
+include::requirements/uml/simple_components/requirement16.adoc[]
 
 NOTE: _These classes are intentionally not derived from their scalar counterparts because they are aggregates of two values and should be treated as such by implementations (especially by encoding methods defined in this standard)._
 
@@ -371,13 +371,13 @@ The “CategoryRange” class is used to express a value extent using the catego
 .CategoryRange Class
 image::figures/fig7.14.png[]
 
-include::../requirements/uml/simple_components/requirement17.adoc[]
+include::requirements/uml/simple_components/requirement17.adoc[]
 
 *Code Space*
 
 The “CategoryRange” class also requires that the underlying code space is well-ordered (i.e. the ordering of the different categories in the code space is clearly defined) so that the range is meaningful.
 
-include::../requirements/uml/simple_components/requirement18.adoc[]
+include::requirements/uml/simple_components/requirement18.adoc[]
 
 [example%unnumbered]
 ====
@@ -425,7 +425,7 @@ The “TimeRange” class is used to express a value extent of a time property. 
 .TimeRange Class
 image::figures/fig7.17.png[]
 
-include::../requirements/uml/simple_components/requirement19.adoc[]
+include::requirements/uml/simple_components/requirement19.adoc[]
 
 The “value” attribute of the “TimeRange” class takes a pair of values of type “TimePosition” representing the inclusive minimum and maximum bounds of the extent.
 
@@ -472,11 +472,11 @@ An instance of the “NilValues” class is composed of one to many “NilValue�
 
 The mandatory “reason” attribute indicates the reason why a measurement value is not available. It is a resolvable reference to a controlled term that provides the formal textual definition of this reason (usually agreed upon by one or more communities).
 
-include::../requirements/uml/simple_components/requirement20.adoc[]
+include::requirements/uml/simple_components/requirement20.adoc[]
 
 The mandatory “value” attribute specifies the data value that would be found in the stream to indicate that a measurement value is missing for the corresponding reason. The range of values allowed here is the range of values allowed by the datatype of the parent data component.
 
-include::../requirements/uml/simple_components/requirement21.adoc[]
+include::requirements/uml/simple_components/requirement21.adoc[]
 
 This means that when specifying NIL values for a “Quantity” component, only real values are allowed (in most implementations, this includes NaN, -INF and INF) and for a “Count” component only integer values are allowed.
 
@@ -506,7 +506,7 @@ image::figures/fig7.21.png[]
 
 This class allows constraints to be defined either by enumerating a list of allowed values and/or a list of inclusive intervals. To be valid, the value must either be one of the enumerated values or included in one of the intervals. The numbers used in the “value” and “interval” properties shall be expressed in the same unit as the parent data component.
 
-include::../requirements/uml/simple_components/requirement22.adoc[]
+include::requirements/uml/simple_components/requirement22.adoc[]
 
 If the parent data component instance is used to define a projected quantity (i.e. when the “axisID” is set), then the constraints given by this class are expressed along the same spatial reference frame axis.
 

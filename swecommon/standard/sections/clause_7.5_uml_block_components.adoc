@@ -1,7 +1,7 @@
 [[uml_block_components]]
 === Requirements Class: Block Components Package
 
-include::../requirements/uml/block_components/requirements_class.adoc[]
+include::requirements/uml/block_components/requirements_class.adoc[]
 
 This package defines additional aggregate components for describing arrays of values that are designed to be encoded as efficient data blocks. These additional aggregate components are purposely defined in a separate requirement class because they require a more advanced implementation for handling data values as encoded blocks.
 
@@ -10,7 +10,7 @@ The UML models for these additional aggregate components are shown below:
 .Array Components
 image::figures/fig7.28.png[]
 
-include::../requirements/uml/block_components/requirement1.adoc[]
+include::requirements/uml/block_components/requirement1.adoc[]
 
 The principle of these two classes is that the number and type of elements contained in the array is defined once, while the actual array values are listed separately without being redefined with each value. In order to achieve this, all array values are encoded as a single data block in the “values” attribute. Consequently, these classes are restricted to cases where all elements are homogeneous and thus can be described only once even though the array data may in fact contain many of them.
 
@@ -35,7 +35,7 @@ The “elementCount” attribute is used to indicate the size of the array, that
 
 The content of the “elementType” attribute defines the exact structure of each element in the array. The data component used and all of its children shall not include any inline values, as these will be block encoded in the “values” attribute of the parent “DataArray”.
 
-include::../requirements/uml/block_components/requirement2.adoc[]
+include::requirements/uml/block_components/requirement2.adoc[]
 
 However, the “DataArray” class itself, like any other data component can be used either as a data descriptor or as a data container. To use it as a data descriptor the “encoding” and “values” attributes are not set. To use it as a data container, these attributes are both set as described below.
 
@@ -43,7 +43,7 @@ However, the “DataArray” class itself, like any other data component can be 
 
 The “encoding” and “values” fields are there to provide array data as an efficient block which can be encoded in several ways. The different encoding methods are described in <<uml_simple_encodings;uml_advanced_encodings>>. The “encoding” field shall have a value if the “values” field is present, and the data shall be encoded using the specified encoding.
 
-include::../requirements/uml/block_components/requirement3.adoc[]
+include::requirements/uml/block_components/requirement3.adoc[]
 
 The choice of simple encodings (defined in the “Simple Encodings” package) allows encoding data as text using a delimiter separated values (DSV, a variant of CSV) format or as XML tagged values. The “Advanced Encodings” package defines binary encodings that can be used to efficiently package large datasets.
 
@@ -149,7 +149,7 @@ The “Matrix” class is usually used to represent a position matrix or a tenso
 
 The “elementType” attribute inherited from the “DataArray” class can only take a nested “Matrix” instance or a scalar numerical component. Nested matrix objects allow the full description of N-dimensional matrices.
 
-include::../requirements/uml/block_components/requirement4.adoc[]
+include::requirements/uml/block_components/requirement4.adoc[]
 
 *Reference Frame*
 
@@ -193,4 +193,4 @@ The “elementType” attribute is used to define the structure of each element 
 
 The “encoding” and “values” fields are there to provide the stream values as an efficient block which can be encoded in several ways. The same encoding methods as for the “DataArray” class are available and are described in <<uml_simple_encodings;uml_advanced_encodings>>. The “values” attribute is optional as the DataStream class can be used as a simple descriptor.
 
-include::../requirements/uml/block_components/requirement5.adoc[]
+include::requirements/uml/block_components/requirement5.adoc[]

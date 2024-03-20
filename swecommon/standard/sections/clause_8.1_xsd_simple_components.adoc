@@ -1,11 +1,11 @@
 [[xsd_simple_components]]
 === Requirements Class: Basic Types and Simple Components XML Schemas
 
-include::../requirements/xsd/simple_components/requirements_class.adoc[]
+include::requirements/xsd/simple_components/requirements_class.adoc[]
 
 XML Schema elements and types defined in the “basic_types.xsd” and “simple_components.xsd” schema files implement all classes defined respectively in the “Basic Types” and “Simple Components” UML packages.
 
-include::../requirements/xsd/simple_components/requirement1.adoc[]
+include::requirements/xsd/simple_components/requirement1.adoc[]
 
 
 ==== General XML Principles
@@ -54,7 +54,7 @@ An object within an external document can also be referenced by including the fu
 
 Typically, “xlink” references will be specified as URLs or as URNs that can be easily resolved through registries. It is required that the property has either the “xlink:href” attribute set or contain an inline value, even though this cannot be enforced by XML schema.
 
-include::../requirements/xsd/simple_components/requirement2.adoc[]
+include::requirements/xsd/simple_components/requirement2.adoc[]
 
 ===== Extensibility Points
 
@@ -66,11 +66,11 @@ The recommended way of extending the XML schema of this standard is by defining 
 
 In any case, all extensions of the XML schema described in this standard shall be defined in a new namespace (other than the namespaces used by this standard and its dependencies) in order to allow easy detection of extensions by implementations.
 
-include::../requirements/xsd/simple_components/requirement3.adoc[]
+include::requirements/xsd/simple_components/requirement3.adoc[]
 
 Extensions are not allowed to change the meaning or behavior of elements and types defined by this standard in any way (in this case, new classes or properties shall me defined). This guarantees that implementations that have no knowledge of an extension can still properly use XML instances containing these extensions.
 
-include::../requirements/xsd/simple_components/requirement4.adoc[]
+include::requirements/xsd/simple_components/requirement4.adoc[]
 
 
 ==== Base Abstract Complex Types
@@ -133,7 +133,7 @@ The “AbstractDataComponent” complex type adds XML attributes as defined in t
 
 The “definition” attribute is a URI that shall be resolvable to a human readable description of the property being measured or any other referenced concept. It is also recommended that an XML representation of this information can be retrieved via content negociation.
 
-include::../requirements/xsd/simple_components/requirement5.adoc[]
+include::requirements/xsd/simple_components/requirement5.adoc[]
 
 [source%unnumbered,xml]
 ----
@@ -160,7 +160,7 @@ As the XML schema snippet shows, this abstract element contains two important pr
 
 Most simple data components (defined in the following sub-clauses) also allow for the definition of constraints via the “constraint” property element. When such constraints are specified, the value of the component (either inline or in a separate data block) shall always satisfy these constraints.
 
-include::../requirements/xsd/simple_components/requirement6.adoc[]
+include::requirements/xsd/simple_components/requirement6.adoc[]
 
 
 [[xsd_boolean_elt]]
@@ -391,7 +391,7 @@ The “uom” property element is of type “UnitReferencePropertyType” whose 
 
 This type allows defining a unit of measure by its code (using the “code” attribute) or by using an “xlink:href” from the “swe:AssociationAttributeGroup” to reference a unit defined externally. Defining the unit of measure by its code expressed using the Unified Code for Units of Measure (UCUM) is the mandatory way unless the unit cannot be properly expressed with the elements defined in this specification (in which case “xlink:href” should be used).
 
-include::../requirements/xsd/simple_components/requirement7.adoc[]
+include::requirements/xsd/simple_components/requirement7.adoc[]
 
 Constraints can be expressed by using the “AllowedValues” element detailed in <<xsd_allowedvalues_elt>>. The “value” property element takes a decimal value of the XML schema type “double”. This means that special values “–INF”, “INF” and “NaN” (for Not a Number) are allowed as well as numbers in exponent notation (ex: 1.2e-9).
 
@@ -464,7 +464,7 @@ The “Time” element is the XML schema implementation of the “Time” UML cl
 
 The “uom” property element is of type “UnitReferencePropertyType”. It has the same requirements as its equivalent in the “Quantity” element. When ISO 8601 calendar notation is used, it is specified as a unit by using a special value in the “xlink:href” attribute (i.e. for simplicity, a calendar representation is considered here as a complex unit composed of year, month, day, hours, minutes and seconds).
 
-include::../requirements/xsd/simple_components/requirement8.adoc[]
+include::requirements/xsd/simple_components/requirement8.adoc[]
 
 Additional constraints on the value can be expressed by using the “AllowedTimes” element detailed in <<xsd_allowedtimes_elt>>. The “value” property element takes either a decimal value or a calendar value encoded according to the ISO 8601 standard. This is enforced by using the “TimePosition” simple type defined below as the union of the “double” and “TimeIso8601” data types:
 
@@ -943,7 +943,7 @@ This element can also be used to specify a constraint with a regular expression 
 
 The pattern shall follow the unicode regular expression syntax described in Unicode Technical Std #18. This is the same syntax as the one used by the XML Schema specification.
 
-include::../requirements/xsd/simple_components/requirement9.adoc[]
+include::requirements/xsd/simple_components/requirement9.adoc[]
 
 
 [[xsd_allowedvalues_elt]]

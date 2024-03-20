@@ -1,7 +1,7 @@
 [[json_choice_components]]
 === Requirements Class: Choice Components JSON Schema
 
-include::../requirements/json/choice_components/requirements_class.adoc[]
+include::requirements/json/choice_components/requirements_class.adoc[]
 
 
 [[json_datachoice_obj]]

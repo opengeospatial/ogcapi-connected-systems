@@ -1,11 +1,11 @@
 [[xsd_block_components]]
 === Requirements Class: Block Components XML Schema
 
-include::../requirements/xsd/block_components/requirements_class.adoc[]
+include::requirements/xsd/block_components/requirements_class.adoc[]
 
 XML Schema elements and types defined in the “block_components.xsd” schema implement all classes defined in the “Block Components” UML packages. 
 
-include::../requirements/xsd/block_components/requirement1.adoc[]
+include::requirements/xsd/block_components/requirement1.adoc[]
 
 
 [[xsd_dataarray_elt]]
@@ -51,7 +51,7 @@ The “elementType” property carries the definition of a single array element 
 
 The “values” element shall contain or reference a block of encoded values that are properly structured by following one of the encoding rule sets described in <<encoding_rules>>.
 
-include::../requirements/xsd/block_components/requirement2.adoc[]
+include::requirements/xsd/block_components/requirement2.adoc[]
 
 This first example shows how the “DataArray” element can be used to define a fixed size array of several measurement records and give their values inline as an encoded data block:
 

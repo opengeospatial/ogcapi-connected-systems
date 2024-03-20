@@ -4,7 +4,7 @@
 [%metadata]
 identifier:: /conf/xml/physicalComponent/position-by-process 
 
-target:: /req/xml/physicalComponent/position-by-process  
+target:: /req/xml/physicalComponent/position-by-trajectory
 test-purpose:: Verify that the target implementation allows positions or state to be provided on-demand by a process.
 [.component,class=test method]
 =====

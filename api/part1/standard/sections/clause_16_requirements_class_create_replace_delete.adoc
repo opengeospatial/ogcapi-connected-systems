@@ -2,7 +2,7 @@
 == Requirements Class "Create/Replace/Delete"
 
 === Overview
-include::../requirements/crud/requirements_class_crd.adoc[]
+include::requirements/crud/requirements_class_crd.adoc[]
 
 The "Create/Replace/Delete" requirements class specifies how instances of the resource types defined previously are created, replaced and deleted via a CS API endpoint.
 

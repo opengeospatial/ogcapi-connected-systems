@@ -1,7 +1,7 @@
 [[json_block_components]]
 === Requirements Class: Block Components JSON Schema
 
-include::../requirements/json/block_components/requirements_class.adoc[]
+include::requirements/json/block_components/requirements_class.adoc[]
 
 
 [[json_dataarray_obj]]

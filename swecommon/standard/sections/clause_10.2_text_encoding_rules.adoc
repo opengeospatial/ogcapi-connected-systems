@@ -1,11 +1,11 @@
 [[encoding_rules_text]]
 === Requirements Class: Text Encoding Rules
 
-include::../requirements/encoding_rules/text/requirements_class.adoc[]
+include::requirements/encoding_rules/text/requirements_class.adoc[]
 
 The “TextEncoding” method encodes field values (especially numbers) by their text representation. Special characters provide a way to separate successive values and successive blocks. The ABNF syntax defined in IETF RFC 5234 is used to formalize the encoding rules, and thus all ABNF snippets provided in this section are normative.
 
-include::../requirements/encoding_rules/text/requirement1.adoc[]
+include::requirements/encoding_rules/text/requirement1.adoc[]
 
 
 ==== Separators
@@ -14,7 +14,7 @@ Token separators are used between single values and the block separator is used 
 
 Separators shall be chosen so that nothing in the dataset contains the exact same character sequence as the one chosen for token or block separator.
 
-include::../requirements/encoding_rules/text/requirement2.adoc[]
+include::requirements/encoding_rules/text/requirement2.adoc[]
 
 When the attribute “collapseWhiteSpaces” is set to true (its default value), all white space characters surrounding the token and block separators shall be ignored. The BNF grammar for separators is given below:
 
@@ -81,7 +81,7 @@ record-values = field-value <field-count>*(token-separator field-value)
 
 When a field is marked as optional in the definition, the token ‘Y’ or ‘N’ shall be inserted in the data block. When the field value is omitted, the token ‘N’ is inserted alone. When it is included, the token ‘Y’ is inserted followed by the actual field value.
 
-include::../requirements/encoding_rules/text/requirement3.adoc[]
+include::requirements/encoding_rules/text/requirement3.adoc[]
 
 Coordinate values of “Vector” components are encoded with a similar syntax, but a coordinate value can only be scalar and cannot be omitted:
 
@@ -110,7 +110,7 @@ selected-item-values = scalar-value / range-values / record-values / choice-valu
 choice-values = selected-item-name token-separator selected-item-values
 ----
 
-include::../requirements/encoding_rules/text/requirement4.adoc[]
+include::requirements/encoding_rules/text/requirement4.adoc[]
 
 See example: <<enc_text_choice_example,style=basic%>>.
 
@@ -172,7 +172,7 @@ Examples of “DataStream” with “TextEncoding” have already been given in 
 
 The value of a “Geometry” component is encoded using the WKT format defined in the Simple Feature Access Standard (<<OGC_SFA>>).
 
-include::../requirements/encoding_rules/text/requirement5.adoc[]
+include::requirements/encoding_rules/text/requirement5.adoc[]
 
 See example: <<enc_text_geom_example,style=basic%>>
 

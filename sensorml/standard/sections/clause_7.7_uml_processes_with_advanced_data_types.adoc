@@ -1,10 +1,10 @@
 [[uml_processes_with_advanced_data_types]]
 === Requirements Class: Processes with Advanced Data Types
-include::../requirements/model/advancedProcess/requirements_class.adoc[]
+include::requirements/model/advancedProcess/requirements_class.adoc[]
 
 The “Core Abstract Process” requirements class only requires the support of the record and scalar data types wherever a data type from the SWE Common standard is used.
 
 This class also requires support for more advanced data types defined in the SWE Common standard: DataArray, Matrix, DataStream and Choice.
 
-include::../requirements/model/advancedProcess/requirement1.adoc[]
-include::../requirements/model/advancedProcess/requirement2.adoc[]
+include::requirements/model/advancedProcess/requirement1.adoc[]
+include::requirements/model/advancedProcess/requirement2.adoc[]

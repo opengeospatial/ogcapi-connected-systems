@@ -1,6 +1,6 @@
 [[uml_physical_component]]
 === Requirements Class: Physical Component
-include::../requirements/model/physicalComponent/requirements_class.adoc[]
+include::requirements/model/physicalComponent/requirements_class.adoc[]
 
 In the context of SensorML, physical processes represent real processing devices whose spatio-temporal position is important. Physical processes include detectors, actuators, sensor systems, and actuator systems. Such processes typically, but not always, involve interactions beween a real-world domain (or environment) and a digital domain.
 
@@ -12,12 +12,12 @@ A detector or sensor system typically senses an environmental stimulus and provi
 
 Because physical processes typically interact with the real-world environment, the position (location and orientation), as well as perhaps the dynamic state (velocity and acceleration), are usually of importance. We wish to either measure an observable property at a particular location in the environment or we wish to affect a physical action at a particular place in the environment. Thus, the position where the physical process measures or acts becomes important.
 
-include::../requirements/model/physicalComponent/requirement1.adoc[]
+include::requirements/model/physicalComponent/requirement1.adoc[]
 
 ==== Abstract Physical Process Defined
 The AbstractPhysicalProcess model is derived from AbstractProcess and thus includes the metadata and properties of a core process. Additionally, AbstractPhysicalProcess supports additional properties that allow one to define spatial and temporal coordinates for the physical process device.
 
-include::../requirements/model/physicalComponent/requirement2.adoc[]
+include::requirements/model/physicalComponent/requirement2.adoc[]
 
 The model for AbstractPhysicalProcess is shown in <<uml_physical_process>> below. The additional properties of the AbstractPhysicalProcess will be discussed in subsequent clauses.
 
@@ -51,10 +51,10 @@ An external reference frame can be another object’s reference frame (e.g., the
 
 The PositionUnion class provides various means of specifying the location, position, or dynamic state of an object. These will be described in more detail in the appropriate XML encoding section, but the following rules apply to the SensorML models.
 
-include::../requirements/model/physicalComponent/requirement3.adoc[]
-include::../requirements/model/physicalComponent/requirement4.adoc[]
-include::../requirements/model/physicalComponent/requirement5.adoc[]
-include::../requirements/model/physicalComponent/requirement6.adoc[]
+include::requirements/model/physicalComponent/requirement3.adoc[]
+include::requirements/model/physicalComponent/requirement4.adoc[]
+include::requirements/model/physicalComponent/requirement5.adoc[]
+include::requirements/model/physicalComponent/requirement6.adoc[]
 
 ===== Temporal Reference Frames
 
@@ -72,6 +72,6 @@ A temporal reference frame can be defined within a physical process and is parti
 
 Any processing device can be considered a physical component, if it provides a processing function with well-defined inputs and outputs, if there is no intent to further divide the device description into component sub-processes, and if knowledge of its physical location is useful. Such devices could include, but not be limited to, detectors, actuators, reflectors, electrical components (e.g transformers, capacitors, resistors), or perhaps even computational units (when knowing their location in a computational facility is helpful).
 
-include::../requirements/model/physicalComponent/requirement7.adoc[]
+include::requirements/model/physicalComponent/requirement7.adoc[]
 
 As shown in the models of <<uml_physical_process>>, the PhysicalComponent class is a concrete instantiation of an AbstractPhysicalProcess that adds the method property, which takes a ProcessMethod as its value. ProcessMethod was defined earlier in clause 7.3.2.
