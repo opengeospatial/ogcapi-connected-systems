@@ -13,19 +13,13 @@
 :docsubtype: implementation
 :keywords: ogcdoc, OGC document, html, SWE, sensor, sensorweb, connected systems, xml, encoding, observation, command, tasking, property
 :submitting-organizations: Botts Innovative Research, Inc.; GeoRobotix, Inc.; 52° North Initiative for Geospatial Open Source Software GmbH; National Geospatial-Intelligence Agency (NGA); Cesium GS, Inc.; Pelagis Data Solutions; 
+:docfile: document.adoc
 :mn-document-class: ogc
 :mn-output-extensions: xml,html
 :local-cache-only:
 :data-uri-image:
 :edition: 2.1
-//
-:sml-spec-url: http://www.opengis.net/spec/SensorML/2.1
-:swecommon-spec-url: http://www.opengis.net/spec/SWE/2.1
 
-
-////
-Make sure to complete each included document
-////
 include::sections/clause_0_front_material.adoc[]
 
 include::sections/clause_1_scope.adoc[]
@@ -70,18 +64,10 @@ include::sections/clause_8.5_xsd_physical_system.adoc[]
 
 include::sections/clause_8.6_xsd_confiurable_process.adoc[]
 
-
-////
-Annexes
-////
 include::sections/annex-abstract-test-suite.adoc[]
 
 include::sections/annex-uml-xml-encoding-rules.adoc[]
 
-////
-Revision History should be the last annex before the Bibliography
-Bibliography should be the last annex
-////
 include::sections/annex-history.adoc[]
 
 include::sections/annex-bibliography.adoc[]

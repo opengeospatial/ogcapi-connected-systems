@@ -1,0 +1,106 @@
+<bibdata type="standard" schema-version="v1.2.8">
+  <fetched>2024-03-25</fetched>
+  <title type="title-intro" format="text/plain" language="en" script="Latn">Data elements and interchange formats</title>
+  <title type="title-main" format="text/plain" language="en" script="Latn">Information interchange</title>
+  <title type="title-part" format="text/plain" language="en" script="Latn">Representation of dates and times</title>
+  <title type="main" format="text/plain" language="en" script="Latn">Data elements and interchange formats - Information interchange - Representation of dates and times</title>
+  <title type="title-intro" format="text/plain" language="fr" script="Latn">Éléments de données et formats d'échange</title>
+  <title type="title-main" format="text/plain" language="fr" script="Latn">Échange d'information</title>
+  <title type="title-part" format="text/plain" language="fr" script="Latn">Représentation de la date et de l'heure</title>
+  <title type="main" format="text/plain" language="fr" script="Latn">Éléments de données et formats d'échange - Échange d'information - Représentation de la date et de l'heure</title>
+  <uri type="src">https://www.iso.org/standard/40874.html</uri>
+  <uri type="rss">https://www.iso.org/contents/data/standard/04/08/40874.detail.rss</uri>
+  <docidentifier type="ISO" primary="true">ISO 8601:2004</docidentifier>
+  <docidentifier type="iso-reference">ISO 8601:2004(E)</docidentifier>
+  <docidentifier type="URN">urn:iso:std:iso:8601:stage-95.99</docidentifier>
+  <docnumber>8601</docnumber>
+  <date type="published">
+    <on>2004-12</on>
+  </date>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>International Organization for Standardization</name>
+      <abbreviation>ISO</abbreviation>
+      <uri>www.iso.org</uri>
+    </organization>
+  </contributor>
+  <edition>3</edition>
+  <language>en</language>
+  <language>fr</language>
+  <script>Latn</script>
+  <abstract format="text/plain" language="en" script="Latn">ISO 8601:2004 is applicable whenever representation of dates in the Gregorian calendar, times in the 24-hour timekeeping system, time intervals and recurring time intervals or of the formats of these representations are included in information interchange. It includes
+- calendar dates expressed in terms of calendar year, calendar month and calendar day of the month;
+- ordinal dates expressed in terms of calendar year and calendar day of the year;
+- week dates expressed in terms of calendar year, calendar week number and calendar day of the week;
+- local time based upon the 24-hour timekeeping system;
+- Coordinated Universal Time of day;
+- local time and the difference from Coordinated Universal Time;
+- combination of date and time of day;
+- time intervals;
+- recurring time intervals.
+ISO 8601:2004 does not cover dates and times where words are used in the representation and dates and times where characters are not used in the representation.
+ISO 8601:2004 does not assign any particular meaning or interpretation to any data element that uses representations in accordance with ISO 8601:2004. Such meaning will be determined by the context of the application.</abstract>
+  <abstract format="text/plain" language="fr" script="Latn">ISO 8601:2004 is applicable whenever representation of dates in the Gregorian calendar, times in the 24-hour timekeeping system, time intervals and recurring time intervals or of the formats of these representations are included in information interchange. It includes
+- calendar dates expressed in terms of calendar year, calendar month and calendar day of the month;
+- ordinal dates expressed in terms of calendar year and calendar day of the year;
+- week dates expressed in terms of calendar year, calendar week number and calendar day of the week;
+- local time based upon the 24-hour timekeeping system;
+- Coordinated Universal Time of day;
+- local time and the difference from Coordinated Universal Time;
+- combination of date and time of day;
+- time intervals;
+- recurring time intervals.
+ISO 8601:2004 does not cover dates and times where words are used in the representation and dates and times where characters are not used in the representation.
+ISO 8601:2004 does not assign any particular meaning or interpretation to any data element that uses representations in accordance with ISO 8601:2004. Such meaning will be determined by the context of the application.</abstract>
+  <status>
+    <stage>95</stage>
+    <substage>99</substage>
+  </status>
+  <copyright>
+    <from>2004</from>
+    <owner>
+      <organization>
+        <name>ISO</name>
+      </organization>
+    </owner>
+  </copyright>
+  <relation type="obsoletes">
+    <bibitem type="standard">
+      <formattedref format="text/plain">ISO 8601:2000</formattedref>
+      <docidentifier type="ISO" primary="true">ISO 8601:2000</docidentifier>
+    </bibitem>
+  </relation>
+  <relation type="updates">
+    <bibitem type="standard">
+      <formattedref format="text/plain">ISO 8601-1:2019</formattedref>
+      <docidentifier type="ISO" primary="true">ISO 8601-1:2019</docidentifier>
+      <date type="circulated">
+        <on>2019-02-25</on>
+      </date>
+    </bibitem>
+  </relation>
+  <relation type="updates">
+    <bibitem type="standard">
+      <formattedref format="text/plain">ISO 8601-2:2019</formattedref>
+      <docidentifier type="ISO" primary="true">ISO 8601-2:2019</docidentifier>
+      <date type="circulated">
+        <on>2019-02-25</on>
+      </date>
+    </bibitem>
+  </relation>
+  <place>Geneva</place>
+  <ext schema-version="v1.0.0">
+    <doctype>international-standard</doctype>
+    <editorialgroup>
+      <technical-committee number="154" type="TC" identifier="ISO/TC 154">Processes, data elements and documents in commerce, industry and administration</technical-committee>
+    </editorialgroup>
+    <ics>
+      <code>01.140.30</code>
+      <text>Documents in administration, commerce and industry</text>
+    </ics>
+    <structuredidentifier type="ISO">
+      <project-number>ISO 8601</project-number>
+    </structuredidentifier>
+  </ext>
+</bibdata>
