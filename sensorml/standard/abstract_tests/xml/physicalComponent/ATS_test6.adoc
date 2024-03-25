@@ -2,7 +2,7 @@
 .Process required for positions or state provided on-demand
 ====
 [%metadata]
-identifier:: /conf/xml/physicalComponent/position-by-process 
+identifier:: /conf/xml/physicalComponent/position-by-trajectory 
 
 target:: /req/xml/physicalComponent/position-by-trajectory
 test-purpose:: Verify that the target implementation allows positions or state to be provided on-demand by a process.
