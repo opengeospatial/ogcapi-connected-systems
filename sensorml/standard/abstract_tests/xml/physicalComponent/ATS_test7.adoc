@@ -1,7 +1,13 @@
-[requirement,model=ogc]
-====   
+[abstract_test]
+.Process required for positions or state provided on-demand
+====
 [%metadata]
-identifier:: /req/xml/physicalComponent/position-by-process
+identifier:: /conf/xml/physicalComponent/position-by-process
 
-The position property shall take a SensorML-encoded process (either inline or by reference) when those values are calculated or retrieved on-demand as-needed. The output of that process shall be a swe:DataArray describing the trajectory of the component, or a swe:DataRecord describing instantaneous position or state of the component. 
+target:: /req/xml/physicalComponent/position-by-process
+test-purpose:: Verify that the target implementation allows positions or state to be provided on-demand by a process.
+[.component,class=test method]
+=====
+When the position element takes an instance of sml:AbstractProcess as its value, validate that the output of the process contains a swe:DataArray with time-tagged trajectory data, or a swe:DataRecord with time-tagged position or state data.  
+=====
 ====
