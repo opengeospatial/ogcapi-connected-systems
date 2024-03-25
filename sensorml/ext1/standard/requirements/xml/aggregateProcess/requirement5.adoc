@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====   
-[%metadata]
-identifier:: /req/xml/aggregateProcess/multipleConnections
-
-An output can connect to multiple destinations, but an input can only have one source connection.
-====

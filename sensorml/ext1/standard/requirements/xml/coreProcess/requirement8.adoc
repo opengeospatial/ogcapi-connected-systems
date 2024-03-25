@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====   
-[%metadata]
-identifier:: /req/xml/coreProcess/globallyUniqueID
-
-An instance supporting DescribedObject shall have one and only one gml:identifier and this element shall have a codespace attribute with a value set to “uniqueID”. The value of the gml:identifier shall be a globally unique identifier for the DescribedObject.
-====

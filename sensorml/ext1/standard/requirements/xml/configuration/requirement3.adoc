@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====   
-[%metadata]
-identifier:: /req/xml/configuration/parameterValue
-
-The parameter values set by a Mode cannot be outside of the values allowed by the AllowedValues property of the parameter.
-====

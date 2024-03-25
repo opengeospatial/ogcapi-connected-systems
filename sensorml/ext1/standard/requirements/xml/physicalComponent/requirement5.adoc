@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====   
-[%metadata]
-identifier:: /req/xml/physicalComponent/dynamicState
-
-The dynamic state through time of a moving physical component shall be described using a swe:DataArray or a sml:AbstractProcess.
-====

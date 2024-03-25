@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/xml/coreProcess/extension-namespace-unique
-
-All extensions of the XML schemas described in this standard shall be defined in a new unique namespace (other than the namespaces used by this standard and its dependencies).
-====

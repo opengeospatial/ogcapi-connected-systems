@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====   
-[%metadata]
-identifier:: /req/xml/coreProcess/documentSecurityTags
-
-All values for the securityConstraints property shall be defined in a new unique namespace (other than the namespaces used by this standard and its dependencies).
-====

@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====   
-[%metadata]
-identifier:: /req/xml/configuration/modeRestriction
-
-A Mode shall not set any process property values, other than the values of parameters defined within the same process or its parent processes.
-====

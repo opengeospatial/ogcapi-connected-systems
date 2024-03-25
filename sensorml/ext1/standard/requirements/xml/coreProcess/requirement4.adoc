@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/xml/coreProcess/extension-coherent-with-core
-
-Extensions of this standard shall not redefine or change the meaning or behavior of XML elements and types defined in this standard.
-====

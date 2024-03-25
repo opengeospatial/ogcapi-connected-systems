@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====   
-[%metadata]
-identifier:: /req/xml/aggregateProcess/componentReference
-
-When the value of the component property is “byReference”, there shall be meaningful values for the xlink:title and xlink:href attributes. The uniqueID of the referenced process, given by its gml:identifier property, shall be the value of the xlink:title attribute, while a resolvable URL to the referenced process description shall be the value of the xlink:href attribute.
-====
