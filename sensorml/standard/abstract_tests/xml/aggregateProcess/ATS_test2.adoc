@@ -6,8 +6,6 @@ identifier:: /conf/xml/aggregateProcess/componentReference
 
 target:: /req/xml/aggregateProcess/componentReference  
 test-purpose:: Verify that the target implementation provides a valid component reference.
-[.component,class=test method]
-=====
+test-method:: 
 Validate the presence of xlink:title and xlink:href for the component property when its value is provided by reference.  
-=====
 ====

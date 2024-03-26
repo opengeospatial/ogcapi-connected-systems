@@ -6,8 +6,6 @@ identifier:: /conf/xsd-advanced-encodings/scalar-ref-component-valid
 
 target:: /req/xsd-advanced-encodings/scalar-ref-component-valid
 
-[.component,class=test method]
-=====
+test-method:: 
 Inspect the section of the XML instance describing the binary encoding options. Resolve the path to a component of the dataset definition tree and check that this component is one of the elements defined in simple_components.xsd schema.
-=====
 ====

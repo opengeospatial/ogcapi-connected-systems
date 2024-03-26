@@ -7,8 +7,6 @@ identifier:: /conf/model/coreProcess/aggregateData
 target:: /req/model/coreProcess/aggregateData 
 test-purpose:: Verify that the target implementation models tightly related data as an SWE Common Data aggregate type.
 
-[.component,class=test method]
-=====
+test-method:: 
 Verify that the implementation of the conceptual model has a constraint that enforces the above. 
-=====
 ====

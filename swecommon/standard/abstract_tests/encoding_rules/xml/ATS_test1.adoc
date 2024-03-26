@@ -6,8 +6,6 @@ identifier:: /conf/xml-encoding-rules/local-names-valid
 
 target:: /req/xml-encoding-rules/local-names-valid
 
-[.component,class=test method]
-=====
+test-method:: 
 Inspect the XML of the encoded data block to verify that all XML element names corresponding to names provided by the descriptors.
-=====
 ====

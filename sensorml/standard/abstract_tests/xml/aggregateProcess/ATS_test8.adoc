@@ -6,8 +6,6 @@ identifier:: /conf/xml/aggregateProcess/designatingLinkPaths
 
 target:: /req/xml/aggregateProcess/designatingLinkPaths
 test-purpose:: Verify that the target implementation only allows valid ports as destinations in links.
-[.component,class=test method]
-=====
+test-method:: 
 Validate that all paths lead to valid ports. 
-=====
 ====

@@ -8,8 +8,6 @@ target:: /req/core/processes
 
 test-purpose:: Verify that the target implementation correctly implements a process model.
 
-[.component,class=test method]
-=====
+test-method:: 
 Inspect the model or software implementation to verify the above. 
-=====
 ====

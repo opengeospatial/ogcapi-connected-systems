@@ -6,8 +6,6 @@ identifier:: /conf/xml/physicalComponent/attachedToTarget
 
 target:: /req/xml/physicalComponent/attachedToTarget 
 test-purpose:: Verify that the target implementation only allows a physical process to attach to another physical process using the attachedTo property.
-[.component,class=test method]
-=====
+test-method:: 
 Validate that the target for the attachedTo property is a PhysicalComponent or PhysicalSystem.  
-=====
 ====

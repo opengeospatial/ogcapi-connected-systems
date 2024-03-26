@@ -8,8 +8,6 @@ target:: /req/core/boolean-rep-valid
 
 test-purpose:: Verify that the target implementation correctly implements the Boolean representation.
 
-[.component,class=test method]
-=====
+test-method:: 
 Inspect the target implementation.
-=====
 ====

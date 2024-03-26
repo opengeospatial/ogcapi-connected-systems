@@ -6,8 +6,6 @@ identifier:: /conf/model/configurableProcess/setArrayValueRestriction
 
 target:: /req/model/configurableProcess/setArrayValueRestriction 
 test-purpose:: Verify that the target implementation only references and sets array values for a _parameter_ defined in a configurable process.
-[.component,class=test method]
-=====
+test-method:: 
 Verify that the implementation of the conceptual model has a constraint that enforces the above. 
-=====
 ====

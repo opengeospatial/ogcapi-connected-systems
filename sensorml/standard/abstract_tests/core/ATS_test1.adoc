@@ -1,3 +1,4 @@
+[[ats_core_core_concepts_used]]
 [abstract_test]
 .Core concepts are the base of all derived models
 ====
@@ -8,8 +9,5 @@ target:: /req/core/core-concepts-used
 
 test-purpose:: Verify that the target implementation correctly implements the core concepts.
 
-[.component,class=test method]
-=====
-Inspect the model or software implementation to verify the above.
-=====
+test-method:: Inspect the model or software implementation to verify the above.
 ====

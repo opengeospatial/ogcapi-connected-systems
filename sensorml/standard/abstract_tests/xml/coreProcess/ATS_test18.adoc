@@ -6,8 +6,6 @@ identifier:: /conf/xml/coreProcess/MultiplexedDataStream
 
 target:: /req/xml/coreProcess/MultiplexedDataStream
 test-purpose:: Verify that the target implementation can handle multiplexed data streams.
-[.component,class=test method]
-=====
+test-method:: 
 Validate that a DataStream consisting of disparate packages utilizes DataChoice to encapsulate those packages and that each package is defined as an item. 
-=====
 ====

@@ -6,8 +6,6 @@ identifier:: /conf/model/configurableProcess/package-fully-implemented
 
 target:: /req/model/configurableProcess/package-fully-implemented  
 test-purpose:: Verify that the target implementation correctly implements all "Configuration" package UML classes.
-[.component,class=test method]
-=====
+test-method:: 
 Inspect the model or software implementation to verify the above. 
-=====
 ====

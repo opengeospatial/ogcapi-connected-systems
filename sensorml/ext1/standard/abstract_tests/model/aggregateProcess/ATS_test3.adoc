@@ -6,8 +6,6 @@ identifier:: /conf/model/aggregateProcess/definition
 
 target:: /req/model/aggregateProcess/definition
 test-purpose:: Verify that the target implementation is modelled as an "aggregate process" if it meets the definition.
-[.component,class=test method]
-=====
+test-method:: 
 Verify that the implementation of the conceptual model has constraints that enforce the above. 
-=====
 ====

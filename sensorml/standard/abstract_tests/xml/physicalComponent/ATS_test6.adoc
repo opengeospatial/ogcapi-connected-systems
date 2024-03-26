@@ -6,8 +6,6 @@ identifier:: /conf/xml/physicalComponent/position-by-trajectory
 
 target:: /req/xml/physicalComponent/position-by-trajectory
 test-purpose:: Verify that the target implementation correctly specifies trajectory reference frame origin using a DataArray.
-[.component,class=test method]
-=====
+test-method:: 
 When the position element takes a swe:DataArray as its value, validate that the DataArray contains a time field and one or more swe:Vector elements as its fields.  
-=====
 ====

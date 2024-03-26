@@ -6,8 +6,6 @@ identifier:: /conf/model/physicalComponent/package-fully-implement
 
 target:: /req/model/physicalComponent/package-fully-implement  
 test-purpose:: Verify that the target implementation correctly implements all "PhysicalComponent" UML classes.
-[.component,class=test method]
-=====
+test-method:: 
 Verify that the implementation fully implements all of the package. 
-=====
 ====

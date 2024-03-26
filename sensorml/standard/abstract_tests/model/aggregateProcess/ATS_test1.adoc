@@ -6,8 +6,6 @@ identifier:: /conf/model/aggregateProcess/dependency-core
 
 target:: /req/model/aggregateProcess/dependency-core 
 test-purpose:: Verify that the target implementation passes the test class.
-[.component,class=test method]
-=====
+test-method:: 
 Apply all tests described in section A.2. 
-=====
 ====

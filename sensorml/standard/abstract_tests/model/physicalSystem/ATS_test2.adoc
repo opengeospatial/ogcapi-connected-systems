@@ -6,8 +6,6 @@ identifier:: /conf/model/physicalSystem/definition
 
 target:: /req/model/physicalSystem/definition
 test-purpose:: Verify that the target implementation correctly models itself as a "Physical System".
-[.component,class=test method]
-=====
+test-method:: 
 Verify that the implementation of the conceptual model has a constraint that enforces the above. 
-=====
 ====

@@ -6,8 +6,6 @@ identifier:: /conf/xml/physicalSystem/schema-valid
 
 target:: /req/xml/physicalSystem/schema-valid 
 test-purpose:: Verify that the target implementation validates against the physical_system XML schema and Schematron patterns.
-[.component,class=test method]
-=====
+test-method:: 
 Validate the XML instance containing core process with the “physical_system.xsd” XML schema file and the Schematron patterns in “physical_system.sch”.   
-=====
 ====

@@ -7,8 +7,6 @@ identifier:: /conf/model/coreProcess/uniqueID
 target:: /req/model/coreProcess/uniqueID
 test-purpose:: Verify that the target implementation uses a single gml:identifier property to provide a unique ID.
 
-[.component,class=test method]
-=====
+test-method:: 
 Verify that the implementation of the conceptual model has a constraint that enforces the above. 
-=====
 ====

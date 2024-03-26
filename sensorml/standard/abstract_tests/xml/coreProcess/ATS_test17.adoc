@@ -6,8 +6,6 @@ identifier:: /conf/xml/coreProcess/DataStreamURL
 
 target:: /req/xml/coreProcess/DataStreamURL
 test-purpose:: Verify that the target implementation can process DataStreamURL values provided by reference.
-[.component,class=test method]
-=====
+test-method:: 
 Validate the presence of an xlink:href atribute with resolvable URL for DataStream values provided by reference. 
-=====
 ====

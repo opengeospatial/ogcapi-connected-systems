@@ -6,8 +6,6 @@ identifier:: /conf/general-encoding-rules/choice-encoding-rule
 
 target:: /req/general-encoding-rules/choice-encoding-rule
 
-[.component,class=test method]
-=====
+test-method:: 
 Verify that the sequence of scalar values (obtained after decoding the section of the encoded data block corresponding to the “DataChoice”) includes a value identifying the selected item as well as values for the item itself.
-=====
 ====

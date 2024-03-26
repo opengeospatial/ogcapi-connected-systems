@@ -6,8 +6,6 @@ identifier:: /conf/xml/coreProcess/VectorUse
 
 target:: /req/xml/coreProcess/VectorUse
 test-purpose:: Verify that the target implementation utilizes the swe:Vector element for positions.
-[.component,class=test method]
-=====
+test-method:: 
 Validate that positions within inputs, outputs, and parameters utilize the swe:Vector element.
-=====
 ====

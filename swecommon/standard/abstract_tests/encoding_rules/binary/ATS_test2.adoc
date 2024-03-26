@@ -6,8 +6,6 @@ identifier:: /conf/binary-encoding-rules/type-encoding-valid
 
 target:: /req/binary-encoding-rules/type-encoding-valid
 
-[.component,class=test method]
-=====
+test-method:: 
 Verify that valid and realistic scalar values are obtained when the binary data block is parsed by extracting the number of bits specified in the table and decoding the resulting bytes in the order specified by the “byteOrder” attribute. When the encoded data and the encoding parameters are not consistent, abberant values (such as -65502 for a temperature field, etc…) are usually obtained, which can be easily detected.
-=====
 ====

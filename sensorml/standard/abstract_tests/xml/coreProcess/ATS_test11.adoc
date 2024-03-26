@@ -6,8 +6,6 @@ identifier:: /conf/xml/coreProcess/contactRole
 
 target:: /req/xml/coreProcess/contactRole
 test-purpose:: Verify that the target implementation can process the ContactList element and its children.
-[.component,class=test method]
-=====
+test-method:: 
 Validate within the XML Instance that either xlink:arcrole or xlink:role are present in the member element of ContactList.
-=====
 ====

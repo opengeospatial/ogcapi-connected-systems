@@ -6,8 +6,6 @@ identifier:: /conf/xml/coreProcess/typeOfReference
 
 target:: /req/xml/coreProcess/typeOfReference
 test-purpose:: Verify that the target implementation provides a typeOf property that is a reference to the description of the object.
-[.component,class=test method]
-=====
+test-method:: 
 Validate that an xlink:title and xlink:href are present in any typeOf element of an XML Instance.
-=====
 ====

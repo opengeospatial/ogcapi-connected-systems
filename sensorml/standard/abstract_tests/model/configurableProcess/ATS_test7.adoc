@@ -6,8 +6,6 @@ identifier:: /conf/model/configurableProcess/setConstraintRestriction
 
 target:: /req/model/configurableProcess/setConstraintRestriction
 test-purpose:: Verify that the target implementation only references and sets constraints for a _parameter_ defined in a configurable process for the _setConstraint_ property.
-[.component,class=test method]
-=====
+test-method:: 
 Verify that the implementation of the conceptual model has a constraint that enforces the above. 
-=====
 ====

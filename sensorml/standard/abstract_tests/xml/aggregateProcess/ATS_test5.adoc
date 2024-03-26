@@ -6,8 +6,6 @@ identifier:: /conf/xml/aggregateProcess/multipleConnections
 
 target:: /req/xml/aggregateProcess/multipleConnections
 test-purpose:: Verify that the target implementation only supports a single source connection per input port.
-[.component,class=test method]
-=====
+test-method:: 
 Validate that there are no multiple connection within any given input port. 
-=====
 ====

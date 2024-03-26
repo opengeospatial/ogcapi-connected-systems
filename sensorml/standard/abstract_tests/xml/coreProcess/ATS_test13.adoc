@@ -6,8 +6,6 @@ identifier:: /conf/xml/coreProcess/foiArcroleAndTitle
 
 target:: /req/xml/coreProcess/foiArcroleAndTitle
 test-purpose:: Verify that the target implementation can process a feature of interest.
-[.component,class=test method]
-=====
+test-method:: 
 Validate that the member property of a FeatureList has a xlink:arcrole attribute present.
-=====
 ====

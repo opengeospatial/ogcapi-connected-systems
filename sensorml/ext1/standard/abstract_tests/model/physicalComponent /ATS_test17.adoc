@@ -6,8 +6,6 @@ identifier:: /conf/model/physicalComponent/definition
 
 target:: /req/model/physicalComponent/definition  
 test-purpose:: Verify that the target implementation aligns to the specification of "Physical Component".
-[.component,class=test method]
-=====
+test-method:: 
 Verify that the implementation of the conceptual model has a constraint that enforces the above. 
-=====
 ====

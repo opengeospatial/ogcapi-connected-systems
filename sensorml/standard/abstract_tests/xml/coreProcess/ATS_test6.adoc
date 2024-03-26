@@ -6,8 +6,6 @@ identifier:: /conf/xml/coreProcess/gml-dependency
 
 target:: /req/xml/coreProcess/gml-dependency
 test-purpose:: Verify that the target implementation is GML 3.2 compliant.
-[.component,class=test method]
-=====
+test-method:: 
 Validate the XML Instance according to GML 3.2 conformance tests.
-=====
 ====

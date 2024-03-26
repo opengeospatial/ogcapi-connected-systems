@@ -6,8 +6,6 @@ identifier:: /conf/model/configurableProcess/twoModesRequired
 
 target:: /req/model/configurableProcess/twoModesRequired 
 test-purpose:: Verify that the target implementation implements two or more _mode_ properties.
-[.component,class=test method]
-=====
+test-method:: 
 Inspect the model or software implementation to verify the above. 
-=====
 ====

@@ -6,8 +6,6 @@ identifier:: /conf/xml/configuration/schema-valid
 
 target:: /req/xml/configuration/schema-valid
 test-purpose:: Verify that the target implementation validates against the configuration XML schema and Schematron patterns.
-[.component,class=test method]
-=====
+test-method:: 
 Validate the XML instance containing core process with the “configuration.xsd” XML schema file and the Schematron patterns in “configuration.sch”.  
-=====
 ====

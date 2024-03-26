@@ -7,8 +7,6 @@ identifier:: /conf/model/coreProcess/extensionRestrictions
 target:: /req/model/coreProcess/extensionRestrictions 
 test-purpose:: Verify that the target implementation does not require an extension for process execution.
 
-[.component,class=test method]
-=====
+test-method:: 
 Verify that the implementation of the conceptual model has a constraint that enforces the above. 
-=====
 ====

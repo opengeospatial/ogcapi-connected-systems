@@ -7,8 +7,6 @@ identifier:: /conf/model/coreProcess/SWE-Common_dependency
 target:: /req/model/coreProcess/SWE-Common_dependency  
 test-purpose:: Verify that the target implementation passes conformance test classes.
 
-[.component,class=test method]
-=====
+test-method:: 
 Validate according to appropriate SWE Common Data conformance tests
-=====
 ====

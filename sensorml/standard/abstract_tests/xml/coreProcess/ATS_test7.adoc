@@ -6,8 +6,6 @@ identifier:: /conf/xml/coreProcess/swe-common-dependency
 
 target:: /req/xml/coreProcess/swe-common-dependency
 test-purpose:: Verify that the target implementation is compliant with SWE Common Data v2.0.
-[.component,class=test method]
-=====
+test-method:: 
 Validate the XML Instance according to SWE Common Data v2.0 conformance tests.
-=====
 ====

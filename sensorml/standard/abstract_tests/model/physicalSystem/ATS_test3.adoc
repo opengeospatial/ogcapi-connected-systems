@@ -6,8 +6,6 @@ identifier:: /conf/model/physicalSystem/dependency-core
 
 target:: /req/model/physicalSystem/dependency-core 
 test-purpose:: Verify that the target implementation correctly passes the "Physical Component" conformance test class.
-[.component,class=test method]
-=====
+test-method:: 
 Apply all tests described in section A.5. 
-=====
 ====

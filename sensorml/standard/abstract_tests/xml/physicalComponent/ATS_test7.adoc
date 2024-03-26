@@ -6,8 +6,6 @@ identifier:: /conf/xml/physicalComponent/position-by-process
 
 target:: /req/xml/physicalComponent/position-by-process
 test-purpose:: Verify that the target implementation allows positions or state to be provided on-demand by a process.
-[.component,class=test method]
-=====
+test-method:: 
 When the position element takes an instance of sml:AbstractProcess as its value, validate that the output of the process contains a swe:DataArray with time-tagged trajectory data, or a swe:DataRecord with time-tagged position or state data.  
-=====
 ====

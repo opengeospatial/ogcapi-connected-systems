@@ -6,8 +6,6 @@ identifier:: /conf/xml/physicalComponent/attachedToReference
 
 target:: /req/xml/physicalComponent/attachedToReference  
 test-purpose:: Verify that the target implementation requires the attachedTo property to specify values for the xlink:href and xlink:title attributes.
-[.component,class=test method]
-=====
+test-method:: 
 Validate that the the attachedTo property has values for the xlink:href and xlink:title attributes.  
-=====
 ====

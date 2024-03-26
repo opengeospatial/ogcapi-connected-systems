@@ -7,8 +7,6 @@ identifier:: /conf/model/coreProcess/configuration
 target:: /req/model/coreProcess/configuration 
 test-purpose:: Verify that the target implementation uses the _configuration_ property to specify non-inherited restrictions.
 
-[.component,class=test method]
-=====
+test-method:: 
 Verify that the implementation of the conceptual model has a constraint that enforces the above. 
-=====
 ====

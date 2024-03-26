@@ -6,8 +6,6 @@ identifier:: /conf/xml/aggregateProcess/propertyConnectionRestrictions
 
 target:: /req/xml/aggregateProcess/propertyConnectionRestrictions
 test-purpose:: Verify that the target implementation only allows input, output, and parameter ports as destinations.
-[.component,class=test method]
-=====
+test-method:: 
 Validate that no properties other than inputs, outputs, and parameters are included as a destination.
-=====
 ====
