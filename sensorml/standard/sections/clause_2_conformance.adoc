@@ -25,57 +25,57 @@ The conformance rules for the XML implementation are based on XML validation usi
 
 |http://www.opengis.net/spec/SensorML/2.1/req/core 
 |Core Concepts
-|
+|<<core_concepts>>
 
 |http://www.opengis.net/spec/SensorML/2.1/req/model/coreProcess
 |Abstract Process  
-|
+|<<uml_core_abstract_process>>
 
 |http://www.opengis.net/spec/SensorML/2.1/req/model/simpleProcess
 |(Non-Physical) Simple Process
-|
+|<<uml_simple_process>>
 
 |http://www.opengis.net/spec/SensorML/2.1/req/model/aggregateProcess
 |(Non-Physical) Aggregate Process
-|
+|<<uml_aggregate_process>>
 
 |http://www.opengis.net/spec/SensorML/2.1/req/model/physicalComponent
 |Physical Component
-|
+|<<uml_physical_component>>
 
 |http://www.opengis.net/spec/SensorML/2.1/req/model/physicalSystem  
 |Physical System
-|
+|<<uml_physical_system>>
 
 |http://www.opengis.net/spec/SensorML/2.1/req/model/advancedProcesses
 |Processes with Advanced Data Types
-|
+|<<uml_processes_with_advanced_data_types>>
 
 |http://www.opengis.net/spec/SensorML/2.1/req/model/configurableProcess
 |Configurable Process
-|
+|<<uml_configurable_processes>>
 
 |http://www.opengis.net/spec/SensorML/2.1/req/xml/coreProcess
 |Core Process
-|
+|<<xsd_core_abstract_process>>
 
 |http://www.opengis.net/spec/SensorML/2.1/req/xml/simpleProcess  
 |(Non-Physical) Simple Process
-|
+|<<xsd_simple_process>>
 
 |http://www.opengis.net/spec/SensorML/2.1/req/xml/aggregateProcess
 |(Non-Physical) Aggregate Process
-|
+|<<xsd_aggregate_process>>
 
 |http://www.opengis.net/spec/SensorML/2.1/req/xml/physicalComponent
 |Physical Component
-|
+|<<xsd_physical_component>>
 
 |http://www.opengis.net/spec/SensorML/2.1/req/xml/physicalSystem
 |Physical System
-|
+|<<xsd_physical_system>>
 
 |http://www.opengis.net/spec/SensorML/2.1/req/xml/configurableProcess
 |Configurable Process
-|
+|<<xsd_configurable_processes>>
 |===

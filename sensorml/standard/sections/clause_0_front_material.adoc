@@ -76,10 +76,6 @@ Recipients of this document are requested to submit, with their comments, notifi
 
 No security considerations have been made for this standard.
 
-
-== Submitting organizations
-
-
 == Submitters
 
 All questions regarding this submission should be directed to the editor or the submitters:
@@ -90,7 +86,4 @@ All questions regarding this submission should be directed to the editor or the 
 | Alexandre Robin | Sensia Software LLC| Yes
 | Eric Hirschon | Eric Hirschon | Yes
 |===
-
-[.preface]
-== Contributors
 
