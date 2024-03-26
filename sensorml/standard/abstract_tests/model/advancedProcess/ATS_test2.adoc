@@ -2,9 +2,9 @@
 .Fully implement AdvancedProcess 
 ====
 [%metadata]
-identifier:: /conf/model/advancedProcess/package-fully-implement 
+identifier:: /conf/model/advancedProcess/package-fully-implemented 
 
-target:: /req/model/advancedProcess/package-fully-implement 
+target:: /req/model/advancedProcess/package-fully-implemented 
 test-purpose:: Verify that the target implementation correctly implements "Core" package UML classes.
 test-method:: 
 Inspect the model or software implementation to verify the above. 

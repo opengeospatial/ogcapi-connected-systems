@@ -3,9 +3,9 @@
 .Core concepts are the base of all derived models
 ====
 [%metadata]
-identifier:: /conf/core/core-concepts-used
+identifier:: /conf/core/concepts-used
 
-target:: /req/core/core-concepts-used
+target:: /req/core/concepts-used
 
 test-purpose:: Verify that the target implementation correctly implements the core concepts.
 
