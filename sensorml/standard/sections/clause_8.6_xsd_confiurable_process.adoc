@@ -9,7 +9,7 @@ include::../requirements/xml/configuration/requirement1.adoc[]
 The following XML snippet provides the appropriate header and import statements for the configurable_process.xsd:
 
 [source,xml]
-====
+----
 <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sml="http://www.opengis.net/SensorML/2.1"
      xmlns:swe="http://www.opengis.net/swe/2.0" targetNamespace="http://www.opengis.net/SensorML/2.1"
      elementFormDefault="qualified" attributeFormDefault="unqualified">
@@ -20,7 +20,7 @@ The following XML snippet provides the appropriate header and import statements 
      <import namespace="http://www.opengis.net/swe/2.0"
           schemaLocation="http://schemas.opengis.net/sweCommon/2.0/swe.xsd"/>
      <include schemaLocation="simple_process.xsd"/>
-==== 
+---- 
 
 The primary elements supporting configurable processes will be discussed in more detail in the following subclauses.
 
@@ -33,7 +33,7 @@ The XML snippet for the Mode and ModeChoice elements and their complex types is 
 _Mode:_
 
 [source,xml]
-====
+----
      <element name="Mode" type="sml:ModeType" substitutionGroup="sml:DescribedObject"/>
  
      <complexType name="ModeType">
@@ -52,12 +52,12 @@ _Mode:_
           </sequence>
           <attributeGroup ref="swe:AssociationAttributeGroup"/>
      </complexType>
-====
+----
 
 _ModeChoice:_
 
 [source,xml]
-====
+----
      <element name="ModeChoice" type="sml:ModeChoiceType" substitutionGroup="sml:AbstractModes">
           <annotation>
                <documentation>A collection of modes from which one can exclusively select during configuration of a process.
@@ -81,7 +81,7 @@ _ModeChoice:_
           </sequence>
           <attributeGroup ref="swe:AssociationAttributeGroup"/>
      </complexType>
-==== 
+---- 
 
 A Mode is restricted in the values that it can set. In essence, a Mode is restricted to setting only the values of previously defined parameters of the enclosed process and its base processes, and the values of these parameters must be set consistent with the parameters allowed values.
 
@@ -92,7 +92,7 @@ include::../requirements/xml/configuration/requirement3.adoc[]
 In the following example, the definition of the parameters, samplingRate and gain are defined within the parameters section of the process description. Then two modes (“lowThreat” and “highThreat”) are defined, each of which defines specific values for these the two parameters.
 
 [source,xml]
-====
+----
     <!– ==================================== –>
     <!–             Parameters               –>
     <!– ==================================== –>
@@ -160,7 +160,7 @@ In the following example, the definition of the parameters, samplingRate and gai
             </sml:mode>           
         </sml:ModeChoice> 
     </sml:modes>
-====
+----
  
 ==== Settings
 
@@ -169,7 +169,7 @@ The Settings element is an XML schema implementation of the models defined in Cl
 The XML snippet for the Settings element and its complex types is given below:
 
 [source,xml]
-====
+----
      <element name="Settings" type="sml:SettingsType" substitutionGroup="sml:AbstractSettings"/>
  
      <complexType name="SettingsType">
@@ -222,12 +222,12 @@ minOccurs="0" maxOccurs="unbounded">
           </sequence>
           <attributeGroup ref="swe:AssociationAttributeGroup"/>
      </complexType>
-==== 
+---- 
 
 _setValue PropertyType:_
 
 [source,xml]
-====
+----
      <complexType name="ValueSettingPropertyType">
           <simpleContent>
                <extension base="token">
@@ -235,12 +235,12 @@ _setValue PropertyType:_
                </extension>
           </simpleContent>
      </complexType>
-====
+----
 
 _setArrayValue PropertyType:_
 
 [source,xml]
-====
+----
      <complexType name="ArraySettingPropertyType">
           <sequence>
                <element name="ArrayValues">
@@ -260,12 +260,12 @@ _setArrayValue PropertyType:_
           </sequence>
           <attribute name="ref" type="sml:DataComponentPathPropertyType" use="required"/>
      </complexType>
-==== 
+---- 
 
 _setMode PropertyType:_
 
 [source,xml]
-====
+----
      <complexType name="ModeSettingPropertyType">
           <simpleContent>
                <extension base="NCName">
@@ -273,12 +273,12 @@ _setMode PropertyType:_
                </extension>
           </simpleContent>
      </complexType>
-====
+----
 
 _setStatus PropertyType:_
 
 [source,xml]
-====
+----
      <complexType name="StatusSettingPropertyType">
           <simpleContent>
                <extension base="sml:StatusType">
@@ -286,12 +286,12 @@ _setStatus PropertyType:_
                </extension>
           </simpleContent>
      </complexType>
-====
+----
  
 _setConstraint PropertyType:_
 
 [source,xml]
-====
+----
      <complexType name="ConstraintSettingPropertyType">
           <sequence>
                <group ref="sml:Constraint"/>
@@ -320,7 +320,7 @@ _setConstraint PropertyType:_
                <enumeration value="disabled"/>
           </restriction>
      </simpleType>
-==== 
+---- 
 
 The following example shows use of the configuration property within a configured process. In this example, the value of the Averaging Period for the raingauge is set to 60.0 (in whatever units of measure are use by the parameter), the Sampling Period of the raingauge has been constrained between 30.0 and 60.0, and the rain gauge component has been enabled.
 

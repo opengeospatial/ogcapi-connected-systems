@@ -4,8 +4,9 @@ include::../requirements/model/physicalComponent/requirements_class.adoc[]
 
 In the context of SensorML, physical processes represent real processing devices whose spatio-temporal position is important. Physical processes include detectors, actuators, sensor systems, and actuator systems. Such processes typically, but not always, involve interactions beween a real-world domain (or environment) and a digital domain.
 
+[example%unnumbered]
 ====
-Example 
+*Examples*
 
 A detector or sensor system typically senses an environmental stimulus and provides a digital number representing the measure of a property of that environment (e.g., temperature). Likewise, an actuator receives a digital number and based on its values causes an action in the real-world environment.Both devices interact with the real world and their position is usually of importance to the end-user. These should usually be modelled as physical components.
 ==== 
@@ -60,8 +61,9 @@ include::../requirements/model/physicalComponent/requirement6.adoc[]
 
 Just as spatial position must be related to a spatial reference frame, time must also be related to a temporal reference frame. Temporal reference frames can include a particular calendar, a particular time of day reference frame, or a frame attached to an event of interest.
 
+[example%unnumbered]
 ====
-Example 
+*Examples*
 
 A temporal frame can be attached to an event of interest, such as the start of the mission. When such a reference frame is defined, time measurements can be expressed in seconds past the mission start time (which is usually itself referenced to a global time frame such as UTC or TAI). 
 ====

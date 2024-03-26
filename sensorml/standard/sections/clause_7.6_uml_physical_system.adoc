@@ -8,8 +8,9 @@ include::../requirements/model/physicalSystem/requirement1.adoc[]
 
 Sensor and actuator systems (e.g., machines and robots) are typically physical systems that perform a particular feat through the coordinated actions of both physical and non-physical sub-processes. Even though a sensor system’s overall application is to sense something in the environment, the system itself can consist of sensing components (e.g., detectors and sensing subsystems), action (e.g., actuators and robotic subsystems), and computational components.
 
+[example%unnumbered]
 ====
-Example 
+*Examples*
 
 A weather station is an example of physical system that is composed of several sensors (thermometer, barometer, wind sensor, etc.) and other computational process such as an algorithm to compute wind chill. All these components can be described in SensorML and grouped in a PhysicalComponent description representing the station as a whole. 
 

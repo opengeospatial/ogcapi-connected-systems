@@ -22,8 +22,9 @@ include::../requirements/model/simpleProcess/requirement4.adoc[]
 .Model for Simple Process
 image::figures/simpleProcess.png[]
 
+[example%unnumbered]
 ====
-Example 
+*Examples*
 
 A process computing a simple mathematical function such as sine, cosine or square root is usually modeled as a SimpleProcess instance. However, even more complex processes can be modeled this way if there is no intent to break down the implementation of the process into sub-processes.
 ====

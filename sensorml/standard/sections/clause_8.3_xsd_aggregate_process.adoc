@@ -9,7 +9,7 @@ include::../requirements/xml/aggregateProcess/requirement1.adoc[]
 The following XML snippet provides the appropriate header and import statements for the simple_process.xsd:
 
 [source,xml]
-====
+----
 <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sml="http://www.opengis.net/SensorML/2.1"
      xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:swe="http://www.opengis.net/swe/2.0"
      targetNamespace="http://www.opengis.net/SensorML/2.1" elementFormDefault="qualified"
@@ -23,14 +23,14 @@ The following XML snippet provides the appropriate header and import statements 
      <import namespace="http://www.opengis.net/swe/2.0"
           schemaLocation="http://schemas.opengis.net/sweCommon/2.0/swe.xsd"/>
      <include schemaLocation="simple_process.xsd"/>
-====
+----
 
 ==== Aggregate Process
 
 The “AggregateProcess” element is the XML schema implementation of the “AggregateProcess” UML class defined in clause 7.4.1. The schema snippet for this element and its corresponding complex type is shown below:
 
 [source,xml]
-====
+----
      <element name="AggregateProcess" type="sml:AggregateProcessType" substitutionGroup="sml:AbstractProcess">
           <annotation>
                <documentation>A process that consist of a collection of linked component processes resulting in a specified output.
@@ -61,7 +61,7 @@ The “AggregateProcess” element is the XML schema implementation of the “Ag
           <attributeGroup ref="gml:AssociationAttributeGroup"/>
           <attributeGroup ref="gml:OwnershipAttributeGroup"/>
      </complexType>
-==== 
+---- 
 
 The AggregateProcess element and complex type is derived from AbstractProcess and adds components and connections properties to the properties inherited from AbstractProcess. The components and connections properties take ComponentList and ConnectionList as their values, respectively.
 
@@ -76,7 +76,7 @@ image::figures/scale_and_clip.png[]
 The first example provides a complete definition of the component processes and the setting of parameter values inline.
 
 [source,xml]
-====
+----
 <?xml version=“1.0” encoding=“UTF-8”?>
 <sml:AggregateProcess gml:id="scaleAndClip01"
     xmlns:sml="http://www.opengis.net/SensorML/2.1"
@@ -292,12 +292,12 @@ The first example provides a complete definition of the component processes and 
           </sml:ConnectionList>
     </sml:connections>
 </sml:AggregateProcess>
-==== 
+---- 
 
 Typically, however, aggregate processes will consist of well-defined, modular component processes that exist in a process repository and can be referenced and configured using the typeOf and configuration properties, respectively (discussed in subsequent Section 8.6).  The second example utilizes components that are externally defined but are referenced and configured within the aggregate process description.
 
 [source,xml]
-====
+----
 <?xml version=“1.0” encoding=“UTF-8”?>
 <sml:AggregateProcess gml:id="scaleAndClip06"
     xmlns:sml="http://www.opengis.net/SensorML/2.1"
@@ -429,7 +429,7 @@ Typically, however, aggregate processes will consist of well-defined, modular co
           </sml:ConnectionList>
     </sml:connections>
 </sml:AggregateProcess>
-====
+----
  
 ==== Components
 
@@ -438,7 +438,7 @@ The components property and the ComponentList elements are XML Schema implementa
 The XML snippet for the ComponentList element and its corresponding complex types is shown below:
 
 [source,xml]
-====
+----
      <element name="ComponentList" type="sml:ComponentListType" substitutionGroup="swe:AbstractSWE"/>
  
      <complexType name="ComponentListType">
@@ -469,7 +469,7 @@ The XML snippet for the ComponentList element and its corresponding complex type
           </sequence>
           <attributeGroup ref="swe:AssociationAttributeGroup"/>
      </complexType>
-==== 
+---- 
 
 The component process can be described inline or be referenced through the xlink:href property. For a reference to an external process description, two pieces of information are required in order to reference a component process instance, the uniqueID of the process and a resolvable URL referencing the process description. These shall be provided by the xlink:title and xlink:href attributes, respectively.
 
@@ -487,7 +487,7 @@ The XML snippet for the ConnectionList and Link elements and their corresponding
 _ConnectionList:_
 
 [source,xml]
-====
+----
      <element name="ConnectionList" type="sml:ConnectionListType" substitutionGroup="swe:AbstractSWE"/>
  
      <complexType name="ConnectionListType">
@@ -512,14 +512,14 @@ _ConnectionList:_
           </sequence>
           <attributeGroup ref="swe:AssociationAttributeGroup"/>
      </complexType>
-====
+----
 
  
 
 _Link:_
 
 [source,xml]
-====
+----
      <element name="Link" type="sml:LinkType" substitutionGroup="gml:AbstractObject"/>
  
      <complexType name="LinkType">
@@ -544,14 +544,14 @@ _Link:_
           </sequence>
           <attributeGroup ref="swe:AssociationAttributeGroup"/>
      </complexType>
-====
+----
 
  
 
 From core.xsd:
 
 [source,xml]
-====
+----
      <complexType name="DataComponentRefPropertyType">
           <attribute name="ref" type="sml:DataComponentPathPropertyType" use="required"/>
      </complexType>
@@ -561,7 +561,7 @@ From core.xsd:
                <pattern value="([a-zA-Z_][a-zA-Z0-9_\-\.]*)(/[a-zA-Z_][a-zA-Z0-9_\-\.]*)*"/>
           </restriction>
      </simpleType>
-====
+----
 
  
 ===== Rules for Connections
@@ -589,7 +589,7 @@ include::../requirements/xml/aggregateProcess/requirement8.adoc[]
 As an example, a snippet of the previous example is given below, highlighting the source path parts in yellow and the destination path parts in cyan. The subsequent example shows the appropriate source link path (in yellow) and the destination link path (in cyan).
 
 [source,xml]
-====
+----
 <?xml version=“1.0” encoding=“UTF-8”?>
 <sml:AggregateProcess gml:id="scaleAndClip06"
 
@@ -650,4 +650,4 @@ As an example, a snippet of the previous example is given below, highlighting th
                </sml:connection>
 
 … deleted for brevity sake …
-====
+----

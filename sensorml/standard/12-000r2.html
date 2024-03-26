@@ -2829,7 +2829,7 @@ According to settings in the SensorML models, values for properties can be provi
 In properties that support “xlink” attributes, one can usually choose to define that property value inline, as in:
 
 [source,xml]
-====
+----
   &#x3c;swe:field&#x3e;
      &#x3c;swe:Quantity id=”TEMP” … /&#x3e;
   &#x3c;/swe:field&#x3e;
@@ -2838,14 +2838,14 @@ In properties that support “xlink” attributes, one can usually choose to def
 One can then reference an object within the same document by its ID:
 
 [source,xml]
-====
+----
 &#x3c;swe:field xlink:href=”#TEMP”/&#x3e;
 ====
 
 An object within an external document can also be referenced by including the full URI:
 
 [source,xml]
-====
+----
 &#x3c;swe:field xlink:href=”http://www.my.com/fields.xml#TEMP”/&#x3e;
 ====
 
@@ -2909,7 +2909,7 @@ Note that extension points are also supported by the SWE Common Data specificati
 The header for all specified schema provides namespaces and dependencies. The header for core processes below specifices the namespaces and dependent schema for “sml”, “swe”, “gml”, “gco”, and “gmd”.
 
 [source,xml]
-====
+----
 &#x3c;schema xmlns=”http://www.w3.org/2001/XMLSchema” xmlns:xml=”http://www.w3.org/XML/1998/namespace” xmlns:gco=”http://www.isotc211.org/2005/gco” xmlns:gmd=”http://www.isotc211.org/2005/gmd” xmlns:sml=”http://www.opengis.net/SensorML/2.1” xmlns:gml=”http://www.opengis.net/gml/3.2” xmlns:swe=”http://www.opengis.net/swe/2.0” targetNamespace=”http://www.opengis.net/SensorML/2.1” elementFormDefault=”qualified” attributeFormDefault=”unqualified”&#x3e;
      &#x3c;annotation&#x3e;
           &#x3c;documentation&#x3e;The core elements of an abstract process from which all major elements of SensorML are derived.
@@ -3022,7 +3022,7 @@ d) The path can follow properties that are byReference
 As an example, a snippet of the previous example is given below, highlighting the source path parts in yellow and the destination path parts in cyan. The subsequent example shows the appropriate source link path (in yellow) and the destination link path (in cyan).
 
 [source,xml]
-====
+----
 &#x3c;?xml version=“1.0” encoding=“UTF-8”?&#x3e;
 &#x3c;sml:AggregateProcess gml:id=”scaleAndClip06”
 
@@ -3111,7 +3111,7 @@ The XML instance shall be valid with respect to the XML grammar defined in the �
 The following XML snippet provides the appropriate header and import statements for the physical_component.xsd:
 
 [source,xml]
-====
+----
 &#x3c;schema xmlns=”http://www.w3.org/2001/XMLSchema” xmlns:sml=”http://www.opengis.net/SensorML/2.1”
      xmlns:gml=”http://www.opengis.net/gml/3.2” xmlns:swe=”http://www.opengis.net/swe/2.0”
      targetNamespace=”http://www.opengis.net/SensorML/2.1” elementFormDefault=”qualified”
@@ -3134,7 +3134,7 @@ AbstractPhysicalProcess is derived from AbstractProcess and serves as the base c
 The “AbstractPhysicalProcess” element is the XML schema implementation of the “AbstractPhysicalProcess” UML class defined in clause 7.6. The schema snippet for this element and its corresponding complex type is shown below.
 
 [source,xml]
-====
+----
      &#x3c;element name=”AbstractPhysicalProcess” type=”sml:AbstractPhysicalProcessType” abstract=”true”
           substitutionGroup=”sml:AbstractProcess”&#x3e;
           &#x3c;annotation&#x3e;
@@ -3233,7 +3233,7 @@ The attachedTo property shall require meaningful values for the xlink:title and 
 The localReferenceFrame property takes a SpatialFrame as its value. The “SpatialFrame” element is an XML schema implementation of the “SpatialFrame” UML class defined in clause 7.6. The schema snippet for this element and its corresponding complex type is shown below.
 
 [source,xml]
-====
+----
      &#x3c;element name=”SpatialFrame” type=”sml:SpatialFrameType” substitutionGroup=”swe:AbstractSWEIdentifiable”&#x3e;
           &#x3c;annotation&#x3e;
                &#x3c;documentation&#x3e;A general spatial Cartesian Reference Frame where the axes and origin will be defined textually relative to a physical component.
@@ -3290,7 +3290,7 @@ Failure to adhere to these assumptions cannot be determined by a conformance tes
 An example of a local reference frame description is given below:
 
 [source,xml]
-====
+----
 &#x3c;sml:localReferenceFrame&#x3e;
       &#x3c;sml:SpatialFrame id=”SENSOR_FRAME”&#x3e;
          &#x3c;sml:origin&#x3e;
@@ -3309,7 +3309,7 @@ An example of a local reference frame description is given below:
 The position property of a physical component can be defined by one of several methods, including (1) by description, (2) by point, (3) by position, (4) by dynamic state, (5) by trajectory, or (6) by process. These are defined by the PositionUnion element shown below:
 
 [source,xml]
-====
+----
      &#x3c;group name=”PositionUnion”&#x3e;
           &#x3c;annotation&#x3e;
                &#x3c;documentation&#x3e;A choice of elements for defining spatial state (e.g., location, orientation, linear/angular velocity and linear/angular acceleration.
@@ -3370,7 +3370,7 @@ Each option is defined in more detail below with appropriate examples.
 There are physical components for which the precise location is either not known or is not really relevant. One example would be an O2 sensor on the exhaust line of a car as shown in the following example:
 
 [source,xml]
-====
+----
    &#x3c;sml:position&#x3e;
         &#x3c;swe:Text&#x3e;Located on the exhaust manifold before the catalytic converter&#x3c;/swe:Text&#x3e;
     &#x3c;/sml:position&#x3e;
@@ -3381,7 +3381,7 @@ There are physical components for which the precise location is either not known
 Position by point supports a static location using the gml:Point element. It is not appropriate if the orientation of the component is relevant or the component is has a dynamic location.
 
 [source,xml]
-====
+----
    &#x3c;sml:position&#x3e;
       &#x3c;!– EPSG 4326 is for latitude-longitude, in that order –&#x3e;
       &#x3c;gml:Point gml:id=”stationLocation” srsName=”http://www.opengis.net/def/crs/EPSG/0/4326”&#x3e;
@@ -3395,7 +3395,7 @@ Position by point supports a static location using the gml:Point element. It is 
 As an alternative to using the gml:Point, a static location can also be provided using a swe:Vector, as in the example below:
 
 [source,xml]
-====
+----
   &#x3c;sml:position&#x3e;
       &#x3c;swe:Vector definition=”http://sensorml.com/def/property/SensorLocation”
                   referenceFrame=”http://www.opengis.net/def/crs/EPSG/6.7/4326”&#x3e;
@@ -3430,7 +3430,7 @@ The position property shall take a swe:DataRecord as its value when both locatio
  An example of location and orientation defined for the position is shown below:
 
 [source,xml]
-====
+----
    &#x3c;sml:position&#x3e;
       &#x3c;swe:DataRecord&#x3e;
          &#x3c;swe:field name=”location”&#x3e;
@@ -3507,7 +3507,7 @@ A swe:DataArray describing the trajectory of a moving component shall contain as
 An example of dynamic position being defined as a trajectory is shown below. In this example the values for the location are provided inline within the DataArray element.
 
 [source,xml]
-====
+----
    &#x3c;sml:position&#x3e;
       &#x3c;swe:DataArray definition=”http://www.opengis.net/def/trajectory”&#x3e;
          &#x3c;swe:elementCount&#x3e;
@@ -3568,7 +3568,7 @@ An example of dynamic position being defined as a trajectory is shown below. In 
 It is also possible to support “out-of-band” values by referencing an external “flat file” through the xlink:href attribute of the values property, such as:
 
 [source,xml]
-====
+----
 &#x3c;swe:values xlink:href=”http://myDomain/data/aircraftLocation_20048763”&#x3e;
 ====
 
@@ -3577,7 +3577,7 @@ Futhermore, the trajectory does not need to be constrained to provide only locat
 Finally, if part of the physical process (e.g., a sensor system) outputs its own position (e.g., using a GPS), that DataRecord can be referenced as in the following example:
 
 [source,xml]
-====
+----
    &#x3c;sml:outputs&#x3e;
       &#x3c;sml:OutputList&#x3e;
          &#x3c;!– for the case of moving thermometer output in sync with GPS location –&#x3e;
@@ -3636,7 +3636,7 @@ The position property shall take a SensorML-encoded process (either inline or by
 The following example shows a configured SimpleProcess that calculates position on-demand using an orbital mechanics model. The process takes time as input and provides dynamic state as output. The example utilizes a configurable process to be discussed in a later section.
 
 [source,xml]
-====
+----
    &#x3c;sml:position&#x3e;
       &#x3c;sml:SimpleProcess gml:id=”OrbitalPropagationModel”&#x3e;
          &#x3c;sml:validTime&#x3e;
@@ -3666,7 +3666,7 @@ The following example shows a configured SimpleProcess that calculates position 
 The following example shows position obtained as-needed from an oline SOS web service. The SimpleProcess is a configured instance of an SOS client process. The process takes time as input and provides position as output.
 
 [source,xml]
-====
+----
    &#x3c;sml:position&#x3e;
       &#x3c;!– position by process –&#x3e;
       &#x3c;sml:SimpleProcess gml:id=”SOS_Client”&#x3e;
@@ -3689,7 +3689,7 @@ The following example shows position obtained as-needed from an oline SOS web se
 The localTimeFrame property takes a TemporalFrame as its value and is an XML schema implementation of the localTimeFrame UML model defined in clause 7.6. The schema snippet for this element and its corresponding complex type is shown below.
 
 [source,xml]
-====
+----
      &#x3c;element name=”TemporalFrame” type=”sml:TemporalFrameType”
           substitutionGroup=”swe:AbstractSWEIdentifiable”&#x3e;
           &#x3c;annotation&#x3e;
@@ -3719,7 +3719,7 @@ The localTimeFrame property takes a TemporalFrame as its value and is an XML sch
 An example of a declared localTimeFrame is given below:
 
 [source,xml]
-====
+----
 &#x3c;sml:localTimeFrame&#x3e;
           &#x3c;sml:TemporalFrame id=”MISSION-START-TIME”&#x3e;
                &#x3c;sml:origin&#x3e;
@@ -3736,7 +3736,7 @@ The timePosition property takes a swe:TimePropertyType element as its value. The
 The id of the localTimeFrame defined in the example above, can be used as the value of the localFrame attribute of the swe:Time element in order to specify the relationship of that local time frame to some external time frame. This way several time positions can be defined relative to each other. The following example shows how this can be used to express times of high frequency scan lines acquired by an airborne scanner relative to the flight’s start time:
 
 [source,xml]
-====
+----
 &#x3c;sml:timePosition name=”mission-start-time”&#x3e;
            &#x3c;swe:Time definition=”http://sensor.com/def/property/MissionStartTime”
                       localFrame=”#MISSION-START-TIME” referenceFrame=”http://www.opengis.net/def/trs/OGC/0/UTC”&#x3e;
@@ -3751,7 +3751,7 @@ The id of the localTimeFrame defined in the example above, can be used as the va
 Scan times can then be expressed relative to the flight’s start time as in the example below (note: the scan-start-time position might be defined in the SensorML document, as below, but the high-frequency scan-start-time values would more likely be provided as part of a block or stream of output data).
 
 [source,xml]
-====
+----
      &#x3c;sml:timePosition name=”scan-start-time”&#x3e;
           &#x3c;swe:Time definition=”http://sensorML.com/def/property/ScanStartTime”
                      localFrame=”#SCAN-START-TIME” referenceFrame=”#MISSION-START-TIME”&#x3e;
@@ -3768,7 +3768,7 @@ Scan times can then be expressed relative to the flight’s start time as in the
 PhysicalComponent is derived from AbstractPhysicalProcess and is the XML schema implementation of the “PhysicalComponent” UML class defined in clause 7.6. The schema snippet for this element and its corresponding complex type is shown below.
 
 [source,xml]
-====
+----
      &#x3c;element name=”PhysicalComponent” type=”sml:PhysicalComponentType”
           substitutionGroup=”sml:AbstractPhysicalProcess”&#x3e;
           &#x3c;annotation&#x3e;
@@ -3803,7 +3803,7 @@ PhysicalComponent is derived from AbstractPhysicalProcess and is the XML schema 
 The example below illustrates the definition of a local coordinate reference frame as well as the definition of position (i.e., both location and orientation) of the physical component. While the position of the component is specified here relative to a geospatial reference frame, it could also be specified relative to some other external reference frame, such as the reference frame of a platform.
 
 [source,xml]
-====
+----
 &#x3c;?xml version=“1.0” encoding=“UTF-8”?&#x3e;
 &#x3c;sml:PhysicalComponent gml:id=”MY_SENSOR”
      xmlns:sml=”http://www.opengis.net/SensorML/2.1”
@@ -3935,7 +3935,7 @@ The XML instance shall be valid with respect to the XML grammar defined in the �
 The following XML snippet provides the appropriate header and import statements for the physical_component.xsd:
 
 [source,xml]
-====
+----
 &#x3c;schema xmlns=”http://www.w3.org/2001/XMLSchema” xmlns:sml=”http://www.opengis.net/SensorML/2.1”
      xmlns:gml=”http://www.opengis.net/gml/3.2” xmlns:swe=”http://www.opengis.net/swe/2.0”
      targetNamespace=”http://www.opengis.net/SensorML/2.1” elementFormDefault=”qualified”
@@ -3959,7 +3959,7 @@ The PhysicalSystem element and complex type are derived from the AbstractPhysica
 The schema snippet for this element and its corresponding complex type is shown below.
 
 [source,xml]
-====
+----
      &#x3c;element name=”PhysicalSystem” type=”sml:PhysicalSystemType”
           substitutionGroup=”sml:AbstractPhysicalProcess”&#x3e;
           &#x3c;annotation&#x3e;
@@ -4002,7 +4002,7 @@ A PhysicalSystem is a physical process that consists of multiple components that
 In the example below there are three components: a thermometer that outputs temperature, an anemometer that outputs both wind speed and wind direction, and a non-physical windchill process that takes temperature and wind speed and calculates a windchill factor. The components are provided “by reference” using the xlink:href attribute.  The outputs of these three components connect to the outputs of the system itself, as shown in the ConnectionsList.
 
 [source,xml]
-====
+----
 &#x3c;?xml version=“1.0” encoding=“UTF-8”?&#x3e;
 &#x3c;sml:PhysicalSystem gml:id=”MY_WEATHER_STATION”
    xmlns:sml=”http://www.opengis.net/SensorML/2.1”
@@ -4170,7 +4170,7 @@ The XML instance shall be valid with respect to the XML grammar defined in the �
 The following XML snippet provides the appropriate header and import statements for the configurable_process.xsd:
 
 [source,xml]
-====
+----
 &#x3c;schema xmlns=”http://www.w3.org/2001/XMLSchema” xmlns:sml=”http://www.opengis.net/SensorML/2.1”
      xmlns:swe=”http://www.opengis.net/swe/2.0” targetNamespace=”http://www.opengis.net/SensorML/2.1”
      elementFormDefault=”qualified” attributeFormDefault=”unqualified”&#x3e;
@@ -4194,7 +4194,7 @@ The XML snippet for the Mode and ModeChoice elements and their complex types is 
 <i>Mode:</i>
 
 [source,xml]
-====
+----
      &#x3c;element name=”Mode” type=”sml:ModeType” substitutionGroup=”sml:DescribedObject”/&#x3e;
 
      &#x3c;complexType name=”ModeType”&#x3e;
@@ -4218,7 +4218,7 @@ The XML snippet for the Mode and ModeChoice elements and their complex types is 
 <i>ModeChoice:</i>
 
 [source,xml]
-====
+----
      &#x3c;element name=”ModeChoice” type=”sml:ModeChoiceType” substitutionGroup=”sml:AbstractModes”&#x3e;
           &#x3c;annotation&#x3e;
                &#x3c;documentation&#x3e;A collection of modes from which one can exclusively select during configuration of a process.
@@ -4265,7 +4265,7 @@ The parameter values set by a Mode cannot be outside of the values allowed by th
 In the following example, the definition of the parameters, samplingRate and gain are defined within the parameters section of the process description. Then two modes (“lowThreat” and “highThreat”) are defined, each of which defines specific values for these the two parameters.
 
 [source,xml]
-====
+----
     &#x3c;!– ==================================== –&#x3e;
     &#x3c;!–             Parameters               –&#x3e;
     &#x3c;!– ==================================== –&#x3e;
@@ -4342,7 +4342,7 @@ The Settings element is an XML schema implementation of the models defined in Cl
 The XML snippet for the Settings element and its complex types is given below:
 
 [source,xml]
-====
+----
      &#x3c;element name=”Settings” type=”sml:SettingsType” substitutionGroup=”sml:AbstractSettings”/&#x3e;
 
      &#x3c;complexType name=”SettingsType”&#x3e;
@@ -4400,7 +4400,7 @@ minOccurs=”0” maxOccurs=”unbounded”&#x3e;
 <i>setValue PropertyType:</i>
 
 [source,xml]
-====
+----
      &#x3c;complexType name=”ValueSettingPropertyType”&#x3e;
           &#x3c;simpleContent&#x3e;
                &#x3c;extension base=”token”&#x3e;
@@ -4413,7 +4413,7 @@ minOccurs=”0” maxOccurs=”unbounded”&#x3e;
 <i>setArrayValue PropertyType:</i>
 
 [source,xml]
-====
+----
      &#x3c;complexType name=”ArraySettingPropertyType”&#x3e;
           &#x3c;sequence&#x3e;
                &#x3c;element name=”ArrayValues”&#x3e;
@@ -4438,7 +4438,7 @@ minOccurs=”0” maxOccurs=”unbounded”&#x3e;
 <i>setMode PropertyType:</i>
 
 [source,xml]
-====
+----
      &#x3c;complexType name=”ModeSettingPropertyType”&#x3e;
           &#x3c;simpleContent&#x3e;
                &#x3c;extension base=”NCName”&#x3e;
@@ -4451,7 +4451,7 @@ minOccurs=”0” maxOccurs=”unbounded”&#x3e;
 <i>setStatus PropertyType:</i>
 
 [source,xml]
-====
+----
      &#x3c;complexType name=”StatusSettingPropertyType”&#x3e;
           &#x3c;simpleContent&#x3e;
                &#x3c;extension base=”sml:StatusType”&#x3e;
@@ -4464,7 +4464,7 @@ minOccurs=”0” maxOccurs=”unbounded”&#x3e;
 <i>setConstraint PropertyType:</i>
 
 [source,xml]
-====
+----
      &#x3c;complexType name=”ConstraintSettingPropertyType”&#x3e;
           &#x3c;sequence&#x3e;
                &#x3c;group ref=”sml:Constraint”/&#x3e;

@@ -9,7 +9,7 @@ include::../requirements/xml/physicalSystem/requirement1.adoc[]
 The following XML snippet provides the appropriate header and import statements for the physical_component.xsd:
 
 [source,xml]
-====
+----
 <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sml="http://www.opengis.net/SensorML/2.1"
      xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:swe="http://www.opengis.net/swe/2.0"
      targetNamespace="http://www.opengis.net/SensorML/2.1" elementFormDefault="qualified"
@@ -24,7 +24,7 @@ The following XML snippet provides the appropriate header and import statements 
           schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
      <include schemaLocation="physical_component.xsd"/>
      <include schemaLocation="aggregate_process.xsd"/>
-====
+----
 
 ==== Physical System
 
@@ -33,7 +33,7 @@ The PhysicalSystem element and complex type are derived from the AbstractPhysica
 The schema snippet for this element and its corresponding complex type is shown below.
 
 [source,xml]
-====
+----
      <element name="PhysicalSystem" type="sml:PhysicalSystemType"
           substitutionGroup="sml:AbstractPhysicalProcess">
           <annotation>
@@ -69,14 +69,14 @@ The schema snippet for this element and its corresponding complex type is shown 
           <attributeGroup ref="gml:AssociationAttributeGroup"/>
           <attributeGroup ref="gml:OwnershipAttributeGroup"/>
      </complexType>
-====
+----
 
 A PhysicalSystem is a physical process that consists of multiple components that can be both physical and non-physical. As with the non-physical AggregateProcess, the PhysicalSystem allows for listing of the components as well as explicit mapping of the flow of data throughout the system.
 
 In the example below there are three components: a thermometer that outputs temperature, an anemometer that outputs both wind speed and wind direction, and a non-physical windchill process that takes temperature and wind speed and calculates a windchill factor. The components are provided “by reference” using the xlink:href attribute.  The outputs of these three components connect to the outputs of the system itself, as shown in the ConnectionsList.
 
 [source,xml]
-====
+----
 <?xml version=“1.0” encoding=“UTF-8”?>
 <sml:PhysicalSystem gml:id="MY_WEATHER_STATION"
    xmlns:sml="http://www.opengis.net/SensorML/2.1"
@@ -215,5 +215,5 @@ In the example below there are three components: a thermometer that outputs temp
       </sml:ConnectionList>
    </sml:connections>
 </sml:PhysicalSystem>
-====
+----
 

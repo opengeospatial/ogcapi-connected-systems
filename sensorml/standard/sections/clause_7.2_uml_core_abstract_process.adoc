@@ -10,8 +10,9 @@ include::../requirements/model/coreProcess/requirement2.adoc[]
 ==== ObservableProperty
 An ObservableProperty is a physical property of a phenomenon that can be observed and measured (e.g., temperature, gravitational force, position, chemical concentration, orientation, number-of-individuals, physical switch status, etc.), or a characteristic of one or more feature types, the value for which must be estimated by application of some procedure in an observation. It is thus a physical stimulus that can be sensed by a detector or created by an actuator.
 
+[example%unnumbered]
 ====
-Example 
+*Examples*
 
 The ObservableProperty element allows one to reference a measurable property of a phenomenon or feature for detector inputs or actuator outputs. For example, the temperature of the atmosphere is an ObservableProperty. Before measurement, it is simply a property of the atmosphere that can be defined and measured. After measurement by a detector, the temperature may be represented as a Quantity with units of measure, a value, and an indication of our degree of confidence in the measurement.
 ====
@@ -53,8 +54,9 @@ Keywords provide a simple means of discovery using short tokens that may be reco
 ===== Identifiers
 The identifier property takes a Term as its value. The Term has a definition attribute that specifies in this case the type of identifier, while the codeSpace attribute specifies that the value of the identifier is according to the rules or enumerations of a particular authority.
 
+[example%unnumbered]
 ====
-Example 
+*Examples*
 
 An identifier with a definition of “http://sensors.ws/def/tailNumber” might take “N291PV” as its value based on the codespace of a US Air Force rules dictionary. Other possible definitions for identifiers might include, for example, shortName, longName, acronym, missionID, processorID, serialNumber, manufacturerID, or partNumber.
 ==== 
@@ -64,8 +66,9 @@ The identification properties should be considered as information suitable for t
 ===== Classifiers
 The classifier property provides a list of possible classifiers that might aid in the rapid discovery or organization of processes, sensors, or sensor systems. The classifier properties should be considered as information suitable for the discovery and categorization applications.
 
+[example%unnumbered]
 ====
-Example 
+*Examples*
 
 Definitions for a classifier Term might include, for instance, sensorType, observableType, processType, intendedApplication, or missionType. 
 ====
@@ -73,8 +76,9 @@ Definitions for a classifier Term might include, for instance, sensorType, obser
 ===== Security Constraints
 The model for specification of security constraints shall be based on external security models, such as the Security Banner Marking model of the Intelligence Community Information Security Marking (IC ISM) Standard. The securityConstraints property takes a value of xs:Any which allows various communities and countries to utilize their standard XML encoding for security tags. This security constraint is for the overall document. As will be discussed in the XML encoding, extension points provided with SWE Common Data elements will allow security tagging for individual properties or property aggregates.
 
+[example%unnumbered]
 ====
-Example 
+*Examples*
 
 One can specify the overall security classification of the entire document using the Intelligence Community Information Security Banner Marking (IC ISM) standard or using ISO 19115 MD_Constraints. For tagging individual sections in the document, the SensorML standard allows for security tagging of properties using an extension property, as describe in later sections of the standard.
 ====
@@ -82,8 +86,9 @@ One can specify the overall security classification of the entire document using
 ===== Valid Time Constraint
  The validTime property indicates the time instance or time range over which this process description is valid. Time constraints are important for processes in which parameter values or operation modes may change with time, or instrument deployment times change.
 
+[example%unnumbered]
 ====
-Example 
+*Examples*
 
 Several SensorML documents can exist for the same sensor or system description but with different validity periods. This allows for capturing the configuration of a sensor at different times and, along with the history section, is the basis for maintaining history of the sensor’s description. Alternately, parameter values can be provided as a time-tagged series of values accounting for changes.
 ====
@@ -142,8 +147,9 @@ image::figures/abstract_process_uml.png[]
 
 As discussed in the Core Concepts, any process can have inputs, outputs, and parameters. Processes typically receive input and based on the parameter settings and methodology, generate output. Some processes, such as detectors, receive physical stimulus as input and generate digital numbers as output. In such cases, the input would be represented as an ObservableProperty, and the output as a DataComponent (e.g., a Quantity). If this output is encoded and accessible directly, then the output can be represented as a DataInterface.
 
+[example%unnumbered]
 ====
-Example 
+*Examples*
 
 A digital thermometer is stimulated by an observable property of the environment (temperature), which is modelled as its input (ObservableProperty), and outputs a digital number (Quantity) that represents a measure of that property.
 ====
@@ -173,8 +179,9 @@ include::../requirements/model/coreProcess/requirement8.adoc[]
 
 Most sensors and many non-physical processes have been deployed or implemented with a focus on one or more features of interest. Within SensorML, the primary purpose of including a FeatureOfInterest property for AbstractProcess is to support discovery as well as to further clarify the intended purpose of the physical or non-physical process.
 
+[example%unnumbered]
 ====
-Example 
+*Examples*
 
 The features of interest of an installed web camera might include a particular building, a particular street, or a general area of observation surrounding the camera. Features of interest for other sensors might include the Gulf of Mexico, a particular drilling well, the atmosphere surrounding a particular weather station, a particular patient, or a particular automobile. Features of interest for a model or other process might include a particular river basin, a particular toxic plume release, or a particular metropolitan area. 
 ====
@@ -196,8 +203,9 @@ include::../requirements/model/coreProcess/requirement9.adoc[]
 ====== Simple Inheritance
 In the simple inheritance model, a process (referred to as the “specific process”) inherits and augments information from another process (referred to as the “general process”).
 
+[example%unnumbered]
 ====
-Example 
+*Examples*
 
 An Original Equipment Manufacturer (OEM) provides a description of a particular model of their sensor that would define inputs, outputs, and parameters, as well as perhaps capabilities, characteristics, manufacturer contact information and documentation relevant to that model. Thousands of sensors of this model type may of course be manufactured and sold by the OEM.  When one purchases and deploys an instance of that model of sensor, the owner can then reference the OEM’s description of the model and provide additional information that’s specific to his specific instance of the sensor. Additional information might include, for example, serial number, owner’s contact information, the sensor’s location, calibration data, and the interface description for accessing the data.  
 ====
@@ -209,8 +217,9 @@ include::../requirements/model/coreProcess/requirement10.adoc[]
 ====== Support for Configurable Processes
 A configurable process is one that includes options or choices that can be selected, restricted, or enabled during deployment, operation, or execution of that process.
 
+[example%unnumbered]
 ====
-Example 
+*Examples*
 
 An Original Equipment Manufacturer (OEM) can provide a description of a particular model of their sensor that would define inputs, outputs, and parameters, as well as perhaps capabilities, characteristics, manufacturer contact information and documentation relevant to that model. In addition, the OEM enables an individual instance of that model of sensor to be configured by providing options for setting parameter values, setting modes, or choosing a particular interface. Thousands of sensors of this model type may of course be manufactured and sold by the OEM.  
 
