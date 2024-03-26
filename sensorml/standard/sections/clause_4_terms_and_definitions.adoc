@@ -23,7 +23,7 @@ According to ISO19111, a set of (mathematical) rules for specifying how coordina
 
 === Data Component
 
-Element of sensor data definition corresponding to an atomic or aggregate data type
+Element of sensor data definition corresponding to an atomic or aggregate data type.
 
 NOTE: A data component is a part of the overall dataset definition. The dataset structure can then be seen as a hierarchical tree of data components.
 
@@ -41,7 +41,7 @@ A Parameter or a characteristic of a phenomenon subject to observation. Synonym 
 
 === Feature
 
-Abstraction of real-world phenomena [ISO 19101:2002, definition 4.11]
+Abstraction of real-world phenomena [ISO 19101:2002, definition 4.11].
 
 NOTE: A feature may occur as a type or an instance. Feature type or feature instance should be used when only one is meant.
 
@@ -79,13 +79,13 @@ A parameter or a characteristic of a phenomenon subject to observation. Synonym 
 
 === Observation
 
-Act of observing a property or phenomenon [ISO 19156, definition 4.10]
+Act of observing a property or phenomenon [ISO 19156, definition 4.10].
 
 NOTE: The goal of an observation may be to measure, estimate or otherwise determine the value of a property.
 
 === Observation Procedure
 
-Method, algorithm or instrument, or system of these which may be used in making an observation [ISO 19156, definition 4.11]
+Method, algorithm or instrument, or system of these which may be used in making an observation [ISO 19156, definition 4.11].
 
 NOTE: In the context of the sensor web, an observation procedure is often composed of one or more sensors that transform a real world phenomenon into digital information, plus additional processing steps.
 
@@ -119,9 +119,7 @@ Definition of the algorithm, behaviour, and interface of a Process.
 
 === Property
 
-Facet or attribute of an object referenced by a name
-
-[ISO 19143:2010]
+Facet or attribute of an object referenced by a name. [ISO 19143:2010]
 
 EXAMPLE: Abby's car has the color red, where "color" is a property of the car instance, and "red" is the value of that property.
 

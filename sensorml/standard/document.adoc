@@ -2,7 +2,7 @@
 :doctype: standard
 :encoding: utf-8
 :lang: en
-:status: release
+:status: approved
 :committee: technical
 :external-id: http://www.opengis.net/doc/IS/SensorML/2.1
 :docnumber: 12-000r2

@@ -1,8 +1,8 @@
 [appendix,obligation=informative]
 == Revision history
 
-[%unnumbered]
-[options="header"]
+[cols="12,18,12,12,46",options="header"]
+.Revision History
 |===
 |Date |Release |Author |Paragraph modified |Description
 |2012-03-16 | 2.0 draft | Mike Botts | All | Initial reviewed version
