@@ -22,7 +22,7 @@ In SensorML, all relevant components are modeled as processes, including both co
 
 [example%unnumbered]
 ====
-*Example*
+*Examples*
 
 For a process representing the standard linear equation, x would be the 
 input, m and b the parameters, y the output, and the equation y = mx + b 
@@ -58,7 +58,7 @@ Process definitions can support general representations of a process or a specif
 
 [example%unnumbered]
 ====
-*Example*
+*Examples*
 
 A general process for the linear equation would define the allowable inputs, outputs, and parameters. A specific instance of the process might define constant values for the parameters. 
 

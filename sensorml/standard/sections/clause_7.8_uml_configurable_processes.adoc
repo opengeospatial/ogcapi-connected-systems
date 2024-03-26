@@ -13,8 +13,9 @@ include::../requirements/model/configurableProcess/requirement2.adoc[]
 
 A process shall be considered “configurable” if it provides options, variable parameters, or modes that can be selected or set before or during deployment or execution.
 
+[example%unnumbered]
 ====
-Example:
+*Examples*
 
 A configurable process based on the linear equation (y=mx+b) defines two parameters for “slope” and “y-intercept” but does not provide values for these parameters. A configured process can inherit from this configurable process and set the values of those parameters (e.g., y=2x+4).
 ====
@@ -33,8 +34,9 @@ A process becomes “configured” by having both of the following two character
 
 ==== Modes
 
+[example%unnumbered]
 ====
-Example:
+*Examples*
 
 A Doppler radar for monitoring storms may have several modes from which one can select depending on the prevailing conditions at the time. For instance, there can be “clear-sky”, “storm”, and “severe-storm” modes in which the scanning properties, radar intensity, and gain settings can all change by simply changing the mode setting
 ==== 

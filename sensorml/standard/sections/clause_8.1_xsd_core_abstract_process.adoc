@@ -30,7 +30,7 @@ According to settings in the SensorML models, values for properties can be provi
 
 In properties that support "xlink" attributes, one can usually choose to define that property value inline, as in:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
   <swe:field>
      <swe:Quantity id="TEMP" … />

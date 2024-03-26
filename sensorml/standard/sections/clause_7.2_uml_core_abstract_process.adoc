@@ -84,7 +84,7 @@ One can specify the overall security classification of the entire document using
 ====
 
 ===== Valid Time Constraint
- The validTime property indicates the time instance or time range over which this process description is valid. Time constraints are important for processes in which parameter values or operation modes may change with time, or instrument deployment times change.
+The validTime property indicates the time instance or time range over which this process description is valid. Time constraints are important for processes in which parameter values or operation modes may change with time, or instrument deployment times change.
 
 [example%unnumbered]
 ====
@@ -103,8 +103,9 @@ The capabilities property is intended for the definition of properties that furt
 
 Once a user has identified candidate sensors or processes based on the classifiers described above, the capabilities parameters might prove useful for further filtering of processes or sensor system during this discovery stage. Thus, the capabilities properties should be considered as information suitable for the discovery process.
 
+[example%unnumbered]
 ====
-Example
+*Examples*
 
 A particular remote sensor on a satellite might measure radiation between a certain spectral range (e.g., 700 to 900 nanometers) at a particular ground resolution (e.g., 5 meter), and with a typical spatial repeat period (e.g., 3.25 – 4.3 days). Alternatively, a particular process might have certain quality constraints. Any process may have certain limits (e.g., operational and survivable limits), based on physical or mathematical conditions. These properties do affect the output of the process and should be considered as capabilities.
 ====
@@ -113,8 +114,9 @@ A particular remote sensor on a satellite might measure radiation between a cert
 
 A physical or non-physical process may have characteristics that may not directly qualify the output. These properties are defined using one or more SWE Common DataRecord elements.
 
+[example%unnumbered]
 ====
-Example
+*Examples*
 
 A component may have certain physical measurements such as dimensions and weight and be constructed of a particular material. A component may have particular power demands, or anticipated lifetime. These are characteristics of the component that may not directly affect the output of the component or system.
 ====
@@ -165,8 +167,9 @@ include::../requirements/model/coreProcess/requirement7.adoc[]
 
 The input, output, or parameters of many processes include multiple values, possibly of different data types, that are tightly related to one another. Sometimes referred to as tuples or records, these data aggregates can consist of values that are perhaps meaningless without the other associated values (e.g., the coordinates within a spatial reference system), or provide a more complete understanding because of their association with one another (e.g., a set of measured values taken by a sensor at a given time). Such data shall be modelled using the aggregate data types defined by the SWE Common Data standard.
 
+[example%unnumbered]
 ====
-Examples 
+*Examples*
 
 The location of a dynamic object can be specified through the aggregate values of time, latitude, longitude, and altitude. In such cases, the expression of one of the values separate from the others is meaningless or less complete than the expression of these values as a set or aggregate. These four values should be encapsulated in a Vector data type that also identifies the reference frame in which the latitude, longitude and altitude coordinates are expressed  
 
