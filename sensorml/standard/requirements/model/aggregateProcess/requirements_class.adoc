@@ -1,9 +1,9 @@
 [requirement,model=ogc]
-.Abstract Process
+.Aggregate Process
 ====
 [%metadata]
 type:: class
-identifier:: /req/model/abstractProcess
+identifier:: /req/model/aggregateProcess
 subject:: Derived Encoding or Software Implementation
 inherit:: /conf/model/coreProcess
 ====

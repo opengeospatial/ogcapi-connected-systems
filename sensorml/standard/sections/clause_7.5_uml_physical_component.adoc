@@ -30,8 +30,9 @@ image::figures/physicalProcess.png[]
 
 A physical process (“child process”) may be attached to another physical process (“parent process”) such that the movement of the parent process affects the position of the child process. The attachedTo property provides a reference from the attached process to the process to which it is attached.
 
+[example%unnumbered]
 ====
-Example: 
+*Examples*
 
 A video camera is attached to a gimbal that allows rotation of the camera to view a 360° area surrounding the camera. In such a case, the camera is said to be attached to the gimbal. Both are physical processes (the camera, a sensor; the gimbal, an actuator). The video camera description should thus use the attachedTo property to reference the gimbal description. 
 ====

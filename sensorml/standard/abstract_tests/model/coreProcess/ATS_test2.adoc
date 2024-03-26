@@ -2,9 +2,9 @@
 .Fully implement CoreProcess
 ====
 [%metadata]
-identifier:: /conf/model/coreProcess/package-fully-implement 
+identifier:: /conf/model/coreProcess/package-fully-implemented 
 
-target:: /req/model/coreProcess/package-fully-implement
+target:: /req/model/coreProcess/package-fully-implemented
 
 test-purpose:: Verify that the target implements all UML classes.
 
