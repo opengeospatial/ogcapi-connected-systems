@@ -8,7 +8,7 @@ include::../requirements/xml/configuration/requirement1.adoc[]
 
 The following XML snippet provides the appropriate header and import statements for the configurable_process.xsd:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
 <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sml="http://www.opengis.net/SensorML/2.1"
      xmlns:swe="http://www.opengis.net/swe/2.0" targetNamespace="http://www.opengis.net/SensorML/2.1"
@@ -32,7 +32,7 @@ The XML snippet for the Mode and ModeChoice elements and their complex types is 
 
 _Mode:_
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="Mode" type="sml:ModeType" substitutionGroup="sml:DescribedObject"/>
  
@@ -56,7 +56,7 @@ _Mode:_
 
 _ModeChoice:_
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="ModeChoice" type="sml:ModeChoiceType" substitutionGroup="sml:AbstractModes">
           <annotation>
@@ -91,7 +91,7 @@ include::../requirements/xml/configuration/requirement3.adoc[]
 
 In the following example, the definition of the parameters, samplingRate and gain are defined within the parameters section of the process description. Then two modes (“lowThreat” and “highThreat”) are defined, each of which defines specific values for these the two parameters.
 
-[source,xml]
+[source%unnumbered,xml]
 ----
     <!– ==================================== –>
     <!–             Parameters               –>
@@ -168,7 +168,7 @@ The Settings element is an XML schema implementation of the models defined in Cl
 
 The XML snippet for the Settings element and its complex types is given below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="Settings" type="sml:SettingsType" substitutionGroup="sml:AbstractSettings"/>
  
@@ -226,7 +226,7 @@ minOccurs="0" maxOccurs="unbounded">
 
 _setValue PropertyType:_
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <complexType name="ValueSettingPropertyType">
           <simpleContent>
@@ -239,7 +239,7 @@ _setValue PropertyType:_
 
 _setArrayValue PropertyType:_
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <complexType name="ArraySettingPropertyType">
           <sequence>
@@ -264,7 +264,7 @@ _setArrayValue PropertyType:_
 
 _setMode PropertyType:_
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <complexType name="ModeSettingPropertyType">
           <simpleContent>
@@ -277,7 +277,7 @@ _setMode PropertyType:_
 
 _setStatus PropertyType:_
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <complexType name="StatusSettingPropertyType">
           <simpleContent>
@@ -290,7 +290,7 @@ _setStatus PropertyType:_
  
 _setConstraint PropertyType:_
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <complexType name="ConstraintSettingPropertyType">
           <sequence>

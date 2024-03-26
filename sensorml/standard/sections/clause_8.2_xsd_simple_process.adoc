@@ -8,7 +8,7 @@ include::../requirements/xml/simpleProcess/requirement1.adoc[]
 
 The following XML snippet provides the appropriate header and import statements for the simple_process.xsd:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
 <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sml="http://www.opengis.net/SensorML/2.1"
      xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:swe="http://www.opengis.net/swe/2.0"
@@ -31,7 +31,7 @@ model.
 
 The “SimpleProcesss” element is the XML schema implementation of the “SimpleProcess” UML class defined in clause 7.3.1. The schema snippet for this element and its corresponding complex type is shown below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="SimpleProcess" type="sml:SimpleProcessType" substitutionGroup="sml:AbstractProcess"/>
  
@@ -60,7 +60,7 @@ The SimpleProcess element and complex type is derived from AbstractProcess and a
 
 The “ProcessMethod” element is the XML schema implementation of the “ProcessMethod” UML class defined in clause 7.3.2. The schema snippet for this element and its corresponding complex type is shown below:
             
-[source,xml]
+[source%unnumbered,xml]
 ----
 <element name="ProcessMethod" type="sml:ProcessMethodType"
           substitutionGroup="swe:AbstractSWEIdentifiable">

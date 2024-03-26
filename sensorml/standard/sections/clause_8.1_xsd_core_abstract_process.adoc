@@ -39,14 +39,14 @@ In properties that support "xlink" attributes, one can usually choose to define 
 
 One can then reference an object within the same document by its ID:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
 <swe:field xlink:href="#TEMP"/>
 ----
 
 An object within an external document can also be referenced by including the full URI:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
 <swe:field xlink:href="http://www.my.com/fields.xml#TEMP"/>
 ----
@@ -86,7 +86,7 @@ Note that extension points are also supported by the SWE Common Data specificati
 
 The header for all specified schema provides namespaces and dependencies. The header for core processes below specifices the namespaces and dependent schema for “sml”, “swe”, “gml”, “gco”, and “gmd”.
 
-[source,xml]
+[source%unnumbered,xml]
 ----
 <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:sml="http://www.opengis.net/SensorML/2.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:swe="http://www.opengis.net/swe/2.0" targetNamespace="http://www.opengis.net/SensorML/2.1" elementFormDefault="qualified" attributeFormDefault="unqualified">
      <annotation>
@@ -115,7 +115,7 @@ Several base abstract types are defined in the SWE Common Data standard are used
 
 These basic types are used as base substitution groups for all global XML elements defined in this standard. Below are XML schema snippets for the “AbstractSWE”, “AbstractSWEIdentifiable” and “AbstractSWEValue” elements and corresponding complex types:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="AbstractSWE" type="swe:AbstractSWEType" abstract="true">
           <annotation>
@@ -141,7 +141,7 @@ These basic types are used as base substitution groups for all global XML elemen
 
 The “AbstractSWE” complex type is the base for all derived complex types defined in this standard. It defines a first extension mechanism as an optional “extension” element that allows for any extended element content (in a namespace other than the SWE Common Data Model namespace). It also has an optional “id” attribute allowing referencing the object that derives from it.
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="AbstractSWEIdentifiable" type="swe:AbstractSWEIdentifiableType" abstract="true"
           substitutionGroup="swe:AbstractSWE">
@@ -183,7 +183,7 @@ The “AbstractSWEIdentifiable” complex type derives from “AbstractSWE” an
 
 Based on these dependencies, an example header for a typical SensorML instance is given below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
 <?xml version=“1.0” encoding=“UTF-8”?>
 <sml:PhysicalSystem gml:id="DAVIS_PRO_VANTAGE2"
@@ -203,7 +203,7 @@ The DescribedObject element is an XML Schema implementation of the UML classes d
 
 The XML snippet for the DescribedObject element and its corresponding complex types is shown below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
 <element name="DescribedObject" type="sml:DescribedObjectType" abstract="true" substitutionGroup="gml:AbstractFeature">
      <annotation>
@@ -322,7 +322,7 @@ Most properties in DescribedObject are optional, thereby allowing the descriptio
 
 All property elements in DescribedObject are of type DescribedObjectPropertyType which supports the ability to reference the value of the property externally through xlink:href or provide the value inline.
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <complexType name="DescribedObjectPropertyType">
           <sequence minOccurs="0">
@@ -335,7 +335,7 @@ All property elements in DescribedObject are of type DescribedObjectPropertyType
 
 Additionally, most property values in DescribedObject are of type AbstractMetadataListType, which supports a list structure along with identification and definition properties.
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="AbstractMetadataList" type="sml:AbstractMetadataListType"
           substitutionGroup="swe:AbstractSWEIdentifiable"/>
@@ -361,7 +361,7 @@ The description property is inherited from gml:AbstractFeature and provides a te
 
 An example of a description is given below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
    <gml:description>Thermometer on the window of the Cass Building, Room 315</gml:description>
 ----
@@ -372,7 +372,7 @@ The name property is inherited from gml:AbstractFeature and provides a common na
 
 An example of the name property is given below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
   <gml:name>Health Physics Instruments 2070 Gamma Detector</gml:name>
 ----
@@ -386,7 +386,7 @@ include::../requirements/xml/coreProcess/requirement8.adoc[]
 
 The value of the gml:identifier can be a URI (e.g., URL or URN) or a series of string characters that uniquely identify the object. An example of a globally unique identifier for a weather station is given below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
    <gml:identifier codeSpace="uid">urn:icd:stations:FR8766</gml:identifier>
    <gml:identifier codeSpace="uid">38a7s8f9d55</gml:identifier>
@@ -398,7 +398,7 @@ The keyword property and the KeywordList element are XML Schema implementations 
 
 The XML snippet for the KeywordList element and its corresponding complex types is shown below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="KeywordList" type="sml:KeywordListType" substitutionGroup="sml:AbstractMetadataList"/>
  
@@ -422,7 +422,7 @@ The XML snippet for the KeywordList element and its corresponding complex types 
 
 The KeywordList element includes an optional codespace attribute that shall reference an external dictionary or keyword list that includes all possible keyword entries. An example of a keyword list without a codespace defined is shown below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <keywords>
           <KeywordList>
@@ -438,7 +438,7 @@ The KeywordList element includes an optional codespace attribute that shall refe
 
 An example of a keyword list with codespace is shown below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <keywords>
           <KeywordList codespace="http://myAuthoritativeDomain.org/def/myKeywordList">
@@ -458,7 +458,7 @@ The XML snippets for the IdentifierList and Term elements and their correspondin
 
 _Term:_
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="Term" type="sml:TermType" substitutionGroup="swe:AbstractSWE"/>
  
@@ -484,7 +484,7 @@ _Term:_
 
 _IdentifierList:_
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="IdentifierList" type="sml:IdentifierListType" substitutionGroup="sml:AbstractMetadataList"/>
  
@@ -514,7 +514,7 @@ _IdentifierList:_
 
 An example of an identifier list is shown below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
 <sml:identification>
       <sml:IdentifierList>
@@ -553,7 +553,7 @@ The ClassifierList is an XML Schema implementations of the UML classes defined i
 
 The XML snippet for the ClassifierList element and its corresponding complex types is shown below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="ClassifierList" type="sml:ClassifierListType" substitutionGroup="sml:AbstractMetadataList"/>
  
@@ -583,7 +583,7 @@ The XML snippet for the ClassifierList element and its corresponding complex typ
 
 An example of a classifier list is shown below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
     <sml:classification>
       <sml:ClassifierList>
@@ -623,7 +623,7 @@ The validTime element is an XML Schema implementation of the UML class defined i
 
 The XML Schema snippet from DescribedObject that pertains to the validTime property is given below.  The validTime property takes either a GML TimePeriod or TimeInstant as its value.
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="validTime" minOccurs="0" maxOccurs="unbounded">
           <annotation>
@@ -658,7 +658,7 @@ The XML Schema snippet from DescribedObject that pertains to the validTime prope
 
 An example of the valid time being given by a TimePeriod is shown below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <validTime>
           <gml:TimePeriod gml:id="deploymentDates">
@@ -675,7 +675,7 @@ The legalConstraints element is an XML Schema implementation of the UML class de
 
 The XML Schema snippet from DescribedObject that pertains to the legalConstraints property is given below.  The legalConstraints property takes an ISO 19115 MD_LegalConstraints element as its value, which is encoded according to ISO19139 schema.
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="legalConstraints" type="gmd:MD_LegalConstraints_PropertyType"
 minOccurs="0" maxOccurs="unbounded">
@@ -688,7 +688,7 @@ minOccurs="0" maxOccurs="unbounded">
 
 An example of legalConstraints is provided below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
    <sml:legalConstraints>
           <gmd:MD_LegalConstraints>
@@ -712,7 +712,7 @@ The capabilities property and the CapabilitiesList element are XML Schema implem
 
 The XML snippet for the CapabilitiesList element and its corresponding complex types is shown below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="CapabilityList" type="sml:CapabilityListType" substitutionGroup="sml:AbstractMetadataList"/>
  
@@ -746,7 +746,7 @@ Thus capabilities can be described using SWE Common simple types, such as Quanti
 
 An example of capabilities is given below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
    <sml:capabilities>
       <sml:CapabilityList>
@@ -790,7 +790,7 @@ The characteristics property and the CharacteristicsList element are XML Schema 
 
 The XML snippet for the CharacteristicsList element and its corresponding complex types is shown below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
 <element name="CharacteristicList" type="sml:CharacteristicListType"
            substitutionGroup="sml:AbstractMetadataList"/>
@@ -825,7 +825,7 @@ Thus characteristics can be described using SWE Common simple types, such as Qua
 
 An example of characteristics that groups like properties in data records is given below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <sml:characteristics name="generalProperties">
           <sml:CharacteristicList>
@@ -903,7 +903,7 @@ The contacts property and the ContactList element are XML Schema implementations
 
 The XML snippet for the ContactList element and its corresponding complex types is shown below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="ContactList" type="sml:ContactListType" substitutionGroup="sml:AbstractMetadataList"/>
  
@@ -931,7 +931,7 @@ include::../requirements/xml/coreProcess/requirement11.adoc[]
 
 An example of a ContactList is shown below (note that the gmd schema requires a CharacterString element before the values of properties).
 
-[source,xml]
+[source%unnumbered,xml]
 ----
    <sml:contacts>
       <sml:ContactList>
@@ -987,7 +987,7 @@ The documentation property and the DocumentList element are XML Schema implement
 
 The XML snippet for the DocumentList element and its corresponding complex types is shown below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="DocumentList" type="sml:DocumentListType" substitutionGroup="sml:AbstractMetadataList"/>
  
@@ -1011,7 +1011,7 @@ The XML snippet for the DocumentList element and its corresponding complex types
 
 An example of documentation is given below (note that the gco and gmd schema require a CharacterString element before the values of properties):
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <documentation>
           <DocumentList>
@@ -1062,7 +1062,7 @@ The history property and the EventList and Event elements are XML Schema impleme
 
 _EventList:_
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="EventList" type="sml:EventListType" substitutionGroup="sml:AbstractMetadataList"/>
  
@@ -1086,7 +1086,7 @@ minOccurs="1" maxOccurs="unbounded"/>
 ----
 
 _Event:_
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="Event" type="sml:EventType" substitutionGroup="swe:AbstractSWEIdentifiable">
           <annotation>
@@ -1164,7 +1164,7 @@ _Event:_
 
 An example of an EventList is shown below. EventList could of course be presented inline as a value of the history property, or could be maintained externally and referenced by the xlink:href attribute of the history property.
 
-[source,xml]
+[source%unnumbered,xml]
 ----
 <sml:EventList>
   <sml:event>
@@ -1211,7 +1211,7 @@ The AbstractProcess element is an XML Schema implementation of the UML class def
 
 The XML snippet for the AbstractProcess element and its corresponding complex types is shown below. The various properties of AbstractProcess will be discussed in more detail in the following subsections.
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="AbstractProcess" type="sml:AbstractProcessType" abstract="true"
           substitutionGroup="sml:DescribedObject">
@@ -1335,7 +1335,7 @@ include::../requirements/xml/coreProcess/requirement12.adoc[]
 
 An example of the typeOf property is given below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
    <sml:typeOf xlink:title="urn:heath:2070"
         xlink:href="http://www.sensors.ws/examples/sensorML-2.1/configuration/gamma2070.xml"/>
@@ -1352,7 +1352,7 @@ The featureOfInterest property and the FeatureList element are XML Schema implem
 
 The XML snippet for the FeatureList element and its corresponding complex types is shown below.
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="FeatureList" type="sml:FeatureListType" substitutionGroup="sml:AbstractMetadataList"/>
  
@@ -1376,7 +1376,7 @@ The XML snippet for the FeatureList element and its corresponding complex types 
 
 An example for a Feature-of-Interest list is given below. In this case, all features are by reference.
 
-[source,xml]
+[source%unnumbered,xml]
 ----
    <sml:featureOfInterest>
           <sml:FeatureList>
@@ -1402,7 +1402,7 @@ The XML snippets for the InputList, OutputList,and ParameterList elements and th
 
 _Inputs:_
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="InputList" type="sml:InputListType" substitutionGroup="swe:AbstractSWE"/>
  
@@ -1434,7 +1434,7 @@ _Inputs:_
 
 _Outputs:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="OutputList" type="sml:OutputListType" substitutionGroup="swe:AbstractSWE"/>
  
@@ -1466,7 +1466,7 @@ _Outputs:
 
 _Parameters:_
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="ParameterList" type="sml:ParameterListType" substitutionGroup="swe:AbstractSWE"/>
  
@@ -1500,7 +1500,7 @@ _Parameters:_
 
 An example of inputs, outputs, and parameters from a particular process is given below (in this case, a gamma radiation sensor):
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <!– =================== –>
      <!–   Inputs               –>
@@ -1589,7 +1589,7 @@ The DataComponentOrObservable group provides three choices to serve as process i
 
 The XML snippet defining the DataComponentOrObservable group is given below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <group name="DataComponentOrObservable">
           <choice>
@@ -1628,7 +1628,7 @@ The ObservableProperty element is an XML encoding of the model defined in Clause
 
 The XML snippet defining ObservableProperty and its associated complex types is shown below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="ObservableProperty" type="sml:ObservablePropertyType"
           substitutionGroup="swe:AbstractSWEIdentifiable">
@@ -1660,7 +1660,7 @@ include::../requirements/xml/coreProcess/requirement14.adoc[]
 
 An minimal example of the use of ObservableProperty as a value for an input property is given below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <sml:input name="temperature">
           <sml:ObservableProperty
@@ -1679,7 +1679,7 @@ include::../requirements/xml/coreProcess/requirement15.adoc[]
 
 The following example for a wind chill calculation process uses only SWE Common Quantity elements for inputs and outputs. Note that the input fields are surrounded by a swe:DataRecord element since the temperature and wind speed fields express the condition of the environment at a given time instance.
 
-[source,xml]
+[source%unnumbered,xml]
 ----
     <!–================ –>
     <!–             Inputs            –>
@@ -1720,7 +1720,7 @@ include::../requirements/xml/coreProcess/requirement16.adoc[]
 
 An example of position output provided as output of a system is given below. This example uses both Vector and DataRecord elements to group the fields appropriately.
 
-[source,xml]
+[source%unnumbered,xml]
 ----
 <sml:output>
       <swe:DataRecord>
@@ -1774,7 +1774,7 @@ The DataInterface element is an XML encoding of the model defined in Clause 7.10
 
 The XML snippet for the DataInterface element and its associated complex types is shown below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="DataInterface" type="sml:DataInterfaceType" substitutionGroup="swe:AbstractSWEIdentifiable">
           <annotation>
@@ -1816,7 +1816,7 @@ The DataInterface essentially consists of a required data property, which takes 
 
 In the following example, the values property reference a RESTful resource (e.g., a daily record of weather) available on the web through html protocol. This example is for a network of weather sensors; thus the network stream includes station ID and location as part of the data components. In this case, a description of the InterfaceParameters is neither required nor useful.
 
-[source,xml]
+[source%unnumbered,xml]
 ----
    <sml:outputs>
       <sml:OutputList>
@@ -1923,7 +1923,7 @@ The returned resource “weatherNetwork201.txt” might return the most recent r
 
 The following example also references an external source for the values of the stream, but instead of a static resource, it references a Real-Time-Protocol (RTP) server that will continue to send real-time measurements until the client disconnects.
 
-[source,xml]
+[source%unnumbered,xml]
 ----
          <sml:output name="gammaRadiation">
             <sml:DataInterface>
@@ -1969,7 +1969,7 @@ Once one establishes connection to such a server, the server would then begin st
 
 Since SWE Common also supports binary encodings, the same sensor system could describe binary data, as in the current example:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
          <sml:output name="gammaRadiation">
             <sml:DataInterface>
@@ -2019,7 +2019,7 @@ include::../requirements/xml/coreProcess/requirement17.adoc[]
 
 Using the SWE Common Data element, DataChoice, it is also possible to define and stream a collection of disparate packets within the same DataStream. According to the SWE Common Data specification, the structure of each packet shall be defined as a separate item within the DataChoice object. The subsequent values of each packet shall  be preceded by the item name, as in the example XML and data stream below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
         <sml:output name="tempAndWind">
             <sml:DataInterface>
@@ -2099,7 +2099,7 @@ In addition to online interfaces to data, DataInterface can also support physica
 
 An example of an interface description is given below. Since interface description profiles will be created under separate documents, the following example is informative, not normative.
 
-[source,xml]
+[source%unnumbered,xml]
 ----
               <sml:interfaceParameters>
                <swe:DataRecord definition="http://sensorml.com/def/property/serialPortSettings">
@@ -2149,7 +2149,7 @@ The AbstractModes element provides a base class from which will be derived a con
 
 The XML Schema implementation of AbstractModes and its related complex type is given below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="AbstractModes" type="sml:AbstractModesType" substitutionGroup="swe:AbstractSWE"/>
  

@@ -8,7 +8,7 @@ include::../requirements/xml/physicalComponent/requirement1.adoc[]
 
 The following XML snippet provides the appropriate header and import statements for the physical_component.xsd:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
 <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sml="http://www.opengis.net/SensorML/2.1"
      xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:swe="http://www.opengis.net/swe/2.0"
@@ -31,7 +31,7 @@ AbstractPhysicalProcess is derived from AbstractProcess and serves as the base c
 
 The “AbstractPhysicalProcess” element is the XML schema implementation of the “AbstractPhysicalProcess” UML class defined in clause 7.6. The schema snippet for this element and its corresponding complex type is shown below.
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="AbstractPhysicalProcess" type="sml:AbstractPhysicalProcessType" abstract="true"
           substitutionGroup="sml:AbstractProcess">
@@ -118,7 +118,7 @@ include::../requirements/xml/physicalComponent/requirement3.adoc[]
 
 The localReferenceFrame property takes a SpatialFrame as its value. The “SpatialFrame” element is an XML schema implementation of the “SpatialFrame” UML class defined in clause 7.6. The schema snippet for this element and its corresponding complex type is shown below.
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="SpatialFrame" type="sml:SpatialFrameType" substitutionGroup="swe:AbstractSWEIdentifiable">
           <annotation>
@@ -175,7 +175,7 @@ Failure to adhere to these assumptions cannot be determined by a conformance tes
 
 An example of a local reference frame description is given below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
 <sml:localReferenceFrame>
       <sml:SpatialFrame id="SENSOR_FRAME">
@@ -194,7 +194,7 @@ An example of a local reference frame description is given below:
 
 The position property of a physical component can be defined by one of several methods, including (1) by description, (2) by point, (3) by position, (4) by dynamic state, (5) by trajectory, or (6) by process. These are defined by the PositionUnion element shown below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <group name="PositionUnion">
           <annotation>
@@ -255,7 +255,7 @@ Each option is defined in more detail below with appropriate examples.
 
 There are physical components for which the precise location is either not known or is not really relevant. One example would be an O2 sensor on the exhaust line of a car as shown in the following example:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
    <sml:position>
         <swe:Text>Located on the exhaust manifold before the catalytic converter</swe:Text>
@@ -266,7 +266,7 @@ There are physical components for which the precise location is either not known
 
 Position by point supports a static location using the gml:Point element. It is not appropriate if the orientation of the component is relevant or the component is has a dynamic location.
 
-[source,xml]
+[source%unnumbered,xml]
 ----
    <sml:position>
       <!– EPSG 4326 is for latitude-longitude, in that order –>
@@ -280,7 +280,7 @@ Position by point supports a static location using the gml:Point element. It is 
 
 As an alternative to using the gml:Point, a static location can also be provided using a swe:Vector, as in the example below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
   <sml:position>
       <swe:Vector definition="http://sensorml.com/def/property/SensorLocation"
@@ -309,7 +309,7 @@ include::../requirements/xml/physicalComponent/requirement4.adoc[]
 
  An example of location and orientation defined for the position is shown below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
    <sml:position>
       <swe:DataRecord>
@@ -374,7 +374,7 @@ include::../requirements/xml/physicalComponent/requirement6.adoc[]
 
 An example of dynamic position being defined as a trajectory is shown below. In this example the values for the location are provided inline within the DataArray element.
 
-[source,xml]
+[source%unnumbered,xml]
 ----
    <sml:position>
       <swe:DataArray definition="http://www.opengis.net/def/trajectory">
@@ -434,7 +434,7 @@ An example of dynamic position being defined as a trajectory is shown below. In 
 
 It is also possible to support “out-of-band” values by referencing an external “flat file” through the xlink:href attribute of the values property, such as:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
 <swe:values xlink:href="http://myDomain/data/aircraftLocation_20048763">
 ----
@@ -443,7 +443,7 @@ Futhermore, the trajectory does not need to be constrained to provide only locat
 
 Finally, if part of the physical process (e.g., a sensor system) outputs its own position (e.g., using a GPS), that DataRecord can be referenced as in the following example:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
    <sml:outputs>
       <sml:OutputList>
@@ -496,7 +496,7 @@ include::../requirements/xml/physicalComponent/requirement7.adoc[]
 
 The following example shows a configured SimpleProcess that calculates position on-demand using an orbital mechanics model. The process takes time as input and provides dynamic state as output. The example utilizes a configurable process to be discussed in a later section.
 
-[source,xml]
+[source%unnumbered,xml]
 ----
    <sml:position>
       <sml:SimpleProcess gml:id="OrbitalPropagationModel">
@@ -526,7 +526,7 @@ The following example shows a configured SimpleProcess that calculates position 
 
 The following example shows position obtained as-needed from an oline SOS web service. The SimpleProcess is a configured instance of an SOS client process. The process takes time as input and provides position as output.
 
-[source,xml]
+[source%unnumbered,xml]
 ----
    <sml:position>
       <!– position by process –>
@@ -549,7 +549,7 @@ The following example shows position obtained as-needed from an oline SOS web se
 
 The localTimeFrame property takes a TemporalFrame as its value and is an XML schema implementation of the localTimeFrame UML model defined in clause 7.6. The schema snippet for this element and its corresponding complex type is shown below.
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="TemporalFrame" type="sml:TemporalFrameType"
           substitutionGroup="swe:AbstractSWEIdentifiable">
@@ -579,7 +579,7 @@ The localTimeFrame property takes a TemporalFrame as its value and is an XML sch
 
 An example of a declared localTimeFrame is given below:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
 <sml:localTimeFrame>
           <sml:TemporalFrame id="MISSION-START-TIME">
@@ -596,7 +596,7 @@ The timePosition property takes a swe:TimePropertyType element as its value. The
 
 The id of the localTimeFrame defined in the example above, can be used as the value of the localFrame attribute of the swe:Time element in order to specify the relationship of that local time frame to some external time frame. This way several time positions can be defined relative to each other. The following example shows how this can be used to express times of high frequency scan lines acquired by an airborne scanner relative to the flight’s start time:
 
-[source,xml]
+[source%unnumbered,xml]
 ----
 <sml:timePosition name=”mission-start-time”>
            <swe:Time definition="http://sensor.com/def/property/MissionStartTime"
@@ -611,7 +611,7 @@ The id of the localTimeFrame defined in the example above, can be used as the va
 
 Scan times can then be expressed relative to the flight’s start time as in the example below (note: the scan-start-time position might be defined in the SensorML document, as below, but the high-frequency scan-start-time values would more likely be provided as part of a block or stream of output data).
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <sml:timePosition name=”scan-start-time”>
           <swe:Time definition="http://sensorML.com/def/property/ScanStartTime"
@@ -628,7 +628,7 @@ Scan times can then be expressed relative to the flight’s start time as in the
 
 PhysicalComponent is derived from AbstractPhysicalProcess and is the XML schema implementation of the “PhysicalComponent” UML class defined in clause 7.6. The schema snippet for this element and its corresponding complex type is shown below.
 
-[source,xml]
+[source%unnumbered,xml]
 ----
      <element name="PhysicalComponent" type="sml:PhysicalComponentType"
           substitutionGroup="sml:AbstractPhysicalProcess">
@@ -663,7 +663,7 @@ PhysicalComponent is derived from AbstractPhysicalProcess and is the XML schema 
 
 The example below illustrates the definition of a local coordinate reference frame as well as the definition of position (i.e., both location and orientation) of the physical component. While the position of the component is specified here relative to a geospatial reference frame, it could also be specified relative to some other external reference frame, such as the reference frame of a platform.
 
-[source,xml]
+[source%unnumbered,xml]
 ----
 <?xml version=“1.0” encoding=“UTF-8”?>
 <sml:PhysicalComponent gml:id="MY_SENSOR"
