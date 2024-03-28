@@ -1,0 +1,11 @@
+[abstract_test]
+.Simple process has method
+====
+[%metadata]
+identifier:: /conf/model/simpleProcess/method
+
+target:: /req/model/simpleProcess/definition
+test-purpose:: Verify that the target supports the definition of the method.
+test-method:: 
+Inspect the model or software implementation to verify the above. 
+====

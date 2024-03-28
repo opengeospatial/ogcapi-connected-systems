@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+.Physical Component
+====
+[%metadata]
+type:: class
+identifier:: /req/model/physicalComponent
+subject:: Derived Encoding or Software Implementation
+inherit:: /req/coreProcess
+====

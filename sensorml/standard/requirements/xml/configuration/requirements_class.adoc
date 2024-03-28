@@ -1,0 +1,10 @@
+[requirement,model=ogc]
+.Configurable Process Schema
+====
+[%metadata]
+type:: class
+identifier:: /req/xml/configuration
+subject:: XML Instance
+inherit:: /req/model/configurableProcess
+inherit:: /req/xml/coreProcess
+====

@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/model/coreProcess/configuration
+
+A process instance that references another process through the typeOf property, and further restricts options or allowed values provided in the referenced process, shall specify those restrictions through the configuration property.
+====

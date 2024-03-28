@@ -1,0 +1,8 @@
+[requirement,model=ogc]
+.Core Concepts
+====
+[%metadata]
+type:: class
+identifier:: /req/core
+subject:: Derived Model, Encoding, and Software Implementation
+====

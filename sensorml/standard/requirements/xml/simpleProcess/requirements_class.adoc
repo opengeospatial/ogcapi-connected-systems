@@ -1,0 +1,10 @@
+[requirement,model=ogc]
+.Simple Process Schema
+====
+[%metadata]
+type:: class
+identifier:: /req/xml/simpleProcess
+subject:: XML Instance
+inherit:: /req/model/simpleProcess
+inherit:: /req/xml/coreProcess
+====

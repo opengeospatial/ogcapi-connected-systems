@@ -1,0 +1,29 @@
+image:
+  name: ribose/metanorma
+  entrypoint: [""]
+
+cache:
+  paths:
+
+build:
+  stage: build
+  script:
+    - bundle
+    - make clean all publish
+  artifacts:
+    paths:
+      - public
+
+pages:
+  stage: deploy
+  environment:
+    name: production
+    url: https://pages.genexergy.org
+  script:
+    - apt-get update -yqqq
+    - apt-get install -y nodejs
+    - bundle install --path vendor
+    - bundle exec middleman build
+  artifacts:
+    paths:
+    - public

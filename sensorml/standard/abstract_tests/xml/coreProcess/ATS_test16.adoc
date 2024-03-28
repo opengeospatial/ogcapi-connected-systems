@@ -1,0 +1,11 @@
+[abstract_test]
+.Use Vector for inputs, outputs, and parameters that specify position
+====
+[%metadata]
+identifier:: /conf/xml/coreProcess/VectorUse
+
+target:: /req/xml/coreProcess/VectorUse
+test-purpose:: Verify that the target implementation utilizes the swe:Vector element for positions.
+test-method:: 
+Validate that positions within inputs, outputs, and parameters utilize the swe:Vector element.
+====

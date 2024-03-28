@@ -1,0 +1,11 @@
+[abstract_test]
+.Dynamic state requires a Data Array or Process
+====
+[%metadata]
+identifier:: /conf/xml/physicalComponent/dynamicState
+
+target:: /req/xml/physicalComponent/dynamicState  
+test-purpose:: Verify that the target implementation requires dynamic state properties like location and position to be provided by a DataArray or Process.
+test-method:: 
+Validate through inspection that time-tagged locations, positions, or state values are provided by either swe:DataArray or a class derived from sml:AbstractProcess.  
+====

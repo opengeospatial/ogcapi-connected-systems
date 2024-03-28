@@ -6,8 +6,6 @@ identifier:: /conf/xsd-advanced-encodings/ref-syntax-valid
 
 target:: /req/xsd-advanced-encodings/ref-syntax-valid
 
-[.component,class=test method]
-=====
+test-method:: 
 Inspect the section of the XML instance describing the binary encoding options. Check that the path formed by the ‘/’ separated list of component names actually points to a component in the descriptor tree.
-=====
 ====

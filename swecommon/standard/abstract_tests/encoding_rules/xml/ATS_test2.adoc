@@ -6,8 +6,6 @@ identifier:: /conf/xml-encoding-rules/scalar-encoding-elt-valid
 
 target:: /req/xml-encoding-rules/scalar-encoding-elt-valid
 
-[.component,class=test method]
-=====
+test-method:: 
 Inspect the XML of the encoded data block to verify that scalars are encoded as a single element with text content, and that no other elements are nested inside.
-=====
 ====

@@ -1,0 +1,74 @@
+= OGC SensorML: Model and XML Encoding Standard
+:doctype: standard
+:encoding: utf-8
+:lang: en
+:status: approved
+:committee: technical
+:external-id: http://www.opengis.net/doc/IS/SensorML/2.1
+:docnumber: 12-000r2
+:received-date: 2021-06-01
+:issued-date: 2021-06-01
+:published-date: 2021-06-01
+:fullname: Mike Botts, Alexandre Robin
+:docsubtype: implementation
+:keywords: ogcdoc, OGC document, html, SWE, sensor, sensorweb, connected systems, xml, encoding, observation, command, tasking, property
+:submitting-organizations: Botts Innovative Research, Inc.; GeoRobotix, Inc.; 52° North Initiative for Geospatial Open Source Software GmbH; National Geospatial-Intelligence Agency (NGA); Cesium GS, Inc.; Pelagis Data Solutions; 
+:docfile: document.adoc
+:mn-document-class: ogc
+:mn-output-extensions: xml,html
+:local-cache-only:
+:data-uri-image:
+:edition: 2.1
+
+include::sections/clause_0_front_material.adoc[]
+
+include::sections/clause_1_scope.adoc[]
+
+include::sections/clause_2_conformance.adoc[]
+
+include::sections/clause_3_references.adoc[]
+
+include::sections/clause_4_terms_and_definitions.adoc[]
+
+include::sections/clause_5_conventions.adoc[]
+
+include::sections/clause_6_core_concepts.adoc[]
+
+include::sections/clause_7_uml_conceptual_models.adoc[]
+
+include::sections/clause_7.2_uml_core_abstract_process.adoc[]
+
+include::sections/clause_7.3_uml_simple_process.adoc[]
+
+include::sections/clause_7.4_uml_aggregate_process.adoc[]
+
+include::sections/clause_7.5_uml_physical_component.adoc[]
+
+include::sections/clause_7.6_uml_physical_system.adoc[]
+
+include::sections/clause_7.7_uml_processes_with_advanced_data_types.adoc[]
+
+include::sections/clause_7.8_uml_configurable_processes.adoc[]
+
+include::sections/clause_8_xml_implementation.adoc[]
+
+include::sections/clause_8.1_xsd_core_abstract_process.adoc[]
+
+include::sections/clause_8.2_xsd_simple_process.adoc[]
+
+include::sections/clause_8.3_xsd_aggregate_process.adoc[]
+
+include::sections/clause_8.4_xsd_physical_component.adoc[]
+
+include::sections/clause_8.5_xsd_physical_system.adoc[]
+
+include::sections/clause_8.6_xsd_confiurable_process.adoc[]
+
+include::sections/annex-abstract-test-suite.adoc[]
+
+include::sections/annex-uml-xml-encoding-rules.adoc[]
+
+include::sections/annex-history.adoc[]
+
+include::sections/annex-bibliography.adoc[]
+

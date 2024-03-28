@@ -1,0 +1,66 @@
+[[core_concepts]]
+== Requirements Class: Core Concepts (normative core)
+
+include::../requirements/core/requirements_class.adoc[]
+
+=== Introduction
+
+In SensorML, all components are modeled as processes. This includes components normally viewed as hardware, such as detectors, actuators, and physical processors (which are viewed as physical components) and sensors and platforms (which are viewed as physical systems). All components are modeled as processes that receive input and through the application of an algorithm defined by a method and set parameter values, generate output. All such components can therefore participate in process networks (or aggregate processes). Aggregate processes are themselves processes with their own inputs, outputs, and parameters.
+
+Hence, SensorML can be viewed as a specialized process description language with an emphasis on application to sensor data. Process descriptions in SensorML are agnostic of the environment in which they might be executed, or the protocol by which data is exchanged between process execution modules.
+
+In order to support the use of SensorML within specialized applications (e.g., processing centers or image processing software), the SensorML models and encodings have been divided into several conformance classes. Thus, if one wishes to use SensorML for computation processes only, the software only needs to conform to the requirements for non-physical processes. Similarly, by only adhering to the Simple Process conformance class, a piece of software can describe internal processes using SensorML while supporting chaining of these processes in a proprietary way.
+
+However, all derived model and encodings based on SensorML must implement the core concepts of SensorML, regardless of whether they deal strictly with non-physical computational processes or sensor systems.
+
+include::../requirements/core/requirement1.adoc[]
+
+[[core_process_def]]
+=== Process Definitions
+
+In SensorML, all relevant components are modeled as processes, including both computation and physical processes (e.g., detectors, actuators, and sensor systems). Processes in SensorML are conceptually divided into two types: (1) those that are physical processes, such as detectors, actuators, and sensor systems, where information regarding their positions may be relevant, and (2) non-physical or “pure” processes which can be treated as merely mathematical operations or functions.
+
+[example%unnumbered]
+====
+*Examples*
+
+For a process representing the standard linear equation, x would be the 
+input, m and b the parameters, y the output, and the equation y = mx + b 
+would define the methodology. 
+
+For a detector, the input would typically be a physical stimulus 
+(or observable property), the parameters might include a calibration curve 
+and other factors that affect the measurement, and the output would be a 
+digital number representing some quantity representation of that observed property. 
+====
+
+Fundamentally, a process is a physical or computational operation that may receive input and based on configurable parameters and a methodology, generate output.
+
+Inputs and outputs may be digital numbers or physical stimuli (i.e., observable properties of the environment). Parameters can be variable or constant, but they don’t typically vary at the same frequency as the input values. In essence, however, parameters can be viewed as just another input into the process that is either fixed or changes less frequently than inputs
+
+A process can consist of a single atomic operation, or an explicitly defined network of operations (e.g., an aggregate process or system). 
+
+Any process must have a definable method of operation. In the case of an aggregate process or physical system, the explicit description of the process components and the flow of data between them will itself serve as the process methodology.
+
+include::../requirements/core/requirement2.adoc[]
+
+Any process description must provide a unique ID that can be used for discovery of that process and for retrieving the definition of that process.
+
+include::../requirements/core/requirement3.adoc[]
+
+To be useful, the core process model shall include metadata about the process that aid in identification, discovery, and qualification of the process but do not themselves affect the execution of the process.
+
+include::../requirements/core/requirement4.adoc[]
+
+include::../requirements/core/requirement5.adoc[]
+
+Process definitions can support general representations of a process or a specific instance of a process.
+
+[example%unnumbered]
+====
+*Examples*
+
+A general process for the linear equation would define the allowable inputs, outputs, and parameters. A specific instance of the process might define constant values for the parameters. 
+
+An example of a general physical process would be the manufacturer’s description of the characteristics and configurable options for a particular model of a sensor (i.e., one that describes the common characteristics of all instances of that model of sensor). The description of a specific instance of that model of sensor would include information that is relevant to that particular instance of the sensor (e.g., serial number, owner’s name, location, etc.).  
+====

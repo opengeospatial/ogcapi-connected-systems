@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/model/coreProcess/gmlDependency
+
+DescribedObject shall derive from the GML base class, AbstractFeature, and is thus modeled as a feature with well-defined metadata properties. Any model or encoding derived from DescribedObject shall thus be of type featureType.
+====

@@ -8,8 +8,6 @@ target:: /req/core/semantics-defined
 
 test-purpose:: Verify that the target implementation allows attaching a semantic definition to all property representations.
 
-[.component,class=test method]
-=====
+test-method:: 
 Inspect the target implementation.
-=====
 ====

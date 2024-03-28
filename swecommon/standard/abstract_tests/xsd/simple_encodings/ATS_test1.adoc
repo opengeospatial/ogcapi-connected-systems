@@ -8,8 +8,6 @@ target:: /req/xsd-simple-encodings/schema-valid
 
 test-purpose:: Verify that the XML instance is valid against the schema.
 
-[.component,class=test method]
-=====
+test-method:: 
 Validate the XML instance containing simple data components with the “swe.xsd” XML schema file and the Schematron patterns in “simple_encodings.sch”.
-=====
 ====

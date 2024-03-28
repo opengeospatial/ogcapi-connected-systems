@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====   
+[%metadata]
+identifier:: /req/xml/coreProcess/contactRole
+
+The role of the responsible party relative to the described object shall be provided using the xlink:arcrole attribute of the relevant member property of the ContactList.
+====

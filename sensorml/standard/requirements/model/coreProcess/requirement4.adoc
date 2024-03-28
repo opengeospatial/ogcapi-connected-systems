@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/model/coreProcess/uniqueID
+
+A single, required gml:identifier property inherited from GML AbstractFeature shall be used to provide a unique ID for the DescribedObject.
+====

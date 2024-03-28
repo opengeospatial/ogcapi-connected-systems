@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/model/aggregateProcess/dependency-core
+
+An encoding or software passing the “Aggregate Process” conformance test class shall first pass the “Simple Process” conformance test class.
+====

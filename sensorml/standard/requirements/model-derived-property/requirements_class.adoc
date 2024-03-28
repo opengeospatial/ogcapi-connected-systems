@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+.Derived Property
+====
+[%metadata]
+type:: class
+identifier:: /req/model-derived-property
+subject:: Derived Models, Encodings, and Software Implementations
+inherit:: /req/uml-simple-components
+====

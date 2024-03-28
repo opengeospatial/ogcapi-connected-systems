@@ -8,8 +8,6 @@ target:: /req/uml-simple-components/category-enum-defined
 
 test-purpose:: Verify that the target implementation has a constraint that enforces the requirement.
 
-[.component,class=test method]
-=====
+test-method:: 
 Inspect the model or software implementation.
-=====
 ====

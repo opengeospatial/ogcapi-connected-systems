@@ -1,0 +1,11 @@
+[abstract_test]
+.Trajectory requires a DataArray with a time field and one or more Vectors 
+====
+[%metadata]
+identifier:: /conf/xml/physicalComponent/positionByTrajectory 
+
+target:: /req/xml/physicalComponent/positionByTrajectory
+test-purpose:: Verify that the target implementation correctly specifies trajectory reference frame origin using a DataArray.
+test-method:: 
+When the position element takes a swe:DataArray as its value, validate that the DataArray contains a time field and one or more swe:Vector elements as its fields.  
+====

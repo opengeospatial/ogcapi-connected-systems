@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/model/aggregateProcess/definition
+
+A process shall be modeled as an “aggregate process” if it provides a processing function with well-defined inputs and outputs, if there is intent to further divide the process description into sub-processes, and if knowledge of its physical location is of no importance.
+====

@@ -1,0 +1,12 @@
+[abstract_test]
+.A process model has inputs, outputs, parameters, and method
+====
+[%metadata]
+identifier:: /conf/processes
+
+target:: /req/core/processes
+
+test-purpose:: Verify that the target implementation correctly implements a process model.
+
+test-method:: Inspect the model or software implementation to verify the above. 
+====

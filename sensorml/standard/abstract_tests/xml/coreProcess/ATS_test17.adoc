@@ -1,0 +1,11 @@
+[abstract_test]
+.Use of resolvable URL to reference data streams
+====
+[%metadata]
+identifier:: /conf/xml/coreProcess/DataStreamURL 
+
+target:: /req/xml/coreProcess/DataStreamURL
+test-purpose:: Verify that the target implementation can process DataStreamURL values provided by reference.
+test-method:: 
+Validate the presence of an xlink:href atribute with resolvable URL for DataStream values provided by reference. 
+====

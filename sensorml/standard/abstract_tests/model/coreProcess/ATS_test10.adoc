@@ -1,0 +1,12 @@
+[abstract_test]
+.Simple inheritance extends a base class referenced by typeOf
+====
+[%metadata]
+identifier:: /conf/model/coreProcess/simpleInheritance 
+
+target:: /req/model/coreProcess/simpleInheritance 
+test-purpose:: Verify that the target implementation has a complete process description.
+
+test-method:: 
+Verify that the implementation of the conceptual model has a constraint that enforces the above. 
+====

@@ -22,7 +22,7 @@ The rules used to encode the SWE Common data models into an XML Schema are simil
 
 - Use of a new abstract base type. A custom base type called “AbstractSWEType” is used for all complex types.
 
-Following ISO 19136 encoding rules, each UML class with a \<<Type>> or \<<DataType>> stereotype, or no stereotype at all, is implemented in the schema as a global XML complex type with a corresponding global XML element (called object element). Each of these elements has the same name as the UML class (i.e. always UpperCamelCase) and the name of the associated complex type is a concatenation of this name and the word “Type”.
+Following ISO 19136 encoding rules, each UML class with a _Type_ or \<<DataType>> stereotype, or no stereotype at all, is implemented in the schema as a global XML complex type with a corresponding global XML element (called object element). Each of these elements has the same name as the UML class (i.e. always UpperCamelCase) and the name of the associated complex type is a concatenation of this name and the word “Type”.
 Each UML class attribute is implemented either as a global complex type and a corresponding local element (called property element), or as an XML attribute. Each property complex type is given a name composed of the UML attribute name (always lowerCamelCase) and the words “PropertyType”. The element is defined locally within the complex type representing the class carrying the attribute and named exactly like the attribute in UML (i.e. no global elements are created for class attributes). Class associations are implemented similarly except they cannot be implemented as an XML attributes. 
 
 ===== IDs and Linkable Properties

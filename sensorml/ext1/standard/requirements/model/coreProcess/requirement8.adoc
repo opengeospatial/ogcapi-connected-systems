@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/model/coreProcess/aggregateData
+
+Multiple input, output, and parameter values that are tightly related with one another shall be modelled as a SWE Common Data aggregate data type.
+====

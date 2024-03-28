@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/model/coreProcess/package-fully-implemented
+
+An encoding or software shall correctly implement all UML classes defined in the “Core” package and described in this section
+====

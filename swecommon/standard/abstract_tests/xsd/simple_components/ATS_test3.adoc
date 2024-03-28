@@ -6,8 +6,6 @@ identifier:: /conf/xsd-simple-components/extension-namespace-unique
 
 target:: /req/xsd-simple-components/extension-namespace-unique
 
-[.component,class=test method]
-=====
+test-method:: 
 If the standardization target is an extension of the XML schema defined in this standard, inspect the XML schema of the extension to verify that it uses a different namespace that this standard.
-=====
 ====

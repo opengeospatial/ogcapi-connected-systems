@@ -8,8 +8,6 @@ target:: /req/xsd-block-components/schema-valid
 
 test-purpose:: Verify that the XML instance is valid against the schema.
 
-[.component,class=test method]
-=====
+test-method:: 
 Validate the XML instance containing simple data components with the “swe.xsd” XML schema file and the Schematron patterns in “block_components.sch”.
-=====
 ====

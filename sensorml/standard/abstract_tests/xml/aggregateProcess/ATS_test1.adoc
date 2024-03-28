@@ -1,0 +1,11 @@
+[abstract_test]
+.Compliance with simple_process XML schemas and Schematron patterns
+====
+[%metadata]
+identifier:: /conf/xml/aggregateProcess/schema-valid 
+
+target:: /req/xml/aggregateProcess/schema-valid 
+test-purpose:: Verify that the target implementation is able to process XML instances that conform to the _aggregate_process_ XML schema and Schematron patterns.
+test-method:: 
+Validate the XML instance containing core process with the “aggregate_process.xsd” XML schema file and the Schematron patterns in “aggregate_process.sch”. 
+====

@@ -8,8 +8,6 @@ target:: /req/core/encoding-method-valid
 
 test-purpose:: Verify that the target implementation provides encoding methods for all representations and all implemented data structures.
 
-[.component,class=test method]
-=====
+test-method:: 
 Inspect the target implementation.
-=====
 ====

@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/model/configurableProcess/setConstraintRestriction
+
+The setArrayValues and setEncodedValues properties shall only reference and set array values for a parameter defined in a configurable process.
+====

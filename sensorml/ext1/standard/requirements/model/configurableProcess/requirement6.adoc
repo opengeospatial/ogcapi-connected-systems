@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/model/configurableProcess/setArrayValueRestriction
+
+The setConstraint property shall only reference and set constraints for a parameter defined in a configurable process.
+====

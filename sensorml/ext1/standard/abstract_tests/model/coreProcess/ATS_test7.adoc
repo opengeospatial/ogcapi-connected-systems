@@ -1,0 +1,12 @@
+[abstract_test]
+.ObservableProperty and SWE Common Data used for process input, output, and parameters
+====
+[%metadata]
+identifier:: /conf/model/coreProcess/SWE-Common-dependency 
+
+target:: /req/model/coreProcess/SWE-Common-dependency
+test-purpose:: Verify that the target implementation uses ObservableProperty and/or SWE Common Data for process input, output, and parameters.
+
+test-method:: 
+Inspect the model or software implementation to verify the above.
+====

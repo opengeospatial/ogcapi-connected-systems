@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====   
+[%metadata]
+identifier:: /req/xml/physicalComponent/position-by-process
+
+The position property shall take a SensorML-encoded process (either inline or by reference) when those values are calculated or retrieved on-demand as-needed. The output of that process shall be a swe:DataArray describing the trajectory of the component, or a swe:DataRecord describing instantaneous position or state of the component. 
+====

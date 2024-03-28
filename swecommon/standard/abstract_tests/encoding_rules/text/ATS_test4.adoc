@@ -6,8 +6,6 @@ identifier:: /conf/text-encoding-rules/choice-selection-marker-valid
 
 target:: /req/text-encoding-rules/choice-selection-marker-valid
 
-[.component,class=test method]
-=====
+test-method:: 
 Verify that the sequence of values corresponding to the “DataChoice” starts with a character string matching the name of one item of the choice descriptor.
-=====
 ====

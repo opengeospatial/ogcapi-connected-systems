@@ -1,0 +1,25 @@
+[conformance_class]
+.Conformance Test Class: Core Abstract Process
+====
+[%metadata]
+identifier:: /conf/model/coreProcess
+target:: /req/core
+classification:: Target Type: Derived Models, Encodings, and Software Implementations 
+inherit:: /conf/core
+inherit:: http://www.opengis.net/spec/SWE/2.0/req/uml-block-components
+inherit:: ISO 19115:2006 (All Metadata)
+inherit:: ISO 19136 (GML)
+====
+
+include::./ATS_test1.adoc[]
+include::./ATS_test2.adoc[]
+include::./ATS_test3.adoc[]
+include::./ATS_test4.adoc[]
+include::./ATS_test5.adoc[]
+include::./ATS_test6.adoc[]
+include::./ATS_test7.adoc[]
+include::./ATS_test8.adoc[]
+include::./ATS_test9.adoc[]
+include::./ATS_test10.adoc[]
+include::./ATS_test11.adoc[]
+include::./ATS_test12.adoc[]

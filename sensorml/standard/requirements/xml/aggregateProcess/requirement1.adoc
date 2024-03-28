@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====   
+[%metadata]
+identifier:: /req/xml/aggregateProcess/schema-valid
+
+The XML instance shall be valid with respect to the XML grammar defined in the “aggregate_process.xsd”, as well as satisfy all Schematron patterns defined in “aggregate_process.sch”.
+====

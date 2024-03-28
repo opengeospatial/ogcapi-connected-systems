@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====   
+[%metadata]
+identifier:: /req/xml/aggregateProcess/outputConnectionRestrictions
+
+The output of a component can connect to an output of its enclosing aggregate process; otherwise an output cannot connect to another output.
+====

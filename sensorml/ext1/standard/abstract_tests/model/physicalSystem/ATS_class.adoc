@@ -1,0 +1,13 @@
+[conformance_class]
+.Conformance Test Class: Physical System
+====
+[%metadata]
+identifier:: /conf/model/physicalSystem
+target:: /req/model/physicalSystem
+classification:: Target Type: Derived Encoding and Software Implementation
+inherit:: /conf/model/physicalComponent
+====
+
+include::./ATS_test1.adoc[]
+include::./ATS_test2.adoc[]
+include::./ATS_test3.adoc[]

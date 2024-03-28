@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====   
+[%metadata]
+identifier:: /req/xml/coreProcess/gml-dependency
+
+This standard shall utilize and depend upon the OGC GML 3.2 standard schema within the http://www.opengis.net/gml/3.2 namespace and defined in http://schemas.opengis.net/gml/3.2.1/
+====

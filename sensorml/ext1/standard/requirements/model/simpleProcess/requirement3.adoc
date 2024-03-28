@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/model/simpleProcess/definition
+
+A process shall be modeled a “Simple Process” if it provides a processing function with well-defined inputs and outputs, if there is no intent to further divide the process description into sub-process components, and if knowledge of its physical location is of no importance.
+====

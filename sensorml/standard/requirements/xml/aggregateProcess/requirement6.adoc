@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====   
+[%metadata]
+identifier:: /req/xml/aggregateProcess/parameterConnectionRestrictions
+
+A parameter can only be connected as a destination; a parameter cannot serve as a source.
+====

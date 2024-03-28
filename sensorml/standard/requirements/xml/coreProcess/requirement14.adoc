@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====   
+[%metadata]
+identifier:: /req/xml/coreProcess/observableDefinition
+
+The ObservableProperty element shall include the definition attribute that shall take as its value, a resolvable URL referencing the definition of the observable within an online dictionary or ontology.
+====

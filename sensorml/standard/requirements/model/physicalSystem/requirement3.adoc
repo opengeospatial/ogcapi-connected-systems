@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/model/physicalSystem/dependency-core
+
+An encoding or software passing the “Physical System” model conformance test class shall first pass the “Physical Component” conformance test class.
+====

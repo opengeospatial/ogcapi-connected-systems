@@ -1,0 +1,12 @@
+[abstract_test]
+.Extensions must be in a separate namespace
+====
+[%metadata]
+identifier:: /conf/model/coreProcess/extensionIndependence 
+
+target:: /req/model/coreProcess/extensionIndependence 
+test-purpose:: Verify that the target implementation uses a unique namespace.
+
+test-method:: 
+Inspect the model or software implementation to verify the above. 
+====

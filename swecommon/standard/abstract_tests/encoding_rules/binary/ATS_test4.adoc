@@ -6,9 +6,7 @@ identifier:: /conf/binary-encoding-rules/optional-field-marker-present
 
 target:: /req/binary-encoding-rules/optional-field-marker-present
 
-[.component,class=test method]
-=====
+test-method:: 
 - Verify that any optional field is preceded by the a 1-byte ASCII character with value 'Y' or 'N'.
 - Verify that the actual field value is only present if the flag has the 'Y' value.
-=====
 ====

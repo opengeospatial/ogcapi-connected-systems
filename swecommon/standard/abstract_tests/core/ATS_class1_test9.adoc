@@ -8,8 +8,6 @@ target:: /req/core/temporal-frame-defined
 
 test-purpose:: Verify that the target implementation allows providing a temporal reference frame along with any date/time quantity.
 
-[.component,class=test method]
-=====
+test-method:: 
 Inspect the target implementation.
-=====
 ====

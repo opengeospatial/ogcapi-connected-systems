@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/model/simpleProcess/dependency-core
+
+An encoding or software passing the “Simple Process” model conformance class shall first pass the “Abstract Process” requirements test class.
+====

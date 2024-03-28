@@ -1,0 +1,13 @@
+[[ats_core_core_concepts_used]]
+[abstract_test]
+.Core concepts are the base of all derived models
+====
+[%metadata]
+identifier:: /conf/core/concepts-used
+
+target:: /req/core/concepts-used
+
+test-purpose:: Verify that the target implementation correctly implements the core concepts.
+
+test-method:: Inspect the model or software implementation to verify the above.
+====

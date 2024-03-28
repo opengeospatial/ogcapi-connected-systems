@@ -1,0 +1,13 @@
+[conformance_class]
+.Conformance Test Class: Physical System Schema
+====
+[%metadata]
+identifier:: /conf/xml/physicalSystem
+target:: /req/xml/physicalSystem
+classification:: Target Type: XML Instance
+inherit:: /req/model/physicalSystem
+inherit:: /req/xml/aggregateProcess
+inhert:: /req/xml/physicalComponent
+====
+
+include::./ATS_test1.adoc[]

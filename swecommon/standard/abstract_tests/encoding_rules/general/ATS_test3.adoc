@@ -6,8 +6,6 @@ identifier:: /conf/general-encoding-rules/array-encoding-rule
 
 target:: /req/general-encoding-rules/array-encoding-rule
 
-[.component,class=test method]
-=====
+test-method:: 
 Verify that the sequence of scalar values obtained after decoding the section of the encoded data block corresponding to the “DataArray” includes values for the successive elements of the array.
-=====
 ====

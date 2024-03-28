@@ -1,0 +1,11 @@
+[abstract_test]
+.Compliance with core XML schemas and Schematron patterns 
+====
+[%metadata]
+identifier:: /conf/xml/coreProcess/schema-valid 
+
+target:: /req/xml/coreProcess/schema-valid 
+test-purpose:: Verify that the target implementation conforms to the core XML schemas and Schematron patterns.
+test-method:: 
+Validate the XML instance containing core process with the “core.xsd” XML schema file and the Schematron patterns in “core.sch”. 
+====

@@ -6,9 +6,7 @@ identifier:: /conf/binary-encoding-rules/choice-selection-marker-valid
 
 target:: /req/binary-encoding-rules/choice-selection-marker-valid
 
-[.component,class=test method]
-=====
+test-method:: 
 - Verify that the sequence of bytes corresponding to the “DataChoice” starts with a byte value that is greater or equal to 0 and less than the total number of items defined in the choice descriptor.
 - Verify that the parsed index value corresponds to the proper item in the choice descriptor.
-=====
 ====

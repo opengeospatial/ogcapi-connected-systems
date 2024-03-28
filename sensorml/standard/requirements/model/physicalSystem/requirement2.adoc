@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/model/physicalSystem/definition
+
+A process shall be modeled as a “Physical System” if it provides a processing function with well-defined inputs and outputs, if the device description is further divided into subprocess components, and if knowledge of its physical location is of importance.
+====

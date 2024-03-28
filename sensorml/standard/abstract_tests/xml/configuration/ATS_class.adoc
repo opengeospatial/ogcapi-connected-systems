@@ -1,0 +1,14 @@
+[conformance_class]
+.Conformance Test Class: Configurable Process Schema
+====
+[%metadata]
+identifier:: /conf/xml/configuration
+target:: /req/xml/configuration
+classification:: Target Type: XML Instance
+inherit:: /req/model/configuration
+inherit:: /req/xml/coreProces
+====
+
+include::./ATS_test1.adoc[]
+include::./ATS_test2.adoc[]
+include::./ATS_test3.adoc[]

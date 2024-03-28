@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====   
+[%metadata]
+identifier:: /req/xml/coreProcess/individualSecurityTags
+
+Security tagging of individual property values shall utilize the extension element within the appropriate SensorML or SWE Common data elements.
+====

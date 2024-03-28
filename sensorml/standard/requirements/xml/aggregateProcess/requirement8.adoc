@@ -1,0 +1,15 @@
+[requirement,model=ogc]
+====   
+[%metadata]
+identifier:: /req/xml/aggregateProcess/designatingLinkPaths
+
+The following rules shall be used for designating the source and destination paths within the Linked element.
+
+a) The path begins at the base of the current process
+
+b) The path includes only property elements (lowerCamelCase) and not value objects (UpperCamelCase)
+
+c) If the property has an attribute name and it has a value, then it shall be used; otherwise the unqualified name of the property element should be used  
+
+d) The path can follow properties that are byReference
+====

@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+.Abstract Process
+====
+[%metadata]
+type:: class
+identifier:: /req/model/abstractProcess
+subject:: Derived Encoding or Software Implementation
+inherit:: /conf/model/coreProcess
+====

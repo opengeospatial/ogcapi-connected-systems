@@ -8,8 +8,6 @@ target:: /req/core/nil-reasons-defined
 
 test-purpose:: Verify that the target implementation allows providing a reason along with each NIL (reserved) value.
 
-[.component,class=test method]
-=====
+test-method:: 
 Inspect the target implementation.
-=====
 ====

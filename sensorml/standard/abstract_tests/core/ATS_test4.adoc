@@ -1,0 +1,12 @@
+[abstract_test]
+.A process model has metadata
+====
+[%metadata]
+identifier:: /conf/metadata
+
+target:: /req/core/metadata
+
+test-purpose:: Verify that the target implementation has metadata
+
+test-method:: Inspect the model or software implementation to verify the above. 
+====

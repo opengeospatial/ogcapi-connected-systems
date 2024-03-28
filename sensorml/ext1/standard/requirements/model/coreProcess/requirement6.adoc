@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/model/coreProcess/extensionRestrictions
+
+Information provided inside of the extension property must not be required for execution of the process and shall not alter the execution of the process.
+====

@@ -1,0 +1,94 @@
+<bibdata type="standard" schema-version="v1.2.8">
+  <fetched>2024-03-25</fetched>
+  <title type="title-intro" format="text/plain" language="en" script="Latn">Information technology</title>
+  <title type="title-main" format="text/plain" language="en" script="Latn">General-Purpose Datatypes (GPD)</title>
+  <title type="main" format="text/plain" language="en" script="Latn">Information technology - General-Purpose Datatypes (GPD)</title>
+  <title type="title-intro" format="text/plain" language="fr" script="Latn">Technologies de l'information</title>
+  <title type="title-main" format="text/plain" language="fr" script="Latn">Types de données à but général (GPD)</title>
+  <title type="main" format="text/plain" language="fr" script="Latn">Technologies de l'information - Types de données à but général (GPD)</title>
+  <uri type="src">https://www.iso.org/standard/39479.html</uri>
+  <uri type="obp">https://www.iso.org/obp/ui/en/#!iso:std:39479:en</uri>
+  <uri type="rss">https://www.iso.org/contents/data/standard/03/94/39479.detail.rss</uri>
+  <uri type="pub">https://standards.iso.org/ittf/PubliclyAvailableStandards/index.html</uri>
+  <docidentifier type="ISO" primary="true">ISO/IEC 11404:2007</docidentifier>
+  <docidentifier type="iso-reference">ISO/IEC 11404:2007(E)</docidentifier>
+  <docidentifier type="URN">urn:iso:std:iso-iec:11404:stage-90.92</docidentifier>
+  <docnumber>11404</docnumber>
+  <date type="published">
+    <on>2007-12</on>
+  </date>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>International Organization for Standardization</name>
+      <abbreviation>ISO</abbreviation>
+      <uri>www.iso.org</uri>
+    </organization>
+  </contributor>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>International Electrotechnical Commission</name>
+      <abbreviation>IEC</abbreviation>
+      <uri>www.iec.ch</uri>
+    </organization>
+  </contributor>
+  <edition>2</edition>
+  <language>en</language>
+  <language>fr</language>
+  <script>Latn</script>
+  <abstract format="text/plain" language="en" script="Latn">ISO/IEC 11404:2007 specifies the nomenclature and shared semantics for a collection of datatypes commonly occurring in programming languages and software interfaces, referred to as the General-Purpose Datatypes (GPD). It specifies both primitive datatypes, in the sense of being defined ab initio without reference to other datatypes, and non-primitive datatypes, in the sense of being wholly or partly defined in terms of other datatypes. The specification of datatypes in ISO/IEC 11404:2007 is "general-purpose" in the sense that the datatypes specified are classes of datatype of which the actual datatypes used in programming languages and other entities requiring the concept "datatype" are particular instances. These datatypes are general in nature; thus, they serve a wide variety of information processing applications.
+ISO/IEC 11404:2007 expressly distinguishes three notions of datatype:
+- the conceptual, or abstract, notion of a datatype, which characterizes the datatype by its nominal values and properties;
+- the structural notion of a datatype, which characterizes the datatype as a conceptual organization of specific component datatypes with specific functionalities; and
+- the implementation notion of a datatype, which characterizes the datatype by defining  the rules for representation of the datatype in a given environment.
+ISO/IEC 11404:2007 defines the abstract notions of many commonly used primitive and non-primitive datatypes which possess the structural notion of atomicity. ISO/IEC 11404:2007 does not define all atomic datatypes; it defines only those which are common in programming languages and software interfaces. ISO/IEC 11404:2007 defines structural notions for the specification of other non-primitive datatypes, and provides a means by which datatypes not defined herein can be defined structurally in terms of the GPDs defined herein.
+ISO/IEC 11404:2007 defines a partial terminology for implementation notions of datatypes and provides for the use of this terminology in the definition of datatypes. The primary purpose of this terminology is to identify common implementation notions associated with datatypes and to distinguish them from conceptual notions.
+ISO/IEC 11404:2007 specifies the required elements of mappings between the GPDs and the datatypes of some other language. ISO/IEC 11404:2007 does not specify the precise form of a mapping, but rather the required information content of a mapping.</abstract>
+  <abstract format="text/plain" language="fr" script="Latn">ISO/IEC 11404:2007 specifies the nomenclature and shared semantics for a collection of datatypes commonly occurring in programming languages and software interfaces, referred to as the General-Purpose Datatypes (GPD). It specifies both primitive datatypes, in the sense of being defined ab initio without reference to other datatypes, and non-primitive datatypes, in the sense of being wholly or partly defined in terms of other datatypes. The specification of datatypes in ISO/IEC 11404:2007 is "general-purpose" in the sense that the datatypes specified are classes of datatype of which the actual datatypes used in programming languages and other entities requiring the concept "datatype" are particular instances. These datatypes are general in nature; thus, they serve a wide variety of information processing applications.
+ISO/IEC 11404:2007 expressly distinguishes three notions of datatype:
+- the conceptual, or abstract, notion of a datatype, which characterizes the datatype by its nominal values and properties;
+- the structural notion of a datatype, which characterizes the datatype as a conceptual organization of specific component datatypes with specific functionalities; and
+- the implementation notion of a datatype, which characterizes the datatype by defining  the rules for representation of the datatype in a given environment.
+ISO/IEC 11404:2007 defines the abstract notions of many commonly used primitive and non-primitive datatypes which possess the structural notion of atomicity. ISO/IEC 11404:2007 does not define all atomic datatypes; it defines only those which are common in programming languages and software interfaces. ISO/IEC 11404:2007 defines structural notions for the specification of other non-primitive datatypes, and provides a means by which datatypes not defined herein can be defined structurally in terms of the GPDs defined herein.
+ISO/IEC 11404:2007 defines a partial terminology for implementation notions of datatypes and provides for the use of this terminology in the definition of datatypes. The primary purpose of this terminology is to identify common implementation notions associated with datatypes and to distinguish them from conceptual notions.
+ISO/IEC 11404:2007 specifies the required elements of mappings between the GPDs and the datatypes of some other language. ISO/IEC 11404:2007 does not specify the precise form of a mapping, but rather the required information content of a mapping.</abstract>
+  <status>
+    <stage>90</stage>
+    <substage>92</substage>
+  </status>
+  <copyright>
+    <from>2007</from>
+    <owner>
+      <organization>
+        <name>ISO/IEC</name>
+      </organization>
+    </owner>
+  </copyright>
+  <relation type="obsoletes">
+    <bibitem type="standard">
+      <formattedref format="text/plain">ISO/IEC 11404:1996</formattedref>
+      <docidentifier type="ISO" primary="true">ISO/IEC 11404:1996</docidentifier>
+    </bibitem>
+  </relation>
+  <relation type="obsoletes">
+    <bibitem type="standard">
+      <formattedref format="text/plain">ISO/IEC CD 11404</formattedref>
+      <docidentifier type="ISO" primary="true">ISO/IEC CD 11404</docidentifier>
+    </bibitem>
+  </relation>
+  <place>Geneva</place>
+  <ext schema-version="v1.0.0">
+    <doctype>international-standard</doctype>
+    <editorialgroup>
+      <technical-committee number="1" type="IEC" identifier="ISO/IEC JTC 1/SC 32">Data management and interchange</technical-committee>
+    </editorialgroup>
+    <ics>
+      <code>35.060</code>
+      <text>Languages used in information technology</text>
+    </ics>
+    <structuredidentifier type="ISO">
+      <project-number>ISO 11404</project-number>
+    </structuredidentifier>
+  </ext>
+</bibdata>

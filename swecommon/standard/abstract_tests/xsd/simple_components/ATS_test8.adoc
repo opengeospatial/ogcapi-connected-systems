@@ -6,8 +6,6 @@ identifier:: /conf/xsd-simple-components/iso8601-uom-used
 
 target:: /req/xsd-simple-components/iso8601-uom-used
 
-[.component,class=test method]
-=====
+test-method:: 
 Verify that, in all instances of the “Time” class including a temporal value encoded as ISO 8601, (either inline or in a block encoded data stream) the proper URI is used as the unit.
-=====
 ====

@@ -1,0 +1,11 @@
+[abstract_test]
+.Only parameter values can be set by setValue
+====
+[%metadata]
+identifier:: /conf/model/configurableProcess/setValueRestriction 
+
+target:: /req/model/configurableProcess/setValueRestriction 
+test-purpose:: Verify that the target implementation only references and sets values for a _parameter_ defined in a configurable process.
+test-method:: 
+Verify that the implementation of the conceptual model has a constraint that enforces the above. 
+====

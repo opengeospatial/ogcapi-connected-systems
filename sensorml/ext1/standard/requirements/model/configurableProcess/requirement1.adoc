@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/model/configurableProcess/dependency-core
+
+An encoding or software passing the “Configurable Process” conformance test class shall first pass the “Core Abstract Process” conformance test class.
+====

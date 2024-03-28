@@ -1,0 +1,79 @@
+<bibdata type="standard" schema-version="v1.2.8">
+  <fetched>2024-03-25</fetched>
+  <title type="title-intro" format="text/plain" language="en" script="Latn">Geographic information</title>
+  <title type="title-main" format="text/plain" language="en" script="Latn">Spatial referencing by coordinates</title>
+  <title type="main" format="text/plain" language="en" script="Latn">Geographic information - Spatial referencing by coordinates</title>
+  <title type="title-intro" format="text/plain" language="fr" script="Latn">Information géographique</title>
+  <title type="title-main" format="text/plain" language="fr" script="Latn">Système de références spatiales par coordonnées</title>
+  <title type="main" format="text/plain" language="fr" script="Latn">Information géographique - Système de références spatiales par coordonnées</title>
+  <uri type="src">https://www.iso.org/standard/41126.html</uri>
+  <uri type="rss">https://www.iso.org/contents/data/standard/04/11/41126.detail.rss</uri>
+  <docidentifier type="ISO" primary="true">ISO 19111:2007</docidentifier>
+  <docidentifier type="iso-reference">ISO 19111:2007(E)</docidentifier>
+  <docidentifier type="URN">urn:iso:std:iso:19111:stage-95.99</docidentifier>
+  <docnumber>19111</docnumber>
+  <date type="published">
+    <on>2007-07</on>
+  </date>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>International Organization for Standardization</name>
+      <abbreviation>ISO</abbreviation>
+      <uri>www.iso.org</uri>
+    </organization>
+  </contributor>
+  <edition>2</edition>
+  <language>en</language>
+  <language>fr</language>
+  <script>Latn</script>
+  <abstract format="text/plain" language="en" script="Latn">ISO 19111:2007 defines the conceptual schema for the description of spatial referencing by coordinates, optionally extended to spatio-temporal referencing. It describes the minimum data required to define one-, two- and three-dimensional spatial coordinate reference systems with an extension to merged spatial-temporal reference systems. It allows additional descriptive information to be provided. It also describes the information required to change coordinates from one coordinate reference system to another.
+In ISO 19111:2007, a coordinate reference system does not change with time. For coordinate reference systems defined on moving platforms such as cars, ships, aircraft and spacecraft, the transformation to an Earth-fixed coordinate reference system can include a time element.
+ISO 19111:2007 is applicable to producers and users of geographic information. Although it is applicable to digital geographic data, its principles can be extended to many other forms of geographic data such as maps, charts and text documents.
+The schema described can be applied to the combination of horizontal position with a third non-spatial parameter which varies monotonically with height or depth. This extension to non-spatial data is beyond the scope of ISO 19111:2007 but can be implemented through profiles.</abstract>
+  <abstract format="text/plain" language="fr" script="Latn">L'ISO 19111:2007 définit le schéma conceptuel de la description d'un système de références spatiales par coordonnées qui peut éventuellement être étendu à un système de références spatio-temporelles. Les données minimales requises pour définir des systèmes unidimensionnels, bidimensionnels et tridimensionnels de coordonnées de références spatiales avec une extension aux systèmes de références spatio-temporelles sont décrites. Cela permet de fournir des informations descriptives supplémentaires. Les informations requises pour modifier les coordonnées d'un système de coordonnées de référence à un autre sont également fournies.
+Dans l'ISO 19111:2007, un système de coordonnées de référence ne change pas dans le temps. Pour les systèmes de coordonnées de référence définis sur des plates-formes mobiles telles que les véhicules, les navires, les avions et les navettes spatiales, la transformation en système de coordonnées de référence de type trièdre terrestre peut inclure un élément temporel.
+L'ISO 19111:2007 est applicable aux producteurs et aux utilisateurs d'informations géographiques. Bien qu'elle soit applicable aux données géographiques numériques, il est possible d'élargir ses principes à de nombreux autres types de données géographiques tels que les cartes, les tableaux et les textes.
+Le schéma décrit peut être appliqué à l'association de la position horizontale à un troisième paramètre non spatial qui varie de façon régulière avec la hauteur ou la profondeur. Cet élargissement aux données non spatiales dépasse le domaine d'application de l'ISO 19111:2007, mais il peut être mis en œuvre par l'intermédiaire des profils.</abstract>
+  <status>
+    <stage>95</stage>
+    <substage>99</substage>
+  </status>
+  <copyright>
+    <from>2007</from>
+    <owner>
+      <organization>
+        <name>ISO</name>
+      </organization>
+    </owner>
+  </copyright>
+  <relation type="obsoletes">
+    <bibitem type="standard">
+      <formattedref format="text/plain">ISO 19111:2003</formattedref>
+      <docidentifier type="ISO" primary="true">ISO 19111:2003</docidentifier>
+    </bibitem>
+  </relation>
+  <relation type="updates">
+    <bibitem type="standard">
+      <formattedref format="text/plain">ISO 19111:2019</formattedref>
+      <docidentifier type="ISO" primary="true">ISO 19111:2019</docidentifier>
+      <date type="circulated">
+        <on>2019-01-31</on>
+      </date>
+    </bibitem>
+  </relation>
+  <place>Geneva</place>
+  <ext schema-version="v1.0.0">
+    <doctype>international-standard</doctype>
+    <editorialgroup>
+      <technical-committee number="211" type="TC" identifier="ISO/TC 211">Geographic information/Geomatics</technical-committee>
+    </editorialgroup>
+    <ics>
+      <code>35.240.70</code>
+      <text>IT applications in science</text>
+    </ics>
+    <structuredidentifier type="ISO">
+      <project-number>ISO 19111</project-number>
+    </structuredidentifier>
+  </ext>
+</bibdata>

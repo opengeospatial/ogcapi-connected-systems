@@ -1,0 +1,14 @@
+[conformance_class]
+.Conformance Test Class: Core Concepts 
+====
+[%metadata]
+identifier:: /conf/core
+target:: /req/core
+classification:: Target Type: Derived Models and Software Implementations
+====
+
+include::./ATS_test1.adoc[]
+include::./ATS_test2.adoc[]
+include::./ATS_test3.adoc[]
+include::./ATS_test4.adoc[]
+include::./ATS_test5.adoc[]

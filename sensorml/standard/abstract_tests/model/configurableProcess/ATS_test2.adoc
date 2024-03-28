@@ -1,0 +1,11 @@
+[abstract_test]
+.Fully Implement Configurable Process 
+====
+[%metadata]
+identifier:: /conf/model/configurableProcess/package-fully-implemented 
+
+target:: /req/model/configurableProcess/package-fully-implemented  
+test-purpose:: Verify that the target implementation correctly implements all "Configuration" package UML classes.
+test-method:: 
+Inspect the model or software implementation to verify the above. 
+====

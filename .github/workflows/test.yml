@@ -1,0 +1,26 @@
+name: sensorml-test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: metanorma/metanorma:latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4.1.1
+      - name: Generate document
+        run: |
+          cd sensorml/standard
+          metanorma compile --agree-to-terms -t ogc -x html ./document.adoc
+          mv document.html 12-000r2.html
+          git config --global --add safe.directory '*'
+          git config --global user.name 'cam-s-hunt'
+          git config --global user.email 'cam-s-hunt@users.noreply.github.com'
+          git add 12-000r2.html
+          git commit -am "Automated generation of HTML documents"
+          git push
