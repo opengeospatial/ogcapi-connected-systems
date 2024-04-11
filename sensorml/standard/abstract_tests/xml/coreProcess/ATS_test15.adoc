@@ -1,0 +1,11 @@
+[abstract_test]
+.Use aggregate data for related data elements
+====
+[%metadata]
+identifier:: /conf/xml/coreProcess/DataRecord
+
+target:: /req/xml/coreProcess/DataRecord
+test-purpose:: Verify that the target implementation provides an appropriate aggregate data component for related data elements.
+test-method:: 
+Validate by inspection that dependent data components and those representing the state at a given time are encpsulted within an appropriate aggregate data component.
+====

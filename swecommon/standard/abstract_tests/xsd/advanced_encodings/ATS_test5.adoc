@@ -6,8 +6,6 @@ identifier:: /conf/xsd-advanced-encodings/datatype-valid
 
 target:: /req/xsd-advanced-encodings/datatype-valid
 
-[.component,class=test method]
-=====
+test-method:: 
 Verify that the URI used to specify the binary data type is one of the item the list provided in <<binary-datatypes-table>>.
-=====
 ====

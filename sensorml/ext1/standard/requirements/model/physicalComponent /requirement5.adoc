@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/model/physicalComponent/byTrajectory
+
+Specification of position “byTrajectory” shall specify, at a minimum, the time-tagged location of the object’s reference frame relative to a well-defined and specified external reference frame, but may also include its orientation and any number of derivatives of the location and orientation.
+====

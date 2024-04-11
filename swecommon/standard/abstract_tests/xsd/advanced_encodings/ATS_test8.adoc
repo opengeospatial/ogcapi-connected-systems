@@ -6,8 +6,6 @@ identifier:: /conf/xsd-advanced-encodings/block-ref-component-valid
 
 target:: /req/xsd-advanced-encodings/block-ref-component-valid
 
-[.component,class=test method]
-=====
+test-method:: 
 Verify that the component referenced by the ‘ref’ attribute is an aggregate, that is to say it is either a “DataRecord”, “Vector”, “DataChoice”, “DataArray” or “Matrix”.
-=====
 ====

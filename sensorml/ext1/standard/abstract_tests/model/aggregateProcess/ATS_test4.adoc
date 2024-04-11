@@ -1,0 +1,11 @@
+[abstract_test]
+.Aggregate Process requires one or more components
+====
+[%metadata]
+identifier:: /conf/model/aggregateProcess/components 
+
+target:: /req/model/aggregateProcess/components
+test-purpose:: Verify that the target implementation supports one or more component processes.
+test-method:: 
+Verify that the implementation of the conceptual model has constraints that enforce the above. 
+====

@@ -1,0 +1,13 @@
+[abstract_test]
+.Fully Implement SimpleProcess
+====
+[%metadata]
+identifier:: /conf/model/simpleProcess/package-fully-implemented 
+
+target:: /req/model/simpleProcess/package-fully-implemented 
+
+test-purpose:: Verify that the target implements all classes in the UML package.
+
+test-method:: 
+Inspect the model or software implementation to verify the above. 
+====

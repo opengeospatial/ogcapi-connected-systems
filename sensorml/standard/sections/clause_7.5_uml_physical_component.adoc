@@ -1,0 +1,80 @@
+[[uml_physical_component]]
+=== Requirements Class: Physical Component
+include::../requirements/model/physicalComponent/requirements_class.adoc[]
+
+In the context of SensorML, physical processes represent real processing devices whose spatio-temporal position is important. Physical processes include detectors, actuators, sensor systems, and actuator systems. Such processes typically, but not always, involve interactions beween a real-world domain (or environment) and a digital domain.
+
+[example%unnumbered]
+====
+*Examples*
+
+A detector or sensor system typically senses an environmental stimulus and provides a digital number representing the measure of a property of that environment (e.g., temperature). Likewise, an actuator receives a digital number and based on its values causes an action in the real-world environment.Both devices interact with the real world and their position is usually of importance to the end-user. These should usually be modelled as physical components.
+==== 
+
+Because physical processes typically interact with the real-world environment, the position (location and orientation), as well as perhaps the dynamic state (velocity and acceleration), are usually of importance. We wish to either measure an observable property at a particular location in the environment or we wish to affect a physical action at a particular place in the environment. Thus, the position where the physical process measures or acts becomes important.
+
+include::../requirements/model/physicalComponent/requirement1.adoc[]
+
+==== Abstract Physical Process Defined
+The AbstractPhysicalProcess model is derived from AbstractProcess and thus includes the metadata and properties of a core process. Additionally, AbstractPhysicalProcess supports additional properties that allow one to define spatial and temporal coordinates for the physical process device.
+
+include::../requirements/model/physicalComponent/requirement2.adoc[]
+
+The model for AbstractPhysicalProcess is shown in <<uml_physical_process>> below. The additional properties of the AbstractPhysicalProcess will be discussed in subsequent clauses.
+
+[[uml_physical_process]]
+.Model for Physical Process Component
+image::figures/physicalProcess.png[]
+
+===== attachedTo Property
+
+A physical process (“child process”) may be attached to another physical process (“parent process”) such that the movement of the parent process affects the position of the child process. The attachedTo property provides a reference from the attached process to the process to which it is attached.
+
+[example%unnumbered]
+====
+*Examples*
+
+A video camera is attached to a gimbal that allows rotation of the camera to view a 360° area surrounding the camera. In such a case, the camera is said to be attached to the gimbal. Both are physical processes (the camera, a sensor; the gimbal, an actuator). The video camera description should thus use the attachedTo property to reference the gimbal description. 
+====
+
+===== Position and Spatial Reference Frames
+
+In this standard, the position or dynamic state of a physical object is defined as a relationship of the reference frame of the object to some external reference frame. SensorML allows for the definition of direct orthogonal (i.e., Cartesian) reference frames that are assumed to be attached to the physical component where they are described.
+
+A reference frame is defined by its origin and its axes, which are described relative to the physical object itself using natural language and are not relative to any relationship of the object to some external frame. The relationship of this object’s reference frame to an external reference frame is defined by the position or dynamic state of the object. The models for reference frames and spatial position are provided in Figure 18.
+de style="display: block; background: #f1efee; color: #000000; padding: 0.5em; white-space: pre-wrap;white-space: -moz-pre-wrap; white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;" > Example The origin of an airplane’s spatial reference frame can be defined as the being at the center of the Inertial Navigation Unit main gyro. The axes can be defined by the following statements: “X is along the symmetric axis of the airplane’s fuselage from the gyro to the nose of the airplane (along the platform roll axis of the airplane), Z is perpendicular to X and toward the belly of the airplane (along the yaw axis of the aircraft), and Y is Z cross X (in the direction of of the right wing and along the pitch axis of the airplane)”. The location of this aircraft can then be given as the spatial relationship of the origin of this reference frame to some external reference frame (e.g., Earth-Centered-Earth-Fixed XYZ or latitude-longitude-altitude). Likewise, the orientation of the aircraft can be specified as the angular relationship of the axes of its reference frame to the axes of some external reference frame (e.g., ECEF or North-East-Down). 
+
+.Models for SpatialFrame and PositionUnion
+image::figures/spatialReferenceFrame.png[]
+
+In this standard, position is defined as the combination of location and orientation. Location is the llinear displacement (translation) of the origin of the object’s spatial reference frame relative to the origin of some external reference frame (which must be designated). The orientation of an object is the angular relationship between the axes of the object’s reference axes to those of some external reference frame. The dynamic state of an object can include its time-tagged location, orientation, linear velocity, angular velocity, and higher-order derivatives when required (e.g., linear and angular acceleration, jerk, etc.).
+
+An external reference frame can be another object’s reference frame (e.g., the reference frame of a ship) or a geographic reference frame (e.g., WGS84 latitude-longitude-altitude).
+
+The PositionUnion class provides various means of specifying the location, position, or dynamic state of an object. These will be described in more detail in the appropriate XML encoding section, but the following rules apply to the SensorML models.
+
+include::../requirements/model/physicalComponent/requirement3.adoc[]
+include::../requirements/model/physicalComponent/requirement4.adoc[]
+include::../requirements/model/physicalComponent/requirement5.adoc[]
+include::../requirements/model/physicalComponent/requirement6.adoc[]
+
+===== Temporal Reference Frames
+
+Just as spatial position must be related to a spatial reference frame, time must also be related to a temporal reference frame. Temporal reference frames can include a particular calendar, a particular time of day reference frame, or a frame attached to an event of interest.
+
+[example%unnumbered]
+====
+*Examples*
+
+A temporal frame can be attached to an event of interest, such as the start of the mission. When such a reference frame is defined, time measurements can be expressed in seconds past the mission start time (which is usually itself referenced to a global time frame such as UTC or TAI). 
+====
+
+A temporal reference frame can be defined within a physical process and is particularly useful if the component is a process that outputs its own measure of time (such as an on-board clock or high-resolution counter).
+
+==== Physical Component Defined
+
+Any processing device can be considered a physical component, if it provides a processing function with well-defined inputs and outputs, if there is no intent to further divide the device description into component sub-processes, and if knowledge of its physical location is useful. Such devices could include, but not be limited to, detectors, actuators, reflectors, electrical components (e.g transformers, capacitors, resistors), or perhaps even computational units (when knowing their location in a computational facility is helpful).
+
+include::../requirements/model/physicalComponent/requirement7.adoc[]
+
+As shown in the models of <<uml_physical_process>>, the PhysicalComponent class is a concrete instantiation of an AbstractPhysicalProcess that adds the method property, which takes a ProcessMethod as its value. ProcessMethod was defined earlier in clause 7.3.2.

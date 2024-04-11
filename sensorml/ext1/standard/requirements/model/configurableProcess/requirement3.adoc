@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/model/configurableProcess/twoModesRequired
+
+A ModeChoice instantiation must include two or more mode properties.
+====

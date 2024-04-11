@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/model/simpleProcess/method
+
+An encoding or software implementation of the SimpleProcess class shall support the definition of the method.
+====

@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====   
+[%metadata]
+identifier:: /req/xml/physicalComponent/positionByTrajectory
+
+A swe:DataArray describing the trajectory of a moving component shall contain as its elementType a swe:DataRecord that includes a time field plus one or more swe:Vector fields supporting any or all appropriate properties of dynamic state (e.g., location, orientation, linear velocity, linear acceleration, angular velocity, and angular acceleration).
+====

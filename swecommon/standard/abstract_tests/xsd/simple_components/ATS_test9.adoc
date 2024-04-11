@@ -6,8 +6,6 @@ identifier:: /conf/xsd-simple-components/
 
 target:: /req/xsd-simple-components/
 
-[.component,class=test method]
-=====
+test-method:: 
 Verify that all character strings used as regular expressions are valid according to the Unicode standard.
-=====
 ====

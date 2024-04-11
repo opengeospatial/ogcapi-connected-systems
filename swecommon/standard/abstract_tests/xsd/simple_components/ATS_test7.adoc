@@ -6,8 +6,6 @@ identifier:: /conf/xsd-simple-components/ucum-code-used
 
 target:: /req/xsd-simple-components/ucum-code-used
 
-[.component,class=test method]
-=====
+test-method:: 
 Verify that in all instances of the “Quantity” class, values of the “code” attribute on the “uom” element are valid UCUM expressions. When the “code” attribute is not used verify that the “href” attribute is present and that it is only used to reference units of measure that cannot be expressed using UCUM.
-=====
 ====

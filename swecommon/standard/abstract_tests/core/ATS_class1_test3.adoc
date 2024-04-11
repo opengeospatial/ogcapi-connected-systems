@@ -8,8 +8,6 @@ target:: /req/core/categorical-rep-valid
 
 test-purpose:: Verify that the target implementation correctly implements the Categorical representation.
 
-[.component,class=test method]
-=====
+test-method:: 
 Inspect the target implementation.
-=====
 ====

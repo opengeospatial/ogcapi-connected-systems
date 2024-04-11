@@ -6,8 +6,6 @@ identifier:: /conf/text-encoding-rules/optional-field-marker-present
 
 target:: /req/text-encoding-rules/optional-field-marker-present
 
-[.component,class=test method]
-=====
+test-method:: 
 Verify that the sequence of values corresponding to the optional field starts with the ‘Y’ or ‘N’ flag.
-=====
 ====

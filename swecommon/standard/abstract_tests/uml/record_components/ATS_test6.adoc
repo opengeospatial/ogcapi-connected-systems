@@ -8,8 +8,6 @@ target:: /req/uml-record-components/vector-local-frame-valid
 
 test-purpose:: Verify that the implementation of the “Vector” class has a constraint that enforces the requirement.
 
-[.component,class=test method]
-=====
+test-method:: 
 Inspect the model or software implementation.
-=====
 ====

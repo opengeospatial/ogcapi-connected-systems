@@ -1,0 +1,8 @@
+---
+metanorma:
+  source:
+    files:
+      - ./document.adoc
+  collection:
+    organization: "Noble Hunt"
+    name: "OGC Pipeline Test"

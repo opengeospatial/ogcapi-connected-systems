@@ -8,13 +8,11 @@ target:: /req/uml-simple-components/time-range-valid
 
 test-purpose:: Verify that the target implementation has constraints that enforce the requirement.
 
-[.component,class=test method]
-=====
+test-method:: 
 Inspect the model or software implementation.
 Apply the following conformance tests to the “TimeRange” class:
 
 - xref:/conf/uml-simple-components/time-ref-frame-defined[]
 - xref:/conf/uml-simple-components/time-ref-time-valid[]
 - xref:/conf/uml-simple-components/time-local-frame-valid[]
-=====
 ====

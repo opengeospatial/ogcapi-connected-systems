@@ -6,8 +6,6 @@ identifier:: /conf/xsd-simple-encodings/xml-encoding-rules-applied
 
 target:: /req/xsd-simple-encodings/xml-encoding-rules-applied
 
-[.component,class=test method]
-=====
+test-method:: 
 Find all XML encoded value blocks included inline or referenced by the XML instance. Apply all tests from xref:/conf/xml-encoding-rules[] to the encoded data to validate its syntax and structure.
-=====
 ====

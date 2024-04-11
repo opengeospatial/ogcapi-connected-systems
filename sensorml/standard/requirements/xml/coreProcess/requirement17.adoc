@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====   
+[%metadata]
+identifier:: /req/xml/coreProcess/DataStreamURL
+
+When the values of a DataStream can be referenced by a resolvable URL, that URL shall be the value of of the xlink:href attribute in the value property of the DataStream.
+====

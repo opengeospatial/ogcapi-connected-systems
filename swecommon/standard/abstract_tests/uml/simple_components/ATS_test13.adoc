@@ -8,8 +8,6 @@ target:: /req/uml-simple-components/time-ref-frame-defined
 
 test-purpose:: Verify that the implementation correctly assumes the default value when the attribute is not set.
 
-[.component,class=test method]
-=====
+test-method:: 
 Inspect the model or software implementation.
-=====
 ====

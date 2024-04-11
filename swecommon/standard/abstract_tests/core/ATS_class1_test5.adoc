@@ -8,8 +8,6 @@ target:: /req/core/countable-rep-valid
 
 test-purpose:: Verify that the target implementation correctly implements the Countable representation.
 
-[.component,class=test method]
-=====
+test-method:: 
 Inspect the target implementation.
-=====
 ====

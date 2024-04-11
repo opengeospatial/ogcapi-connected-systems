@@ -1,0 +1,10 @@
+[requirement,model=ogc]
+.Core Schema
+====
+[%metadata]
+type:: class
+identifier:: /req/json-core
+subject:: JSON Document
+inherit:: {swecommon-spec-url}/req/json-block-components
+indirect-dependency:: {sml-spec-url}/req/model/coreProcess
+====

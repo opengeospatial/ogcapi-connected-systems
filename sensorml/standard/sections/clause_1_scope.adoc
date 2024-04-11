@@ -1,0 +1,25 @@
+== Scope
+
+This standard defines models and XML Schema encoding for SensorML. The primary focus of SensorML is to provide a framework for defining processes and processing components associated with the measurement and post-measurement transformation of observations. Thus, SensorML has more of a focus on the process of measurement and observation, rather than on sensor hardware, yet still provides a robust means of defining the physical characteristics and functional capabilities of physical processes such as sensors and actuators.
+
+The aims of SensorML are to:
+
+- Provide descriptions of sensors and sensor systems for inventory management;  
+- Provide sensor and process information in support of asset and observation discovery;
+- Support the processing and analysis of the sensor observations;  
+- Support the geolocation of observed values (measured data);
+- Provide performance and quality of measurement characteristics (e.g., accuracy, threshold, etc.);
+- Provide general descriptions of components (e.g., a particular model or type of a sensor) as well as the specific configuration of that component when its deployed;
+- Provide a machine interpretable description of the interfaces and data streams flowing in and out of a component;
+- Provide an explicit description of the process by which an observation was obtained (i.e., its lineage);
+- Provide an executable aggregate process for deriving new data products on demand (i.e., derivable products); and
+- Archive fundamental properties and assumptions regarding sensor systems and computational processes
+
+
+SensorML provides a common framework for any process, but is particularly well-suited for the description of sensor and systems and the processes surrounding sensor observations. Within SensorML, sensor and transducer components (detectors, transmitters, actuators, and filters) are all modeled as physical processes that can be connected and participate equally within a process network or system, and which utilize the same model framework as any other process.
+
+Processes are entities that take one or more inputs and through the application of well-defined methods and configurable parameters and produce one or more outputs.  The process model defined in SensorML can be used to describe a wide variety of processes, including not only sensors, but also actuators, spatial transforms, and data processes, to name a few. SensorML also supports explicit linking between processes and thus supports the concept of process chains, networks, or workflows, which are themselves defined as processes using a composite pattern.
+
+SensorML provides a framework within which the geometric, dynamic, and observational characteristics of sensors and sensor systems can be defined. There are a great variety of sensor types, from simple thermometers to complex electron microscopes and earth observing satellites. These can all be supported through the definition of simple and aggregate processes.
+
+The models and schema within the core SensorML specification provide a “skeletal” framework for describing processes, aggregate processes, and sensor systems. Interoperability within and between various sensor communities, is greatly improved through the definition of shared community-specific semantics (within online dictionaries or ontologies) that can be utilized within the framework. In addition, the profiling of small, general-use, atomic processes that can serve as components within aggregate processes and systems is envisioned.

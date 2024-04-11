@@ -1,0 +1,116 @@
+[[xsd_simple_process]]
+=== Requirements Class: Simple Process Schema
+include::../requirements/xml/simpleProcess/requirements_class.adoc[]
+
+XML Schema elements and types defined in the “simple_process.xsd” schema file implement all classes defined respectively in the “simpleProcess” UML package defined in Clause 7.3.
+
+include::../requirements/xml/simpleProcess/requirement1.adoc[]
+
+The following XML snippet provides the appropriate header and import statements for the simple_process.xsd:
+
+[source%unnumbered,xml]
+----
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sml="http://www.opengis.net/SensorML/2.1"
+     xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:swe="http://www.opengis.net/swe/2.0"
+     targetNamespace="http://www.opengis.net/SensorML/2.1" elementFormDefault="qualified"
+     attributeFormDefault="unqualified">
+     <annotation>
+          <documentation>
+The elements of a concrete simple non-physical process derived from the core process
+model.
+</documentation>
+     </annotation>
+     <import namespace="http://www.opengis.net/gml/3.2"
+          schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+     <import namespace="http://www.opengis.net/swe/2.0"
+          schemaLocation="http://schemas.opengis.net/sweCommon/2.0/swe.xsd"/>
+     <include schemaLocation="core.xsd"/>
+----
+
+====  Simple Process
+
+The “SimpleProcesss” element is the XML schema implementation of the “SimpleProcess” UML class defined in clause 7.3.1. The schema snippet for this element and its corresponding complex type is shown below:
+
+[source%unnumbered,xml]
+----
+     <element name="SimpleProcess" type="sml:SimpleProcessType" substitutionGroup="sml:AbstractProcess"/>
+ 
+     <complexType name="SimpleProcessType">
+          <complexContent>
+               <extension base="sml:AbstractProcessType">
+                    <sequence>
+                         <element name="method" type="sml:ProcessMethodPropertyType" minOccurs="0" maxOccurs="1"/>
+                    </sequence>
+               </extension>
+          </complexContent>
+     </complexType>
+ 
+     <complexType name="SimpleProcessPropertyType">
+          <sequence minOccurs="0">
+               <element ref="sml:SimpleProcess"/>
+          </sequence>
+          <attributeGroup ref="gml:AssociationAttributeGroup"/>
+          <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+     </complexType>
+---- 
+
+The SimpleProcess element and complex type is derived from AbstractProcess and adds a method property to the properties inherited from AbstractProcess. The method property takes a ProcessMethod element as its value.
+
+==== Process Method
+
+The “ProcessMethod” element is the XML schema implementation of the “ProcessMethod” UML class defined in clause 7.3.2. The schema snippet for this element and its corresponding complex type is shown below:
+            
+[source%unnumbered,xml]
+----
+<element name="ProcessMethod" type="sml:ProcessMethodType"
+          substitutionGroup="swe:AbstractSWEIdentifiable">
+          <annotation>
+               <documentation>
+The method describes (as an algorithm or text) how the process takes the input and parameter values
+and generates output values.
+</documentation>
+          </annotation>
+     </element>
+ 
+     <complexType name="ProcessMethodType">
+          <complexContent>
+               <extension base="swe:AbstractSWEIdentifiableType">
+                    <sequence>
+                         <element name="algorithm" minOccurs="0" maxOccurs="unbounded">
+                              <complexType>
+                                   <sequence>
+                                        <element ref="sml:AbstractAlgorithm"/>
+                                   </sequence>
+                              </complexType>
+                         </element>
+                    </sequence>
+               </extension>
+          </complexContent>
+     </complexType>
+ 
+     <complexType name="ProcessMethodPropertyType">
+          <sequence minOccurs="0">
+               <element ref="sml:ProcessMethod"/>
+          </sequence>
+          <attributeGroup ref="swe:AssociationAttributeGroup"/>
+     </complexType>
+ 
+     <element name="AbstractAlgorithm" type="sml:AbstractAlgorithmType" abstract="true"
+          substitutionGroup="gml:AbstractObject"/>
+ 
+     <complexType name="AbstractAlgorithmType" abstract="true">
+          <sequence/>
+          <attribute ref="gml:id" use="optional"/>
+     </complexType>
+ 
+     <complexType name="AbstractAlgorithmPropertyType">
+          <sequence minOccurs="0">
+               <element ref="sml:AbstractAlgorithm"/>
+          </sequence>
+          <attributeGroup ref="swe:AssociationAttributeGroup"/>
+     </complexType>
+---- 
+
+The ProcessMethod element is derived from SWEIdentifiableType and thus supports the swe:identifier, swe:label, and swe:description properties, as well as the swe:extension property, which supports the ability to specify community-specific XML elements for describing the method.
+
+Furthermore, ProcessMethod has an algorithm property that takes an AbstractAlgorithm element as its value. It is anticipated that profiles will be specified in separate specifications that will support algorithms descriptions through schema such as MathML.

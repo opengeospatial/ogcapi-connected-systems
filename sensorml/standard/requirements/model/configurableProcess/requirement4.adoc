@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/model/configurableProcess/settingsProperty
+
+A configured process must include a configuration property that takes a Settings class as its value.
+====

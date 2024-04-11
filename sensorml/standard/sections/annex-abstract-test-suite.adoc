@@ -1,0 +1,63 @@
+[appendix,obligation=normative]
+[[abstract_test_suite]]
+== Conformance Class Abstract Test Suite
+
+=== Core Concepts
+
+Tests described in this section shall be used to test conformance of software and encoding models implementing the Requirements Class: Core Concepts (normative core).
+include::../abstract_tests/core/ATS_class.adoc[]
+
+
+
+=== Core Abstract Process
+Tests described in this section shall be used to test conformance of software and encoding models implementing the conceptual models defined in Requirements Class: Core Abstract Process
+include::../abstract_tests/model/coreProcess/ATS_class.adoc[]
+
+=== Simple Process
+Tests described in this section shall be used to test conformance of software and encoding models implementing the conceptual models defined in Requirements Class: Simple  Process.
+include::../abstract_tests/model/simpleProcess/ATS_class.adoc[]
+
+=== Aggregate Process
+Tests described in this section shall be used to test conformance of software and encoding models implementing the conceptual models defined in Requirements Class: Aggregate Process.
+include::../abstract_tests/model/aggregateProcess/ATS_class.adoc[]
+
+=== Physical Component
+Tests described in this section shall be used to test conformance of software and encoding models implementing the conceptual models defined in Requirements Class: Physical Component.
+include::../abstract_tests/model/physicalComponent/ATS_class.adoc[]
+
+=== Physical System
+Tests described in this section shall be used to test conformance of software and encoding models implementing the conceptual models defined in Requirements Class: Physical System.
+include::../abstract_tests/model/physicalSystem/ATS_class.adoc[]
+
+=== Process with Advanced Data Types
+Tests described in this section shall be used to test conformance of software and encoding models implementing the conceptual models defined in Requirements Class: Process with Advanced Data Types.
+include::../abstract_tests/model/advancedProcess/ATS_class.adoc[]
+
+=== Configurable Processes
+Tests described in this section shall be used to test conformance of software and encoding models implementing the conceptual models defined in Requirements Class: Configurable Processes.
+include::../abstract_tests/model/configurableProcess/ATS_class.adoc[]
+
+=== Core Abstract Process Schema
+All tests in this conformance test class and in the following shall be used to check conformance of XML instances created according to the schemas defined in this standard. They shall also be used to check conformance of software implementations that output XML instances.
+include::../abstract_tests/xml/coreProcess/ATS_class.adoc[]
+
+=== Simple Process Schema
+All tests in this conformance test class and in the following shall be used to check conformance of XML instances created according to the schemas defined in this standard. They shall also be used to check conformance of software implementations that output XML instances.
+include::../abstract_tests/xml/simpleProcess/ATS_class.adoc[]
+
+=== Aggregate Process Schema
+All tests in this conformance test class and in the following shall be used to check conformance of XML instances created according to the schemas defined in this standard. They shall also be used to check conformance of software implementations that output XML instances.
+include::../abstract_tests/xml/aggregateProcess/ATS_class.adoc[]
+
+=== Physical Component Schema
+All tests in this conformance test class and in the following shall be used to check conformance of XML instances created according to the schemas defined in this standard. They shall also be used to check conformance of software implementations that output XML instances.
+include::../abstract_tests/xml/physicalComponent/ATS_class.adoc[]
+
+=== Physical System Schema
+All tests in this conformance test class and in the following shall be used to check conformance of XML instances created according to the schemas defined in this standard. They shall also be used to check conformance of software implementations that output XML instances.
+include::../abstract_tests/xml/physicalSystem/ATS_class.adoc[]
+
+=== Configurable Process Schema
+All tests in this conformance test class and in the following shall be used to check conformance of XML instances created according to the schemas defined in this standard. They shall also be used to check conformance of software implementations that output XML instances.
+include::../abstract_tests/xml/configuration/ATS_class.adoc[]
+

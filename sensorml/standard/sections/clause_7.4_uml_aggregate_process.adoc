@@ -1,0 +1,27 @@
+[[uml_aggregate_process]]
+=== Requirements Class: Aggregate Process
+include::../requirements/model/aggregateProcess/requirements_class.adoc[]
+
+An aggregate process is derived from abstract process model, as presented in Clause 7.2.
+
+include::../requirements/model/aggregateProcess/requirement1.adoc[]
+include::../requirements/model/aggregateProcess/requirement2.adoc[]
+
+==== Aggregate Process Definition
+An aggregate process is a collection of autonomous component processes with an explicit mapping of the data flow between these processes. Components of an aggregate process can be simple processes (i.e., atomic) or be aggregate process themselves. Aggregate processes can include both physical and non-physical (i.e., logical) components.
+
+include::../requirements/model/aggregateProcess/requirement3.adoc[]
+include::../requirements/model/aggregateProcess/requirement4.adoc[]
+
+In SensorML, an aggregate process is agnostic to the execution engine that may perform the actual execution of individual sub-processes and manage the execution sequencing and the flow of data between the components. Also, while it is possible in SensorML to more explicitly define the data encoding if desired by using the encoding specifications defined in the SWE Common Data Specification, SensorML is typically agnostic to the protocol and format of data flowing between logical processes.
+
+This provides significant flexibility as to where and how a SensorML-defined aggregate process is executed. While the ProcessMethod explicitly defines the algorithm for executing an atomic process, the actual execution of that algorithm and the management of data flow between processes can be handled by any software system able to parse a SensorML-defined aggregate process and sequence the execution of the processes.
+
+A SensorML-defined process component or aggregate process can be executed through web services, within the CPU of a laptop, mobile device, or supercomputer, or a mix of these.  Furthermore, a SensorML-defined aggregate process can be executed wherever desired, be it at a large data or computation center, within a visualization and analysis client on a laptop, or on-board a sensor or actuator system. Thus, SensorML provides the choice to either bring the process to the data or bring the data to the process.
+
+The model for AggregateProcess is shown in the figure below. AggregateProcess extends the AbstractProcess model and adds one or more process components and explicit linking of data flow between these components. The component property takes any component derived from AbstractProcess as its value. Component process descriptions can be provided inline or by reference.
+
+The derivation from AbstractProcess means that an AggregateProcess instance itself has its own inputs, outputs, and parameters, as well as identification and possible metadata.
+
+.Model for Aggregate Process
+image::figures/aggregateProcess.png[]

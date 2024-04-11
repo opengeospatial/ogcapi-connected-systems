@@ -1,0 +1,11 @@
+[abstract_test]
+.Fully implement Physical Component 
+====
+[%metadata]
+identifier:: /conf/model/physicalComponent/package-fully-implemented  
+
+target:: /req/model/physicalComponent/package-fully-implemented  
+test-purpose:: Verify that the target implementation correctly implements all "PhysicalComponent" UML classes.
+test-method:: 
+Verify that the implementation fully implements all of the package. 
+====

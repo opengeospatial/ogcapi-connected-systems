@@ -1,0 +1,11 @@
+[abstract_test]
+.Dependency on core
+====
+[%metadata]
+identifier:: /conf/model/aggregateProcess/dependency-core 
+
+target:: /req/model/aggregateProcess/dependency-core 
+test-purpose:: Verify that the target implementation passes the test class.
+test-method:: 
+Apply all tests described in section A.2. 
+====

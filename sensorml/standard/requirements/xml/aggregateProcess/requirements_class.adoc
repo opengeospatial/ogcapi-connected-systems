@@ -1,0 +1,10 @@
+[requirement,model=ogc]
+.Aggregate Process Schema
+====
+[%metadata]
+type:: class
+identifier:: /req/xml/aggregateProcess
+subject:: XML Instance
+inherit:: /req/model/aggregateProcess
+inherit:: /req/xml/SimpleProcess
+====

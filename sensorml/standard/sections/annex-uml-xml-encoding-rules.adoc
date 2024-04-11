@@ -1,0 +1,11 @@
+[appendix,obligation=normative]
+== UML to XML Schema Encoding Rules
+
+This standard follows a model-driven approach to automatically generate the XML Schema detailed in Section 8 from the UML models introduced in Section 7. The encoding rules used by this standard to generate XML schema are derived from GML encoding rules defined in ISO 19136.
+
+A few changes have been introduced to GML encoding rules in order to accommodate for Sensor Web Enablement specific needs. These changes are listed and explained below.
+
+* Relaxed rule on the mandatory gml:id attribute. gml:id is thus optional in SWE schemas.
+* Introduced new stereotype for soft-typed-properties.
+* Added support for encoding simple-type properties as XML attributes.
+* Use different base type for _Type_ stereotype (Elements are derived from anyType and made substitutable for gml:AbstractValue instead of gml:AbstractGML).

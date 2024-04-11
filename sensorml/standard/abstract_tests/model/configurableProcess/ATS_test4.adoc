@@ -1,0 +1,11 @@
+[abstract_test]
+.A configured process requires a Settings element 
+====
+[%metadata]
+identifier:: /conf/model/configurableProcess/settingsProperty 
+
+target:: /req/model/configurableProcess/settingsProperty 
+test-purpose:: Verify that the target implementation includes a _configuration_ property that takes a _Settings_ class as its value.
+test-method:: 
+Verify that the implementation of the conceptual model has a constraint that enforces the above. 
+====

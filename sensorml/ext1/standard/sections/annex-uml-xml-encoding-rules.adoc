@@ -8,4 +8,4 @@ A few changes have been introduced to GML encoding rules in order to accommodate
 - Relaxed rule on the mandatory ‘id’ attribute that is kept optional in the SWE Common Data Model schemas.
 - Introduced the additional XMI tagged value ‘soft-typed’, so that soft-typed-properties can be encoded in XML with an additional ‘name’ attribute.
 - Added support for encoding certain simple-type properties as XML attributes by introducing the additional XMI tagged value ‘asXMLAttribute’.
-- Use different base type for \<<Type>> stereotype (Elements are derived from swe:AbstractSWE instead of gml:AbstractGML).
+- Use different base type for _Type_ stereotype (Elements are derived from swe:AbstractSWE instead of gml:AbstractGML).

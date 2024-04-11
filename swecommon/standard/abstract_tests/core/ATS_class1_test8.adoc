@@ -8,8 +8,6 @@ target:: /req/core/semantics-resolvable
 
 test-purpose:: Verify that the target implementation encodes the semantic links in a way that they can be resolved to an actual concept definition.
 
-[.component,class=test method]
-=====
+test-method:: 
 Inspect the target implementation.
-=====
 ====
