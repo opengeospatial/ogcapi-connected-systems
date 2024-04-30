@@ -293,7 +293,7 @@ include::../schemas/json/examples/spec/nil-values3.json[]
 [[json_allowedtokens_obj]]
 ==== AllowedTokens Object
 
-The “AllowedTokens” object is the XML schema implementation of the “AllowedTokens” UML class defined in <<uml_allowedtokens_class>>. The schema for this class is provided in {jsonschema-base-url}/basicTypes.json[basicTypes.json] (see #definitions/AllowedTokens).
+The “AllowedTokens” object is the JSON schema implementation of the “AllowedTokens” UML class defined in <<uml_allowedtokens_class>>. The schema for this class is provided in {jsonschema-base-url}/basicTypes.json[basicTypes.json] (see #definitions/AllowedTokens).
 
 Examples of constraints for textual or categorical properties are provided below:
 
@@ -311,7 +311,7 @@ include::../schemas/json/examples/spec/allowedTokens2.json[]
 [[json_allowedvalues_obj]]
 ==== AllowedValues Object
 
-The “AllowedValues” object is the XML schema implementation of the “AllowedValues” UML class defined in <<uml_allowedvalues_class>>. The schema for this class is provided in {jsonschema-base-url}/basicTypes.json[basicTypes.json] (see #definitions/AllowedValues).
+The “AllowedValues” object is the JSON schema implementation of the “AllowedValues” UML class defined in <<uml_allowedvalues_class>>. The schema for this class is provided in {jsonschema-base-url}/basicTypes.json[basicTypes.json] (see #definitions/AllowedValues).
 
 Examples of constraints for various numerical properties are provided below:
 
@@ -341,7 +341,7 @@ include::../schemas/json/examples/spec/allowedValues4.json[]
 [[json_allowedtimes_obj]]
 ==== AllowedTimes Object
 
-The “AllowedTimes” object is the XML schema implementation of the “AllowedTimes” UML class defined in <<uml_allowedtimes_class>>. The schema for this class is provided in {jsonschema-base-url}/basicTypes.json[basicTypes.json] (see #definitions/AllowedTimes).
+The “AllowedTimes” object is the JSON schema implementation of the “AllowedTimes” UML class defined in <<uml_allowedtimes_class>>. The schema for this class is provided in {jsonschema-base-url}/basicTypes.json[basicTypes.json] (see #definitions/AllowedTimes).
 
 Examples of constraints for various temporal properties, expressed as ISO-8601 or decimal values, are provided below:
 

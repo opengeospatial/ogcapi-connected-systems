@@ -1,0 +1,71 @@
+{
+  "$schema": "../../sweCommon.json",
+  "type": "DataRecord",
+  "label": "Object Definitions Examples",
+  "description": "These are examples where the definition is further qualified by providing the type of object the property applies to",
+  "fields": [
+    {
+      "name": "engine_power",
+      "type": "Quantity",
+      "definition": "http://qudt.org/vocab/quantitykind/Power",
+      "objectDef": "http://sensorml.com/ont/x-swe/featureType/Engine",
+      "label": "Engine Power",
+      "description": "Mechanical power produced by the engine",
+      "uom": { "code": "W" }
+    },
+    {
+      "name": "batt_power",
+      "type": "Quantity",
+      "definition": "http://qudt.org/vocab/quantitykind/Power",
+      "objectDef": "http://sensorml.com/ont/x-swe/featureType/Battery",
+      "label": "Battery Power",
+      "description": "Electrical power available from the battery",
+      "uom": { "code": "W" }
+    },
+    {
+      "name": "engine_temp",
+      "type": "Quantity",
+      "definition": "http://qudt.org/vocab/quantitykind/Temperature",
+      "objectDef": "http://sensorml.com/ont/x-swe/featureType/Engine",
+      "label": "Engine Temperature",
+      "description": "Temperature of the engine measured on the cylinder head",
+      "uom": { "code": "Cel" }
+    },
+    {
+      "name": "combustion_temp",
+      "type": "Quantity",
+      "definition": "http://qudt.org/vocab/quantitykind/Temperature",
+      "objectDef": "http://sensorml.com/ont/x-swe/featureType/Engine",
+      "label": "Combustion Temperature",
+      "description": "Temperature of the engine measured in the combustion chamber",
+      "uom": { "code": "Cel" }
+    },
+    {
+      "name": "cabin_temp",
+      "type": "Quantity",
+      "definition": "https://qudt.org/vocab/quantitykind/Temperature",
+      "objectDef": "http://sensorml.com/ont/x-swe/featureType/Cabin",
+      "label": "Cabin Temperature",
+      "description": "Temperature of the air inside the cabin",
+      "uom": { "code": "Cel" }
+    },
+    {
+      "name": "outdoor_temp",
+      "type": "Quantity",
+      "definition": "https://qudt.org/vocab/quantitykind/Temperature",
+      "objectDef": "http://sweetontology.net/realm/Atmosphere",
+      "label": "Outdoor Temperature",
+      "description": "Temperature of the air outside the vehicle",
+      "uom": { "code": "Cel" }
+    },
+    {
+      "name": "water_temp",
+      "type": "Quantity",
+      "definition": "https://qudt.org/vocab/quantitykind/Temperature",
+      "objectDef": "http://sweetontology.net/realmHydroBody/SeaSurface",
+      "label": "Seawater Temperature",
+      "description": "Temperature of the seawater close to the surface",
+      "uom": { "code": "Cel" }
+    }
+  ]
+}

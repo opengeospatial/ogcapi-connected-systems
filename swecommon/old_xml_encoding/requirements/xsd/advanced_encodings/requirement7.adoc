@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/xsd-advanced-encodings/no-datatype-length
+
+The “bitLength” and “byteLength” XML attributes shall not be set when a fixed size data type is used.
+====

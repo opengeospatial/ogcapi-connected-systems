@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/xsd-simple-components/ref-or-inline-value-present
-
-A property element supporting the “swe:AssociationAttributeGroup” shall contain the value inline or populate the “xlink:href” attribute with a valid reference but shall not be empty.
-====

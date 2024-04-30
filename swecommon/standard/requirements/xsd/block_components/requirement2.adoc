@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/xsd-block-components/encoded-values-valid
-
-The encoded data block included either inline or by-reference in the “values” property of a “DataArray”, “Matrix” or “DataStream” element shall be structured according to the definition of the element type, the element count and the encoding rules corresponding to the chosen encoding method.
-====

@@ -1,0 +1,14 @@
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.FieldOptions {
+  optional string id = 1000;
+  optional string label = 1001;
+  optional string description = 1002;
+  optional string definition = 1003;
+  optional string uomCode = 1004;
+  optional string uomHref = 1005;
+  optional string axisID = 1006;
+  optional string referenceFrame = 1007;
+  optional string localFrame = 1008;
+  optional string referenceTime = 1009;
+}

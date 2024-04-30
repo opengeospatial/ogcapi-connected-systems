@@ -16,4 +16,5 @@
 | 2023-03-16 | 2.1 draft | Alexandre Robin | Clause 7,8,9 | Added Geometry class
 | 2023-03-21 | 2.1 draft | Alexandre Robin | Clause 9 | Added JSON datastream encoding rules
 | 2023-03-21 | 2.1 draft | Alexandre Robin | Clause 9 | Clarified use of media types
+| 2024-04-29 | 3.0 draft | Alexandre Robin | All | Refactored to v3.0, removed XML encoding sections
 |===

@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+.Basic Types and Simple Components XML Schemas
+====
+[%metadata]
+type:: class
+identifier:: /req/xsd-simple-components
+subject:: XML Instance
+inherit:: /req/uml-simple-components
+====

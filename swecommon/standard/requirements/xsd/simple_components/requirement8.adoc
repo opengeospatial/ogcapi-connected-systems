@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/xsd-simple-components/iso8601-uom-used
-
-When ISO 8601 notation is used to express the measurement value associated to a “Time” element, the URI “http://www.opengis.net/def/uom/ISO-8601/0/Gregorian” shall be used as the value of the “xlink:href” XML attribute on the “uom” element.
-====

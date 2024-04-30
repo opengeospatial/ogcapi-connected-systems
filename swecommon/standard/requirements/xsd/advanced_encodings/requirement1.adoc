@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/xsd-advanced-encodings/schema-valid
-
-The XML instance shall be valid with respect to the grammar defined in the {xsd-base-url}/advanced_encodings.xsd[“advanced_encodings.xsd”] XML schema as well as satisfy all Schematron patterns defined in {xsd-base-url}/advanced_encodings.sch[“advanced_encodings.sch”].
-====

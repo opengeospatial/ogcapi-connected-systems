@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/xml-encoding-rules/array-elt-wrapper-elt-valid
-
-Values of each element of a “DataArray”, “Matrix” or “DataStream” shall be encapsulated in a separate XML element whose local name shall be the value of the “name” attribute of its “elementType” element.
-====

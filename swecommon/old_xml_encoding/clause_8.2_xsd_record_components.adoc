@@ -1,0 +1,239 @@
+[[xsd_record_components]]
+=== Requirements Class: Record Components XML Schema
+
+include::../requirements/xsd/record_components/requirements_class.adoc[]
+
+XML Schema elements and types defined in the “record_components.xsd” schema implement all classes defined in the “Record Components” UML packages. 
+
+include::../requirements/xsd/record_components/requirement1.adoc[]
+
+
+[[xsd_datarecord_elt]]
+==== DataRecord Element
+
+The “DataRecord” element is the XML schema implementation of the “DataRecord” UML class defined in <<uml_datarecord_class>>. The schema snippet for this element and its corresponding complex type is shown below:
+
+[source%unnumbered,xml]
+----
+<element name="DataRecord" type="swe:DataRecordType"
+         substitutionGroup="swe:AbstractDataComponent"/>
+
+<complexType name="DataRecordType">
+  <complexContent>
+    <extension base="swe:AbstractDataComponentType">
+      <sequence>
+        <element name="field" maxOccurs="unbounded">
+          <complexType>
+            <complexContent>
+              <extension base="swe:AbstractDataComponentPropertyType">
+                <attribute name="name" type="NCName" use="required"/>
+              </extension>
+            </complexContent>
+          </complexType>
+        </element>
+      </sequence>
+    </extension>
+  </complexContent>
+</complexType>
+----
+
+The element contains all sub-elements inherited from “AbstractDataComponentType” as well as a list of (at least one) “field” property elements, each with a “name” attribute and containing the data component element that defines the field.
+
+The XML example below describes a record composed of weather data fields. In this case the “DataRecord” element is used as a data descriptor and the corresponding data stream is usually composed of several tuples of values, each tuple corresponding to one record as defined here:
+
+[source%unnumbered,xml]
+----
+<swe:DataRecord>
+  <swe:label>Weather Data Record</swe:label>
+  <swe:description>Record of synchronous weather measurements</swe:description>
+  <swe:field name="time">
+    <swe:Time definition="http://www.opengis.net/def/property/OGC/0/SamplingTime"
+              referenceFrame="http://www.opengis.net/def/trs/OGC/0/GPS">
+      <swe:label>Sampling Time</swe:label>
+      <swe:uom xlink:href="http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"/>
+    </swe:Time>
+  </swe:field>
+  <swe:field name="temperature">
+    <swe:Quantity definition="http://mmisw.org/ont/cf/parameter/air_temperature">
+      <swe:label>Air Temperature</swe:label>
+      <swe:uom code="Cel"/>
+    </swe:Quantity>
+  </swe:field>
+  <swe:field name="pressure">
+    <swe:Quantity definition="http://mmisw.org/ont/cf/parameter/air_pressure_at_mean_sea_level">
+      <swe:label>Air Pressure</swe:label>
+      <swe:uom code="mbar"/>
+    </swe:Quantity>
+  </swe:field>
+  <swe:field name="windSpeed">
+    <swe:Quantity definition="http://mmisw.org/ont/cf/parameter/wind_speed">
+      <swe:label>Wind Speed</swe:label>
+      <swe:uom code="km/h"/>
+    </swe:Quantity>
+  </swe:field>
+  <swe:field name="windDirection">
+    <swe:Quantity definition="http://mmisw.org/ont/cf/parameter/wind_to_direction">
+      <swe:label>Wind Direction</swe:label>
+      <swe:uom code="deg"/>
+    </swe:Quantity>
+  </swe:field>
+</swe:DataRecord>
+----
+
+Each field shall have a unique name within the record (see xref:/req/uml-record-components/record-field-name-unique[]). This is enforced by a Schematron pattern.
+
+The “DataRecord” element can also carry its own “definition” attribute to carry semantics about the whole group of values. The next example shows how radial distortion coefficients of a frame camera sensor could be encoded in this way:
+
+[source%unnumbered,xml]
+----
+<swe:DataRecord definition="urn:x-ogc:def:property:CSM::RadialDistortionCoefficients">
+  <swe:label>Radial Distortion Coefficients</swe:label>
+  <swe:field name="k1">
+    <swe:Quantity definition="urn:x-ogc:def:property:CSM::DISTOR_RAD1">
+      <swe:uom code="mm-2"/>
+      <swe:value>1.92709e-005</swe:value>
+    </swe:Quantity>
+  </swe:field>
+  <swe:field name="k2">
+    <swe:Quantity definition="urn:x-ogc:def:property:CSM::DISTOR_RAD2">
+      <swe:uom code="mm-2"/>
+      <swe:value>-5.14206e-010</swe:value>
+    </swe:Quantity>
+  </swe:field>
+  <swe:field name="k3">
+    <swe:Quantity definition="urn:x-ogc:def:property:CSM::DISTOR_RAD3">
+      <swe:uom code="mm-2"/>
+      <swe:value>-3.33356e-012</swe:value>
+    </swe:Quantity>
+  </swe:field>
+</swe:DataRecord>
+----
+
+Note: URNs used in this example haven’t been registered with OGC yet so they are in the “x-ogc” namespace.
+
+The “DataRecord” element is fully recursive so that each field can itself be a “DataRecord”, but most importantly each field can be any other data component defined in this standard (such as “Vector”, “DataChoice” and “DataArray”).
+
+For brevity, examples above only make use of field components with minimum metadata, but each of these fields can have all the possible content defined in <<xsd_simple_components>>, including quality, constraints, etc.
+
+
+[[xsd_vector_elt]]
+==== Vector Element
+
+The “Vector” element is the XML schema implementation of the “Vector” UML class defined in <<uml_vector_class>>. The schema snippet for this element and its corresponding complex type is shown below:
+
+[source%unnumbered,xml]
+----
+<element name="Vector" type="swe:VectorType" substitutionGroup="swe:AbstractDataComponent"/>
+
+<complexType name="VectorType">
+  <complexContent>
+    <extension base="swe:AbstractDataComponentType">
+      <sequence>
+        <element name="coordinate" maxOccurs="unbounded">
+          <complexType>
+            <complexContent>
+              <extension base="swe:AnyNumericalPropertyType">
+                <attribute name="name" type="NCName" use="required"/>
+              </extension>
+            </complexContent>
+          </complexType>
+        </element>
+      </sequence>
+      <attribute name="referenceFrame" type="anyURI" use="required"/>
+      <attribute name="localFrame" type="anyURI" use="optional"/>
+    </extension>
+  </complexContent>
+</complexType>
+----
+
+This element is similar to the “DataRecord” element except that it is composed of a list of coordinates instead of fields. Each “coordinate” element must have a unique name (see xref:/req/uml-record-components/vector-coord-name-unique[]) and is restricted to numerical component types (see “AnyNumerical” element group defined in <<xsd_simplecomponent_groups>>) and inherits the reference frame from the “Vector” element. A Schematron pattern enforces that an “axisID” attribute is specified and that no “referenceFrame” attribute is used on each coordinate component (see xref:/req/uml-record-components/vector-component-no-ref-frame[] and xref:/req/uml-record-components/vector-component-axis-defined[]).
+
+The example below illustrates how to use the “Vector” element to encode geographic location:
+
+[source%unnumbered,xml]
+----
+<swe:Vector definition="http://sweet.jpl.nasa.gov/2.0/space.owl#Location"
+            referenceFrame="http://www.opengis.net/def/crs/EPSG/0/4326">
+  <swe:coordinate name="lat">
+    <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/spaceCoordinates.owl#Latitude" axisID="Lat">
+      <swe:label>Latitude</swe:label>
+      <swe:uom xlink:href="deg"/>
+      <swe:value>45.36</swe:value>
+    </swe:Quantity>
+  </swe:coordinate>
+  <swe:coordinate name="lon">
+    <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/spaceCoordinates.owl#Longitude" axisID="Long">
+      <swe:label>Longitude</swe:label>
+      <swe:uom code="deg"/>
+      <swe:value>5.2</swe:value>
+    </swe:Quantity>
+  </swe:coordinate>
+</swe:Vector>
+----
+
+This snippet indicates that the location coordinates are given in the EPSG 4326 (WGS 84 Lat/Lon) coordinate reference system. Note the use of a “definition” attribute to indicate what type of vector it is.
+
+This definition is very important because the “Vector” element can be used to represent other vector quantities than location. For instance, the velocity vector of a spacecraft can be defined as show below:
+
+[source%unnumbered,xml]
+----
+<swe:Vector definition="http://sweet.jpl.nasa.gov/2.0/physDynamics.owl#Velocity"
+            referenceFrame="http://www.opengis.net/def/crs/OGC/0/ECI_WGS84">
+  <swe:coordinate name="Vx">
+    <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/physDynamics.owl#Speed" axisID="X">
+      <swe:label>Velocity X</swe:label>
+      <swe:uom xlink:href="m/s"/>
+    </swe:Quantity>
+  </swe:coordinate>
+  <swe:coordinate name="Vy">
+    <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/physDynamics.owl#Speed" axisID="Y">
+      <swe:label>Velocity Y</swe:label>
+      <swe:uom code="m/s"/>
+    </swe:Quantity>
+  </swe:coordinate>
+  <swe:coordinate name="Vz">
+    <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/physDynamics.owl#Speed" axisID="Z">
+      <swe:label>Velocity Z</swe:label>
+      <swe:uom code="m/s"/>
+    </swe:Quantity>
+  </swe:coordinate>
+</swe:Vector>
+----
+
+This instance is a data descriptor (i.e. there are no inline values) for an element of a dataset containing coordinates of a velocity vector. Each coordinate is projected along one axis of the Earth Centered Inertial (ECI) coordinate reference system and the unit of each vector component is the meter per second.
+
+The “localFrame” attribute can also be used to identify the frame that the positioning information applies to:
+
+[source%unnumbered,xml]
+----
+<swe:Vector definition="http://sweet.jpl.nasa.gov/2.0/mathVect.owl#Quaternion"
+            referenceFrame="http://www.opengis.net/def/crs/OGC/0/ECI_WGS84"
+            localFrame="#PLATFORM_FRAME"/>
+  <swe:coordinate name="qx">
+    <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/mathVector.owl#Coordinate" axisID="X">
+      <swe:uom code="1"/>
+      <swe:value>0.14</swe:value>
+    </swe:Quantity>
+  </swe:coordinate>
+  <swe:coordinate name="qy">
+    <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/mathVector.owl#Coordinate" axisID="Y">
+      <swe:uom code="1"/>
+      <swe:value>0.22</swe:value>
+    </swe:Quantity>
+  </swe:coordinate>
+  <swe:coordinate name="qz">
+    <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/mathVector.owl#Coordinate" axisID="Z">
+      <swe:uom code="1"/>
+      <swe:value>0.05</swe:value>
+    </swe:Quantity>
+  </swe:coordinate>
+  <swe:coordinate name="qw">
+    <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/mathVector.owl#Coordinate" axisID="R">
+      <swe:uom code="1"/>
+      <swe:value>0.33</swe:value>
+    </swe:Quantity>
+  </swe:coordinate>
+</swe:Vector>
+----
+
+This vector specifies the attitude of the local frame (i.e. for instance attached to a spacecraft) with respect to the ECI reference frame using a normalized quaternion. Note that quaternion coefficients are unit-less and normalized to 1.0 which is indicated by the UCUM code “1”.

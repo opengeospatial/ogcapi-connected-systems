@@ -1,0 +1,23 @@
+attribute "swe.definition";
+attribute "swe.uomCode";
+attribute "swe.axisID";
+
+
+struct TangentPointPosition {
+  lat: double (swe.definition: "", swe.uomCode: "deg");
+  lon: double (swe.definition: "", swe.uomCode: "deg");
+  h : double (swe.definition: "", swe.uomCode: "m");
+}
+
+struct YawPitchRollAngles {
+  yaw: float (swe.definition: "", swe.uomCode: "deg");
+  pitch: float (swe.definition: "", swe.uomCode: "deg");
+  roll: float (swe.definition: "", swe.uomCode: "deg");
+}
+
+table BasicYPR {
+  position: TangentPointPosition;
+  angles: YawPitchRollAngles;
+}
+
+root_type BasicYPR;

@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/advanced-encodings/schema-valid
+
+The JSON document instance shall be valid with respect to the JSON schema {jsonschema-base-url}/sweCommon.json[“sweCommon.json”].
+====

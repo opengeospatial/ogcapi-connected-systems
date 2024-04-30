@@ -1,16 +1,19 @@
 .Preface
 
-Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. The Open Geospatial Consortium shall not be held responsible for identifying any or all such patent rights.
+The OGC SWE Common Data Model Encoding Standard is the result of worked done by the Connected Systems Working Group of the OGC, with the aim of modernizing the Sensor Wen Enablement (SWE) suite of Standards.
 
-Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the standard set forth in this document, and to provide supporting documentation.
+To increase the brevity and readability of this Standard, many OGC document titles are shortened and/or abbreviated. Therefore, in the context of this document, the following phrases are defined:
+
+“this Standard” shall be interpreted as equivalent to “OGC SWE Common Data Model Encoding Standard”.
+“SensorML” or “SensorML Standard” shall be interpreted as equivalent to “OGC Sensor Modeling Language Encoding Standard”
 
 
 [abstract]
 == Abstract
 
-The primary focus of the SWE Common Data Model is to define and package sensor related data in a self-describing and semantically enabled way. The main objective is to achieve interoperability, first at the syntactic level, and later at the semantic level (by using ontologies and probably semantic mediation) so that sensor data can be better understood by machines, processed automatically in complex workflows and easily shared between intelligent sensor web nodes. 
+The primary focus of the SWE Common Data Model is to define and package data in a self-describing and semantically enabled way. The main objective is to achieve interoperability, first at the syntactic level, and later at the semantic level (by using ontologies and probably semantic mediation) so that (sensor) data can be better understood by machines, processed automatically in complex workflows and easily shared between intelligent nodes. 
 
-This standard is one of several implementation standards produced under OGC’s Sensor Web Enablement (SWE) activity. This standard is a revision of content that was previously integrated to the SensorML standard (OGC 07-000). These common data models are now defined in a separate document that is referenced by other OGC® SWE encoding and service standards.
+This standard is one of several implementation standards produced under OGC’s Connected Systems activity, and is a revision of content that was previously developed in the context of the Sensor Web Enablement initiative. These common data models are intended to be used in various OGC standards, and in particular, SensorML and OGC API - Connected Systems.
 
 
 == Security considerations
@@ -42,6 +45,7 @@ Additional contributors to this Standard include the following:
 | Johannes Echterhoff | iGSI
 | John Herring | Oracle USA
 | Luis Bermudez | SURA
+| Nick Garay |	Botts Innovative Research, Inc.
 | Peter Taylor | CSIRO
 |===
 
@@ -49,28 +53,13 @@ Additional contributors to this Standard include the following:
 [.preface]
 == Foreword
 
-This document deprecates and replaces clauses 8 “SWE Common Conceptual Models” and 9 “SWE Common XML Encoding and Examples” of the first edition of OGC® Sensor Model Language Specification (OGC 07-000) from which they were extracted. Additionally these clauses have been technically revised and explanations have been improved. These clauses will be removed from version 2.0 of the SensorML standard.
+This document deprecates version 2.0 of the OGC® SWE Common Data Model Encoding Standard (OGC 08-094r2). 
 
-The main changes from version 1.0 (part of SensorML 1.0) are additions of new features such as:
+The following changes have been made:
 
-  * The DataChoice component providing support for variant (disjoint union) data type
-  * The DataStream object improving support for real-time (never-ending) streams
-  * The XMLBlock encoding providing support for simple XML encoded data
-  * Support for definition of NIL values and associated reasons
-  * The CategoryRange class to define ranges of ordered categorical quantities
+  * Addition of the JSON encodings and schemas
+  * Addition of the Geometry data component (modeled on OGC simple feature geometries)
+  * Deprecation of the XML encodings
+  * Technical revision and improved explanations in various clauses
 
-Additionally, some elements of the language have been removed and replaced by soft-typed equivalent defined using RelaxNG and/or Schematron. The list is given below:
-
-  * Position, SquareMatrix
-  * SimpleDataRecord, ObservableProperty
-  * ConditionalData, ConditionalValue
-  * Curve, NormalizedCurve
-
-As decided jointly with the GML working group, derivation from GML has been removed in order to make the standard more independent. However, GML encoding rules defined in ISO 19136 have been used to generate XML schemas from the UML models with only minor modifications. Following this fully model-driven approach has resulted in much better consistency between the conceptual models and the XML implementation.
-This release is not fully backward compatible with version 1.0 (which was part of the SensorML 1.0 standard) even though changes were kept to a minimum.
-
-
-[.preface]
-== Future Work
-
-Future work will target the definition of specialized data structures by restricting the generic data types defined in this standard. Such profiles will allow interoperability with formats and models defined by other communities (e.g. CSML, MISB, etc.).
+This release is not fully backward compatible with version 2.0 even though changes were kept to a minimum.

@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/xsd-advanced-encodings/ref-syntax-valid
-
-The “ref” attribute of the “Component” and “Block” elements shall contain a hierarchical ‘/’ separated list of data component names.
-====

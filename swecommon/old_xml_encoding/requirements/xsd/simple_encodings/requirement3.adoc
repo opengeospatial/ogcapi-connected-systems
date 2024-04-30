@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/xsd-simple-encodings/xml-encoding-rules-applied
+
+The encoded values block described by an “XMLEncoding” element shall pass the “XML Encoding Rules” conformance test class.
+====

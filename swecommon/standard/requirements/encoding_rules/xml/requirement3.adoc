@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/xml-encoding-rules/range-encoding-elt-valid
-
-Range components values shall be XML encoded with an element containing two sub-elements with local names “min” and “max” which respectively contain the lower and upper values of the range as their text content.
-====

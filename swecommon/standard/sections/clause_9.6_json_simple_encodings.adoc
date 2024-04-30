@@ -19,15 +19,15 @@ include::../schemas/json/examples/spec/text-encoding.json[]
 ----
 
 
-[[json_xmlencoding_obj]]
-==== XMLEncoding Object
+// [[json_xmlencoding_obj]]
+// ==== XMLEncoding Object
 
-The “XMLEncoding” object is the JSON schema implementation of the “XMLEncoding” UML class defined in <<uml_xmlencoding_class>>. The schema for this class is provided in {jsonschema-base-url}/encodings.json[encodings.json#/definitions/XMLEncoding].
+// The “XMLEncoding” object is the JSON schema implementation of the “XMLEncoding” UML class defined in <<uml_xmlencoding_class>>. The schema for this class is provided in {jsonschema-base-url}/encodings.json[encodings.json#/definitions/XMLEncoding].
 
-[source%unnumbered,json]
-----
-include::../schemas/json/examples/spec/xml-encoding.json[]
-----
+// [source%unnumbered,json]
+// ----
+// include::../schemas/json/examples/spec/xml-encoding.json[]
+// ----
 
 
 // [[json_jsonencoding_obj]]

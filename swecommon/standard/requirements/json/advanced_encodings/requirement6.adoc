@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/xsd-advanced-encodings/datatype-compatible
+
+The chosen data type shall be compatible with the scalar component representation, constraints and NIL values.
+====

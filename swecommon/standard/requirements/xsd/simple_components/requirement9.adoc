@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/xsd-simple-components/unicode-regex-valid
-
-The “pattern” child element of the “AllowedTokens” element shall be a regular expression valid with respect to Unicode Technical Standard #18, Version 13.
-====

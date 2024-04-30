@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/xml-encoding-rules/vector-wrapper-elt-valid
-
-“Vector” values shall be XML encoded with an element which contains one sub-element for each “coordinate” of the aggregate.
-====

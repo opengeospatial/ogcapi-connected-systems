@@ -38,11 +38,11 @@ References are to follow the Springer LNCS style, with the exception that option
 
 * [[[UTF, Unicode]]], The Unicode Standard, Version 5.2, October 2009 
 
-* [[[XML, W3C Extensible Markup Language (XML)]]], W3C Extensible Markup Language (XML), Version 1.0 (5th Edition), Aug. 2006, https://www.w3.org/TR/2008/REC-xml-20081126/
+//* [[[XML, W3C Extensible Markup Language (XML)]]], W3C Extensible Markup Language (XML), Version 1.0 (5th Edition), Aug. 2006, https://www.w3.org/TR/2008/REC-xml-20081126/
 
-* [[[XSD, W3C XML Schema Part 1]]], XML Schema Part 1: Structures Second Edition, October 2004, https://www.w3.org/TR/xmlschema-1/
+//* [[[XSD, W3C XML Schema Part 1]]], XML Schema Part 1: Structures Second Edition, October 2004, https://www.w3.org/TR/xmlschema-1/
 
-* [[[XSD2, W3C XML Schema Part 2]]], XML Schema Part 2: Datatypes Second Edition, October 2004, https://www.w3.org/TR/xmlschema-2/
+//* [[[XSD2, W3C XML Schema Part 2]]], XML Schema Part 2: Datatypes Second Edition, October 2004, https://www.w3.org/TR/xmlschema-2/
 
 * [[[JSON, IETF RFC 8259]]], The JavaScript Object Notation (JSON) Data Interchange Format, https://www.rfc-editor.org/rfc/rfc8259
 

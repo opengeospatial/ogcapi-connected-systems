@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/xsd-advanced-encodings/scalar-ref-component-valid
+
+The “ref” attribute of a “Component” element shall reference a scalar or range component.
+====

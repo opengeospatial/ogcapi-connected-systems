@@ -1,0 +1,64 @@
+= OGC SWE Common Data Model Encoding Standard
+:doctype: standard
+:encoding: utf-8
+:lang: en
+:status: draft
+:committee: technical
+:external-id: http://www.opengis.net/doc/DIS/SWE/3.0
+:docnumber: 24-014
+:received-date: yyyy-mm-dd
+:issued-date: yyyy-mm-dd
+:published-date: yyyy-mm-dd
+:fullname: Alexandre Robin
+:docsubtype: implementation
+:keywords: ogcdoc, OGC document, html, SWE, sensor, sensorweb, connected systems, json, encoding, observation, command, tasking, property
+:submitting-organizations: GeoRobotix, Inc.; Botts Innovative Research, Inc.; Cesium GS, Inc.; 52° North Initiative for Geospatial Open Source Software GmbH; Pelagis Data Solutions; National Geospatial-Intelligence Agency (NGA);
+:mn-document-class: ogc
+:mn-output-extensions: xml,html,doc,pdf
+:local-cache-only:
+:data-uri-image:
+:edition: 3.0.0
+//
+//:xsd-base-url: https://schemas.opengis.net/sweCommon/2.0
+:jsonschema-base-url: https://raw.githubusercontent.com/opengeospatial/connected-systems/master/swecommon/schemas/json
+
+
+////
+Make sure to complete each included document
+////
+include::sections/clause_0_front_material.adoc[]
+
+include::sections/clause_1_scope.adoc[]
+
+include::sections/clause_2_conformance.adoc[]
+
+include::sections/clause_3_references.adoc[]
+
+include::sections/clause_4_terms_and_definitions.adoc[]
+
+include::sections/clause_5_conventions.adoc[]
+
+include::sections/clause_6_core_concepts.adoc[]
+
+include::sections/clause_7_uml_conceptual_models.adoc[]
+
+include::sections/clause_9_json_implementation.adoc[]
+
+include::sections/clause_10_datastream_encoding_rules.adoc[]
+
+////
+Annexes
+////
+include::sections/annex-abstract-test-suite.adoc[]
+
+include::sections/annex-examples.adoc[]
+
+include::sections/annex-relationships_with_standards.adoc[]
+
+////
+Revision History should be the last annex before the Bibliography
+Bibliography should be the last annex
+////
+include::sections/annex-history.adoc[]
+
+include::sections/annex-bibliography.adoc[]

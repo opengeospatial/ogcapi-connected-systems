@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/xml-encoding-rules/array-wrapper-elt-valid
-
-All elements of each nested “DataArray” and “Matrix” shall be encapsulated in a parent element as specified in xref:/req/xml-encoding-rules/local-names-valid[] and this element shall also have an “elementCount” attribute that specifies the array size.
-====

@@ -54,14 +54,14 @@ This type of encoding is used when compactness is important but balanced by a de
 The main drawback of such an encoding is the impossibility of locating an error in the stream with certitude. Secondly, if only one expected value is missing, the whole block is usually lost since the parser cannot resynchronize correctly before the next block separator. This last issue can however be solved by transmitting this type of encoded stream using error resilient protocols when needed.
 
 
-[[uml_xmlencoding_class]]
-==== XMLEncoding Class
+// [[uml_xmlencoding_class]]
+// ==== XMLEncoding Class
 
-The “XMLEncoding” class defines a method that allows encoding structured data into a stream of nested XML tags, which names are obtained from the data structure definition. The class is shown below in UML and does not contain any attribute:
+// The “XMLEncoding” class defines a method that allows encoding structured data into a stream of nested XML tags, which names are obtained from the data structure definition. The class is shown below in UML and does not contain any attribute:
 
-.XMLEncoding Class
-image::figures/fig7.34.png[]
+// .XMLEncoding Class
+// image::figures/fig7.34.png[]
 
-This encoding method is used when compactness is not an issue and a high level of readability and error detection is required. Furthermore, a data stream encoded in this way can be easily transformed and formatted using XSLT like languages.
+// This encoding method is used when compactness is not an issue and a high level of readability and error detection is required. Furthermore, a data stream encoded in this way can be easily transformed and formatted using XSLT like languages.
 
-The main drawback of this method is the verbosity and high degree of redundancy of the information contained in the stream due to the repetitive XML tags. This problem can be minimized by compressing the XML data using well known techniques such as GZIP or BZIP, but such an approach may not be viable in the case of streaming (e.g. real time) data.
+// The main drawback of this method is the verbosity and high degree of redundancy of the information contained in the stream due to the repetitive XML tags. This problem can be minimized by compressing the XML data using well known techniques such as GZIP or BZIP, but such an approach may not be viable in the case of streaming (e.g. real time) data.

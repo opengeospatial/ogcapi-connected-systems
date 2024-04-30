@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/xml-encoding-rules/local-names-valid
-
-All data components shall be XML encoded with an element whose local name shall correspond to the “name” attribute of the soft-typed property containing the data component.
-====

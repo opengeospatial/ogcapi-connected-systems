@@ -1,0 +1,29 @@
+[[xml_impl]]
+== XML Implementation (normative)
+
+This standard defines a normative XML grammar and a set of patterns that define an XML implementation of the conceptual models presented in <<uml_models>>. The standardization target type for all requirements classes in this clause is an XML instance that seeks compliance with this XML encoding model.
+
+XML schemas defined in this section are a direct implementation of the UML conceptual models described in <<uml_models>>. They have been automatically generated from these models by strictly following well-defined encoding rules described in Annex C. All attributes and composition/aggregation associations contained in the UML models are encoded either as XML elements or XML attributes but the names are fully consistent. One XML schema file is produced for each UML package.
+
+Schematron patterns implement most additional requirements stated in <<uml_models>>. One Schematron file is produced for each UML package.
+All example instances given in this section are informative and are used solely for illustrating features of the normative model. Many of these examples reference semantic information by using URLs that are resolvable to definitions maintained in one of several online ontologies:
+
+- The OGC online registry at http://www.opengis.net/def/.
+- The SWEET ontology maintained by ESIP at http://sweetontology.net/.
+- The MMI ontology registry and repository at http://mmisw.org/ont/.
+
+// subsections
+
+include::clause_8.1_xsd_simple_components.adoc[]
+
+include::clause_8.2_xsd_record_components.adoc[]
+
+include::clause_8.3_xsd_choice_components.adoc[]
+
+include::clause_8.4_xsd_block_components.adoc[]
+
+include::clause_8.5_xsd_geom_components.adoc[]
+
+include::clause_8.6_xsd_simple_encodings.adoc[]
+
+include::clause_8.7_xsd_advanced_encodings.adoc[]

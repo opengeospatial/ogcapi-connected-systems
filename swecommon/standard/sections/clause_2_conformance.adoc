@@ -4,7 +4,7 @@ This standard has been written to be compliant with the OGC Specification Model 
 
 Conformance with this specification shall be checked using all the relevant tests specified in Annex A. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in ISO 19105: Geographic information — Conformance and Testing. In order to conform to this OGC™ encoding standard, a standardization target shall implement the core conformance class, and choose to implement any one of the other conformance classes.
 
-Additionally, it is highly recommended that XML and JSON based implementations of the conceptual models do implement requirement classes from clause 8 and clause 9 of this standard, respectively, and pass the corresponding conformance classes instead of defining new encodings.
+Additionally, it is highly recommended that JSON based implementations of the conceptual models do implement requirement classes from clause 8 and clause 9 of this standard, respectively, and pass the corresponding conformance classes instead of defining new encodings.
 
 #TODO#
 

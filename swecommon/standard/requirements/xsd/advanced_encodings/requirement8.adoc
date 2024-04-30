@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/xsd-advanced-encodings/block-ref-component-valid
-
-The “ref” attribute of the “Block” element shall reference an aggregate component.
-====

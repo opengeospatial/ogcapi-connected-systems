@@ -1,0 +1,10 @@
+[requirement,model=ogc]
+.Block Components XML Schema
+====
+[%metadata]
+type:: class
+identifier:: /req/xsd-block-components 
+subject:: XML Instance
+inherit:: /req/uml-block-components
+inherit:: /req/xsd-simple-components
+====

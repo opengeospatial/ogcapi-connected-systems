@@ -43,36 +43,36 @@ include::../abstract_tests/uml/advanced_encodings/ATS_class.adoc[]
 
 
 
-=== XML Conformance Classes
+// === XML Conformance Classes
 
-==== Conformance Class: Basic Types and Simple Components XML Schemas
+// ==== Conformance Class: Basic Types and Simple Components XML Schemas
 
-include::../abstract_tests/xsd/simple_components/ATS_class.adoc[]
-
-
-==== Conformance Class: Record Components XML Schema
-
-include::../abstract_tests/xsd/record_components/ATS_class.adoc[]
+// include::../abstract_tests/xsd/simple_components/ATS_class.adoc[]
 
 
-==== Conformance Class: Choice Components XML Schema
+// ==== Conformance Class: Record Components XML Schema
 
-include::../abstract_tests/xsd/choice_components/ATS_class.adoc[]
-
-
-==== Conformance Class: Block Components XML Schema
-
-include::../abstract_tests/xsd/block_components/ATS_class.adoc[]
+// include::../abstract_tests/xsd/record_components/ATS_class.adoc[]
 
 
-==== Conformance Class: Simple Encodings XML Schema
+// ==== Conformance Class: Choice Components XML Schema
 
-include::../abstract_tests/xsd/simple_encodings/ATS_class.adoc[]
+// include::../abstract_tests/xsd/choice_components/ATS_class.adoc[]
 
 
-==== Conformance Class: Advanced Encodings XML Schema
+// ==== Conformance Class: Block Components XML Schema
 
-include::../abstract_tests/xsd/advanced_encodings/ATS_class.adoc[]
+// include::../abstract_tests/xsd/block_components/ATS_class.adoc[]
+
+
+// ==== Conformance Class: Simple Encodings XML Schema
+
+// include::../abstract_tests/xsd/simple_encodings/ATS_class.adoc[]
+
+
+// ==== Conformance Class: Advanced Encodings XML Schema
+
+// include::../abstract_tests/xsd/advanced_encodings/ATS_class.adoc[]
 
 
 
@@ -88,9 +88,9 @@ include::../abstract_tests/encoding_rules/general/ATS_class.adoc[]
 include::../abstract_tests/encoding_rules/text/ATS_class.adoc[]
 
 
-==== Conformance Class: XML Encoding Rules
+// ==== Conformance Class: XML Encoding Rules
 
-include::../abstract_tests/encoding_rules/xml/ATS_class.adoc[]
+// include::../abstract_tests/encoding_rules/xml/ATS_class.adoc[]
 
 
 ==== Conformance Class: Binary Encoding Rules

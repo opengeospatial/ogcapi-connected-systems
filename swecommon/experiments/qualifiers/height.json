@@ -1,0 +1,24 @@
+{
+  "$schema": "../../sweCommon.json",
+  "type": "DataRecord",
+  "label": "Qualifier Examples",
+  "fields": [
+    {
+      "name": "temp",
+      "type": "Quantity",
+      "definition": "http://qudt.org/vocab/quantitykind/Temperature",
+      "label": "Surface Temperature",
+      "description": "Air temperature measured 2m above the surface",
+      "uom": { "code": "Cel" },
+      "qualifiers": [
+        {
+          "type": "Quantity",
+          "definition": "http://sensorml.com/ont/swe/property/HeightAboveGround",
+          "label": "Measurement Height",
+          "uom": { "code": "m" },
+          "value": 2.0
+        }
+      ]
+    }   
+  ]
+}

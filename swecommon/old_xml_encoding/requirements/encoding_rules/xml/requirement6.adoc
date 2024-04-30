@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/xml-encoding-rules/choice-wrapper-elt-valid
+
+A “DataChoice” content shall be XML encoded with an element whose name corresponds to the name of the selected item.
+====

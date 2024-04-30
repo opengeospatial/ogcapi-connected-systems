@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/xsd-simple-components/extension-namespace-unique
+
+All extensions of the XML schemas described in this standard shall be defined in a new unique namespace.
+====

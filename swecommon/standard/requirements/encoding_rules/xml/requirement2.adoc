@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/xml-encoding-rules/scalar-encoding-elt-valid
-
-Scalar components values shall be XML encoded with a single element containing the value as its text content and no other child element.
-====

@@ -1,0 +1,10 @@
+[requirement,model=ogc]
+.Record Components XML Schema
+====
+[%metadata]
+type:: class
+identifier:: /req/xsd-record-components 
+subject:: XML Instance
+inherit:: /req/uml-record-components
+inherit:: /req/xsd-simple-components
+====

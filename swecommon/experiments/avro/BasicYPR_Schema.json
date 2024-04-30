@@ -1,0 +1,76 @@
+{
+  "type": "record",
+  "fields": [
+    {
+      "name": "position",
+      "type": "record",
+      "doc": "Platform geographic position",
+      "@swe.label": "Tangent Point Position",
+      "@swe.definition": "http://sensorml.com/ont/swe/property/Location",
+      "@swe.referenceFrame": "http://www.opengis.net/def/crs/EPSG/0/4979",
+      "fields": [
+        {
+          "name": "lat",
+          "type": "double",
+          "@swe.label": "Geodetic Latitude",
+          "@swe.definition": "http://sensorml.com/ont/swe/property/GeodeticLatitude",
+          "@swe.uomCode": "deg",
+          "@swe.axisID": "Lat"
+        },
+        {
+          "name": "lon",
+          "type": "double",
+          "@swe.label": "Longitude",
+          "@swe.definition": "http://sensorml.com/ont/swe/property/Longitude",
+          "@swe.uomCode": "deg",
+          "@swe.axisID": "Lon"
+        },
+        {
+          "name": "h",
+          "type": "double",
+          "@swe.label": "Ellipsoidal Height",
+          "@swe.definition": "http://sensorml.com/ont/swe/property/HeightAboveEllipsoid",
+          "@swe.uomCode": "m",
+          "@swe.axisID": "h"
+        }
+      ]
+    },
+    {
+      "name": "angles",
+      "type": "record",
+      "doc": "Euler angles with order of rotation yaw/pitch/roll in rotating frame",
+      "@swe.label": "Yaw Pitch Roll Angles",
+      "@swe.definition": "http://sensorml.com/ont/swe/property/EulerAngles",
+      "@swe.referenceFrame": "http://www.opengis.net/def/cs/OGC/0/ENU",
+      "fields": [
+        {
+          "name": "yaw",
+          "type": "float",
+          "doc": "Heading angle from true north, measured clockwise",
+          "@swe.label": "Yaw Angle",
+          "@swe.definition": "http://sensorml.com/ont/swe/property/YawAngle",
+          "@swe.uomCode": "deg",
+          "@swe.axisID": "Z"
+        },
+        {
+          "name": "pitch",
+          "type": "float",
+          "doc": "Rotation around the lateral axis, up/down from the local horizontal plane (positive when pointing up)",
+          "@swe.label": "Pitch Angle",
+          "@swe.definition": "http://sensorml.com/ont/swe/property/PitchAngle",
+          "@swe.uomCode": "deg",
+          "@swe.axisID": "Y"
+        },
+        {
+          "name": "roll",
+          "type": "float",
+          "doc": "Rotation around the longitudinal axis",
+          "@swe.label": "Roll Angle",
+          "@swe.definition": "http://sensorml.com/ont/swe/property/RollAngle",
+          "@swe.uomCode": "deg",
+          "@swe.axisID": "X"
+        }
+      ]
+    }
+  ]
+}

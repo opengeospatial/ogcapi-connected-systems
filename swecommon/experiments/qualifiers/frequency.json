@@ -1,0 +1,38 @@
+{
+  "$schema": "../../sweCommon.json",
+  "type": "DataRecord",
+  "label": "Frequency Bands Examples",
+  "fields": [
+    {
+      "name": "rf_power1",
+      "type": "Quantity",
+      "definition": "http://qudt.org/vocab/quantitykind/RF-Power",
+      "label": "Received RF Power (dBm)",
+      "uom": { "code": "dB" },
+      "qualifiers": [
+        {
+          "type": "QuantityRange",
+          "definition": "http://qudt.org/vocab/quantitykind/Frequency",
+          "label": "Frequency Range",
+          "uom": { "code": "MHz" },
+          "value": [620.0, 720.0]
+        }
+      ]
+    },
+    {
+      "name": "rf_power_xband",
+      "type": "Quantity",
+      "definition": "http://qudt.org/vocab/quantitykind/RF-Power",
+      "label": "Received RF Power (dBm)",
+      "uom": { "code": "dB" },
+      "qualifiers": [
+        {
+          "type": "Category",
+          "definition": "http://qudt.org/vocab/quantitykind/Frequency",
+          "label": "Frequency Band",
+          "value": "http://sensorml.com/ont/swe/spectrum/IEEE/X_band"
+        }
+      ]
+    }    
+  ]
+}

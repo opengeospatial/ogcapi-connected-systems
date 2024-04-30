@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/xsd-advanced-encodings/binary-encoding-rules-applied
-
-The encoded values block described by a “BinaryEncoding” element shall pass the “Binary Encoding Rules” conformance test class.
-====

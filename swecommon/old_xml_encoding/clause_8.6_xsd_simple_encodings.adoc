@@ -1,0 +1,133 @@
+[[xsd_simple_encodings]]
+=== Requirements Class: Simple Encodings XML Schema
+
+include::../requirements/xsd/simple_encodings/requirements_class.adoc[]
+
+XML Schema elements and types defined in the “simple_encodings.xsd” schema implement all classes defined in the “Simple Encodings” UML packages. 
+
+include::../requirements/xsd/simple_encodings/requirement1.adoc[]
+
+This requirements class defines a set of core encodings that have been chosen to cover the needs of simple applications that need to encode data as efficient data blocks. The “TextEncoding” method allows encodings datasets in a human readable textual format, while the “XMLEncoding” method allows encoding data with light weight XML tagged values.
+
+NOTE: _It is not the intent of this standard to support legacy formats by simply wrapping them with an XML description. Implementations seeking comformance to this requirements class will most often have to re-encode existing data by following the encoding rules described in this clause. However the encoding model has been designed and tested so that re-encoding can be done very efficiently on-the-fly without requiring the pre-processing of large amounts of existing data._
+
+
+[[xsd_abstractencoding_elt]]
+==== AbstractEncoding Element
+
+The “AbstractEncoding” element is the XML schema implementation of the “AbstractEncoding” UML class defined in <<uml_simple_encodings>>. The schema snippet for this element and its corresponding complex type is shown below:
+
+[source%unnumbered,xml]
+----
+<element name="AbstractEncoding" type="swe:AbstractEncodingType" abstract="true" substitutionGroup="swe:AbstractSWE"/>
+
+<complexType name="AbstractEncodingType" abstract="true">
+  <complexContent>
+    <extension base="swe:AbstractSWEType"/>
+  </complexContent>
+</complexType>
+----
+
+This element serves as the substitution group for all XML elements that describe encoding methods in this standard or in extensions of this standard.
+
+
+[[xsd_textencoding_elt]]
+==== TextEncoding Element
+
+The “TextEncoding” element is the XML schema implementation of the “TextEncoding” UML class defined in <<uml_textencoding_class>>. The schema snippet for this element and its corresponding complex type is shown below:
+
+[source%unnumbered,xml]
+----
+<element name="TextEncoding" type="swe:TextEncodingType" substitutionGroup="swe:AbstractEncoding"/>
+
+<complexType name="TextEncodingType">
+  <complexContent>
+    <extension base="swe:AbstractEncodingType">
+      <attribute name="collapseWhiteSpaces" type="boolean" use="optional" default="true"/>
+      <attribute name="decimalSeparator" type="string" use="optional" default="."/>
+      <attribute name="tokenSeparator" type="string" use="required"/>
+      <attribute name="blockSeparator" type="string" use="required"/>
+    </extension>
+  </complexContent>
+</complexType>
+----
+
+This element is used to specify encoding of data values in a “Delimiter Separated Values” format (a generalization of CSV) that is parameterized by its 4 XML attributes. The exact encoding rules to be followed are specified in <<encoding_rules_text>>.
+
+include::../requirements/xsd/simple_encodings/requirement2.adoc[]
+
+The following example shows a set of commonly used parameters:
+
+[source%unnumbered,xml]
+----
+<swe:TextEncoding tokenSeparator="," blockSeparator=" "/>
+----
+
+The “decimalSeparator” and “collapseWhiteSpaces” attributes have been omitted to indicate that their default values should be used. This leads to a data stream where individual tokens are separated by commas (i.e. the ‘,’ character), while complete blocks are separated by spaces. It can for example be used to encode coordinate tuples of “lat,lon,lat” values in a very readable manner, such as:
+
+[source%unnumbered]
+----
+25.41,10.23,320 25.43,10.23,300 25.39,11.51,310
+----
+
+Special characters such as carriage returns (CR) or line feeds (LF) can be used as block or token separators by using XML entities. For example new line characters are often used as block separators to cleanly separate blocks of values on successive lines:
+
+[source%unnumbered,xml]
+----
+<swe:TextEncoding tokenSeparator=";" blockSeparator="&#10;"/>
+----
+
+This corresponds to the following data block format:
+
+[source%unnumbered]
+----
+25.41;10.23;320
+25.43;10.23;300
+25.39;11.51;310
+----
+
+This is compatible with the CSV format and is often used for compatibility with other software.
+
+More than one character can be used as a separator in order to avoid conflicts with characters within the data values themselves. The following example shows this type of usage:
+
+[source%unnumbered,xml]
+----
+<swe:TextEncoding tokenSeparator="||" blockSeparator="@@&#10;"/>
+----
+
+This specifies the following data block format:
+
+[source%unnumbered]
+----
+25.41||text with spaces||text with 
+carriage return||{special_chars}@@
+25.42||text with spaces||text with 
+carriage return||{special_chars}@@
+25.43||text with spaces||text with
+carriage return||{special_chars}
+----
+
+A compliant parser can successfully parse such a data block because only sequences of characters that perfectly match the separator definition indicate the end of a token or block. Implementations are required to support sequences of characters of any length as separators but small ones (i.e. 1 to 3 characters) are more efficient and should be used whenever possible.
+
+Both “tokenSeparator” and “blockSeparator” can have the same value but this is not recommended as it makes the data block less readable and makes block-level resynchronizations impossible in error prone transmissions.
+
+
+[[xsd_xmlencoding_elt]]
+==== XMLEncoding Element
+
+The “XMLEncoding” element is the XML schema implementation of the “XMLEncoding” UML class defined in <<uml_xmlencoding_class>>. The schema snippet for this element and its corresponding complex type is shown below:
+
+[source%unnumbered,xml]
+----
+<element name="XMLEncoding" type="swe:XMLEncodingType" substitutionGroup="swe:AbstractEncoding"/>
+
+<complexType name="XMLEncodingType">
+  <complexContent>
+    <extension base="swe:AbstractEncodingType"/>
+  </complexContent>
+</complexType>
+----
+
+The XML Block encoding method is used when data values are to be encoded as light weight XML elements. The way the XML elements are named and structured are tied to the data structure specified using a hierarchy of data components. The exact encoding rules to be followed are specified in <<encoding_rules_xml>>.
+
+include::../requirements/xsd/simple_encodings/requirement3.adoc[]

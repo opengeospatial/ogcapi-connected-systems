@@ -59,7 +59,7 @@ image::figures/fig7.6.png[]
 
 **Extension Slot**
 
-The “extension” attribute is used as a container for future extensions. Each extension should put its content in a separate extension property. It is available by inheritance to all sub-classes of “AbstractSWEValue”. This extension point can be used at runtime (i.e. at the instance level in the case of XML encoding) to add new extended properties to an existing class.
+The “extension” attribute is used as a container for future extensions. It allows adding new extended properties to an existing class at the instance level.
 
 **Name and Description**
 

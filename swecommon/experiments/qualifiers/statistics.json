@@ -1,0 +1,59 @@
+{
+  "$schema": "../../schemas/sweCommon.json",
+  "type": "DataRecord",
+  "label": "Statistics Examples",
+  "fields": [
+    {
+      "name": "daily_avg_temp",
+      "type": "Quantity",
+      "definition": "http://mmisw.org/ont/cf/parameter/air_temperature",
+      "statistic": "http://sensorml.com/ont/x-stats/DailyMean",
+      "label": "Daily Average Temperature",
+      "description": "Average temperature computed over a 24-hour calendar day, starting at midnight local time at the measurement location",
+      "uom": { "code": "Cel" }
+    },
+    {
+      "name": "daily_min_temp",
+      "type": "Quantity",
+      "definition": "http://mmisw.org/ont/cf/parameter/air_temperature",
+      "statistic": "http://sensorml.com/ont/x-stats/DailyMin",
+      "label": "Daily Minimum Temperature",
+      "description": "Lowest temperature observed in a 24-hour calendar day, starting at midnight local time at the measurement location",
+      "uom": { "code": "Cel" }
+    },
+    {
+      "name": "daily_max_temp",
+      "type": "Quantity",
+      "definition": "http://mmisw.org/ont/cf/parameter/air_temperature",
+      "statistic": "http://sensorml.com/ont/x-stats/DailyMax",
+      "label": "Daily Maximum Temperature",
+      "description": "Highest temperature observed in a 24-hour calendar day, starting at midnight local time at the measurement location",
+      "uom": { "code": "Cel" }
+    },
+    {
+      "name": "5min_avg_temp",
+      "type": "Quantity",
+      "definition": "http://mmisw.org/ont/cf/parameter/air_temperature",
+      "statistic": "http://sensorml.com/ont/x-stats/TemporalMean",
+      "label": "5-min Average Temperature",
+      "description": "Average temperature computed over 5-minute non-overlapping windows",
+      "uom": { "code": "Cel" },
+      "qualifiers": [
+        {
+          "type": "Quantity",
+          "definition": "http://sensorml.com/ont/x-stats/WindowSize",
+          "label": "Averaging Window Duration",
+          "uom": { "code": "s" },
+          "value": 600
+        },
+        {
+          "type": "Quantity",
+          "definition": "http://sensorml.com/ont/x-stats/WindowPeriod",
+          "label": "Averaging Window Period",
+          "uom": { "code": "s" },
+          "value": 600
+        }
+      ]
+    }
+  ]
+}
