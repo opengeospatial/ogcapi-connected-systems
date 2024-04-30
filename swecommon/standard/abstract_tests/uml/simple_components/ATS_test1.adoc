@@ -8,8 +8,5 @@ target:: /req/uml-simple-components/package-fully-implemented
 
 test-purpose:: Verify that the target implements all classes in the UML package.
 
-[.component,class=test method]
-=====
-Inspect the model or software implementation.
-=====
+test-method:: Inspect the model or software implementation.
 ====

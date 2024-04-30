@@ -8,8 +8,5 @@ target:: /req/uml-block-components/matrix-element-type-valid
 
 test-purpose:: Verify that the implementation of the “Matrix” class has a constraint that enforces the requirement.
 
-[.component,class=test method]
-=====
-Inspect the model or software implementation.
-=====
+test-method:: Inspect the model or software implementation.
 ====

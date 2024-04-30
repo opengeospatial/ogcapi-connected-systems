@@ -6,9 +6,9 @@ identifier:: /conf/binary-encoding-rules/base64-translation-applied
 
 target:: /req/binary-encoding-rules/base64-translation-applied
 
-[.component,class=test method]
-=====
+test-purpose:: Verify that encoding rules are implemented correctly
+
+test-method::
 - Verify that only characters allowed by base64 encoding are used in the encoded data content.
 - Verify that the data block can be properly parsed after the base64 data is decoded into a raw binary data stream.
-=====
 ====

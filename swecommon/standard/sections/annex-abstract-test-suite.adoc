@@ -83,14 +83,14 @@ include::../abstract_tests/uml/advanced_encodings/ATS_class.adoc[]
 include::../abstract_tests/encoding_rules/general/ATS_class.adoc[]
 
 
+==== Conformance Class: JSON Encoding Rules
+
+include::../abstract_tests/encoding_rules/json/ATS_class.adoc[]
+
+
 ==== Conformance Class: Text Encoding Rules
 
 include::../abstract_tests/encoding_rules/text/ATS_class.adoc[]
-
-
-// ==== Conformance Class: XML Encoding Rules
-
-// include::../abstract_tests/encoding_rules/xml/ATS_class.adoc[]
 
 
 ==== Conformance Class: Binary Encoding Rules

@@ -6,8 +6,7 @@ identifier:: /conf/general-encoding-rules/record-encoding-rule
 
 target:: /req/general-encoding-rules/record-encoding-rule
 
-[.component,class=test method]
-=====
-Verify that the sequence of scalar values (obtained after decoding the section of the encoded data block corresponding to the “DataRecord” or “Vector”) includes values for the successive fields/coordinates in the right order.
-=====
+test-purpose:: Verify that encoding rules are implemented correctly
+
+test-method:: Verify that the sequence of scalar values (obtained after decoding the section of the encoded data block corresponding to the “DataRecord” or “Vector”) includes values for the successive fields/coordinates in the right order.
 ====

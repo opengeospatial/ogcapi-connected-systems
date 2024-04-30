@@ -8,8 +8,5 @@ target:: /req/core/numerical-rep-valid
 
 test-purpose:: Verify that the target implementation correctly implements the Numerical representation.
 
-[.component,class=test method]
-=====
-Inspect the target implementation.
-=====
+test-method:: Inspect the target implementation.
 ====

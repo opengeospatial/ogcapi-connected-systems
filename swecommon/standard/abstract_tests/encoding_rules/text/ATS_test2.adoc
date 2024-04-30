@@ -6,8 +6,7 @@ identifier:: /conf/text-encoding-rules/separators-valid
 
 target:: /req/text-encoding-rules/separators-valid
 
-[.component,class=test method]
-=====
-Verify that the values encoded in the data block never include the reserved separator characters. This can be detected by looking for invalid or superfluous values.
-=====
+test-purpose:: Verify that encoding rules are implemented correctly
+
+test-method:: Verify that the values encoded in the data block never include the reserved separator characters. This can be detected by looking for invalid or superfluous values.
 ====

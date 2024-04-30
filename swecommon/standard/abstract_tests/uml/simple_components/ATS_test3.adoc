@@ -8,8 +8,5 @@ target:: /req/uml-simple-components/iso19108-implemented
 
 test-purpose:: Verify that the target implements all classes imported from ISO 19108 UML packages.
 
-[.component,class=test method]
-=====
-Inspect the model or software implementation.
-=====
+test-method:: Inspect the model or software implementation.
 ====

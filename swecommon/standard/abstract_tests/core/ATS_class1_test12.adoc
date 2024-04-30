@@ -8,8 +8,5 @@ target:: /req/core/aggregates-model-valid
 
 test-purpose:: Verify that the target implementation models aggregate data types according to ISO 11404 definitions.
 
-[.component,class=test method]
-=====
-Inspect the target implementation.
-=====
+test-method:: Inspect the target implementation.
 ====

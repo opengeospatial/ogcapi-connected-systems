@@ -11,8 +11,5 @@ test-purpose:: Verify that the target implementation allows the value of a NIL r
 - a well known reason code defined by OGC
 - a URI that can be resolved to the textual description of a custom reason.
 
-[.component,class=test method]
-=====
-Inspect the model or software implementation.
-=====
+test-method:: Inspect the model or software implementation.
 ====

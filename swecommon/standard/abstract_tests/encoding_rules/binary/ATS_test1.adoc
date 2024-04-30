@@ -6,8 +6,7 @@ identifier:: /conf/binary-encoding-rules/abnf-syntax-valid
 
 target:: /req/binary-encoding-rules/abnf-syntax-valid
 
-[.component,class=test method]
-=====
-Verify that the binary encoded data block is correct with respect to the ABNF grammar of the particular dataset (The complete ABNF grammar of the dataset should be dynamically constructed from the ABNF snippets provided in the specification).
-=====
+test-purpose:: Verify that encoding rules are implemented correctly
+
+test-method:: Verify that the binary encoded data block is correct with respect to the ABNF grammar of the particular dataset (The complete ABNF grammar of the dataset should be dynamically constructed from the ABNF snippets provided in the specification).
 ====

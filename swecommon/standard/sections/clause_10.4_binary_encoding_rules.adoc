@@ -19,7 +19,7 @@ The value for a scalar component is encoded as its binary representation. This e
 scalar-value = < binary value encoded according to data type, byte encoding and byte order specifications >
 ----
 
-The last column of <<binary-datatypes-table>> in <<xsd_binarycomponent_elt>> indicates how each data type shall be binary encoded into a low level byte sequence. The actual order of bytes composing a multi-bytes data type depends on the value of the “byteOrder” attribute. The ‘bigEndian’ option indicates that muti-bytes data types are encoded with the most significant byte (MSB) first, while selecting ‘littleEndian’ signifies that encoding is done with the less significant byte (LSB) first. A UTF-8 string is not considered as a multi-byte data type and is always encoded in the same order, as specified by the Unicode Standard.
+The last column of <<binary-datatypes-table>> indicates how each data type shall be binary encoded into a low level byte sequence. The actual order of bytes composing a multi-bytes data type depends on the value of the “byteOrder” attribute. The ‘bigEndian’ option indicates that muti-bytes data types are encoded with the most significant byte (MSB) first, while selecting ‘littleEndian’ signifies that encoding is done with the less significant byte (LSB) first. A UTF-8 string is not considered as a multi-byte data type and is always encoded in the same order, as specified by the Unicode Standard.
 
 include::../requirements/encoding_rules/binary/requirement2.adoc[]
 

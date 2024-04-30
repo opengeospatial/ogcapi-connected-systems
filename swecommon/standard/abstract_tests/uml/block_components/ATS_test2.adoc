@@ -8,9 +8,7 @@ target:: /req/uml-block-components/array-component-no-value
 
 test-purpose:: Verify that implementations of the block component classes have a constraint that enforces the requirement.
 
-[.component,class=test method]
-=====
-Inspect the model or software implementation.
-Check that the “DataArray”, “Matrix” and “DataStream” classes have the constraint.
-=====
+test-method::
+- Inspect the model or software implementation.
+- Check that the “DataArray”, “Matrix” and “DataStream” classes have the constraint.
 ====
