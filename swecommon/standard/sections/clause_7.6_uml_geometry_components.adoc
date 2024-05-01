@@ -40,7 +40,6 @@ include::../requirements/uml/geom_components/requirement3.adoc[]
 ====
 Encoding sections in this standard define how the geometry value is encoded:
 
-- GML in the <<xsd_geom_components,XML implementation>> and <<encoding_rules_xml,XML encoding rules>>
 - GeoJSON in the <<json_geom_components,JSON implementation>> and <<encoding_rules_json,JSON encoding rules>>
 - WKT in the <<encoding_rules_text,Text encoding rules>>
 - WKB in the <<encoding_rules_binary,Binary encoding rules>>

@@ -45,7 +45,7 @@ The “encoding” and “values” fields are there to provide array data as an
 
 include::../requirements/uml/block_components/requirement3.adoc[]
 
-The choice of simple encodings (defined in the “Simple Encodings” package) allows encoding data as text using a delimiter separated values (DSV, a variant of CSV) format or as XML tagged values. The “Advanced Encodings” package defines binary encodings that can be used to efficiently package large datasets.
+The choice of simple encodings (defined in the “Simple Encodings” package) allows encoding data as JSON or as text using a delimiter separated values (DSV, a variant of CSV) format. The “Advanced Encodings” package defines binary encodings that can be used to efficiently package large datasets.
 
 *Nested Components*
 
@@ -91,7 +91,7 @@ One powerful feature of the “DataArray” model is that it allows for the elem
 
 In a fixed size array, the number of elements can be provided in the descriptor as an instance of the “Count” class with an inline value. This value is only present in the data description and not in the encoded block of array values. The definition of the “Count” instance is not required. 
 
-In a variable size array, the “elementCount” attribute either contains an instance of the “Count” class with no value or references an instance of a “Count” class in a parent or sibling data component. The value giving the actual array size is then included in the stream, before the array values themselves, so that the block can be properly decoded. One obvious implementation constraint is that the value representing the array size must be received before the array values. This is detailed further in the XML implementation section.
+In a variable size array, the “elementCount” attribute either contains an instance of the “Count” class with no value or references an instance of a “Count” class in a parent or sibling data component. The value giving the actual array size is then included in the stream, before the array values themselves, so that the block can be properly decoded. One obvious implementation constraint is that the value representing the array size must be received before the array values. This is detailed further in the JSON implementation section.
 
 [example%unnumbered]
 ====

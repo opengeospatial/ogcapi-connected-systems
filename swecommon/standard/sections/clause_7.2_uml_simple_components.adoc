@@ -198,7 +198,7 @@ The “constraint” attribute allows further restricting the range of possible 
 
 The “value” attribute (or the corresponding value in out-of-band data) is a string that must match the constraint.
 
-NOTE: _The “Text” component can be used to wrap a string representing complex content such as an expression in a programming language, xml or html content. This practice should however be used only for systems that don’t require high level of interoperability since the client must know how to interpret the content. Also care must be taken to properly escape such content before it is inserted in an XML document or in a SWE Common data stream._
+NOTE: _The “Text” component can be used to wrap a string representing complex content such as an expression in a programming language, xml or html content. This practice should however be used only for systems that don’t require high level of interoperability since the client must know how to interpret the content. Also care must be taken to properly escape such content before it is inserted in a JSON or XML document or in a SWE Common data stream._
 
 
 [[uml_category_class]]
@@ -211,7 +211,7 @@ image::figures/fig7.10.png[]
 
 *Code Space*
 
-The “codeSpace” attribute is of type “Dictionary” and allows listing and defining the meaning of all possible values for this component. It is expected that instances of the “Dictionary” class will usually be referenced (rather than included inline) by implementations of this class since the code space definition is usually obtained from a controlled vocabulary maintained at a remote location. This type of implementation is the one chosen in the XML encodings defined by this standard.
+The “codeSpace” attribute is of type “Dictionary” and allows listing and defining the meaning of all possible values for this component. It is expected that instances of the “Dictionary” class will usually be referenced (rather than included inline) by implementations of this class since the code space definition is usually obtained from a controlled vocabulary maintained at a remote location. This type of implementation is the one chosen in the JSON encodings defined by this standard.
 
 *Constraints*
 
@@ -457,7 +457,7 @@ These different representations of quality are useful to cover most use cases wh
 
 The “definition” attribute of the chosen quality component helps to further define the type of quality information given just like any other data component, and the “uom” should be specified in the case of a decimal quality value or interval.
 
-NOTE: _Reusing data components to specify quality also allows the inclusion of quality values in the data stream itself. This is useful if the quality is varying and re-estimated for each measurement. This is for example the case in a GPS receiver where both horizontal and vertical errors are given along with the geographic position. See the XML implementation clause for more information on this use case._
+NOTE: _Reusing data components to specify quality also allows the inclusion of quality values in the data stream itself. This is useful if the quality is varying and re-estimated for each measurement. This is for example the case in a GPS receiver where both horizontal and vertical errors are given along with the geographic position._
 
 
 [[uml_nilvalues_class]]

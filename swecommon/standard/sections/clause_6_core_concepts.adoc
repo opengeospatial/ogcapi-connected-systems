@@ -171,7 +171,7 @@ include::../requirements/core/requirement7.adoc[]
 
 It is recommended that a model uses references to out-of-band dictionaries rather than inline information because semantics are supposed to be shared by multiple datasets. Using references also helps by providing a framework that is independent from the actual semantic technology used.
 
-The SWE Common UML models and XML schemas desribed in this standard can be used in combination with any semantic web technology. It is thus possible to connect a SWE dataset description to an existing taxonomy provided the external register exposes a unique identifier for each entry.
+The SWE Common UML models and JSON schemas described in this standard can be used in combination with any semantic web technology. It is thus possible to connect a SWE dataset description to an existing taxonomy provided the external register exposes a unique identifier for each entry.
 
 These semantic references point to out-of-band semantic information that can be encoded in various languages, such as the Ontology Web Language (OWL) or GML dictionary.
 
@@ -277,7 +277,7 @@ This standard also defines the concept of “data component” as any part of th
 
 A dataset representing a time series of observations acquired by a mobile sensor can be encoded with various methods depending on the requirements:
 
-- XML encoding can be used when data needs to be easily styled to other markup formats (such as HTML) or when precise error localization (in the case of an error in the stream) is needed.
+- JSON encoding can be used when data needs to be easily styled to other markup formats (such as HTML) or when precise error localization (in the case of an error in the stream) is needed.
 
 - ASCII encoding can be used to achieve a good compromise between readability and size efficiency.
 

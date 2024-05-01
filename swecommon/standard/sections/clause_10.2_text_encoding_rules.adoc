@@ -179,7 +179,7 @@ See example: <<enc_text_geom_example,style=basic%>>
 
 ==== Media Types
 
-When array or datastream values are encoded with the Text encoding method and provided standalone (i.e. outside of any wrapper format such as an XML document), one of the following media type identifiers shall be used:
+When array or datastream values are encoded with the Text encoding method and provided standalone (i.e. outside of any wrapper format such as a JSON or XML document), one of the following media type identifiers shall be used:
 
 1. One of *`text/plain`*, *`text/csv`*, or *`application/swe+text`* shall be used as the content-type for files and HTTP reponses.
 

@@ -9,7 +9,7 @@ include::../requirements/json/geom_components/requirement1.adoc[]
 [[json_geometry_obj]]
 ==== Geometry Object
 
-The “Geometry” object is the XML schema implementation of the “Geometry” UML class defined in <<uml_geometry_class>>. The schema for this class is provided in {jsonschema-base-url}/Geometry.json[Geometry.json].
+The “Geometry” object is the JSON schema implementation of the “Geometry” UML class defined in <<uml_geometry_class>>. The schema for this class is provided in {jsonschema-base-url}/Geometry.json[Geometry.json].
 
 [source%unnumbered,json]
 ----

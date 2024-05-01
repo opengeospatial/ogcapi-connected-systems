@@ -26,7 +26,7 @@ The values of range components are encoded as a sequence of two successive value
 
 ==== Rules for DataRecord and Vector
 
-Both “DataRecord” and “Vector” components are aggregates consisting of an ordered sequence of child components. The values contained in these aggregates are encoded by successively encoding each child component in the order in which they are listed in the XML description and including the resulting values sequentially in the stream.
+Both “DataRecord” and “Vector” components are aggregates consisting of an ordered sequence of child components. The values contained in these aggregates are encoded by successively encoding each child component in the order in which they are listed in the record or vector descriptor and including the resulting values sequentially in the stream.
 
 The definition of a “DataRecord” (or “Vector”) structure composed of N fields (or coordinates for vectors) can be represented in the following way:
 
