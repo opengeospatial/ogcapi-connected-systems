@@ -5,13 +5,15 @@ include::../requirements/json/simple_encodings/requirements_class.adoc[]
 
 include::../requirements/json/simple_encodings/requirement1.adoc[]
 
-Validation patterns that implement classes defined respectively in the “Simple Encodings” UML packages are provided in the JSON schema {jsonschema-base-url}/encodings.json[encodings.json].
+Validation patterns that implement classes defined in the “Simple Encodings” UML packages are provided in the JSON schema {jsonschema-base-url}/encodings.json[encodings.json].
 
 When datastream or data array values are provided out-of-band (i.e. not inline in the “DataArray”, “Matrix” or “DataStream” description), a different encoding than JSON can be selected. This is specified by using one of the following classes.
 
 
 [[json_jsonencoding_obj]]
 ==== JSONEncoding Object
+
+include::../requirements/json/simple_encodings/requirement2.adoc[]
 
 The “JSONEncoding” object is the JSON schema implementation of the “JSONEncoding” UML class defined in <<uml_jsonencoding_class>>. The schema for this class is provided in {jsonschema-base-url}/encodings.json[encodings.json#/definitions/JSONEncoding].
 
@@ -25,6 +27,8 @@ The JSON encoding method is the default method when the data component tree is i
 
 [[json_textencoding_obj]]
 ==== TextEncoding Object
+
+include::../requirements/json/simple_encodings/requirement3.adoc[]
 
 The “TextEncoding” object is the JSON schema implementation of the “TextEncoding” UML class defined in <<uml_textencoding_class>>. The schema for this class is provided in {jsonschema-base-url}/encodings.json[encodings.json#/definitions/TextEncoding].
 

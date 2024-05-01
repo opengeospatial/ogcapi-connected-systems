@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/json-simple-encodings/text-encoding-rules-applied
+
+The encoded values block described by a “TextEncoding” object shall pass the “Text Encoding Rules” conformance test class.
+====
