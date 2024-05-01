@@ -1,7 +1,7 @@
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/xsd-advanced-encodings/datatype-valid
+identifier:: /req/json-advanced-encodings/datatype-valid
 
-The value of the “dataType” XML attribute of the “Component” element shall be one of the URIs listed in <<binary-datatypes-table>>.
+The value of the “dataType” property of the “Component” object SHALL be one of the URIs listed in <<binary-datatypes-table>>.
 ====
