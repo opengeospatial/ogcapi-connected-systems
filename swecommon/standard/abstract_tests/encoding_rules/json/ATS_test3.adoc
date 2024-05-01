@@ -1,0 +1,13 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-encoding-rules/range-value-valid
+
+target:: /req/json-encoding-rules/range-value-valid
+
+test-purpose:: Verify that range encoding rules are implemented correctly
+
+test-method:: Inspect the JSON of the encoded data block to verify that:
+- Each JSON value corresponding to a range component is a JSON Array with two values.
+- Each value in the array has the proper data type as specified in <<json_value_types_mappings>>.
+====

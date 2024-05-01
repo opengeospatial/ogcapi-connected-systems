@@ -1,0 +1,17 @@
+{
+  "type": "BinaryEncoding",
+  "byteOrder": "bigEndian",
+  "byteEncoding": "raw",
+  "members": [
+    {
+      "type": "Component",
+      "ref": "/time",
+      "dataType": "http://www.opengis.net/def/dataType/OGC/0/double"
+    },
+    {
+      "type": "Block",
+      "ref": "/img",
+      "compression": "H264"
+    }
+  ]
+}

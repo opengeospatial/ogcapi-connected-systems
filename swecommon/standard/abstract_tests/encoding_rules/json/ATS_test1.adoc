@@ -1,0 +1,11 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-encoding-rules/json-valid
+
+target:: /req/json-encoding-rules/json-valid
+
+test-purpose:: Verify that encoding rules are implemented correctly
+
+test-method:: Verify that the data in the encoded data block is valid JSON with a JSON validator.
+====

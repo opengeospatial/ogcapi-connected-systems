@@ -1,0 +1,15 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-encoding-rules/record-object-valid
+
+target:: /req/json-encoding-rules/record-object-valid
+
+test-purpose:: Verify that record encoding rules are implemented correctly
+
+test-method:: Inspect the JSON of the encoded data block to verify that:
+- Each JSON value corresponding to a record component is a JSON Object
+- This JSON object has members with the same names as the fields in the vector description
+- Only members corresponding to a field marked as optional are omitted
+- The value of each JSON member is valid according to the field descriptor
+====

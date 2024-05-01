@@ -1,0 +1,11 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-encoding-rules/scalar-value-valid
+
+target:: /req/json-encoding-rules/scalar-value-valid
+
+test-purpose:: Verify that scalar encoding rules are implemented correctly
+
+test-method:: Inspect the JSON of the encoded data block to verify that the value corresponding to a scalar component is encoded with the data type specified in <<json_value_types_mappings>>.
+====

@@ -1,0 +1,14 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-encoding-rules/vector-object-valid
+
+target:: /req/json-encoding-rules/vector-object-valid
+
+test-purpose:: Verify that vector encoding rules are implemented correctly
+
+test-method:: Inspect the JSON of the encoded data block to verify that:
+- Each JSON value corresponding to a vector component is a JSON Object
+- This JSON object has members with the same names as the coordinates in the vector description
+- The value of each JSON member is valid according to the coordinate descriptor
+====

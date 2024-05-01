@@ -1,0 +1,15 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-encoding-rules/geometry-valid
+
+target:: /req/json-encoding-rules/geometry-valid
+
+test-purpose:: Verify that geometry encoding rules are implemented correctly
+
+test-method:: Inspect the JSON of the encoded data block to verify that:
+- Each JSON value corresponding to a geometry component is a JSON Object
+- The JSON Object is a valid GeoJSON Geometry
+- The GeoJSON geometry type is either `Point`, `LineString`, `Polygon`, `MultiPoint`, `MultiLineString`, or `MultiPolygon`
+- The number of dimensions in the GeoJSON geometry is the same as the one specified by the CRS of the Geometry descriptor.
+====

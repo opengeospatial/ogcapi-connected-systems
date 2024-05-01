@@ -1,0 +1,18 @@
+[conformance_class]
+.JSON Encoding Rules
+====
+[%metadata]
+identifier:: /conf/json-encoding-rules
+target:: /req/json-encoding-rules
+inherit:: /conf/general-encoding-rules
+classification:: Target Type: Encoded Values Instance
+====
+
+include::./ATS_test1.adoc[]
+include::./ATS_test2.adoc[]
+include::./ATS_test3.adoc[]
+include::./ATS_test4.adoc[]
+include::./ATS_test5.adoc[]
+include::./ATS_test6.adoc[]
+
+

@@ -1,0 +1,14 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-encoding-rules/choice-object-valid
+
+target:: /req/json-encoding-rules/choice-object-valid
+
+test-purpose:: Verify that choice encoding rules are implemented correctly
+
+test-method:: Inspect the JSON of the encoded data block to verify that:
+- Each JSON value corresponding to a choice component is a JSON Object
+- This JSON object contains a single member and its name is the same as one of the items in the choice description.
+- The value of the JSON member is valid according to the corresponding item descriptor.
+====

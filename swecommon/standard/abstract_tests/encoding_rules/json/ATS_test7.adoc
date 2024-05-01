@@ -1,0 +1,14 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-encoding-rules/array-values-valid
+
+target:: /req/json-encoding-rules/array-values-valid
+
+test-purpose:: Verify that array encoding rules are implemented correctly
+
+test-method:: Inspect the JSON of the encoded data block to verify that:
+- Each JSON value corresponding to an array or matrix component is a JSON Array
+- All values in the array are valid according to the array element descriptor
+- If the array has a fixed size, the number of elements in the array is equal to the size
+====
