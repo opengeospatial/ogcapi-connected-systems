@@ -5,5 +5,5 @@
 type:: class
 identifier:: /req/json-simple-components
 subject:: JSON Document
-inherit:: /req/uml-simple-components
+indirect-dependency:: /req/uml-simple-components
 ====

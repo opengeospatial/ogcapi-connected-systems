@@ -5,6 +5,6 @@
 type:: class
 identifier:: /req/json-record-components 
 subject:: JSON Document
-inherit:: /req/uml-record-components
+indirect-dependency:: /req/uml-record-components
 inherit:: /req/json-simple-components
 ====

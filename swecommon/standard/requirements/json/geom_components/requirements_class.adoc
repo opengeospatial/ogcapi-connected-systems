@@ -5,6 +5,6 @@
 type:: class
 identifier:: /req/json-geom-components 
 subject:: JSON Document
-inherit:: /req/uml-geom-components
+indirect-dependency:: /req/uml-geom-components
 inherit:: /req/json-simple-components
 ====
