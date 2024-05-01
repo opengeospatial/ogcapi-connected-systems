@@ -20,7 +20,7 @@ More information is needed to fully define a binary encoding, so the model is mo
 .BinaryEncoding Class
 image::figures/fig7.35.png[]
 
-The main class “BinaryEncoding” specifies overall characteristics of the encoded byte stream such as the byte order (big endian or little endian) and the byte encoding (raw or base64). The two corresponding attributes, respectively “byteOrder” and “byteEncoding” are mandatory. Base64 encoding is usually chosen to insert binary content within an XML document.
+The main class “BinaryEncoding” specifies overall characteristics of the encoded byte stream such as the byte order (big endian or little endian) and the byte encoding (raw or base64). The two corresponding attributes, respectively “byteOrder” and “byteEncoding” are mandatory. Base64 encoding is usually chosen to insert binary content within a JSON or XML document.
 
 The “byteLength” attribute is optional and can be used to specify the overall length of the encoded data as a total number of bytes. This should be indicated whenever possible if the data size is known in advance as it can be useful for efficient memory allocation.
 

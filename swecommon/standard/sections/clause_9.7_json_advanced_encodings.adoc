@@ -8,15 +8,22 @@ This requirement class defines an additional encoding method that can be used to
 [[json_binaryencoding_obj]]
 ==== BinaryEncoding Object
 
-The “BinaryEncoding” object is the JSON schema implementation of the “BinaryEncoding” UML class defined in <<uml_binaryencoding_class>>. The schema for this class is provided in {jsonschema-base-url}/encodings.json[encondings.json#/definitions/BinaryEncoding].
+The “BinaryEncoding” object is the JSON schema implementation of the “BinaryEncoding” UML class defined in <<uml_binaryencoding_class>>. The schema for this class is provided in {jsonschema-base-url}/encodings.json[encodings.json#/definitions/BinaryEncoding].
+
+An example instance is provided below:
 
 [source%unnumbered,json]
 ----
-
+include::../schemas/json/examples/spec/binary-encoding.json[]
 ----
 
 
-These elements allow for the detailed specification of the encoding parameters associated to components of the data description tree as discussed in <<uml_binaryencoding_class>>. The “ref” attribute takes a value of a particular syntax that allows pointing to any data component. The syntax is a ‘/’ separated list of component names, starting with the name of the root component and listed hierarchically. Each of these component names shall match the value of the “name” attribute defined in the data definition tree.
+[[json_binarycomponent_obj]]
+===== Binary Component Object
+
+The “Component” object implements the UML class with the same name. It is used to specify encoding parameters of scalar components. It allows for the detailed specification of the encoding parameters associated to components of the data description tree as discussed in <<uml_binaryencoding_class>>.
+
+The “ref” attribute takes a value of a particular syntax that allows pointing to any data component. The syntax is a ‘/’ separated list of component names, starting with the name of the root component and listed hierarchically. Each of these component names shall match the value of the “name” attribute defined in the data definition tree.
 
 include::../requirements/json/advanced_encodings/requirement3.adoc[]
 
@@ -68,10 +75,22 @@ The data type should be chosen so that its range allows the encoding of all poss
 
 include::../requirements/json/advanced_encodings/requirement6.adoc[]
 
-Only data types marked with an asterisk allow the usage of the “byteLength” or “bitLength” attribute to customize their size. Usage of these attributes is forbidden on all other data types since their size is fixed and already specified in this standard (in the case of a variable length string, the size is included in the stream). This is enforced by a Schematron pattern.
+Only data types marked with an asterisk allow the usage of the “byteLength” or “bitLength” attribute to customize their size. Usage of these attributes is forbidden on all other data types since their size is fixed and already specified in this standard (in the case of a variable length string, the size is included in the stream).
 
 include::../requirements/json/advanced_encodings/requirement7.adoc[]
 
-The value of the “byteEncoding” XML attribute allows the selection of either the ‘raw’ or ‘base64’ encoding methods. When ‘base64’ is selected each byte is converted to its base 64 representation before it is included in encoded block, making it possible to include the values directly inline in the XML instance.
+The value of the “byteEncoding” attribute allows the selection of either the ‘raw’ or ‘base64’ encoding methods. When ‘base64’ is selected each byte is converted to its base 64 representation before it is included in the encoded block, making it possible to include the values directly inline in the JSON instance.
 
-The following binary encoded image data illustrates how the BinaryEncoding element is used to specify encoding options to each scalar value in the dataset:
+
+[[json_binaryblock_obj]]
+===== Binary Block Object
+
+The “Block” element implements the UML class with the same name. It is used to specify padding, encryption and/or compression of a block of data corresponding to an aggregate component.
+
+The “ref” attribute shall point to an aggregate component in the data description and set one or more of the “compression”, “encryption” or “padding” attributes.
+
+include::../requirements/json/advanced_encodings/requirement8.adoc[]
+
+When padding is specified, padding bytes with a value of zero are inserted before (when “paddingBytesBefore” is set) and/or after (when “paddingBytesAfter” is set) the whole block of values corresponding to the aggregate components. Decoders should skip these bytes completely.
+
+This standard does not specify specific compression or encryption methods. Future extensions can define single or groups of methods to target specific application domains. Compression methods can be specific such as the ones for video (e.g. MPEG-2, MPEG-4, etc.) or imagery (e.g. JPEG, JPEG2000, etc.) or generic so that they are applicable for any kind of data (e.g. GZIP, BZIP, etc.). They can be lossy or lossless. When a compression method results in variable length data blocks, the method should also define how the the block length is specified.
