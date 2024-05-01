@@ -9,6 +9,8 @@ The entry point schema used for validation is {jsonschema-base-url}/sweCommon.js
 
 include::../requirements/json/simple_components/requirement1.adoc[]
 
+include::../requirements/json/simple_components/requirement2.adoc[]
+
 
 ==== General JSON Principles
 
@@ -30,7 +32,7 @@ The following rules were used when generating the JSON schemas:
 
 JSON does not define special decimal values for 'Not a Number', positive infinity and negative infinity. It is thus necessary to encode them as strings.
 
-include::../requirements/json/simple_components/requirement2.adoc[]
+include::../requirements/json/simple_components/requirement3.adoc[]
 
 [NOTE]
 ====

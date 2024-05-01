@@ -1,7 +1,8 @@
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/json-simple-components/special-numerical-values
+identifier:: /req/json-simple-components/component-types
 
-The special JSON Strings `NaN`, `-Infinity` and `+Infinity` shall be allowed as the inline or out-of-band value for Quantity and Time #(and Count?)# components (except when the Time component uses the ISO 8601 format).
+The standardization target SHALL implement the following data component types: +
+_Boolean, Text, Category, Count, Quantity, Time, CategoryRange, CountRange, QuantityRange, TimeRange_
 ====

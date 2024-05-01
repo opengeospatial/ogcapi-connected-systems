@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/json-block-components/component-types
+
+The standardization target SHALL implement the following data component types: _DataArray, Matrix, DataStream_
+====

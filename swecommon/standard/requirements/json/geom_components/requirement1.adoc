@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/json-geom-components/component-types
+
+The standardization target SHALL implement the following data component types: _Geometry_
+====

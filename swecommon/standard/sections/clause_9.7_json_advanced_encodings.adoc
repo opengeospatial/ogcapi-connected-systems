@@ -3,6 +3,8 @@
 
 include::../requirements/json/advanced_encodings/requirements_class.adoc[]
 
+include::../requirements/json/advanced_encodings/requirement1.adoc[]
+
 This requirement class defines an additional encoding method that can be used to encode data values as raw or base64 binary blocks.
 
 [[json_binaryencoding_obj]]

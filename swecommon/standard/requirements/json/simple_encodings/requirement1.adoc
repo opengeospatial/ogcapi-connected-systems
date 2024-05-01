@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/json-simple-encodings/encoding-types
+
+The standardization target SHALL support the following encoding types: _JSONEncoding, TextEncoding_
+====

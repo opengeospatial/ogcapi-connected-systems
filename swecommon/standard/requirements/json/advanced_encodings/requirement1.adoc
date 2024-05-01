@@ -1,7 +1,7 @@
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/advanced-encodings/schema-valid
+identifier:: /req/json-advanced-encodings/encoding-types
 
-The JSON document instance shall be valid with respect to the JSON schema {jsonschema-base-url}/sweCommon.json[“sweCommon.json”].
+The standardization target SHALL support the following encoding types: _BinaryEncoding_
 ====

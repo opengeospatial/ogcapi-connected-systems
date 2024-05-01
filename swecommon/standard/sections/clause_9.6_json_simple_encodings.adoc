@@ -3,6 +3,8 @@
 
 include::../requirements/json/simple_encodings/requirements_class.adoc[]
 
+include::../requirements/json/simple_encodings/requirement1.adoc[]
+
 Validation patterns that implement classes defined respectively in the “Simple Encodings” UML packages are provided in the JSON schema {jsonschema-base-url}/encodings.json[encodings.json].
 
 When datastream or data array values are provided out-of-band (i.e. not inline in the “DataArray”, “Matrix” or “DataStream” description), a different encoding than JSON can be selected. This is specified by using one of the following classes.

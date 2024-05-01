@@ -3,6 +3,8 @@
 
 include::../requirements/json/record_components/requirements_class.adoc[]
 
+include::../requirements/json/record_components/requirement1.adoc[]
+
 
 [[json_datarecord_obj]]
 ==== DataRecord Object
