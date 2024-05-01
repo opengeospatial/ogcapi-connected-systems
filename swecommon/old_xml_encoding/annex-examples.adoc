@@ -387,9 +387,263 @@ The datastream records are encoded using the Text encoding method as shown below
 
 
 
+=== XML Encoding Rules Examples
+
+The following examples build on the ones provided in the <<enc_text_examples,style=basic%>> section. The datastream descriptions are kept the same, except that the encoding method would have to be changed to:
+
+[source%unnumbered,xml]
+----
+<swe:encoding>
+  <swe:XMLEncoding/>
+</swe:encoding>
+----
+
+In the following sections, encoded values were kept identical to the ones used in the text encoding section, in order to facilitate comparison.
+
+
+[[enc_xml_weather_stream_example]]
+==== Datastream with records (weather data)
+
+This example is based on the same datastream description as the one provided in <<enc_text_weather_stream_example,style=short%>>.
+
+The following snippet shows how this datastream records are encoded using the XML encoding method:
+
+[source%unnumbered,xml]
+----
+<swe:values xmlns:ns="http://www.myorg.com/datasets/id">
+  <ns:weatherData>
+    <ns:time>2023-03-20T15:40:00Z</ns:time>
+    <ns:temp>15.3</ns:temp>
+    <ns:press>1014</ns:press>
+    <ns:windSpeed>3.5</ns:windSpeed>
+    <ns:windDir>56.0</ns:windDir>
+  </ns:weatherData>
+  <ns:weatherData>
+    <ns:time>2023-03-20T15:45:00Z</ns:time>
+    <ns:temp>15.4</ns:temp>
+    <ns:press>1015</ns:press>
+    <ns:windSpeed>5.6</ns:windSpeed>
+    <ns:windDir>123.0</ns:windDir>
+  </ns:weatherData>
+  <ns:weatherData>
+    <ns:time>2023-03-20T15:50:00Z</ns:time>
+    <ns:temp>15.8</ns:temp>
+    <ns:press>1014</ns:press>
+    <ns:windSpeed>13.2</ns:windSpeed>
+    <ns:windDir>34.0</ns:windDir>
+  </ns:weatherData>
+  ...
+</swe:values>
+----
+
+
+[[enc_xml_optional_fields_example]]
+==== Datastream with records and optional fields (navigation data)
+
+This example is based on the same datastream description as the one provided in <<enc_text_optional_fields_example,style=short%>>.
+
+The following snippet shows how this datastream records are encoded using the XML encoding method:
+
+[source%unnumbered,xml]
+----
+<swe:values xmlns:ns="urn:myorg:dataset:X156822">
+  <ns:navData>
+    <ns:time>2007-10-23T15:46:12Z</ns:time>
+    <ns:speed>15.3</ns:speed>
+    <ns:location>
+      <ns:lat>45.3</ns:lat>
+      <ns:lon>-90.5</ns:lon>
+      <ns:alt>311</ns:alt>
+    </ns:location>
+  </ns:navData>
+  <ns:navData>
+    <ns:time>2007-10-23T15:46:22Z</ns:time>
+    <ns:speed>25.3</ns:speed>
+  </ns:navData>
+  <ns:navData>
+    <ns:time>2007-10-23T15:46:32Z</ns:time>
+    <ns:speed>20.6</ns:speed>
+    <ns:location>
+      <ns:lat>45.3</ns:lat>
+      <ns:lon>-90.6</ns:lon>
+      <ns:alt>312</ns:alt>
+    </ns:location>
+  </ns:navData>
+  ...
+</swe:values>
+----
+
+Notice that the optional ‘location’ field in the second stream element has been completely omitted.
+
+
+[[enc_xml_choice_example]]
+==== Datastream with choice (navigation data)
+
+This example is based on the same datastream description as the one provided in <<enc_text_choice_example,style=short%>>.
+
+The following snippet shows how this datastream records are encoded using the XML encoding method:
+
+[source%unnumbered,xml]
+----
+<swe:values xmlns:ns="urn:myorg:dataset:DC4578">
+  <ns:message>
+    <ns:TEMP>
+      <ns:time>2009-05-23T19:36:15Z</ns:time>
+      <ns:temp>25.5</ns:temp>
+    </ns:TEMP>
+  </ns:message>
+  <ns:message>
+    <ns:TEMP>
+      <ns:time>2009-05-23T19:37:15Z</ns:time>
+      <ns:temp>25.6</ns:temp>
+    </ns:TEMP>
+  </ns:message>
+  <ns:message>
+    <ns:WIND>
+      <ns:time>2009-05-23T19:37:17Z</ns:time>
+      <ns:wind_speed>56.3</ns:wind_speed>
+      <ns:wind_dir>226.3</ns:wind_dir>
+    </ns:WIND>
+  </ns:message>
+  <ns:message>
+    <ns:TEMP>
+      <ns:time>2009-05-23T19:38:15Z</ns:time>
+      <ns:temp>25.5</ns:temp>
+    </ns:TEMP>
+  </ns:message>
+  ...
+</swe:values>
+----
+
+
+[[enc_xml_profile_series_example]]
+==== Datastream of variable size 1D arrays (profile series)
+
+This example is based on the same datastream description as the one provided in <<enc_text_profile_series_example,style=short%>>.
+
+The following snippet shows how this datastream records are encoded using the XML encoding method:
+
+[source%unnumbered,xml]
+----
+<swe:values xmlns:ns="urn:myorg:dataset:PS3658">
+  <ns:profileData>
+    <ns:time>2005-05-16T21:47:12Z</ns:time>
+    <ns:profilePoints elementCount="5">
+      <ns:point>
+        <ns:depth>0</ns:depth>
+        <ns:salinity>45</ns:salinity>
+      </ns:point>
+      <ns:point>
+        <ns:depth>10</ns:depth>
+        <ns:salinity>20</ns:salinity>
+      </ns:point>
+      <ns:point>
+        <ns:depth>20</ns:depth>
+        <ns:salinity>30</ns:salinity>
+      </ns:point>
+      <ns:point>
+        <ns:depth>30</ns:depth>
+        <ns:salinity>35</ns:salinity>
+      </ns:point>
+      <ns:point>
+        <ns:depth>40</ns:depth>
+        <ns:salinity>40</ns:salinity>
+      </ns:point>
+    </ns:profilePoints>
+  </ns:profileData>
+  <ns:profileData>
+    <ns:time>2005-05-16T22:43:05Z</ns:time>
+    <ns:profilePoints elementCount="4">
+      <ns:point>
+        <ns:depth>0</ns:depth>
+        <ns:salinity>45</ns:salinity>
+      </ns:point>
+      <ns:point>
+        <ns:depth>10</ns:depth>
+        <ns:salinity>20</ns:salinity>
+      </ns:point>
+      <ns:point>
+        <ns:depth>20</ns:depth>
+        <ns:salinity>30</ns:salinity>
+      </ns:point>
+      <ns:point>
+        <ns:depth>30</ns:depth>
+        <ns:salinity>35</ns:salinity>
+      </ns:point>
+    </ns:profilePoints>
+  </ns:profileData>
+  ...
+</swe:values>
+----
+
+This example shows how the array size is specified on the ‘profilePoints’ element corresponding to each nested array, and how element local names correspond to the “name” attributes of each component’s parent property.
+
+
+[[enc_xml_geom_example]]
+==== Datastream with geometry (feature detection)
+
+This example is based on the same datastream description as the one provided in <<enc_text_geom_example,style=short%>>.
+
+The following snippet shows how this datastream records are encoded using the XML encoding method:
+
+[source%unnumbered,xml]
+----
+<swe:values xmlns:ns="urn:myorg:dataset:X151451" xmlns:gml="http://www.opengis.net/gml/3.2">
+  <ns:detection>
+    <ns:time>2007-10-23T15:46:12Z</ns:time>
+    <ns:type>Car</ns:type>
+    <ns:geom>
+      <gml:Polygon srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <gml:exterior>
+          <gml:LinearRing>
+            <gml:posList srsDimension="2">-86.3254 35.4812 -86.3253 35.4812 -86.3253 35.4811 -86.3254 35.4811 -86.3254 35.4812</gml:posList>
+          </gml:LinearRing>
+        </gml:exterior>
+      </gml:Polygon>
+    </ns:geom>
+  </ns:detection>
+  <ns:detection>
+    <ns:time>2007-10-23T15:49:03Z</ns:time>
+    <ns:type>Truck</ns:type>
+    <ns:geom>
+      <gml:Polygon srsName="http://www.opengis.net/def/crs/EPSG/0/4326" >
+        <gml:exterior>
+          <gml:LinearRing>
+            <gml:posList srsDimension="2">-86.3254 35.4812 -86.3253 35.4812 -86.3253 35.4811 -86.3254 35.4811 -86.3254 35.4812</gml:posList>
+          </gml:LinearRing>
+        </gml:exterior>
+      </gml:Polygon>
+    </ns:geom>
+  </ns:detection>
+  <ns:detection>
+    <ns:time>2007-10-23T15:56:45Z</ns:time>
+    <ns:type>Bus</ns:type>
+    <ns:geom>
+      <gml:Polygon srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+        <gml:exterior>
+          <gml:LinearRing>
+            <gml:posList srsDimension="2">-86.3254 35.4812 -86.3253 35.4812 -86.3253 35.4811 -86.3254 35.4811 -86.3254 35.4812</gml:posList>
+          </gml:LinearRing>
+        </gml:exterior>
+      </gml:Polygon>
+    </ns:geom>
+  </ns:detection>
+  ...
+</swe:values>
+----
+
+
+
 === JSON Encoding Rules Examples
 
-The following examples build on the ones provided in the <<enc_text_examples,style=basic%>> section. The datastream descriptions are kept the same, except that the encoding method would have to be changed to `JSONEncoding` (which is the default).
+The following examples build on the ones provided in the <<enc_text_examples,style=basic%>> section. The datastream descriptions are kept the same, except that the encoding method would have to be changed to:
+
+[source%unnumbered,xml]
+----
+<swe:encoding>
+  <swe:JSONEncoding/>
+</swe:encoding>
+----
 
 In the following sections, encoded values were kept identical to the ones used in the text encoding section, in order to facilitate comparison.
 
@@ -432,11 +686,7 @@ The equivalent JSON description for this “DataArray” is provided below:
       }
     ]
   },
-  "values": [
-    {"temp": 0, "error": 5},
-    {"temp": 10, "error": 2},
-    {"temp": 50, "error": 2},
-    {"temp": 80, "error": 5}
+  "values": [[0,5], [10,2], [50,2], [80,5], [100,15]]
 }
 ----
 
