@@ -1,0 +1,9 @@
+{
+  "type": "Quantity",
+  "definition": "https://qudt.org/vocab/quantitykind/CostPerUnitEnergy",
+  "label": "Electricity Cost",
+  "description": "Average cost of electricity in Europe",
+  "uom": {
+    "href": "https://qudt.org/vocab/unit/EUR-PER-KiloW-HR"
+  }
+}
