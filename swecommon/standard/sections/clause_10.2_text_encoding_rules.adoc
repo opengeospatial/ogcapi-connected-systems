@@ -181,13 +181,11 @@ See example: <<enc_text_geom_example,style=basic%>>
 
 When array or datastream values are encoded with the Text encoding method and provided standalone (i.e. outside of any wrapper format such as a JSON or XML document), one of the following media type identifiers shall be used:
 
-1. One of *`text/plain`*, *`text/csv`*, or *`application/swe+text`* shall be used as the content-type for files and HTTP reponses.
+1. One of *`text/plain`*, *`text/csv`*, or *`application/vnd.ogc.swe+text`* shall be used as the content-type for files and HTTP reponses.
 
   - *`text/csv`* can be used only when the token separator is set to a single comma ‘,’ and the block separator is set to ‘CRLF’.
-  - *`text/plain`* and *`application/swe+text`* can be used for any combination of separators.
+  - *`text/plain`* and *`application/vnd.ogc.swe+text`* can be used for any combination of separators.
 
-2. *`application/swe+text`* shall be used for format negotiation between server and client (e.g. when the format is advertised by an API or web service). In particular, this media type shall be used in HTTP `Accept` and `Link` headers and in any server response used to advertise support or link to a resource encoded with this format.
+2. *`application/vnd.ogc.swe+text`* shall be used for format negotiation between server and client (e.g. when the format is advertised by an API or web service). In particular, this media type shall be used in HTTP `Accept` and `Link` headers and in any server response used to advertise support or link to a resource encoded with this format.
 
 NOTE: _It is recommended that the character set code be correctly appended to these media types if it differs from US-ASCII or UTF-8._
-
-#alternative would be `application/vnd.ogc.swe+text`#

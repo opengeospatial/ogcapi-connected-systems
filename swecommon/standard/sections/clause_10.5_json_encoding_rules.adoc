@@ -146,8 +146,6 @@ See example: <<enc_json_geom_example,style=basic%>>
 
 When array or datastream values are encoded with the JSON encoding method and provided standalone (i.e. outside of any wrapper format), one of the following media type identifiers shall be used:
 
-1. One of *`application/json`* or *`application/swe+json`* shall be used as the content-type for files and HTTP reponses.
+1. One of *`application/json`* or *`application/vnd.ogc.swe+json`* shall be used as the content-type for files and HTTP responses.
 
-2. *`application/swe+json`* shall be used for format negotiation between server and client (e.g. when the format is advertised by an API or web service). In particular, this media type shall be used in HTTP `Accept` and `Link` headers and in any server response used to advertise support or link to a resource encoded with this format.
-
-#alternative would be `application/vnd.ogc.swe+json`#
+2. *`application/vnd.ogc.swe+json`* shall be used for format negotiation between server and client (e.g. when the format is advertised by an API or web service). In particular, this media type shall be used in HTTP `Accept` and `Link` headers and in any server response used to advertise support or link to a resource encoded with this format.

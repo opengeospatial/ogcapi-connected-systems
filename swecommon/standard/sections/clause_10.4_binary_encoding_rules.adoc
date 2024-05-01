@@ -163,8 +163,6 @@ In order to maximize compatibility with existing software, when compressing a bi
 
 When array or stream values are encoded with the Binary encoding method and provided standalone (i.e. outside of any wrapper format), one of the following media type identifiers shall be used:
 
-1. One of *`application/octet-stream`* or *`application/swe-binary`* shall be used as the content-type for files and HTTP responses.
+1. One of *`application/octet-stream`* or *`application/vnd.ogc.swe+binary`* shall be used as the content-type for files and HTTP responses.
 
-2. *`application/swe+binary`* shall be used for format negotiation between server and client (e.g. when the format is advertised by an API or web service). In particular, this media type shall be used in HTTP `Accept` and `Link` headers and in any server response used to advertise support or link to a resource encoded with this format.
-
-#alternative would be `application/vnd.ogc.swe-binary`#
+2. *`application/vnd.ogc.swe+binary`* shall be used for format negotiation between server and client (e.g. when the format is advertised by an API or web service). In particular, this media type shall be used in HTTP `Accept` and `Link` headers and in any server response used to advertise support or link to a resource encoded with this format.
