@@ -19,6 +19,12 @@
 :local-cache-only:
 :data-uri-image:
 :edition: 3.0.0
+//
+:jsonschema-base-url: https://raw.githubusercontent.com/opengeospatial/connected-systems/master/sensorml/schemas/json
+//
+:swecommon-spec-url: http://www.opengis.net/spec/SWE/3.0
+:geopose-spec-url: http://www.opengis.net/spec/GeoPose/1.0
+
 
 include::sections/clause_0_front_material.adoc[]
 
@@ -49,6 +55,10 @@ include::sections/clause_7.6_uml_physical_system.adoc[]
 include::sections/clause_7.7_uml_processes_with_advanced_data_types.adoc[]
 
 include::sections/clause_7.8_uml_configurable_processes.adoc[]
+
+include::sections/clause_7.9_uml_deployment.adoc[]
+
+include::sections/clause_7.10_uml_derived_property.adoc[]
 
 include::sections/clause_8_json_implementation.adoc[]
 

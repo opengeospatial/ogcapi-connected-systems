@@ -4,8 +4,8 @@
 [%metadata]
 type:: class
 identifier:: /req/model/advancedProcess
-subject:: Derived Encoding or Software Implementations
-inherit:: /req/coreProcess
-inherit:: http://www.opengis.net/spec/SWE/2.0/req/uml-block-components
-inherit:: http://www.opengis.net/spec/SWE/2.0/req/uml-choice-components
+subject:: Derived Encoding or Software Implementation
+inherit:: /req/model/simpleProcess
+inherit:: {swecommon-spec-url}/req/uml-block-components
+inherit:: {swecommon-spec-url}/req/uml-choice-components
 ====

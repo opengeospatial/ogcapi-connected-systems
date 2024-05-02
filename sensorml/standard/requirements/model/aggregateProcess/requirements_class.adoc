@@ -5,5 +5,5 @@
 type:: class
 identifier:: /req/model/aggregateProcess
 subject:: Derived Encoding or Software Implementation
-inherit:: /conf/model/coreProcess
+inherit:: /req/model/simpleProcess
 ====

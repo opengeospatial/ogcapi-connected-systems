@@ -71,6 +71,32 @@ A temporal frame can be attached to an event of interest, such as the start of t
 
 A temporal reference frame can be defined within a physical process and is particularly useful if the component is a process that outputs its own measure of time (such as an on-board clock or high-resolution counter).
 
+
+===== 3D Pose
+
+This sections introduces data types for expressing 3D pose information within SensorML documents. It builds on the <<OGC-GeoPose,GeoPose Standard>>.
+
+When a 3D Pose object is used as the value of the `position` property within a SensorML `PhysicalComponent` or `PhysicalSystem` instance, it defines the pose of the local reference frame attached to the component (intrinsic reference frame), relative to an external reference frame (extrinsic reference frame). 
+
+[#pose-class-diagram,reftext='{figure-caption} {counter:figure-num}']
+.Pose Data Types
+image::./figures/FIG004-pose-datatypes.png[pose-class-diagram, align="center"]
+
+====== GeoPose
+
+The GeoPose Basic classes are used to define a pose relative to a tangent reference frame associated to the WGS84 ellipsoid. The location of the local tangent plane (LTP) is provided using EPSG:4979 coordinates and orientation is provided as yaw/pitch/roll angles or quaternion in the local tangent frame.
+
+SensorML uses the link:https://docs.ogc.org/is/21-056r11/21-056r11.html#_requirements_for_standardization_target_1_basic_ypr[Basic-YPR] and link:https://docs.ogc.org/is/21-056r11/21-056r11.html#_requirements_for_standardization_target_2_basic_quaternion[Basic-Quaternion] classes defined in the <<OGC-GeoPose,GeoPose Standard>>.
+
+These classes are used to define the pose of an object relatively to the earth ellipsoid.
+
+====== Relative Pose
+
+The Relative Pose classes `Relative_YPR` and `Relative_Quaternion` are modeled on their GeoPose counterparts, but in this case, both position and orientation are provided relative to a cartesian reference frame.
+
+These classes are used to define the pose of an object relatively to another object (e.g. a sensor relative to its platform).
+
+
 ==== Physical Component Defined
 
 Any processing device can be considered a physical component, if it provides a processing function with well-defined inputs and outputs, if there is no intent to further divide the device description into component sub-processes, and if knowledge of its physical location is useful. Such devices could include, but not be limited to, detectors, actuators, reflectors, electrical components (e.g transformers, capacitors, resistors), or perhaps even computational units (when knowing their location in a computational facility is helpful).

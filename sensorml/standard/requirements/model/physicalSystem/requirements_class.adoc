@@ -5,5 +5,5 @@
 type:: class
 identifier:: /req/model/physicalSystem
 subject:: Derived Encoding or Software Implementations
-inherit:: /req/physicalComponent
+inherit:: /req/model/physicalComponent
 ====
