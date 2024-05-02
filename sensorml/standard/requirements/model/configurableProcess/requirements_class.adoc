@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+.Configurable Processes
+====
+[%metadata]
+type:: class
+identifier:: /req/model/configurableProcess 
+subject:: Derived Encoding or Software Implementations
+inherit:: /req/coreProcess
+====

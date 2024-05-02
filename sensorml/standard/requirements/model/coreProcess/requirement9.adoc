@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/model/coreProcess/typeOf
+
+A process that is a specific instance of another process shall reference the more general process through its typeOf property. The value of the typeOf property shall be a resolvable link to an instance of a process derived from AbstractProcess.
+====

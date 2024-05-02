@@ -1,0 +1,33 @@
+[bibliography]
+== References
+
+The following normative documents contain provisions that, through reference in this text, constitute provisions of this document. For dated references, subsequent amendments to, or revisions of, any of these publications do not apply.  For undated references, the latest edition of the normative document referred to applies.
+
+* [[[OGC08-131r3,OGC 08-131r3]]], The Specification Model -- A Standard for Modular Specification, 2009
+
+* [[[OGC24-014,OGC 24-014]]], SWE Common Data Model Encoding Standard, version 3.0, 2024
+
+* [[[ISO8601, ISO 8601:2019]]], Date and time — Representations for information interchange — Part 1: Basic rules. International Organization for Standardization, Geneva (2019). https://www.iso.org/standard/70907.html.
+
+* [[[ISO8601-2, ISO 8601:2019]]], Date and time — Representations for information interchange — Part 2: Extensions. International Organization for Standardization, Geneva (2019). https://www.iso.org/standard/70908.html.
+
+* [[[ISO19103, ISO 19103:2005]]], Conceptual Schema Language
+
+* [[[ISO19107, ISO 19107:2003]]], Spatial Schema
+
+* [[[ISO19108, ISO 19108:2002]]], Temporal Schema
+
+* [[[ISO19111, ISO 19111:2007]]], Spatial Referencing by Coordinates
+
+* [[[UCUM, UCUM]]], Unified Code for Units of Measure (UCUM), Version 2.1, November 2017, https://ucum.org/ucum
+
+//* [[[XML, W3C Extensible Markup Language (XML)]]], W3C Extensible Markup Language (XML), Version 1.0 (5th Edition), Aug. 2006, https://www.w3.org/TR/2008/REC-xml-20081126/
+
+//* [[[XSD, W3C XML Schema Part 1]]], XML Schema Part 1: Structures Second Edition, October 2004, https://www.w3.org/TR/xmlschema-1/
+
+* [[[IEEE754,IEEE 754:2008]]], Standard for Binary Floating-Point Arithmetic, 2008
+
+* [[[RFC2045,IETF RFC 2045]]], Multipurpose Internet Mail 
+Extensions (MIME) Part One: Format of Internet Message Bodies, 1996
+
+

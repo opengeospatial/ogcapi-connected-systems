@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/model/physicalComponent/package-fully-implemented
+
+The encoding or software shall correctly implement all UML classes defined in the “PhysicalComponent” package described in this section
+====

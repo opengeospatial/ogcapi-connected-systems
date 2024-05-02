@@ -1,0 +1,28 @@
+[appendix,obligation=normative]
+[[abstract_test_suite]]
+== Conformance Class Abstract Test Suite
+
+=== Core Abstract Process Schema
+All tests in this conformance test class and in the following shall be used to check conformance of XML instances created according to the schemas defined in this standard. They shall also be used to check conformance of software implementations that output XML instances.
+include::../abstract_tests/xml/coreProcess/ATS_class.adoc[]
+
+=== Simple Process Schema
+All tests in this conformance test class and in the following shall be used to check conformance of XML instances created according to the schemas defined in this standard. They shall also be used to check conformance of software implementations that output XML instances.
+include::../abstract_tests/xml/simpleProcess/ATS_class.adoc[]
+
+=== Aggregate Process Schema
+All tests in this conformance test class and in the following shall be used to check conformance of XML instances created according to the schemas defined in this standard. They shall also be used to check conformance of software implementations that output XML instances.
+include::../abstract_tests/xml/aggregateProcess/ATS_class.adoc[]
+
+=== Physical Component Schema
+All tests in this conformance test class and in the following shall be used to check conformance of XML instances created according to the schemas defined in this standard. They shall also be used to check conformance of software implementations that output XML instances.
+include::../abstract_tests/xml/physicalComponent/ATS_class.adoc[]
+
+=== Physical System Schema
+All tests in this conformance test class and in the following shall be used to check conformance of XML instances created according to the schemas defined in this standard. They shall also be used to check conformance of software implementations that output XML instances.
+include::../abstract_tests/xml/physicalSystem/ATS_class.adoc[]
+
+=== Configurable Process Schema
+All tests in this conformance test class and in the following shall be used to check conformance of XML instances created according to the schemas defined in this standard. They shall also be used to check conformance of software implementations that output XML instances.
+include::../abstract_tests/xml/configuration/ATS_class.adoc[]
+

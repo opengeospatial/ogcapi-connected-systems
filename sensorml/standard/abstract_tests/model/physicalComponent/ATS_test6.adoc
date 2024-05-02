@@ -1,0 +1,11 @@
+[abstract_test]
+.Position by process
+====
+[%metadata]
+identifier:: /conf/model/physicalComponent/byProcess   
+
+target:: /req/model/physicalComponent/byProcess  
+test-purpose:: Verify that the target implementation correctly specifies "byProcess" reference frame origin.
+test-method:: 
+Verify that the implementation of the conceptual model has a constraint that enforces the above. 
+====

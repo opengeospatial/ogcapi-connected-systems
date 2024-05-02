@@ -1,0 +1,219 @@
+[[xsd_physical_system]]
+=== Requirements Class: Physical System Schema
+include::../requirements/xml/physicalSystem/requirements_class.adoc[]
+
+XML Schema elements and types defined in the “physical_system.xsd” schema file implement all classes defined respectively in the “physicalSystem” UML package defined in Clause 7.7.
+
+include::../requirements/xml/physicalSystem/requirement1.adoc[]
+
+The following XML snippet provides the appropriate header and import statements for the physical_component.xsd:
+
+[source%unnumbered,xml]
+----
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sml="http://www.opengis.net/SensorML/2.1"
+     xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:swe="http://www.opengis.net/swe/2.0"
+     targetNamespace="http://www.opengis.net/SensorML/2.1" elementFormDefault="qualified"
+     attributeFormDefault="unqualified">
+     <annotation>
+          <documentation>The elements of a concrete aggregate physical process derived from the core process model.
+          </documentation>
+     </annotation>
+     <import namespace="http://www.opengis.net/swe/2.0"
+          schemaLocation="http://schemas.opengis.net/sweCommon/2.0/swe.xsd"/>
+     <import namespace="http://www.opengis.net/gml/3.2"
+          schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+     <include schemaLocation="physical_component.xsd"/>
+     <include schemaLocation="aggregate_process.xsd"/>
+----
+
+==== Physical System
+
+The PhysicalSystem element and complex type are derived from the AbstractPhysicalProcessType and ths has all of the inherited properties defined in Clause 7.6. PhysicalSystem also has the components and connections properties that have already been described in Clause 7.4.
+
+The schema snippet for this element and its corresponding complex type is shown below.
+
+[source%unnumbered,xml]
+----
+     <element name="PhysicalSystem" type="sml:PhysicalSystemType"
+          substitutionGroup="sml:AbstractPhysicalProcess">
+          <annotation>
+               <documentation>A PhysicalSystem is an aggregate system that can include multiple components (both physical and non-physical) with explicit links between the outputs, inputs, and parameters of the individual components. In a PhysicalSystem, the spatial position of the System itself is relevant to its application.
+               </documentation>
+          </annotation>
+     </element>
+     <complexType name="PhysicalSystemType">
+          <complexContent>
+               <extension base="sml:AbstractPhysicalProcessType">
+                    <sequence>
+                         <element name="components" type="sml:ComponentListPropertyType" minOccurs="0" maxOccurs="1">
+                              <annotation>
+                                   <documentation>The collection of processes that make up a process aggregation.
+                                   </documentation>
+                              </annotation>
+                         </element>
+                         <element name="connections" type="sml:ConnectionListPropertyType" minOccurs="0" maxOccurs="1">
+                              <annotation>
+                                   <documentation>The explicit definition of data links between outputs, inputs, and parameters of the components within an aggregate process.
+                                   </documentation>
+                              </annotation>
+                         </element>
+                    </sequence>
+               </extension>
+          </complexContent>
+     </complexType>
+ 
+     <complexType name="PhysicalSystemPropertyType">
+          <sequence minOccurs="0">
+               <element ref="sml:PhysicalSystem"/>
+          </sequence>
+          <attributeGroup ref="gml:AssociationAttributeGroup"/>
+          <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+     </complexType>
+----
+
+A PhysicalSystem is a physical process that consists of multiple components that can be both physical and non-physical. As with the non-physical AggregateProcess, the PhysicalSystem allows for listing of the components as well as explicit mapping of the flow of data throughout the system.
+
+In the example below there are three components: a thermometer that outputs temperature, an anemometer that outputs both wind speed and wind direction, and a non-physical windchill process that takes temperature and wind speed and calculates a windchill factor. The components are provided “by reference” using the xlink:href attribute.  The outputs of these three components connect to the outputs of the system itself, as shown in the ConnectionsList.
+
+[source%unnumbered,xml]
+----
+<?xml version=“1.0” encoding=“UTF-8”?>
+<sml:PhysicalSystem gml:id="MY_WEATHER_STATION"
+   xmlns:sml="http://www.opengis.net/SensorML/2.1"
+   xmlns:swe="http://www.opengis.net/swe/2.0"
+   xmlns:gml="http://www.opengis.net/gml/3.2"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xsi:schemaLocation="http://www.opengis.net/SensorML/2.1 http://schemas.opengis.net/SensorML/2.1/sensorML.xsd">
+ 
+   <!– ================================================= –>
+   <!–     System Description               –>
+   <!– ================================================= –>
+   <gml:description> Weather station in my yard </gml:description>
+   <gml:identifier codeSpace="uid">urn:weather-we-is:stations:FR8766</gml:identifier>
+ 
+   <!– ================================================ –>
+   <!–              Inputs  = Observed Properties                                         –>
+   <!– ================================================ –>
+     <sml:inputs>
+          <sml:InputList>
+               <sml:input name="temperature">
+                    <sml:ObservableProperty definition="http://sweet.jpl.nasa.gov/2.3/propTemperature.owl#Temperature"/>
+               </sml:input>
+               <sml:input name="wind">
+                    <sml:ObservableProperty definition="http://sweet.jpl.nasa.gov/2.3/phenAtmoWind.owl#Wind"/>
+               </sml:input>
+          </sml:InputList>
+     </sml:inputs>
+ 
+   <!– ================================================= –>
+   <!–             Outputs = Quantities                                                           –>
+   <!– ================================================= –>
+   <sml:outputs>
+      <sml:OutputList>
+         <sml:output name="weather">
+            <swe:DataRecord>
+               <swe:field name="temperature">
+     <swe:Quantity definition="http://sensorml.com/def/property/AtmosphericTemperature">
+        <swe:label>Air Temperature</swe:label>
+        <swe:uom code="cel"/>
+     </swe:Quantity>
+               </swe:field>
+               <swe:field name="wind_chill">
+     <swe:Quantity definition="http://sensorml.com/def/property/WindChillFactor">
+        <swe:label>Wind Chill Factor</swe:label>
+        <swe:uom code="cel"/>
+     </swe:Quantity>
+               </swe:field>
+               <swe:field name="wind_speed">
+     <swe:Quantity definition="http://sensorml.com/def/property/WindSpeed">
+                     <swe:label>Wind Speed</swe:label>
+        <swe:uom code="km/h"/>
+     </swe:Quantity>
+               </swe:field>
+               <swe:field name="wind_direction">
+     <swe:Quantity definition="http://sensorml.com/def/property/WindDirection">
+        <swe:label>Wind Direction</swe:label>
+        <swe:uom code="deg"/>
+     </swe:Quantity>
+               </swe:field>
+            </swe:DataRecord>
+         </sml:output>
+      </sml:OutputList>
+   </sml:outputs>
+ 
+   <!– ================================================= –>
+   <!–     System Location     –>
+   <!– ================================================= –>
+   <sml:position>
+      <gml:Point gml:id="stationLocation" srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+         <gml:coordinates>47.8 88.56</gml:coordinates>
+      </gml:Point>
+   </sml:position>
+ 
+   <!– ================================================= –>
+   <!–     System Components     –>
+   <!– ================================================= –>
+   <sml:components>
+      <sml:ComponentList>
+         <sml:component name="thermometer" xlink:title="urn:davis:sensors:7817"
+            xlink:href="http://www.sensors.ws/examples/sensorML-2.1/xml/sensors/Davis_7817_complete.xml"/>
+         <sml:component name="anemometer" xlink:title="urn:davis:sensors:barometer_internal"
+            xlink:href="http://www.sensors.ws/examples/sensorML-2.1/xml/sensors/Davis_7911.xml"/>
+          <sml:component name="windchill" xlink:title="urn:ogc:process:windchill-02"
+            xlink:href="http://www.sensors.ws/examples/sensorML-2.1/xml/processes/windchill-02.xml"/>
+      </sml:ComponentList>
+   </sml:components>
+ 
+   <!– =================================================== –>
+   <!–   Connections between components and system output  –>
+   <!– =================================================== –>
+   <sml:connections>
+      <sml:ConnectionList>
+         <!– connection between thermometer’s output and system’s temperature output –>
+         <sml:connection>
+            <sml:Link>
+               <sml:source ref="components/thermometer/outputs/temperature"/>
+               <sml:destination ref="outputs/weather/temperature"/>
+            </sml:Link>
+         </sml:connection>
+         <!– connection between anemometer’s wind speed output and system’s windspeed output –>
+         <sml:connection>
+            <sml:Link>
+               <sml:source ref="components/anemometer/outputs/wind_state/wind_speed"/>
+               <sml:destination ref="outputs/weather/wind_speed"/>
+            </sml:Link>
+         </sml:connection>
+         <!– connection between anemometer’s wind direction output and system’s wind direction output –>
+         <sml:connection>
+            <sml:Link>
+               <sml:source ref="components/anemometer/outputs/wind_state/wind_direction"/>
+               <sml:destination ref="outputs/weather/wind_direction"/>
+            </sml:Link>
+         </sml:connection>
+         <!– connection between thermometer’s output and windchill temperature input  –>
+         <sml:connection>
+            <sml:Link>
+               <sml:source ref="components/thermometer/outputs/temperature"/>
+               <sml:destination ref="components/windchill/inputs/process_inputs/temperature"/>
+            </sml:Link>
+         </sml:connection>
+         <!– connection between anemometer’s wind speed output and windchill wind_speed input –>
+         <sml:connection>
+            <sml:Link>
+               <sml:source ref="components/thermometer/outputs/wind_state/wind_speed"/>
+               <sml:destination ref="components/windchill/inputs/process_inputs/wind_speed"/>
+            </sml:Link>
+         </sml:connection>
+         <!– connection between windchill process output and system’s windchill output –>
+         <sml:connection>
+            <sml:Link>
+               <sml:source ref="components/thermometer/outputs/windchill"/>
+               <sml:destination ref="outputs/weather/windchill"/>
+            </sml:Link>
+         </sml:connection>
+      </sml:ConnectionList>
+   </sml:connections>
+</sml:PhysicalSystem>
+----
+

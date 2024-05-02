@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/model/configurableProcess/setValueRestriction
+
+The setValue property shall only reference and set values for a parameter defined in a configurable process.
+====

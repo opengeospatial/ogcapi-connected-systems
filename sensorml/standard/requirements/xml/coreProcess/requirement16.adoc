@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====   
+[%metadata]
+identifier:: /req/xml/coreProcess/VectorUse
+
+A swe:Vector shall be used for any input, output, or parameter value that requires position to be specified relative to a specific axis of a reference frame.
+====

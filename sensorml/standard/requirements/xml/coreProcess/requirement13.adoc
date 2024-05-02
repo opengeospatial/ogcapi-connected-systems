@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====   
+[%metadata]
+identifier:: /req/xml/coreProcess/foiArcroleAndTitle
+
+Regardless of whether a feature of interest is described inline or provided by reference, the xlink:arcrole attribute of the member property of the FeatureList shall be used to specify the relationship of the associated feature to the process. If a unique identifier or name for the feature of interest exists, it shall be the value of the xlink:title of the member property of the FeatureList.
+====

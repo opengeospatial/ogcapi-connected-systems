@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====   
+[%metadata]
+identifier:: /req/xml/coreProcess/swe-common-dependency
+
+This standard shall utilize and depend upon the OGC SWE Common Data 2.0 standard within the http://www.opengis.net/swe/2.0 namespace and defined in http://schemas.opengis.net/sweCommon/2.0/swe.xsd and any corregendum (i.e., any versions 2.0.*).
+====

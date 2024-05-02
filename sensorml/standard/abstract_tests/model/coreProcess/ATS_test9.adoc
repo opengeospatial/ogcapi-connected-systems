@@ -1,0 +1,12 @@
+[abstract_test]
+.Application and requirements of typeOf property
+====
+[%metadata]
+identifier:: /conf/model/coreProcess/typeOf 
+
+target:: /req/model/coreProcess/typeOf 
+test-purpose:: Verify that the target implementation uses the proper process reference.
+
+test-method:: 
+Verify that the implementation of the conceptual model has a constraint that enforces the above. 
+====

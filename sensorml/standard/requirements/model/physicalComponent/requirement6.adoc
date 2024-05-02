@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/model/physicalComponent/byProcess
+
+Specification of position “byProcess” shall specify SensorML-modeled process whose output provides, at a minimum, the time-tagged location of the object’s reference frame relative to a well-defined and specified external reference frame, but may also include its orientation and any number of derivatives of the location and orientation.
+====

@@ -1,0 +1,41 @@
+[[clause_json_simple_process]]
+=== Requirements Class: Simple Process Schema
+
+==== Overview
+[requirement,model=ogc]
+====
+[%metadata]
+type:: class
+identifier:: /req/json-simple-process
+subject:: JSON Document
+inherit:: /req/json-core
+indirect-dependency:: {sml-spec-url}/req/model/simpleProcess
+====
+
+
+==== SimpleProcess
+
+The `SimpleProcess.json` schema is the JSON schema implementation of the `SimpleProcess` UML class defined in <<uml_simple_process>>.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/json-simple-process/schema-valid
+
+The JSON document instance shall be valid with respect to the JSON schema {jsonschema-base-url}/SimpleProcess.json[“SimpleProcess.json”].
+====
+
+The `SimpleProcess` schema extends the `AbstractProcess` schema. Thus, it includes all elements described in  <<clause_json_abstract_process,style=full%>>, plus the elements defined in this section.
+
+The following snippet shows an example windchill computation process encoded in JSON:
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/simple_process.json[lines="1,3..-1"]
+----
+
+
+==== Process Method
+
+The process method provides a textual or algorithmic description of the method implemented by the process.
+

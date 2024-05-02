@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/model/aggregateProcess/package-fully-implemented
+
+The encoding or software shall correctly implement all UML classes defined in the “AggregateProcess” package described in this section.
+====

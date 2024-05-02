@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+.Aggregate Process
+====
+[%metadata]
+type:: class
+identifier:: /req/model/aggregateProcess
+subject:: Derived Encoding or Software Implementation
+inherit:: /conf/model/coreProcess
+====

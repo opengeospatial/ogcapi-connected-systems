@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====   
+[%metadata]
+identifier:: /req/xml/aggregateProcess/inputConnectionRestrictions
+
+The input of an enclosing aggregate process can connect to the input of one or more of its  components; otherwise an input cannot connect to another input.
+====

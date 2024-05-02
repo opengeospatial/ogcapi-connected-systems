@@ -1,0 +1,18 @@
+[conformance_class]
+.Conformance Test Class: Physical Component
+====
+[%metadata]
+identifier:: /conf/model/physicalComponent
+target:: /req/model/physicalComponent
+classification:: Target Type: Derived Encoding and Software Implementation
+inherit:: /conf/model/coreProcess
+====
+
+include::./ATS_test1.adoc[]
+include::./ATS_test2.adoc[]
+include::./ATS_test3.adoc[]
+include::./ATS_test4.adoc[]
+include::./ATS_test5.adoc[]
+include::./ATS_test6.adoc[]
+include::./ATS_test7.adoc[]
+
