@@ -13,13 +13,67 @@ indirect-dependency:: {sml-spec-url}/req/model/coreProcess
 ====
 
 
+==== Media Types
+
+===== application/sml+json
+
+NOTE: Implementations should use *`application/vnd.ogc.sml+json`* as a preliminary media type until this Standard is stable to avoid confusing future implementations accessing JSON documents from draft versions of this Standard. The media type application/sml+json will be registered for SensorML JSON encoding, if and once this Standard is approved by the OGC Members. This note will be removed before publishing this Standard.
+
+The draft media type submission to IANA is provided below:
+
+----
+Type name: application
+
+Subtype name: sml+json
+
+Required parameters: n/a
+
+Optional parameters: n/a
+
+Encoding considerations: binary
+
+Security considerations: n/a
+
+Interoperability considerations: n/a
+
+Published specification: this document
+
+Applications that use this media type: No known applications currently use this media type.
+   This media type is intended for applications currently using the "application/vnd.ogc.sml+json"
+   media type, which include APIs for managing, publishing or processing sensor and system metadata.
+
+Additional information:
+
+  Magic number(s): n/a
+
+  File extension(s): .json
+
+  Macintosh file type code: TEXT
+
+Person to contact for further information:
+
+   1. Name: Scott Simmons
+   2. Email: ssimmons@ogc.org
+
+Intended usage: COMMON
+
+  SensorML is an OGC Standard (OGC 23-000) that provides conceptual models and encodings for
+  describing sensor systems including sensors, actuators and platforms. This media type applies to
+  the JSON encoding of SensorML.
+
+Restrictions on usage: n/a
+
+Change controller: Open Geospatial Consortium (OGC)
+----
+
+
 ==== General Encoding Principles
 
 
 [[clause_json_weblinks]]
 ===== References
 
-The JSON encodings don't allow for references on all properties tagged as `inlineOrByReference` in the UML models.
+References are implemented in the JSON encodings using the JSON implementation of web linking.
 
 
 
