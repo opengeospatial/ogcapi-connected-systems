@@ -3,7 +3,8 @@ content:
   application/json:
     schema:
       type: object
-      required: items
+      required:
+        - items
       properties:
         items:
           description: Array of resource URIs
