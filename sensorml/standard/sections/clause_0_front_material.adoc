@@ -76,10 +76,9 @@ No security considerations have been made for this standard.
 
 All questions regarding this submission should be directed to the editor or the submitters:
 
-[%unnumbered]
+[%unnumbered,width="100%",cols="3,10",options="header"]
 |===
 | *Name* | *Affiliation*
-| Name | Affiliation | OGC member
 | Alexandre Robin | GeoRobotix, Inc.
 | Christian Autermann | 52° North Initiative
 | Chuck Heazel | Heazeltech
@@ -88,7 +87,7 @@ All questions regarding this submission should be directed to the editor or the 
 
 Additional contributors to this Standard include the following:
 
-[%unnumbered]
+[%unnumbered,width="100%",cols="3,10",options="header"]
 |===
 | *Name* | *Affiliation*
 | Arne Broering | 52° North Initiative
