@@ -59,9 +59,100 @@ Encodings are specified in <<clause-encodings>> of this Standard. Each encoding 
 
 === Resource Collections
 
-The {ogcapi-features} Standard mandates that its resources be organized into Feature Collections. In addition to the feature types themselves, this Standard specifies how to identify collections that contain a given feature type.
+The CS API Standard defines several resource types that are intended to be offered by the server via separate collections. These resource collections are governed by requirements from ogcapi-features-1. Such collections will be referred to as OGC API Collections in the rest of this document.
 
-This is done using an additional attribute on the Collection resource called `featureType`. Each requirements class defining a new feature type also defines the value to use for this attribute when creating a collection of this feature type.
+The CS API makes use of this collection mechanism to allow a server to provide a more organized view of its content, by grouping them into logical collections according to any criteria.
+
+Note that a given resource can be made available through more than one collection endpoints (i.e. collections can overlap). This provides great flexibility for a server to organize resources according to multiple criteria and thus provide different view points to the client simultaneously. See the requirements classes of the different resource types for examples.
+
+When exposing resources via a collection endpoint, the server must indicate the type of the items contained in the collection. This is done using the `itemType` attribute of the collection. For feature collections, the `itemType` is always set to `feature`, so this Standard defines the `featureType` attribute to further specify the type of features contained in the collection.
+
+Heterogeneous feature collections (i.e. collections containing a mix of feature types) are allowed but this Standard does not define the behavior of such collections.
+
+
+[[clause_api_endpoints]]
+=== API Endpoints
+
+As described in the previous clause, all resources defined in the CS API Standard are available through collection endpoints. 
+
+However, the CS API also defines different types of endpoints that are useful for the following use cases:
+
+- Providing a canonical URL for a resource, independently of the collections it is part of,
+
+- Providing a canonical endpoint to add resources of a given type, independently of the collections it will be added to,
+
+- Searching for resources across all collections of a given resource type,
+
+- Access resources as sub-resources of a parent resource (allows to provide a pre-filtered view of the resources)
+
+==== Endpoint Types
+
+The CS API Standard defines the behavior of "resource**s** endpoints" and "resource endpoints" associated to each resource type defined in the Standard. These endpoints are defined in a way that is independent of the actual endpoint URL so that the same behavior can be reused at different API paths.
+
+The terms "resource**s** endpoint" and "resource endpoint" are used as defined by {ogcapi-features-4}, that is:
+
+- A "resource endpoint" is an API endpoint exposing a single resource.
+- A "resource**s** endpoint" is an API endpoint exposing a set of resources.
+
+Several types of API endpoints are defined by the CS API Standard:
+
+- Canonical resource**s** endpoints (e.g. `{api_root}/systems`)
+- Canonical resource endpoints (e.g. `{api_root}/systems/{id}`)
+- Nested resource**s** endpoints (e.g. `{api_root}/systems/{id}/subsystems`)
+- Collection items resource**s** endpoints (e.g. `{api_root}/collections/{id}/items`)
+
+==== Canonical Resources Endpoints
+
+A canonical resource**s** endpoint exposes all resources of a given type hosted by the server. It provides a default endpoint for creating new resources (using HTTP POST), and retrieving/searching resources (using HTTP GET) of this type. Canonical resource**s** endpoint have simple URLs located directly at the API root.
+
+The canonical resources endpoints for resource types defined in Part 1 of the CS API Standard are:
+
+- `{api_root}/systems`
+- `{api_root}/deployments`
+- `{api_root}/procedures`
+- `{api_root}/samplingFeatures`
+- `{api_root}/properties`
+
+==== Canonical Resource Endpoints
+
+A canonical resource endpoint exposes a single resource. It provides a default endpoint for retrieving, replacing, updating or deleting (using HTTP GET, PUT, PATCH and DELETE, respectively) a given resource. Any change to the resource made at its canonical endpoint will be reflected in all collections that the resource is part of.
+
+The canonical URL for a single resource is based on the URL of the canonical resources endpoint of the corresponding resource type. This leads to the following canonical URL templates for resource types defined in Part 1 of the CS API Standard:
+
+- `{api_root}/systems/{id}`
+- `{api_root}/deployments/{id}`
+- `{api_root}/procedures/{id}`
+- `{api_root}/samplingFeatures/{id}`
+- `{api_root}/properties/{id}`
+
+When a resource is retrieved from a URL that is NOT its canonical URL (e.g. through a collection), its canonical URL must be provided in the response.
+
+An example of `canonical` link is provided in the following JSON snippet:
+
+[[example_canonical_link]]
+[source%unnumbered,json]
+----
+{
+  "type": "Feature",
+  "id": "123",
+  ...
+  "links": [
+    {
+      "rel" : "self",
+      "title" : "this document",
+      "href" : "https://data.example.org/api/collections/uav_systems/123?f=json",
+      "type" : "application/geo+json"
+    }, {
+      "rel" : "canonical",
+      "title" : "this resource canonical URL",
+      "href" : "https://data.example.org/api/systems/123?f=json",
+      "type" : "application/geo+json"
+    }
+  ]
+}
+----
+
+NOTE: If the response format is not JSON based, the canonical link can still be provided in the HTTP response headers.
 
 
 === Paged Responses

@@ -20,125 +20,16 @@ Every OGC API implementation instance is required to provide a definition docume
 Implementation must comply with requirements defined in the {ogcapi-common} Standard when generating the API definition document.
 
 
-=== Collections
-
-This CS API Standard defines several resource types that are intended to be offered by the server via separate collections. 
-
-This CS API uses two types of collections:
-
-  - Root Collections
-  - OGC API - Common Resource Collections (or OGC API - Feature Collections)
-
-==== Root Collections
-
-The root collections are mandatory and have simple URLs located directly at the API root. They expose all resources of a given type hosted by the server, and provide a default endpoint for search queries that target these resources. Canonical resource URLs are based on the root collections URLs.
-
-The root collections URLs for resource types defined in Part 1 of the CS API Standard are:
-
-- `{api_root}/systems`
-- `{api_root}/procedures`
-- `{api_root}/deployments`
-- `{api_root}/samplingFeatures`
-- `{api_root}/properties`
-
-The root collection for a given resource type is specified by the corresponding requirements class.
-
-NOTE: GET operations at these root collections URLs will return a list of items directly, not the collection metadata object.
-
-==== OGC API Common Collections
-
-These resource collections are governed by requirements from {ogcapi-common-2} (and also from {ogcapi-features-1} for feature collections).
-
-The CS API makes use of the collection mechanism specified in these two Standards to allow a server to provide a more organized view of its content, by grouping them into logical collections according to any criteria. Thus, a conformant OGC API Common collection endpoint provides a secondary way of getting to the resources that are already available through the root collections.
-
-Note that a given resource can be made available through one or more OGC API Common collection endpoints (i.e. collections can overlap). This provides great flexibility for a server to organize resources according to multiple criteria and thus provide different view points to the client simultaneously. See the requirements classes of the different feature types for examples.
-
-When exposing resources via an OGC API Common collection endpoint, the server must indicate the type of the items contained in the collection. This is done using the `itemType` attribute of the collection. For feature collections, the `itemType` is always set to `feature`, so this Standard defines the `featureType` attribute to further specify the type of features contained in the collection.  
-
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/api-common/collection-type
-
-part:: A resource collection containing one of the feature types defined in this Standard SHALL be a valid feature collection as defined by {ogcapi-features-1}.
-
-part:: A feature collection containing exactly one of the feature types defined in this Standard SHALL have a `featureType` attribute.
-
-part:: If a collection is tagged with the `featureType` attribute, all items in the collection SHALL be resources of the specified type.
-====
-
-Heterogeneous feature collections (i.e. collections containing a mix of feature types) are allowed but this Standard does not define the behavior of such collections.
-
-[permission,model=ogc]
-====
-[%metadata]
-identifier:: /per/api-common/mixed-types-collection
-
-The server CAN also offer collections containing mixed feature types. The behavior of these mixed collections in not defined by this Standard.
-====
-
-
-=== Links and Canonical URLs
-
-Since resources defined by this Standard can be discovered through multiple collections, it is recommended to always link to a given resource using its canonical URL (e.g. it's primary URL, such as `{api_root}/systems/{id}`) instead of the collection based URL (e.g. `{api_root}/collections/my_system_collection/{id}`).
-
-The canonical URL of a resource is based on the URL of the catch-all collection of the corresponding resource type. This leads to the following canonical URLs for resource types defined in this part of the Standard:
-
-- `{api_root}/systems/{id}`
-- `{api_root}/procedures/{id}`
-- `{api_root}/deployments/{id}`
-- `{api_root}/samplingFeatures/{id}`
-- `{api_root}/properties/{id}`
-
-When resources are retrieved from a URL that is not their canonical URL (e.g. when they are retrieved through their Feature Collection URL), a link with relation type `canonical` is included, as shown in the following example.
-
-[[example_canonical_link]]
-.Link to Canonical URL
-=================
-This example shows the links that would be embedded in a feature representation to provide its.
-[source%autofit,json]
-----
-{
-  "type": "Feature",
-  "id": "123",
-  ...
-  "links": [
-    {
-      "rel" : "self",
-      "title" : "this document",
-      "href" : "https://data.example.org/api/collections/uav_systems/123?f=json",
-      "type" : "application/geo+json"
-    }, {
-      "rel" : "canonical",
-      "title" : "this resource canonical URL",
-      "href" : "https://data.example.org/api/systems/123?f=json",
-      "type" : "application/geo+json"
-    }
-  ]
-}
-----
-=================
-
-[recommendation,model=ogc]
-====
-[%metadata]
-identifier:: /rec/api-common/canonical-links
-
-Any link to a resource whose type is specified by this Standard SHOULD use its canonical URL.
-====
-
-
 === Resource IDs
 
-Resource IDs are typically generated by the server and are not guaranteed to be globally unique.
-However, the server must ensure that IDs are unique within a given resource type and/or feature type.
+Resource IDs are typically generated by the server and are not guaranteed to be globally unique. However, the server must ensure that IDs are unique within a given resource type and/or feature type.
 
 [requirement,model=ogc]
 ====
 [%metadata]
 identifier:: /req/api-common/resource-ids
 
-The server SHALL ensure that resource IDs are unique across all collections of a given resource type.
+The server SHALL ensure that resource IDs are unique across all resources of a given type (i.e. across all collections containing resources of that type).
 ====
 
 
@@ -159,6 +50,8 @@ A Connected Systems API server implementation may hold the summary representatio
 identifier:: /req/api-common/resource-uids
 
 part:: The server SHALL ensure that resource UIDs (Unique IDs) are unique across all its collections.
+
+part:: The server SHALL ensure that all resource UIDs are valid URIs.
 ====
 
 [recommendation,model=ogc]
@@ -166,7 +59,7 @@ part:: The server SHALL ensure that resource UIDs (Unique IDs) are unique across
 [%metadata]
 identifier:: /rec/api-common/resource-uids-types
 
-part:: The server SHOULD ensure that resource UIDs are globally unique URIs, that is either:
+part:: The server SHOULD ensure that resource UIDs are globally unique. The recommended URI types are:
 
 - URNs for 128-bits Universally Unique Identifiers (UUID) (prefixed by `urn:uuid:`, see RFC4122)
 - URNs using a namespace registered with IANA
