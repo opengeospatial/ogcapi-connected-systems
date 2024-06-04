@@ -1,0 +1,11 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sf/resources-endpoint
+
+part:: The server SHALL support the HTTP GET operation at the path associated to the Sampling Feature resources endpoint.
+
+part:: The operation SHALL fulfill all requirements defined in https://docs.ogc.org/is/17-069r4/17-069r4.html#_items_[Clause 7.15.2 to 7.15.8] of {ogcapi-features-1}.
+
+part:: All features in the result set SHALL be <<clause-sf-resource,Sampling Feature resources>>.
+====

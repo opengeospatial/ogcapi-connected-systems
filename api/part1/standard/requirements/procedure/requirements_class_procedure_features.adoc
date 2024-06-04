@@ -7,6 +7,7 @@ subject:: Web API
 inherit:: /req/api-common
 requirement:: /req/procedure/location
 requirement:: /req/procedure/canonical-url
-requirement:: /req/procedure/canonical-collection
-requirement:: /req/procedure/collection-type
+requirement:: /req/procedure/resources-endpoint
+requirement:: /req/procedure/canonical-endpoint
+requirement:: /req/procedure/collections
 ====

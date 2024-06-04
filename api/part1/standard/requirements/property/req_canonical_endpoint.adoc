@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/property/canonical-endpoint
+
+part:: The server SHALL expose a {property-resources-endpoint} at the path `{api_root}/properties`.
+
+part:: The endpoint SHALL expose all Property resources available on the server.
+====

@@ -62,6 +62,11 @@
 :ogcapi-features-1-spec-url: http://www.opengis.net/spec/ogcapi-features-1/1.0
 :ogcapi-features-4-spec-url: http://www.opengis.net/spec/ogcapi-features-4/1.0
 
+:system-resources-endpoint: <<clause-system-resources-endpoint,System resources endpoint>>
+:deployment-resources-endpoint: <<clause-deployment-resources-endpoint,Deployment resources endpoint>>
+:procedure-resources-endpoint: <<clause-procedure-resources-endpoint,Procedure resources endpoint>>
+:sf-resources-endpoint: <<clause-sf-resources-endpoint,Sampling Feature resources endpoint>>
+:property-resources-endpoint: <<clause-property-resources-endpoint,Property resources endpoint>>
 
 ////
 Make sure to complete each included document
@@ -114,7 +119,7 @@ include::sections/clause_21_requirements_class_sensorml_encoding.adoc[]
 ////
 Annexes
 ////
-include::sections/annex-abstract-test-suite.adoc[]
+//include::sections/annex-abstract-test-suite.adoc[]
 
 include::sections/annex-examples.adoc[]
 

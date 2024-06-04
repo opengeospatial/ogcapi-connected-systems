@@ -1,0 +1,11 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sf/collections
+
+part:: The server SHALL expose at least one Feature collection containing `Sampling Feature` resources.
+
+part:: The server SHALL identify all Feature collections containing `Sampling Feature` resources by setting the `itemType` attribute to `feature` and the `featureType` attribute to `sosa:Sample` in the Collection metadata.
+
+part:: For any feature collection with `featureType` set to `sosa:Sample`, the HTTP GET operation at the path `/collections/{collectionId}/items` SHALL support the query parameters and response of a {sf-resources-endpoint}.
+====

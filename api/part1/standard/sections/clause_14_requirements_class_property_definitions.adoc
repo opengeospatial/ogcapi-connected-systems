@@ -28,6 +28,8 @@ The definition is provided by deriving the property from a well known entity ref
 ====
 
 
+
+[[clause-property-resource]]
 === Property Resource
 
 ==== Introduction
@@ -58,36 +60,49 @@ All `Property` resource representations provided by encoding requirements classe
 |====
 
 
-=== Canonical URL
 
-The CS API standard requires that a `Property` resource has a canonical URL through which it can be retrieved independently of its membership to any collection.
+=== Property Canonical URL
+
+The CS API Standard requires that every `Property` resource has a canonical URL.
 
 include::../requirements/property/req_canonical_url.adoc[]
 
 
-=== Root Collection
 
-A root collection where all `Property` resources can be searched must be available at a CS API endpoint.
+[[clause-property-resources-endpoint]]
+=== Property Resources Endpoints
 
-include::../requirements/property/req_canonical_collection.adoc[]
+==== Definition
+
+A `Property` <<clause_api_endpoints,resources endpoint>> is an endpoint exposing a set of `Property` resources that can be further filtered using query parameters.
+
+include::../requirements/property/req_resources_endpoint.adoc[]
+
+<<clause-prop-query-params>> defines additional query parameters applicable to `Property` resources endpoint.
+
+[[clause-canonical-prop-rep]]
+==== Canonical Property Resources Endpoint
+
+The CS API Standard requires that a canonical `Property` resources endpoint, exposing all `Property` resources, be made available by the server.
+
+include::../requirements/property/req_canonical_endpoint.adoc[]
+
 
 
 === Property Collections
 
-`Property` resource collections are identified with the item type `ssn:Property`.
+Any number of resource collections containing `Property` resources can be available at a CS API endpoint, but the server must at least expose one. `Property` resource collections are identified with the item type `sosa:Property`.
 
-include::../requirements/property/req_collections_type.adoc[]
-
-In addition to the default (mandatory) collection containing all `Property` resources, any number of resource collections containing `Property` resources can be available at a CS API endpoint, so that they can be grouped according to any arbitrary criteria.
-
-include::../requirements/property/req_collections_others.adoc[]
+`Property` resources can be grouped into collections according to any arbitrary criteria, as shown in the following examples.
 
 [example%unnumbered]
 ====
-*Examples*
+*Examples of Property Collections*
 
-- All WMO properties at URL `{api_root}/collections/wmo_properties`
+- All standard WMO properties at URL `{api_root}/collections/wmo_properties`
 - All chemical properties at URL `{api_root}/collections/chemical_properties`
 
-Note that a given property can be part of multiple collections at the same time.
+_Note that a given property can be part of multiple collections at the same time._
 ====
+
+include::../requirements/property/req_collections.adoc[]

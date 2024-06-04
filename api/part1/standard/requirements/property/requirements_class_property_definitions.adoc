@@ -6,6 +6,7 @@ identifier:: /req/property
 subject:: Web API
 inherit:: /req/api-common
 requirement:: /req/property/canonical-url
-requirement:: /req/property/canonical-collection
-requirement:: /req/property/collection-type
+requirement:: /req/property/resources-endpoint
+requirement:: /req/property/canonical-endpoint
+requirement:: /req/property/collections
 ====

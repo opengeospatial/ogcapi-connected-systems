@@ -3,13 +3,5 @@
 [%metadata]
 identifier:: /req/system/location-time
 
-conditions:: The CS API endpoint reports location as part of System resources
-
-part:: If the implementation chooses to report the location of a system, it SHALL be done according to the `datetime` request parameter.
-
-part:: When the `datetime` parameter is omitted, the server SHALL report the latest known location of the system.
-
-part:: When the `datetime` parameter is set to a time instant, the server SHALL report the latest location of the system that was known at that point in time.
-
-part:: When the `datetime` parameter is set to a time period, the server SHALL report the latest location of the system that was known at the end of the specified time period.
+part:: If the implementation chooses to report the location of a system, it SHALL be the latest known location of the system, unless a specific snapshot date/time is requested (see Part 2).
 ====

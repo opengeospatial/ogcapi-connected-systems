@@ -1,0 +1,11 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/system/collections
+
+part:: The server SHALL expose at least one Feature collection containing `System` resources.
+
+part:: The server SHALL identify all Feature collections containing `System` resources by setting the `itemType` attribute to `feature` and the `featureType` attribute to `ssn:System` in the Collection metadata.
+
+part:: For any feature collection with `featureType` set to `ssn:System`, the HTTP GET operation at the path `/collections/{collectionId}/items` SHALL support the query parameters and response of a {system-resources-endpoint}.
+====

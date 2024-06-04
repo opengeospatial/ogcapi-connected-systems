@@ -1,7 +1,0 @@
-[requirement,model=ogc]
-====
-[%metadata]
-identifier:: /req/procedure/collection-type
-
-The server SHALL identify all Feature Collections containing `Procedure` features by setting the value of the `featureType` attribute to `sosa:Procedure` in the Collection Metadata.
-====

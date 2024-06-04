@@ -7,7 +7,7 @@ include::../requirements/deployment/requirements_class_deployment_features.adoc[
 
 The "Deployment Features" requirements class specifies how `Deployment` descriptions are provided using the CS API.
 
-The `Deployment` resource implements the _http://www.w3.org/ns/ssn/Deployment[Deployment]_ concept defined in the <<SOSA-SSN,SSN Ontology>> and is used to provide information about the deployment of one or more `Systems` (with or without payloads) for a specific purpose (often at a specific location and time).
+The `Deployment` resource implements the _http://www.w3.org/ns/ssn/Deployment[Deployment]_ concept defined in the {ogc-w3c-ssn} and is used to provide information about the deployment of one or more `Systems` (with or without payloads) for a specific purpose (often at a specific location and time).
 
 [example%unnumbered]
 ====
@@ -64,7 +64,7 @@ NOTE: For deployments of models or processes, the location would usually not be 
 [width="100%",cols="5,5,10,10,3",options="header"]
 |====
 | *Name*                | *SOSA/SSN Property*  | *Definition* | *Target Content* | *Usage*
-| `platform`            | `ssn:deployedOnPlatform` | The platform on which the systems are deployed. | A single `System` resource (inline or by-reference). | Optional
+| `platform`            | `ssn:deployedOnPlatform` | The platform on which the systems are deployed. | A single `Feature` resource (inline or by-reference). | Optional
 | `deployedSystems`     | `ssn:deployedSystem` | The list of `Systems` deployed during the `Deployment`, if any. | A collection of `System` resources (inline or by-reference). | Required
 | `subdeployments`      | - | The list of subdeployments that are part of the `Deployment`, if any. | A collection of `Deployment` resources (inline or by-reference). | Required
 | `featuresOfInterest`  | - | The ultimate features of interest that are observed and/or controlled during the `Deployment`. | A collection of `Feature` resources (inline or by-reference). | Optional
@@ -72,37 +72,52 @@ NOTE: For deployments of models or processes, the location would usually not be 
 | `controlstreams`      | - | The `Control Streams` that received commands issued during the `Deployment`. | A collection of `ControlStream` resources (inline or by-reference). | Optional
 |====
 
+NOTE: The platform can be another `System` (e.g. a UAV or a station), but can also be any feature (e.g. a building or a tree).
 
-=== Canonical URL
 
-The CS API Standard requires that a `Deployment` resource has a canonical URL through which it can be retrieved independently of its membership to any collection.
+
+=== Deployment Canonical URL
+
+The CS API Standard requires that every `Deployment` resource has a canonical URL.
 
 include::../requirements/deployment/req_canonical_url.adoc[]
 
 
-=== Root Collection
 
-A root collection where all `Deployment` resources can be searched must be available at a CS API endpoint.
+[[clause-deployment-resources-endpoint]]
+=== Deployment Resources Endpoints
 
-include::../requirements/deployment/req_canonical_collection.adoc[]
+==== Definition
+
+A `Deployment` <<clause_api_endpoints,resources endpoint>> is an endpoint exposing a set of `Deployment` resources that can be further filtered using query parameters.
+
+include::../requirements/deployment/req_resources_endpoint.adoc[]
+
+<<clause-deployments-query-params>> defines additional query parameters applicable to `Deployment` resources endpoint.
+
+[[clause-canonical-deployment-rep]]
+==== Canonical Deployment Resources Endpoint
+
+The CS API Standard requires that a canonical `Deployment` resources endpoint, exposing all `Deployment` resources, be made available by the server.
+
+include::../requirements/deployment/req_canonical_endpoint.adoc[]
 
 
-=== Feature Collections
 
-`Deployment` feature collections are identified with the feature type `deployment`.
+=== Deployment Feature Collections
 
-include::../requirements/deployment/req_collections_type.adoc[]
+Any number of feature collections containing `Deployment` features can be available at a CS API endpoint, but the server must at least expose one. `Deployment` feature collections are identified with the feature type `ssn:Deployment`.
 
-`Deployment` resources can also be grouped into collections according to any arbitrary criteria. Any number of feature collections containing `Deployment` features can be available at a CS API endpoint.
-
-include::../requirements/deployment/req_collections_others.adoc[]
+`Deployment` resources can be grouped into collections according to any arbitrary criteria, as shown in the following examples.
 
 [example%unnumbered]
 ====
-*Examples*
+*Examples of Deployment Collections*
 
 - All saildrone deployments at URL `{api_root}/collections/saildrone_missions`
 - All special forces deployments at URL `{api_root}/collections/sof_missions`
 
-Note that a given deployment can be part of multiple collections at the same time.
+_Note that a given deployment can be part of multiple collections at the same time._
 ====
+
+include::../requirements/deployment/req_collections.adoc[]

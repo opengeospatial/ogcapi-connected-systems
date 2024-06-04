@@ -1,7 +1,0 @@
-[permission,model=ogc]
-====
-[%metadata]
-identifier:: /per/system/collection-others
-
-part:: The server MAY expose additional collections of `System` resources using the feature collection mechanism documented in the {ogcapi-features-1} Standard.
-====

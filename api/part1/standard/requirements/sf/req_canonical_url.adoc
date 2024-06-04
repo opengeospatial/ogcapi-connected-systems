@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sf/canonical-url
+
+part:: Every `Sampling Feature` resource exposed by the server SHALL be accessible through its canonical URL of the form `{api_root}/samplingFeatures/{id}` where `id` is the local identifier of the `Sampling Feature` resource.
+
+part:: If a `Sampling Feature` resource is retrieved through any other URL than its canonical URL, the server response SHALL include a link to its canonical URL with relation type `canonical`.
+====

@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/system/canonical-endpoint
+
+part:: The server SHALL expose a {system-resources-endpoint} at the path `{api_root}/systems`.
+
+part:: The endpoint SHALL expose all System resources available on the server.
+====

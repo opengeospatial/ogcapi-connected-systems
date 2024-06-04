@@ -1,0 +1,11 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/deployment/collections
+
+part:: The server SHALL expose at least one Feature collection containing `Deployment` resources.
+
+part:: The server SHALL identify all Feature collections containing `Deployment` resources by setting the `itemType` attribute to `feature` and the `featureType` attribute to `ssn:Deployment` in the Collection metadata.
+
+part:: For any feature collection with `featureType` set to `ssn:Deployment`, the HTTP GET operation at the path `/collections/{collectionId}/items` SHALL support the query parameters and response of a {deployment-resources-endpoint}.
+====

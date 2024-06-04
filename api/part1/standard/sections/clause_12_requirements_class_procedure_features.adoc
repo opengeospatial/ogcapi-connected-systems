@@ -7,7 +7,7 @@ include::../requirements/procedure/requirements_class_procedure_features.adoc[]
 
 The "Procedure Features" requirements class specifies how `Procedure` descriptions are provided using the CS API.
 
-A `Procedure` resource implements the _http://www.w3.org/ns/sosa/Procedure[Procedure]_ concept defined in the <<SOSA-SSN,SSN Ontology>>. `Procedure` resources are used to provide the specifications or methodology implemented by a `System` to accomplish its task(s).
+A `Procedure` resource implements the _http://www.w3.org/ns/sosa/Procedure[Procedure]_ concept defined in the {ogc-w3c-ssn}. `Procedure` resources are used to provide the specifications or methodology implemented by a `System` to accomplish its task(s).
 
 NOTE: `Procedure` resources describe types of systems (e.g. a particular model of sensor) or procedures implemented by systems (e.g. followed by a human operator or programmed into a piece of equipment), while `System` resources describe system instances (e.g. a sensor device, a human observer). Several `System` instances can be associated to the same `Procedure`.
 
@@ -90,36 +90,49 @@ A `Procedure` feature represents a datasheet or a methodology. It is thus a non-
 include::../requirements/procedure/req_location.adoc[]
 
 
-=== Canonical URL
 
-The CS API Standard requires that a `Procedure` resource has a canonical URL through which it can be retrieved independently of its membership to any collection.
+=== Procedure Canonical URL
+
+The CS API Standard requires that every `Procedure` resource has a canonical URL.
 
 include::../requirements/procedure/req_canonical_url.adoc[]
 
 
-=== Root Collection
 
-A root collection where all `Procedure` resources can be searched must be available at a CS API endpoint.
+[[clause-procedure-resources-endpoint]]
+=== Procedure Resources Endpoints
 
-include::../requirements/procedure/req_canonical_collection.adoc[]
+==== Definition
+
+A `Procedure` <<clause_api_endpoints,resources endpoint>> is an endpoint exposing a set of `Procedure` resources that can be further filtered using query parameters.
+
+include::../requirements/procedure/req_resources_endpoint.adoc[]
+
+<<clause-procedures-query-params>> defines additional query parameters applicable to `Procedure` resources endpoint.
+
+[[clause-canonical-procedure-rep]]
+==== Canonical Procedure Resources Endpoint
+
+The CS API Standard requires that a canonical `Procedure` resources endpoint, exposing all `Procedure` resources, be made available by the server.
+
+include::../requirements/procedure/req_canonical_endpoint.adoc[]
 
 
-=== Feature Collections
 
-`Procedure` feature collections are identified with the feature type `sosa:Procedure`.
+=== Procedure Feature Collections
 
-include::../requirements/procedure/req_collections_type.adoc[]
+Any number of feature collections containing `Procedure` features can be available at a CS API endpoint, but the server must at least expose one. `Procedure` feature collections are identified with the feature type `sosa:Procedure`.
 
-`Procedure` resources can also be grouped into collections according to any arbitrary criteria. Any number of feature collections containing `Procedure` features can be available at a CS API endpoint.
-
-include::../requirements/procedure/req_collections_others.adoc[]
+`Procedure` resources can be grouped into collections according to any arbitrary criteria, as shown in the following examples.
 
 [example%unnumbered]
 ====
-*Examples*
+*Examples of Procedure Collections*
 
 - All weather station datasheets at URL `{api_root}/collections/wx_stations_datasheets`
 - All bird watching procedure at URL `{api_root}/collections/bird_watching_procedures`
 
-Note that a given procedure can be part of multiple collections at the same time.
+_Note that a given procedure can be part of multiple collections at the same time._
 ====
+
+include::../requirements/procedure/req_collections.adoc[]

@@ -1,0 +1,13 @@
+[requirement,model=ogc]
+====
+[%metadata]
+type:: class
+identifier:: /req/sf
+subject:: Web API
+inherit:: /req/api-common
+inherit:: /req/system
+requirement:: /req/sf/canonical-url
+requirement:: /req/sf/resources-endpoint
+requirement:: /req/sf/canonical-endpoint
+requirement:: /req/sf/collections
+====

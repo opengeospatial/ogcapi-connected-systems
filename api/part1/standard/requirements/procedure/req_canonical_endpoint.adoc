@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/procedure/canonical-endpoint
+
+part:: The server SHALL expose a {procedure-resources-endpoint} at the path `{api_root}/procedures`.
+
+part:: The endpoint SHALL expose all Procedure resources available on the server.
+====

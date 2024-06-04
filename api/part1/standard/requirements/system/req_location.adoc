@@ -3,5 +3,5 @@
 [%metadata]
 identifier:: /rec/system/location
 
-A `System` feature resource SHOULD include the latest known location of the system.
+A `System` feature resource SHOULD include the system location.
 ====
