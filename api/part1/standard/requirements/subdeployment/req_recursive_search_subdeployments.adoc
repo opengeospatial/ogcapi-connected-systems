@@ -3,7 +3,7 @@
 [%metadata]
 identifier:: /req/subdeployment/recursive-search-subdeployments
 
-part:: HTTP GET operations targeting a deployment's subdeployments collection at URL `{api_root}/deployments/{id}/subdeployments` SHALL support the parameter `recursive`.
+part:: HTTP GET operations at subdeployments resources endpoints `{api_root}/deployments/{id}/subdeployments` SHALL support the parameter `recursive`.
 
 part:: If the `recursive` parameter is omitted or set to `false`, the response SHALL only include the deployment's direct subdeployments.
 
