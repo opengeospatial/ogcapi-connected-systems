@@ -58,7 +58,7 @@ A `System` resource that is a subsystem of a parent system also includes the fol
 [width="100%",cols="5,5,10,10,3",options="header"]
 |====
 | *Name* | *SOSA/SSN Property* | *Definition* | *Target Content* | *Usage*
-| `parentSystem` | inverse Of `ssn:hasSubSystem` | The parent `System` that this subsystem is part of. | A single `System` resource. | Required
+| `parentSystem` | inverse Of `sosa:hasSubSystem` | The parent `System` that this subsystem is part of. | A single `System` resource. | Required
 |====
 
 

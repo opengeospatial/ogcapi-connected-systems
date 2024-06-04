@@ -28,7 +28,7 @@ The `Deployment` resource implements the _http://www.w3.org/ns/ssn/Deployment[De
 
 ==== Introduction
 
-In the CS API Standard, `Deployment` resources are a special kind of feature resource that implements the _http://www.w3.org/ns/ssn/Deployment[ssn:Deployment]_ concept.
+In the CS API Standard, `Deployment` resources are a special kind of feature resource that implements the _http://www.w3.org/ns/ssn/Deployment[sosa:Deployment]_ concept.
 
 This section defines the attributes and associations composing the `Deployment` resource, but the exact way attributes and associations are encoded in the payload is defined by each encoding. For encodings defined in this document, please see:
 
@@ -64,8 +64,8 @@ NOTE: For deployments of models or processes, the location would usually not be 
 [width="100%",cols="5,5,10,10,3",options="header"]
 |====
 | *Name*                | *SOSA/SSN Property*  | *Definition* | *Target Content* | *Usage*
-| `platform`            | `ssn:deployedOnPlatform` | The platform on which the systems are deployed. | A single `Feature` resource (inline or by-reference). | Optional
-| `deployedSystems`     | `ssn:deployedSystem` | The list of `Systems` deployed during the `Deployment`, if any. | A collection of `System` resources (inline or by-reference). | Required
+| `platform`            | `sosa:deployedOnPlatform` | The platform on which the systems are deployed. | A single `Feature` resource (inline or by-reference). | Optional
+| `deployedSystems`     | `sosa:deployedSystem` | The list of `Systems` deployed during the `Deployment`, if any. | A collection of `System` resources (inline or by-reference). | Required
 | `subdeployments`      | - | The list of subdeployments that are part of the `Deployment`, if any. | A collection of `Deployment` resources (inline or by-reference). | Required
 | `featuresOfInterest`  | - | The ultimate features of interest that are observed and/or controlled during the `Deployment`. | A collection of `Feature` resources (inline or by-reference). | Optional
 | `samplingFeatures`    | - | The `Sampling Features` associated to `Systems` deployed during the `Deployment`. | A collection of `Sampling Feature` resources (inline or by-reference). | Optional
@@ -107,7 +107,7 @@ include::../requirements/deployment/req_canonical_endpoint.adoc[]
 
 === Deployment Feature Collections
 
-Any number of feature collections containing `Deployment` features can be available at a CS API endpoint, but the server must at least expose one. `Deployment` feature collections are identified with the feature type `ssn:Deployment`.
+Any number of feature collections containing `Deployment` features can be available at a CS API endpoint, but the server must at least expose one. `Deployment` feature collections are identified with the feature type `sosa:Deployment`.
 
 `Deployment` resources can be grouped into collections according to any arbitrary criteria, as shown in the following examples.
 

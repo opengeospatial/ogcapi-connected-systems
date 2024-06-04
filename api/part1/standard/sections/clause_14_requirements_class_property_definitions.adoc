@@ -34,7 +34,7 @@ The definition is provided by deriving the property from a well known entity ref
 
 ==== Introduction
 
-In the CS API Standard, `Property` resources are a special kind of resource that implements the _http://www.w3.org/ns/ssn/Property[ssn:Property]_ concept.
+In the CS API Standard, `Property` resources are a special kind of resource that implements the _http://www.w3.org/ns/ssn/Property[sosa:Property]_ concept.
 
 This section defines the attributes and associations composing a `Property` resource, but the exact way they are encoded in the payload is defined by each encoding. For encodings defined in this document, please see:
 

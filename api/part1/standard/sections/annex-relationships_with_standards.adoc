@@ -13,8 +13,8 @@ The CS API does not use any SOSA/SSN serialization (e.g. RDF, Turtle, etc.) dire
 The CS API resource model diverges from currently used SOSA/SSN patterns in the following ways:
 
 1. In the CS API, all systems can have both `datastreams` and `controlstreams`, even though they are tagged with only one type (i.e.`sosa:Sensor`, `sosa:Actuator`, `sosa:Sampler` or `sosa:Platform`). Semantic tagging is only used to provide the main role of the system or subsystem without limiting other API functionality. This design simplifies the description of sensors that can also accept commands (e.g. even simple sensors often have commands to change the sampling rate or the sensitivity), or actuators that output data (e.g. most actuators provide some kind of state information). The same effect can be achieved when using the SOSA/SSN ontology by creating RDF resources that have several parent classes such as: +
-`<Motor1> a ssn:System, sosa:Sensor, sosa:Actuator ; ...` +
-`<UAV1> a ssn:System, sosa:Platform ; ...`
+`<Motor1> a sosa:System, sosa:Sensor, sosa:Actuator ; ...` +
+`<UAV1> a sosa:System, sosa:Platform ; ...`
 
 2. In the CS API, an observation can be associated to more than one observed property, and a command to more than one controlled property, while SOSA/SSN has a cardinality of one on these associations. This also means that observations are not limited to scalar results, and commands are not limited to scalar parameters. Discussions in the SOSA/SSN working group have shown that such vectorization of observed properties and corresponding observation results is an accepted practice and will be clearly documented in the next revision of the SOSA/SSN standard.
 

@@ -5,7 +5,7 @@ identifier:: /req/property/collections
 
 part:: The server SHALL expose at least one resource collection containing `Property` resources.
 
-part:: The server SHALL identify all resource collections containing `Property` resources by setting the `itemType` attribute to `ssn:Property` in the Collection metadata.
+part:: The server SHALL identify all resource collections containing `Property` resources by setting the `itemType` attribute to `sosa:Property` in the Collection metadata.
 
-part:: For any resource collection with `itemType` set to `ssn:Property`, the HTTP GET operation at the path `/collections/{collectionId}/items` SHALL support the query parameters and response of a {property-resources-endpoint}.
+part:: For any resource collection with `itemType` set to `sosa:Property`, the HTTP GET operation at the path `/collections/{collectionId}/items` SHALL support the query parameters and response of a {property-resources-endpoint}.
 ====

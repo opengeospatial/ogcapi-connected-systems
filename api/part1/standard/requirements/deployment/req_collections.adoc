@@ -5,7 +5,7 @@ identifier:: /req/deployment/collections
 
 part:: The server SHALL expose at least one Feature collection containing `Deployment` resources.
 
-part:: The server SHALL identify all Feature collections containing `Deployment` resources by setting the `itemType` attribute to `feature` and the `featureType` attribute to `ssn:Deployment` in the Collection metadata.
+part:: The server SHALL identify all Feature collections containing `Deployment` resources by setting the `itemType` attribute to `feature` and the `featureType` attribute to `sosa:Deployment` in the Collection metadata.
 
-part:: For any feature collection with `featureType` set to `ssn:Deployment`, the HTTP GET operation at the path `/collections/{collectionId}/items` SHALL support the query parameters and response of a {deployment-resources-endpoint}.
+part:: For any feature collection with `featureType` set to `sosa:Deployment`, the HTTP GET operation at the path `/collections/{collectionId}/items` SHALL support the query parameters and response of a {deployment-resources-endpoint}.
 ====
