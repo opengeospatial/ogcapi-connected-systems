@@ -121,7 +121,7 @@ include::../requirements/procedure/req_canonical_endpoint.adoc[]
 
 === Procedure Feature Collections
 
-Any number of feature collections containing `Procedure` features can be available at a CS API endpoint, but the server must at least expose one. `Procedure` feature collections are identified with the feature type `sosa:Procedure`.
+Any number of feature collections containing `Procedure` features can be available at a CS API endpoint, but the server must at least expose one. Members of `Procedure` feature collections are identified with the feature type `sosa:Procedure`.
 
 `Procedure` resources can be grouped into collections according to any arbitrary criteria, as shown in the following examples.
 

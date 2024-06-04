@@ -145,7 +145,7 @@ include::../requirements/sf/req_canonical_endpoint.adoc[]
 
 === Sampling Feature Collections
 
-Any number of feature collections containing `Sampling Features` can be available at a CS API endpoint, but the server must at least expose one. `Sampling Feature` collections are identified with the feature type `sosa:Sample`.
+Any number of feature collections containing `Sampling Features` can be available at a CS API endpoint, but the server must at least expose one. Members of `Sampling Feature` collections are identified with the feature type `sosa:Sample`.
 
 `Sampling Feature` resources can be grouped into collections according to any arbitrary criteria, as shown in the following examples.
 

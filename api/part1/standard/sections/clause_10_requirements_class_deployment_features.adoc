@@ -107,7 +107,7 @@ include::../requirements/deployment/req_canonical_endpoint.adoc[]
 
 === Deployment Feature Collections
 
-Any number of feature collections containing `Deployment` features can be available at a CS API endpoint, but the server must at least expose one. `Deployment` feature collections are identified with the feature type `sosa:Deployment`.
+Any number of feature collections containing `Deployment` features can be available at a CS API endpoint, but the server must at least expose one. Members of `Deployment` feature collections are identified with the feature type `sosa:Deployment`.
 
 `Deployment` resources can be grouped into collections according to any arbitrary criteria, as shown in the following examples.
 

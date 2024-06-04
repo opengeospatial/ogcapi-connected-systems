@@ -91,7 +91,7 @@ include::../requirements/property/req_canonical_endpoint.adoc[]
 
 === Property Collections
 
-Any number of resource collections containing `Property` resources can be available at a CS API endpoint, but the server must at least expose one. `Property` resource collections are identified with the item type `sosa:Property`.
+Any number of resource collections containing `Property` resources can be available at a CS API endpoint, but the server must at least expose one. Members of `Property` resource collections are identified with the item type `sosa:Property`.
 
 `Property` resources can be grouped into collections according to any arbitrary criteria, as shown in the following examples.
 

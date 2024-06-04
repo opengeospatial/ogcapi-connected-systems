@@ -148,7 +148,7 @@ include::../requirements/system/req_canonical_endpoint.adoc[]
 
 === System Feature Collections
 
-Any number of feature collections containing `System` features can be available at a CS API endpoint, but the server must at least expose one. `System` feature collections are identified with the feature type `sosa:System`.
+Any number of feature collections containing `System` features can be available at a CS API endpoint, but the server must at least expose one. Members of `System` feature collections are identified with the feature type `sosa:System`.
 
 `System` resources can be grouped into collections according to any arbitrary criteria, as shown in the following examples.
 
