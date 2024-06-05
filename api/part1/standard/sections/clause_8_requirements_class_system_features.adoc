@@ -11,7 +11,9 @@ The `System` resource implements the _http://www.w3.org/ns/ssn/System[System]_ c
 
 NOTE: `System` resources describe *system instances* (e.g. a sensor device, a UAV platform) while `Procedure` resources are used to describe *system types* (e.g. a particular model of sensor or vehicle, specified using the manufacturer datasheet). Several `System` instances can implement the same `Procedure` (i.e. be of the same model).
 
-NOTE: `System` resources are used to model all subclasses of _http://www.w3.org/ns/ssn/System[sosa:System]_, including _http://www.w3.org/ns/sosa/Sensor[sosa:Sensor]_, _http://www.w3.org/ns/sosa/Actuator[sosa:Actuator]_, _http://www.w3.org/ns/sosa/Sampler[sosa:Sampler]_, as well as _http://www.w3.org/ns/sosa/Platform[sosa:Platform]_. Semantic tagging is used to provide the exact type.
+NOTE: `System` resources are used to model instances of _http://www.w3.org/ns/ssn/System[sosa:System]_ (including its subclasses: _http://www.w3.org/ns/sosa/Sensor[sosa:Sensor]_, _http://www.w3.org/ns/sosa/Actuator[sosa:Actuator]_ and _http://www.w3.org/ns/sosa/Sampler[sosa:Sampler]_), as well as _http://www.w3.org/ns/sosa/Platform[sosa:Platform]_. Semantic tagging is used to provide the exact type.
+
+NOTE: The {ogc-w3c-ssn} does not define `sosa:Platform` as a subclass of `sosa:System`. However, the ontology allows an individual to be both a `sosa:System` and a `sosa:Platform`. This is the specific case that is modeled in this Standard as a `System` resource tagged with `systemType=sosa:Platform`. However, not all types of platforms need be modeled as systems (i.e. trees, buildings, etc. can also serve as platforms). Thus, this Standard does not put any restriction as to what type of Features can be used as platforms. This enables a `Deployment` to refer to any Feature as the platform, which includes linking to external feature stores (e.g. building databases, etc.).
 
 [example%unnumbered]
 ====
