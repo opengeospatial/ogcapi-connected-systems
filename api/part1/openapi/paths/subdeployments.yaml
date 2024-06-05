@@ -1,10 +1,13 @@
 get:
-  summary: List all available deployments
+  summary: List subdeployments
   description: |-
-    List or search all `Deployment` resources available from this server endpoint.
+    List or search all `Deployment` resources that are part of a specific parent deployment.
+
+    Note that individual members can also be retrieved by ID directly at the canonical `Deployment` resources endpoint.
   tags:
     - Deployments
   parameters:
+    - $ref: ../parameters/deploymentId.yaml
     - $ref: ../parameters/idList.yaml
     - $ref: ../parameters/bbox.yaml
     - $ref: ../parameters/datetime.yaml
@@ -15,6 +18,8 @@ get:
     - $ref: ../parameters/foiIdList.yaml
     - $ref: ../parameters/obsPropIdList.yaml
     - $ref: ../parameters/controlPropIdList.yaml
+    - $ref: ../parameters/recursive.yaml
+      description: If true, instructs the server to include nested subdeployments, recursively.
     #- $ref: '#/components/parameters/select'
     - $ref: ../parameters/limit.yaml
   responses:
@@ -30,23 +35,16 @@ get:
       $ref: ../responses/StandardResponses.yaml#/404
     '5XX':
       $ref: ../responses/StandardResponses.yaml#/5XX
-
+      
 post:
-  summary: Create new deployments
-  description: |-
-    Add one or more new `Deployment` resources.
-
-    Note that it is possible to create multiple resources in a single batch request.
-    In this case, several resource descriptions are provided in the content body inside a JSON array.
-    On success, the server will send a `200` response with the list of URIs of all created resources,
-    in the same order as the array in the request.
+  summary: Add subdeployments
   tags:
     - Deployments
+  parameters:
+    - $ref: ../parameters/deploymentId.yaml
   requestBody:
     $ref: ../requests/deploymentOrArray.yaml
   responses:
-    '200':
-      $ref: ../responses/resourceLinks.yaml
     '201':
       $ref: ../responses/StandardResponses.yaml#/201
     '400':

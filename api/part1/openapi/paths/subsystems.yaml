@@ -1,9 +1,9 @@
 get:
-  summary: List system components
+  summary: List subsystems
   description: |-
-    List or search all `System` resources that are subsystems of a specific parent system.
+    List or search all `System` resources that are subsystems (i.e. components) of a specific parent system.
 
-    Note that individual members can also be retrieved by ID directly on the root "systems" collection.
+    Note that individual members can also be retrieved by ID directly at the canonical `System` resources endpoint.
   tags:
     - Systems
   parameters:
@@ -37,7 +37,7 @@ get:
       $ref: ../responses/StandardResponses.yaml#/5XX
       
 post:
-  summary: Add system components
+  summary: Add subsystems
   tags:
     - Systems
   parameters:

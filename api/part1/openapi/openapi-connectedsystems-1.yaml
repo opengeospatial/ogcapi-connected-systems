@@ -47,14 +47,14 @@ tags:
       Systems are entities that can produce data feeds and/or receive commands (e.g. sensors and sensor networks, platforms, actuators,
       processing components, etc.). Many systems can be classified as 'observing systems' that produce observations of one or more
       features of interest.
-  - name: Procedures
-    description: |-
-      Procedures provides information about the procedure implemented by a system to accomplish its task(s).
-      For hardware equipment, it usually corresponds to the equipment's datasheet.
-      For human sensing or sampling tasks, the procedure describes the steps or methodology that must be followed by the operator.
   - name: Deployments
     description: |-
       Deployments describe how systems are being deployed at a particular place and time.
+  - name: Procedures
+    description: |-
+      Procedures provide information about the behavior of a system to accomplish its task(s).
+      Procedures include descriptions of system kinds (e.g. a hardware device's datasheet), as well as methodologies or specific
+      configurations of these systems (e.g. steps followed by an operator to accomplish a sensing or sampling task).
   - name: Sampling Features
     description: |-
       Sampling Features link Systems with ultimate features of interest, describing exactly what part of a larger feature is being
@@ -112,20 +112,11 @@ paths:
   /systems/{systemId}:
     $ref: paths/systemById.yaml
 
-  /systems/{systemId}/components:
+  /systems/{systemId}/subsystems:
     $ref: paths/subsystems.yaml
 
-  #/systems/{systemId}/components/{subsystemId}:
+  #/systems/{systemId}/subsystems/{subsystemId}:
   #  $ref: paths/subsystemById.yaml
-
-
-  # Procedures
-  /procedures:
-    $ref: paths/procedures.yaml
-
-  /procedures/{procedureId}:
-    $ref: paths/procedureById.yaml
-
 
   # Deployments
   /deployments:
@@ -134,14 +125,19 @@ paths:
   /deployments/{deploymentId}:
     $ref: paths/deploymentById.yaml
 
-  /deployments/{deploymentId}/systems:
-    $ref: paths/deployedSystems.yaml
-
-  /deployments/{deploymentId}/systems/{depSysId}:
-    $ref: paths/deployedSystemById.yaml
+  /deployments/{deploymentId}/subdeployments:
+    $ref: paths/subdeployments.yaml
 
   /systems/{systemId}/deployments:
     $ref: paths/systemDeployments.yaml
+
+
+  # Procedures
+  /procedures:
+    $ref: paths/procedures.yaml
+
+  /procedures/{procedureId}:
+    $ref: paths/procedureById.yaml
     
 
   # Sampling Features
