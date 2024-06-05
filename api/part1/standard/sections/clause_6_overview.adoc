@@ -157,7 +157,7 @@ NOTE: If the response format is not JSON based, the canonical link can still be 
 
 === Paged Responses
 
-All resource collections support paging via the `limit` query parameter and the `next` link, as specified by the {ogcapi-features-1} and {ogcapi-common-2} Standards.
+All resource collections support paging via the `limit` query parameter and the `next` link, as specified by the {ogcapi-features-1} Standard.
 
 
 === Search & Filtering
