@@ -1,5 +1,7 @@
 == Terms and definitions
 
+All terms defined in {ogcapi-common-1}, {ogcapi-features-1} and {ogcapi-features-4} also apply.
+
 
 === Application Programming Interface (API)
 A formally defined set of types and methods which establish a contract between client code which uses the API
