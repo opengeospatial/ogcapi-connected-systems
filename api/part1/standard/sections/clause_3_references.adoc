@@ -24,9 +24,7 @@ References are to follow the Springer LNCS style, with the exception that option
 
 * [[[SOSA-SSN, SOSA/SSN]]], Semantic Sensor Network Ontology, (October 19 2017), https://www.w3.org/TR/vocab-ssn
 
-* [[[OGC-SML, OGC 12-000r2]]], OGC SensorML: Model and XML Encoding Standard, version 2.1
-
-* [[[OGC-SML-JSON, OGC 23-000]]], OGC SensorML: Model Extensions and JSON Encodings, version 1.0, https://docs.ogc.org/DRAFTS/23-000r0.html
+* [[[OGC-SML, OGC 23-000]]], OGC SensorML Encoding Standard, version 3.0, https://docs.ogc.org/DRAFTS/23-000.html
 
 * [[[OGC_SFA, OGC 06-103r4]]], Simple feature access - Part 1: Common architecture
 
