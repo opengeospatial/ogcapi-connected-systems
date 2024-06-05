@@ -59,7 +59,7 @@ NOTE: The validity time period of a `Procedure` description starts on the date t
 [width="100%",cols="5,5,10,10,3",options="header"]
 |====
 | *Name* | *SOSA/SSN Property* | *Definition* | *Target Content* | *Usage*
-| `implementingSystems` | `implementedBy` | The `Systems` that implement the `Procedure`. | A Collection of `System` resources (inline or by-reference). | Optional
+| `implementingSystems` | `implementedBy` | The `Systems` that implement the `Procedure`. | A list of `System` resources (inline or by-reference). | Optional
 |====
 
 [#procedure-types,reftext='{table-caption} {counter:table-num}']
