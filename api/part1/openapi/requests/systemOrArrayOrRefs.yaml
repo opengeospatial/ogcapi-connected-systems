@@ -6,12 +6,12 @@ content:
         type: string
     examples:
       links:
-        summary: Using links
+        summary: Links to System resources
         value: |-
           https://data.example.org/api/systems/2f35ofoms2l6
           https://data.example.org/api/systems/PLT412
       uids:
-        summary: Using UIDs
+        summary: UIDs of System resources
         value: |-
           urn:uuid:b2995d6b-9f25-4cec-869e-0e846b80f39c
           urn:x-usgs:stations:00125488
@@ -26,7 +26,7 @@ content:
         format: uri
     examples:
       link:
-        summary: Links to Systems resources
+        summary: Links to System resources
         value:
           - https://data.example.org/api/systems/2f35ofoms2l6
           - https://data.example.org/api/systems/PLT412

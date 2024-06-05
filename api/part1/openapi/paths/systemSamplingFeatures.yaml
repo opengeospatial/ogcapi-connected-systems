@@ -42,6 +42,8 @@ post:
     in the same order as the array in the request.
   tags:
     - Sampling Features
+  parameters:
+    - $ref: ../parameters/systemId.yaml
   requestBody:
     $ref: ../requests/samplingFeatureOrArray.yaml
   responses:

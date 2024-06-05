@@ -5,8 +5,37 @@ get:
     - Collections
   parameters:
     - $ref: ../parameters/collectionId.yaml
-    - $ref: ../parameters/featureId.yaml
+    - $ref: ../parameters/resourceId.yaml
   responses:
     '200':
       $ref: ../responses/feature.yaml
+
+
+delete:
+  summary: Remove a collection item
+  description: |-
+    Remove a resource from a collection.
+
+    The resource will only be removed from the collection but will still be accessible from its canonical resources endpoint.
+    (However, removing the resource from its canonical resources endpoint will remove it from all collections)
+  tags:
+    - Collections
+  parameters:
+    - $ref: ../parameters/collectionId.yaml
+    - $ref: ../parameters/resourceId.yaml
+  responses:
+    '204':
+      $ref: ../responses/StandardResponses.yaml#/204_DELETE
+    '400':
+      $ref: ../responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../responses/StandardResponses.yaml#/404
+    '409':
+      $ref: ../responses/StandardResponses.yaml#/409_DELETE
+    '5XX':
+      $ref: ../responses/StandardResponses.yaml#/5XX
       

@@ -1,14 +1,46 @@
 get:
   summary: List all items in a collection
   description: |-
-    Retrieve collections items, which can be Systems, Procedures, Deployments, Sampling Features, or any other features.
+    Retrieve collections items, which can be Systems, Deployments, Procedures, Sampling Features, Properties, or any other features.
 
-    Please see the documentation of the respective root collections to see the specifics of each feature type.
+    Please see the documentation of the specifics of each feature type in the corresponding section.
   tags:
     - Collections
   parameters:
     - $ref: ../parameters/collectionId.yaml
+    - $ref: ../parameters/idList.yaml
+    - $ref: ../parameters/bbox.yaml
+    - $ref: ../parameters/datetime.yaml
+    - $ref: ../parameters/geom.yaml
+    - $ref: ../parameters/keyword.yaml
     - $ref: ../parameters/limit.yaml
   responses:
     '200':
       $ref: ../responses/featureCollection.yaml
+
+post:
+  summary: Add items to a collection
+  description: |-
+    Add new or existing resources to the parent collection.
+
+    If actual resource descriptions are provided in the body, new resources will be created and added to the parent collection.
+    The new resources will also be available at the corresponding canonical resources endpoint (e.g `/systems` if the resource is a system).
+
+    Existing resources can also be added to a collection by providing one or more links to existing resources.
+  tags:
+    - Collections
+  requestBody:
+    $ref: ../requests/systemOrArrayOrRefs.yaml
+  responses:
+    '201':
+      $ref: ../responses/StandardResponses.yaml#/201
+    '400':
+      $ref: ../responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../responses/StandardResponses.yaml#/5XX

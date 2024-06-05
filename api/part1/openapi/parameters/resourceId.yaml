@@ -1,0 +1,7 @@
+name: resourceId
+in: path
+description: Local identifier of a Resource
+required: true
+schema:
+  type: string
+  minLength: 1

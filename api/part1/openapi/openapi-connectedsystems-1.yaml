@@ -101,16 +101,13 @@ paths:
   /collections/{collectionId}/items:
     $ref: paths/collectionItems.yaml
 
-  /collections/{collectionId}/items/{featureId}:
+  /collections/{collectionId}/items/{resourceId}:
     $ref: paths/collectionItemById.yaml
 
 
   # Systems
   /systems:
     $ref: paths/systems.yaml
-
-  /collections/{systemCollectionId}/items:
-    $ref: paths/systemsInCollection.yaml
 
   /systems/{systemId}:
     $ref: paths/systemById.yaml
