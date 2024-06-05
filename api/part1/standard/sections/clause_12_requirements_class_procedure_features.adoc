@@ -66,16 +66,16 @@ NOTE: The validity time period of a `Procedure` description starts on the date t
 .Procedure Types
 [width="100%",cols="5,10,5,5,10",options="header"]
 |====
-| *Procedure Type* | *URI* | *CURIE* | *Implemented By* | *Usage*
-| Observing        | http://www.w3.org/ns/sosa/ObservingProcedure  | sosa:ObservingProcedure | Sensor   | An observation method.
-| Actuating        | http://www.w3.org/ns/sosa/ActuatingProcedure  | sosa:ActuatingProcedure | Actuator | An actuation method.
-| Sampling         | http://www.w3.org/ns/sosa/SamplingProcedure   | sosa:SamplingProcedure  | Sampler  | A sampling method.
-| Other Procedure  | http://www.w3.org/ns/sosa/Procedure           | sosa:Procedure | Any System | Any other type of procedure or methodology.
-| Sensor Kind      | http://www.w3.org/ns/ssn-system/SensorKind    | ssn:SensorKind | Sensor   | A sensor datasheet.
-| Actuator Kind    | http://www.w3.org/ns/ssn-system/ActuatorKind  | ssn:ActuatorKind | Actuator | An actuator datasheet.
-| Sampler Kind     | http://www.w3.org/ns/ssn-system/SamplerKind   | ssn:SamplerKind  | Sampler  | A sampler datasheet.
-| Platform Kind    | http://www.w3.org/ns/ssn-system/PlatformKind  | ssn:PlatformKind | Platform  | A platform datasheet.
-| Other System Kind | http://www.w3.org/ns/ssn-system/SystemKind   | ssn:SystemKind | Any System | Any other system datasheet.
+| *Procedure Type*  | *URI* | *CURIE* | *Implemented By* | *Usage*
+| Observing         | http://www.w3.org/ns/sosa/ObservingProcedure  | sosa:ObservingProcedure | Sensor   | An observation method.
+| Actuating         | http://www.w3.org/ns/sosa/ActuatingProcedure  | sosa:ActuatingProcedure | Actuator | An actuation method.
+| Sampling          | http://www.w3.org/ns/sosa/SamplingProcedure   | sosa:SamplingProcedure  | Sampler  | A sampling method.
+| Other Procedure   | http://www.w3.org/ns/sosa/Procedure           | sosa:Procedure | Any System | Any other type of procedure or methodology.
+| Sensor Kind       | http://www.w3.org/ns/ssn-system/SensorKind    | ssn:SensorKind | Sensor   | A sensor datasheet.
+| Actuator Kind     | http://www.w3.org/ns/ssn-system/ActuatorKind  | ssn:ActuatorKind | Actuator | An actuator datasheet.
+| Sampler Kind      | http://www.w3.org/ns/ssn-system/SamplerKind   | ssn:SamplerKind  | Sampler  | A sampler datasheet.
+| Platform Kind     | http://www.w3.org/ns/ssn-system/PlatformKind  | ssn:PlatformKind | Platform  | A platform datasheet.
+| Other System Kind | http://www.w3.org/ns/ssn-system/SystemKind    | ssn:SystemKind | Any System | Any other system datasheet.
 |====
 
 ==== Location
