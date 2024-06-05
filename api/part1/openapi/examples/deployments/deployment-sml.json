@@ -1,7 +1,7 @@
 {
   "type": "Deployment",
   "id": "iv3f2kcq27gfi",
-  "definition": "http://www.w3.org/ns/ssn/Deployment",
+  "definition": "http://www.w3.org/ns/sosa/Deployment",
   "uniqueId": "urn:x-saildrone:mission:2025",
   "label": "Saildrone - 2017 Arctic Mission",
   "description": "In July 2017, three saildrones were launched from Dutch Harbor, Alaska, in partnership with NOAA Research...",

@@ -7,14 +7,7 @@
         "properties": {
           "properties": {
             "featureType": {
-              "type": "string",
-              "enum": [
-                "http://www.w3.org/ns/sosa/Sensor",
-                "http://www.w3.org/ns/sosa/Actuator",
-                "http://www.w3.org/ns/sosa/Platform",
-                "http://www.w3.org/ns/sosa/Sampler",
-                "http://www.w3.org/ns/ssn/System"
-              ]
+              "$ref": "../common/uris.json#/definitions/SystemTypeUris"
             },
             "assetType": {
               "description": "Type of asset represented by this system.",

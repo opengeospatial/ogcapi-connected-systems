@@ -5,7 +5,7 @@
     {
       "properties": {
         "definition": {
-          "const": "http://www.w3.org/ns/ssn/Deployment"
+          "$ref": "../common/uris.json#/definitions/DeploymentTypeUris"
         },
         "links": {
           "description": "Links to related resources",

@@ -8,7 +8,7 @@
           "required": [ "validTime" ],
           "properties": {
             "featureType": {
-              "const": "http://www.w3.org/ns/ssn/Deployment"
+              "$ref": "../common/uris.json#/definitions/DeploymentTypeUris"
             },
             "validTime": {
               "description": "Time period during which the systems are deployed.",

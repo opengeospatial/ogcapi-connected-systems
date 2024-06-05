@@ -6,7 +6,7 @@
     "uid": "urn:x-gill:datasheets:windmaster:v1",
     "name": "Gill WindMaster",
     "description": "Precision 3-axis ultrasonic anemometer",
-    "featureType": "http://www.w3.org/ns/sosa/ObservingProcedure"
+    "featureType": "http://www.w3.org/ns/ssn-system/SensorKind"
   },
   "links": [
     {

@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SystemTypeUris": {
+      "type": "string",
+      "enum": [
+        "http://www.w3.org/ns/sosa/Sensor",
+        "http://www.w3.org/ns/sosa/Actuator",
+        "http://www.w3.org/ns/sosa/Platform",
+        "http://www.w3.org/ns/sosa/Sampler",
+        "http://www.w3.org/ns/sosa/System",
+        "sosa:Sensor",
+        "sosa:Actuator",
+        "sosa:Platform",
+        "sosa:Sampler",
+        "sosa:System"
+      ]
+    },
+    "DeploymentTypeUris": {
+      "type": "string",
+      "enum": [
+        "http://www.w3.org/ns/sosa/Deployment",
+        "sosa:Deployment"
+      ]
+    },
+    "ProcedureTypeUris": {
+      "type": "string",
+      "enum": [
+        "http://www.w3.org/ns/sosa/Procedure",
+        "http://www.w3.org/ns/sosa/ObservingProcedure",
+        "http://www.w3.org/ns/sosa/ActuatingProcedure",
+        "http://www.w3.org/ns/sosa/SamplingProcedure",
+        "http://www.w3.org/ns/ssn-system/SystemKind",
+        "http://www.w3.org/ns/ssn-system/SensorKind",
+        "http://www.w3.org/ns/ssn-system/ActuatorKind",
+        "http://www.w3.org/ns/ssn-system/SamplerKind",
+        "http://www.w3.org/ns/ssn-system/PlatformKind",
+        "sosa:Procedure",
+        "sosa:ObservingProcedure",
+        "sosa:ActuatingProcedure",
+        "sosa:SamplingProcedure",
+        "ssn:SystemKind",
+        "ssn:SensorKind",
+        "ssn:ActuatorKind",
+        "ssn:SamplerKind",
+        "ssn:PlatformKind"
+      ]
+    }
+  }
+}
