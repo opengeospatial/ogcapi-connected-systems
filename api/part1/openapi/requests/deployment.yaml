@@ -3,6 +3,16 @@ content:
   application/geo+json:
     schema:
       $ref: ../schemas/geojson/deployment.json
+    examples:
+      usv:
+        summary: Unmanned Surface Vehicle (USV) Deployment
+        value:
+          $ref: ../examples/deployments/deployment-geojson.json
   application/sml+json:
     schema:
       $ref: ../schemas/sensorml/deployment.json
+    examples:
+      usv:
+        summary: Unmanned Surface Vehicle (USV) Deployment
+        value:
+          $ref: ../examples/deployments/deployment-sml.json

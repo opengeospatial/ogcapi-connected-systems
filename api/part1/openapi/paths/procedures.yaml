@@ -39,10 +39,8 @@ post:
   tags:
     - Procedures
   requestBody:
-    $ref: ../requests/procedureOrArray.yaml
+    $ref: ../requests/procedure.yaml
   responses:
-    '200':
-      $ref: ../responses/resourceLinks.yaml
     '201':
       $ref: ../responses/StandardResponses.yaml#/201
     '400':

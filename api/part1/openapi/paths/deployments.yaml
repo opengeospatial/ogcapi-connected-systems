@@ -43,10 +43,8 @@ post:
   tags:
     - Deployments
   requestBody:
-    $ref: ../requests/deploymentOrArray.yaml
+    $ref: ../requests/deployment.yaml
   responses:
-    '200':
-      $ref: ../responses/resourceLinks.yaml
     '201':
       $ref: ../responses/StandardResponses.yaml#/201
     '400':

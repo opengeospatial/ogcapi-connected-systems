@@ -37,10 +37,8 @@ post:
   tags:
     - Properties
   requestBody:
-    $ref: ../requests/propertyOrArray.yaml
+    $ref: ../requests/property.yaml
   responses:
-    '200':
-      $ref: ../responses/resourceLinks.yaml
     '201':
       $ref: ../responses/StandardResponses.yaml#/201
     '400':

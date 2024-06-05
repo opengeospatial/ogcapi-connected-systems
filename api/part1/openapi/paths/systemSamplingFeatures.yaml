@@ -45,10 +45,8 @@ post:
   parameters:
     - $ref: ../parameters/systemId.yaml
   requestBody:
-    $ref: ../requests/samplingFeatureOrArray.yaml
+    $ref: ../requests/samplingFeature.yaml
   responses:
-    '200':
-      $ref: ../responses/resourceLinks.yaml
     '201':
       $ref: ../responses/StandardResponses.yaml#/201
     '400':

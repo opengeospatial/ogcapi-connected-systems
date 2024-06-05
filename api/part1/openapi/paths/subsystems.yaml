@@ -43,7 +43,7 @@ post:
   parameters:
     - $ref: ../parameters/systemId.yaml
   requestBody:
-    $ref: ../requests/systemOrArray.yaml
+    $ref: ../requests/system.yaml
   responses:
     '201':
       $ref: ../responses/StandardResponses.yaml#/201

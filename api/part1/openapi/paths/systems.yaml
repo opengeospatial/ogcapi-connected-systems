@@ -54,10 +54,8 @@ post:
   tags:
     - Systems
   requestBody:
-    $ref: ../requests/systemOrArray.yaml
+    $ref: ../requests/system.yaml
   responses:
-    '200':
-      $ref: ../responses/resourceLinks.yaml
     '201':
       $ref: ../responses/StandardResponses.yaml#/201
     '400':

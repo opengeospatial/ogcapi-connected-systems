@@ -6,7 +6,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "Local ID of the feature",
+          "description": "Local ID of the feature (ignored on create or update)",
           "minLength": 1
         },
         "geometry": {

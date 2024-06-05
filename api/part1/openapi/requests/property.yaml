@@ -3,3 +3,16 @@ content:
   application/sml+json:
     schema:
       $ref: ../schemas/sensorml/property.json
+    examples:
+      enginetemp:
+        summary: Engine Temperature
+        value:
+          $ref: ../examples/properties/engine-temp.json
+      cputemp:
+        summary: Average CPU Temperature
+        value:
+          $ref: ../examples/properties/avg-cpu-temp.json
+      rfpower:
+        summary: Received Band-X RF Power
+        value:
+          $ref: ../examples/properties/received-rf-power.json
