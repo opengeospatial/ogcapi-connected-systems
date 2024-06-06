@@ -4,19 +4,30 @@
     { "$ref": "baseStream.json" },
     {
       "properties": {
+        "system@link": {
+          "description": "Link to the system receiving the commands",
+          "$ref": "../common/commonDefs.json#/definitions/Link",
+          "readOnly": true
+        },
         "inputName": {
           "description": "Name of the system control input receiving data from this control stream",
           "type": "string"
         },
-        "issueTime": {
-          "description": "Time extent spanning all issue times of commands in this control stream",
-          "$ref": "../common/commonDefs.json#/definitions/TimePeriod",
-          "readOnly": true
+        "procedure@link": {
+          "description": "Link to the procedure used to execute commands (e.g. methodology used by human operators)",
+          "$ref": "../common/commonDefs.json#/definitions/Link"
         },
-        "executionTime": {
-          "description": "Time extent spanning all execution times of commands in this control stream",
-          "$ref": "../common/commonDefs.json#/definitions/TimePeriod",
-          "readOnly": true
+        "deployment@link": {
+          "description": "Link to the deployment during which the commands are/were received",
+          "$ref": "../common/commonDefs.json#/definitions/Link"
+        },
+        "ultimateFeatureOfInterest@link": {
+          "description": "Link to the ultimate feature of interest (only provided if all commands in the control stream relate to the same feature of interest)",
+          "$ref": "../common/commonDefs.json#/definitions/Link"
+        },
+        "samplingFeature@link": {
+          "description": "Link to the sampling feature (only provided if all commands in the control stream relate to the same sampling feature)",
+          "$ref": "../common/commonDefs.json#/definitions/Link"
         },
         "controlledProperties": {
           "description": "List of properties that are controllable through this control stream",
@@ -37,6 +48,16 @@
               }
             }
           },
+          "readOnly": true
+        },
+        "issueTime": {
+          "description": "Time extent spanning all issue times of commands in this control stream",
+          "$ref": "../common/commonDefs.json#/definitions/TimePeriod",
+          "readOnly": true
+        },
+        "executionTime": {
+          "description": "Time extent spanning all execution times of commands in this control stream",
+          "$ref": "../common/commonDefs.json#/definitions/TimePeriod",
           "readOnly": true
         },
         "live": {

@@ -5,17 +5,54 @@
     { 
       "required": [
         "id",
-        "datastream@id",
         "phenomenonTime",
         "resultTime"
-      ],
+      ]
+    },
+    {
+      "oneOf": [
+        {
+          "title": "Datastream ID",
+          "required": ["datastream@id"]
+        },
+        {
+          "title": "Link to datastream",
+          "required": ["datastream@link"]
+        }
+      ]
+    },
+    {
+      "oneOf": [
+        {
+          "title": "Sampling feature ID",
+          "required": ["foi@id"]
+        },
+        {
+          "title": "Link to sampling feature",
+          "required": ["foi@link"]
+        }
+      ]
+    },
+    {
+      "oneOf": [
+        {
+          "title": "Procedure ID",
+          "required": ["procedure@id"]
+        },
+        {
+          "title": "Link to procedure",
+          "required": ["procedure@link"]
+        }
+      ]
+    },
+    {
       "oneOf": [
         {
           "title": "Inline result",
           "required": ["result"]
         },
         {
-          "title": "Link to external result",
+          "title": "Link to result",
           "required": ["result@links"]
         }
       ]

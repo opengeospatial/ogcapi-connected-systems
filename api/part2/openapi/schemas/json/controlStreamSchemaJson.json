@@ -8,6 +8,12 @@
     },
     "paramsSchema": {
       "$ref": "../common/sweCommonDefs.json#/definitions/AnyComponent"
+    },
+    "progressInfoSchema": {
+      "$ref": "../common/sweCommonDefs.json#/definitions/AnyComponent"
+    },
+    "resultSchema": {
+      "$ref": "../common/sweCommonDefs.json#/definitions/AnyComponent"
     }
   },
   "required": [

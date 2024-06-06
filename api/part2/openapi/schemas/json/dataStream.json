@@ -4,33 +4,30 @@
     { "$ref": "baseStream.json" },
     {
       "properties": {
+        "system@link": {
+          "description": "Link to the system producing the observations",
+          "$ref": "../common/commonDefs.json#/definitions/Link",
+          "readOnly": true
+        },
         "outputName": {
           "description": "Name of the system output feeding this datastream",
           "type": "string"
         },
-        "phenomenonTime": {
-          "description": "Time extent spanning all phenomenon times of observations in this datastream",
-          "$ref": "../common/commonDefs.json#/definitions/TimePeriod",
-          "readOnly": true
+        "procedure@link": {
+          "description": "Link to the procedure used to acquire observations (e.g. methodology used by human operators)",
+          "$ref": "../common/commonDefs.json#/definitions/Link"
         },
-        "phenomenonTimeInterval": {
-          "description": "An indication of how often feature of interest properties are observed",
-          "type": "string",
-          "format": "duration"
+        "deployment@link": {
+          "description": "Link to the deployment during which the observations are/were collected",
+          "$ref": "../common/commonDefs.json#/definitions/Link"
         },
-        "resultTime": {
-          "description": "Time extent spanning all result times of observations in this datastream",
-          "$ref": "../common/commonDefs.json#/definitions/TimePeriod",
-          "readOnly": true
+        "ultimateFeatureOfInterest@link": {
+          "description": "Link to the ultimate feature of interest (only provided if all observations in the datastream relate to the same feature of interest)",
+          "$ref": "../common/commonDefs.json#/definitions/Link"
         },
-        "resultTimeInterval": {
-          "description": "An indication of how often observation results are produced",
-          "type": "string",
-          "format": "duration"
-        },
-        "resultType": {
-          "type": "string",
-          "enum": ["measure", "vector", "record", "coverage1D", "coverage2D", "coverage3D"]
+        "samplingFeature@link": {
+          "description": "Link to the sampling feature (only provided if all observations in the datastream relate to the same sampling feature)",
+          "$ref": "../common/commonDefs.json#/definitions/Link"
         },
         "observedProperties": {
           "description": "List of observed properties included in this datastream",
@@ -52,6 +49,38 @@
             }
           },
           "readOnly": true
+        },
+        "parameters": {
+          "description": "Parameters applying to all observations in this datastream. Must be valid according to the parameters schema",
+          "type": "object"
+        },
+        "phenomenonTime": {
+          "description": "Time extent spanning all phenomenon times of observations in this datastream",
+          "$ref": "../common/commonDefs.json#/definitions/TimePeriod",
+          "readOnly": true
+        },
+        "phenomenonTimeInterval": {
+          "description": "An indication of how often feature of interest properties are observed",
+          "type": "string",
+          "format": "duration"
+        },
+        "resultTime": {
+          "description": "Time extent spanning all result times of observations in this datastream",
+          "$ref": "../common/commonDefs.json#/definitions/TimePeriod",
+          "readOnly": true
+        },
+        "resultTimeInterval": {
+          "description": "An indication of how often observation results are produced",
+          "type": "string",
+          "format": "duration"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["status", "observation"]
+        },
+        "resultType": {
+          "type": "string",
+          "enum": ["measure", "vector", "record", "coverage", "complex"]
         },
         "live": {
           "description": "Flag indicating if the datastream is currently streaming data",

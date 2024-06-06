@@ -36,6 +36,9 @@
       "type": "string",
       "minLength": 1
     },
+    "progress": {
+      "description": "Detailed progress status info. Must be valid according to the progress schema"
+    },
     "result": {
       "description": "Result of the command",
       "oneOf": [

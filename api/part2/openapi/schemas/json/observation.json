@@ -13,10 +13,27 @@
       "type": "string",
       "minLength": 1
     },
+    "datastream@link": {
+      "description": "Link to the datastream that this observation is part of",
+      "$ref": "../common/commonDefs.json#/definitions/Link"
+    },
     "foi@id": {
-      "description": "Local ID of the sampling feature that this observation applies to",
+      "description": "Local ID of the sampling feature that is the target of this observation",
       "type": "string",
       "minLength": 1
+    },
+    "foi@link": {
+      "description": "Link to the sampling feature that is the target of this observation",
+      "$ref": "../common/commonDefs.json#/definitions/Link"
+    },
+    "procedure@id": {
+      "description": "Local ID of the procedure/method used to make this observation",
+      "type": "string",
+      "minLength": 1
+    },
+    "procedure@link": {
+      "description": "Link to the procedure/method used to make this observation",
+      "$ref": "../common/commonDefs.json#/definitions/Link"
     },
     "phenomenonTime": {
       "description": "Time at which the observation result is a valid estimate of the sampling feature property(ies). Defaults to the same value as `resultTime`.",

@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "allOf": [
-    { "$ref": "https://github.com/opengeospatial/connected-systems/blob/master/api/part2/openapi/schemas/json/command_view.json" },
+    { "$ref": "https://raw.githubusercontent.com/opengeospatial/ogcapi-connected-systems/master/api/part2/openapi/schemas/json/command_view.json" },
     {
       "properties": {
         "params": {

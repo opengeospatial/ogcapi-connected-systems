@@ -4,11 +4,11 @@
     { "$ref": "command.json" },
     { "required": [
       "id",
-      "control@id",
+      "controlstream@id",
       "issueTime",
       "sender",
       "currentStatus",
-      "params"
+      "parameters"
     ]}
   ]
 }

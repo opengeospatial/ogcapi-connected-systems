@@ -17,22 +17,9 @@
       "type": "string",
       "minLength": 1
     },
-    "system@link": {
-      "description": "Link to the parent system",
-      "$ref": "../common/commonDefs.json#/definitions/Link",
-      "readOnly": true
-    },
-    "deployment@link": {
-      "description": "Link to the deployment during which the data was collected",
-      "$ref": "../common/commonDefs.json#/definitions/Link"
-    },
-    "ultimateFeatureOfInterest@link": {
-      "description": "Link to the ultimate feature of interest (only provided if all observations in this datastream relate to the same ultimate feature of interest)",
-      "$ref": "../common/commonDefs.json#/definitions/Link"
-    },
-    "samplingFeature@link": {
-      "description": "Link to the sampling feature (only provided if all observations in this datastream relate to the same sampling feature)",
-      "$ref": "../common/commonDefs.json#/definitions/Link"
+    "validTime": {
+      "description": "Validity period of the resource",
+      "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
     },
     "formats": {
       "description": "List of available formats",
@@ -42,10 +29,6 @@
         "type": "string"
       },
       "readOnly": true
-    },
-    "validTime": {
-      "description": "Validity period of the resource",
-      "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
     }
   },
   "required": [
