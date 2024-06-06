@@ -10,11 +10,6 @@
     "name": "Bottom of Well - USGS Site #301244087575701",
     "description": "Sampling point is 2-4 inches above the bottom of the well",
     "featureType": "http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint",
-    "parentSystem@link": {
-      "href": "https://data.example.org/api/systems/447845?f=json",
-      "type" : "application/geo+json",
-      "title": "Water Level Sensor"
-    },
     "sampledFeature@link": {
       "href": "https://api.usgs.gov/collections/hydrological_features/items/112TRRC?f=json",
       "type" : "application/geo+json",

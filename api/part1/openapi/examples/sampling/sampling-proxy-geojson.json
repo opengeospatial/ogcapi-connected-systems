@@ -7,14 +7,17 @@
     "name": "PIE Junction 34",
     "description": "Junction 34 on Pan-Island Expressway",
     "featureType": "Junction",
-    "parentSystem@link": {
-      "href": "https://data.example.org/api/systems/751588?f=json",
-      "type" : "application/geo+json",
-      "title": "Traffic Camera 456"
-    },
     "sampledFeature@link": {
       "href": "https://ext.features.org/api/collections/roads/PIE12?f=json",
       "type" : "application/geo+json"
     }
-  }
+  },
+  "links": [
+    {
+      "rel": "parentSystem",
+      "href": "https://data.example.org/api/systems/751588?f=json",
+      "type" : "application/geo+json",
+      "title": "Traffic Camera 456"
+    }
+  ]
 }

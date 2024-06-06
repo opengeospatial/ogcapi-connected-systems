@@ -7,15 +7,18 @@
     "name": "CPU 2",
     "description": "CPU 2 located in the robot chassis",
     "featureType": "http://www.opengis.net/def/samplingFeatureType/OGC-SML/2.0/FeaturePart",
-    "parentSystem@link": {
-      "href": "https://data.example.org/api/systems/8624d054?f=json",
-      "type" : "application/geo+json",
-      "title": "Tactical Ground Robot 457"
-    },
     "sampledFeature@link": {
       "href": "https://data.example.org/api/systems/8624d054?f=json",
       "type" : "application/geo+json",
       "title": "Tactical Ground Robot 457"
     }
-  }
+  },
+  "links": [
+    {
+      "rel": "parentSystem",
+      "href": "https://data.example.org/api/systems/447845?f=json",
+      "type" : "application/geo+json",
+      "title": "Water Level Sensor"
+    }
+  ]
 }

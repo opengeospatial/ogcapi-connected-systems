@@ -26,10 +26,6 @@
             "systemKind@link": {
               "description": "Link to the system kind description (i.e. its nature or specifications).",
               "$ref": "../common/commonDefs.json#/definitions/Link"
-            },
-            "parentSystem@link": {
-              "description": "Link to the parent system.",
-              "$ref": "../common/commonDefs.json#/definitions/Link"
             }
           }
         }
