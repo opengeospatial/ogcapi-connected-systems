@@ -320,16 +320,6 @@ An `Observation` {resources-endpoint} is an endpoint exposing a set of `Observat
 
 include::../requirements/observation/req_resources_endpoint.adoc[]
 
-==== Basic Observation Filters
-
-An Observation resources endpoint supports filtering using the query parameters described below.
-
-<<clause-observation-query-params>> defines additional query parameters applicable to `Observation` resources endpoint.
-
-===== Phenomenon Time Filter
-
-===== Result Time Filter
-
 [[clause-observations-endpoint]]
 ==== Canonical Observation Resources Endpoint
 
