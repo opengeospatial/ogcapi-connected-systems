@@ -12,6 +12,9 @@ Flows carrying observation and status data coming out of a system are called `Da
 
 #TODO#
 
+Modeling of Observations not as Feature Resources
+to Keep features separate from the properties and estimate of these properties (obs is an event that captures information about when and how the estimate of hte property was collected) 
+
 
 === Resource Types
 
@@ -30,11 +33,11 @@ The table below provides a short summary description of these resource types:
 [width="90%",cols="2,6,4,2"]
 |====
 | *Resource Type*    | *Description*                                        | *Requirements Class*            | *Possible Encodings*
-| Datastream         | Description of datastreams, including
+| DataStream         | Description of datastreams, including
                        observed properties and features of interest.     .2+| <<clause-datastream-resources>> | JSON
 | Observation        | Actual observations, including the result data.                                        | JSON, +
                                                                                                                 SWE-JSON, SWE-Text, SWE-Binary
-| Control Stream     | Description of control channels, including
+| ControlStream      | Description of control channels, including
                        controllable properties and features of interest. .3+| <<clause-control-resources>>    | JSON
 | Command            | Actual command messages, including the command
                        parameters data.                                                                       | JSON, +
@@ -47,3 +50,29 @@ The table below provides a short summary description of these resource types:
 |====
 
 NOTE: The encodings listed in the table are the ones defined in this Standard document but extensions can define additional encodings.
+
+
+
+=== API Endpoints
+
+{ogcapi-cs-1} defines the concept of canonical *resources endpoint* and *canonical resource endpoint*. This section provides the canonical endpoints used in CS API Part 2.
+
+==== Canonical Resources Endpoints
+
+The canonical resources endpoints for resource types defined in Part 2 of the CS API Standard are:
+
+- `{api_root}/datastreams`
+- `{api_root}/observations`
+- `{api_root}/controls`
+- `{api_root}/commands`
+- `{api_root}/systemevents`
+
+==== Canonical Resource Endpoints
+
+The canonical URL templates to access a single resource defined in Part 2 of the CS API Standard are:
+
+- `{api_root}/datastreams/{id}`
+- `{api_root}/observations/{id}`
+- `{api_root}/controls/{id}`
+- `{api_root}/commands/{id}`
+- `{api_root}/systemevents/{id}`

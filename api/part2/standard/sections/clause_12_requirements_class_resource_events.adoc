@@ -1,9 +1,17 @@
 
 [[clause-resource-events]]
 == Requirements Class "Resource Events"
-include::requirements/events/requirements_class_resource_events.adoc[]
+include::../requirements/events/requirements_class_resource_events.adoc[]
 
 
 === Overview
 
-#TODO#
+Resource events are a mechanism by which a CS API client can be notified of certain resource operations:
+
+- Resource creation (e.g. as initiated by an HTTP POST)
+- Resource update (e.g. as initiated by an HTTP PUT or PATCH)
+- Resource deletion (e.g. as initiated by an HTTP DELETE)
+
+Listening for resource events can be done on a single resource or a set of resources (i.e. a resources endpoint).
+
+

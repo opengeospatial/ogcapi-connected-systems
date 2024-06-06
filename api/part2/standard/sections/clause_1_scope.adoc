@@ -1,17 +1,24 @@
 == Scope
 
-This standard defines extensions to https://ogcapi.ogc.org/features[OGC API - Features] for exposing dynamic data flowing to and from observing systems and platforms. This standard also complies with https://ogcapi.ogc.org/common[OGC API - Common].
+This Standard defines extensions to {ogcapi-features} for exposing metadata amd dynamic data regarding all kinds of observing systems and associated resources. It provides an actionnable implementation of concepts defined in the <<SOSA-SSN,Semantic Sensor Network Ontology (SSN)>> and also complies with {ogcapi-common}.
 
-The API provides an actionnable implementation of concepts defined in the https://www.w3.org/TR/vocab-ssn/[Semantic Sensor Network Ontology (SSN)].
+More specifically, Part 2 of the API, specified in this document, implements the SSN concepts allowing exchange of dynamic (possibly real-time) data flowing to and from various types of connected systems (e.g. sensors, actuators, platforms). Several encoding formats are defined in this Standard, including JSON, CSV and binary formats based on the OGC - SWE Common Standard. Additional encodings can be added by extensions.
 
-More specifically, Part 2 of the API implements additional SSN concepts (namely Observation, Actuation, Result and Sample).
+The following types of resources are defined by Part 2 of the API:
 
-The following types of resources are made availables through this API:
+  - *DataStream* resources represent data feeds coming out of `Systems` and are containers for `Observations`. They are used for receiving and ingesting real-time `Observations` as well as accessing historical `Observations`. A `DataStream` is a particular case of `sosa:ObservationCollection` where all `Observations` are coming from the same sensor.
 
-  - `Datastream` 
-  - `Observation` 
-  - `Control Stream` 
-  - `Command` 
-  - `Command Status`
-  - `System Event`
-  - `Resource Events`
+  - *Observation* resources record all information regarding an act of observation, whether it is made by an automated device or a human. In particular, they carry the observation result that is structured according to a well defined schema. `Observations` are grouped into `DataStreams`.
+
+  - *ControlStream* resources represent data feeds going into `Systems` and are containers for `Commands`. They are used for receiving and ingesting real-time `Commands` as well as accessing historical `Commands`.
+
+  - *Command* resources represent messages sent to a `System` to control the parameters of feature of interest. In particular, a command includes parameters that are structured according to a well define schema.
+
+  - *CommandStatus* resources provide status reports during the execution of a command.
+
+  - *SystemEvent* resources provide information about a system event, such as sensor activation, recalibration, maintenance, etc.
+
+CS API Part 1 defines the feature resources that these dynamic data feeds are associated to, including both the `Systems` that produce or receive these data feeds, and the features of interest that these data feeds provide information about.
+
+CS API Part 3 defines pub/sub protocol bindings for exchanging dynamic data that can be used jointly with the HTTP API. 
+

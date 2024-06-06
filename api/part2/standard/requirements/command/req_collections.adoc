@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/controlstream/cmd-collections
+
+part:: The server SHALL identify all resource collections containing `Command` resources by setting the `itemType` attribute to `Command` in the Collection metadata.
+
+part:: For any resource collection with `itemType` set to `Command`, the HTTP GET operation at the path `/collections/{collectionId}/items` SHALL support the query parameters and response of a {command-resources-endpoint}.
+====

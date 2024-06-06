@@ -12,23 +12,21 @@ References are to follow the Springer LNCS style, with the exception that option
 
 * [[[OGC08131, OGC 08-131r3]]], The Specification Model – A Standard for Modular Specification
 
-* [[[OGCAPI-Consys-1, OGC 23-001]]], OGC API - Connected Systems - Part 1: Feature Resources, version 1.0, https://docs.ogc.org/DRAFTS/23-001.html
+* [[[OGCAPI-Consys-1, OGC 23-001]]], OGC API - Connected Systems - Part 1: Feature Resources, version 1.0, https://docs.ogc.org/DRAFTS/23-001r0.html
+
+* [[[OGCAPI-Features-1, OGC 17-069r4]]], OGC API - Features - Part 1: Core, version 1.0.1. https://docs.ogc.org/is/17-069r4/17-069r4.html
 
 * [[[OGCAPI-Features-4, OGC 20-002]]], OGC API - Features - Part 4: Create, Replace, Update and Delete, version 1.0.0-DRAFT. https://docs.ogc.org/DRAFTS/20-002.html
 
 * [[[OGCAPI-Common-1, OGC 19-072]]], OGC API - Common - Part 1: Core, version 1.0.0. https://docs.ogc.org/DRAFTS/19-072.html
 
-* [[[OGCAPI-Common-2, OGC 20-024]]], OGC API - Common - Part 2: Geospatial Data, version 0.0.9. https://docs.ogc.org/DRAFTS/20-024.html
-
-* [[[SOSA-SSN: OGC/W3C]]], Semantic Sensor Network Ontology, (October 19 2017), https://www.w3.org/TR/vocab-ssn
+* [[[SOSA-SSN, SOSA/SSN]]], Semantic Sensor Network Ontology, (October 19 2017), https://www.w3.org/TR/vocab-ssn
 
 * [[[OMS: ISO 19156]]], Observations and Measurements, version 2.0
 
-* [[[OGC-SML, OGC 12-000r2]]], OGC SensorML: Model and XML Encoding Standard, version 2.1
+* [[[OGC-SML-JSON, OGC 23-000]]], OGC SensorML Encoding Standard, version 3.0, https://docs.ogc.org/DRAFTS/23-000.html
 
-* [[[OGC-SML-JSON, OGC 23-000]]], OGC SensorML: JSON Encoding Standard, version 1.0, https://docs.ogc.org/DRAFTS/23-000.html
-
-* [[[OGC-SWECOMMON, OGC 08-094r2]]], OGC SWE Common Data Model Encoding Standard, version 2.1. https://docs.ogc.org/DRAFTS/08-094r2.html
+* [[[OGC-SWECOMMON, OGC 24-014]]], OGC SWE Common Data Model Encoding Standard, version 3.0. https://docs.ogc.org/DRAFTS/24-014.html
 
 * [[[ISO8601, ISO 8601:2019]]], Date and time — Representations for information interchange — Part 1: Basic rules. International Organization for Standardization, Geneva (2019). https://www.iso.org/standard/70907.html.
 

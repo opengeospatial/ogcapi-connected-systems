@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/datastream/canonical-endpoint
+
+part:: The server SHALL expose a {datastream-resources-endpoint} at the path `{api_root}/datastreams`.
+
+part:: The endpoint SHALL expose all `DataStream` resources available on the server.
+====

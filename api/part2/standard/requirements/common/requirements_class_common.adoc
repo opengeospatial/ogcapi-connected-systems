@@ -1,9 +1,8 @@
-[[rc_api-common]]
-[cols="1,4",width="90%",options="header"]
-|===
-2+|*Requirements Class*
-2+|http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/req/api-common
-|Target type    |Web API
-|Dependency     |http://www.opengis.net/spec/ogcapi-common-2/1.0/rm/limit
-|Dependency     |<<clause-encoding-json>>
-|===
+[requirement,model=ogc]
+====
+[%metadata]
+type:: class
+identifier:: /req/api-common
+subject:: Web API
+inherit:: http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/req/api-common
+====

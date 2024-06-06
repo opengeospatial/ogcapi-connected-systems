@@ -1,0 +1,11 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/controlstream/collections
+
+part:: The server SHALL expose at least one resource collection containing `ControlStream` resources, as specified in <<clause-resource-collections>>.
+
+part:: The server SHALL identify all resource collections containing `ControlStream` resources by setting the `itemType` attribute to `ControlStream` in the Collection metadata.
+
+part:: For any resource collection with `itemType` set to `ControlStream`, the HTTP GET operation at the path `/collections/{collectionId}/items` SHALL support the query parameters and response of a {controlstream-resources-endpoint}.
+====

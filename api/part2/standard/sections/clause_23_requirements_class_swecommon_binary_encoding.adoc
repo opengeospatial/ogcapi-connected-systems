@@ -1,7 +1,7 @@
 
 [[clause-encoding-swebinary]]
 === Requirements Class "SWE Common Binary Encoding"
-include::requirements/encoding/swecommon/requirements_class_swecommon_binary.adoc[]
+include::../requirements/encoding/swecommon/requirements_class_swecommon_binary.adoc[]
 
 
 ==== Overview

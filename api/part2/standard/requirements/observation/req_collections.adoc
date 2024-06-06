@@ -1,0 +1,11 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/datastream/obs-collections
+
+part:: The server SHALL expose at least one resource collection containing `Observation` resources, as specified in <<clause-resource-collections>>.
+
+part:: The server SHALL identify all resource collections containing `Observation` resources by setting the `itemType` attribute to `Observation` in the Collection metadata.
+
+part:: For any resource collection with `itemType` set to `Observation`, the HTTP GET operation at the path `/collections/{collectionId}/items` SHALL support the query parameters and response of a {observation-resources-endpoint}.
+====

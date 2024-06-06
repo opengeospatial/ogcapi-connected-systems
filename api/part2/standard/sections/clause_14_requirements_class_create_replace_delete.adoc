@@ -1,0 +1,48 @@
+
+[[clause-resource-crud]]
+== Requirements Class "Create/Replace/Delete"
+include::../requirements/crud/requirements_class_crud.adoc[]
+
+
+=== Overview
+
+This requirements class specifies how instances of the resource types defined in this Standard are created, replaced, udpated and deleted using the API.
+
+
+=== DataStreams
+
+
+
+=== Observations
+
+
+
+=== Control Streams
+
+
+
+=== Commands
+
+==== Command Cancellation
+
+Cancel is different from DELETE because the resource must stay on the server.
+
+Several options:
+
+- Use a PUT request at `{api_root}/commands/{id}` to replace the command resource with a new one that has `currentStatus=CANCELED`.
+- Use a PATCH request at `{api_root}/commands/{id}` to set `currentStatus=CANCELED`.
+- POST a new status report at `{api_root}/commands/{id}/status` with `status=statusCode`
+- GET on a sub resource `{api_root}/commands/{id}/cancel` (not very RESTful)
+
+Option 3 seems best even though permissions will be a special case since the user sending the command should not be able to change to any status code.
+
+
+
+=== Command Status
+
+
+
+=== System Events
+
+
+

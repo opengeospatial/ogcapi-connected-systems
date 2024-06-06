@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/controlstream/cmd-canonical-endpoint
+
+part:: The server SHALL expose a {command-resources-endpoint} at the path `{api_root}/commands`.
+
+part:: The endpoint SHALL expose all `Command` resources available on the server.
+====

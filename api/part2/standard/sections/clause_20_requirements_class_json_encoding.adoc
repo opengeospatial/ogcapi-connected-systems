@@ -2,7 +2,7 @@
 
 [[clause-encoding-json]]
 === Requirements Class "JSON Encoding"
-include::requirements/encoding/json/requirements_class_json.adoc[]
+include::../requirements/encoding/json/requirements_class_json.adoc[]
 
 
 ==== Overview
@@ -36,7 +36,7 @@ The `Datastream` resource is encoded as a JSON object. JSON members have the sam
 =================
 This is a simple datastream with a single observed property and a single format.
 
-[source%autofit,JSON]
+[source%autofit,json]
 ----
 include::../openapi/examples/datastreams/datastream-simple.json[]
 ----
@@ -70,14 +70,14 @@ When using the plain `application/json` media type for retrieving observations, 
 =================
 This is a simple observation with a scalar observed property, associated to the datastream of the example above.
 
-[source%autofit,JSON]
+[source%autofit,json]
 ----
 include::../openapi/examples/observations/obs-simple.json[]
 ----
 
 This second observation has a vector result type:
 
-[source%autofit,JSON]
+[source%autofit,json]
 ----
 include::../openapi/examples/observations/obs-location.json[]
 ----
@@ -105,7 +105,7 @@ The `ControlStream` resource is encoded as a JSON object. JSON members have the 
 =================
 This is a simple control stream with a single controllable property and a single format.
 
-[source%autofit,JSON]
+[source%autofit,json]
 ----
 include::../openapi/examples/controlStreams/controlStream-ptz.json[]
 ----
@@ -131,7 +131,7 @@ include::../openapi/examples/controlStreams/controlStream-ptz.json[]
 =================
 This is an example command used to task a PTZ camera, encoded in JSON format:
 
-[source%autofit,JSON]
+[source%autofit,json]
 ----
 include::../openapi/examples/commands/command-ptz.json[]
 ----
@@ -156,12 +156,12 @@ include::../openapi/examples/commands/command-ptz.json[]
 =================
 These are example command status reports, encoded in JSON format:
 
-[source%autofit,JSON]
+[source%autofit,json]
 ----
 include::../openapi/examples/commandStatus/command-status-accepted.json[]
 ----
 
-[source%autofit,JSON]
+[source%autofit,json]
 ----
 include::../openapi/examples/commandStatus/command-status-completed.json[]
 ----

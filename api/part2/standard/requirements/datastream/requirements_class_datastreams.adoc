@@ -1,0 +1,19 @@
+[requirement,model=ogc]
+====
+[%metadata]
+type:: class
+identifier:: /req/datastream
+subject:: Web API
+inherit:: http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/req/api-common
+requirement:: /req/datastream/canonical-url
+requirement:: /req/datastream/resources-endpoint
+requirement:: /req/datastream/canonical-endpoint
+requirement:: /req/datastream/ref-from-system
+requirement:: /req/datastream/ref-from-deployment
+requirement:: /req/datastream/collections
+requirement:: /req/datastream/schema-op
+requirement:: /req/datastream/obs-canonical-url
+requirement:: /req/datastream/obs-resources-endpoint
+requirement:: /req/datastream/obs-canonical-endpoint
+requirement:: /req/datastream/obs-ref-from-datastream
+====

@@ -1,0 +1,11 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/datastream/collections
+
+part:: The server SHALL expose at least one resource collection containing `DataStream` resources, as specified in <<clause-resource-collections>>.
+
+part:: The server SHALL identify all resource collections containing `DataStream` resources by setting the `itemType` attribute to `DataStream` in the Collection metadata.
+
+part:: For any resource collection with `itemType` set to `DataStream`, the HTTP GET operation at the path `/collections/{collectionId}/items` SHALL support the query parameters and response of a {datastream-resources-endpoint}.
+====

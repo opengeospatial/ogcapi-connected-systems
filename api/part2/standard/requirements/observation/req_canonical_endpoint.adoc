@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/datastream/obs-canonical-endpoint
+
+part:: The server SHALL expose a {observation-resources-endpoint} at the path `{api_root}/observations`.
+
+part:: The endpoint SHALL expose all `Observation` resources available on the server.
+====

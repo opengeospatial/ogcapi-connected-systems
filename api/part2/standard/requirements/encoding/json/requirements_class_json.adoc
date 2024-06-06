@@ -1,12 +1,8 @@
-[[rc_encoding-json]]
-[cols="1,4",width="90%",options="header"]
-|===
-2+|*Requirements Class*
-2+|http://www.opengis.net/spec/ogcapi-connectedsystems-2/1.0/req/encoding/json
-|Target type              |Web API
-|Dependency               |<<SWECommon-JSON>>
-|Conditional Dependency   |<<clause-datastream-resources>>
-|Conditional Dependency   |<<clause-control-resources>>
-|Conditional Dependency   |<<clause-system-events>>
-|Conditional Dependency   |<<clause-resource-events>>
-|===
+[requirement,model=ogc]
+====
+[%metadata]
+type:: class
+identifier:: /req/json
+subject:: Web API
+inherit:: <<OGC-SWECOMMON>>, SWE Common Data Model Encoding Standard, Clause 9: Requirements Class: JSON Implementation
+====

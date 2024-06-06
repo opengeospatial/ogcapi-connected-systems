@@ -1,0 +1,424 @@
+
+[[clause-control-resources]]
+== Requirements Class "Control Streams & Commands"
+
+=== Overview
+include::../requirements/controlstream/requirements_class_controlstream.adoc[]
+
+This requirements class specifies how `ControlStream`, `Command`, and `CommandStatus` resources are provided using the CS API.
+
+A `ControlStream` resource represents a control channel that is used to change the state of (or affect) a feature of interest (which can be a `System` itself). The state is changed by sending the desired values of certain controllable properties of the feature of interest, but note that the resulting state will not necessarily reflect the exact values requested (If the exact result state must be known, it can be monitored separately using an associated `DataStream` resource).
+
+A `ControlStream` resource represents the real-time stream of command messages sent to the system, as well as all historical commands received through the channel. It can be used to provide access to real-time commands only, archived commands only, or both. The metadata in the `ControlStream` description can used to disambiguate between these cases.
+
+`Command` resources are available through their parent `ControlStream` resource, and each command can lead to the creation of one or more status reports (i.e. `CommandStatus` resources).
+
+`ControlStream` and `Command` resources implement the _http://www.w3.org/ns/sosa/ActuationCollection[ActuationCollection]_ and _http://www.w3.org/ns/sosa/Actuation[Actuation]_ concepts defined in the {ogc-w3c-ssn}, respectively.
+
+
+
+[[clause-controlstream-resource]]
+=== ControlStream Resource
+
+==== Introduction
+
+In the CS API Standard, `ControlStream` resources are a special kind of resource that implements the _http://www.w3.org/ns/sosa/ActuationCollection[sosa:ActuationCollection]_ concept, with the following restrictions:
+
+- All commands in a `ControlStream` are received by the same `System`.
+- All commands in a `ControlStream` share the same controlled properties and the same parameter schema.
+
+This section defines the attributes and associations composing a `ControlStream` resource, but the exact way they are encoded in the payload is defined by each encoding. For encodings defined in this document, please see:
+
+- <<clause-json-controlstream,ControlStream resource as JSON>>
+
+Below is the contextual class diagram of the `ControlStream` resource:
+
+[#controlstream-class,reftext='{figure-caption} {counter:figure-num}']
+.ControlStream Resource Diagram
+image::figures/FIG004-controlstream-class.png[api-class-diagram, align="center"]
+
+==== Properties
+
+The following tables describe the attributes and associations of a `ControlStream` resource and their mapping to SOSA/SSN.
+
+[#controlstream-attributes,reftext='{table-caption} {counter:table-num}']
+.ControlStream Attributes
+[width="100%",cols="5,5,17,3,3",options="header"]
+|====
+| *Name*                 | *SOSA/SSN Property* | *Definition* | *Data Type* | *Usage*
+| `name`                 | `rdfs:label` | The human readable name of the control stream. | String | Required
+| `description`          | `rdfs:comment` | A human readable description for the control stream. | String | Optional
+| `type`                 | - | The type of control stream (see <<controlstream-types>>). | Enum | Optional
+| `validTime`            | `sosa:validTime` | The validity period of the control stream's description. | TimeExtent | Optional
+| `issueTime`            | - | The time period spanned by the issue times of all commands in this datastream. | TimeExtent | Required
+| `executionTime`        | `sosa:phenomenonTime` | The time period spanned by the execution times of all commands in this datastream. | TimeExtent | Required
+| `controlledProperties` | `sosa:actsOnProperty` | Properties whose value can be changed by commands in this control stream. | List<URI> | Required
+| `live`                 | - | Indicates whether the control stream currently accepts commands. | Boolean | Required
+| `formats`              | - | The list of formats that the commands in this control stream can be encoded to. | List<String> | Required
+|====
+
+[#controlstream-types,reftext='{table-caption} {counter:table-num}']
+.ControlStream Types
+[width="100%",cols="2,10",options="header"]
+|====
+| *Type*     | *Usage*
+| self       | For control streams that affect the parent system itself or one of its subsystems.
+| external   | For control streams that affect external features of interest.
+|====
+
+[#controlstream-assocs,reftext='{table-caption} {counter:table-num}']
+.ControlStream Associations
+[width="100%",cols="5,5,10,10,3",options="header"]
+|====
+| *Name*               | *SOSA/SSN Property* | *Definition* | *Target Content* | *Usage*
+| `system`             | `sosa:madeByActuator` | The `System` that received commands from this `ControlStream`. | A single `System` resource. | Required
+| `commands`           | `sosa:hasMember` | The `Commands` that were sent to this control channel. | A list of `Command` resources. | Required
+| `samplingFeatures`   | `sosa:hasFeatureOfInterest` | The `Sampling Features` that are the target of commands in this control stream. | A list of `SamplingFeature` resources. | Optional
+| `featuresOfInterest` | `sosa:hasUltimateFeatureOfInterest` | The ultimate features of interest that are affected by the commands in this control stream. | A list of `Feature` resources. | Optional
+|====
+
+NOTE: In the case of commands/actuations, the `sampling feature` is used to describe where the effector interacts with the feature of interest (e.g. the vent of an A/C system, the part of a larger system, etc.).
+
+
+
+=== ControlStream Canonical URL
+
+The CS API Standard requires that every `ControlStream` resource has a canonical URL.
+
+include::../requirements/controlstream/req_canonical_url.adoc[]
+
+
+
+[[clause-controlstream-resources-endpoint]]
+=== ControlStream Resources Endpoints
+
+==== Definition
+
+A `DataStream` {resources-endpoint} is an endpoint exposing a set of `ControlStream` resources that can be further filtered using query parameters.
+
+include::../requirements/controlstream/req_resources_endpoint.adoc[]
+
+<<clause-datastream-query-params>> defines additional query parameters applicable to `ControlStream` resources endpoint.
+
+==== Canonical ControlStream Resources Endpoint
+
+The CS API Standard requires that a canonical `ControlStream` resources endpoint, exposing all `ControlStream` resources, be made available by the server.
+
+include::../requirements/controlstream/req_canonical_endpoint.adoc[]
+
+==== Nested ControlStream Resources Endpoints
+
+The set of control streams available on a specific system is available at a nested endpoint under the corresponding `System` resource:
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/controlstream/ref-from-system
+
+conditions:: The server implements `http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/req/system`
+
+part:: The server SHALL implement a {controlstream-resources-endpoint} at path `{api_root}/systems/{sysId}/controlstreams` for each available `System` resource.
+
+part:: The endpoint SHALL only expose the `ControlStream` resources associated to the `System` with ID `sysId`.
+====
+
+
+
+=== ControlStream Collections
+
+Any number of resources collections containing `ControlStream` resources can be available at a CS API endpoint. `ControlStream` collections are identified with the item type `ControlStream`.
+
+`ControlStream` resources can be grouped into collections according to any arbitrary criteria, as exemplified below:
+
+[example%unnumbered]
+====
+*Examples of ControlStream Collections*
+
+#TODO#
+- All data collected by organization X at URL `{api_root}/collections/orgx_datastreams`
+- All data collected during a field survey involving multiple sensors at URL `{api_root}/collections/campaignX_datastreams`
+
+_Note that a given control stream can be part of multiple collections at the same time._
+====
+
+include::../requirements/controlstream/req_collections.adoc[]
+
+
+
+=== CommandStream Schemas
+
+Multiple command formats can be offered for any given control stream. This API provides a way for the server to communicate the schema (_not necessarily a JSON schema_) corresponding to each command format.
+
+Note that a different schema is needed for each individual control stream because the exact content of the command `parameters` property changes according to the properties being controlled.
+
+[[req_controlstream-schemas]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/controlstream/schema*
+^| A | The server SHALL expose the schemas for a given `ControlStream` at URL `{controlStreamResourceUrl}/schema`.
+^| B | The server SHALL return a single schema corresponding to the format identified by the mandatory `cmdFormat` query parameter.
+|===
+
+.Example
+=================
+If a control stream reports the following supported command formats:
+
+- `application/json`
+- `application/swe+csv`
+- `application/swe+binary`
+
+The schema for each of these formats is obtained with the following requests, respectively:
+
+- `\https://{api_root}/controls/{id}/schema?cmdFormat=application/json`
+- `\https://{api_root}/controls/{id}/schema?cmdFormat=application/swe%2Bcsv`
+- `\https://{api_root}/controls/{id}/schema?cmdFormat=application/swe%2Bbinary`
+
+Note that the media type in the request has to be properly URL encoded.
+=================
+
+[NOTE]
+The exact content of a schema resource is defined by each encoding. See section <<clause-encoding-json>> for example schemas used for commands encoded using the default JSON format.
+
+
+
+=== Command Resources
+
+In the CS API Standard, `Command` resources are a special kind of resource that implements a generalization of the _http://www.w3.org/ns/sosa/Actuation[sosa:Actuation]_ concept.
+
+In the CS API, `Command` resources are always associated to a `ControlStream` (e.g. a type of http://www.w3.org/ns/sosa/ActuationCollection[ActuationCollection]). Some properties of the command (e.g. link to the parent system, controlled properties) can thus be omitted as they are provided at the control stream level.
+
+In addition, the CS API does not restrict `Command` resources to have a single controlled property. It is thus possible to package the desired value of several controlled parameters in a single command, and processing a command can result in actions on several properties at once (e.g. both orientation and FOV of a camera can be modified with a single 'ptz' command).
+
+Below is the contextual class diagram of the `Command` resource:
+
+[#command-class,reftext='{figure-caption} {counter:figure-num}']
+.Command Resource Diagram
+image::figures/FIG005-command-class.png[api-class-diagram, align="center"]
+
+==== Properties
+
+[#command-properties,reftext='{table-caption} {counter:table-num}']
+.Command Properties
+[width="100%",cols="4,10,3,3",options="header"]
+|====
+| *Name*               | *Definition* | *Data Type* | *Usage*
+| `issueTime`          | The time the command was received by the system. | DateTime | Required*
+| `executionTime`      | The time period during which the command was executed. The time period ends when the effect of the command has modified all controlled properties of the feature of interest. | TimeExtent | Optional
+| `sender`             | Identifier of the user or entity who issued the command | String | Optional
+| `currentStatus`      | Current status code of the command (see <<command-status-codes>>). | Enum | Required*
+| `parameters`         | The value of the command parameters. | Any | Mandatory
+|====
+
+(*) These properties are required when a command is reported by the server but not when creating or updating a command. If provided on creation, they should be ignored by the server.
+
+[[req_command-status]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/command/status*
+^| A | A `Command` resource encoding SHALL use one of the case-sensitive codes provided in <<command-status-codes>> as the value of the `Status` property. +
+       If using a URI is not practical, the encoding SHALL define a mapping between all possible values used to encode the type and the URIs defined in this table.
+^| B | The value of the `currentStatus` property SHALL be the same as the status code listed in the latest status report.
+|===
+
+[#command-assocs,reftext='{table-caption} {counter:table-num}']
+.Command Associations
+[width="100%",cols="5,10,10",options="header"]
+|====
+| *Relation Name*     | *Definition* | *Target Content*
+| `control`           | Link to the `ControlStream` that the command is part of. | A single `ControlStream` resource.
+| `featureOfInterest` | Link to the feature of interest whose properties are changed by this command. | A single `SamplingFeature` resource.
+| `status`            | Link to status reports related to this command. | A collection of `CommandStatus` resources.
+|====
+
+
+=== Command Canonical URL
+
+The CS API Standard requires that every `Command` resource has a canonical URL.
+
+include::../requirements/command/req_canonical_url.adoc[]
+
+
+
+[[clause-command-resources-endpoint]]
+=== Command Resources Endpoint
+
+==== Definition
+
+An `Command` {resources-endpoint} is an endpoint exposing a set of `Command` resources that can be further filtered using query parameters.
+
+include::../requirements/command/req_resources_endpoint.adoc[]
+
+==== Basic Command Filters
+
+An `Command` resources endpoint supports filtering using the query parameters described below.
+
+<<clause-command-query-params>> defines additional query parameters applicable to `Command` resources endpoint.
+
+===== Issue Time Filter
+
+===== Execution Time Filter
+
+===== Sender Filter
+
+===== Status Filter
+
+
+[[clause-commands-endpoint]]
+==== Canonical Command Resources Endpoint
+
+The CS API Standard requires that a canonical `Command` resources endpoint, exposing all `Command` resources, be made available by the server.
+
+include::../requirements/command/req_canonical_endpoint.adoc[]
+
+==== Nested Command Resources Endpoint
+
+The set of commands received within a specific control stream is available at a nested endpoint under the corresponding `ControlStream` resource:
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/controlstream/cmd-ref-from-controlstream
+
+part:: The server SHALL implement a <<clause-commands-endpoint,Command resources endpoint>> at path `{api_root}/controlstream/{csId}/commands` for each available `ControlStream` resource.
+
+part:: The endpoint SHALL only expose the `Command` resources that are part of the parent `ControlStream` with ID `csId`.
+====
+
+
+
+=== Command Collections
+
+Any number of resources collections containing `Command` resources can be available at a CS API endpoint. `Command` collections are identified with the item type `Command`.
+
+`Command` resources can be grouped into collections according to any arbitrary criteria.
+
+include::../requirements/command/req_collections.adoc[]
+
+
+
+=== Command Status Resource
+
+`CommandStatus` resources represent a status report describing the state of a command at a given point in time. Several status reports can be issued for any given command.
+
+When commands are processed synchronously, a single status report is provided. But when commands are processed asynchronously, any number of status reports can be provided by the server. They are used to report early acceptance/rejection of the command, scheduling and execution steps as well as failure and cancellations.
+
+Below is the contextual class diagram of the `CommandStatus` resource:
+
+[#commandstatus-class,reftext='{figure-caption} {counter:figure-num}']
+.Command Status Resource Diagram
+image::figures/FIG006-commandstatus-class.png[api-class-diagram, align="center"]
+
+==== Properties
+
+[[req_commandstatus-props]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/commandstatus/properties*
+^| A | A `CommandStatus` resource SHALL include all mandatory properties listed in <<commandstatus-properties>>.
+|===
+
+[#commandstatus-properties,reftext='{table-caption} {counter:table-num}']
+.Command Status Properties
+[width="100%",cols="4,10,3,3",options="header"]
+|====
+| *Name*                | *Definition* | *Data Type* | *Usage*
+| `reportTime`          | The time when the status report was generated. | DateTime | Mandatory
+| `status`              | Code describing the state of the command (see <<command-status-codes>>). | Enum | Mandatory
+| `percentCompletion`   | Estimated progress as a percentage of total progress. | Number | Optional
+| `executionTime`       | The time period during which the command was executed. The time period ends when the effect of the command has modified all controlled properties of the feature of interest. | TimeExtent | Optional*
+| `message`             | A human readable status message. | String | Optional
+|====
+
+[[req_commandstatus-status]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/commandstatus/status*
+^| A | A `CommandStatus` resource encoding SHALL use one of the case-sensitive codes provided in <<command-status-codes>> as the value of the `status` property. +
+       If using a URI is not practical, the encoding SHALL define a mapping between all possible values used to encode the type and the URIs defined in this table.
+^| B | The status codes SHALL be used as specified by the 'Usage' column of <<command-status-codes>>. Other properties SHALL be set as specified in the table.
+|===
+
+[#command-status-codes,reftext='{table-caption} {counter:table-num}']
+.Command Status Codes
+[width="100%",cols="2,10",options="header"]
+|====
+| *Code*      | *Usage*
+| PENDING     | The command is pending, meaning it has been received by the system but no decision to accept or reject it has been made.
+| ACCEPTED    | The command was accepted by the receiving system. This usually means that the command has passed the first validation steps, but it can still be rejected or fail later during execution.
+| REJECTED    | The command was rejected by the receiving system. It won't be executed at all and the `message` property provides the reason for the rejection. This is a final state. No further status updates will be sent.
+| SCHEDULED   | The command was validated and effectively scheduled by the receiving system. When this status code is used, the scheduled execution time must be provided.
+| UPDATED     | An update to the command was received and accepted. This code must be used if the system supports task updates.
+| CANCELED    | The command was canceled by an authorized user. This code must be used if the system supports user driven task cancellations. The `REJECTED` state should be used instead if the command was canceled by the receiving system. This is a final state. No further status updates will be sent.
+| EXECUTING   | The command is currently being executed by the receiving system. The status message can provide more information about the current progress. A system can send several status updates with this code but different time stamps to report progress incrementally. In particular, the progress percentage and the end of the (estimated) execution time period can be refined in each update.
+| COMPLETED   | The command has completed after a successful execution. The actual execution time must be provided. This is a final state. No further status updates will be sent.
+| FAILED      | The command has failed during execution. The error and/or status message provides the reason for failure. This is a final state. No further status updates will be sent.
+|====
+
+==== Associations
+
+A `CommandStatus` resource is also required to include the following associations:
+
+[[req_commandstatus-links]]
+[width="90%",cols="2,6a",options="header"]
+|===
+^|*Requirement {counter:req-id}* |*/req/commandstatus/links*
+^| A | A `CommandStatus` resource SHALL include the associations defined in <<commandstatus-links>>.
+|===
+
+[#commandstatus-links,reftext='{table-caption} {counter:table-num}']
+.Command Status Associations
+[width="100%",cols="5,10,10",options="header"]
+|====
+| *Relation Name*     | *Definition* | *Target Content*
+| `command`            | Link to the `Command` that this status report relates to. | A single `Command` resource.
+|====
+
+
+
+WARNING: Move this to a separate requirements class called "Task Results"
+
+=== Command Result
+
+Certain types of commands lead to the production of data (e.g. tasking a system for data collection, triggering a process such a simulation run, etc.).
+
+Different types of result can be attached to a command status report:
+
+- Reference to one or more datastreams containing the result data, with an optional time range.
+- Reference to one or more individual observations containing the result data.
+- Reference to a collection of observations containing the result data (how the collection is implementation dependent).
+- Inline result data encoded as described by the command stream result schema (can be one or more records)
+
+NOTE: In the case of a command result provided inline, the result data may or may not be also recorded in a datastream.
+
+NOTE: The result attached to a command status report 
+
+
+.Example
+=================
+Example use cases are the following:
+
+- A command is used to trigger a new run of a chemical plume dispersion model with certain parameters. The output of the model is a time series of particle locations, where each observation provides the location of all particles for a given time (phenomenonTime). Each processed command leads to the creation of a new datastream that will contain all observations resulting for the model run. 
+
+- A command is used to task a UAV to collect video data while orbiting around a building. The output is a set of may observations (i.e. video frames) that are appended to the existing video datastream of the UAV. When the task is completed, a last status report is provided with the `statusCode=COMPLETED` and a reference to the video datastream with a time range selecting the portion of the video stream that is relevant to the task.
+
+- A command is used to task a UAV to collect an image at a specific location. The output is a single observation that is appended to the existing image datastream of the UAV. When the task is completed, a last status report is provided with the `statusCode=COMPLETED` and a reference to the image observation.
+
+- A command is used to task an earth observation satellite to collect imagery to cover a given geographic area (i.e. coverage request). The output is a set of one or more image observations that are appended to the existing image datastream of the EO sensor. When the task is completed, a last status report is provided with the `statusCode=COMPLETED` and references to all the collected image observations.
+
+- A command is used to query the state of a system. The output of the query is provided in the inline result of the command.
+
+- A command is used to trigger a simple on-demand process that computes temporal averages of parameters in a datastream over a certain time period. The output of the process is provided in the inline result of the command.
+
+=================
+
+
+
+=== Command Feasibility
+
+The execution of certain commands is sometimes impossible due to internal or external constraints (e.g. conflict with other scheduled commands, conflict with another user that has exclusive control on the system, etc.).
+
+In order for a client to know if a command/task is feasible, without sending the actual command, feasibility channels are supported by the CS API. In addition to providing a binary (i.e. YES/NO) response to a feasibility request, the CS API provides a mechanism to include detailed feasibility analysis in the response (e.g. provide chances of success, provide task execution details), as well as suggest alternatives if the command is not feasible or has a low chance of success.
+
+A feasibility channel is a regular command stream that is associated to the corresponding command channel. The parameters on the feasibility channel are exactly the same as the ones on the associated command channel, but the response is different. Instead of 
+
+

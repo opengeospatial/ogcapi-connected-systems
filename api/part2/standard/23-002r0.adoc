@@ -18,15 +18,22 @@
 :local-cache-only:
 :data-uri-image:
 :edition: 1.0
-
-:ogcapi-common: https://ogcapi.ogc.org/common[OGC API - Common]
-:ogcapi-common-1: https://docs.ogc.org/DRAFTS/19-072.html[OGC API - Common - Part 1]
-:ogcapi-common-2: https://docs.ogc.org/DRAFTS/20-024.html[OGC API - Common - Part 2]
-:ogcapi-features: https://ogcapi.ogc.org/features[OGC API - Features]
-:ogcapi-features-1: https://docs.ogc.org/is/17-069r4/17-069r4.html[OGC API - Features - Part 1]
-:ogcapi-features-4: https://docs.ogc.org/DRAFTS/20-002.html[OGC API - Features - Part 4]
-:ogc-w3c-ssn: https://www.w3.org/TR/vocab-ssn[Semantic Sensor Network Ontology]
-
+//
+:ogcapi-cs-1: <<OGCAPI-CS-1, OGC API - Connected Systems - Part 1>>
+:ogcapi-common: <<OGCAPI-Common-1, OGC API - Common>>
+:ogcapi-common-1: <<OGCAPI-Common-1, OGC API - Common - Part 1: Core>>
+:ogcapi-common-2: <<OGCAPI-Common-2, OGC API - Common - Part 2: Collections>>
+:ogcapi-features: <<OGCAPI-Features-1, OGC API - Features>>
+:ogcapi-features-1: <<OGCAPI-Features-1, OGC API - Features - Part 1: Core>>
+:ogcapi-features-4: <<OGCAPI-Features-4, OGC API - Features - Part 4: Create, Replace, Update and Delete>>
+:ogc-w3c-ssn: <<SOSA-SSN, Semantic Sensor Network Ontology (SOSA/SSN)>>
+//
+:resources-endpoint: link:file:///home/alex/Projects/OGC/CONNSYS%20SWG/connected-systems/api/part1/standard/23-001r0.html#_endpoint_types[resources endpoint]
+:datastream-resources-endpoint: <<clause-datastream-resources-endpoint,DataStream resources endpoint>>
+:observation-resources-endpoint: <<clause-observation-resources-endpoint,Observation resources endpoint>>
+:controlstream-resources-endpoint: <<clause-controlstream-resources-endpoint,ControlStream resources endpoint>>
+:command-resources-endpoint: <<clause-command-resources-endpoint,Command resources endpoint>>
+//
 :jsonschema-base-url: https://raw.githubusercontent.com/opengeospatial/connected-systems/master/api/part2/openapi/schemas
 
 
@@ -51,7 +58,7 @@ include::sections/clause_7_requirements_class_common.adoc[]
 
 include::sections/clause_8_requirements_class_datastreams.adoc[]
 
-include::sections/clause_9_requirements_class_controls.adoc[]
+include::sections/clause_9_requirements_class_controlstreams.adoc[]
 
 include::sections/clause_10_requirements_class_system_events.adoc[]
 
@@ -59,13 +66,9 @@ include::sections/clause_11_requirements_class_system_history.adoc[]
 
 include::sections/clause_12_requirements_class_resource_events.adoc[]
 
-// filtering
-
 include::sections/clause_13_requirements_class_advanced_filtering.adoc[]
 
-// create/replace/update/delete
-
-include::sections/clause_14_requirements_class_resource_crud.adoc[]
+include::sections/clause_14_requirements_class_create_replace_delete.adoc[]
 
 
 == Requirements Classes for Encodings
@@ -77,15 +80,6 @@ include::sections/clause_21_requirements_class_swecommon_json_encoding.adoc[]
 include::sections/clause_22_requirements_class_swecommon_text_encoding.adoc[]
 
 include::sections/clause_23_requirements_class_swecommon_binary_encoding.adoc[]
-
-//include::sections/clause_24_requirements_class_swecommon_protobuf_encoding.adoc[]
-
-
-== Requirements Classes for Transport Protocols
-
-include::sections/clause_30_requirements_class_websocket.adoc[]
-
-include::sections/clause_31_requirements_class_mqtt.adoc[]
 
 
 ////

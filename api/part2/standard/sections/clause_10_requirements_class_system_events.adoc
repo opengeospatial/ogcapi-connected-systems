@@ -1,7 +1,7 @@
 
 [[clause-system-events]]
 == Requirements Class "System Events"
-include::requirements/system/requirements_class_system_events.adoc[]
+include::../requirements/system/requirements_class_system_events.adoc[]
 
 === Overview
 

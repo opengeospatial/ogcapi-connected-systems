@@ -1,7 +1,7 @@
 
 [[clause-encoding-swetext]]
 === Requirements Class "SWE Common Text Encoding"
-include::requirements/encoding/swecommon/requirements_class_swecommon_text.adoc[]
+include::../requirements/encoding/swecommon/requirements_class_swecommon_text.adoc[]
 
 
 ==== Overview

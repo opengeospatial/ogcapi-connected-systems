@@ -1,11 +1,8 @@
-[[rc_resource-crud]]
-[cols="1,4",width="90%",options="header"]
-|===
-2+|*Requirements Class*
-2+|http://www.opengis.net/spec/ogcapi-connectedsystems-2/1.0/req/resource-crud
-|Target type    |Web API
-|Dependency     |<<clause-api-common>>
-|Dependency     |http://www.opengis.net/spec/ogcapi-features-4/1.0/req/create-replace-delete[^]
-|Conditional
- Dependency     |http://www.opengis.net/spec/ogcapi-features-4/1.0/req/update[^]
-|===
+[requirement,model=ogc]
+====
+[%metadata]
+type:: class
+identifier:: /req/create-replace-delete
+subject:: Web API
+inherit:: http://www.opengis.net/spec/ogcapi-features-4/1.0/req/create-replace-delete
+====
