@@ -1,70 +1,128 @@
 == Terms and definitions
 
-This document uses the terms defined in Sub-clause 5.3 of <<OGC06-121r9>>, which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word "`shall`" (not "`must`") is the verb form used to indicate a requirement to be strictly followed to conform to this standard.
+All terms defined in {ogcapi-common-1}, {ogcapi-features-1} and {ogcapi-features-4} also apply.
 
-For the purposes of this document, the following additional terms and definitions apply.
-
-#TODO# 
 
 === Application Programming Interface (API)
-a formally defined set of types and methods which establish a contract between client code which uses the API
-and implementation code which provides the API
+A formally defined set of types and methods which establish a contract between client code which uses the API
+and implementation code which provides the API.
+
+
+=== Actuation
+An Actuation carries out an (Actuation) Procedure to change the state of the world using an Actuator.
+
+[.source]
+<<SOSA/SSN, SOSA-SSN, http://www.w3.org/ns/sosa/Actuation[Actuation Class]>>
+
+
+=== Actuator
+A device that is used by, or implements, an (Actuation) Procedure that changes the state of the world.
+
+[.source]
+<<SOSA/SSN, SOSA-SSN, http://www.w3.org/ns/sosa/Actuator[Actuator Class]>>
+
 
 === Command
-
-
-=== Control Stream
+A Command is a message that is sent to a System to trigger an Actuation. The Command message contains the parameters of the Actuation.
 
 
 === Connected Systems
-Collections of interrelated systems consisting of information technology (IT) devices, sensors, and actuators that can seamlessly interact.
+Collections of interrelated systems consisting of information technology (IT) devices, sensors, actuators, platforms, and processes that can seamlessly interact.
 
-=== Datastream (or Data Stream)
+
+=== Control Stream
+A Control Stream is a collection of Commands targeted at the same System, and sharing the same controlled properties.
+
+
+=== Data Stream
+A Data Stream (or Datastream) is a collection of Observations acquired by the same System, and sharing the same observed properties. 
+
+
+=== Deployment
+Describes the Deployment of one or more Systems for a particular purpose. Deployment may be done on a Platform.
+
+[.source]
+<<SOSA-SSN, SOSA/SSN, http://www.w3.org/ns/ssn/Deployment[Deployment Class]>>
 
 
 === Feature
-Abstraction of real-world phenomena
+Abstraction of real-world phenomena.
 
 [.source]
 <<ISO19101, ISO-19101, definition 4.11>>
 
+
+=== Feature Collection
+A set of features from a dataset.
+
+[.source]
+<<OGCAPI-Features-1, OGC API - Features, definition 4.1.4>>
+
+
+=== Feature of Interest
+The thing whose property is being estimated or calculated in the course of an Observation to arrive at a Result, or whose property is being manipulated by an Actuator, or which is being sampled or transformed in an act of Sampling.
+
+[.source]
+<<SOSA-SSN, SOSA/SSN, http://www.w3.org/ns/sosa/FeatureOfInterest[FeatureOfInterest Class]>>
+
+
 === Observation
-Act of observing a property
+Act of carrying out an (Observation) Procedure to estimate or calculate a value of a property of a Feature of Interest.
 
 [.source]
-<<ISO19156, ISO-19156, definition 4.10>>
+<<SOSA-SSN, SOSA/SSN, http://www.w3.org/ns/sosa/Observation[Observation Class]>>
 
-=== Observation Procedure
-Method, algorithm or instrument, or system of these which may be used in making an observation
+
+=== Platform
+A Platform is an entity that hosts other entities, particularly Sensors, Actuators, Samplers, and other Platforms.
 
 [.source]
-<<ISO19156, ISO-19156, definition 4.11>>
+<<SOSA-SSN, SOSA/SSN, http://www.w3.org/ns/sosa/Platform[Platform Class]>>
 
-Note: In the context of the sensor web, an observation procedure is often composed of one or more sensors that transform a real world phenomenon into digital information, plus additional processing steps.
+
+=== Procedure
+A workflow, protocol, plan, algorithm, or computational method specifying how to make an Observation, create a Sample, or make a change to the state of the world (via an Actuator). A Procedure is re-usable, and might be involved in many Observations, Samplings, or Actuations. It explains the steps to be carried out to arrive at reproducible Results.
+
+[.source]
+<<SOSA-SSN, SOSA/SSN, http://www.w3.org/ns/sosa/Procedure[Procedure Class]>>
+
 
 === Property
-Facet or attribute of an object referenced by a name 
-Example	: Abby's car has the colour red, where "colour red" is a property of the car instance
+Facet or attribute of an object referenced by a name.
+
+Example	: Abby's car has the color red, where "color red" is a property of the car instance
 
 [.source]
 <<ISO19143, ISO-19143>>
 
+
+=== Sample
+Feature which is intended to be representative of a FeatureOfInterest on which Observations may be made.
+
+[.source]
+<<SOSA-SSN, SOSA/SSN, http://www.w3.org/ns/sosa/Sample[Sample Class]>>
+
+
+=== Sampler
+A device that is used by, or implements, a (Sampling) Procedure to create or transform one or more samples.
+
+[.source]
+<<SOSA-SSN, SOSA/SSN, http://www.w3.org/ns/sosa/Sampler[Sampler Class]>>
+
+
+=== Sampling Feature
+Feature representing a subset of a FeatureOfInterest on which properties are observed or controlled. For Observations, Sampling Feature is a synonym of Sample.
+
+
 === Sensor
-Type of observation procedure that provides the estimated value of an observed property at its output
-Note: A sensor uses a combination of physical, chemical or biological means in order to estimate the underlying observed property. At the end of the measuring chain electronic devices often produce signals to be processed
+Device, agent (including humans), or software (simulation) involved in, or implementing, a Procedure. Sensors respond to a Stimulus, e.g., a change in the environment, or Input data composed from the Results of prior Observations, and generate a Result. Sensors can be hosted by Platforms.
 
-=== Sensor Network
-A collection of sensors and processing nodes, in which information on properties observed by the sensors may be transferred and processed
-Note:	 A particular type of a sensor network is an ad hoc sensor network.
+[.source]
+<<SOSA-SSN, SOSA/SSN, http://www.w3.org/ns/sosa/Sensor[Sensor Class]>>
 
-=== Sensor Data
-List of digital values produced by a sensor that represents estimated values of one or more observed properties of one or more features
-Note: Sensor data is usually available in the form of data streams or computer files.
 
-=== Sensor Related Data
-List of digital values produced by a sensor that contains auxiliary information that is not directly related to the value of observed properties
-Example: sensor status, quality of measure, quality of service, etc… When such data is measured, it is sometimes considered sensor data as well.
+=== System
+System is a unit of abstraction for pieces of infrastructure that implement Procedures. A System may have components, its subsystems, which are other Systems.
 
-=== Data Component
-Element of sensor data definition corresponding to an atomic or aggregate data type
-Note: A data component is a part of the overall dataset definition. The dataset structure can then be seen as a hierarchical tree of data components. 
+[.source]
+<<SOSA-SSN, SOSA/SSN, http://www.w3.org/ns/ssn/System[System Class]>>
