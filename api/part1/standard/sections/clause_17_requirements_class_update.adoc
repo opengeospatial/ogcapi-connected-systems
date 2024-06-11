@@ -19,7 +19,7 @@ All resources are updated using the UPDATE (HTTP PATCH) operation, as defined by
 [%metadata]
 identifier:: /req/update/system
 
-conditions:: The server implements <<clause-system-features,/req/system-features>>
+conditions:: The server implements <<clause-system-features,style=basic%>>
 
 part:: For `System` features, the resource endpoints used for UPDATE operations SHALL be the URIs specified by the following URI templates:
   - `{api_root}/systems/{id}`
@@ -36,7 +36,7 @@ part:: The parameter `systemCollectionId` SHALL correspond to the `id` property 
 [%metadata]
 identifier:: /req/update/deployment
 
-conditions:: The server implements <<clause-deployment-features,/req/deployment-features>>
+conditions:: The server implements <<clause-deployment-features,style=basic%>>
 
 part:: For `Deployment` features, the resource endpoints used for UPDATE operations SHALL be the URIs specified by the following URI templates:
   - `{api_root}/deployments/{id}`
@@ -53,7 +53,7 @@ part:: The parameter `deploymentCollectionId` SHALL correspond to the `id` prope
 [%metadata]
 identifier:: /req/update/procedure
 
-conditions:: The server implements <<clause-procedure-features,/req/procedure-features>>
+conditions:: The server implements <<clause-procedure-features,style=basic%>>
 
 part:: For `Procedure` features, the resource endpoints used for UPDATE operations SHALL be the URIs specified by the following URI templates:
   - `{api_root}/procedures/{id}`
@@ -70,7 +70,7 @@ part:: The parameter `procedureCollectionId` SHALL correspond to the `id` proper
 [%metadata]
 identifier:: /req/update/sampling-feature
 
-conditions:: The server implements <<clause-sampling-features,/req/sampling-features>>
+conditions:: The server implements <<clause-sampling-features,style=basic%>>
 
 part:: For `Sampling Features`, the resource endpoints used for UPDATE operations SHALL be the URIs specified by the following URI templates:
   - `{api_root}/systems/{parentId}/samplingFeatures/{id}`
@@ -88,7 +88,7 @@ part:: The parameter `sfCollectionId` SHALL correspond to the `id` property of a
 [%metadata]
 identifier:: /req/update/property
 
-conditions:: The server implements <<clause-derived-properties,/req/derived-properties>>
+conditions:: The server implements <<clause-derived-properties,style=basic%>>
 
 part:: For `Property` features, the resource endpoints used for UPDATE operations SHALL be the URIs specified by the following URI templates:
   - `{api_root}/properties/{id}`

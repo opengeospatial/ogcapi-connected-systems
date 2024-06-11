@@ -31,7 +31,7 @@ The server SHALL support the media type `{geojson-mediatype}` in the HTTP `Accep
 [%metadata]
 identifier:: /req/geojson/mediatype-write
 
-conditions:: The server implements <<clause-resource-crd,/req/create-replace-delete>>.
+conditions:: The server implements <<clause-resource-crd,style=basic%>>.
 
 The server SHALL support the media type `{geojson-mediatype}` in the HTTP `Content-Type` header and parse the JSON body according to the resource type.
 ====
@@ -247,8 +247,6 @@ include::../openapi/examples/procedures/sensor-datasheet-geojson.json[]
 ====
 [%metadata]
 identifier:: /req/geojson/sf-schema
-
-conditions:: The server implements <<clause-sampling-features,/req/sampling-features>>.
 
 part:: A GeoJSON document containing a single `Sampling Feature` SHALL be valid against the JSON schema {geojson-samplingFeature-schema}.
 

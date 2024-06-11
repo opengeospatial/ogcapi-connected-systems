@@ -4,7 +4,7 @@
 === Overview
 include::../requirements/crud/requirements_class_crd.adoc[]
 
-The "Create/Replace/Delete" requirements class specifies how instances of the resource types defined previously are created, replaced and deleted via a CS API endpoint.
+The "Create/Replace/Delete" requirements class specifies how instances of the resource types defined in this Standard are created, replaced and deleted via a CS API endpoint.
 
 All resources are created, replaced and deleted using CREATE (HTTP POST), REPLACE (HTTP PUT) and DELETE (HTTP DELETE) operations, respectively, as defined by the {ogcapi-features-4} Standard.
 
@@ -18,7 +18,7 @@ All resources are created, replaced and deleted using CREATE (HTTP POST), REPLAC
 [%metadata]
 identifier:: /req/create-replace-delete/system
 
-conditions:: The server implements <<clause-system-features,/req/system-features>>
+conditions:: The server implements <<clause-system-features,style=basic%>>
 
 part:: For `System` features, the resources endpoints used for CREATE operations SHALL be the URIs specified by the following URI templates:
   - `{api_root}/systems`
@@ -38,7 +38,7 @@ The following constraints must be implemented by the server.
 [%metadata]
 identifier:: /req/create-replace-delete/system-delete-cascade
 
-conditions:: The server implements <<clause-system-features,/req/system-features>>
+conditions:: The server implements <<clause-system-features,style=basic%>>
 
 part:: By default, the server SHALL reject a DELETE request on a `System` resource that has nested resources (i.e. subsystems, sampling features, datastreams, control streams) or that is associated with a deployment.
 
@@ -57,7 +57,7 @@ Subsystems (i.e. system components) can only be created as sub-resources of a pa
 [%metadata]
 identifier:: /req/create-replace-delete/subsystem
 
-conditions:: The server implements <<clause-subsystems,/req/subsystem>>
+conditions:: The server implements <<clause-subsystems,style=basic%>>
 
 part:: The resources endpoints used for adding subsystems (CREATE operation) SHALL be the URIs specified by the following URI template:
   - `{api_root}/systems/{parentId}/subsystems`
@@ -73,7 +73,7 @@ NOTE: There is no operation to "move" a subsystem from one parent to another. To
 [%metadata]
 identifier:: /req/create-replace-delete/deployment
 
-conditions:: The server implements <<clause-deployment-features,/req/deployment-features>>
+conditions:: The server implements <<clause-deployment-features,style=basic%>>
 
 part:: For `Deployment` features, the resources endpoints used for CREATE operations SHALL be the URIs specified by the following URI templates:
   - `{api_root}/deployments`
@@ -96,7 +96,7 @@ Subdeployments can only be created as sub-resources of a parent deployment, but 
 [%metadata]
 identifier:: /req/create-replace-delete/subdeployment
 
-conditions:: The server implements <<clause-subdeployments,/req/subdeployment>>
+conditions:: The server implements <<clause-subdeployments,style=basic%>>
 
 part:: The resources endpoints used for adding subdeployments (CREATE operation) SHALL be the URIs specified by the following URI template:
   - `{api_root}/deployments/{parentId}/subdeployments`
@@ -110,7 +110,7 @@ part:: The resources endpoints used for adding subdeployments (CREATE operation)
 [%metadata]
 identifier:: /req/create-replace-delete/procedure
 
-conditions:: The server implements <<clause-procedure-features,/req/procedure-features>>
+conditions:: The server implements <<clause-procedure-features,style=basic%>>
 
 part:: For `Procedure` features, the resources endpoints used for CREATE operations SHALL be the URIs specified by the following URI templates:
   - `{api_root}/procedures`
@@ -133,7 +133,7 @@ part:: The parameter `procedureCollectionId` SHALL correspond to the `id` proper
 [%metadata]
 identifier:: /req/create-replace-delete/sampling-feature
 
-conditions:: The server implements <<clause-sampling-features,/req/sampling-features>>
+conditions:: The server implements <<clause-sampling-features,style=basic%>>
 
 part:: For `Sampling Features`, the resources endpoints used for CREATE operations SHALL be the URIs specified by the following URI templates:
   - `{api_root}/samplingFeatures`
@@ -156,7 +156,7 @@ part:: The parameter `sfCollectionId` SHALL correspond to the `id` property of a
 [%metadata]
 identifier:: /req/create-replace-delete/property
 
-conditions:: The server implements <<clause-derived-properties,/req/derived-properties>>
+conditions:: The server implements <<clause-derived-properties,style=basic%>>
 
 part:: For `Property` resources, the resources endpoints used for CREATE operations SHALL be the URIs specified by the following URI templates:
   - `{api_root}/properties`
