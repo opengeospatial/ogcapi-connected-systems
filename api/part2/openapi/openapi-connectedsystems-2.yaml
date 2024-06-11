@@ -25,7 +25,7 @@ servers:
     description: Local test server
 
 tags:
-  - name: Datastreams
+  - name: Data Streams
     description: |-
       Datastreams allow access to observations produced by systems, in various formats.
       They also provide metadata describing the exact meaning of properties included in the observations.
@@ -36,7 +36,7 @@ tags:
     description: |-
       Access to historical and real-time observations.
 
-  - name: Control Channels
+  - name: Control Streams
     description: |-
       Control channels (or control streams) allow sending commands to systems, in various formats.
       They also provide metadata describing the exact meaning and content of command messages.
@@ -73,13 +73,13 @@ paths:
 
   # Observations
   /observations:
-    $ref: paths/observations.yaml
+     $ref: paths/observations.yaml
 
   /datastreams/{dataStreamId}/observations:
-    $ref: paths/dataStreamObservations.yaml
+     $ref: paths/dataStreamObservations.yaml
 
   /observations/{obsId}:
-    $ref: paths/observationById.yaml
+     $ref: paths/observationById.yaml
 
   # Control Streams
   /controlstreams:

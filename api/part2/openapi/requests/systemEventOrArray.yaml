@@ -5,12 +5,12 @@ content:
     schema:
       oneOf:
       - title: Single Event
-        $ref: ../schemas/json/systemEvent_create.json
+        $ref: ../schemas/json/systemEvent.json
       - title: Multiple Events
         type: array
         minItems: 1
         items:
-          $ref: ../schemas/json/systemEvent_create.json
+          $ref: ../schemas/json/systemEvent.json
     examples:
       simple:
         summary: Calibration Event

@@ -83,11 +83,19 @@
           "type": "boolean",
           "readOnly": true
         },
+        "schema": {
+          "description": "Schema describing the content of observations in this datastream. The exact syntax of the schema depends on the encoding format.",
+          "$ref": "dataStreamSchema.json",
+          "writeOnly": true
+        },
         "links": {
           "description": "Other links to related resources",
           "$ref": "../common/commonDefs.json#/definitions/Links"
         }
       }
     }
+  ],
+  "required": [
+    "name"
   ]
 }

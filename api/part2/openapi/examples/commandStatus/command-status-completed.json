@@ -2,6 +2,6 @@
   "id": "155rufq7aplr8id10839fc8d6u0ulqfu1bjfumo",
   "command@id": "1125alnna75hafppknk9aefpvs",
   "reportTime": "2021-03-15T04:53:36.021Z",
-  "status": "COMPLETED",
+  "statusCode": "COMPLETED",
   "message": "Camera moved to new position"
 }

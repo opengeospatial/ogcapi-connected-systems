@@ -2,10 +2,10 @@ parameters:
   - $ref: ../parameters/dataStreamId.yaml
 
 get:
-  summary: Retrieve a datastream description by ID
+  summary: Retrieve a datastream by ID
   description: 
   tags:
-    - Datastreams
+    - Data Streams
   #parameters:
   #  - $ref: '#/components/parameters/select'
   responses:
@@ -23,10 +23,10 @@ get:
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
 
 put:
-  summary: Update a datastream description
+  summary: Update a datastream
   description: 
   tags:
-    - Datastreams
+    - Data Streams
   requestBody:
     $ref: ../requests/dataStream.yaml
   responses:
@@ -50,7 +50,7 @@ delete:
 
     If the `cascade` parameter is used, all associated observations are also deleted.
   tags:
-    - Datastreams
+    - Data Streams
   parameters:
     - $ref: ../../../part1/openapi/parameters/cascade.yaml
   responses:

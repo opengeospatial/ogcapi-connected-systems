@@ -5,9 +5,9 @@ content:
     schema:
       oneOf:
       - title: Single Report
-        $ref: ../schemas/json/commandStatus_create.json
+        $ref: ../schemas/json/commandStatus.json
       - title: Multiple Reports
         type: array
         minItems: 1
         items:
-          $ref: ../schemas/json/commandStatus_create.json
+          $ref: ../schemas/json/commandStatus.json

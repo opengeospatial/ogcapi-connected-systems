@@ -5,12 +5,12 @@ content:
     schema:
       oneOf:
       - title: Single Command
-        $ref: ../schemas/json/command_create.json
+        $ref: ../schemas/json/command.json
       - title: Multiple Commands
         type: array
         minItems: 1
         items:
-          $ref: ../schemas/json/command_create.json
+          $ref: ../schemas/json/command.json
     examples:
       ptz:
         summary: PTZ Commands

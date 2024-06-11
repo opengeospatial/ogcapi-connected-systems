@@ -2,10 +2,10 @@ parameters:
   - $ref: ../parameters/controlStreamId.yaml
 
 get:
-  summary: Retrieve a control stream description by ID
+  summary: Retrieve a control stream by ID
   description: 
   tags:
-    - Control Channels
+    - Control Streams
   #parameters:
   #  - $ref: '#/components/parameters/select'
   responses:
@@ -23,10 +23,10 @@ get:
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
 
 put:
-  summary: Update a control stream description
+  summary: Update a control stream
   description: 
   tags:
-    - Control Channels
+    - Control Streams
   requestBody:
     $ref: ../requests/controlStream.yaml
   responses:
@@ -50,7 +50,7 @@ delete:
 
     If the `cascade` parameter is used, all associated commands and command status are also deleted.
   tags:
-    - Control Channels
+    - Control Streams
   parameters:
     - $ref: ../../../part1/openapi/parameters/cascade.yaml
   responses:

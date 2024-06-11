@@ -5,12 +5,12 @@ content:
     schema:
       oneOf:
       - title: Single Control Stream
-        $ref: ../schemas/json/controlStream_create.json
+        $ref: ../schemas/json/controlStream.json
       - title: Multiple Control Streams
         type: array
         minItems: 1
         items:
-          $ref: ../schemas/json/controlStream_create.json
+          $ref: ../schemas/json/controlStream.json
     examples:
       ptz:
         summary: PTZ Control

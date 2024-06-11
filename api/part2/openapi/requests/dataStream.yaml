@@ -2,4 +2,4 @@ description: A single `Datastream` resource
 content:
   application/json:
     schema:
-      $ref: ../schemas/json/dataStream_replace.json
+      $ref: ../schemas/json/dataStream.json

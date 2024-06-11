@@ -6,7 +6,7 @@ get:
   description: |-
     The type of observation schema returned depends on the observation encoding format selected using the `obsFormat` parameter.
   tags:
-    - Datastreams
+    - Data Streams
   parameters:
     - $ref: ../parameters/obsFormat.yaml
     - $ref: ../parameters/schemaType.yaml
@@ -31,7 +31,7 @@ put:
     reject certain updates to the schema (e.g. adding or removing result fields, changing UoM, etc.).
     In this case, the `409` response code is used.
   tags:
-    - Datastreams
+    - Data Streams
   requestBody:
     $ref: ../requests/dataStreamSchema.yaml
   responses:

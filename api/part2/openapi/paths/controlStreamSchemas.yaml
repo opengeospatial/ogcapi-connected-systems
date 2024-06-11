@@ -5,7 +5,7 @@ get:
   summary: Retrieve a control stream schema for a given format
   description: 
   tags:
-    - Control Channels
+    - Control Streams
   parameters:
     - $ref: ../parameters/cmdFormat.yaml
     - $ref: ../parameters/schemaType.yaml
@@ -30,7 +30,7 @@ put:
     reject certain updates to the schema (e.g. adding or removing parameters, changing UoM, etc.).
     In this case, the `409` response code is used.
   tags:
-    - Control Channels
+    - Control Streams
   requestBody:
     $ref: ../requests/controlStreamSchema.yaml
   responses:

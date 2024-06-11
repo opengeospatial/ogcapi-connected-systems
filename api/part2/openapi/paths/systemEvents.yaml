@@ -2,7 +2,7 @@ parameters:
   - $ref: ../../../part1/openapi/parameters/systemId.yaml
 
 get:
-  summary: List events about a specific system
+  summary: List events of a specific system
   description: |-
     List or search events about the parent system.
   tags:

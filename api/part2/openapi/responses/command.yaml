@@ -2,7 +2,7 @@ description: OK. Successful request
 content:
   application/json:
     schema:
-      $ref: ../schemas/json/command_view.json
+      $ref: ../schemas/json/command.json
       properties:
         links:
           description: Links to related resources

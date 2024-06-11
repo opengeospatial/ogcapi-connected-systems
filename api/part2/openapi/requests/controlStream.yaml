@@ -2,4 +2,4 @@ description: A single `Control Stream` resource
 content:
   application/json:
     schema:
-      $ref: ../schemas/json/controlStream_replace.json
+      $ref: ../schemas/json/controlStream.json

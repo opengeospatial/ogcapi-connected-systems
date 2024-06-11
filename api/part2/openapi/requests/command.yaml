@@ -2,7 +2,7 @@ description: A single `Command` resource
 content:
   application/json:
     schema:
-      $ref: ../schemas/json/command_replace.json
+      $ref: ../schemas/json/command.json
         
   application/swe+json:
     schema:

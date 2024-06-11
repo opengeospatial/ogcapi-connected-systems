@@ -6,7 +6,7 @@ get:
   description: |-
     List or search datastreams available from the parent system.
   tags:
-    - Datastreams
+    - Data Streams
   parameters:
     - $ref: ../parameters/phenomenonTime.yaml
     - $ref: ../parameters/resultTime.yaml
@@ -37,9 +37,9 @@ post:
     On success, the server will send a `200` response with the list of URIs of all created resources,
     in the same order as the array in the request.
   tags:
-    - Datastreams
+    - Data Streams
   requestBody:
-    $ref: ../requests/dataStreamOrArray.yaml
+    $ref: ../requests/dataStream.yaml
   responses:
     '200':
       $ref: ../../../part1/openapi/responses/resourceLinks.yaml

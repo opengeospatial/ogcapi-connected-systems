@@ -2,7 +2,7 @@ description: OK. Successful request
 content:
   application/sml+json:
     schema:
-      $ref: ../schemas/json/systemEvent_view.json
+      $ref: ../schemas/json/systemEvent.json
       properties:
         links:
           description: Links to related resources

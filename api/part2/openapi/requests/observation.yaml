@@ -2,11 +2,7 @@ description: A single `Observation` resource
 content:
   application/om+json:
     schema:
-      $ref: ../schemas/json/observation_replace.json
-      properties:
-        links:
-          description: Links to related resources
-          $ref: ../schemas/common/commonDefs.json#/definitions/Links
+      $ref: ../schemas/json/observation.json
         
   application/swe+json:
     schema:

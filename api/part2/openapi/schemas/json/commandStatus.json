@@ -11,7 +11,8 @@
     "command@id": {
       "description": "Local identifier of the command that this report applies to",
       "type": "string",
-      "minLength": 1
+      "minLength": 1,
+      "readOnly": true
     },
     "reportTime": {
       "description": "Time at which this report was generated. If omitted on creation, the server sets it to the time the request was received.",
@@ -43,5 +44,8 @@
         "$ref": "commandResult.json#/definitions/ResultOptions"
       }
     }
-  }
+  },
+  "required": [
+    "statusCode"
+  ]
 }

@@ -8,7 +8,7 @@
     "2021-03-15T04:53:36.021Z"
   ],
   "currentStatus": "COMPLETED",
-  "params": {
+  "parameters": {
     "pan": -10.0,
     "tilt": 23.0,
     "zoom": 0.4

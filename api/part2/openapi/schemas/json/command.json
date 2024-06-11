@@ -11,19 +11,11 @@
     "controlstream@id": {
       "description": "Local ID of the control stream that the command is part of. This can be omitted when posting the command to a specific control stream URL.",
       "type": "string",
-      "minLength": 1
+      "minLength": 1,
+      "readOnly": true
     },
     "samplingFeature@id": {
       "description": "Local ID of the sampling feature that is the target of the command",
-      "type": "string",
-      "minLength": 1
-    },
-    "samplingFeature@link": {
-      "description": "Link to the sampling feature that is the target of the command",
-      "$ref": "../common/commonDefs.json#/definitions/Link"
-    },
-    "procedure@id": {
-      "description": "Local ID of the procedure/method used to process the command",
       "type": "string",
       "minLength": 1
     },
@@ -53,5 +45,8 @@
     "parameters": {
       "description": "Command parameters. Must be valid according to the schema provided in the control stream metadata"
     }
-  }
+  },
+  "required": [
+    "parameters"
+  ]
 }

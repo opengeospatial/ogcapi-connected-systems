@@ -67,8 +67,12 @@
         },
         "async": {
           "description": "Flag indicating if the command channel processes commands asynchronously",
-          "type": "boolean",
-          "readOnly": true
+          "type": "boolean"
+        },
+        "schema": {
+          "description": "Schema describing the content of commands in this control stream. The exact syntax of the schema depends on the encoding format.",
+          "$ref": "controlStreamSchema.json",
+          "writeOnly": true
         },
         "links": {
           "description": "Links to related resources",
@@ -76,5 +80,8 @@
         }
       }
     }
+  ],
+  "required": [
+    "name"
   ]
 }

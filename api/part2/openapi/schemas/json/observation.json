@@ -11,23 +11,11 @@
     "datastream@id": {
       "description": "Local ID of the datastream that the observation is part of",
       "type": "string",
-      "minLength": 1
-    },
-    "datastream@link": {
-      "description": "Link to the datastream that the observation is part of",
-      "$ref": "../common/commonDefs.json#/definitions/Link"
+      "minLength": 1,
+      "readOnly": true
     },
     "samplingFeature@id": {
       "description": "Local ID of the sampling feature that is the target of the observation",
-      "type": "string",
-      "minLength": 1
-    },
-    "samplingFeature@link": {
-      "description": "Link to the sampling feature that is the target of the observation",
-      "$ref": "../common/commonDefs.json#/definitions/Link"
-    },
-    "procedure@id": {
-      "description": "Local ID of the procedure/method used to make the observation",
       "type": "string",
       "minLength": 1
     },
@@ -50,9 +38,22 @@
     "result": {
       "description": "Result of the observation. Must be valid according to the result schema provided in the datastream metadata."
     },
-    "result@links": {
+    "result@link": {
       "description": "Link to external result data (e.g. large raster dataset served by a tiling service)",
-      "$ref": "../common/commonDefs.json#/definitions/Links"
+      "$ref": "../common/commonDefs.json#/definitions/Link"
     }
-  }
+  },
+  "required": [
+    "resultTime"
+  ],
+  "oneOf": [
+    { 
+      "title": "Inline result",
+      "required": ["result"]
+    },
+    {
+      "title": "Link to external result",
+      "required": ["result@link"]
+    }
+  ]
 }

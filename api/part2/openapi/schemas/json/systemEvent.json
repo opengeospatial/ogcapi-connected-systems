@@ -11,7 +11,12 @@
           "description": "Links to related resources",
           "$ref": "../common/commonDefs.json#/definitions/Links"
         }
-      }
+      },
+      "required": [
+        "definition",
+        "label",
+        "time"
+      ]
     }
   ]
 }

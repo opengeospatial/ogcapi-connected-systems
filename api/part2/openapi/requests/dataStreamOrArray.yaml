@@ -5,12 +5,12 @@ content:
     schema:
       oneOf:
       - title: Single Datastream
-        $ref: ../schemas/json/dataStream_create.json
+        $ref: ../schemas/json/dataStream.json
       - title: Multiple Datastreams
         type: array
         minItems: 1
         items:
-          $ref: ../schemas/json/dataStream_create.json
+          $ref: ../schemas/json/dataStream.json
     examples:
       simple:
         summary: Simple Datastream (1 observed property)

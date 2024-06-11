@@ -2,7 +2,7 @@ description: OK. Successful request
 content:
   application/json:
     schema:
-      $ref: ../schemas/json/dataStream_view.json
+      $ref: ../schemas/json/dataStream.json
     examples:
       simple:
         summary: Simple Datastream (1 observed property)

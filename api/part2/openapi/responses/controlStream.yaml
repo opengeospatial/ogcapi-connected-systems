@@ -2,4 +2,4 @@ description: OK. Successful request
 content:
   application/json:
     schema:
-      $ref: ../schemas/json/controlStream_view.json
+      $ref: ../schemas/json/controlStream.json
