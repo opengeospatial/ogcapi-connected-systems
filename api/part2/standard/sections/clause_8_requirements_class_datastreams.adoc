@@ -1,5 +1,5 @@
 
-[[clause-datastream-resources]]
+[[clause-datastreams]]
 == Requirements Class "Datastreams & Observations"
 
 === Overview

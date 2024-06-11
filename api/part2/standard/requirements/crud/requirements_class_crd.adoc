@@ -1,0 +1,20 @@
+[requirement,model=ogc]
+====
+[%metadata]
+type:: class
+identifier:: /req/create-replace-delete
+subject:: Web API
+inherit:: http://www.opengis.net/spec/ogcapi-features-4/1.0/req/create-replace-delete[^]
+requirement:: /req/create-replace-delete/datastream
+requirement:: /req/create-replace-delete/datastream-update-schema
+requirement:: /req/create-replace-delete/datastream-delete-cascade
+requirement:: /req/create-replace-delete/observation
+requirement:: /req/create-replace-delete/observation-schema
+requirement:: /req/create-replace-delete/controlstream
+requirement:: /req/create-replace-delete/controlstream-update-schema
+requirement:: /req/create-replace-delete/controlstream-delete-cascade
+requirement:: /req/create-replace-delete/command
+requirement:: /req/create-replace-delete/command-schema
+requirement:: /req/create-replace-delete/command-status
+requirement:: /req/create-replace-delete/system-event
+====

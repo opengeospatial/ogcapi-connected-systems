@@ -1,48 +1,217 @@
-
-[[clause-resource-crud]]
+[[clause-resource-crd]]
 == Requirements Class "Create/Replace/Delete"
-include::../requirements/crud/requirements_class_crud.adoc[]
-
 
 === Overview
+include::../requirements/crud/requirements_class_crd.adoc[]
 
-This requirements class specifies how instances of the resource types defined in this Standard are created, replaced, udpated and deleted using the API.
+The "Create/Replace/Delete" requirements class specifies how instances of the resource types defined in this Standard are created, replaced and deleted via a CS API endpoint.
+
+All resources are created, replaced and deleted using CREATE (HTTP POST), REPLACE (HTTP PUT) and DELETE (HTTP DELETE) operations, respectively, as defined by the {ogcapi-features-4} Standard.
+
+{ogcapi-features-4} uses the terms "resources endpoint" and "resource endpoint" to identify the paths where these operations are supported by the server. The following sections provide these endpoints for each resource type defined by the CS API Standard.
+
 
 
 === DataStreams
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/datastream
+
+conditions:: The server implements <<clause-datastreams,style=basic%>>
+
+part:: The server SHALL support the CREATE operation at the `DataStream` resources endpoints defined by the following URI template:
+  - `{api_root}/systems/{sysId}/datastreams`
+
+part:: The server SHALL support the REPLACE and DELETE operations at the `DataStream` resource endpoints defined by the following URI templates:
+  - `{api_root}/systems/{sysId}/datastreams/{id}`
+  - `{api_root}/datastreams/{id}`
+
+part:: The `sysId` parameter is the local identifier of the `System` resource the `DataStream` is (or will be) associated to. +
+       The `id` parameter is the local identifier of the `DataStream` resource to replace or delete.
+====
+
+The following constraints must be implemented by the server.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/datastream-update-schema
+
+conditions:: The server implements <<clause-datastreams,style=basic%>>
+
+part:: The server SHALL reject a REPLACE request on a `DataStream` resource that modifies the observation schema if the `DataStream` already has nested `Observation` resources. The server SHALL use HTTP status code 409 to report the error.
+====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/datastream-delete-cascade
+
+conditions:: The server implements <<clause-datastreams,style=basic%>>
+
+part:: By default, the server SHALL reject a DELETE request on a `DataStream` resource that has nested `Observation` resources. The server SHALL use HTTP status code 409 to report the error.
+
+part:: If the request contains the `cascade` parameter, the server SHALL accept the DELETE request and delete the `DataStream` resource as well as all its nested `Observation` resources.
+====
 
 
 
 === Observations
 
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/observation
+
+conditions:: The server implements <<clause-datastreams,style=basic%>>
+
+part:: The server SHALL support the CREATE operation at the `Observation` resources endpoints defined by the following URI template:
+  - `{api_root}/datastreams/{dsId}/observations`
+
+part:: The server SHALL support the REPLACE and DELETE operations at the `Observation` resource endpoints defined by the following URI templates:
+  - `{api_root}/datastreams/{dsId}/observations`
+  - `{api_root}/observations/{id}`
+
+part:: The `dsId` parameter is the local identifier of the `DataStream` resource the `Observation` is (or will be) associated to. +
+       The `id` parameter is the local identifier of the `Observation` resource to replace or delete.
+====
+
+The following constraints must be implemented by the server.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/observation-schema
+
+conditions:: The server implements <<clause-datastreams,style=basic%>>
+
+part:: The server SHALL reject an `Observation` CREATE or REPLACE request with HTTP status code 400 if the `Observation` representation is not valid with respect to the schema provided by the parent `DataStream` resource.
+====
+
 
 
 === Control Streams
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/controlstream
+
+conditions:: The server implements <<clause-controlstreams,style=basic%>>
+
+part:: The server SHALL support the CREATE operation at the `ControlStream` resources endpoints defined by the following URI template:
+  - `{api_root}/systems/{sysId}/controlstreams`
+
+part:: The server SHALL support the REPLACE and DELETE operations at the `ControlStream` resource endpoints defined by the following URI templates:
+  - `{api_root}/systems/{sysId}/controlstreams/{id}`
+  - `{api_root}/controlstreams/{id}`
+
+part:: The `sysId` parameter is the local identifier of the `System` resource the `ControlStream` is (or will be) associated to. +
+       The `id` parameter is the local identifier of the `ControlStream` resource to replace or delete.
+====
+
+The following constraints must be implemented by the server.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/controlstream-update-schema
+
+conditions:: The server implements <<clause-controlstreams,style=basic%>>
+
+part:: The server SHALL reject a REPLACE request on a `ControlStream` resource that modifies the command schema if the `ControlStream` already has nested `Command` resources. The server SHALL use HTTP status code 409 to report the error.
+====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/controlstream-delete-cascade
+
+conditions:: The server implements <<clause-controlstreams,style=basic%>>
+
+part:: By default, the server SHALL reject a DELETE request on a `ControlStream` resource that has nested `Command` resources. The server SHALL use HTTP status code 409 to report the error.
+
+part:: If the request contains the `cascade` parameter, the server SHALL accept the DELETE request and delete the `ControlStream` resource as well as all its nested `Command` resources.
+====
 
 
 
 === Commands
 
-==== Command Cancellation
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/command
 
-Cancel is different from DELETE because the resource must stay on the server.
+conditions:: The server implements <<clause-controlstreams,style=basic%>>
 
-Several options:
+part:: The server SHALL support the CREATE operation at the `Command` resources endpoints defined by the following URI template:
+  - `{api_root}/controlstreams/{csId}/commands`
 
-- Use a PUT request at `{api_root}/commands/{id}` to replace the command resource with a new one that has `currentStatus=CANCELED`.
-- Use a PATCH request at `{api_root}/commands/{id}` to set `currentStatus=CANCELED`.
-- POST a new status report at `{api_root}/commands/{id}/status` with `status=statusCode`
-- GET on a sub resource `{api_root}/commands/{id}/cancel` (not very RESTful)
+part:: The server SHALL support the REPLACE and DELETE operations at the `Command` resource endpoints defined by the following URI templates:
+  - `{api_root}/controlstreams/{csId}/commands`
+  - `{api_root}/commands/{id}`
 
-Option 3 seems best even though permissions will be a special case since the user sending the command should not be able to change to any status code.
+part:: The `csId` parameter is the local identifier of the `ControlStream` resource the `Command` is (or will be) associated to. +
+       The `id` parameter is the local identifier of the `Command` resource to replace or delete.
+====
+
+The following constraints must be implemented by the server.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/command-schema
+
+conditions:: The server implements <<clause-controlstreams,style=basic%>>
+
+part:: The server SHALL reject a `Command` CREATE or REPLACE request with HTTP status code 400 if the `Command` representation is not valid with respect to the schema provided by the parent `ControlStream` resource.
+====
+
+NOTE: Cancelling a command is different from deleting the `Command` resource with an HTTP DELETE request. When a command is cancelled, the `Command` resource remain on the server but its status is changed to `CANCELED` (and of course the command processing should be aborted whenever possible). Command cancellation is implemented by posting a new status report with status code `CANCELED` at the command status endpoint. See requirements for `CommandStatus` resources endpoints below.
 
 
 
 === Command Status
 
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/command-status
+
+conditions:: The server implements <<clause-controlstreams,style=basic%>>
+
+part:: The server SHALL support the CREATE operation at the `CommandStatus` resources endpoints defined by the following URI template:
+  - `{api_root}/commands/{cmdId}/status`
+
+part:: The server SHALL support the REPLACE and DELETE operations at the `CommandStatus` resource endpoints defined by the following URI template:
+  - `{api_root}/commands/{cmdId}/status/{id}`
+
+part:: The `cmdId` parameter is the local identifier of the `Command` resource the `CommandStatus` is (or will be) associated to. +
+       The `id` parameter is the local identifier of the `CommandStatus` resource to replace or delete.
+====
+
 
 
 === System Events
 
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/system-event
 
+conditions:: The server implements <<clause-system-events,style=basic%>>
+
+part:: The server SHALL support the CREATE operation at the `SystemEvent` resources endpoints defined by the following URI template:
+  - `{api_root}/systems/{sysId}/events`
+
+part:: The server SHALL support the REPLACE and DELETE operations at the `SystemEvent` resource endpoints defined by the following URI template:
+  - `{api_root}/systems/{sysId}/events/{id}`
+  - `{api_root}/systemEvents/{id}`
+
+part:: The `sysId` parameter is the local identifier of the `System` resource the `SystemEvent` is (or will be) associated to. +
+       The `id` parameter is the local identifier of the `SystemEvent` resource to replace or delete.
+====
 

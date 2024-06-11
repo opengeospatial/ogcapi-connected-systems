@@ -1,5 +1,5 @@
 
-[[clause-control-resources]]
+[[clause-controlstreams]]
 == Requirements Class "Control Streams & Commands"
 
 === Overview
