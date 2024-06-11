@@ -56,6 +56,10 @@ part:: By default, the server SHALL reject a DELETE request on a `DataStream` re
 part:: If the request contains the `cascade` parameter, the server SHALL accept the DELETE request and delete the `DataStream` resource as well as all its nested `Observation` resources.
 ====
 
+NOTE: A schema must be provided before observations can be inserted in the datastream. The schema is provided along with the `DataStream` resource itself. Only one schema (for only one format) can be provided by a create operation for a given datastream. However, the server is allowed to automatically convert observations to/from other supported formats, as appropriate. This implies that the server can also automatically generate equivalent schemas for these other formats. Future extensions may define patterns to allow client to define multiple schemas themselves.
+
+NOTE: After a datastream has been created and observations have been associated to it, the server may reject certain updates to the schema (e.g. adding or removing result fields, changing UoM, etc.). Datastream schema evolution will be addressed in more details in a future revision, but the current workaround is to create a new datastream if the schema changes.
+
 
 
 === Observations

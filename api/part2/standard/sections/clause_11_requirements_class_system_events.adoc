@@ -21,7 +21,7 @@ Below is the contextual class diagram of the `SystemEvent` resource:
 
 [#system-event-class,reftext='{figure-caption} {counter:figure-num}']
 .System Event Diagram
-image::figures/FIG007-systemevent-class.png[api-class-diagram, align="center"]
+image::figures/FIG008-systemevent-class.png[api-class-diagram, align="center"]
 
 ==== Properties
 

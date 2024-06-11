@@ -1,0 +1,30 @@
+[[clause-dynamic-feature-props]]
+== Requirements Class "Dynamic Feature Properties"
+
+[cols="1,4",width="90%",options="header"]
+|===
+2+|*Requirements Class*
+2+|http://www.opengis.net/spec/ogcapi-connectedsystems-2/1.0/req/dynamic-props
+|Target type    |Web API
+|Dependency     |http://www.opengis.net/spec/ogcapi-connected-systems-1/1.0/core
+|===
+
+=== Overview
+
+Dynamic feature properties are feature properties whose values change over time.
+
+
+=== Dynamic Tag
+
+This requirements class defines a tag to be used in any JSON representation to identify properties that are dynamic (i.e. time varying).
+
+This is done by adding the `@dynamic` suffix to any JSON member name and setting the value to true.
+
+
+=== Feature Snapshot
+
+This requirements class also defines a behavior of a server when using the existing `datetime` property in a request.
+
+For dynamic features, when the `datetime` query parameter is used to specify a time instant, (and the `snapshot` parameter is set to true?), the server must take a snapshot of the feature properties at the specified time.
+
+This can be used in conjunction with the `temporalProperties` sub resource provided by OGC API - Moving Features.

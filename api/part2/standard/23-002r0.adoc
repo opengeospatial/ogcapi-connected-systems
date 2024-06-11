@@ -62,17 +62,19 @@ include::sections/clause_8_requirements_class_datastreams.adoc[]
 
 include::sections/clause_9_requirements_class_controlstreams.adoc[]
 
-include::sections/clause_10_requirements_class_system_events.adoc[]
+include::sections/clause_10_requirements_class_command_feasibility.adoc[]
 
-include::sections/clause_11_requirements_class_system_history.adoc[]
+include::sections/clause_11_requirements_class_system_events.adoc[]
 
-// include::sections/clause_12_requirements_class_simple_filtering.adoc[]
+include::sections/clause_12_requirements_class_system_history.adoc[]
 
-include::sections/clause_13_requirements_class_advanced_filtering.adoc[]
+// include::sections/clause_13_requirements_class_simple_filtering.adoc[]
 
-include::sections/clause_14_requirements_class_create_replace_delete.adoc[]
+include::sections/clause_14_requirements_class_advanced_filtering.adoc[]
 
-include::sections/clause_15_requirements_class_update.adoc[]
+include::sections/clause_15_requirements_class_create_replace_delete.adoc[]
+
+include::sections/clause_16_requirements_class_update.adoc[]
 
 
 == Requirements Classes for Encodings

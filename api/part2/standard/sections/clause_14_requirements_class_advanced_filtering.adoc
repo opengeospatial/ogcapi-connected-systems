@@ -21,6 +21,8 @@ All filters defined in this section are implemented using URL query parameters a
 [[clause-observation-query-params]]
 === Observation Query Parameters
 
+The following query parameters are used to filter `Observation` resources at an {obs-resources-endpoint}.
+
 ==== Phenomenon Time Filter
 
 This filter is used to select observations based on their `phenomenonTime` property.
@@ -86,3 +88,12 @@ part:: In addition to the possible parameter values defined in {ogcapi-features-
 [[clause-command-query-params]]
 === Command Query Parameters
 
+The following query parameters are used to filter `Command` resources at an {command-resources-endpoint}.
+
+==== Issue Time Filter
+
+==== Execution Time Filter
+
+==== Sender Filter
+
+==== Status Filter

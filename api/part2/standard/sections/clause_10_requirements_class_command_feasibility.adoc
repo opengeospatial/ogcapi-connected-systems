@@ -1,0 +1,10 @@
+[[clause-command-feasibility]]
+== Requirements Class "Command Feasibility"
+
+=== Overview
+
+The execution of certain commands is sometimes impossible due to internal or external constraints (e.g. conflict with other scheduled commands, conflict with another user that has exclusive control on the system, etc.).
+
+In order for a client to know if a command/task is feasible, without sending the actual command, feasibility channels are supported by the CS API. In addition to providing a binary (i.e. YES/NO) response to a feasibility request, the CS API provides a mechanism to include detailed feasibility analysis in the response (e.g. provide chances of success, provide task execution details), as well as suggest alternatives if the command is not feasible or has a low chance of success.
+
+A feasibility channel is a regular command stream that is associated to the corresponding command channel. The parameters on the feasibility channel are exactly the same as the ones on the associated command channel, but the response is different. Instead of 
