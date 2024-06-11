@@ -34,19 +34,17 @@ The table below provides a short summary description of these resource types:
 |====
 | *Resource Type*    | *Description*                                        | *Requirements Class*            | *Possible Encodings*
 | DataStream         | Description of datastreams, including
-                       observed properties and features of interest.     .2+| <<clause-datastream-resources>> | JSON
+                       observed properties and features of interest.     .2+| <<clause-datastreams,style=basic%>> | JSON
 | Observation        | Actual observations, including the result data.                                        | JSON, +
                                                                                                                 SWE-JSON, SWE-Text, SWE-Binary
 | ControlStream      | Description of control channels, including
-                       controllable properties and features of interest. .3+| <<clause-control-resources>>    | JSON
+                       controllable properties and features of interest. .3+| <<clause-controlstreams>>    | JSON
 | Command            | Actual command messages, including the command
                        parameters data.                                                                       | JSON, +
                                                                                                                 SWE-JSON, SWE-Text, SWE-Binary
 | Command Status     | Status info about a given command.                                                     | JSON
 | System Event       | System events are generated when a system is under
                        maintenance or moved.                                | <<clause-system-events>>        | SML-JSON
-| Resource Event     | Resource events are generated when resources are
-                       created, updated or deleted.                         | <<clause-resource-events>>      | JSON
 |====
 
 NOTE: The encodings listed in the table are the ones defined in this Standard document but extensions can define additional encodings.

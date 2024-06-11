@@ -24,7 +24,7 @@ The `Datastream` resource is encoded as a JSON object. JSON members have the sam
 [width="90%",cols="2,6a",options="header"]
 |===
 ^|*Requirement {counter:req-id}* |*/req/encoding/json/datastream-schema*
-^| Condition | Server implements <<clause-datastream-resources>>.
+^| Condition | Server implements <<clause-datastreams,style=basic%>>.
 ^| A | A 200-response with the media type `application/json` containing `Datastream` resources SHALL conform to one of the following schemas:
 
        - link:{json-schema-root}/datastreamCollection.json[datastreamCollection.json] for a collection of datastreams, and
@@ -58,7 +58,7 @@ When using the plain `application/json` media type for retrieving observations, 
 [width="90%",cols="2,6a",options="header"]
 |===
 ^|*Requirement {counter:req-id}* |*/req/encoding/json/observation-schema*
-^| Condition | Server implements <<clause-datastream-resources>>.
+^| Condition | Server implements <<clause-datastreams,style=basic%>>.
 ^| A | A 200-response with the media type `application/json` containing `Observation` resources SHALL conform to one of the following schemas:
 
        - link:{json-schema-root}/observationCollection.json[observationCollection.json] for a collection of observations, and
@@ -93,7 +93,7 @@ The `ControlStream` resource is encoded as a JSON object. JSON members have the 
 [width="90%",cols="2,6a",options="header"]
 |===
 ^|*Requirement {counter:req-id}* |*/req/encoding/json/controlstream-schema*
-^| Condition | Server implements <<clause-control-resources>>.
+^| Condition | Server implements <<clause-controlstreams,style=basic%>>.
 ^| A | A 200-response with the media type `application/json` containing `ControlStream` resources SHALL conform to one of the following schemas:
 
        - link:{json-schema-root}/controlStreamCollection.json[controlStreamCollection.json] for a collection of control streams, and
@@ -119,7 +119,7 @@ include::../openapi/examples/controlStreams/controlStream-ptz.json[]
 [width="90%",cols="2,6a",options="header"]
 |===
 ^|*Requirement {counter:req-id}* |*/req/encoding/json/command-schema*
-^| Condition | Server implements <<clause-control-resources>>.
+^| Condition | Server implements <<clause-controlstreams,style=basic%>>.
 ^| A | A 200-response with the media type `application/json` containing `Command` resources SHALL conform to one of the following schemas:
 
        - link:{json-schema-root}/commandCollection.json[commandCollection.json] for a collection of commands, and
@@ -144,7 +144,7 @@ include::../openapi/examples/commands/command-ptz.json[]
 [width="90%",cols="2,6a",options="header"]
 |===
 ^|*Requirement {counter:req-id}* |*/req/encoding/json/command-status-schema*
-^| Condition | Server implements <<clause-control-resources>>.
+^| Condition | Server implements <<clause-controlstreams,style=basic%>>.
 ^| A | A 200-response with the media type `application/json` containing `CommandStatus` resources SHALL conform to one of the following schemas:
 
        - link:{json-schema-root}/commandStatusCollection.json[commandStatusCollection.json] for a collection of command status reports, and
