@@ -30,7 +30,7 @@ The table below provides a short summary description of these resource types:
 
 [#feature-types,reftext='{table-caption} {counter:table-num}']
 .Overview of resource types defined by this Standard
-[width="90%",cols="2,4,6,2"]
+[width="100%",cols="2,2,6,3",options="header"]
 |====
 | *Resource Type*    | *Requirements Class*      | *Description*          | *Possible Encodings*
 | DataStream         | <<clause-datastreams>>    | Description of datastreams, including observed properties and features of interest.| JSON
