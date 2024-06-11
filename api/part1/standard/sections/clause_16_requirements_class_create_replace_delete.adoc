@@ -20,15 +20,13 @@ identifier:: /req/create-replace-delete/system
 
 conditions:: The server implements <<clause-system-features,style=basic%>>
 
-part:: For `System` features, the resources endpoints used for CREATE operations SHALL be the URIs specified by the following URI templates:
+part:: The server SHALL support the CREATE operation at the `System` resources endpoints defined by the following URI template:
   - `{api_root}/systems`
-  - `{api_root}/collections/{systemCollectionId}/items`
 
-part:: For `System` features, the resource endpoints used for REPLACE and DELETE operations SHALL be the URIs specified by the following URI templates:
+part:: The server SHALL support the REPLACE and DELETE operations at the `System` resources endpoints defined by the following URI template:
   - `{api_root}/systems/{id}`
-  - `{api_root}/collections/{systemCollectionId}/items/{id}`
 
-part:: The parameter `systemCollectionId` SHALL correspond to the `id` property of a `System` feature collection.
+part:: The `id` parameter SHALL be the local identifier of the `System` resource to replace or delete.
 ====
 
 The following constraints must be implemented by the server.
@@ -59,11 +57,13 @@ identifier:: /req/create-replace-delete/subsystem
 
 conditions:: The server implements <<clause-subsystems,style=basic%>>
 
-part:: The resources endpoints used for adding subsystems (CREATE operation) SHALL be the URIs specified by the following URI template:
+part:: The server SHALL support the CREATE operation at the `System` resources endpoints defined by the following URI template:
   - `{api_root}/systems/{parentId}/subsystems`
+
+part:: The operation SHALL result in the creation of a new `System` and its association with the `System` system with id `parentId`.
 ====
 
-NOTE: There is no operation to "move" a subsystem from one parent to another. To achieve this, the client must delete the subsystem and recreate it under another parent system.
+NOTE: There is no operation to "move" a subsystem from one parent to another. To achieve this, the client must first delete the subsystem at its canonical URI and recreate it under another parent system.
 
 
 === Deployments
@@ -75,15 +75,13 @@ identifier:: /req/create-replace-delete/deployment
 
 conditions:: The server implements <<clause-deployment-features,style=basic%>>
 
-part:: For `Deployment` features, the resources endpoints used for CREATE operations SHALL be the URIs specified by the following URI templates:
+part:: The server SHALL support the CREATE operation at the `Deployment` resources endpoints defined by the following URI template:
   - `{api_root}/deployments`
-  - `{api_root}/collections/{deploymentCollectionId}/items`
 
-part:: For `Deployment` features, the resource endpoints used for REPLACE and DELETE operations SHALL be the URIs specified by the following URI templates:
+part:: The server SHALL support the REPLACE and DELETE operations at the `Deployment` resources endpoints defined by the following URI template:
   - `{api_root}/deployments/{id}`
-  - `{api_root}/collections/{deploymentCollectionId}/items/{id}`
 
-part:: The parameter `deploymentCollectionId` SHALL correspond to the `id` property of a `Deployment` feature collection.
+part:: The `id` parameter SHALL be the local identifier of the `Deployment` resource to replace or delete.
 ====
 
 
@@ -98,8 +96,10 @@ identifier:: /req/create-replace-delete/subdeployment
 
 conditions:: The server implements <<clause-subdeployments,style=basic%>>
 
-part:: The resources endpoints used for adding subdeployments (CREATE operation) SHALL be the URIs specified by the following URI template:
+part:: The server SHALL support the CREATE operation at the `Deployment` resources endpoints defined by the following URI template:
   - `{api_root}/deployments/{parentId}/subdeployments`
+
+part:: The operation SHALL result in the creation of a new `Deployment` and its association with the parent `Deployment` with id `parentId`.
 ====
 
 
@@ -112,15 +112,13 @@ identifier:: /req/create-replace-delete/procedure
 
 conditions:: The server implements <<clause-procedure-features,style=basic%>>
 
-part:: For `Procedure` features, the resources endpoints used for CREATE operations SHALL be the URIs specified by the following URI templates:
+part:: The server SHALL support the CREATE operation at the `Procedure` resources endpoints defined by the following URI template:
   - `{api_root}/procedures`
-  - `{api_root}/collections/{procedureCollectionId}/items`
 
-part:: For `Procedure` features, the resource endpoints used for REPLACE and DELETE operations SHALL be the URIs specified by the following URI templates:
+part:: The server SHALL support the REPLACE and DELETE operations at the `Procedure` resources endpoints defined by the following URI template:
   - `{api_root}/procedures/{id}`
-  - `{api_root}/collections/{procedureCollectionId}/items/{id}`
 
-part:: The parameter `procedureCollectionId` SHALL correspond to the `id` property of a `Procedure` feature collection.
+part:: The `id` parameter SHALL be the local identifier of the `Procedure` resource to replace or delete.
 ====
 
 
@@ -135,15 +133,15 @@ identifier:: /req/create-replace-delete/sampling-feature
 
 conditions:: The server implements <<clause-sampling-features,style=basic%>>
 
-part:: For `Sampling Features`, the resources endpoints used for CREATE operations SHALL be the URIs specified by the following URI templates:
-  - `{api_root}/samplingFeatures`
-
-part:: For `Sampling Features`, the resource endpoints used for REPLACE and DELETE operations SHALL be the URIs specified by the following URI templates:
+part:: The server SHALL support the CREATE operation at the `Sampling Feature` resources endpoints defined by the following URI template:
   - `{api_root}/systems/{sysId}/samplingFeatures/{id}`
-  - `{api_root}/samplingFeatures/{id}`
-  - `{api_root}/collections/{sfCollectionId}/items/{id}`
 
-part:: The parameter `sfCollectionId` SHALL correspond to the `id` property of a `Sampling Feature` collection.
+part:: The server SHALL support the REPLACE and DELETE operations at the `Sampling Feature` resources endpoints defined by the following URI templates:
+  - `{api_root}/samplingFeatures/{id}`
+  - `{api_root}/systems/{sysId}/samplingFeatures/{id}`
+
+part::  The `sysId` parameter SHALL be the local identifier of the parent `System` resource that the new sampling feature is or will be attached to. +
+        The `id` parameter SHALL be the local identifier of the `Sampling Feature` resource to replace or delete.
 ====
 
 
@@ -158,15 +156,13 @@ identifier:: /req/create-replace-delete/property
 
 conditions:: The server implements <<clause-derived-properties,style=basic%>>
 
-part:: For `Property` resources, the resources endpoints used for CREATE operations SHALL be the URIs specified by the following URI templates:
+part:: The server SHALL support the CREATE operation at the `Property` resources endpoints defined by the following URI template:
   - `{api_root}/properties`
-  - `{api_root}/collections/{propertyCollectionId}/items`
 
-part:: For `Property` resources, the resource endpoints used for REPLACE and DELETE operations SHALL be the URIs specified by the following URI templates:
+part:: The server SHALL support the REPLACE and DELETE operations at the `Property` resources endpoints defined by the following URI template:
   - `{api_root}/properties/{id}`
-  - `{api_root}/collections/{propertyCollectionId}/items/{id}`
 
-part:: The parameter `propertyCollectionId` SHALL correspond to the `id` property of a `Property` resource collection.
+part:: The `id` parameter SHALL be the local identifier of the `Property` resource to replace or delete.
 ====
 
 
