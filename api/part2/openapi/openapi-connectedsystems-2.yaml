@@ -82,23 +82,23 @@ paths:
     $ref: paths/observationById.yaml
 
   # Control Streams
-  /controls:
+  /controlstreams:
     $ref: paths/controlStreams.yaml
 
-  /systems/{systemId}/controls:
+  /systems/{systemId}/controlstreams:
     $ref: paths/systemControlStreams.yaml
 
-  /controls/{controlStreamId}:
+  /controlstreams/{controlStreamId}:
     $ref: paths/controlStreamById.yaml
 
-  /controls/{controlStreamId}/schema:
+  /controlstreams/{controlStreamId}/schema:
     $ref: paths/controlStreamSchemas.yaml
 
   # Commands
   /commands:
     $ref: paths/commands.yaml
 
-  /controls/{controlStreamId}/commands:
+  /controlstreams/{controlStreamId}/commands:
     $ref: paths/controlStreamCommands.yaml
 
   /commands/{cmdId}:

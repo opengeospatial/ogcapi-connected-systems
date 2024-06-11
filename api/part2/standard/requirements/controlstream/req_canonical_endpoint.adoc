@@ -3,7 +3,7 @@
 [%metadata]
 identifier:: /req/controlstream/canonical-endpoint
 
-part:: The server SHALL expose a {controlstream-resources-endpoint} at the path `{api_root}/controls`.
+part:: The server SHALL expose a {controlstream-resources-endpoint} at the path `{api_root}/controlstreams`.
 
 part:: The endpoint SHALL expose all `ControlStream` resources available on the server.
 ====

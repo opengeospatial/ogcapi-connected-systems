@@ -63,9 +63,9 @@ The canonical resources endpoints for resource types defined in Part 2 of the CS
 
 - `{api_root}/datastreams`
 - `{api_root}/observations`
-- `{api_root}/controls`
+- `{api_root}/controlstreams`
 - `{api_root}/commands`
-- `{api_root}/systemevents`
+- `{api_root}/systemEvents`
 
 ==== Canonical Resource Endpoints
 
@@ -73,6 +73,6 @@ The canonical URL templates to access a single resource defined in Part 2 of the
 
 - `{api_root}/datastreams/{id}`
 - `{api_root}/observations/{id}`
-- `{api_root}/controls/{id}`
+- `{api_root}/controlstreams/{id}`
 - `{api_root}/commands/{id}`
-- `{api_root}/systemevents/{id}`
+- `{api_root}/systemEvents/{id}`
