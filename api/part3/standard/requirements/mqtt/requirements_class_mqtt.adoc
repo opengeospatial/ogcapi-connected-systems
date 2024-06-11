@@ -5,8 +5,8 @@
 2+|http://www.opengis.net/spec/ogcapi-connectedsystems-2/1.0/req/protocol/mqtt
 |Target type              |Web API
 |Dependency               |<<MQTT>>
-|Conditional Dependency   |<<clause-datastream-resources>>
-|Conditional Dependency   |<<clause-control-resources>>
+|Conditional Dependency   |<<clause-datastreams>>
+|Conditional Dependency   |<<clause-controlstreams>>
 |Conditional Dependency   |<<clause-system-events>>
 |Conditional Dependency   |<<clause-resource-events>>
 |===
