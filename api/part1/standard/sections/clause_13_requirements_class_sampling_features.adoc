@@ -141,6 +141,20 @@ The CS API Standard requires that a canonical `Sampling Feature` resources endpo
 
 include::../requirements/sf/req_canonical_endpoint.adoc[]
 
+==== Nested Sampling Feature Resources Endpoint
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/sf/ref-from-system
+
+part:: The server SHALL expose a {sf-resources-endpoint} at the paths defined by the URL template `{api_root}/systems/{sysId}/samplingFeatures`.
+
+part:: The `samplingFeatures` association in the parent `System` resource representation SHALL be implemented as a link to this {sf-resources-endpoint}.
+
+part:: The parameter `sysId` SHALL be the local identifier of the parent `System` resource.
+====
+
 
 
 === Sampling Feature Collections

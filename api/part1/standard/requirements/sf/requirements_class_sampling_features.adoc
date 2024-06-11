@@ -9,5 +9,6 @@ inherit:: /req/system
 requirement:: /req/sf/canonical-url
 requirement:: /req/sf/resources-endpoint
 requirement:: /req/sf/canonical-endpoint
+requirement:: /req/sf/ref-from-system
 requirement:: /req/sf/collections
 ====
