@@ -19,7 +19,7 @@
 :data-uri-image:
 :edition: 1.0
 //
-:ogcapi-cs-1: <<OGCAPI-CS-1, OGC API - Connected Systems - Part 1>>
+:ogcapi-cs-1: <<OGCAPI-Consys-1, OGC API - Connected Systems - Part 1>>
 :ogcapi-common: <<OGCAPI-Common-1, OGC API - Common>>
 :ogcapi-common-1: <<OGCAPI-Common-1, OGC API - Common - Part 1: Core>>
 :ogcapi-common-2: <<OGCAPI-Common-2, OGC API - Common - Part 2: Collections>>

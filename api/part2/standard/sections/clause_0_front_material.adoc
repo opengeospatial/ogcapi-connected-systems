@@ -1,6 +1,16 @@
 .Preface
 
-#TODO#
+The OGC API - Connected Systems Standard is part of the suite of OGC API Standards.
+
+To increase the brevity and readability of this Standard, many OGC document titles are shortened and/or abbreviated. Therefore, in the context of this document, the following phrases are defined:
+
+- “this Standard” shall be interpreted as equivalent to “OGC API - Connected Systems - Part 2: Dynamic Resources Standard”.
+
+- “CS API” or “CS API Standard” shall be interpreted as equivalent to “OGC API - Connected Systems Standard” (including all its parts).
+
+- “OGC API - Features” shall be interpreted as equivalent to “OGC API - Features - Part 1: Core corrigendum”.
+
+- “OGC API - Common” shall be interpreted as equivalent to “OGC API - Common - Part 1: Core”.
 
 
 [abstract]
@@ -21,7 +31,7 @@ The API is comprised of multiple parts, each of them being a separate standard. 
 
 == Security considerations
 
-All security considerations in Part 1 of this Standard also apply to this extension.
+All security considerations detailed in {ogcapi-cs-1} also apply to this Standard.
 
 
 == Submitters
