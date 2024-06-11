@@ -16,6 +16,7 @@ This encoding must be supported by all implementations.
 The media type to use to advertise support for this encoding is `application/json`.
 
 
+[[clause-json-datastream]]
 ==== Datastream Encoding Rules
 
 The `Datastream` resource is encoded as a JSON object. JSON members have the same names as the class properties and associations. Associations are implemented as links.
@@ -51,7 +52,7 @@ When using the plain `application/json` media type for retrieving observations, 
 
 
 
-
+[[clause-json-observation]]
 ==== Observation Encoding Rules
 
 [[req_json-schema-observation]]
@@ -85,6 +86,7 @@ include::../openapi/examples/observations/obs-location.json[]
 
 
 
+[[clause-json-controlstream]]
 ==== Control Stream Encoding Rules
 
 The `ControlStream` resource is encoded as a JSON object. JSON members have the same names as the class properties and associations. Associations are implemented as links.
@@ -107,12 +109,13 @@ This is a simple control stream with a single controllable property and a single
 
 [source%autofit,json]
 ----
-include::../openapi/examples/controlStreams/controlStream-ptz.json[]
+include::../openapi/examples/controlstreams/controlStream-ptz.json[]
 ----
 =================
 
 
 
+[[clause-json-command]]
 ==== Command Encoding Rules
 
 [[req_json-schema-command]]
@@ -138,6 +141,8 @@ include::../openapi/examples/commands/command-ptz.json[]
 =================
 
 
+
+[[clause-json-commandstatus]]
 ==== Command Status Encoding Rules
 
 [[req_json-schema-command-status]]
@@ -168,7 +173,9 @@ include::../openapi/examples/commandStatus/command-status-completed.json[]
 =================
 
 
-==== Resource Event Encoding Rules
+
+[[clause-json-commandresult]]
+==== Command Result Encoding Rules
 
 
 
