@@ -6,7 +6,7 @@
     "uid": "urn:x-ogc:systems:001",
     "outputName": "temp"
   },
-  "ultimateFeatureOfInterest@link": {
+  "featureOfInterest@link": {
     "href": "https://data.example.org/api/collections/buildings/items/754",
     "title": "My House"
   },
@@ -35,6 +35,7 @@
     "application/swe+csv",
     "application/x-protobuf"
   ],
+  "live": true,
   "links": [
     {
       "rel" : "self",

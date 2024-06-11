@@ -36,21 +36,12 @@
       "type": "string",
       "minLength": 1
     },
-    "progress": {
-      "description": "Detailed progress status info. Must be valid according to the progress schema"
-    },
     "result": {
-      "description": "Result of the command",
-      "oneOf": [
-        {
-          "title": "Inline data",
-          "type": "object"
-        },
-        {
-          "title": "Link to external data",
-          "$ref": "../common/commonDefs.json#/definitions/Link"
-        }
-      ]
+      "type": "array",
+      "items": {
+        "description": "Result of the command (can be a partial result)",
+        "$ref": "commandResult.json#/definitions/ResultOptions"
+      }
     }
   }
 }

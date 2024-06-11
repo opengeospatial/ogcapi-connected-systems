@@ -1,0 +1,11 @@
+{
+  "statusCode": "COMPLETED",
+  "result": [
+    {
+      "inline": {
+        "mean": "10.51",
+        "stdev": "1.23"
+      }
+    }
+  ]
+}

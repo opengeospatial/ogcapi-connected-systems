@@ -33,6 +33,8 @@
 :observation-resources-endpoint: <<clause-observation-resources-endpoint,Observation resources endpoint>>
 :controlstream-resources-endpoint: <<clause-controlstream-resources-endpoint,ControlStream resources endpoint>>
 :command-resources-endpoint: <<clause-command-resources-endpoint,Command resources endpoint>>
+:commandstatus-resources-endpoint: <<clause-commandstatus-resources-endpoint,Command Status resources endpoint>>
+:commandresult-resources-endpoint: <<clause-commandresult-resources-endpoint,Command Result resources endpoint>>
 //
 :jsonschema-base-url: https://raw.githubusercontent.com/opengeospatial/connected-systems/master/api/part2/openapi/schemas
 

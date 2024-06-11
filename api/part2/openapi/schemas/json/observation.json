@@ -9,30 +9,30 @@
       "readOnly": true
     },
     "datastream@id": {
-      "description": "Local ID of the datastream that this observation is part of",
+      "description": "Local ID of the datastream that the observation is part of",
       "type": "string",
       "minLength": 1
     },
     "datastream@link": {
-      "description": "Link to the datastream that this observation is part of",
+      "description": "Link to the datastream that the observation is part of",
       "$ref": "../common/commonDefs.json#/definitions/Link"
     },
-    "foi@id": {
-      "description": "Local ID of the sampling feature that is the target of this observation",
+    "samplingFeature@id": {
+      "description": "Local ID of the sampling feature that is the target of the observation",
       "type": "string",
       "minLength": 1
     },
-    "foi@link": {
-      "description": "Link to the sampling feature that is the target of this observation",
+    "samplingFeature@link": {
+      "description": "Link to the sampling feature that is the target of the observation",
       "$ref": "../common/commonDefs.json#/definitions/Link"
     },
     "procedure@id": {
-      "description": "Local ID of the procedure/method used to make this observation",
+      "description": "Local ID of the procedure/method used to make the observation",
       "type": "string",
       "minLength": 1
     },
     "procedure@link": {
-      "description": "Link to the procedure/method used to make this observation",
+      "description": "Link to the procedure/method used to make the observation",
       "$ref": "../common/commonDefs.json#/definitions/Link"
     },
     "phenomenonTime": {

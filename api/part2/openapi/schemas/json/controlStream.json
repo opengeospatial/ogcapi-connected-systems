@@ -14,19 +14,19 @@
           "type": "string"
         },
         "procedure@link": {
-          "description": "Link to the procedure used to execute commands (e.g. methodology used by human operators)",
+          "description": "Link to the procedure used to execute commands (only provided if all commands in the control stream share the same procedure)",
           "$ref": "../common/commonDefs.json#/definitions/Link"
         },
         "deployment@link": {
-          "description": "Link to the deployment during which the commands are/were received",
+          "description": "Link to the deployment during which the commands are/were received (only provided if all commands in the control stream share the same deployment)",
           "$ref": "../common/commonDefs.json#/definitions/Link"
         },
-        "ultimateFeatureOfInterest@link": {
-          "description": "Link to the ultimate feature of interest (only provided if all commands in the control stream relate to the same feature of interest)",
+        "featureOfInterest@link": {
+          "description": "Link to the ultimate feature of interest (only provided if all commands in the control stream share the same feature of interest)",
           "$ref": "../common/commonDefs.json#/definitions/Link"
         },
         "samplingFeature@link": {
-          "description": "Link to the sampling feature (only provided if all commands in the control stream relate to the same sampling feature)",
+          "description": "Link to the sampling feature (only provided if all commands in the control stream share the same sampling feature)",
           "$ref": "../common/commonDefs.json#/definitions/Link"
         },
         "controlledProperties": {
@@ -62,6 +62,11 @@
         },
         "live": {
           "description": "Flag indicating if the command channel can currently accept commands",
+          "type": "boolean",
+          "readOnly": true
+        },
+        "async": {
+          "description": "Flag indicating if the command channel processes commands asynchronously",
           "type": "boolean",
           "readOnly": true
         },

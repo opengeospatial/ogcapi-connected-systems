@@ -32,6 +32,8 @@
   "formats": [
     "application/json"
   ],
+  "live": true,
+  "async": false,
   "links": [
     {
       "rel": "commands",

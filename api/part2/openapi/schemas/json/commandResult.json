@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "allOf": [
+    {
+      "properties": {
+        "id": {
+          "description": "Local identifier of the result resource",
+          "type": "string",
+          "minLength": 1,
+          "readOnly": true
+        },
+        "command@id": {
+          "description": "Local identifier of the command that this result is associated to",
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    { "$ref": "#/definitions/ResultOptions" }
+  ],
+  "definitions": {
+    "ResultOptions": {
+      "type": "object",
+      "properties": {
+        "inline": {
+          "description": "Inline data encoded according to the control stream result schema"
+        },
+        "observation@link": {
+          "description": "Link to an observation resulting from the execution of the command",
+          "$ref": "../common/commonDefs.json#/definitions/Link"
+        },
+        "observationSet@link": {
+          "description": "Link to a set of observations resulting from the execution of the command",
+          "$ref": "../common/commonDefs.json#/definitions/Link"
+        },
+        "datastream@link": {
+          "description": "Link to a datastream containing observations resulting from the execution of the command",
+          "allOf": [
+            { "$ref": "../common/commonDefs.json#/definitions/Link" },
+            {
+              "properties": {
+                "resultTime": {
+                  "description": "Time range during which the resulting observations were generated (If not provided, the entire datastream is assumed to be the result)",
+                  "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "oneOf": [
+        {
+          "title": "Inline result",
+          "required": ["inline"]
+        },
+        {
+          "title": "Link to a single observation",
+          "required": ["observation@link"]
+        },
+        {
+          "title": "Link to a set of observations",
+          "required": ["observationSet@link"]
+        },
+        {
+          "title": "Link to a datastream",
+          "required": ["datastream@link"]
+        }
+     ]
+    }
+  }
+}

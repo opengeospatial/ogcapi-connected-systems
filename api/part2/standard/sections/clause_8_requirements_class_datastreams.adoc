@@ -25,12 +25,12 @@ In the CS API Standard, `DataStream` resources are a special kind of resource th
 
 This section defines the attributes and associations composing a `DataStream` resource, but the exact way they are encoded in the payload is defined by each encoding. For encodings defined in this document, please see:
 
-- <<clause-json-datastream,DataStream resource as JSON>>
+- <<clause-json-datastream,DataStream resource encoded in JSON>>
 
 Below is the contextual class diagram of the `DataStream` resource:
 
 [#datastream-class,reftext='{figure-caption} {counter:figure-num}']
-.DataStream Resource Diagram #TODO Update diagram#
+.DataStream Resource Diagram
 image::figures/FIG002-datastream-class.png[api-class-diagram, align="center"]
 
 ==== Properties
@@ -46,12 +46,12 @@ The following tables describe the attributes and associations of a `DataStream` 
 | `description`        | `rdfs:comment` | A human readable description for the datastream. | String | Optional
 | `type`               | - | The type of datastream (see <<datastream-types>>). | Enum | Optional
 | `validTime`          | `sosa:validTime` | The validity period of the datastream's description. | TimeExtent | Optional
-| `phenomenonTime`     | `sosa:phenomenonTime` | The time period spanned by the phenomenon times of all observations in this datastream. | TimeExtent | Required
-| `resultTime`         | `sosa:resultTime` | The time period spanned by the result times of all observations in this datastream. | TimeExtent | Required
-| `observedProperties` | `sosa:observedProperty` | Properties for which the observations in this datastream provide measurements. | List<URI> | Required
-| `resultType`         | - | The type of result for observations in this datastream (see <<result-types>>). | Enum | Required
-| `live`               | - | Indicates whether live data is available from this datastream. | Boolean | Required
-| `formats`            | - | The list of formats that the observations in this datastream can be encoded to. | List<String> | Required
+| `phenomenonTime`     | `sosa:phenomenonTime` | The time period spanned by the phenomenon times of all observations in the datastream. | TimeExtent | Required
+| `resultTime`         | `sosa:resultTime` | The time period spanned by the result times of all observations in the datastream. | TimeExtent | Required
+| `observedProperties` | `sosa:observedProperty` | Properties for which the observations in the datastream provide measurements. | List<URI> | Required
+| `resultType`         | - | The type of result for observations in the datastream (see <<result-types>>). | Enum | Required
+| `live`               | - | Indicates whether live data is available from the datastream. | Boolean | Required
+| `formats`            | - | The list of formats that the observations in the datastream can be encoded to. | List<String> | Required
 |====
 
 [#datastream-types,reftext='{table-caption} {counter:table-num}']
@@ -60,7 +60,7 @@ The following tables describe the attributes and associations of a `DataStream` 
 |====
 | *Datastream Type*   | *Usage*
 | `status`            | For datastreams providing status observations of the parent system itself or one of its subsystems.
-| `observation`       | For datastreams providing observations of other features of interest.
+| `observation`       | For datastreams providing observations of other features of interest (not the system itself).
 |====
 
 [#result-types,reftext='{table-caption} {counter:table-num}']
@@ -80,10 +80,12 @@ The following tables describe the attributes and associations of a `DataStream` 
 [width="100%",cols="5,5,10,10,3",options="header"]
 |====
 | *Name*               | *SOSA/SSN Property* | *Definition* | *Target Content* | *Usage*
-| `system`             | `sosa:isObservedBy` | The `System` that is the producer of this datastream. | A single `System` resource (by reference). | Required
-| `observations`       | `sosa:hasMember` | The `Observations` that are part of this datastream. | A list of `Observation` resources. | Required
-| `samplingFeatures`   | `sosa:hasFeatureOfInterest` | The `Sampling Features` that are the subject of observations in this datastream. | A list of `SamplingFeature` resources. | Optional
-| `featuresOfInterest` | `sosa:hasUltimateFeatureOfInterest` | The ultimate features of interest that are the subject of observations in this datastream. | A list of `Feature` resources. | Optional
+| `system`             | `sosa:isObservedBy` | The `System` that is the producer of the datastream. | A single `System` resource (by reference). | Required
+| `observations`       | `sosa:hasMember` | The `Observations` that are part of the datastream. | A list of `Observation` resources. | Required
+| `procedure` | `sosa:usedProcedure` | The procedure used to generate observations in the datastream. | A single `Procedure` resource. | Optional
+| `deployment` | - | The deployment during which the datastream was generated. | A single `Deployment` resource. | Optional
+| `samplingFeatures`   | `sosa:hasFeatureOfInterest` | The `Sampling Features` that are the subject of observations in the datastream. | A list of `SamplingFeature` resources. | Optional
+| `featuresOfInterest` | `sosa:hasUltimateFeatureOfInterest` | The ultimate features of interest that are the subject of observations in the datastream. | A list of `Feature` resources. | Optional
 |====
 
 When sampling features and ultimate features of interest are hosted on the same server, they are made accessible through sub-endpoints of the `DataStream` resource.
@@ -196,7 +198,9 @@ include::../requirements/datastream/req_collections.adoc[]
 
 === DataStream Schemas
 
-Multiple observation formats can be offered for any given datastream. This API provides a way for the server to communicate the schema (_not necessarily a JSON schema_) corresponding to each observation format.
+A different schema is needed for each individual datastream because the exact content of the observations result changes according to result type and the properties being observed. Moreover, multiple observation formats can be offered for any given datastream.
+
+The CS API thus provides a way for the server to communicate the schema (_not necessarily a JSON schema_) corresponding to a given datastream and observation format. The exact content of a schema resource is defined by each encoding. See section <<clause-encoding-json>> for example schemas used for observations encoded using the default JSON format.
 
 Extensions to this Standard can define additional representation formats for observations. Such format extensions must clearly define the mapping between elements of the representation format and the <<clause-observation-resource,Observation resource>> defined in the next clause.
 
@@ -230,8 +234,10 @@ Error cases SHALL be reported using HTTP status codes listed in https://docs.ogc
 --
 ====
 
-.Example
+[example%unnumbered]
 =================
+*Example*
+
 If a datastream with ID `{id}` reports the following supported observation formats:
 
 - `application/json`
@@ -247,14 +253,6 @@ The schema for each of these formats is obtained with the following requests, re
 Note that the media type in the request has to be properly URL encoded, leading to the `%2B` in place of the `+` character.
 =================
 
-NOTE: A different schema is needed for each individual datastream because the exact content of the observations result changes according to the type of sensor and the properties being observed.
-
-NOTE: The exact content of a schema resource is defined by each encoding. See section <<clause-encoding-json>> for example schemas used for observations encoded using the default JSON format.
-
-NOTE: A schema must be provided before observations can be inserted in the datastream. The schema is provided either within the datastream resource itself, or separately at a later time on its `/schema` subresource. Only one schema (for only one format) can be provided by a create operation for a given datastream. However, the server is allowed to automatically convert observations to/from other supported formats, as appropriate. This implies that the server can also automatically generate equivalent schemas for these other formats. Future extensions may define patterns to allow client to define multiple schemas themselves.
-
-NOTE: After a datastream has been created and observations have been associated to it, the server may reject certain updates to the schema (e.g. adding or removing result fields, changing UoM, etc.). Datastream schema evolution will be addressed in more details in a future revision, but the current workaround is to create a new datastream if the schema changes.
-
 
 
 [[clause-observation-resource]]
@@ -267,6 +265,10 @@ In the CS API Standard, `Observation` resources are a special kind of resource t
 In the CS API, `Observation` resources are always associated to a `DataStream` (e.g. a type of https://www.w3.org/TR/vocab-ssn-ext/#sosa:ObservationCollection[_ObservationCollection_]). Some properties of the observation (e.g. link to the observing system, observed properties) can thus be omitted as they are provided at the datastream level.
 
 In addition, the CS API does not restrict `Observation` resources to have a single observed property. It is thus possible to package the observation result of several properties in a single resource.
+
+This section defines the attributes and associations composing a `Observation` resource, but the exact way they are encoded in the payload is defined by each encoding. For encodings defined in this document, please see:
+
+- <<clause-json-observation,Observation resource encoded in JSON>>
 
 Below is the contextual class diagram of the `Observation` resource:
 
@@ -283,7 +285,7 @@ The following tables describe the attributes and associations of an `Observation
 [width="100%",cols="5,5,17,3,3",options="header"]
 |====
 | *Name*              | *SOSA/SSN Property* | *Definition* | *Data Type* | *Usage*
-| `phenomenonTime`    | `sosa:phenomenonTime` | The time the measured property value applies to the feature of interest. | DateTime | Required
+| `phenomenonTime`    | `sosa:phenomenonTime` | The time the observed property value applies to the feature of interest. | DateTime | Required
 | `resultTime`        | `sosa:resultTime` | The time the result value was obtained. | DateTime | Required
 | `parameters`        | - | Observation parameters, providing information about how the procedure was used to produce this specific observation. | Any | Optional
 | `result`            | `sosa:hasResult` | Observation result, carrying the estimated values of the observed properties. | Any | Required
@@ -307,7 +309,7 @@ NOTE: The `phenomenonTime` can be in the far past (e.g. geological or deep space
 
 The CS API Standard requires that every `Observation` resource has a canonical URL.
 
-include::../requirements/observation/req_canonical_url.adoc[]
+include::../requirements/datastream/observation/req_canonical_url.adoc[]
 
 
 
@@ -318,14 +320,14 @@ include::../requirements/observation/req_canonical_url.adoc[]
 
 An `Observation` {resources-endpoint} is an endpoint exposing a set of `Observation` resources that can be further filtered using query parameters.
 
-include::../requirements/observation/req_resources_endpoint.adoc[]
+include::../requirements/datastream/observation/req_resources_endpoint.adoc[]
 
 [[clause-observations-endpoint]]
 ==== Canonical Observation Resources Endpoint
 
 The CS API Standard requires that a canonical `Observation` resources endpoint, exposing all `Observation` resources, be made available by the server.
 
-include::../requirements/observation/req_canonical_endpoint.adoc[]
+include::../requirements/datastream/observation/req_canonical_endpoint.adoc[]
 
 ==== Nested Observation Resources Endpoint
 
@@ -358,6 +360,4 @@ Any number of resources collections containing `Observation` resources can be av
 _Note that a given observation can be part of multiple collections at the same time._
 ====
 
-include::../requirements/observation/req_collections.adoc[]
-
-#TODO Add properties to collection metadata (ultimateFeatureOfInterest, observedBySensor, etc.)#
+include::../requirements/datastream/observation/req_collections.adoc[]

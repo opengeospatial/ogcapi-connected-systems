@@ -14,19 +14,19 @@
           "type": "string"
         },
         "procedure@link": {
-          "description": "Link to the procedure used to acquire observations (e.g. methodology used by human operators)",
+          "description": "Link to the procedure used to acquire observations (only provided if all observations in the datastream share the same procedure)",
           "$ref": "../common/commonDefs.json#/definitions/Link"
         },
         "deployment@link": {
-          "description": "Link to the deployment during which the observations are/were collected",
+          "description": "Link to the deployment during which the observations are/were collected (only provided if all observations in the datastream share the same deployment)",
           "$ref": "../common/commonDefs.json#/definitions/Link"
         },
-        "ultimateFeatureOfInterest@link": {
-          "description": "Link to the ultimate feature of interest (only provided if all observations in the datastream relate to the same feature of interest)",
+        "featureOfInterest@link": {
+          "description": "Link to the ultimate feature of interest (only provided if all observations in the datastream share the same feature of interest)",
           "$ref": "../common/commonDefs.json#/definitions/Link"
         },
         "samplingFeature@link": {
-          "description": "Link to the sampling feature (only provided if all observations in the datastream relate to the same sampling feature)",
+          "description": "Link to the sampling feature (only provided if all observations in the datastream share the same sampling feature)",
           "$ref": "../common/commonDefs.json#/definitions/Link"
         },
         "observedProperties": {
@@ -49,10 +49,6 @@
             }
           },
           "readOnly": true
-        },
-        "parameters": {
-          "description": "Parameters applying to all observations in this datastream. Must be valid according to the parameters schema",
-          "type": "object"
         },
         "phenomenonTime": {
           "description": "Time extent spanning all phenomenon times of observations in this datastream",

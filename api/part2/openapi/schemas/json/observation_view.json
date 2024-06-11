@@ -25,11 +25,11 @@
       "oneOf": [
         {
           "title": "Sampling feature ID",
-          "required": ["foi@id"]
+          "required": ["samplingFeature@id"]
         },
         {
           "title": "Link to sampling feature",
-          "required": ["foi@link"]
+          "required": ["samplingFeature@link"]
         }
       ]
     },

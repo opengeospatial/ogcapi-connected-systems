@@ -1,0 +1,31 @@
+{
+  "parameters": {
+    "startTime": "2023-05-026T10:20:00Z",
+    "endTime": "",
+    "instructions": [
+      {
+        "type": "TAKEOFF",
+        "altitude": 20
+      },
+      {
+        "type": "GOTO_WAYPOINT",
+        "lat": 23.1455,
+        "lon": -86.5897,
+        "alt": 35,
+        "yaw": 0.0,
+        "travelSpeed": 1.2
+      },
+      {
+        "type": "LOITER",
+        "loiterType": "CIRCLE|HOVER",
+        "loiterDirection": "CLOCKWISE|COUNTERCLOCKWISE",
+        "duration": "45",
+        "yaw": 0.0,
+        "yawMode": "auto"
+      },
+      {
+        "type": "LAND"
+      }
+    ]
+  }
+}

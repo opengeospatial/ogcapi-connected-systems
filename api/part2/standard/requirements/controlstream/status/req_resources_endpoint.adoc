@@ -1,0 +1,13 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/controlstream/status-resources-endpoint
+
+part:: The server SHALL support the HTTP GET operation at the path associated to the `CommandStatus` resources endpoint.
+
+part:: The operation SHALL support the parameter `limit` defined in https://docs.ogc.org/is/17-069r4/17-069r4.html#_parameter_limit[Clause 7.15.2] of {ogcapi-features-1}. All references to the term “features” or “feature” in {ogcapi-features-1} requirements SHALL be replaced by the terms “resources” or “resource”, respectively.
+
+part:: A successful execution of the operation SHALL be reported as a response with a HTTP status code 200. The response SHALL only include the <<clause-commandstatus-resource,CommandStatus resources>> selected by the request.
+
+part:: Error cases SHALL be reported using HTTP status codes listed in https://docs.ogc.org/is/17-069r4/17-069r4.html#http_status_codes[Clause 7.5.1] of {ogcapi-features-1}.
+====

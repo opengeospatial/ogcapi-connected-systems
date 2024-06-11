@@ -1,7 +1,7 @@
 {
   "name": "Indoor Thermometer 001 - Living Room Temperature",
   "description": "Indoor temperature measured on the south wall of the living room at 1.5m above the floor",
-  "ultimateFeatureOfInterest@link": {
+  "featureOfInterest@link": {
     "href": "https://data.example.org/api/collections/buildings/items/754",
     "title": "My House"
   },
