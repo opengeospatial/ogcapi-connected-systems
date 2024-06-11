@@ -61,7 +61,7 @@ All `System` resource representations provided by encoding requirements classes 
 | `name`               | `rdfs:label` | The human readable name of the system. | String | Required
 | `description`        | `rdfs:comment` | A human readable description for the system. | String | Optional
 | `systemType`         | `rdfs:type` | The type of system (see <<system-types>>). | URI or CURIE | Required
-| `assetType`          | - | The type of asset involved in the system (see <<asset-types>>). | URI or CURIE | Optional
+| `assetType`          | - | The type of asset involved in the system (see <<asset-types>>). | Enum | Optional
 | `validTime`          | - | The validity period of the system's description. | DateTime | Optional
 | `location`           | `geo:lat`/`geo:lon` | The current location of the system. | Point | Optional
 |====
@@ -96,19 +96,19 @@ NOTE: Tagging a `System` resource with a particular type only carries semantic m
 
 [#asset-types,reftext='{table-caption} {counter:table-num}']
 .Asset Types
-[width="100%",cols="5,10,5,15",options="header"]
+[width="100%",cols="3,10",options="header"]
 |====
-| *Asset Type* | *URI* | *CURIE* | *Usage*
-| Equipment    | #http://www.opengis.net/def/x-OGC/TBD/Equipment#     | sml:Equipment | The system is composed of one or more hardware devices or pieces of equipment, that interact directly with the real-world and can be either automated or manually operated (e.g. sensor or actuator device, vehicle, robot, etc.).
-| Human        | #http://www.opengis.net/def/x-OGC/TBD/Human#         | sml:Human | The system consists of one or more human beings that follow well defined procedures (e.g. conducting polls or surveys, collecting samples, carrying sensors, etc.). 
-| Living Thing | #http://www.opengis.net/def/x-OGC/TBD/LivingThing#   | sml:LivingThing | The system consists of one or more animals or other living organisms (most often used with `systemType=Platform` when it carries sensors).
-| Simulation   | #http://www.opengis.net/def/x-OGC/TBD/Simulation#    | sml:Simulation | The system is a software algorithm that simulates or predicts the state of the real-world (e.g. weather forecasts, mathematical models, training simulations, etc.).
-| Process      | #http://www.opengis.net/def/x-OGC/TBD/Process#       | sml:Process | The system is a process or process chain that transforms data coming from or going to other systems.
-| Group        | #http://www.opengis.net/def/x-OGC/TBD/Group#         | sml:Group | The system represents a group of similar systems (e.g. sensor network, vehicle fleet, etc.). Such system usually has subsystems that provide detailed information about each member in the group.
-| Other        | #http://www.opengis.net/def/x-OGC/TBD/Other#         | sml:Other | Any other type of asset not accounted for in this list. In this case, an application specific property can be used to provide the type.
+| *Asset Type Value* | *Usage*
+| Equipment    | The system is composed of one or more hardware devices or pieces of equipment, that interact directly with the real-world and can be either automated or manually operated (e.g. sensor or actuator device, vehicle, robot, etc.).
+| Human        | The system consists of one or more human beings that follow well defined procedures (e.g. conducting polls or surveys, collecting samples, carrying sensors, etc.). 
+| LivingThing | The system consists of one or more animals or other living organisms (most often used with `systemType=Platform` when it carries sensors).
+| Simulation   | The system is a software algorithm that simulates or predicts the state of the real-world (e.g. weather forecasts, mathematical models, training simulations, etc.).
+| Process      | The system is a process or process chain that transforms data coming from or going to other systems.
+| Group        | The system represents a group of similar systems (e.g. sensor network, vehicle fleet, etc.). Such system usually has subsystems that provide detailed information about each member in the group.
+| Other        | Any other type of asset not accounted for in this list. In this case, an application specific property can be used to provide the type.
 |====
 
-NOTE: Deployments can be used to document how different types of systems are used together. For instance, a deployment may describe how a "human" (e.g. system of type platform) uses a piece of "equipment" (e.g. system of type sensor) according to a well defined procedure.
+NOTE: Deployments can also be used to document how different types of systems are used together. For instance, a deployment may describe how a "human" (e.g. system of type platform) uses a piece of "equipment" (e.g. system of type sensor) according to a well defined procedure.
 
 ==== Location
 
