@@ -1,7 +1,7 @@
 
 [[clause-protocol-websocket]]
 === Requirements Class "Websocket Transport"
-include::requirements/protocol/websocket/requirements_class_websocket.adoc[]
+include::../requirements/protocol/websocket/requirements_class_websocket.adoc[]
 
 
 ==== Overview
