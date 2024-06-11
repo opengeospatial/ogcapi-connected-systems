@@ -3,7 +3,7 @@
 [%metadata]
 identifier:: /req/controlstream/collections
 
-part:: The server SHALL expose at least one resource collection containing `ControlStream` resources, as specified in <<clause-resource-collections>>.
+part:: If the server exposes collections of `ControlStream` resources, it SHALL be done as specified in <<clause-resource-collections>>.
 
 part:: The server SHALL identify all resource collections containing `ControlStream` resources by setting the `itemType` attribute to `ControlStream` in the Collection metadata.
 

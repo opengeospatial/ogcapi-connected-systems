@@ -3,7 +3,7 @@
 [%metadata]
 identifier:: /req/datastream/obs-collections
 
-part:: The server SHALL expose at least one resource collection containing `Observation` resources, as specified in <<clause-resource-collections>>.
+part:: If the server exposes collections of `Observation` resources, it SHALL be done as specified in <<clause-resource-collections>>.
 
 part:: The server SHALL identify all resource collections containing `Observation` resources by setting the `itemType` attribute to `Observation` in the Collection metadata.
 
