@@ -52,8 +52,9 @@ All questions regarding this submission should be directed to the editor or the 
 | Christian Autermann | 52° North Initiative
 | Chuck Heazel | Heazeltech (for NGA)
 | Glenn Laughlin | Pelagis Data Solutions
-| Nick Garay | Botts Innovative Research, Inc.
+| Mike Botts | Botts Innovative Research, Inc.
 | Patrick Cozzi | Cesium GS, Inc.
+| Sam Bolling | Riverside Research
 |===
 
 Additional contributors to this Standard include the following:
@@ -62,7 +63,7 @@ Additional contributors to this Standard include the following:
 |===
 | *Name* | *Affiliation*
 | Chris Tucker | GeoRobotix, Inc.
-| Mike Botts | Botts Innovative Research, Inc.
+| Ian Patterson | Botts Innovative Research, Inc.
 | Qihua Li | GovTech Singapore
 | Rob Atkinson | Open Geospatial Consortium, Inc.
 | Simon Cox | Open Geospatial Consortium, Inc.
