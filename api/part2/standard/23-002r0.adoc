@@ -70,6 +70,8 @@ include::sections/clause_13_requirements_class_advanced_filtering.adoc[]
 
 include::sections/clause_14_requirements_class_create_replace_delete.adoc[]
 
+include::sections/clause_15_requirements_class_update.adoc[]
+
 
 == Requirements Classes for Encodings
 
