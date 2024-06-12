@@ -66,7 +66,7 @@ include::sections/clause_10_requirements_class_command_feasibility.adoc[]
 
 include::sections/clause_11_requirements_class_system_events.adoc[]
 
-include::sections/clause_12_requirements_class_system_history.adoc[]
+// include::sections/clause_12_requirements_class_system_history.adoc[]
 
 // include::sections/clause_13_requirements_class_simple_filtering.adoc[]
 

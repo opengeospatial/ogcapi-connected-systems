@@ -1,7 +1,7 @@
 
 [[clause-system-history]]
 == Requirements Class "System History"
-include::../requirements/system/requirements_class_system_history.adoc[]
+include::../requirements/systemhistory/requirements_class_system_history.adoc[]
 
 
 === Overview
