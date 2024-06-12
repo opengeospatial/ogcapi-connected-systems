@@ -2,16 +2,7 @@ description: OK. Successful request
 content:
   application/json:
     schema:
-      type: object
-      required: items
-      properties:
-        items:
-          type: array
-          items:
-            $ref: ../schemas/json/command.json
-        links:
-          description: Links to related resources (including paging)
-          $ref: ../schemas/common/commonDefs.json#/definitions/Links
+      $ref: ../schemas/json/commandCollection.json
   application/swe+json:
     schema:
       type: object

@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "dataStream.json"
+      }
+    },
+    "links": {
+      "description": "Links to related resources (including paging)",
+      "$ref": "../common/commonDefs.json#/definitions/Links"
+    }
+  },
+  "required": [ "items" ]
+}
