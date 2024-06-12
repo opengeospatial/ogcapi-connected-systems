@@ -1,0 +1,11 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/system-event/collections
+
+part:: If the server exposes collections of `SystemEvent` resources, it SHALL be done as specified in <<clause-resource-collections>>.
+
+part:: The server SHALL identify all resource collections containing `SystemEvent` resources by setting the `itemType` attribute to `SystemEvent` in the Collection metadata.
+
+part:: For any resource collection with `itemType` set to `SystemEvent`, the HTTP GET operation at the path `/collections/{collectionId}/items` SHALL support the query parameters and response of a {systemevent-resources-endpoint}.
+====

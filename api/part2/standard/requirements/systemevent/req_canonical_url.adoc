@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/system-event/canonical-url
+
+part:: All `SystemEvent` resources exposed by the server SHALL be accessible through their canonical URL of the form `{api_root}/systemEvents/{id}` where `id` is the local identifier of the `SystemEvent` resource.
+
+part:: If a `SystemEvent` resource is retrieved through any other URL than its canonical URL, the server response SHALL include a link to its canonical URL with relation type `canonical`.
+====

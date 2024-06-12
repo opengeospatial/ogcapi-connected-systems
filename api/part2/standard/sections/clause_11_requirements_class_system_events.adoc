@@ -1,7 +1,7 @@
 
 [[clause-system-events]]
 == Requirements Class "System Events"
-include::../requirements/system/requirements_class_system_events.adoc[]
+include::../requirements/systemevent/requirements_class_system_events.adoc[]
 
 === Overview
 
@@ -9,13 +9,16 @@ include::../requirements/system/requirements_class_system_events.adoc[]
 
 This section predefines a certain number of event types but the list can be extended further by extensions.
 
-[NOTE]
-The exact way properties and associations of the resources defined in this section are represented in the payload is defined by each encoding. See section <<clause-encoding-json>> for example representations of these resources.
 
 
-=== System Event Resources
+[[clause-systemevent-resource]]
+=== System Event Resource
 
 `SystemEvent` resources are modeled on the SensorML Event class.
+
+This section defines the attributes and associations composing a `SystemEvent` resource, but the exact way they are encoded in the payload is defined by each encoding. For encodings defined in this document, please see:
+
+- <<clause-json-systemevents,System Event resource encoded in JSON>>
 
 Below is the contextual class diagram of the `SystemEvent` resource:
 
@@ -25,60 +28,35 @@ image::figures/FIG008-systemevent-class.png[api-class-diagram, align="center"]
 
 ==== Properties
 
-[[req_system-event-props]]
-[width="90%",cols="2,6a",options="header"]
-|===
-^|*Requirement {counter:req-id}* |*/req/system-event/properties*
-^| A | A `SystemEvent` resource SHALL include all mandatory properties listed in <<system-event-properties>>.
-|===
+The following tables describe the attributes and associations of a `SystemEvent` resource.
 
-[#system-event-properties,reftext='{table-caption} {counter:table-num}']
-.System Event Properties
+[#system-event-attributes,reftext='{table-caption} {counter:table-num}']
+.System Event Attributes
 [width="100%",cols="4,10,3,3",options="header"]
 |====
 | *Name*               | *Definition* | *Data Type* | *Usage*
-| `name`               | The name of the event. | String | Mandatory
+| `name`               | The name of the event. | String | Required
 | `description`        | A human readable description for the event. | String | Optional
-| `eventTime`          | The time the event occured on the system. | TimeExtent | Mandatory
-| `type`               | The type of event (see <<system-event-types>>). | URI | Mandatory
+| `type`               | The type of event (see <<system-event-types>>). | URI | Required
+| `eventTime`          | The time the event occured on the system. | TimeExtent | Required
 | `message`            | A human readable message from the operator. | String | Optional
 |====
-
-[[req_system-event-type]]
-[width="90%",cols="2,6a",options="header"]
-|===
-^|*Requirement {counter:req-id}* |*/req/system-event/type*
-^| A | A `SystemEvent` resource encoding SHALL use one of the URIs provided in <<system-event-types>> as the value of the `Type` property.
-       If using a URI is not practical, the encoding SHALL define a mapping between all possible values used to encode the type and the URIs defined in this table.
-|===
 
 [#system-event-types,reftext='{table-caption} {counter:table-num}']
 .System Event Types
 [width="100%",cols="10,10",options="header"]
 |====
 | *Type URI*       | *Usage*
-| http://www.opengis.net/def/x-OGC/TBD/Calibration       | System was calibrated or recalibrated.
-| http://www.opengis.net/def/x-OGC/TBD/ParameterChange   | #TBD#
-| http://www.opengis.net/def/x-OGC/TBD/SoftwareUpdate    | #TBD#
-| http://www.opengis.net/def/x-OGC/TBD/PartReplacement   | #TBD#
-| http://www.opengis.net/def/x-OGC/TBD/Relocation        | #TBD#
-| http://www.opengis.net/def/x-OGC/TBD/Deployment        | #TBD#
-| http://www.opengis.net/def/x-OGC/TBD/Decommission      | #TBD#
+| http://www.opengis.net/def/x-OGC/TBD/Calibration          | System was calibrated or recalibrated.
+| http://www.opengis.net/def/x-OGC/TBD/ConfigurationChange  | The configuration was changed.
+| http://www.opengis.net/def/x-OGC/TBD/SoftwareUpdate       | The software was updated.
+| http://www.opengis.net/def/x-OGC/TBD/PartReplacement      | One or more physical parts were replaced.
+| http://www.opengis.net/def/x-OGC/TBD/Relocation           | The system was moved to a different location.
+| http://www.opengis.net/def/x-OGC/TBD/Deployment           | The system was deployed.
+| http://www.opengis.net/def/x-OGC/TBD/Decommission         | The system was decommissioned.
 |====
 
-
-==== Associations
-
-A `SystemEvent` resource is also required to include the following associations:
-
-[[req_system-event-links]]
-[width="90%",cols="2,6a",options="header"]
-|===
-^|*Requirement {counter:req-id}* |*/req/system-event/links*
-^| A | A `SystemEvent` resource SHALL include the associations defined in <<system-event-links>>.
-|===
-
-[#system-event-links,reftext='{table-caption} {counter:table-num}']
+[#system-event-assocs,reftext='{table-caption} {counter:table-num}']
 .System Event Associations
 [width="100%",cols="5,10,10",options="header"]
 |====
@@ -87,36 +65,67 @@ A `SystemEvent` resource is also required to include the following associations:
 |====
 
 
-=== System Events Collection
 
-System events are made available as a sub-collection of `System` resources.
+=== System Event Canonical URL
 
-[[req_system-events-collection]]
-[width="90%",cols="2,6a",options="header"]
-|===
-^|*Requirement {counter:req-id}* |*/req/system/events-collection*
-^|A |The server SHALL expose `System` events at URL `{systemResourceUrl}/events`.
-|===
+The CS API Standard requires that every `SystemEvent` resource has a canonical URL.
+
+include::../requirements/systemevent/req_canonical_url.adoc[]
 
 
-=== Simple Queries
 
-System events can be filtered using simple query parameters defined in {ogcapi-common-2}.
+[[clause-systemevent-resources-endpoint]]
+=== System Event Resources Endpoints
 
-[[req_filter-event-simplequery]]
-[width="90%",cols="2,6a",options="header"]
-|===
-^|*Requirement {counter:req-id}* |*/req/filter/event-simplequery*
-^| A | The server SHALL support query parameters `datetime` and `limit` on all `SystemEvent` collections.
-|===
+==== Definition
 
-[[req_filter-event-time]]
-[width="90%",cols="2,6a",options="header"]
-|===
-^|*Requirement {counter:req-id}* |*/req/filter/event-time*
-^| A | When the `datetime` query parameter is used to filter a collection of `SystemEvent` resources, the server SHALL use the `eventTime` property of the resource to determine its temporal extent.
-^| B | Only resources with an `eventTime` that intersects the value of the `datetime` query parameter SHALL be included in the result set.
-|===
+A `SystemEvent` {resources-endpoint} is an endpoint exposing a set of `SystemEvent` resources that can be further filtered using query parameters.
 
-See <<clause-advanced-filtering>> for more filtering options.
+include::../requirements/systemevent/req_resources_endpoint.adoc[]
+
+<<clause-systemevent-query-params>> defines additional query parameters applicable to `SystemEvent` resources endpoint.
+
+[[clause-canonical-systemevent-rep]]
+==== Canonical System Event Resources Endpoint
+
+The CS API Standard requires that a canonical `SystemEvent` resources endpoint, exposing all `SystemEvent` resources, be made available by the server.
+
+include::../requirements/systemevent/req_canonical_endpoint.adoc[]
+
+==== Nested System Event Resources Endpoints
+
+The set of events related to a specific system is available at a nested endpoint under the corresponding `System` resource:
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/system-event/ref-from-system
+
+conditions:: The server implements `http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/req/system`
+
+part:: The server SHALL implement a {systemevent-resources-endpoint} at path `{api_root}/systems/{sysId}/events` for each available `System` resource.
+
+part:: The endpoint SHALL only expose the `SystemEvent` resources associated to the `System` with ID `sysId`.
+====
+
+
+
+=== SystemEvent Collections
+
+Any number of resources collections containing `SystemEvent` resources can be available at a CS API endpoint. `SystemEvent` collections are identified with the item type `SystemEvent`.
+
+`SystemEvent` resources can be grouped into collections according to any arbitrary criteria, as exemplified below:
+
+[example%unnumbered]
+====
+*Examples of SystemEvent Collections*
+
+- All events related to a fleet of UAVs at URL `{api_root}/collections/uas_fleet1_events`
+- All events related to a particular mission at URL `{api_root}/collections/mission23_events`
+
+_Note that a given event can be part of multiple collections at the same time._
+====
+
+include::../requirements/systemevent/req_collections.adoc[]
+
 

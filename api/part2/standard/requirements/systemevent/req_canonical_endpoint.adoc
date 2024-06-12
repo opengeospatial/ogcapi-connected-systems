@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/system-event/canonical-endpoint
+
+part:: The server SHALL expose a {systemevent-resources-endpoint} at the path `{api_root}/systemEvents`.
+
+part:: The endpoint SHALL expose all `SystemEvent` resources available on the server.
+====

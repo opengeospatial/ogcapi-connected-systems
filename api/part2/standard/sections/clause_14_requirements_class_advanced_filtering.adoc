@@ -16,6 +16,16 @@ All filters defined in this section are implemented using URL query parameters a
 [[clause-datastream-query-params]]
 === DataStream Query Parameters
 
+The following query parameters are used to filter `DataStream` resources at a {datastream-resources-endpoint}.
+
+==== Phenomenon Time Filter
+
+==== Result Time Filter
+
+==== Observed Property Filter
+
+==== Feature of Interest Filter
+
 
 
 [[clause-observation-query-params]]
@@ -79,16 +89,29 @@ part:: In addition to the possible parameter values defined in {ogcapi-features-
 |===
 ====
 
+==== Feature of Interest Filter
+
+
 
 [[clause-controlstream-query-params]]
 === ControlStream Query Parameters
+
+The following query parameters are used to filter `ControlStream` resources at a {controlstream-resources-endpoint}.
+
+==== Issue Time Filter
+
+==== Execution Time Filter
+
+==== Controlled Property Filter
+
+==== Feature of Interest Filter
 
 
 
 [[clause-command-query-params]]
 === Command Query Parameters
 
-The following query parameters are used to filter `Command` resources at an {command-resources-endpoint}.
+The following query parameters are used to filter `Command` resources at a {command-resources-endpoint}.
 
 ==== Issue Time Filter
 
@@ -97,3 +120,27 @@ The following query parameters are used to filter `Command` resources at an {com
 ==== Sender Filter
 
 ==== Status Filter
+
+==== Feature of Interest Filter
+
+
+
+[[clause-commandstatus-query-params]]
+=== Command Status Query Parameters
+
+The following query parameters are used to filter `CommandStatus` resources at a {commandstatus-resources-endpoint}.
+
+==== Report Time Filter
+
+==== Status Filter
+
+
+
+[[clause-systemevent-query-params]]
+=== System Event Query Parameters
+
+The following query parameters are used to filter `SystemEvent` resources at a {systemevent-resources-endpoint}.
+
+==== Event Time Filter
+
+==== Event Type Filter

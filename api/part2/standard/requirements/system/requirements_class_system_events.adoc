@@ -1,8 +1,0 @@
-[requirement,model=ogc]
-====
-[%metadata]
-type:: class
-identifier:: /req/system-events
-subject:: Web API
-inherit:: http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/req/system-features
-====

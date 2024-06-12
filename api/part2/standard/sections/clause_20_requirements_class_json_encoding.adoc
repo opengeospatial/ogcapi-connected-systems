@@ -179,7 +179,7 @@ include::../openapi/examples/commandStatus/command-status-completed.json[]
 
 
 
-
+[[clause-json-systemevent]]
 ==== System Event Encoding Rules
 
 
