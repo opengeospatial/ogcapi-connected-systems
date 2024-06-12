@@ -1,0 +1,7 @@
+{
+  "observation@link": {
+    "href": "https://data.example.org/api/observations/gss45sdf413s387g49445ssdf55?f=json",
+    "title": "Satellite Image",
+    "type": "application/json"
+  }
+}

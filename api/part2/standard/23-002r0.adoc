@@ -37,8 +37,23 @@
 :commandresult-resources-endpoint: <<clause-commandresult-resources-endpoint,Command Result resources endpoint>>
 :systemevent-resources-endpoint: <<clause-systemevent-resources-endpoint,System Event resources endpoint>>
 //
-:jsonschema-base-url: https://raw.githubusercontent.com/opengeospatial/connected-systems/master/api/part2/openapi/schemas
 :filter-idlist-schema: link:https://docs.ogc.org/DRAFTS/23-001r0.html#filter-idlist-schema[ID_List]
+//:json-schema-root: https://raw.githubusercontent.com/opengeospatial/connected-systems/master/api/part2/openapi/schemas/json
+:json-schema-root: ./openapi/schemas/json
+:json-datastream-schema: link:{json-schema-root}/dataStream.json[dataStream.json]
+:json-datastream-collection-schema: link:{json-schema-root}/dataStreamCollection.json[dataStreamCollection.json]
+:json-observation-schema: link:{json-schema-root}/observation.json[observation.json]
+:json-observation-collection-schema: link:{json-schema-root}/observationCollection.json[observationCollection.json]
+:json-controlstream-schema: link:{json-schema-root}/controlStream.json[controlStream.json]
+:json-controlstream-collection-schema: link:{json-schema-root}/controlStreamCollection.json[controlStreamCollection.json]
+:json-command-schema: link:{json-schema-root}/command.json[command.json]
+:json-command-collection-schema: link:{json-schema-root}/commandCollection.json[commandCollection.json]
+:json-commandstatus-schema: link:{json-schema-root}/commandStatus.json[commandStatus.json]
+:json-commandstatus-collection-schema: link:{json-schema-root}/commandStatusCollection.json[commandStatusCollection.json]
+:json-commandresult-schema: link:{json-schema-root}/commandResult.json[commandResult.json]
+:json-commandresult-collection-schema: link:{json-schema-root}/commandResultCollection.json[commandResultCollection.json]
+:json-systemevent-schema: link:{json-schema-root}/systemEvent.json[systemEvent.json]
+:json-systemevent-collection-schema: link:{json-schema-root}/systemEventCollection.json[systemEventCollection.json]
 
 ////
 Make sure to complete each included document
