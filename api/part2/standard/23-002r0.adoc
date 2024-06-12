@@ -38,7 +38,7 @@
 :systemevent-resources-endpoint: <<clause-systemevent-resources-endpoint,System Event resources endpoint>>
 //
 :jsonschema-base-url: https://raw.githubusercontent.com/opengeospatial/connected-systems/master/api/part2/openapi/schemas
-
+:filter-idlist-schema: link:https://docs.ogc.org/DRAFTS/23-001r0.html#filter-idlist-schema[ID_List]
 
 ////
 Make sure to complete each included document

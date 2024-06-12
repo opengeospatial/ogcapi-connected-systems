@@ -11,6 +11,8 @@ get:
     - $ref: ../../../part1/openapi/parameters/idList.yaml
     - $ref: ../parameters/issueTime.yaml
     - $ref: ../parameters/executionTime.yaml
+    - $ref: ../parameters/statusCodeList.yaml
+    - $ref: ../parameters/senderList.yaml
     - $ref: ../../../part1/openapi/parameters/foiIdList.yaml
     - $ref: ../../../part1/openapi/parameters/controlPropIdList.yaml
     #- $ref: '#/components/parameters/select'

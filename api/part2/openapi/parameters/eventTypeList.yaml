@@ -1,0 +1,12 @@
+name: eventType
+description: |-
+  List of event types.
+  Only event resources with a type that matches one of the provided types are selected.
+in: query
+required: false
+schema:
+  type: array
+  minItems: 1
+  items:
+    type: string
+explode: false

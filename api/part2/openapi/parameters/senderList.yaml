@@ -1,0 +1,12 @@
+name: sender
+description: |-
+  List of sender IDs.
+  Only command resources issued by one of the specified senders are selected.
+in: query
+required: false
+schema:
+  type: array
+  minItems: 1
+  items:
+    type: string
+explode: false

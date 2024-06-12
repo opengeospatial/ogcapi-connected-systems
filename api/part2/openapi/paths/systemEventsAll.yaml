@@ -6,7 +6,9 @@ get:
     - System Events
   parameters:
     - $ref: ../parameters/eventTime.yaml
+    - $ref: ../parameters/eventTypeList.yaml
     - $ref: ../../../part1/openapi/parameters/keyword.yaml
+    - $ref: ../../../part1/openapi/parameters/systemIdList.yaml
     #- $ref: '#/components/parameters/select'
     - $ref: ../../../part1/openapi/parameters/limit.yaml
   responses:

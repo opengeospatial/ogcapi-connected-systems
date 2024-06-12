@@ -10,7 +10,7 @@ get:
   parameters:
     - $ref: ../../../part1/openapi/parameters/idList.yaml
     - $ref: ../parameters/reportTime.yaml
-    - $ref: ../parameters/executionTime.yaml
+    - $ref: ../parameters/statusCodeList.yaml
     #- $ref: '#/components/parameters/select'
     - $ref: ../../../part1/openapi/parameters/limit.yaml
   responses:
