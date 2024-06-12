@@ -101,8 +101,6 @@ The set of events related to a specific system is available at a nested endpoint
 [%metadata]
 identifier:: /req/system-event/ref-from-system
 
-conditions:: The server implements `http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/req/system`
-
 part:: The server SHALL implement a {systemevent-resources-endpoint} at path `{api_root}/systems/{sysId}/events` for each available `System` resource.
 
 part:: The endpoint SHALL only expose the `SystemEvent` resources associated to the `System` with ID `sysId`.
