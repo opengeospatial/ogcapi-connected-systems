@@ -196,11 +196,12 @@ include::../requirements/datastream/req_collections.adoc[]
 
 
 
-=== DataStream Schemas
+[[clause-observation-schemas]]
+=== Observation Schemas
 
-A different schema is needed for each individual datastream because the exact content of the observations result changes according to result type and the properties being observed. Moreover, multiple observation formats can be offered for any given datastream.
+A different observation schema is needed for each individual datastream because the exact content of the observations result changes according to result type and the properties being observed. Moreover, multiple observation formats can be offered for any given datastream, and the schema is typically expressed differently for each format.
 
-The CS API thus provides a way for the server to communicate the schema (_not necessarily a JSON schema_) corresponding to a given datastream and observation format. The exact content of a schema resource is defined by each encoding. See section <<clause-encoding-json>> for example schemas used for observations encoded using the default JSON format.
+Thus, for each `DataStream` resource, the CS API provides a way for the server to communicate an observation schema (_not necessarily a JSON schema_) for each supported observation format. The exact content of a schema resource is defined by each encoding. See section <<clause-encoding-json>> for example schemas used for observations encoded using the default JSON format.
 
 Extensions to this Standard can define additional representation formats for observations. Such format extensions must clearly define the mapping between elements of the representation format and the <<clause-observation-resource,Observation resource>> defined in the next clause.
 
