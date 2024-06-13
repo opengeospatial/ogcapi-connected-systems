@@ -37,10 +37,10 @@
       "type": "string",
       "minLength": 1
     },
-    "result": {
+    "results": {
+      "description": "New result(s) of the command available at the time of the progress report (can be a partial result)",
       "type": "array",
       "items": {
-        "description": "Result of the command (can be a partial result)",
         "$ref": "commandResult.json"
       }
     }

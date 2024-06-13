@@ -11,50 +11,69 @@
     "command@id": {
       "description": "Local identifier of the command that this result is associated to",
       "type": "string",
-      "minLength": 1
-    },
-    "inline": {
-      "description": "Inline data encoded according to the control stream result schema"
-    },
-    "observation@link": {
-      "description": "Link to an observation resulting from the execution of the command",
-      "$ref": "../common/commonDefs.json#/definitions/Link"
-    },
-    "observationSet@link": {
-      "description": "Link to a set of observations resulting from the execution of the command",
-      "$ref": "../common/commonDefs.json#/definitions/Link"
-    },
-    "datastream@link": {
-      "description": "Link to a datastream containing observations resulting from the execution of the command",
-      "allOf": [
-        { "$ref": "../common/commonDefs.json#/definitions/Link" },
-        {
-          "properties": {
-            "resultTime": {
-              "description": "Time range during which the resulting observations were generated (If not provided, the entire datastream is assumed to be the result)",
-              "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
-            }
-          }
-        }
-      ]
+      "minLength": 1,
+      "readOnly": true
     }
   },
   "oneOf": [
     {
       "title": "Inline result",
-      "required": ["inline"]
+      "properties": {
+        "data": {
+          "description": "Inline JSON data encoded according to the control stream result schema"
+        }
+      },
+      "required": ["data"]
     },
     {
       "title": "Link to a single observation",
+      "properties": {
+        "observation@link": {
+          "description": "Link to an observation resulting from the execution of the command",
+          "$ref": "../common/commonDefs.json#/definitions/Link"
+        }
+      },
       "required": ["observation@link"]
     },
     {
       "title": "Link to a set of observations",
+      "properties": {
+        "observationSet@link": {
+          "description": "Link to a set of observations resulting from the execution of the command",
+          "$ref": "../common/commonDefs.json#/definitions/Link"
+        }
+      },
       "required": ["observationSet@link"]
     },
     {
       "title": "Link to a datastream",
+      "properties": {
+        "datastream@link": {
+          "description": "Link to a datastream containing observations resulting from the execution of the command",
+          "allOf": [
+            { "$ref": "../common/commonDefs.json#/definitions/Link" },
+            {
+              "properties": {
+                "resultTime": {
+                  "description": "Time range during which the resulting observations were generated (If not provided, the entire datastream is assumed to be the result)",
+                  "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
+                }
+              }
+            }
+          ]
+        }
+      },
       "required": ["datastream@link"]
+    },
+    {
+      "title": "Link to an external dataset",
+      "properties": {
+        "external@link": {
+          "description": "Link to an external dataset containing the result(s) of the command",
+          "$ref": "../common/commonDefs.json#/definitions/Link"
+        }
+      },
+      "required": ["external@link"]
     }
  ]
 }

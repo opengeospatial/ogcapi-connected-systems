@@ -462,6 +462,7 @@ The following tables describe the attributes and associations of the `CommandRes
 | *Name*              | *Definition* | *Target Content*
 | `observation`       | An observation resulting from the execution of the command | A list of `Observation` resources (by reference).
 | `datastream`        | A datastream containing observations resulting from the execution of the command | A single `DataStream` resource (by reference).
+| `external`          | An external dataset containing the results of the command. | Any resource (by reference).
 |====
 
 
