@@ -1,6 +1,6 @@
 description: A single `Observation` resource
 content:
-  application/om+json:
+  application/json:
     schema:
       $ref: ../schemas/json/observation.json
         

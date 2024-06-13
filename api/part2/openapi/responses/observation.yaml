@@ -1,6 +1,6 @@
 description: OK. Successful request
 content:
-  application/om+json:
+  application/json:
     schema:
       $ref: ../schemas/json/observation.json
       properties:

@@ -1,7 +1,7 @@
 description: One or more system event resources
 required: true
 content:
-  application/om+json:
+  application/json:
     schema:
       oneOf:
       - title: Single Event

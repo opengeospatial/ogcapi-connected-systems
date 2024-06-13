@@ -4,9 +4,9 @@
   "properties": {
     "commandFormat": {
       "type": "string",
-      "const": "application/cmd+json"
+      "const": "application/json"
     },
-    "paramsSchema": {
+    "parametersSchema": {
       "$ref": "../common/sweCommonDefs.json#/definitions/AnyComponent"
     },
     "resultSchema": {

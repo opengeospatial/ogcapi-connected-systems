@@ -2,8 +2,8 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
-    "commandFormat": {
-      "const": "application/cmd+protobuf"
+    "obsFormat": {
+      "const": "application/x-protobuf"
     },
     "messageSchema": {
       "description": "Protobuf schema provided as a string or as a link to an external proto file",
@@ -21,7 +21,6 @@
     }
   },
   "required": [
-    "commandFormat",
-    "messageSchema"
+    "obsFormat", "messageSchema"
   ]
 }

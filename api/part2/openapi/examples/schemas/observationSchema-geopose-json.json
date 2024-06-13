@@ -1,15 +1,6 @@
 {
-  "resultTime": {
-    "name": "time",
-    "type": "Time",
-    "definition": "http://www.opengis.net/def/property/OGC/0/SamplingTime",
-    "referenceFrame": "http://www.opengis.net/def/trs/BIPM/0/UTC",
-    "label": "Sampling Time",
-    "uom": {
-      "href": "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"
-    }
-  },
-  "result": {
+  "obsFormat": "application/json",
+  "resultSchema": {
     "type": "DataRecord",
     "label": "Basic YPR Pose",
     "description": "Pose of platform (position + euler angles) in WGS84/ENU",

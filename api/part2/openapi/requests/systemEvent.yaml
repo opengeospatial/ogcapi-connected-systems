@@ -1,6 +1,6 @@
 description: A single `System Event` resource
 content:
-  application/om+json:
+  application/json:
     schema:
       $ref: ../schemas/json/systemEvent.json
       properties:

@@ -2,7 +2,7 @@ parameters:
   - $ref: ../parameters/dataStreamId.yaml
 
 get:
-  summary: Retrieve a datastream schema for a given format
+  summary: Retrieve the observation schema for a given format
   description: |-
     The type of observation schema returned depends on the observation encoding format selected using the `obsFormat` parameter.
   tags:
@@ -12,7 +12,7 @@ get:
     - $ref: ../parameters/schemaType.yaml
   responses:
     '200':
-      $ref: ../responses/dataStreamSchema.yaml
+      $ref: ../responses/observationSchema.yaml
     '400':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
     '401':
@@ -25,7 +25,7 @@ get:
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
 
 put:
-  summary: Update a datastream schema
+  summary: Update an observation schema
   description: |-
     After a datastream has been created and observations have been associated to it, the server may
     reject certain updates to the schema (e.g. adding or removing result fields, changing UoM, etc.).
@@ -33,7 +33,7 @@ put:
   tags:
     - Data Streams
   requestBody:
-    $ref: ../requests/dataStreamSchema.yaml
+    $ref: ../requests/observationSchema.yaml
   responses:
     '204':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/204_PUT

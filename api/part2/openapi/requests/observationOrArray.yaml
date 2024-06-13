@@ -1,7 +1,7 @@
 description: One or more observation resources
 required: true
 content:
-  application/om+json:
+  application/json:
     schema:
       oneOf:
       - title: Single Observation

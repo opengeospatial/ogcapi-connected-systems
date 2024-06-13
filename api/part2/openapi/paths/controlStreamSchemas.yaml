@@ -2,7 +2,7 @@ parameters:
   - $ref: ../parameters/controlStreamId.yaml
 
 get:
-  summary: Retrieve a control stream schema for a given format
+  summary: Retrieve a command schema for a given format
   description: 
   tags:
     - Control Streams
@@ -11,7 +11,7 @@ get:
     - $ref: ../parameters/schemaType.yaml
   responses:
     '200':
-      $ref: ../responses/controlStreamSchema.yaml
+      $ref: ../responses/commandSchema.yaml
     '400':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
     '401':
@@ -24,7 +24,7 @@ get:
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
 
 put:
-  summary: Update a control stream schema
+  summary: Update a command schema
   description: |-
     After a control stream has been created and commands have been issued through it, the server may
     reject certain updates to the schema (e.g. adding or removing parameters, changing UoM, etc.).
@@ -32,7 +32,7 @@ put:
   tags:
     - Control Streams
   requestBody:
-    $ref: ../requests/controlStreamSchema.yaml
+    $ref: ../requests/commandSchema.yaml
   responses:
     '204':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/204_PUT

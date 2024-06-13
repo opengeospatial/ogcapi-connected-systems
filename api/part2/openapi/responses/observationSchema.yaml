@@ -1,4 +1,4 @@
-description: A single `Datastream Schema` resource
+description: OK. Successful request
 content:
   application/json:
     schema:
@@ -28,3 +28,19 @@ content:
         summary: GeoPose Result - SWE Common Schema with JSON encoding
         value:
           $ref: ../examples/schemas/observationSchema-geopose-swejson.json
+  application/schema+json:
+    examples:
+      scalar-omjson:
+        summary: Scalar Result - JSON Schema
+        value:
+          $ref: ../examples/schemas/observationSchema-scalar-json-jsonschema-byref.json
+  text/plain:
+    examples:
+      scalar-proto:
+        summary: Scalar Result - Protobuf Schema
+        value:
+          $ref: ../examples/schemas/observationSchema-scalar.proto
+      geopose-proto:
+        summary: GeoPose Result - Protobuf Schema
+        value:
+          $ref: ../examples/schemas/observationSchema-geopose.proto

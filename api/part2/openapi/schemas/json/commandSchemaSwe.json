@@ -1,11 +1,34 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
+  "properties": {
+    "commandFormat": {
+      "type": "string",
+      "enum": [
+        "application/swe+json",
+        "application/swe+text",
+        "application/swe+binary"
+      ]
+    },
+    "recordSchema": {
+      "$ref": "../common/sweCommonDefs.json#/definitions/AnyComponent"
+    },
+    "encoding": {
+      "oneOf": [
+        { "$ref": "../common/sweCommonDefs.json#/definitions/JSONEncoding" },
+        { "$ref": "../common/sweCommonDefs.json#/definitions/TextEncoding" },
+        { "$ref": "../common/sweCommonDefs.json#/definitions/BinaryEncoding" }
+      ]
+    }
+  },
+  "required": [
+    "commandFormat", "recordSchema", "encoding"
+  ],
   "oneOf": [
     {
       "title": "SWE JSON",
       "properties": {
-        "obsFormat": {
+        "commandFormat": {
           "const": "application/swe+json"
         },
         "encoding": {
@@ -16,7 +39,7 @@
     {
       "title": "SWE Text",
       "properties": {
-        "obsFormat": {
+        "commandFormat": {
           "const": "application/swe+text"
         },
         "encoding": {
@@ -27,7 +50,7 @@
     {
       "title": "SWE CSV",
       "properties": {
-        "obsFormat": {
+        "commandFormat": {
           "const": "application/swe+csv"
         },
         "encoding": {
@@ -51,7 +74,7 @@
     {
       "title": "SWE Binary",
       "properties": {
-        "obsFormat": {
+        "commandFormat": {
           "const": "application/swe+binary"
         },
         "encoding": {
@@ -59,13 +82,5 @@
         }
       }
     }
-  ],
-  "properties": {
-    "recordSchema": {
-      "$ref": "../common/sweCommonDefs.json#/definitions/AnyComponent"
-    }
-  },
-  "required": [
-    "obsFormat", "recordSchema", "encoding"
   ]
 }

@@ -2,17 +2,17 @@ description: A single `ControlStream Schema` resource
 content:
   application/json:
     schema:
-      $ref: ../schemas/json/controlStreamSchema.json
+      $ref: ../schemas/json/commandSchema.json
     examples:
       ptz-cmdjson:
         summary: PTZ Control - Command JSON
         value:
-          $ref: ../examples/schemas/controlStreamSchema-ptz-cmdjson.json
+          $ref: ../examples/schemas/commandSchema-ptz-cmdjson.json
       ptz-swejson:
         summary: PTZ Control - SWE JSON
         value:
-          $ref: ../examples/schemas/controlStreamSchema-ptz-swejson.json
+          $ref: ../examples/schemas/commandSchema-ptz-swejson.json
       ptz-swecsv:
         summary: PTZ Control - SWE CSV
         value:
-          $ref: ../examples/schemas/controlStreamSchema-ptz-swecsv.json
+          $ref: ../examples/schemas/commandSchema-ptz-swecsv.json

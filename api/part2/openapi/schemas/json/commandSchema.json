@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "oneOf": [
+    {
+      "title": "JSON",
+      "$ref": "commandSchemaJson.json"
+    },
+    {
+      "title": "SWE Common",
+      "$ref": "commandSchemaSwe.json"
+    },
+    {
+      "title": "Protobuf",
+      "$ref": "commandSchemaProtobuf.json"
+    },
+    {
+      "title": "Other format",
+      "$ref": "commandSchemaAnyOther.json"
+    }
+  ],
+  "required": [
+    "commandFormat"
+  ]
+}

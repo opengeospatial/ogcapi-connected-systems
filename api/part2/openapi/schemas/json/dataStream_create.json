@@ -6,7 +6,7 @@
       "properties": {
         "schema": {
           "description": "Schema describing the content of observations in this datastream. The exact syntax of the schema depends on the encoding format.",
-          "$ref": "dataStreamSchema.json",
+          "$ref": "observationSchema.json",
           "writeOnly": true
         }
       },
