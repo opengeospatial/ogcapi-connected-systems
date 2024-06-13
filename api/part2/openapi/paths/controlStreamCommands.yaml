@@ -2,9 +2,9 @@ parameters:
   - $ref: ../parameters/controlStreamId.yaml
   
 get:
-  summary: List commands from a specific control channel
+  summary: List commands from a specific control stream
   description: |-
-    List or search all commands received on a specific control channel.
+    List or search all commands received in a specific control stream.
   tags:
     - Commands
   parameters:
@@ -32,18 +32,13 @@ get:
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
 
 post:
-  summary: Send commands in a specific control stream
+  summary: Send a command
   description: |-
-    New commands are always added to a parent control stream.
-
-    Note that it is possible to create multiple resources in a single batch request.
-    In this case, several resource descriptions are provided in the content body inside a JSON array.
-    On success, the server will send a `200` response with the list of URIs of all created resources,
-    in the same order as the array in the request.
+    Add a new `Command` resource to an existing control stream.
   tags:
     - Commands
   requestBody:
-    $ref: ../requests/commandOrArray.yaml
+    $ref: ../requests/command.yaml
   responses:
     '200':
       $ref: ../../../part1/openapi/responses/resourceLinks.yaml

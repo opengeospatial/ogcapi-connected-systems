@@ -2,8 +2,11 @@ parameters:
   - $ref: ../parameters/controlStreamId.yaml
 
 get:
-  summary: Retrieve a command schema for a given format
-  description: 
+  summary: Get the command schema
+  description: |-
+    Get the command schema for a given format.
+
+    The type of command schema returned depends on the command encoding format selected using the `commandFormat` parameter.
   tags:
     - Control Streams
   parameters:
@@ -24,7 +27,7 @@ get:
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
 
 put:
-  summary: Update a command schema
+  summary: Update the command schema
   description: |-
     After a control stream has been created and commands have been issued through it, the server may
     reject certain updates to the schema (e.g. adding or removing parameters, changing UoM, etc.).

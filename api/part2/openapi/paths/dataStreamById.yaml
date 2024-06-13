@@ -2,7 +2,7 @@ parameters:
   - $ref: ../parameters/dataStreamId.yaml
 
 get:
-  summary: Retrieve a datastream by ID
+  summary: Get a datastream by ID
   description: 
   tags:
     - Data Streams

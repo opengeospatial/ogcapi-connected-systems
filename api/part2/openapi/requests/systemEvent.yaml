@@ -1,4 +1,4 @@
-description: A single `System Event` resource
+description: A single `SystemEvent` resource
 content:
   application/json:
     schema:

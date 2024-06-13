@@ -2,7 +2,7 @@ parameters:
   - $ref: ../parameters/controlStreamId.yaml
 
 get:
-  summary: Retrieve a control stream by ID
+  summary: Get a control stream by ID
   description: 
   tags:
     - Control Streams

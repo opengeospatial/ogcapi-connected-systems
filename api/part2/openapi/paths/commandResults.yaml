@@ -2,20 +2,18 @@ parameters:
   - $ref: ../parameters/cmdId.yaml
 
 get:
-  summary: List command status reports
+  summary: List command results
   description: |-
-    List or search all status reports associated to a given command
+    List or search all result items associated to a given command
   tags:
     - Commands
   parameters:
     - $ref: ../../../part1/openapi/parameters/idList.yaml
-    - $ref: ../parameters/reportTime.yaml
-    - $ref: ../parameters/statusCodeList.yaml
     #- $ref: '#/components/parameters/select'
     - $ref: ../../../part1/openapi/parameters/limit.yaml
   responses:
     '200':
-      $ref: ../responses/commandStatusCollection.yaml
+      $ref: ../responses/commandResultCollection.yaml
     '400':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
     '401':
@@ -28,16 +26,14 @@ get:
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
 
 post:
-  summary: Add new command status reports
+  summary: Add a command result
   description: |-
-    Add one or more new `CommandStatus` resources.
+    Add a new `CommandResult` resources.
   tags:
     - Commands
   requestBody:
-    $ref: ../requests/commandStatusOrArray.yaml
+    $ref: ../requests/commandResult.yaml
   responses:
-    '200':
-      $ref: ../../../part1/openapi/responses/resourceLinks.yaml
     '201':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/201
     '400':

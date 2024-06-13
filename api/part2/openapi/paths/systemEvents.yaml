@@ -29,21 +29,14 @@ get:
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
 
 post:
-  summary: Publish new system events
+  summary: Publish a system event
   description: |-
-    New system events are always added inside a parent system.
-
-    Note that it is possible to create multiple resources in a single batch request.
-    In this case, several resource descriptions are provided in the content body inside a JSON array.
-    On success, the server will send a `200` response with the list of URIs of all created resources,
-    in the same order as the array in the request.
+    Add a new `SystemEvent` resource to an existing system.
   tags:
     - System Events
   requestBody:
     $ref: ../requests/systemEventOrArray.yaml
   responses:
-    '200':
-      $ref: ../../../part1/openapi/responses/resourceLinks.yaml
     '201':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/201
     '400':

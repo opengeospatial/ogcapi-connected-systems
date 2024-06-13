@@ -1,6 +1,6 @@
 parameters:
   - $ref: ../parameters/cmdId.yaml
-  - $ref: ../parameters/statusId.yaml
+  - $ref: ../parameters/resultId.yaml
 
 get:
   summary: Get a command result by ID

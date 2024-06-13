@@ -2,8 +2,10 @@ parameters:
   - $ref: ../parameters/dataStreamId.yaml
 
 get:
-  summary: Retrieve the observation schema for a given format
+  summary: Get the observation schema
   description: |-
+    Get the observation schema for a given format.
+
     The type of observation schema returned depends on the observation encoding format selected using the `obsFormat` parameter.
   tags:
     - Data Streams
@@ -25,7 +27,7 @@ get:
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
 
 put:
-  summary: Update an observation schema
+  summary: Update the observation schema
   description: |-
     After a datastream has been created and observations have been associated to it, the server may
     reject certain updates to the schema (e.g. adding or removing result fields, changing UoM, etc.).

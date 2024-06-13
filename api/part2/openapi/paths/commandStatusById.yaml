@@ -3,7 +3,7 @@ parameters:
   - $ref: ../parameters/statusId.yaml
 
 get:
-  summary: Retrieve a status report by ID
+  summary: Get a status report by ID
   description: 
   tags:
     - Commands

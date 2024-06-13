@@ -1,4 +1,4 @@
-description: A single `Command Status` resource
+description: A single `CommandStatus` resource
 content:
   application/json:
     schema:

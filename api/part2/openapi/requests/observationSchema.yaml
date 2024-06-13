@@ -1,4 +1,4 @@
-description: A single `Datastream Schema` resource
+description: A single `Observation Schema` resource
 content:
   application/json:
     schema:

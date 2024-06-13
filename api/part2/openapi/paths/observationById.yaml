@@ -2,7 +2,7 @@ parameters:
   - $ref: ../parameters/obsId.yaml
 
 get:
-  summary: Retrieve an observation by ID
+  summary: Get an observation by ID
   description: 
   tags:
     - Observations

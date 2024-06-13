@@ -1,4 +1,4 @@
-description: A single `Command Result` resource
+description: A single `CommandResult` resource
 content:
   application/json:
     schema:

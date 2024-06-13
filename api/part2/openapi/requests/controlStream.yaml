@@ -1,4 +1,4 @@
-description: A single `Control Stream` resource
+description: A single `ControlStream` resource
 content:
   application/json:
     schema:

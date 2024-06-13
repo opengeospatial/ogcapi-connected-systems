@@ -1,0 +1,7 @@
+name: resultId
+in: path
+description: Local identifier of a Command Result
+required: true
+schema:
+  type: string
+  minLength: 1

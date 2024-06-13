@@ -3,7 +3,7 @@ parameters:
   - $ref: ../parameters/eventId.yaml
 
 get:
-  summary: Retrieve a system event by ID
+  summary: Get a system event by ID
   description: 
   tags:
     - System Events

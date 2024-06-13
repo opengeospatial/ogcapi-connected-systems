@@ -2,7 +2,7 @@ parameters:
   - $ref: ../parameters/cmdId.yaml
     
 get:
-  summary: Retrieve a command by ID
+  summary: Get a command by ID
   description: 
   tags:
     - Commands

@@ -30,21 +30,14 @@ get:
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
 
 post:
-  summary: Add new control streams to a system
+  summary: Add a control stream
   description: |-
-    New control streams are always added to a parent system.
-
-    Note that it is possible to create multiple resources in a single batch request.
-    In this case, several resource descriptions are provided in the content body inside a JSON array.
-    On success, the server will send a `200` response with the list of URIs of all created resources,
-    in the same order as the array in the request.
+    Add a new control stream to an existing system.
   tags:
     - Control Streams
   requestBody:
     $ref: ../requests/controlStream.yaml
   responses:
-    '200':
-      $ref: ../../../part1/openapi/responses/resourceLinks.yaml
     '201':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/201
     '400':

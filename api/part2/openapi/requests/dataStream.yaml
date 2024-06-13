@@ -1,4 +1,4 @@
-description: A single `Datastream` resource
+description: A single `DataStream` resource
 content:
   application/json:
     schema:

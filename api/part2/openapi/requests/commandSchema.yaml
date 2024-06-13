@@ -1,4 +1,4 @@
-description: A single `ControlStream Schema` resource
+description: A single `CommandSchema` resource
 content:
   application/json:
     schema:
