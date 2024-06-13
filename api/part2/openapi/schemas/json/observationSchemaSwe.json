@@ -3,23 +3,12 @@
   "type": "object",
   "properties": {
     "obsFormat": {
-      "type": "string",
-      "enum": [
-        "application/swe+json",
-        "application/swe+text",
-        "application/swe+binary"
-      ]
+      "type": "string"
     },
     "recordSchema": {
       "$ref": "../common/sweCommonDefs.json#/definitions/AnyComponent"
     },
-    "encoding": {
-      "oneOf": [
-        { "$ref": "../common/sweCommonDefs.json#/definitions/JSONEncoding" },
-        { "$ref": "../common/sweCommonDefs.json#/definitions/TextEncoding" },
-        { "$ref": "../common/sweCommonDefs.json#/definitions/BinaryEncoding" }
-      ]
-    }
+    "encoding": {}
   },
   "required": [
     "obsFormat", "recordSchema", "encoding"

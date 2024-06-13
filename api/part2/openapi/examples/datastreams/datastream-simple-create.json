@@ -10,7 +10,7 @@
     "title": "Thermometer Sampling Point"
   },
   "schema": {
-    "obsFormat": "application/om+json",
+    "obsFormat": "application/json",
     "resultSchema": {
       "name": "temp",
       "type": "Quantity",

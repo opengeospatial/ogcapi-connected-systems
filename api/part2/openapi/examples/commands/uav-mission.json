@@ -1,7 +1,6 @@
 {
   "parameters": {
     "startTime": "2023-05-026T10:20:00Z",
-    "endTime": "",
     "instructions": [
       {
         "type": "TAKEOFF",

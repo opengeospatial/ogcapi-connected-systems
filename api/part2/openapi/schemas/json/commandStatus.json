@@ -41,7 +41,7 @@
       "type": "array",
       "items": {
         "description": "Result of the command (can be a partial result)",
-        "$ref": "commandResult.json#/definitions/ResultOptions"
+        "$ref": "commandResult.json"
       }
     }
   },

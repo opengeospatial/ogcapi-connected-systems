@@ -1,5 +1,6 @@
 {
   "name": "PTZ Control",
+  "inputName": "ptz",
   "controlledProperties": [
     {
       "definition": "http://sensorml.com/ont/swe/property/PanAngle",
