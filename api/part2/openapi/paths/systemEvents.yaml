@@ -31,7 +31,7 @@ get:
 post:
   summary: Publish a system event
   description: |-
-    Add a new `SystemEvent` resource to an existing system.
+    Publish a new event about a specific system.
   tags:
     - System Events
   requestBody:

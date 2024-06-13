@@ -30,7 +30,7 @@ get:
 post:
   summary: Add a command status report
   description: |-
-    Add a new `CommandStatus` resource.
+    Add a new status report related to a specific command.
   tags:
     - Commands
   requestBody:

@@ -34,7 +34,7 @@ get:
 post:
   summary: Send a command
   description: |-
-    Add a new `Command` resource to an existing control stream.
+    Send a new command to an existing control stream.
   tags:
     - Commands
   requestBody:

@@ -4,7 +4,7 @@ parameters:
 get:
   summary: List command results
   description: |-
-    List or search all result items associated to a given command
+    List or search all result items associated to a given command.
   tags:
     - Commands
   parameters:
@@ -28,7 +28,7 @@ get:
 post:
   summary: Add a command result
   description: |-
-    Add a new `CommandResult` resources.
+    Add a new result generated in response to a specific command.
   tags:
     - Commands
   requestBody:

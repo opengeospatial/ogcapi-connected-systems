@@ -32,7 +32,7 @@ get:
 post:
   summary: Add an observation
   description: |-
-    Add a new `Observation` resource to an existing datastream.
+    Add a new observation to an existing datastream.
   tags:
     - Observations
   requestBody:
