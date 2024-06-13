@@ -40,6 +40,7 @@ part:: The resource representation provided in the request SHALL be encoded as s
 ====
 
 
+
 [[clause-swejson-obsschema]]
 ==== Observation Schema Representation
 
@@ -51,7 +52,38 @@ The observation schema for the `{swe-json-mediatype}` media type is a SWE Common
 identifier:: /req/swecommon-json/obsschema-schema
 
 part:: The `Observation Schema` resource for media type `{swe-json-mediatype}` SHALL be valid against the JSON schema {json-observationschema-schema-swe}.
+
+part:: The `encoding` property SHALL be set to a `JSONEncoding` object.
 ====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/swecommon-json/obsschema-mapping
+
+[.component,class=part]
+--
+The `recordSchema` property SHALL include at least one `Time` component corresponding to either `resultTime` or `phenomenonTime`. This `Time` component SHALL be identified using one of the following URIs as the `definition` property.
+
+For `phenomenonTime`: +
+`http://www.opengis.net/def/property/OGC/0/PhenomenonTime`, or +
+`http://www.opengis.net/def/property/OGC/0/SamplingTime`
+
+For `resultTime`: +
+`http://www.opengis.net/def/property/OGC/0/ResultTime`
+--
+
+[.component,class=part]
+--
+If the `recordSchema` property includes a reference to a sampling feature, a `Text` component SHALL be used.
+
+The component SHALL be identified using the following URI as the `definition` property: +
+`http://www.opengis.net/def/property/OGC/0/SamplingFeature`
+
+The value of the component SHALL be the local identifier of the `SamplingFeature` resource.
+--
+====
+
 
 
 [[clause-swejson-observation]]
@@ -66,6 +98,7 @@ part:: `Observation` resources SHALL be encoded according to the schema provided
 ====
 
 
+
 [[clause-swejson-comdschema]]
 ==== Command Schema Representation
 
@@ -77,7 +110,34 @@ The command schema for the `{swe-json-mediatype}` media type is a SWE Common dat
 identifier:: /req/swecommon-json/cmdschema-schema
 
 part:: The `Command Schema` resource for media type `{swe-json-mediatype}` SHALL be valid against the JSON schema {json-commandschema-schema-swe}.
+
+part:: The `encoding` property SHALL be set to a `JSONEncoding` object.
 ====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/swecommon-json/cmdschema-mapping
+
+[.component,class=part]
+--
+If the `recordSchema` property includes a timestamp to be mapped to the `issueTime` property of the `CommandResource`, a `Time` component SHALL be used.
+
+The component SHALL be identified using the following URI as the `definition` property: +
+`http://www.opengis.net/def/property/OGC/0/IssueTime`
+--
+
+[.component,class=part]
+--
+If `recordSchema` property includes a reference to a sampling feature, a `Text` component SHALL be used.
+
+The component SHALL be identified using the following URI as the `definition` property: +
+`http://www.opengis.net/def/property/OGC/0/SamplingFeature`
+
+The value of the component SHALL be the local identifier of the `SamplingFeature` resource.
+--
+====
+
 
 
 [[clause-swejson-command]]

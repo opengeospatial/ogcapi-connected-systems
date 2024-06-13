@@ -47,6 +47,7 @@ part:: The resource representation provided in the request SHALL be encoded as s
 ====
 
 
+
 [[clause-swebinary-obsschema]]
 ==== Observation Schema Representation
 
@@ -58,7 +59,18 @@ The observation schema for the `{swe-binary-mediatype}` media type is a SWE Comm
 identifier:: /req/swecommon-binary/obsschema-schema
 
 part:: The `Observation Schema` resource for media type `{swe-binary-mediatype}` SHALL be valid against the JSON schema {json-observationschema-schema-swe}.
+
+part:: The `encoding` property SHALL be set to a `BinaryEncoding` object.
 ====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/swecommon-binary/obsschema-mapping
+
+The `recordSchema` property SHALL fulfill xref:/req/swecommon-json/obsschema-mapping[].
+====
+
 
 
 [[clause-swebinary-observation]]
@@ -73,6 +85,7 @@ part:: `Observation` resources SHALL be encoded according to the schema provided
 ====
 
 
+
 [[clause-swebinary-comdschema]]
 ==== Command Schema Representation
 
@@ -84,7 +97,18 @@ The command schema for the `{swe-binary-mediatype}` media type is a SWE Common d
 identifier:: /req/swecommon-binary/cmdschema-schema
 
 part:: The `Command Schema` resource for media type `{swe-binary-mediatype}` SHALL be valid against the JSON schema {json-commandschema-schema-swe}.
+
+part:: The `encoding` property SHALL be set to a `BinaryEncoding` object.
 ====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/swecommon-binary/cmdschema-mapping
+
+The `recordSchema` property SHALL fulfill xref:/req/swecommon-json/cmdschema-mapping[].
+====
+
 
 
 [[clause-swebinary-command]]

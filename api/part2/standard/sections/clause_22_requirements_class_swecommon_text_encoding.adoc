@@ -40,6 +40,7 @@ part:: The resource representation provided in the request SHALL be encoded as s
 ====
 
 
+
 [[clause-swetext-obsschema]]
 ==== Observation Schema Representation
 
@@ -51,7 +52,18 @@ The observation schema for the `{swe-text-mediatype}` media type is a SWE Common
 identifier:: /req/swecommon-text/obsschema-schema
 
 part:: The `Observation Schema` resource for media type `{swe-text-mediatype}` SHALL be valid against the JSON schema {json-observationschema-schema-swe}.
+
+part:: The `encoding` property SHALL be set to a `TextEncoding` object.
 ====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/swecommon-text/obsschema-mapping
+
+The `recordSchema` property SHALL fulfill xref:/req/swecommon-json/obsschema-mapping[].
+====
+
 
 
 [[clause-swetext-observation]]
@@ -66,6 +78,7 @@ part:: `Observation` resources SHALL be encoded according to the schema provided
 ====
 
 
+
 [[clause-swetext-comdschema]]
 ==== Command Schema Representation
 
@@ -77,7 +90,18 @@ The command schema for the `{swe-text-mediatype}` media type is a SWE Common dat
 identifier:: /req/swecommon-text/cmdschema-schema
 
 part:: The `Command Schema` resource for media type `{swe-text-mediatype}` SHALL be valid against the JSON schema {json-commandschema-schema-swe}.
+
+part:: The `encoding` property SHALL be set to a `TextEncoding` object.
 ====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/swecommon-text/cmdschema-mapping
+
+The `recordSchema` property SHALL fulfill xref:/req/swecommon-json/cmdschema-mapping[].
+====
+
 
 
 [[clause-swetext-command]]
