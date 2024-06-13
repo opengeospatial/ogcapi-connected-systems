@@ -1,9 +1,0 @@
-name: type
-in: query
-description: Type of schema
-required: false
-schema:
-  type: string
-  enum: [ "view", "create", "replace", "update" ]
-style: form
-explode: false

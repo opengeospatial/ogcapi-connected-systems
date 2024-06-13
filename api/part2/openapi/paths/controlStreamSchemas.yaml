@@ -11,7 +11,6 @@ get:
     - Control Streams
   parameters:
     - $ref: ../parameters/cmdFormat.yaml
-    - $ref: ../parameters/schemaType.yaml
   responses:
     '200':
       $ref: ../responses/commandSchema.yaml
