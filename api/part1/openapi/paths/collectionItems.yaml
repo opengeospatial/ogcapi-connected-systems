@@ -19,12 +19,12 @@ get:
       $ref: ../responses/featureCollection.yaml
 
 post:
-  summary: Add items to a collection
+  summary: Add an item to a collection
   description: |-
-    Add new or existing resources to the parent collection.
+    Add a new resource to the parent collection.
 
     If actual resource descriptions are provided in the body, new resources will be created and added to the parent collection.
-    The new resources will also be available at the corresponding canonical resources endpoint (e.g `/systems` if the resource is a system).
+    The new resources will also be available at the corresponding canonical resources endpoint (e.g. `/systems` if the resource is a system).
 
     Existing resources can also be added to a collection by providing one or more links to existing resources.
   tags:

@@ -1,5 +1,5 @@
 get:
-  summary: Retrieve a sampling feature by ID
+  summary: Get a sampling feature by ID
   tags:
     - Sampling Features
   parameters:
@@ -20,7 +20,7 @@ get:
       $ref: ../responses/StandardResponses.yaml#/5XX
 
 put:
-  summary: Update a sampling feature description
+  summary: Update a sampling feature
   description: |-
     This will completely replace the existing description of the sampling feature with the provided content.
   tags:

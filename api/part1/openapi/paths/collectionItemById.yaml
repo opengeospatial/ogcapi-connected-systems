@@ -1,5 +1,5 @@
 get:
-  summary: Retrieve a collection item
+  summary: Get a collection item
   description: Retrieve a specific item from a collection.
   tags:
     - Collections

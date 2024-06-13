@@ -37,20 +37,9 @@ get:
       $ref: ../responses/StandardResponses.yaml#/5XX
 
 post:
-  summary: Create new systems
+  summary: Create a new system
   description: |-
-    Add one or more new top-level `System` resources (i.e. these systems will have no parent).
-
-    Note that it is possible to create multiple resources in a single batch request.
-    In this case, several resource descriptions are provided in the content body inside a JSON array.
-    On success, the server will send a `200` response with the list of URIs of all created resources,
-    in the same order as the array in the request.
-
-    If a client posts a new description of an existing system with a more recent validity period
-    (i.e. starting after the validity period of the current description), the provided description
-    will become the current one. In order for the server to identify the existing system, its local
-    ID must be included in the payload using the `id` property. If system history is supported, the
-    old description is also archived in the system history. 
+    Add a new top-level `System` resource (i.e. the system will have no parent).
   tags:
     - Systems
   requestBody:

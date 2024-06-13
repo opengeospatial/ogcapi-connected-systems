@@ -26,14 +26,9 @@ get:
       $ref: ../responses/StandardResponses.yaml#/5XX
 
 post:
-  summary: Create new properties
+  summary: Create a property
   description: |-
-    Add one or more new `Property` resources.
-
-    Note that it is possible to create multiple resources in a single batch request.
-    In this case, several resource descriptions are provided in the content body inside a JSON array.
-    On success, the server will send a `200` response with the list of URIs of all created resources,
-    in the same order as the array in the request.
+    Add a new `Property` resource.
   tags:
     - Properties
   requestBody:

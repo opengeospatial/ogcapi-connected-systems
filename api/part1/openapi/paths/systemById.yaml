@@ -1,5 +1,5 @@
 get:
-  summary: Retrieve a system by ID
+  summary: Get a system by ID
   description: |-
     This will return the latest description of the system valid before or at the current time, by default.
 
@@ -26,7 +26,7 @@ get:
       $ref: ../responses/StandardResponses.yaml#/5XX
 
 put:
-  summary: Update a system description
+  summary: Update a system
   description: |-
     This will completely replace the existing description of the system with the provided content.
     

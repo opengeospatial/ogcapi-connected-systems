@@ -1,5 +1,5 @@
 get:
-  summary: Retrieve a property definition by ID
+  summary: Get a property by ID
   tags:
     - Properties
   parameters:
@@ -20,7 +20,7 @@ get:
       $ref: ../responses/StandardResponses.yaml#/5XX
 
 put:
-  summary: Update a property definition
+  summary: Update a property
   description: |-
     This will completely replace the existing definition of the property with the provided content.
   tags:

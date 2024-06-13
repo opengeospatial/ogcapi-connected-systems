@@ -1,5 +1,5 @@
 get:
-  summary: Retrieve a procedure by ID
+  summary: Get a procedure by ID
   tags:
     - Procedures
   parameters:
@@ -20,7 +20,7 @@ get:
       $ref: ../responses/StandardResponses.yaml#/5XX
 
 put:
-  summary: Update a procedure description
+  summary: Update a procedure
   description: |-
     This will completely replace the existing description of the procedure with the provided content.
   tags:

@@ -1,5 +1,5 @@
 get:
-  summary: Retrieve a deployment by ID
+  summary: Get a deployment by ID
   tags:
     - Deployments
   parameters:
@@ -20,7 +20,7 @@ get:
       $ref: ../responses/StandardResponses.yaml#/5XX
 
 put:
-  summary: Update a deployment description
+  summary: Update a deployment
   description: |-
     This will completely replace the existing description of the deployment with the provided content.
   tags:

@@ -1,5 +1,5 @@
 get:
-  summary: Retrieve collection metadata
+  summary: Get collection metadata
   description: Retrieve metadata about a specific collection.
   tags:
     - Collections
