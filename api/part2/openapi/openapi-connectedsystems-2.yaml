@@ -105,10 +105,16 @@ paths:
     $ref: paths/commandById.yaml
 
   /commands/{cmdId}/status:
-    $ref: paths/commandStatus.yaml
+    $ref: paths/commandStatuses.yaml
 
   /commands/{cmdId}/status/{statusId}:
     $ref: paths/commandStatusById.yaml
+
+  /commands/{cmdId}/result:
+    $ref: paths/commandResults.yaml
+
+  /commands/{cmdId}/result/{resultId}:
+    $ref: paths/commandResultById.yaml
 
   # System Events
   /systemEvents:
