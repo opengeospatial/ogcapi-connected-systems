@@ -66,11 +66,11 @@ identifier:: /req/swecommon-json/obsschema-mapping
 The `recordSchema` property SHALL include at least one `Time` component corresponding to either `resultTime` or `phenomenonTime`. This `Time` component SHALL be identified using one of the following URIs as the `definition` property.
 
 For `phenomenonTime`: +
-`http://www.opengis.net/def/property/OGC/0/PhenomenonTime`, or +
+`http://www.w3.org/ns/sosa/phenomenonTime`, or +
 `http://www.opengis.net/def/property/OGC/0/SamplingTime`
 
 For `resultTime`: +
-`http://www.opengis.net/def/property/OGC/0/ResultTime`
+`http://www.w3.org/ns/sosa/resultTime`
 --
 
 [.component,class=part]
@@ -78,7 +78,7 @@ For `resultTime`: +
 If the `recordSchema` property includes a reference to a sampling feature, a `Text` component SHALL be used.
 
 The component SHALL be identified using the following URI as the `definition` property: +
-`http://www.opengis.net/def/property/OGC/0/SamplingFeature`
+`http://www.w3.org/ns/sosa/FeatureOfInterest`
 
 The value of the component SHALL be the local identifier of the `SamplingFeature` resource.
 --
@@ -132,7 +132,7 @@ The component SHALL be identified using the following URI as the `definition` pr
 If `recordSchema` property includes a reference to a sampling feature, a `Text` component SHALL be used.
 
 The component SHALL be identified using the following URI as the `definition` property: +
-`http://www.opengis.net/def/property/OGC/0/SamplingFeature`
+`http://www.w3.org/ns/sosa/FeatureOfInterest`
 
 The value of the component SHALL be the local identifier of the `SamplingFeature` resource.
 --
