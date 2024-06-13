@@ -1,5 +1,5 @@
-:sensorml-schema-root: {jsonschema-root}/sensorml
 :sensorml-json-mediatype: application/sml+json
+
 
 [[clause-encoding-sensorml]]
 === Requirements Class "SensorML Format"
@@ -16,9 +16,9 @@ All feature types defined by this Standard, except `Sampling Features`, can be e
 
 ==== Media Type
 
-NOTE: Implementations should use `application/vnd.ogc.sml+json` as a preliminary media type until the <<OGC-SML,SensorML v3>> Standard is stable to avoid confusing future implementations accessing JSON documents from draft versions of the Standard. The media type `{sensorml-json-mediatype}` will be registered for SensorML-JSON, if and once this Standard is approved by the OGC Members. This note will be removed before publishing this Standard.
+NOTE: Implementations should use *`application/vnd.ogc.sml+json`* as a preliminary media type until the <<OGC-SML,SensorML 3.0>> Standard is stable to avoid confusing future implementations accessing JSON documents from draft versions of the Standard. The media type `{sensorml-json-mediatype}` will be registered for SensorML-JSON, if and once this Standard is approved by the OGC Members. This note will be removed before publishing this Standard.
 
-The media type used for SensorML encoded resources is `{sensorml-json-mediatype}`.
+The media type used for SensorML encoded resources is *`{sensorml-json-mediatype}`*.
 
 [requirement,model=ogc]
 ====
