@@ -1,14 +1,92 @@
+:swe-json-mediatype: application/swe+json
+
 
 [[clause-encoding-swejson]]
 === Requirements Class "SWE Common JSON Encoding"
-include::../requirements/encoding/swecommon/requirements_class_swecommon_json.adoc[]
+include::../requirements/encoding/swejson/requirements_class_swejson.adoc[]
 
 
 ==== Overview
 
-This requirements class defines JSON encodings of `Observation` and `Command` resources based on <<SWECommon-JSON>>.
+This requirements class defines JSON encodings for `Observation` and `Command` resources based on <<OGC-SWECOMMON,SWE Common 3.0>>.
 
 
 ==== Media Type
 
-The media type to use to advertise support for this encoding is `application/swe+json`.
+NOTE: Implementations should use *`application/vnd.ogc.swe+json`* as a preliminary media type until the <<OGC-SWECOMMON,SWE Common 3.0>> Standard is stable to avoid confusing future implementations accessing JSON documents from draft versions of the Standard. The media type `{swe-json-mediatype}` will be registered for SensorML-JSON, if and once this Standard is approved by the OGC Members. This note will be removed before publishing this Standard.
+
+The media type used when using the SWE Common JSON encoding is *`{swe-json-mediatype}`*.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/swecommon-json/mediatype-read
+
+part:: The server SHALL accept resource retrieval (read) requests with media type `{swe-json-mediatype}` for all resource types whose representation is specified in this requirements class.
+
+part:: The response to such request SHALL be encoded as specified in the clause corresponding to the resource type.
+====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/swecommon-json/mediatype-write
+
+conditions:: The server implements <<clause-resource-crd,style=basic%>>.
+
+part:: The server SHALL accept resource insertion (write) requests with media type `{swe-json-mediatype}` for all resource types whose representation is specified in this requirements class.
+
+part:: The resource representation provided in the request SHALL be encoded as specified in the clause corresponding to the resource type.
+====
+
+
+[[clause-swejson-obsschema]]
+==== Observation Schema Representation
+
+The observation schema for the `{swe-json-mediatype}` media type is a SWE Common data component tree provided in JSON format.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/swecommon-json/obsschema-schema
+
+part:: The `Observation Schema` resource for media type `{swe-json-mediatype}` SHALL be valid against the JSON schema {json-observationschema-schema-swe}.
+====
+
+
+[[clause-swejson-observation]]
+==== Observation Representation
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/swecommon-json/observation-encoding
+
+part:: `Observation` resources SHALL be encoded according to the schema provided by the parent `DataStream`, using the encoding rules defined in https://docs.ogc.org/DRAFTS/24-014.html#encoding_rules_json[Clause 10.2: Requirements Class: JSON Encoding Rules] of <<OGC-SWECOMMON,SWE Common 3.0>>.
+====
+
+
+[[clause-swejson-comdschema]]
+==== Command Schema Representation
+
+The command schema for the `{swe-json-mediatype}` media type is a SWE Common data component tree provided in JSON format.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/swecommon-json/cmdschema-schema
+
+part:: The `Command Schema` resource for media type `{swe-json-mediatype}` SHALL be valid against the JSON schema {json-commandschema-schema-swe}.
+====
+
+
+[[clause-swejson-command]]
+==== Command Representation
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/swecommon-json/command-encoding
+
+part:: `Command` resources SHALL be encoded according to the schema provided by the parent `ControlStream`, using the encoding rules defined in https://docs.ogc.org/DRAFTS/24-014.html#encoding_rules_json[Clause 10.2: Requirements Class: JSON Encoding Rules] of <<OGC-SWECOMMON,SWE Common 3.0>>.
+====

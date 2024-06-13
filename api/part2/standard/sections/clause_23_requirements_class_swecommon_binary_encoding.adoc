@@ -1,37 +1,99 @@
+:swe-binary-mediatype: application/swe+binary
+
 
 [[clause-encoding-swebinary]]
 === Requirements Class "SWE Common Binary Encoding"
-include::../requirements/encoding/swecommon/requirements_class_swecommon_binary.adoc[]
+include::../requirements/encoding/swebinary/requirements_class_swebinary.adoc[]
 
 
 ==== Overview
 
-This requirements class defines JSON encodings of `Observation` and `Command` resources based on the Binary Encoding defined in the <<SWECommon>> Standard.
+This requirements class defines binary encodings of `Observation` and `Command` resources based on the Binary Encoding defined in the <<OGC-SWECOMMON,SWE Common 3.0>> Standard.
 
 The main objective of this encoding is better data size efficiency than text or JSON, thus allowing for:
 
-- transfer of observations and commands over very low power / low bandwidth network links (e.g. LoRa,  etc.)
-- transfer high bandwidth data sets such as raster data (e.g. video, LiDAR, etc.)
+- Transfer of observations and commands over very low power / low bandwidth network links (e.g. LoRa,  etc.)
+- Transfer high bandwidth data sets such as raster data (e.g. video, LiDAR, etc.)
 
 For even better efficiency, this encoding can be combined with a transport protocol such as <<clause-protocol-mqtt,MQTT>>.
 
 
 ==== Media Type
 
-The media type to use to advertise support for this encoding is `application/swe+binary`.
+NOTE: Implementations should use *`application/vnd.ogc.swe+binary`* as a preliminary media type until the <<OGC-SWECOMMON,SWE Common 3.0>> Standard is stable to avoid confusing future implementations accessing JSON documents from draft versions of the Standard. The media type `{swe-binary-mediatype}` will be registered for SensorML-JSON, if and once this Standard is approved by the OGC Members. This note will be removed before publishing this Standard.
+
+The media type used when using the SWE Common Text encoding is *`{swe-binary-mediatype}`*.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/swecommon-binary/mediatype-read
+
+part:: The server SHALL accept resource retrieval (read) requests with media type `{swe-binary-mediatype}` for all resource types whose representation is specified in this requirements class.
+
+part:: The response to such request SHALL be encoded as specified in the clause corresponding to the resource type.
+====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/swecommon-binary/mediatype-write
+
+conditions:: The server implements <<clause-resource-crd,style=basic%>>.
+
+part:: The server SHALL accept resource insertion (write) requests with media type `{swe-binary-mediatype}` for all resource types whose representation is specified in this requirements class.
+
+part:: The resource representation provided in the request SHALL be encoded as specified in the clause corresponding to the resource type.
+====
 
 
+[[clause-swebinary-obsschema]]
+==== Observation Schema Representation
 
-==== Encoding Rules
+The observation schema for the `{swe-binary-mediatype}` media type is a SWE Common data component tree provided in JSON format.
 
-#TODO: URI for phenomenonTime, resultTime, samplingFeatureID, obs result, obs parameters, etc.#
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/swecommon-binary/obsschema-schema
+
+part:: The `Observation Schema` resource for media type `{swe-binary-mediatype}` SHALL be valid against the JSON schema {json-observationschema-schema-swe}.
+====
 
 
+[[clause-swebinary-observation]]
+==== Observation Representation
 
-==== Datastream Schema
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/swecommon-binary/observation-encoding
 
-When using this encoding, the observation schema provided under the Datastream resource
+part:: `Observation` resources SHALL be encoded according to the schema provided by the parent `DataStream`, using the encoding rules defined in https://docs.ogc.org/DRAFTS/24-014.html#encoding_rules_text[Clause 10.4: Requirements Class: Binary Encoding Rules] of <<OGC-SWECOMMON,SWE Common 3.0>>.
+====
 
 
+[[clause-swebinary-comdschema]]
+==== Command Schema Representation
 
-==== Control Channel Schema
+The command schema for the `{swe-binary-mediatype}` media type is a SWE Common data component tree provided in JSON format.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/swecommon-binary/cmdschema-schema
+
+part:: The `Command Schema` resource for media type `{swe-binary-mediatype}` SHALL be valid against the JSON schema {json-commandschema-schema-swe}.
+====
+
+
+[[clause-swebinary-command]]
+==== Command Representation
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/swecommon-binary/command-encoding
+
+part:: `Command` resources SHALL be encoded according to the schema provided by the parent `ControlStream`, using the encoding rules defined in https://docs.ogc.org/DRAFTS/24-014.html#encoding_rules_text[Clause 10.4: Requirements Class: Binary Encoding Rules] of <<OGC-SWECOMMON,SWE Common 3.0>>.
+====

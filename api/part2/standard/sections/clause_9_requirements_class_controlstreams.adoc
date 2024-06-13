@@ -152,7 +152,7 @@ include::../requirements/controlstream/req_collections.adoc[]
 
 A different command schema is needed for each individual control stream because the exact content of the command parameters changes according to the the properties being controlled. Moreover, multiple command formats can be offered for any given control stream, and each format may express the schema in a different manner.
 
-Thus, for each `ControlStream` resource, the CS API provides a way for the server to communicate a command schema (_not necessarily a JSON schema_) for each supported command format. The exact content of a schema resource is defined by each encoding. See section <<clause-encoding-json>> for example schemas used for commands encoded using the default JSON format.
+Thus, for each `ControlStream` resource, the CS API provides a way for the server to communicate a command schema (_not necessarily a JSON schema_) for each supported command format. The exact content of a schema resource is defined by each encoding. See section <<clause-json-commandschema>> for example schemas used for commands encoded using the default JSON format.
 
 Extensions to this Standard can define additional representation formats for `Command` resources. Such format extensions must clearly define the mapping between elements of the representation format and the <<clause-command-resource,Command resource>> defined in the next clause.
 

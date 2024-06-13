@@ -1,16 +1,95 @@
+:swe-text-mediatype: application/swe+text
+
 
 [[clause-encoding-swetext]]
 === Requirements Class "SWE Common Text Encoding"
-include::../requirements/encoding/swecommon/requirements_class_swecommon_text.adoc[]
+include::../requirements/encoding/swetext/requirements_class_swetext.adoc[]
 
 
 ==== Overview
 
-This requirements class defines JSON encodings of `Observation` and `Command` resources based on the Text Encoding defined in the <<SWECommon>> Standard.
+This requirements class defines text encodings (delimiter separated values, or DSV) for `Observation` and `Command` resources based on the Text Encoding defined in the <<OGC-SWECOMMON,SWE Common 3.0>> Standard.
 
 
 ==== Media Type
 
-The media type to use to advertise support for this encoding is `application/swe+csv`.
+NOTE: Implementations should use *`application/vnd.ogc.swe+text`* as a preliminary media type until the <<OGC-SWECOMMON,SWE Common 3.0>> Standard is stable to avoid confusing future implementations accessing JSON documents from draft versions of the Standard. The media type `{swe-text-mediatype}` will be registered for SensorML-JSON, if and once this Standard is approved by the OGC Members. This note will be removed before publishing this Standard.
 
-Optionally the media type `text/plain` can be allowed by a server to retrieve content in this format.
+The media type used when using the SWE Common Text encoding is *`{swe-text-mediatype}`*.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/swecommon-text/mediatype-read
+
+part:: The server SHALL accept resource retrieval (read) requests with media type `{swe-text-mediatype}` for all resource types whose representation is specified in this requirements class.
+
+part:: The response to such request SHALL be encoded as specified in the clause corresponding to the resource type.
+====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/swecommon-text/mediatype-write
+
+conditions:: The server implements <<clause-resource-crd,style=basic%>>.
+
+part:: The server SHALL accept resource insertion (write) requests with media type `{swe-text-mediatype}` for all resource types whose representation is specified in this requirements class.
+
+part:: The resource representation provided in the request SHALL be encoded as specified in the clause corresponding to the resource type.
+====
+
+
+[[clause-swetext-obsschema]]
+==== Observation Schema Representation
+
+The observation schema for the `{swe-text-mediatype}` media type is a SWE Common data component tree provided in JSON format.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/swecommon-text/obsschema-schema
+
+part:: The `Observation Schema` resource for media type `{swe-text-mediatype}` SHALL be valid against the JSON schema {json-observationschema-schema-swe}.
+====
+
+
+[[clause-swetext-observation]]
+==== Observation Representation
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/swecommon-text/observation-encoding
+
+part:: `Observation` resources SHALL be encoded according to the schema provided by the parent `DataStream`, using the encoding rules defined in https://docs.ogc.org/DRAFTS/24-014.html#encoding_rules_text[Clause 10.3: Requirements Class: Text Encoding Rules] of <<OGC-SWECOMMON,SWE Common 3.0>>.
+====
+
+
+[[clause-swetext-comdschema]]
+==== Command Schema Representation
+
+The command schema for the `{swe-text-mediatype}` media type is a SWE Common data component tree provided in JSON format.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/swecommon-text/cmdschema-schema
+
+part:: The `Command Schema` resource for media type `{swe-text-mediatype}` SHALL be valid against the JSON schema {json-commandschema-schema-swe}.
+====
+
+
+[[clause-swetext-command]]
+==== Command Representation
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/swecommon-text/command-encoding
+
+part:: `Command` resources SHALL be encoded according to the schema provided by the parent `ControlStream`, using the encoding rules defined in https://docs.ogc.org/DRAFTS/24-014.html#encoding_rules_text[Clause 10.3: Requirements Class: Text Encoding Rules] of <<OGC-SWECOMMON,SWE Common 3.0>>.
+====
+
+
+

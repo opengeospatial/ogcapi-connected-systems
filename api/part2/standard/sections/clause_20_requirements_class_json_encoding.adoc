@@ -19,7 +19,9 @@ The media type used to advertise support for this encoding is `{json-mediatype}`
 [%metadata]
 identifier:: /req/json/mediatype-read
 
-The server SHALL support the media type `{json-mediatype}` in the HTTP `Accept` header and respond with a JSON document corresponding to the requested resource type.
+part:: The server SHALL accept resource retrieval (read) requests with media type `{json-mediatype}` for all resource types whose representation is specified in this requirements class.
+
+part:: The response to such request SHALL be encoded as specified in the clause corresponding to the resource type.
 ====
 
 [requirement,model=ogc]
@@ -29,12 +31,14 @@ identifier:: /req/json/mediatype-write
 
 conditions:: The server implements <<clause-resource-crd,style=basic%>>.
 
-The server SHALL support the media type `{json-mediatype}` in the HTTP `Content-Type` header and parse the JSON body according to the resource type.
+part:: The server SHALL accept resource insertion (write) requests with media type `{json-mediatype}` for all resource types whose representation is specified in this requirements class.
+
+part:: The resource representation provided in the request SHALL be encoded as specified in the clause corresponding to the resource type.
 ====
 
 
 [[clause-json-datastream]]
-==== Datastream Encoding Rules
+==== DataStream Representation
 
 [requirement,model=ogc]
 ====
@@ -59,15 +63,43 @@ include::../openapi/examples/datastreams/datastream-simple.json[]
 
 
 
-==== Datastream Schema Encoding Rules
+[[clause-json-obsschema]]
+==== Observation Schema Representation
 
-When using the plain `application/json` media type for retrieving observations, the following schema syntax is used:
+When using the `{json-mediatype}` media type for observations, two separate schemas are provided to further describe the content of the observation `result` and `parameters` properties (the `parameters` schema is optional). Both schemas are provided as SWE Common data component tree in JSON format.
 
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/json/obsschema-schema
+
+part:: The `Observation Schema` resource for media type `{json-mediatype}` SHALL be valid against the JSON schema {json-observationschema-schema-json}.
+====
+
+[[example_json_obsschema]]
+.Example Observation Schemas for the JSON format
+=================
+This is an example schema for scalar observations:
+
+[source%autofit,json]
+----
+include::../openapi/examples/schemas/observationSchema-scalar-json.json[]
+----
+
+This is an example schema for vector observations:
+
+[source%autofit,json]
+----
+include::../openapi/examples/schemas/observationSchema-vector-json.json[]
+----
+=================
+
+NOTE: All other observation properties are the same for all datastreams and thus described in the static schema provided in <<clause-json-observation>>.
 
 
 
 [[clause-json-observation]]
-==== Observation Encoding Rules
+==== Observation Representation
 
 [requirement,model=ogc]
 ====
@@ -77,6 +109,20 @@ identifier:: /req/json/observation-schema
 part:: A JSON document containing a single `Observation` resource SHALL be valid against the JSON schema {json-observation-schema}.
 
 part:: A JSON document containing a collection of `Observation` resources SHALL be valid against the JSON schema {json-observation-collection-schema}.
+====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/json/observation-constraints
+
+statement:: The following constraints apply to `Observation` resources:
+
+part:: The value of the `phenomenonTime` and `resultTime` properties SHALL be expressed in the UTC time scale, with an optional time offset.
+
+part:: The value of the `result` property SHALL be encoded according to the `resultSchema` of the parent `DataStream`.
+
+part:: The value of the `parameters` property SHALL be encoded according to the `parametersSchema` of the parent `DataStream`.
 ====
 
 [[example_json_obs]]
@@ -100,7 +146,7 @@ include::../openapi/examples/observations/obs-location.json[]
 
 
 [[clause-json-controlstream]]
-==== Control Stream Encoding Rules
+==== ControlStream Representation
 
 [requirement,model=ogc]
 ====
@@ -125,8 +171,36 @@ include::../openapi/examples/controlstreams/controlStream-ptz.json[]
 
 
 
+[[clause-json-commandschema]]
+==== Command Schema Representation
+
+When using the `application/json` media type for commands, two separate schemas are provided to further describe the content of the  `parameters` and `result` properties (the `result` schema is optional). Both schemas are provided as SWE Common data component tree in JSON format.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/json/commandschema-schema
+
+part:: The `Command Schema` resource for media type `{json-mediatype}` SHALL be valid against the JSON schema {json-commandschema-schema-json}.
+====
+
+[[example_json_commandschema]]
+.Example Command Schemas for the JSON format
+=================
+This is an example schema for PTZ commands:
+
+[source%autofit,json]
+----
+include::../openapi/examples/schemas/commandSchema-ptz-json.json[]
+----
+=================
+
+NOTE: All other command properties are the same for all control streams and thus described in the static schema provided in <<clause-json-command>>.
+
+
+
 [[clause-json-command]]
-==== Command Encoding Rules
+==== Command Representation
 
 [requirement,model=ogc]
 ====
@@ -136,6 +210,20 @@ identifier:: /req/json/command-schema
 part:: A JSON document containing a single `Command` resource SHALL be valid against the JSON schema {json-command-schema}.
 
 part:: A JSON document containing a collection of `Command` resources SHALL be valid against the JSON schema {json-command-collection-schema}.
+====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/json/command-constraints
+
+statement:: The following constraints apply to `Command` resources:
+
+part:: The value of the `issueTime` and `executionTime` properties SHALL be expressed in the UTC time scale, with an optional time offset.
+
+part:: The value of the `result` property SHALL be encoded according to the `resultSchema` of the parent `ControlStream`.
+
+part:: The value of the `parameters` property SHALL be encoded according to the `parametersSchema` of the parent `ControlStream`.
 ====
 
 [[example_json_command]]
@@ -152,7 +240,7 @@ include::../openapi/examples/commands/command-ptz.json[]
 
 
 [[clause-json-commandstatus]]
-==== Command Status Encoding Rules
+==== Command Status Representation
 
 [requirement,model=ogc]
 ====
@@ -183,7 +271,7 @@ include::../openapi/examples/commandStatus/command-status-completed.json[]
 
 
 [[clause-json-commandresult]]
-==== Command Result Encoding Rules
+==== Command Result Representation
 
 [requirement,model=ogc]
 ====
@@ -198,7 +286,7 @@ part:: A JSON document containing a collection of `CommandResult` resources SHAL
 [[example_json_command_result]]
 .Command Result in JSON format
 =================
-These are example command status reports, encoded in JSON format:
+These are example command results, encoded in JSON format:
 
 [source%autofit,json]
 ----
@@ -218,7 +306,7 @@ include::../openapi/examples/commandResult/command-result-datastream.json[]
 
 
 [[clause-json-systemevent]]
-==== System Event Encoding Rules
+==== System Event Representation
 
 [requirement,model=ogc]
 ====
