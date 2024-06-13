@@ -1,0 +1,10 @@
+description: OK. Successful request
+content:
+  application/json:
+    schema:
+      allOf:
+      - $ref: ../schemas/json/commandResult.json
+      - properties:
+          links:
+            description: Links to related resources
+            $ref: ../schemas/common/commonDefs.json#/definitions/Links

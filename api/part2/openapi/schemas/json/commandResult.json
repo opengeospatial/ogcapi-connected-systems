@@ -19,6 +19,8 @@
     {
       "title": "Inline result",
       "properties": {
+        "id": {},
+        "command@id": {},
         "data": {
           "description": "Inline JSON data encoded according to the control stream result schema"
         }
@@ -28,6 +30,8 @@
     {
       "title": "Link to a single observation",
       "properties": {
+        "id": {},
+        "command@id": {},
         "observation@link": {
           "description": "Link to an observation resulting from the execution of the command",
           "$ref": "../common/commonDefs.json#/definitions/Link"
@@ -38,6 +42,8 @@
     {
       "title": "Link to a set of observations",
       "properties": {
+        "id": {},
+        "command@id": {},
         "observationSet@link": {
           "description": "Link to a set of observations resulting from the execution of the command",
           "$ref": "../common/commonDefs.json#/definitions/Link"
@@ -48,6 +54,8 @@
     {
       "title": "Link to a datastream",
       "properties": {
+        "id": {},
+        "command@id": {},
         "datastream@link": {
           "description": "Link to a datastream containing observations resulting from the execution of the command",
           "allOf": [
@@ -68,6 +76,8 @@
     {
       "title": "Link to an external dataset",
       "properties": {
+        "id": {},
+        "command@id": {},
         "external@link": {
           "description": "Link to an external dataset containing the result(s) of the command",
           "$ref": "../common/commonDefs.json#/definitions/Link"

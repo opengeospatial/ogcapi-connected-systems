@@ -1,0 +1,13 @@
+description: One or more command result items
+required: true
+content:
+  application/json:
+    schema:
+      oneOf:
+      - title: Single Result Item
+        $ref: ../schemas/json/commandResult.json
+      - title: Multiple Items
+        type: array
+        minItems: 1
+        items:
+          $ref: ../schemas/json/commandResult.json
