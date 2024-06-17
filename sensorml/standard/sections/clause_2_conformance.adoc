@@ -6,10 +6,6 @@ This standard has been written to be compliant with the OGC Specification Model 
 
 This Standard defines conceptual models and an XML implementation of these models for describing non-physical and physical processes surrounding the act of measurement and subsequent processing of observations. The conceptual models are described using UML while the implementation is described using the XML Schema language and Schematron. It is envisioned that OWL (Web Ontology Language) and RDF (Resource Description Framework) versions could also be generated from the models if deemed useful and desired.
 
-=== Specification identifier
-
-All requirements-classes and conformance-classes described in this document are owned by the specification identified as http://www.opengis.net/spec/sensorML/2.1.
-
 === Conformance classes
 
 The conformance rules are based on XML validation using the XML Schema representation of SensorML, together with processing of constraints expressed using Schematron assertions and reports.
