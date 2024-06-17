@@ -38,3 +38,22 @@
 | TBA
 | TBA
 |===
+
+
+=== Libraries
+
+[#table_implementation,reftext='{table-caption} {counter:table-num}']
+.Client implementations
+[cols=",,",width="75%",options="header",align="center"]
+|===
+|Implementation | Type | Contact
+
+| https://owslib.readthedocs.io/en/latest/usage.html#ogc-api-connected-systems-part-1-feature-resources-part-2-dynamic-data[OWSLib]
+| OGC API - Connected Systems
+| https://github.com/ChainReaction31[Ian Patterson]
+
+| TBA
+| TBA
+| TBA
+|===
+
