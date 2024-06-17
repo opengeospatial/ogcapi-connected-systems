@@ -7,6 +7,8 @@ The following normative documents contain provisions that, through reference in 
 
 * [[[OGC24-014,OGC 24-014]]], SWE Common Data Model Encoding Standard, version 3.0, 2024
 
+* [[[OGC-GeoPose,OGC 21-056r11]]], OGC GeoPose Data Exchange Standard, version 1.0, 2022
+
 * [[[ISO8601, ISO 8601:2019]]], Date and time — Representations for information interchange — Part 1: Basic rules. International Organization for Standardization, Geneva (2019). https://www.iso.org/standard/70907.html.
 
 * [[[ISO8601-2, ISO 8601:2019]]], Date and time — Representations for information interchange — Part 2: Extensions. International Organization for Standardization, Geneva (2019). https://www.iso.org/standard/70908.html.
