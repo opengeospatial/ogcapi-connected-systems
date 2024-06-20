@@ -57,7 +57,7 @@ part:: The server SHALL support the UPDATE operation at the `Observation` resour
   - `{api_root}/observations/{id}`
 
 part:: The `dsId` parameter is the local identifier of the `DataStream` resource the `Observation` is associated to. +
-       The `id` parameter is the local identifier of the `Observation` resource to replace or delete.
+       The `id` parameter is the local identifier of the `Observation` resource to update.
 ====
 
 The following constraints must be implemented by the server.
@@ -88,7 +88,7 @@ part:: The server SHALL support the UPDATE operation at the `ControlStream` reso
   - `{api_root}/controlstreams/{id}`
 
 part:: The `sysId` parameter is the local identifier of the `System` resource the `ControlStream` is associated to. +
-       The `id` parameter is the local identifier of the `ControlStream` resource to replace or delete.
+       The `id` parameter is the local identifier of the `ControlStream` resource to update.
 ====
 
 The following constraints must be implemented by the server.
@@ -119,7 +119,7 @@ part:: The server SHALL support the UPDATE operation at the `Command` resource e
   - `{api_root}/commands/{id}`
 
 part:: The `csId` parameter is the local identifier of the `ControlStream` resource the `Command` is associated to. +
-       The `id` parameter is the local identifier of the `Command` resource to replace or delete.
+       The `id` parameter is the local identifier of the `Command` resource to update.
 ====
 
 The following constraints must be implemented by the server.
@@ -149,7 +149,7 @@ part:: The server SHALL support the UPDATE operation at the `CommandStatus` reso
   - `{api_root}/commands/{cmdId}/status/{id}`
 
 part:: The `cmdId` parameter is the local identifier of the `Command` resource the `CommandStatus` is associated to. +
-       The `id` parameter is the local identifier of the `CommandStatus` resource to replace or delete.
+       The `id` parameter is the local identifier of the `CommandStatus` resource to update.
 ====
 
 
@@ -167,7 +167,7 @@ part:: The server SHALL support the UPDATE operation at the `CommandResult` reso
   - `{api_root}/commands/{cmdId}/result/{id}`
 
 part:: The `cmdId` parameter is the local identifier of the `Command` resource the `CommandResult` is associated to. +
-       The `id` parameter is the local identifier of the `CommandResult` resource to replace or delete.
+       The `id` parameter is the local identifier of the `CommandResult` resource to update.
 ====
 
 
@@ -186,6 +186,6 @@ part:: The server SHALL support the UPDATE operation at the `SystemEvent` resour
   - `{api_root}/systemEvents/{id}`
 
 part:: The `sysId` parameter is the local identifier of the `System` resource the `SystemEvent` is associated to. +
-       The `id` parameter is the local identifier of the `SystemEvent` resource to replace or delete.
+       The `id` parameter is the local identifier of the `SystemEvent` resource to update.
 ====
 
