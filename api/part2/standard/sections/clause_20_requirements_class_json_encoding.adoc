@@ -161,7 +161,7 @@ part:: A JSON document containing a collection of `ControlStream` resources SHAL
 [[example_json_controlstream1]]
 .A Control Stream in JSON format
 =================
-This is a simple control stream with a single controllable property and a single format.
+This is a simple control stream for a camera accepting PTZ commands in JSON format.
 
 [source%autofit,json]
 ----
