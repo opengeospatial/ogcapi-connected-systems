@@ -21,7 +21,7 @@ identifier:: /req/update/datastream
 
 conditions:: The server implements <<clause-datastreams,style=basic%>>
 
-part:: The server SHALL support the UPDATE operation at the `System` resources endpoints defined by the following URI templates:
+part:: The server SHALL support the UPDATE operation at the `DataStream` resources endpoints defined by the following URI templates:
   - `{api_root}/systems/{sysId}/datastreams/{id}`
   - `{api_root}/datastreams/{id}`
 
@@ -154,7 +154,7 @@ part:: The `cmdId` parameter is the local identifier of the `Command` resource t
 
 
 
-=== Command Result
+=== Command Results
 
 [requirement,model=ogc]
 ====

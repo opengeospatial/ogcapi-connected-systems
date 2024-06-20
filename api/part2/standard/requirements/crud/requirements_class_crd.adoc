@@ -16,5 +16,6 @@ requirement:: /req/create-replace-delete/controlstream-delete-cascade
 requirement:: /req/create-replace-delete/command
 requirement:: /req/create-replace-delete/command-schema
 requirement:: /req/create-replace-delete/command-status
+requirement:: /req/create-replace-delete/command-result
 requirement:: /req/create-replace-delete/system-event
 ====
