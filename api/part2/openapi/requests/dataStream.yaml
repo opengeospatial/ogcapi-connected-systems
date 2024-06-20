@@ -3,3 +3,8 @@ content:
   application/json:
     schema:
       $ref: ../schemas/json/dataStream.json
+    examples:
+      simple:
+        summary: Simple Datastream (1 observed property)
+        value:
+          $ref: ../examples/datastreams/datastream-simple-create.json

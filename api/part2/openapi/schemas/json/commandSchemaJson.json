@@ -11,9 +11,12 @@
     },
     "resultSchema": {
       "$ref": "../common/sweCommonDefs.json#/definitions/AnyComponent"
+    },
+    "feasibilityResultSchema": {
+      "$ref": "../common/sweCommonDefs.json#/definitions/AnyComponent"
     }
   },
   "required": [
-    "cmdFormat", "paramsSchema"
+    "cmdFormat", "parametersSchema"
   ]
 }

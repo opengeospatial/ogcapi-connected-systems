@@ -165,7 +165,7 @@ This is a simple control stream for a camera accepting PTZ commands in JSON form
 
 [source%autofit,json]
 ----
-include::../openapi/examples/controlstreams/controlStream-ptz.json[]
+include::../openapi/examples/controlstreams/controlstream-ptz.json[]
 ----
 =================
 

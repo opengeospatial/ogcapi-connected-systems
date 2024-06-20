@@ -38,8 +38,8 @@
   "live": true,
   "links": [
     {
-      "rel" : "self",
-      "href" : "https://data.example.org/api/datastreams/958tf25kjm2f6",
+      "rel" : "observations",
+      "href" : "https://data.example.org/api/datastreams/958tf25kjm2f6/observations",
       "type" : "application/json"
     }
   ]

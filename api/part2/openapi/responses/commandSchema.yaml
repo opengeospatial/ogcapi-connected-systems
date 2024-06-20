@@ -4,10 +4,10 @@ content:
     schema:
       $ref: ../schemas/json/commandSchema.json
     examples:
-      ptz-cmdjson:
+      ptz-json:
         summary: PTZ Control - JSON
         value:
-          $ref: ../examples/schemas/commandSchema-ptz-cmdjson.json
+          $ref: ../examples/schemas/commandSchema-ptz-json.json
       ptz-swejson:
         summary: PTZ Control - SWE JSON
         value:

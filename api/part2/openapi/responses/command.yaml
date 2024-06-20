@@ -9,7 +9,7 @@ content:
           $ref: ../schemas/common/commonDefs.json#/definitions/Links
     examples:
       ptz:
-        summary: PTZ Commands
+        summary: PTZ Command
         value:
           $ref: ../examples/commands/command-ptz.json
         
@@ -18,4 +18,4 @@ content:
       type: object
         
   application/swe+csv:
-    example: '2023-04-03T12:45:56Z,pitch,-12.3'
+    example: '2023-04-03T12:45:56Z,-10,23,0.4'

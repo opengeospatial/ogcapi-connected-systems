@@ -4,7 +4,7 @@
     { "$ref": "https://raw.githubusercontent.com/opengeospatial/ogcapi-connected-systems/master/api/part2/openapi/schemas/json/command_view.json" },
     {
       "properties": {
-        "params": {
+        "parameters": {
           "type": "object",
           "properties": {
             "pan": {

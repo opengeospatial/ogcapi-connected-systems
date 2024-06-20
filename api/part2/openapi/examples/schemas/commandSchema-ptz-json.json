@@ -1,6 +1,6 @@
 {
   "commandFormat": "application/json",
-  "paramsSchema": {
+  "parametersSchema": {
     "type": "DataRecord",
     "fields": [
       {

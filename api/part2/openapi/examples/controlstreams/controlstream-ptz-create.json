@@ -1,0 +1,43 @@
+{
+  "name": "Garage Video Camera 001 - PTZ Control",
+  "inputName": "ptz",
+  "async": false,
+  "schema": {
+    "commandFormat": "application/json",
+    "parametersSchema": {
+      "type": "DataRecord",
+      "fields": [
+        {
+          "name": "pan",
+          "type": "Quantity",
+          "definition": "http://sensorml.com/ont/swe/property/PanAngle",
+          "label": "Pan Angle",
+          "description": "Rotation of the camera around its vertical axis (i.e. causing the image to translate along its horizontal axis)",
+          "uom": {
+            "code": "deg"
+          }
+        },
+        {
+          "name": "tilt",
+          "type": "Quantity",
+          "definition": "http://sensorml.com/ont/swe/property/PanAngle",
+          "label": "Pan Angle",
+          "description": "Rotation of the camera around its horizontal axis (i.e. causing the image to translate along its vertical axis)",
+          "uom": {
+            "code": "deg"
+          }
+        },
+        {
+          "name": "zoom",
+          "type": "Quantity",
+          "definition": "http://sensorml.com/ont/swe/property/ZoomFactor",
+          "label": "Zoom Factor",
+          "description": "Amount of zoom, 0 being the highest FOV and 100 being the lowest",
+          "uom": {
+            "code": "%"
+          }
+        }
+      ]
+    }
+  }
+}
