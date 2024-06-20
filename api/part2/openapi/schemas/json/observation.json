@@ -28,7 +28,7 @@
       "$ref": "../common/commonDefs.json#/definitions/TimeInstant"
     },
     "resultTime": {
-      "description": "Time at which the observation result was generated. If omitted on creation, the server sets it to the time the request was received.",
+      "description": "Time at which the observation result was generated.",
       "$ref": "../common/commonDefs.json#/definitions/TimeInstant"
     },
     "parameters": {
@@ -44,7 +44,7 @@
     }
   },
   "required": [
-    "resultTime"
+    "id", "datastream@id", "resultTime"
   ],
   "oneOf": [
     { 

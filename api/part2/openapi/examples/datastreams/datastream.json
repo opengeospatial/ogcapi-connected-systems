@@ -41,6 +41,7 @@
       "definition": "http://sensorml.com/ont/isa/property/Transmit_Power"
     }
   ],
+  "resultType": "record",
   "formats": [
     "application/json",
     "application/swe+json",

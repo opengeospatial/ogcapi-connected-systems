@@ -25,7 +25,8 @@
     },
     "issueTime": {
       "description": "Time at which the command was issued. If omitted on creation, the server sets it to the time the request was received.",
-      "$ref": "../common/commonDefs.json#/definitions/TimeInstant"
+      "$ref": "../common/commonDefs.json#/definitions/TimeInstant",
+      "readOnly": true
     },
     "executionTime": {
       "description": "Time period during which the command was executed",
@@ -35,7 +36,8 @@
     "sender": {
       "description": "Identifier of the person or entity who submitted the command",
       "type": "string",
-      "minLength": 1
+      "minLength": 1,
+      "readOnly": true
     },
     "currentStatus": {
       "description": "Current status of the command",
@@ -47,6 +49,6 @@
     }
   },
   "required": [
-    "parameters"
+    "id", "controlstream@id", "issueTime", "parameters"
   ]
 }

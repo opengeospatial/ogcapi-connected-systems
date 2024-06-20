@@ -29,6 +29,7 @@
       "description": "Ambient air temperature measured inside the room"
     }
   ],
+  "resultType": "measure",
   "formats": [
     "application/json",
     "application/swe+json",

@@ -5,7 +5,8 @@
     "id": {
       "description": "Local resource ID. If set on creation, the server may ignore it.",
       "type": "string",
-      "minLength": 1
+      "minLength": 1,
+      "readOnly": true
     },
     "name": {
       "description": "Human readable name of the resource",
@@ -32,6 +33,6 @@
     }
   },
   "required": [
-    "name"
+    "id", "name", "formats"
   ]
 }

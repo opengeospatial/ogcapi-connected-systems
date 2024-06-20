@@ -20,6 +20,7 @@
       "label": "Air Temperature"
     }
   ],
+  "resultType": "measure",
   "formats": [
     "application/json"
   ],

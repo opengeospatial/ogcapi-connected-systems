@@ -15,6 +15,9 @@
       "readOnly": true
     }
   },
+  "required": [
+    "id", "command@id"
+  ],
   "oneOf": [
     {
       "title": "Inline result",

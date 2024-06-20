@@ -82,6 +82,6 @@
     }
   ],
   "required": [
-    "name"
+    "name", "system@link", "controlledProperties", "issueTime", "executionTime", "live", "async"
   ]
 }

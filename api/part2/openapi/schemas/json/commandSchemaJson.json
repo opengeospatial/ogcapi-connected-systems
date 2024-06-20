@@ -17,6 +17,6 @@
     }
   },
   "required": [
-    "cmdFormat", "parametersSchema"
+    "commandFormat", "parametersSchema"
   ]
 }

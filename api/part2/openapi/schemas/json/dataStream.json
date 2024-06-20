@@ -76,7 +76,8 @@
         },
         "resultType": {
           "type": "string",
-          "enum": ["measure", "vector", "record", "coverage", "complex"]
+          "enum": ["measure", "vector", "record", "coverage", "complex"],
+          "readOnly": true
         },
         "live": {
           "description": "Flag indicating if the datastream is currently streaming data",
@@ -96,6 +97,6 @@
     }
   ],
   "required": [
-    "name"
+    "name", "system@link", "observedProperties", "phenomenonTime", "resultTime", "resultType", "live"
   ]
 }

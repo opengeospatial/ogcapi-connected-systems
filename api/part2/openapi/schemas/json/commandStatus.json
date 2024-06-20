@@ -16,7 +16,8 @@
     },
     "reportTime": {
       "description": "Time at which this report was generated. If omitted on creation, the server sets it to the time the request was received.",
-      "$ref": "../common/commonDefs.json#/definitions/TimeInstant"
+      "$ref": "../common/commonDefs.json#/definitions/TimeInstant",
+      "readOnly": true
     },
     "statusCode": {
       "description": "Current status code",
@@ -46,6 +47,6 @@
     }
   },
   "required": [
-    "statusCode"
+    "id", "command@id", "reportTime", "statusCode"
   ]
 }
