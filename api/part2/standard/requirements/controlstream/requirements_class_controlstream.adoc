@@ -4,15 +4,23 @@
 type:: class
 identifier:: /req/controlstream
 subject:: Web API
-inherit:: http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/req/api-common[^]
+inherit:: http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/req/api-common
+requirement:: /req/controlstream/sf-ref-from-controlstream
+requirement:: /req/controlstream/foi-ref-from-controlstream
 requirement:: /req/controlstream/canonical-url
 requirement:: /req/controlstream/resources-endpoint
 requirement:: /req/controlstream/canonical-endpoint
 requirement:: /req/controlstream/ref-from-system
+requirement:: /req/controlstream/ref-from-deployment
 requirement:: /req/controlstream/collections
 requirement:: /req/controlstream/schema-op
 requirement:: /req/controlstream/cmd-canonical-url
 requirement:: /req/controlstream/cmd-resources-endpoint
 requirement:: /req/controlstream/cmd-canonical-endpoint
 requirement:: /req/controlstream/cmd-ref-from-controlstream
+requirement:: /req/controlstream/cmd-collections
+requirement:: /req/controlstream/status-resources-endpoint
+requirement:: /req/controlstream/command-status-endpoint
+requirement:: /req/controlstream/result-resources-endpoint
+requirement:: /req/controlstream/command-result-endpoint
 ====

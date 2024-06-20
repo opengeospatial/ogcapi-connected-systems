@@ -113,7 +113,7 @@ conditions::
 
 part:: The server SHALL implement a <<clause-features-endpoint,Feature resources endpoint>> at path `{api_root}/datastreams/{dsId}/featuresOfInterest` for each available `DataStream` resource.
 
-part:: The endpoint SHALL only expose the `Feature` resources that are associated to observations in the parent `DataStream` with ID `dsId`.
+part:: The endpoint SHALL only expose the `Feature` resources that are the ultimate features of interest of observations in the parent `DataStream` with ID `dsId`.
 ====
 
 

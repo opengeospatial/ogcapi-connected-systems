@@ -5,7 +5,7 @@ type:: class
 identifier:: /req/update
 subject:: Web API
 inherit:: /req/create-replace-delete
-inherit:: http://www.opengis.net/spec/ogcapi-features-4/1.0/req/update[^]
+inherit:: http://www.opengis.net/spec/ogcapi-features-4/1.0/req/update
 requirement:: /req/update/datastream
 requirement:: /req/update/datastream-update-schema
 requirement:: /req/update/observation
@@ -15,5 +15,6 @@ requirement:: /req/update/controlstream-update-schema
 requirement:: /req/update/command
 requirement:: /req/update/command-schema
 requirement:: /req/update/command-status
+requirement:: /req/update/command-result
 requirement:: /req/update/system-event
 ====

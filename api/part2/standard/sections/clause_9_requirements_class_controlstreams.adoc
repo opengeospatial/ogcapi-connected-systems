@@ -82,6 +82,34 @@ The following tables describe the attributes and associations of the `ControlStr
 
 NOTE: In the case of commands/actuations, the `sampling feature` is used to describe where the effector interacts with the feature of interest (e.g. the vent of an A/C system, the part of a larger system, etc.).
 
+When sampling features and ultimate features of interest are hosted on the same server, they are made accessible through sub-endpoints of the `DataStream` resource.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/controlstream/sf-ref-from-controlstream
+
+conditions:: The server implements `http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/req/sampling`
+
+part:: The server SHALL implement a <<clause-sf-endpoint,Sampling Feature resources endpoint>> at path `{api_root}/controlstreams/{dsId}/samplingFeatures` for each available `DataStream` resource.
+
+part:: The endpoint SHALL only expose the `Sampling Feature` resources that are associated to observations in the parent `DataStream` with ID `dsId`.
+====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/controlstream/foi-ref-from-controlstream
+
+conditions:: 
+  - The server provides the `featuresOfInterest` association as part of `ControlStream` resource representations.
+  - The server hosts the features of interest descriptions locally.
+
+part:: The server SHALL implement a <<clause-features-endpoint,Feature resources endpoint>> at path `{api_root}/controlstreams/{dsId}/featuresOfInterest` for each available `ControlStream` resource.
+
+part:: The endpoint SHALL only expose the `Feature` resources that are the ultimate features of interest of commands in the parent `ControlStream` with ID `dsId`.
+====
+
 
 
 === ControlStream Canonical URL
@@ -123,6 +151,22 @@ conditions:: The server implements `http://www.opengis.net/spec/ogcapi-connected
 part:: The server SHALL implement a {controlstream-resources-endpoint} at path `{api_root}/systems/{sysId}/controlstreams` for each available `System` resource.
 
 part:: The endpoint SHALL only expose the `ControlStream` resources associated to the `System` with ID `sysId`.
+====
+
+The set of control streams associated to a specific deployment can also be made available at a nested endpoint under the corresponding `Deployment` resource:
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/controlstream/ref-from-deployment
+
+conditions::
+  - The server implements `http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/req/deployment`
+  - The server provides the `controlstreams` association as part of `Deployment` resource representations.
+
+part:: The server SHALL implement a {controlstream-resources-endpoint} at path `{api_root}/deployments/{depId}/controlstreams` for each available `Deployment` resource.
+
+part:: The endpoint SHALL only expose the `ControlStream` resources associated to a system that was deployed during the `Deployment` with ID `depId`, and whose valid time intersects the deployment time period.
 ====
 
 
@@ -302,6 +346,16 @@ part:: The endpoint SHALL only expose the `Command` resources that are part of t
 Any number of resources collections containing `Command` resources can be available at a CS API endpoint. `Command` collections are identified with the item type `Command`.
 
 `Command` resources can be grouped into collections according to any arbitrary criteria.
+
+[example%unnumbered]
+====
+*Examples of Command Collections*
+
+- All commands received from user A `{api_root}/collections/userA_commands` (would likely be visible only to this user)
+- All commands that targeted a specific feature of interest B `{api_root}/collections/featureB_commands`
+
+_Note that a given commands can be part of multiple collections at the same time._
+====
 
 include::../requirements/controlstream/command/req_collections.adoc[]
 

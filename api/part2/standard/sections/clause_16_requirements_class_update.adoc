@@ -53,10 +53,10 @@ identifier:: /req/update/observation
 conditions:: The server implements <<clause-datastreams,style=basic%>>
 
 part:: The server SHALL support the UPDATE operation at the `Observation` resource endpoints defined by the following URI templates:
-  - `{api_root}/datastreams/{dsId}/observations`
+  - `{api_root}/datastreams/{dsId}/observations/{id}`
   - `{api_root}/observations/{id}`
 
-part:: The `dsId` parameter is the local identifier of the `DataStream` resource the `Observation` is (or will be) associated to. +
+part:: The `dsId` parameter is the local identifier of the `DataStream` resource the `Observation` is associated to. +
        The `id` parameter is the local identifier of the `Observation` resource to replace or delete.
 ====
 
@@ -69,7 +69,7 @@ identifier:: /req/update/observation-schema
 
 conditions:: The server implements <<clause-datastreams,style=basic%>>
 
-part:: The server SHALL reject an `Observation` CREATE or REPLACE request with HTTP status code 400 if the `Observation` representation is not valid with respect to the schema provided by the parent `DataStream` resource.
+part:: The server SHALL reject an `Observation` UPDATE request with HTTP status code 400 if the `Observation` representation is not valid with respect to the schema provided by the parent `DataStream` resource.
 ====
 
 
@@ -87,7 +87,7 @@ part:: The server SHALL support the UPDATE operation at the `ControlStream` reso
   - `{api_root}/systems/{sysId}/controlstreams/{id}`
   - `{api_root}/controlstreams/{id}`
 
-part:: The `sysId` parameter is the local identifier of the `System` resource the `ControlStream` is (or will be) associated to. +
+part:: The `sysId` parameter is the local identifier of the `System` resource the `ControlStream` is associated to. +
        The `id` parameter is the local identifier of the `ControlStream` resource to replace or delete.
 ====
 
@@ -115,10 +115,10 @@ identifier:: /req/update/command
 conditions:: The server implements <<clause-controlstreams,style=basic%>>
 
 part:: The server SHALL support the UPDATE operation at the `Command` resource endpoints defined by the following URI templates:
-  - `{api_root}/controlstreams/{csId}/commands`
+  - `{api_root}/controlstreams/{csId}/commands/{id}`
   - `{api_root}/commands/{id}`
 
-part:: The `csId` parameter is the local identifier of the `ControlStream` resource the `Command` is (or will be) associated to. +
+part:: The `csId` parameter is the local identifier of the `ControlStream` resource the `Command` is associated to. +
        The `id` parameter is the local identifier of the `Command` resource to replace or delete.
 ====
 
@@ -145,14 +145,29 @@ identifier:: /req/update/command-status
 
 conditions:: The server implements <<clause-controlstreams,style=basic%>>
 
-part:: The server SHALL support the CREATE operation at the `CommandStatus` resources endpoints defined by the following URI template:
-  - `{api_root}/commands/{cmdId}/status`
-
-part:: The server SHALL support the REPLACE and DELETE operations at the `CommandStatus` resource endpoints defined by the following URI template:
+part:: The server SHALL support the UPDATE operation at the `CommandStatus` resources endpoints defined by the following URI template:
   - `{api_root}/commands/{cmdId}/status/{id}`
 
-part:: The `cmdId` parameter is the local identifier of the `Command` resource the `CommandStatus` is (or will be) associated to. +
+part:: The `cmdId` parameter is the local identifier of the `Command` resource the `CommandStatus` is associated to. +
        The `id` parameter is the local identifier of the `CommandStatus` resource to replace or delete.
+====
+
+
+
+=== Command Result
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/update/command-result
+
+conditions:: The server implements <<clause-controlstreams,style=basic%>>
+
+part:: The server SHALL support the UPDATE operation at the `CommandResult` resources endpoints defined by the following URI template:
+  - `{api_root}/commands/{cmdId}/result/{id}`
+
+part:: The `cmdId` parameter is the local identifier of the `Command` resource the `CommandResult` is associated to. +
+       The `id` parameter is the local identifier of the `CommandResult` resource to replace or delete.
 ====
 
 
@@ -166,14 +181,11 @@ identifier:: /req/update/system-event
 
 conditions:: The server implements <<clause-system-events,style=basic%>>
 
-part:: The server SHALL support the CREATE operation at the `SystemEvent` resources endpoints defined by the following URI template:
-  - `{api_root}/systems/{sysId}/events`
-
-part:: The server SHALL support the REPLACE and DELETE operations at the `SystemEvent` resource endpoints defined by the following URI template:
+part:: The server SHALL support the UPDATE operation at the `SystemEvent` resources endpoints defined by the following URI template:
   - `{api_root}/systems/{sysId}/events/{id}`
   - `{api_root}/systemEvents/{id}`
 
-part:: The `sysId` parameter is the local identifier of the `System` resource the `SystemEvent` is (or will be) associated to. +
+part:: The `sysId` parameter is the local identifier of the `System` resource the `SystemEvent` is associated to. +
        The `id` parameter is the local identifier of the `SystemEvent` resource to replace or delete.
 ====
 

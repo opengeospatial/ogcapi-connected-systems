@@ -172,9 +172,9 @@ This filter is used to select control streams based on their `issueTime` extent.
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/advanced-filtering/commandstream-by-issuetime
+identifier:: /req/advanced-filtering/controlstream-by-issuetime
 
-part:: The HTTP GET operation at an {commandstream-resources-endpoint} SHALL support a parameter `issueTime`.
+part:: The HTTP GET operation at an {controlstream-resources-endpoint} SHALL support a parameter `issueTime`.
 
 part:: The parameter SHALL fulfill the same requirements as the parameter `datetime` defined in https://docs.ogc.org/is/17-069r4/17-069r4.html#_parameter_datetime[Clause 7.15.4] of {ogcapi-features-1}. All references to the term “features” or “feature” in these requirements SHALL be replaced by the terms “resources” or “resource”, respectively.
 
@@ -188,9 +188,9 @@ This filter is used to select control streams based on their `executionTime` ext
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/advanced-filtering/commandstream-by-exectime
+identifier:: /req/advanced-filtering/controlstream-by-exectime
 
-part:: The HTTP GET operation at an {commandstream-resources-endpoint} SHALL support a parameter `executionTime`.
+part:: The HTTP GET operation at an {controlstream-resources-endpoint} SHALL support a parameter `executionTime`.
 
 part:: The parameter SHALL fulfill the same requirements as the parameter `datetime` defined in https://docs.ogc.org/is/17-069r4/17-069r4.html#_parameter_datetime[Clause 7.15.4] of {ogcapi-features-1}. All references to the term “features” or “feature” in these requirements SHALL be replaced by the terms “resources” or “resource”, respectively.
 
@@ -204,7 +204,7 @@ This filter is used to select control streams that include specific controllable
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/advanced-filtering/controlstream-by-obsprop
+identifier:: /req/advanced-filtering/controlstream-by-controlprop
 
 part:: The HTTP GET operation at a {controlstream-resources-endpoint} SHALL support a parameter `controlledProperty` of type {filter-idlist-schema}.
 
@@ -218,9 +218,9 @@ This filter is used to select control streams that are associated to specific sa
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/advanced-filtering/commandstream-by-foi
+identifier:: /req/advanced-filtering/controlstream-by-foi
 
-part:: The HTTP GET operation at an {commandstream-resources-endpoint} SHALL support a parameter `foi` of type {filter-idlist-schema}.
+part:: The HTTP GET operation at an {controlstream-resources-endpoint} SHALL support a parameter `foi` of type {filter-idlist-schema}.
 
 part:: Only `CommandStream` resources that are associated to a feature of interest that has one of the requested identifiers SHALL be part of the result set.
 
