@@ -16,5 +16,8 @@ requirement:: /req/update/command
 requirement:: /req/update/command-schema
 requirement:: /req/update/command-status
 requirement:: /req/update/command-result
+requirement:: /req/update/feasibility
+requirement:: /req/update/feasibility-status
+requirement:: /req/update/feasibility-result
 requirement:: /req/update/system-event
 ====

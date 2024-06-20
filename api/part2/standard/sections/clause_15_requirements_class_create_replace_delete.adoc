@@ -220,6 +220,70 @@ part:: The `cmdId` parameter is the local identifier of the `Command` resource t
 
 
 
+=== Feasibility
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/feasibility
+
+conditions:: The server implements <<clause-command-feasibility,style=basic%>>
+
+part:: The server SHALL support the CREATE operation at the `Command` resources endpoints defined by the following URI template:
+  - `{api_root}/controlstreams/{csId}/feasibility`
+
+part:: The server SHALL support the REPLACE and DELETE operations at the `Command` resource endpoints defined by the following URI templates:
+  - `{api_root}/controlstreams/{csId}/feasibility`
+  - `{api_root}/feasibility/{id}`
+
+part:: The `csId` parameter is the local identifier of the `ControlStream` resource the `Feasibility` is (or will be) associated to. +
+       The `id` parameter is the local identifier of the `Feasibility` resource to replace or delete.
+====
+
+
+
+=== Feasibility Status
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/feasibility-status
+
+conditions:: The server implements <<clause-command-feasibility,style=basic%>>
+
+part:: The server SHALL support the CREATE operation at the `CommandStatus` resources endpoints defined by the following URI template:
+  - `{api_root}/feasibility/{feasId}/status`
+
+part:: The server SHALL support the REPLACE and DELETE operations at the `CommandStatus` resource endpoints defined by the following URI template:
+  - `{api_root}/feasibility/{feasId}/status/{id}`
+
+part:: The `feasId` parameter is the local identifier of the `Feasibility` resource the `CommandStatus` is (or will be) associated to. +
+       The `id` parameter is the local identifier of the `CommandStatus` resource to replace or delete.
+====
+
+
+
+=== Feasibility Results
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/feasibility-result
+
+conditions:: The server implements <<clause-command-feasibility,style=basic%>>
+
+part:: The server SHALL support the CREATE operation at the `CommandResult` resources endpoints defined by the following URI template:
+  - `{api_root}/feasibility/{feasId}/result`
+
+part:: The server SHALL support the REPLACE and DELETE operations at the `CommandResult` resource endpoints defined by the following URI template:
+  - `{api_root}/feasibility/{feasId}/result/{id}`
+
+part:: The `feasId` parameter is the local identifier of the `Feasibility` resource the `CommandResult` is (or will be) associated to. +
+       The `id` parameter is the local identifier of the `CommandResult` resource to replace or delete.
+====
+
+
+
 === System Events
 
 [requirement,model=ogc]

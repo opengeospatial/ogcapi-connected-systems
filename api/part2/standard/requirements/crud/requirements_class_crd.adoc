@@ -17,5 +17,8 @@ requirement:: /req/create-replace-delete/command
 requirement:: /req/create-replace-delete/command-schema
 requirement:: /req/create-replace-delete/command-status
 requirement:: /req/create-replace-delete/command-result
+requirement:: /req/create-replace-delete/feasibility
+requirement:: /req/create-replace-delete/feasibility-status
+requirement:: /req/create-replace-delete/feasibility-result
 requirement:: /req/create-replace-delete/system-event
 ====

@@ -172,6 +172,61 @@ part:: The `cmdId` parameter is the local identifier of the `Command` resource t
 
 
 
+=== Feasibility
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/update/feasibility
+
+conditions:: The server implements <<clause-command-feasibility,style=basic%>>
+
+part:: The server SHALL support the UPDATE operation at the `Command` resource endpoints defined by the following URI templates:
+  - `{api_root}/controlstreams/{csId}/feasibility/{id}`
+  - `{api_root}/feasibility/{id}`
+
+part:: The `csId` parameter is the local identifier of the `ControlStream` resource the `Command` is associated to. +
+       The `id` parameter is the local identifier of the `Feasibility` resource to update.
+====
+
+
+
+=== Feasibility Status
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/update/feasibility-status
+
+conditions:: The server implements <<clause-command-feasibility,style=basic%>>
+
+part:: The server SHALL support the UPDATE operation at the `CommandStatus` resources endpoints defined by the following URI template:
+  - `{api_root}/feasibility/{feasId}/status/{id}`
+
+part:: The `feasId` parameter is the local identifier of the `Feasibility` resource the `CommandStatus` is associated to. +
+       The `id` parameter is the local identifier of the `CommandStatus` resource to update.
+====
+
+
+
+=== Feasibility Results
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/update/feasibility-result
+
+conditions:: The server implements <<clause-command-feasibility,style=basic%>>
+
+part:: The server SHALL support the UPDATE operation at the `CommandResult` resources endpoints defined by the following URI template:
+  - `{api_root}/feasibility/{feasId}/result/{id}`
+
+part:: The `feasId` parameter is the local identifier of the `Feasibility` resource the `CommandResult` is associated to. +
+       The `id` parameter is the local identifier of the `CommandResult` resource to update.
+====
+
+
+
 === System Events
 
 [requirement,model=ogc]
