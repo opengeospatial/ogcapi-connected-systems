@@ -129,7 +129,7 @@ The component SHALL be identified using the following URI as the `definition` pr
 
 [.component,class=part]
 --
-If `recordSchema` property includes a reference to a sampling feature, a `Text` component SHALL be used.
+If the `recordSchema` property includes a reference to a sampling feature, a `Text` component SHALL be used.
 
 The component SHALL be identified using the following URI as the `definition` property: +
 `http://www.w3.org/ns/sosa/FeatureOfInterest`

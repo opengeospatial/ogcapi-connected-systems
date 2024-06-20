@@ -5,4 +5,17 @@ type:: class
 identifier:: /req/json
 subject:: Web API
 inherit:: <<OGC-SWECOMMON>>, SWE Common Data Model Encoding Standard, Clause 9: Requirements Class: JSON Implementation
+requirement:: /req/json/mediatype-read
+requirement:: /req/json/mediatype-write
+requirement:: /req/json/datastream-schema
+requirement:: /req/json/obsschema-schema
+requirement:: /req/json/observation-schema
+requirement:: /req/json/observation-constraints
+requirement:: /req/json/controlstream-schema
+requirement:: /req/json/commandschema-schema
+requirement:: /req/json/command-schema
+requirement:: /req/json/command-constraints
+requirement:: /req/json/commandstatus-schema
+requirement:: /req/json/commandresult-schema
+requirement:: /req/json/systemevent-schema
 ====

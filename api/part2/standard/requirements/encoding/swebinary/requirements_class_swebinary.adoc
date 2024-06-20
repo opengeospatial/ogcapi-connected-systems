@@ -5,4 +5,12 @@ type:: class
 identifier:: /req/swecommon-binary
 subject:: Web API
 inherit:: <<OGC-SWECOMMON>>, SWE Common Data Model Encoding Standard, Clause 10.4: Requirements Class: Binary Encoding Rules
+requirement:: /req/swecommon-binary/mediatype-read
+requirement:: /req/swecommon-binary/mediatype-write
+requirement:: /req/swecommon-binary/obsschema-schema
+requirement:: /req/swecommon-binary/obsschema-mapping
+requirement:: /req/swecommon-binary/observation-encoding
+requirement:: /req/swecommon-binary/cmdschema-schema
+requirement:: /req/swecommon-binary/cmdschema-mapping
+requirement:: /req/swecommon-binary/command-encoding
 ====

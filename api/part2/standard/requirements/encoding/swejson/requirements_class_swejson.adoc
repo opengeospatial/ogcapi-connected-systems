@@ -5,4 +5,12 @@ type:: class
 identifier:: /req/swecommon-json
 subject:: Web API
 inherit:: <<OGC-SWECOMMON>>, SWE Common Data Model Encoding Standard, Clause 10.2: Requirements Class: JSON Encoding Rules
+requirement:: /req/swecommon-json/mediatype-read
+requirement:: /req/swecommon-json/mediatype-write
+requirement:: /req/swecommon-json/obsschema-schema
+requirement:: /req/swecommon-json/obsschema-mapping
+requirement:: /req/swecommon-json/observation-encoding
+requirement:: /req/swecommon-json/cmdschema-schema
+requirement:: /req/swecommon-json/cmdschema-mapping
+requirement:: /req/swecommon-json/command-encoding
 ====

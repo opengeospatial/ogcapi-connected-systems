@@ -5,4 +5,12 @@ type:: class
 identifier:: /req/swecommon-text
 subject:: Web API
 inherit:: <<OGC-SWECOMMON>>, SWE Common Data Model Encoding Standard, Clause 10.3: Requirements Class: Text Encoding Rules
+requirement:: /req/swecommon-text/mediatype-read
+requirement:: /req/swecommon-text/mediatype-write
+requirement:: /req/swecommon-text/obsschema-schema
+requirement:: /req/swecommon-text/obsschema-mapping
+requirement:: /req/swecommon-text/observation-encoding
+requirement:: /req/swecommon-text/cmdschema-schema
+requirement:: /req/swecommon-text/cmdschema-mapping
+requirement:: /req/swecommon-text/command-encoding
 ====
