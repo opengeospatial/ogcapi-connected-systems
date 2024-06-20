@@ -17,5 +17,6 @@ requirement:: /req/json/command-schema
 requirement:: /req/json/command-constraints
 requirement:: /req/json/commandstatus-schema
 requirement:: /req/json/commandresult-schema
+requirement:: /req/json/commandresult-constraints
 requirement:: /req/json/systemevent-schema
 ====

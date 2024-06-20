@@ -120,9 +120,11 @@ statement:: The following constraints apply to `Observation` resources:
 
 part:: The value of the `phenomenonTime` and `resultTime` properties SHALL be expressed in the UTC time scale, with an optional time offset.
 
-part:: The value of the `result` property SHALL be encoded according to the `resultSchema` of the parent `DataStream`.
+part:: The value of the `result` property SHALL be encoded according to the schema of the parent `DataStream`. The schema is provided by the `resultSchema` property of the schema resource.
 
 part:: The value of the `parameters` property SHALL be encoded according to the `parametersSchema` of the parent `DataStream`.
+
+part:: See {json-observationschema-schema-json}.
 ====
 
 [[example_json_obs]]
@@ -221,9 +223,9 @@ statement:: The following constraints apply to `Command` resources:
 
 part:: The value of the `issueTime` and `executionTime` properties SHALL be expressed in the UTC time scale, with an optional time offset.
 
-part:: The value of the `result` property SHALL be encoded according to the `resultSchema` of the parent `ControlStream`.
+part:: The value of the `parameters` property SHALL be encoded according to the schema of the parent `ControlStream`. The schema is provided by the `parametersSchema` property of the schema resource.
 
-part:: The value of the `parameters` property SHALL be encoded according to the `parametersSchema` of the parent `ControlStream`.
+part:: See {json-commandschema-schema-json}.
 ====
 
 [[example_json_command]]
@@ -281,6 +283,20 @@ identifier:: /req/json/commandresult-schema
 part:: A JSON document containing a single `CommandResult` resource SHALL be valid against the JSON schema {json-commandresult-schema}.
 
 part:: A JSON document containing a collection of `CommandResult` resources SHALL be valid against the JSON schema {json-commandresult-collection-schema}.
+====
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/json/commandresult-constraints
+
+part:: If a `CommandResult` resource includes inline data, the content of the `data` property SHALL be encoded according to the schema provided by the parent `ControlStream`:
+
+part:: For regular commands, the schema is provided by the the `resultSchema` property of the schema resource.
+
+part:: For feasibility requests (i.e. commands received on a feasibility channel), the schema is provided by the the `feasibilityResultSchema` property of the schema resource.
+
+part:: See {json-commandschema-schema-json}.
 ====
 
 [[example_json_command_result]]
