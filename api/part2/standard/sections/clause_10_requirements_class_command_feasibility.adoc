@@ -5,6 +5,108 @@
 
 The execution of certain commands is sometimes impossible due to internal or external constraints (e.g. conflict with other scheduled commands, conflict with another user that has exclusive control on the system, etc.).
 
-In order for a client to know if a command/task is feasible, without sending the actual command, feasibility channels are supported by the CS API. In addition to providing a binary (i.e. YES/NO) response to a feasibility request, the CS API provides a mechanism to include detailed feasibility analysis in the response (e.g. provide chances of success, provide task execution details), as well as suggest alternatives if the command is not feasible or has a low chance of success.
+In order for a client to know if a command/task is feasible without sending the actual command, feasibility channels are supported by the CS API.
 
-A feasibility channel is a regular command stream that is associated to the corresponding command channel. The parameters on the feasibility channel are exactly the same as the ones on the associated command channel, but the response is different. Instead of 
+In addition to providing a binary (i.e. YES/NO) response to a feasibility request, the CS API also provides a mechanism for returning detailed feasibility analysis information to a client (e.g. provide chances of success, task execution steps, alternatives, etc.).
+
+A feasibility request is initiated by creating a `Command` resource on the feasibility channel. The server can then respond synchronously or asynchronously just like for a regular command channel. The parameters used for the feasibility request are the same as the one for the corresponding commands (i.e. both commands and feasibility share the same parameters schema).
+
+
+
+[[clause-feasibility-resource]]
+=== Feasibility Resource
+
+A `Feasibility` resource is a `Command` resource created on a control stream feasibility channel (see <<clause-command-resource,style=full%>> for details).
+
+All nested resources available under a regular command resource are also available under the feasibility resource.
+
+
+
+=== Feasibility Canonical URL
+
+The CS API Standard requires that every `Feasibility` resource has a canonical URL.
+
+include::../requirements/controlstream/feasibility/req_canonical_url.adoc[]
+
+
+
+=== Feasibility Endpoint
+
+The set of feasibility requests received for a specific control stream is available at a nested endpoint under the corresponding `ControlStream` resource:
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/controlstream/feasibility-ref-from-controlstream
+
+part:: The server SHALL implement a <<clause-command-endpoint,Command resources endpoint>> at path `{api_root}/controlstream/{csId}/feasibility` for each available `ControlStream` resource.
+
+part:: The endpoint SHALL only expose the `Feasibility` resources that are part of the parent `ControlStream` with ID `csId`.
+====
+
+
+
+=== Feasibility Status
+
+Feasibility status is provided using a `CommandStatus` resource (see <<clause-commandstatus-resource,style=full%>> for details).
+
+The following table clarifies the meaning of status codes in the case of a feasibility request:
+
+[#feasibility-status-codes,reftext='{table-caption} {counter:table-num}']
+.Feasibility Status Codes
+[width="100%",cols="2,10",options="header"]
+|====
+| *Code*      | *Usage*
+| PENDING     | The feasibility request is pending, meaning it has been received by the system but no decision to accept or reject it has been made.
+| ACCEPTED    | The feasibility request was accepted by the receiving system. This usually means that the request parameters have passed the first validation steps, but it can still be rejected or fail later during the analysis.
+| REJECTED    | The feasibility request was rejected by the receiving system. It won't be processed at all and the `message` property provides the reason for the rejection. This is a final state. No further status updates will be sent.
+| SCHEDULED   | Unused for feasibility requests.
+| UPDATED     | Unused for feasibility requests.
+| CANCELED    | The feasibility request was canceled by an authorized user. This code must be used if the system supports user driven task cancellations. The `REJECTED` state should be used instead if the feasibility analysis was canceled by the receiving system. This is a final state. No further status updates will be sent.
+| EXECUTING   | The feasibility request is currently being processed by the receiving system. The status message can provide more information about the current progress. A system can send several status updates with this code but different time stamps to report progress incrementally. In particular, the progress percentage and the end of the (estimated) execution time period can be refined in each update.
+| COMPLETED   | The feasibility analysis has completed successfully. The actual execution time must be provided. This is a final state. No further status updates will be sent.
+| FAILED      | The feasibility analysis has failed during processing. The error and/or status message provides the reason for failure. This is a final state. No further status updates will be sent.
+|====
+
+The set of status reports associated to a given feasibility request is available at a nested endpoint under the corresponding `Feasibility` resource:
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/controlstream/feasibility-status-endpoint
+
+part:: The server SHALL implement a <<clause-commandstatus-resources-endpoint,Command Status resources endpoint>> at path `{api_root}/feasibility/{feasId}/status` for every `Feasibility` resource.
+
+part:: The endpoint SHALL only expose the `CommandStatus` resources that are related to the `Feasibility` resource with local ID `feasId`.
+====
+
+
+
+=== Feasibility Result
+
+Feasibility results are provided using `CommandResult` resources (see <<clause-commandresult-resource,style=full%>> for details).
+
+The results of a feasibility analysis are usually provided inline. The result structure must match the "feasibility result schema" provided by the parent `ControlStream` resource. The "feasibility result schema" is typically different from the "command result schema".
+
+Below are examples of feasibility results for various use cases:
+
+[example%unnumbered]
+====
+*Example 1: Tasking a UAV to go to a lat/lon location* +
+In addition to a binary (yes/no) feasibility response, the result of the feasibility analysis may include the earliest time at which the location could be reached, as well as the expected trajectory.
+
+*Example 2: Tasking a satellite to cover an area with visible imagery* +
+The result of the feasibility analysis may include all the attempts needed to have a high enough chance of success to obtain a clear (i.e. cloud free) image of the area. If the area is too large to be covered with a single image, an estimated success rate and completion time could be provided separately for each subdivision of the geographic area.
+====
+
+The set of result items associated to a given feasibility request is available at a nested endpoint under the corresponding `Feasibility` resource:
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/controlstream/feasibility-result-endpoint
+
+part:: The server SHALL implement a <<clause-commandresult-resources-endpoint,Command Result resources endpoint>> at path `{api_root}/feasibility/{feasId}/result` for every `Feasibility` resource.
+
+part:: The endpoint SHALL only expose the `CommandResult` resources that are related to the `Feasibility` resource with local ID `feasId`.
+====
