@@ -331,7 +331,7 @@ part:: Both sampling features and domain features of interest SHALL be included 
 
 
 [[clause-commandstatus-query-params]]
-=== Command Status Query Parameters
+=== CommandStatus Query Parameters
 
 The following query parameters are used to filter `CommandStatus` resources at a {commandstatus-resources-endpoint}.
 
@@ -360,7 +360,7 @@ Only `CommandStatus` resources with a status that matches one of the specified s
 
 
 [[clause-systemevent-query-params]]
-=== System Event Query Parameters
+=== SystemEvent Query Parameters
 
 The following query parameters are used to filter `SystemEvent` resources at a {systemevent-resources-endpoint}.
 

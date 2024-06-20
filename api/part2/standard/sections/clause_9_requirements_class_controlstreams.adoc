@@ -362,7 +362,7 @@ include::../requirements/controlstream/command/req_collections.adoc[]
 
 
 [[clause-commandstatus-resource]]
-=== Command Status Resource
+=== CommandStatus Resource
 
 `CommandStatus` resources represent a status report describing the status/progress of a command at a given point in time.
 
@@ -424,7 +424,7 @@ The following tables describe the attributes and associations of the `CommandSta
 
 
 [[clause-commandstatus-resources-endpoint]]
-=== Command Status Resources Endpoint
+=== CommandStatus Resources Endpoint
 
 ==== Definition
 
@@ -432,7 +432,7 @@ A Command Status {resources-endpoint} is an endpoint exposing a set of `CommandS
 
 include::../requirements/controlstream/status/req_resources_endpoint.adoc[]
 
-==== Status Resources Endpoint
+==== Status Endpoint
 
 The set of status reports associated to a given command is available at a nested endpoint under the corresponding `Command` resource:
 
@@ -449,7 +449,7 @@ part:: The endpoint SHALL only expose the `CommandStatus` resources that are rel
 
 
 [[clause-commandresult-resource]]
-=== Command Result Resource
+=== CommandResult Resource
 
 Certain types of commands lead to the production of data (e.g. tasking a system for data collection, triggering a process such as a simulation run, etc.).
 
@@ -522,7 +522,7 @@ The following tables describe the attributes and associations of the `CommandRes
 
 
 [[clause-commandresult-resources-endpoint]]
-=== Command Result Resources Endpoint
+=== CommandResult Resources Endpoint
 
 ==== Definition
 
@@ -530,7 +530,7 @@ A Command Result {resources-endpoint} is an endpoint exposing a set of `CommandR
 
 include::../requirements/controlstream/result/req_resources_endpoint.adoc[]
 
-==== Result Resources Endpoint
+==== Result Endpoint
 
 The set of result items associated to a given command is available at a nested endpoint under the corresponding `Command` resource:
 

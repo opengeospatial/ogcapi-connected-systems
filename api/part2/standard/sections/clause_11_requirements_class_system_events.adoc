@@ -12,7 +12,7 @@ This section predefines a certain number of event types but the list can be exte
 
 
 [[clause-systemevent-resource]]
-=== System Event Resource
+=== SystemEvent Resource
 
 `SystemEvent` resources are modeled on the SensorML Event class.
 
@@ -66,7 +66,7 @@ The following tables describe the attributes and associations of a `SystemEvent`
 
 
 
-=== System Event Canonical URL
+=== SystemEvent Canonical URL
 
 The CS API Standard requires that every `SystemEvent` resource has a canonical URL.
 
@@ -75,7 +75,7 @@ include::../requirements/systemevent/req_canonical_url.adoc[]
 
 
 [[clause-systemevent-resources-endpoint]]
-=== System Event Resources Endpoints
+=== SystemEvent Resources Endpoints
 
 ==== Definition
 
@@ -86,13 +86,13 @@ include::../requirements/systemevent/req_resources_endpoint.adoc[]
 <<clause-systemevent-query-params>> defines additional query parameters applicable to `SystemEvent` resources endpoint.
 
 [[clause-canonical-systemevent-rep]]
-==== Canonical System Event Resources Endpoint
+==== Canonical SystemEvent Resources Endpoint
 
 The CS API Standard requires that a canonical `SystemEvent` resources endpoint, exposing all `SystemEvent` resources, be made available by the server.
 
 include::../requirements/systemevent/req_canonical_endpoint.adoc[]
 
-==== Nested System Event Resources Endpoints
+==== Nested SystemEvent Resources Endpoints
 
 The set of events related to a specific system is available at a nested endpoint under the corresponding `System` resource:
 
