@@ -13,9 +13,5 @@ content:
         value:
           $ref: ../examples/commands/command-ptz.json
         
-  application/swe+json:
-    schema:
-      type: object
-        
   application/swe+csv:
-    example: '2023-04-03T12:45:56Z,-10,23,0.4'
+    example: '2021-03-15T04:53:34.248Z,-10,23,0.4'
