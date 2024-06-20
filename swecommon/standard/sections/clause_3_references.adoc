@@ -34,9 +34,9 @@ References are to follow the Springer LNCS style, with the exception that option
 
 * [[[UCUM, UCUM]]], Unified Code for Units of Measure (UCUM), Version 2.1, November 2017, https://ucum.org/ucum
 
-* [[[Regex, Unicode]]], Unicode Technical Std #18, Unicode Regular Expressions, Version 13, Aug. 2009
+* [[[Regex, Unicode]]], Unicode Technical Std #18, Unicode Regular Expressions, Version 19, Oct. 2016
 
-* [[[UTF, Unicode]]], The Unicode Standard, Version 5.2, October 2009 
+* [[[UTF, Unicode]]], The Unicode Standard, Version 10.0, December 2017 
 
 //* [[[XML, W3C Extensible Markup Language (XML)]]], W3C Extensible Markup Language (XML), Version 1.0 (5th Edition), Aug. 2006, https://www.w3.org/TR/2008/REC-xml-20081126/
 
