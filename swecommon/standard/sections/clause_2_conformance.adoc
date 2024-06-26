@@ -1,25 +1,46 @@
 == Conformance
 
-This standard has been written to be compliant with the OGC Specification Model – A Standard for Modular Specification (OGC 08-131r3). Extensions of this standard shall themselves be conformant to the OGC Specification Model.
+This Standard was written to be compliant with the OGC Specification Model – A Standard for Modular Specification (OGC 08-131r3). Extensions of this Standard shall themselves be conformant to the OGC Specification Model.
 
-Conformance with this specification shall be checked using all the relevant tests specified in Annex A. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in ISO 19105: Geographic information — Conformance and Testing. In order to conform to this OGC™ encoding standard, a standardization target shall implement the core conformance class, and choose to implement any one of the other conformance classes.
+This Standard defines the following requirements classes and standardization targets:
 
-Additionally, it is highly recommended that JSON based implementations of the conceptual models do implement requirement classes from clause 8 and clause 9 of this standard, respectively, and pass the corresponding conformance classes instead of defining new encodings.
+[#datastream-attributes,reftext='{table-caption} {counter:table-num}']
+.Requirements Classes
+[width="100%",cols="2,1",options="header"]
+|====
+| *Requirements Class*                          | *Standardization Target*
+| *Core*                                     .2+| Derived Models and Software Implementations
+| <<core_concepts,style=full%>>
+| *UML Models*                               .8+| Software Implementation or Encoding of the Conceptual Models
+| <<uml_simple_components,style=full%>>
+| <<uml_record_components,style=full%>>
+| <<uml_choice_components,style=full%>>
+| <<uml_block_components,style=full%>>
+| <<uml_geom_components,style=full%>>
+| <<uml_simple_encodings,style=full%>>
+| <<uml_advanced_encodings,style=full%>>
+| *JSON Encodings*                           .8+| JSON Document
+| <<json_simple_components,style=full%>>
+| <<json_record_components,style=full%>>
+| <<json_choice_components,style=full%>>
+| <<json_block_components,style=full%>>
+| <<json_geom_components,style=full%>>
+| <<json_simple_encodings,style=full%>>
+| <<json_advanced_encodings,style=full%>>
+| *Datastream Encoding Rules*                .4+| Encoded Values Instance
+| <<encoding_rules_text,style=full%>>
+| <<encoding_rules_binary,style=full%>>
+| <<encoding_rules_json,style=full%>>
+|====
 
-#TODO#
+Different types of implementations can seek conformance with this OGC® Standard:
 
-This standard defines XXXX.
+* An implementation that defines a new data model shall at least conform with the core requirements class.
 
-Requirements for N standardization target types are considered:
+* An encoding of the conceptual models (e.g. a protobuf encoding) shall implement at least one of the requirements classes listed in the "UML Models" section of the table.
 
-* AAAA
-* BBBB
+* An implementation that produces or consumes SWE Common data components encoded in JSON shall implement at least one of the requirements classes listed in the "JSON Encodings" section of the table.
 
-Conformance with this standard shall be checked using all the relevant tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.
+* An implementation that produces or consumes datastreams encoded according to a schema defined using SWE Common components shall implement at least one of the requirements classes listed in the "Datastream Encoding Rules" section of the table.
 
-In order to conform to this OGC® interface standard, a software implementation shall choose to implement:
-
-* Any one of the conformance levels specified in Annex A (normative).
-* Any one of the Distributed Computing Platform profiles specified in Annexes TBD through TBD (normative).
-
-All requirements-classes and conformance-classes described in this document are owned by the standard(s) identified.
+The conformance classes corresponding to these requirements classes are presented in <<annex_ats,Annex A (normative)>>. Conformance with this Standard shall be checked using all the relevant tests specified in Annex A. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.

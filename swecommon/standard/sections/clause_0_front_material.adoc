@@ -1,12 +1,12 @@
 .Preface
 
-The OGC SWE Common Data Model Encoding Standard is the result of worked done by the Connected Systems Working Group of the OGC, with the aim of modernizing the Sensor Wen Enablement (SWE) suite of Standards.
+The OGC SWE Common Data Model Encoding Standard is the result of worked done by the Connected Systems Working Group of the OGC, with the aim of modernizing the Sensor Web Enablement (SWE) suite of Standards.
 
 To increase the brevity and readability of this Standard, many OGC document titles are shortened and/or abbreviated. Therefore, in the context of this document, the following phrases are defined:
 
 - “this Standard” shall be interpreted as equivalent to “OGC SWE Common Data Model Encoding Standard”.
 
-- “SensorML” or “SensorML Standard” shall be interpreted as equivalent to “OGC Sensor Modeling Language Encoding Standard”
+- “SensorML” or “SensorML Standard” shall be interpreted as equivalent to “OGC SensorML Encoding Standard”
 
 
 [abstract]
