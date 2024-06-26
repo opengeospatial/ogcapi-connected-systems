@@ -1,6 +1,6 @@
 == Scope
 
-This standard defines models and XML Schema encoding for SensorML. The primary focus of SensorML is to provide a framework for defining processes and processing components associated with the measurement and post-measurement transformation of observations. Thus, SensorML has more of a focus on the process of measurement and observation, rather than on sensor hardware, yet still provides a robust means of defining the physical characteristics and functional capabilities of physical processes such as sensors and actuators.
+This Standard defines conceptual models and JSON encodings for SensorML. The primary focus of SensorML is to provide a framework for defining processes and processing components associated with the measurement and post-measurement transformation of observations. Thus, SensorML has more of a focus on the process of measurement and observation, rather than on sensor hardware, yet still provides a robust means of defining the physical characteristics and functional capabilities of physical processes such as sensors and actuators.
 
 The aims of SensorML are to:
 

@@ -51,7 +51,7 @@ In this standard, position is defined as the combination of location and orienta
 
 An external reference frame can be another object’s reference frame (e.g., the reference frame of a ship) or a geographic reference frame (e.g., WGS84 latitude-longitude-altitude).
 
-The PositionUnion class provides various means of specifying the location, position, or dynamic state of an object. These will be described in more detail in the appropriate XML encoding section, but the following rules apply to the SensorML models.
+The PositionUnion class provides various means of specifying the location, position, or dynamic state of an object. These will be described in more detail in the appropriate JSON encoding section, but the following rules apply to the SensorML models.
 
 include::../requirements/model/physicalComponent/requirement3.adoc[]
 include::../requirements/model/physicalComponent/requirement4.adoc[]
