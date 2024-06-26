@@ -1,4 +1,4 @@
-[[clause_model_deployment]]
+[[uml_deployment]]
 === Requirements Class: Deployment
 
 ==== Overview

@@ -1,77 +1,45 @@
 == Conformance
 
-=== Overview
+This Standard was written to be compliant with the OGC Specification Model – A Standard for Modular Specification (OGC 08-131r3). Extensions of this Standard shall themselves be conformant to the OGC Specification Model.
 
-This standard has been written to be compliant with the OGC Specification Model – A Standard for Modular Specification (OGC 08-131r3). Extensions of this standard shall themselves be conformant to the OGC Specification Model.
+This Standard defines conceptual models and a JSON implementation of these models for describing non-physical and physical processes surrounding the act of measurement and subsequent processing of observations. The conceptual models are described using UML while the implementation is described using the JSON Schema language.
 
-This Standard defines conceptual models and an XML implementation of these models for describing non-physical and physical processes surrounding the act of measurement and subsequent processing of observations. The conceptual models are described using UML while the implementation is described using the XML Schema language and Schematron. It is envisioned that OWL (Web Ontology Language) and RDF (Resource Description Framework) versions could also be generated from the models if deemed useful and desired.
+This Standard defines the following requirements classes and standardization targets:
 
-=== Conformance classes
+[#datastream-attributes,reftext='{table-caption} {counter:table-num}']
+.Requirements Classes
+[width="100%",cols="2,1",options="header"]
+|====
+| *Requirements Class*                           | *Standardization Target*
+| *Core*                                      .2+| Derived Models and Software Implementations
+| <<core_concepts,style=full%>>
+| *UML Models*                               .10+| Software Implementation or Encoding of the Conceptual Models
+| <<uml_core_abstract_process,style=full%>>
+| <<uml_simple_process,style=full%>>
+| <<uml_aggregate_process,style=full%>>
+| <<uml_physical_component,style=full%>>
+| <<uml_physical_system,style=full%>>
+| <<uml_processes_with_advanced_data_types,style=full%>>
+| <<uml_configurable_processes,style=full%>>
+| <<uml_deployment,style=full%>>
+| <<uml_derived_property,style=full%>>
+| *JSON Encodings*                            .9+| JSON Document
+| <<clause_json_core,style=full%>>
+| <<clause_json_simple_process,style=full%>>
+| <<clause_json_aggregate_process,style=full%>>
+| <<clause_json_physical_component,style=full%>>
+| <<clause_json_physical_system,style=full%>>
+| <<clause_json_configurable_process,style=full%>>
+| <<clause_json_deployment,style=full%>>
+| <<clause_json_derived_property,style=full%>>
+|====
 
-The conformance rules are based on XML validation using the XML Schema representation of SensorML, together with processing of constraints expressed using Schematron assertions and reports.
+Different types of implementations can seek conformance with this OGC® Standard:
 
-Conformance with this specification shall be checked using all the relevant tests specified in <<abstract_test_suite>>. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in ISO 19105: Geographic information — Conformance and Testing. In order to conform to this OGC(TM) encoding standard, a standardization target shall implement the core conformance class, and choose to implement any one or more of the other conformance classes.
+* An implementation that defines a new data model shall at least conform with the core requirements class.
 
-The conformance rules for the XML implementation are based on XML validation using XML Schema representation of SensorML, together with processing constraints expressed using Schematron assertions and reports.
+* An encoding of the conceptual models (e.g. a protobuf encoding) shall implement at least one of the requirements classes listed in the "UML Models" section of the table.
 
-[cols="1,3,1"]
-.Conformance classes related SensorML instances
-|===
-|Conformance class |Description |Clause
+* An implementation that produces or consumes SensorML descriptions encoded in JSON shall implement at least one of the requirements classes listed in the "JSON Encodings" section of the table.
 
-|http://www.opengis.net/spec/SensorML/2.1/req/core 
-|Core Concepts
-|<<core_concepts>>
-
-|http://www.opengis.net/spec/SensorML/2.1/req/model/coreProcess
-|Abstract Process  
-|<<uml_core_abstract_process>>
-
-|http://www.opengis.net/spec/SensorML/2.1/req/model/simpleProcess
-|(Non-Physical) Simple Process
-|<<uml_simple_process>>
-
-|http://www.opengis.net/spec/SensorML/2.1/req/model/aggregateProcess
-|(Non-Physical) Aggregate Process
-|<<uml_aggregate_process>>
-
-|http://www.opengis.net/spec/SensorML/2.1/req/model/physicalComponent
-|Physical Component
-|<<uml_physical_component>>
-
-|http://www.opengis.net/spec/SensorML/2.1/req/model/physicalSystem  
-|Physical System
-|<<uml_physical_system>>
-
-|http://www.opengis.net/spec/SensorML/2.1/req/model/advancedProcesses
-|Processes with Advanced Data Types
-|<<uml_processes_with_advanced_data_types>>
-
-|http://www.opengis.net/spec/SensorML/2.1/req/model/configurableProcess
-|Configurable Process
-|<<uml_configurable_processes>>
-
-|http://www.opengis.net/spec/SensorML/2.1/req/xml/coreProcess
-|Core Process
-|<<xsd_core_abstract_process>>
-
-|http://www.opengis.net/spec/SensorML/2.1/req/xml/simpleProcess  
-|(Non-Physical) Simple Process
-|<<xsd_simple_process>>
-
-|http://www.opengis.net/spec/SensorML/2.1/req/xml/aggregateProcess
-|(Non-Physical) Aggregate Process
-|<<xsd_aggregate_process>>
-
-|http://www.opengis.net/spec/SensorML/2.1/req/xml/physicalComponent
-|Physical Component
-|<<xsd_physical_component>>
-
-|http://www.opengis.net/spec/SensorML/2.1/req/xml/physicalSystem
-|Physical System
-|<<xsd_physical_system>>
-
-|http://www.opengis.net/spec/SensorML/2.1/req/xml/configurableProcess
-|Configurable Process
-|<<xsd_configurable_process>>
-|===
+The conformance classes corresponding to these requirements classes are presented in <<annex_ats,Annex A (normative)>>. Conformance with this Standard shall be checked using all the relevant tests specified in Annex A. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.

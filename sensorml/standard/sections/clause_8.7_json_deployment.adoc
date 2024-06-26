@@ -35,6 +35,6 @@ include::../schemas/json/examples/spec/deployment.json[lines="1,3..-1"]
 
 ==== DeployedSystem
 
-The `DeployedSystem` schema is the JSON schema implementation of the `DeployedSystem` UML class defined in <<clause_model_deployment,style=full%>>.
+The `DeployedSystem` schema is the JSON schema implementation of the `DeployedSystem` UML class defined in <<uml_deployment,style=full%>>.
 
 The schema allows associating a configuration to a given deployed system or platform.

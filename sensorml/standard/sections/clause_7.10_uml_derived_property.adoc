@@ -1,4 +1,4 @@
-[[clause_model_derived_property]]
+[[uml_derived_property]]
 === Requirements Class: Derived Property
 
 ==== Overview
