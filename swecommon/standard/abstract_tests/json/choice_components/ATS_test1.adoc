@@ -1,0 +1,9 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-choice-components/component-types
+
+target:: /req/json-choice-components/component-types
+
+test-method:: Run the tests in this conformance class (and its prerequisites) on a set of JSON documents containing instances of the _DataChoice_ component.
+====

@@ -1,0 +1,22 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-advanced-encodings/datatype-compatible
+target:: /req/json-advanced-encodings/datatype-compatible
+
+test-purpose:: Check that the chosen datatype is compatible with the associated component.
+
+test-method::
++
+--
+For text components (i.e. “Category”, “Text” or “Time” with ISO-8601 encoding), verify that the data type is one of the string types.
+
+For scalar numerical components (i.e. “Quantity”, “Count” or “Time” with a simple unit), verify that:
+
+- The data type is also numerical (i.e. one of the integer or floating point types)
+- The range of values it allows can cover all possible numbers within the allowed intervals and enumerated values (e.g. A short data type cannot be used for an interval constraint of [-100000; 10000]). When no interval constraint is specified, this test should be ignored.
+- The data type can accommodate the desired precision indicated by the “significantFigures” constraint (e.g. a float cannot be used for a number of significant figures greater than 7). When no precision constraint is specified, this test should be ignored.
+
+For a boolean component, verify that the data type is an unsigned byte (http://www.opengis.net/def/dataType/OGC/0/unsignedByte).
+--
+====

@@ -1,0 +1,13 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/uml-geom-components/srs-valid
+
+target:: /req/uml-geom-components/srs-valid
+
+test-purpose:: Verify that the SRS is valid.
+
+test-method::
+- Inspect the model or software implementation.
+- Check that the “srs” attribute references a valid coordinate reference system.
+====

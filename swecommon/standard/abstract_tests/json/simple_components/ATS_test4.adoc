@@ -1,0 +1,11 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-simple-components/definition-resolvable
+
+target:: /req/json-simple-components/definition-resolvable
+
+test-method:: Check that the URI used for the definition attribute is either:
+- An HTTP URL that resolves to a document (response code 200) containing a machine or human readable definition (can be RDF, GML, HTML, etc.).
+- A URN that can be resolved to a document containing a machine or human readable definition, using a URN resolver provided separately.
+====

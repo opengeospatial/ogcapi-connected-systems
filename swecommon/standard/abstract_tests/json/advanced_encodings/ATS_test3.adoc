@@ -1,0 +1,12 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-advanced-encodings/ref-syntax-valid
+target:: /req/json-advanced-encodings/ref-syntax-valid
+
+test-purpose:: Check that the path specified by the `ref` attribute has the correct syntax.
+
+test-method::
+step::: Inspect the section of the JSON instance describing the binary encoding options.
+step::: Check that the path formed by the ‘/’ separated list of component names actually points to a component in the descriptor tree.
+====

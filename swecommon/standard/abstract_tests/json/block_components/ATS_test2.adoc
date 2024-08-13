@@ -1,0 +1,11 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-block-components/encoded-values-valid
+
+target:: /req/json-block-components/encoded-values-valid
+
+test-purpose:: Verify that inline values provided in the JSON instance are valid.
+
+test-method:: Run all tests from conformance class /conf/json-encoding-rules on the inline values.
+====

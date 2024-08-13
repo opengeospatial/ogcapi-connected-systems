@@ -1,0 +1,10 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-advanced-encodings/encoding-types
+target:: /req/json-advanced-encodings/encoding-types
+
+test-purpose:: Check that the standardization target supports the BinaryEncoding option.
+
+test-method:: Run the tests in this conformance class on a set of JSON documents containing block components with values encoded according to the following encoding types: _BinaryEncoding_
+====

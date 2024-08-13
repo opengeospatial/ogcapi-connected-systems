@@ -1,0 +1,9 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-geom-components/component-types
+
+target:: /req/json-geom-components/component-types
+
+test-method:: Run the tests in this conformance class (and its prerequisites) on a set of JSON documents containing instances of the _Geometry_ data component with the following value types: _Point, LineString, Polygon_.
+====

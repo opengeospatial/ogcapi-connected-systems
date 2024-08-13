@@ -1,0 +1,9 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-block-components/component-types
+
+target:: /req/json-block-components/component-types
+
+test-method:: Run the tests in this conformance class (and its prerequisites) on a set of JSON documents containing instances of the following data component types: _DataArray, Matrix, DataStream_
+====

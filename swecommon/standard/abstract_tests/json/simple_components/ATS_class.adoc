@@ -1,0 +1,23 @@
+[conformance_class]
+.Basic Types and Simple Components JSON Schemas
+====
+[%metadata]
+identifier:: /conf/json-simple-components
+target:: /req/json-simple-components
+indirect-dependency:: /conf/core
+classification:: Target Type: JSON Document
+====
+
+All tests in this conformance test class and in the following shall be used to check conformance of JSON documents created according to the schemas defined in this standard. They shall also be used to check conformance of software implementations that output JSON documents.
+
+include::./ATS_test1.adoc[]
+include::./ATS_test2.adoc[]
+// include::./ATS_test3.adoc[]
+// include::./ATS_test4.adoc[]
+// include::./ATS_test5.adoc[]
+// include::./ATS_test6.adoc[]
+// include::./ATS_test7.adoc[]
+// include::./ATS_test8.adoc[]
+// include::./ATS_test9.adoc[]
+
+

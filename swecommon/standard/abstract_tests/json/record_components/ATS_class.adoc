@@ -1,0 +1,13 @@
+[conformance_class]
+.Record Components JSON Schema
+====
+[%metadata]
+identifier:: /conf/json-record-components
+target:: /req/json-record-components
+inherit:: /conf/json-simple-components
+classification:: Target Type: JSON Document
+====
+
+include::./ATS_test1.adoc[]
+
+

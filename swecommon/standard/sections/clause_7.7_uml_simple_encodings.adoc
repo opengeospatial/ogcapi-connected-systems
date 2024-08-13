@@ -9,7 +9,6 @@ This package includes two classes that provide definitions of simple encoding me
 
 .Simple Encodings
 image::figures/fig7.32.png[]
-#TODO update diagram to replace XMLEcncoding by JSONEncoding#
 
 include::../requirements/uml/simple_encodings/requirement1.adoc[]
 
@@ -21,10 +20,9 @@ In the model provided in this standard, the encoding specification is provided s
 
 
 [[uml_jsonencoding_class]]
-==== TextEncoding Class
+==== JSONEncoding Class
 
-#TODO#
-
+The “JSONEncoding” class defines a method allowing encoding arbitrarily complex data as JSON. This class has no parameters.
 
 
 [[uml_textencoding_class]]

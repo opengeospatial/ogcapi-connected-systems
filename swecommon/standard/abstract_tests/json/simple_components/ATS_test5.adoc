@@ -1,0 +1,9 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-simple-components/inline-value-constraint-valid
+
+target:: /req/json-simple-components/inline-value-constraint-valid
+
+test-method:: Check that the inline value provided as part of a data component satisfies the constraints of the component (if any).
+====

@@ -1,0 +1,12 @@
+[abstract_test]
+.Compliance with JSON schemas
+====
+[%metadata]
+identifier:: /conf/json-simple-components/schema-valid
+
+target:: /req/json-simple-components/schema-valid
+
+test-purpose:: Verify that the JSON document is valid against the schema.
+
+test-method:: Validate the JSON document using the JSON schema {jsonschema-base-url}/sweCommon.json[“sweCommon.json”].
+====

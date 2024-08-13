@@ -1,0 +1,10 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-advanced-encodings/datatype-valid
+target:: /req/json-advanced-encodings/datatype-valid
+
+test-purpose:: Check that the chosen datatype is valid.
+
+test-method:: Verify that the URI used to specify the binary data type is one of the item the list provided in <<binary-datatypes-table>>.
+====

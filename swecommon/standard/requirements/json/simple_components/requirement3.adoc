@@ -3,5 +3,5 @@
 [%metadata]
 identifier:: /req/json-simple-components/special-numerical-values
 
-The special JSON Strings `NaN`, `-Infinity` and `+Infinity` shall be allowed as the inline or out-of-band value for Quantity and Time #(and Count?)# components (except when the Time component uses the ISO 8601 format).
+The special JSON Strings `NaN`, `-Infinity` and `+Infinity` shall be allowed as the inline or out-of-band value for Quantity and Time components (except when the Time component uses the ISO 8601 format).
 ====

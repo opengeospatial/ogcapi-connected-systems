@@ -1,0 +1,13 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-simple-encodings/text-encoding-rules-applied
+
+target:: /req/json-simple-encodings/text-encoding-rules-applied
+
+test-purpose:: Check that values of a block component are encoded according to the Text encoding rules
+
+test-method::
+step::: Retrieve the content of the out-of-band data.
+step::: Check that the data fulfills all requirements from xref:/conf/text-encoding-rules[]
+====

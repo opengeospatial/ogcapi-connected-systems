@@ -1,0 +1,9 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-simple-components/iso8601-uom-used
+
+target:: /req/json-simple-components/iso8601-uom-used
+
+test-method:: Check that the `uom` attribute is set to the URI “http://www.opengis.net/def/uom/ISO-8601/0/Gregorian” if the inline value is set to a ISO8601 string.
+====

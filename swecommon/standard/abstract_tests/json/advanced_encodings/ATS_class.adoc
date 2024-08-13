@@ -1,0 +1,21 @@
+[conformance_class]
+.Advanced Encodings JSON Schema
+====
+[%metadata]
+identifier:: /conf/json-advanced-encodings
+target:: /req/json-advanced-encodings
+inherit:: /conf/json-simple-encodings
+inherit:: /conf/binary-encoding-rules
+classification:: Target Type: JSON Document
+====
+
+include::./ATS_test1.adoc[]
+include::./ATS_test2.adoc[]
+include::./ATS_test3.adoc[]
+include::./ATS_test4.adoc[]
+include::./ATS_test5.adoc[]
+include::./ATS_test6.adoc[]
+include::./ATS_test7.adoc[]
+include::./ATS_test8.adoc[]
+
+

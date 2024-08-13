@@ -1,0 +1,10 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-advanced-encodings/no-datatype-length
+target:: /req/json-advanced-encodings/no-datatype-length
+
+test-purpose:: Check that the length of a datatype is specified only when appropriate.
+
+test-method:: Verify that the “bitLength” and “byteLength” attributes are used only when one of the UTF-8 String or Custom Integer data types is selected.
+====

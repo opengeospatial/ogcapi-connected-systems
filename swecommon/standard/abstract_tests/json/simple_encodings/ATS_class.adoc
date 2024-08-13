@@ -1,0 +1,16 @@
+[conformance_class]
+.Simple Encodings JSON Schema
+====
+[%metadata]
+identifier:: /conf/json-simple-encodings
+target:: /req/json-simple-encodings
+inherit:: /conf/text-encoding-rules
+inherit:: /conf/json-encoding-rules
+classification:: Target Type: JSON Document
+====
+
+include::./ATS_test1.adoc[]
+include::./ATS_test2.adoc[]
+include::./ATS_test3.adoc[]
+
+

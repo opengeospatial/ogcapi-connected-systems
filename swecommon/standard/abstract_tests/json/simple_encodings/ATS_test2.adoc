@@ -1,0 +1,13 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-simple-encodings/json-encoding-rules-applied
+
+target:: /req/json-simple-encodings/json-encoding-rules-applied
+
+test-purpose:: Check that values of a block component are encoded according to the JSON encoding rules
+
+test-method::
+step::: Retrieve the content of the `values` property or the out-of-band data.
+step::: Check that the data fulfills all requirements from xref:/conf/json-encoding-rules[]
+====

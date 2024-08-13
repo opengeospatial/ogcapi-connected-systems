@@ -1,0 +1,15 @@
+[conformance_class]
+.Block Components JSON Schema
+====
+[%metadata]
+identifier:: /conf/json-block-components
+target:: /req/json-block-components
+inherit:: /conf/json-simple-components
+inherit:: /conf/json-simple-encodings
+classification:: Target Type: JSON Document
+====
+
+include::./ATS_test1.adoc[]
+include::./ATS_test2.adoc[]
+
+

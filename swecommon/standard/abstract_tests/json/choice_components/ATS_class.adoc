@@ -1,0 +1,13 @@
+[conformance_class]
+.Choice Components JSON Schema
+====
+[%metadata]
+identifier:: /conf/json-choice-components
+target:: /req/json-choice-components
+inherit:: /conf/json-simple-components
+classification:: Target Type: JSON Document
+====
+
+include::./ATS_test1.adoc[]
+
+

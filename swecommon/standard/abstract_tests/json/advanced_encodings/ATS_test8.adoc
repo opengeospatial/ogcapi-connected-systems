@@ -1,0 +1,13 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-advanced-encodings/block-ref-component-valid
+target:: /req/json-advanced-encodings/block-ref-component-valid
+
+test-purpose:: Check that the binary block encoding specifications are associated to an aggregate component
+
+test-method:: 
+step::: Inspect the section of the JSON instance describing the BinaryBlock encoding options.
+step::: Resolve the path specified by the ‘ref’ attribute to a component of the dataset definition tree.
+step::: Verify that the component is an aggregate, that is to say it is either a _DataRecord_, _Vector_, _DataChoice_, _DataArray_ or _Matrix_.
+====

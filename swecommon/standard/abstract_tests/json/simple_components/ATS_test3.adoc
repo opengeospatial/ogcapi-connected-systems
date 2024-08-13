@@ -1,0 +1,9 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-simple-components/special-numerical-values
+
+target:: /req/json-simple-components/special-numerical-values
+
+test-method:: Check that special values `-Infinity`, `+Infinity` and `NaN` are supported by the standardization target.
+====

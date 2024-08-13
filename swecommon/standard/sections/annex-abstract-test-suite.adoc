@@ -32,6 +32,11 @@ include::../abstract_tests/uml/choice_components/ATS_class.adoc[]
 include::../abstract_tests/uml/block_components/ATS_class.adoc[]
 
 
+==== Conformance Class: Geometry Components UML Package
+
+include::../abstract_tests/uml/geom_components/ATS_class.adoc[]
+
+
 ==== Conformance Class: Simple Encodings UML Package
 
 include::../abstract_tests/uml/simple_encodings/ATS_class.adoc[]
@@ -43,36 +48,41 @@ include::../abstract_tests/uml/advanced_encodings/ATS_class.adoc[]
 
 
 
-// === XML Conformance Classes
+=== JSON Conformance Classes
 
-// ==== Conformance Class: Basic Types and Simple Components XML Schemas
+==== Conformance Class: Basic Types and Simple Components JSON Schemas
 
-// include::../abstract_tests/xsd/simple_components/ATS_class.adoc[]
-
-
-// ==== Conformance Class: Record Components XML Schema
-
-// include::../abstract_tests/xsd/record_components/ATS_class.adoc[]
+include::../abstract_tests/json/simple_components/ATS_class.adoc[]
 
 
-// ==== Conformance Class: Choice Components XML Schema
+==== Conformance Class: Record Components JSON Schema
 
-// include::../abstract_tests/xsd/choice_components/ATS_class.adoc[]
-
-
-// ==== Conformance Class: Block Components XML Schema
-
-// include::../abstract_tests/xsd/block_components/ATS_class.adoc[]
+include::../abstract_tests/json/record_components/ATS_class.adoc[]
 
 
-// ==== Conformance Class: Simple Encodings XML Schema
+==== Conformance Class: Choice Components JSON Schema
 
-// include::../abstract_tests/xsd/simple_encodings/ATS_class.adoc[]
+include::../abstract_tests/json/choice_components/ATS_class.adoc[]
 
 
-// ==== Conformance Class: Advanced Encodings XML Schema
+==== Conformance Class: Block Components JSON Schema
 
-// include::../abstract_tests/xsd/advanced_encodings/ATS_class.adoc[]
+include::../abstract_tests/json/block_components/ATS_class.adoc[]
+
+
+==== Conformance Class: Geometry Components JSON Schema
+
+include::../abstract_tests/json/geom_components/ATS_class.adoc[]
+
+
+==== Conformance Class: Simple Encodings JSON Schema
+
+include::../abstract_tests/json/simple_encodings/ATS_class.adoc[]
+
+
+==== Conformance Class: Advanced Encodings JSON Schema
+
+include::../abstract_tests/json/advanced_encodings/ATS_class.adoc[]
 
 
 

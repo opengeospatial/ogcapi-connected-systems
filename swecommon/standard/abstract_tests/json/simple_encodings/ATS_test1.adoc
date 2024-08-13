@@ -1,0 +1,9 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-simple-encodings/encoding-types
+
+target:: /req/json-simple-encodings/encoding-types
+
+test-method:: Run the tests in this conformance class on a set of JSON documents containing block components with values encoded according to the following encoding types: _JSONEncoding, TextEncoding_
+====

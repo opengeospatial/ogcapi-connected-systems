@@ -62,8 +62,8 @@ When provided inline, “DataStream” values are encoded using the method defin
 [[json_values_block]]
 ==== Inline Value Blocks
 
-This clause specifies how inline vaues for “DataArray”, “Matrix” and “DataStream” components shall be encoded when provided within a JSON document. No other method is allowed within a JSON document compliant with this standard.
+Inline values for “DataArray”, “Matrix” and “DataStream” components shall always be encoded using the JSON encoding rules when provided within a JSON document. No other method is allowed within a JSON document compliant with this standard. Inline block component values shall always be wrapped using a JSON Array. 
+
+include::../requirements/json/block_components/requirement2.adoc[]
 
 However, when values are provided separately from the component description (e.g. when datastream values are provided separately), any encoding methods defined in <<encoding_rules>> can be used.
-
-Inline block component values shall always be wrapped using JSON Arrays. 

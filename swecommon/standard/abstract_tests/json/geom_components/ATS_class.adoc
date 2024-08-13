@@ -1,0 +1,14 @@
+[conformance_class]
+.Geometry Components JSON Schema
+====
+[%metadata]
+identifier:: /conf/json-geom-components
+target:: /req/json-geom-components
+inherit:: /conf/json-simple-components
+inherit:: /conf/json-simple-encodings
+classification:: Target Type: JSON Document
+====
+
+include::./ATS_test1.adoc[]
+
+

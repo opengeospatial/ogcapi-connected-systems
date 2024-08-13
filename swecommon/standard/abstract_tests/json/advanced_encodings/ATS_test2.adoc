@@ -1,0 +1,10 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-advanced-encodings/binary-encoding-rules-applied
+target:: /req/json-advanced-encodings/binary-encoding-rules-applied
+
+test-purpose:: Check that values are encoded as defined by the binary encoding rules.
+
+test-method:: Find all binary encoded value blocks included inline (base64 encoded) or referenced by the JSON document. Apply all tests from xref:/conf/binary-encoding-rules[] to the encoded data to validate its syntax and structure.
+====

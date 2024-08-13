@@ -1,0 +1,13 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-advanced-encodings/scalar-ref-component-valid
+target:: /req/json-advanced-encodings/scalar-ref-component-valid
+
+test-purpose:: Check that the path specified by the `ref` attribute points to a valid component.
+
+test-method::
+step::: Inspect the section of the JSON instance describing the BinaryComponent encoding options.
+step::: Resolve the path specified by the ‘ref’ attribute to a component of the dataset definition tree.
+step::: Verify that the component is a simple component, that is to say it is either a _Boolean_, _Count_, _Quantity_, _Time_, _Category_, _Text_, _CountRange_, _QuantityRange_, _TimeRange_ or _CategoryRange_.
+====
