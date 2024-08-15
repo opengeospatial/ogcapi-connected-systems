@@ -6,4 +6,6 @@ type:: class
 identifier:: /req/uml-advanced-encodings
 subject:: Software Implementation or Encoding of the Conceptual Models
 inherit:: /req/uml-simple-encodings
+
+requirement:: /req/uml-advanced-encodings/package-fully-implemented
 ====

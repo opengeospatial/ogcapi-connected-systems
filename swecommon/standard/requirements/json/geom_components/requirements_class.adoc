@@ -7,4 +7,6 @@ identifier:: /req/json-geom-components
 subject:: JSON Document
 indirect-dependency:: /req/uml-geom-components
 inherit:: /req/json-simple-components
+
+requirement:: /req/json-geom-components/component-types
 ====

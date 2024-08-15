@@ -5,4 +5,18 @@
 type:: class
 identifier:: /req/core
 subject:: Derived Models and Software Implementations
+
+requirement:: /req/core/core-concepts-used
+requirement:: /req/core/boolean-rep-valid
+requirement:: /req/core/categorical-rep-valid
+requirement:: /req/core/numerical-rep-valid
+requirement:: /req/core/countable-rep-valid
+requirement:: /req/core/textual-rep-valid
+requirement:: /req/core/semantics-defined
+requirement:: /req/core/semantics-resolvable
+requirement:: /req/core/temporal-frame-defined
+requirement::	/req/core/spatial-frame-defined
+requirement:: /req/core/nil-reasons-defined
+requirement:: /req/core/aggregates-model-valid
+requirement:: /req/core/encoding-method-valid
 ====

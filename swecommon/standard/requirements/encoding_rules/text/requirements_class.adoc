@@ -7,4 +7,10 @@ identifier:: /req/text-encoding-rules
 subject:: Encoded Values Instance
 inherit:: /req/general-encoding-rules
 indirect-dependency:: /req/uml-simple-encodings
+
+requirement:: /req/text-encoding-rules/abnf-syntax-valid
+requirement:: /req/text-encoding-rules/separators-valid
+requirement:: /req/text-encoding-rules/optional-field-marker-present
+requirement:: /req/text-encoding-rules/choice-selection-marker-valid
+requirement:: /req/text-encoding-rules/geometry-valid
 ====

@@ -7,4 +7,13 @@ identifier:: /req/json-encoding-rules
 subject:: Encoded Values Instance
 inherit:: /req/general-encoding-rules
 indirect-dependency:: /req/uml-simple-encodings
+
+requirement:: /req/json-encoding-rules/json-valid
+requirement:: /req/json-encoding-rules/scalar-value-valid
+requirement:: /req/json-encoding-rules/range-value-valid
+requirement:: /req/json-encoding-rules/record-object-valid
+requirement:: /req/json-encoding-rules/vector-object-valid
+requirement:: /req/json-encoding-rules/choice-object-valid
+requirement:: /req/json-encoding-rules/array-values-valid
+requirement:: /req/json-encoding-rules/geometry-valid
 ====

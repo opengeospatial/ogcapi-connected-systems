@@ -7,4 +7,6 @@ identifier:: /req/json-record-components
 subject:: JSON Document
 indirect-dependency:: /req/uml-record-components
 inherit:: /req/json-simple-components
+
+requirement:: /req/json-record-components/component-types
 ====

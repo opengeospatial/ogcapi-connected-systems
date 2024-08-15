@@ -7,4 +7,11 @@ identifier:: /req/binary-encoding-rules
 subject:: Encoded Values Instance
 inherit:: /req/general-encoding-rules
 indirect-dependency:: /req/uml-advanced-encodings
+
+requirement:: /req/binary-encoding-rules/abnf-syntax-valid
+requirement:: /req/binary-encoding-rules/type-encoding-valid
+requirement:: /req/binary-encoding-rules/base64-translation-applied
+requirement:: /req/binary-encoding-rules/optional-field-marker-present
+requirement:: /req/binary-encoding-rules/choice-selection-marker-valid
+requirement:: /req/binary-encodings-rules/geometry-valid
 ====

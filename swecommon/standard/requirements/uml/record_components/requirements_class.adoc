@@ -6,4 +6,11 @@ type:: class
 identifier:: /req/uml-record-components
 subject:: Software Implementation or Encoding of the Conceptual Models
 inherit:: /req/uml-simple-components
+
+requirement:: /req/uml-record-components/package-fully-implemented
+requirement:: /req/uml-record-components/record-field-name-unique
+requirement:: /req/uml-record-components/vector-coord-name-unique
+requirement:: /req/uml-record-components/vector-component-no-ref-frame
+requirement:: /req/uml-record-components/vector-component-axis-defined
+requirement:: /req/uml-record-components/vector-local-frame-valid
 ====

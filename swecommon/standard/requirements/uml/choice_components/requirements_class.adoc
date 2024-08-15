@@ -6,4 +6,7 @@ type:: class
 identifier:: /req/uml-choice-components
 subject:: Software Implementation or Encoding of the Conceptual Models
 inherit:: /req/uml-simple-components
+
+requirement:: /req/uml-choice-components/package-fully-implemented
+requirement:: /req/uml-choice-components/choice-item-name-unique
 ====

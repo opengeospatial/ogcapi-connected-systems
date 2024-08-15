@@ -6,4 +6,8 @@ type:: class
 identifier:: /req/uml-geom-components
 subject:: Software Implementation or Encoding of the Conceptual Models
 inherit:: /req/uml-simple-components
+
+requirement:: /req/uml-geom-components/package-fully-implemented
+requirement:: /req/uml-geom-components/srs-valid
+requirement:: /req/uml-geom-components/geom-value-valid
 ====

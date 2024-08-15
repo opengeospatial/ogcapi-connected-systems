@@ -7,4 +7,6 @@ identifier:: /req/json-choice-components
 subject:: JSON Document
 indirect-dependency:: /req/uml-choice-components
 inherit:: /req/json-simple-components
+
+requirement:: /req/json-choice-components/component-types
 ====

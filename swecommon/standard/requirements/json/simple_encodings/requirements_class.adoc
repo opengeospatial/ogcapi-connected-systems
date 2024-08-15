@@ -8,4 +8,8 @@ subject:: JSON Document
 indirect-dependency:: /req/json-simple-encodings
 inherit:: /req/text-encoding-rules
 inherit:: /req/json-encoding-rules
+
+requirement:: /req/json-simple-encodings/encoding-types
+requirement:: /req/json-simple-encodings/json-encoding-rules-applied
+requirement:: /req/json-simple-encodings/text-encoding-rules-applied
 ====

@@ -7,4 +7,10 @@ identifier:: /req/uml-block-components
 subject:: Software Implementation or Encoding of the Conceptual Models
 inherit:: /req/uml-simple-components
 inherit:: /req/uml-simple-encodings
+
+requirement:: /req/uml-block-components/package-fully-implemented
+requirement:: /req/uml-block-components/array-component-no-value
+requirement:: /req/uml-block-components/array-values-properly-encoded
+requirement:: /req/uml-block-components/matrix-element-type-valid
+requirement:: /req/uml-block-components/datastream-array-valid
 ====

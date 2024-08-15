@@ -8,4 +8,13 @@ subject:: JSON Document
 indirect-dependency:: /req/uml-advanced-encodings
 inherit:: /req/json-simple-encodings
 inherit:: /req/binary-encoding-rules
+
+requirement:: /req/json-advanced-encodings/encoding-types
+requirement:: /req/json-advanced-encodings/binary-encoding-rules-applied
+requirement:: /req/json-advanced-encodings/ref-syntax-valid
+requirement:: /req/json-advanced-encodings/scalar-ref-component-valid
+requirement:: /req/json-advanced-encodings/datatype-valid
+requirement:: /req/json-advanced-encodings/datatype-compatible
+requirement:: /req/json-advanced-encodings/no-datatype-length
+requirement:: /req/json-advanced-encodings/block-ref-component-valid
 ====

@@ -6,4 +6,27 @@ type:: class
 identifier:: /req/uml-simple-components
 subject:: Software Implementation or Encoding of the Conceptual Models
 inherit:: /req/core
+
+requirement:: /req/uml-simple-components/package-fully-implemented
+requirement:: /req/uml-simple-components/iso19103-implemented
+requirement:: /req/uml-simple-components/iso19108-implemented
+requirement:: /req/uml-simple-components/definition-present
+requirement:: /req/uml-simple-components/axis-valid
+requirement:: /req/uml-simple-components/axis-defined
+requirement:: /req/uml-simple-components/ref-frame-defined
+requirement:: /req/uml-simple-components/value-constraint-valid
+requirement:: /req/uml-simple-components/value-attribute-present
+requirement:: /req/uml-simple-components/category-constraint-valid
+requirement:: /req/uml-simple-components/category-enum-defined
+requirement:: /req/uml-simple-components/category-value-valid
+requirement:: /req/uml-simple-components/time-ref-frame-defined
+requirement:: /req/uml-simple-components/time-ref-time-valid
+requirement:: /req/uml-simple-components/time-local-frame-valid
+requirement:: /req/uml-simple-components/range-value-valid
+requirement:: /req/uml-simple-components/category-range-valid
+requirement:: /req/uml-simple-components/category-range-codespace-order
+requirement:: /req/uml-simple-components/time-range-valid
+requirement:: /req/uml-simple-components/nil-reason-resolvable
+requirement:: /req/uml-simple-components/nil-value-type-coherent
+requirement:: /req/uml-simple-components/allowed-values-unit-coherent
 ====

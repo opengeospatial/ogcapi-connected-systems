@@ -6,4 +6,12 @@ type:: class
 identifier:: /req/json-simple-components
 subject:: JSON Document
 indirect-dependency:: /req/uml-simple-components
+
+requirement:: /req/json-simple-components/component-types
+requirement:: /req/json-simple-components/schema-valid
+requirement:: /req/json-simple-components/special-numerical-values
+requirement:: /req/json-simple-components/definition-resolvable
+requirement:: /req/json-simple-components/inline-value-constraint-valid
+requirement:: /req/json-simple-components/ucum-code-used
+requirement:: /req/json-simple-components/iso8601-uom-used
 ====

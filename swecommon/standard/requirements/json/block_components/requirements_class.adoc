@@ -7,4 +7,7 @@ identifier:: /req/json-block-components
 subject:: JSON Document
 indirect-dependency:: /req/uml-block-components
 inherit:: /req/json-simple-components
+
+requirement:: /req/json-block-components/component-types
+requirement:: /req/json-block-components/encoded-values-valid
 ====

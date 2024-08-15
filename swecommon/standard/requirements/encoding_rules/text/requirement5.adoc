@@ -1,7 +1,7 @@
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/text-encodings-rules/geometry-valid
+identifier:: /req/text-encoding-rules/geometry-valid
 
 part:: The value of a “Geometry” component shall be encoded using the WKT format defined in <<OGC_SFA>>, clause 7. 
 

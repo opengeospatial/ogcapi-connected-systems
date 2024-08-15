@@ -1,7 +1,7 @@
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/text-encodings-rules/optional-field-marker-present
+identifier:: /req/text-encoding-rules/optional-field-marker-present
 
 The ‘Y’ or ‘N’ token shall be inserted in a text encoded data block for all fields that have the “optional” attribute set to ‘true’.
 ====

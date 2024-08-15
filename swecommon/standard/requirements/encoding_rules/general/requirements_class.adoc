@@ -6,4 +6,9 @@ type:: class
 identifier:: /req/general-encoding-rules
 subject:: Encoded Values Instance
 indirect-dependency:: /req/uml-simple-encodings
+
+requirement:: /req/general-encoding-rules/record-encoding-rule
+requirement:: /req/general-encoding-rules/choice-encoding-rule
+requirement:: /req/general-encoding-rules/array-encoding-rule
+requirement:: /req/general-encoding-rules/array-size-encoding-rule
 ====
