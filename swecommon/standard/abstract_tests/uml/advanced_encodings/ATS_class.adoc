@@ -6,6 +6,8 @@ identifier:: /conf/uml-advanced-encodings
 target:: /req/uml-advanced-encodings
 inherit:: /conf/uml-simple-encodings
 classification:: Target Type: Derived Models and Software Implementations
+
+conformance-test:: /conf/uml-advanced-encodings/package-fully-implemented
 ====
 
 include::./ATS_test1.adoc[]

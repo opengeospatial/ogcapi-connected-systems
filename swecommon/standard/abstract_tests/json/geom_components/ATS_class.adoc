@@ -7,6 +7,8 @@ target:: /req/json-geom-components
 inherit:: /conf/json-simple-components
 inherit:: /conf/json-simple-encodings
 classification:: Target Type: JSON Document
+
+conformance-test:: /conf/json-geom-components/component-types
 ====
 
 include::./ATS_test1.adoc[]

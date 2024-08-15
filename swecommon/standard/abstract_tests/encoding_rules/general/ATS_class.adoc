@@ -5,6 +5,11 @@
 identifier:: /conf/general-encoding-rules
 target:: /req/general-encoding-rules
 classification:: Target Type: Encoded Values Instance
+
+conformance-test:: /conf/general-encoding-rules/record-encoding-rule
+conformance-test:: /conf/general-encoding-rules/choice-encoding-rule
+conformance-test:: /conf/general-encoding-rules/array-encoding-rule
+conformance-test:: /conf/general-encoding-rules/array-size-encoding-rule
 ====
 
 include::./ATS_test1.adoc[]

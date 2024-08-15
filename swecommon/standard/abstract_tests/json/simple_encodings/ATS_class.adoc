@@ -7,6 +7,10 @@ target:: /req/json-simple-encodings
 inherit:: /conf/text-encoding-rules
 inherit:: /conf/json-encoding-rules
 classification:: Target Type: JSON Document
+
+conformance-test:: /conf/json-simple-encodings/encoding-types
+conformance-test:: /conf/json-simple-encodings/json-encoding-rules-applied
+conformance-test:: /conf/json-simple-encodings/text-encoding-rules-applied
 ====
 
 include::./ATS_test1.adoc[]

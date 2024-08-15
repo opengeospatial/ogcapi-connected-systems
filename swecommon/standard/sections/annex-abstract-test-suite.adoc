@@ -6,7 +6,7 @@
 
 ==== Conformance Class: Core Concepts
 
-include::../abstract_tests/core/ATS_class1_core_concepts.adoc[]
+include::../abstract_tests/core/ATS_class.adoc[]
 
 
 

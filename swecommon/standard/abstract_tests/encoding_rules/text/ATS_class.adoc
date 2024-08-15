@@ -6,6 +6,12 @@ identifier:: /conf/text-encoding-rules
 target:: /req/text-encoding-rules
 inherit:: /conf/general-encoding-rules
 classification:: Target Type: Encoded Values Instance
+
+conformance-test:: /conf/text-encoding-rules/abnf-syntax-valid
+conformance-test:: /conf/text-encoding-rules/separators-valid
+conformance-test:: /conf/text-encoding-rules/optional-field-marker-present
+conformance-test:: /conf/text-encoding-rules/choice-selection-marker-valid
+conformance-test:: /conf/text-encoding-rules/geometry-valid
 ====
 
 include::./ATS_test1.adoc[]

@@ -6,6 +6,9 @@ identifier:: /conf/uml-choice-components
 target:: /req/uml-choice-components
 inherit:: /conf/uml-simple-components
 classification:: Target Type: Derived Models and Software Implementations
+
+conformance-test:: /conf/uml-choice-components/package-fully-implemented
+conformance-test:: /conf/uml-choice-components/choice-item-name-unique
 ====
 
 include::./ATS_test1.adoc[]

@@ -1,0 +1,49 @@
+[conformance_class]
+====
+[%metadata]
+identifier:: /conf/core
+target:: /req/core
+classification:: Target Type: Derived Models and Software Implementations
+
+conformance-test:: /conf/core/core-concepts-used
+conformance-test:: /conf/core/boolean-rep-valid
+conformance-test:: /conf/core/categorical-rep-valid
+conformance-test:: /conf/core/numerical-rep-valid
+conformance-test:: /conf/core/countable-rep-valid
+conformance-test:: /conf/core/textual-rep-valid
+conformance-test:: /conf/core/semantics-defined
+conformance-test:: /conf/core/semantics-resolvable
+conformance-test:: /conf/core/temporal-frame-defined
+conformance-test:: /conf/core/spatial-frame-defined
+conformance-test:: /conf/core/nil-reasons-defined
+conformance-test:: /conf/core/aggregates-model-valid
+conformance-test:: /conf/core/encoding-method-valid
+====
+
+include::./ATS_test1.adoc[]
+
+include::./ATS_test2.adoc[]
+
+include::./ATS_test3.adoc[]
+
+include::./ATS_test4.adoc[]
+
+include::./ATS_test5.adoc[]
+
+include::./ATS_test6.adoc[]
+
+include::./ATS_test7.adoc[]
+
+include::./ATS_test8.adoc[]
+
+include::./ATS_test9.adoc[]
+
+include::./ATS_test10.adoc[]
+
+include::./ATS_test11.adoc[]
+
+include::./ATS_test12.adoc[]
+
+include::./ATS_test13.adoc[]
+
+

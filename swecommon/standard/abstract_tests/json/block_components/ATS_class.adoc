@@ -7,6 +7,9 @@ target:: /req/json-block-components
 inherit:: /conf/json-simple-components
 inherit:: /conf/json-simple-encodings
 classification:: Target Type: JSON Document
+
+conformance-test:: /conf/json-block-components/component-types
+conformance-test:: /conf/json-block-components/encoded-values-valid
 ====
 
 include::./ATS_test1.adoc[]

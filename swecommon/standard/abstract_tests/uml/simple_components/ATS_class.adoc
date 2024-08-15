@@ -6,6 +6,29 @@ identifier:: /conf/uml-simple-components
 target:: /req/uml-simple-components
 inherit:: /conf/core
 classification:: Target Type: Derived Models and Software Implementations
+
+conformance-test:: /conf/uml-simple-components/category-constraint-valid
+conformance-test:: /conf/uml-simple-components/category-enum-defined
+conformance-test:: /conf/uml-simple-components/category-value-valid
+conformance-test:: /conf/uml-simple-components/time-ref-frame-defined
+conformance-test:: /conf/uml-simple-components/time-ref-time-valid
+conformance-test:: /conf/uml-simple-components/time-local-frame-valid
+conformance-test:: /conf/uml-simple-components/range-value-valid
+conformance-test:: /conf/uml-simple-components/category-range-valid
+conformance-test:: /conf/uml-simple-components/category-range-codespace-order
+conformance-test:: /conf/uml-simple-components/time-range-valid
+conformance-test:: /conf/uml-simple-components/package-fully-implemented
+conformance-test:: /conf/uml-simple-components/nil-reason-resolvable
+conformance-test:: /conf/uml-simple-components/nil-value-type-coherent
+conformance-test:: /conf/uml-simple-components/allowed-values-unit-coherent
+conformance-test:: /conf/uml-simple-components/iso19103-implemented
+conformance-test:: /conf/uml-simple-components/iso19108-implemented
+conformance-test:: /conf/uml-simple-components/definition-present
+conformance-test:: /conf/uml-simple-components/axis-valid
+conformance-test:: /conf/uml-simple-components/axis-defined 
+conformance-test:: /conf/uml-simple-components/ref-frame-defined
+conformance-test:: /conf/uml-simple-components/value-constraint-valid
+conformance-test:: /conf/uml-simple-components/value-attribute-present
 ====
 
 include::./ATS_test1.adoc[]

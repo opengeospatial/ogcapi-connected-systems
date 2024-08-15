@@ -6,6 +6,13 @@ identifier:: /conf/binary-encoding-rules
 target:: /req/binary-encoding-rules
 inherit:: /conf/general-encoding-rules
 classification:: Target Type: Encoded Values Instance
+
+conformance-test:: /conf/binary-encoding-rules/abnf-syntax-valid
+conformance-test:: /conf/binary-encoding-rules/type-encoding-valid
+conformance-test:: /conf/binary-encoding-rules/base64-translation-applied
+conformance-test:: /conf/binary-encoding-rules/optional-field-marker-present
+conformance-test:: /conf/binary-encoding-rules/choice-selection-marker-valid
+conformance-test:: /conf/binary-encoding-rules/geometry-valid
 ====
 
 include::./ATS_test1.adoc[]

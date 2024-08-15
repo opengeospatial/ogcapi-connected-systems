@@ -6,6 +6,13 @@ identifier:: /conf/uml-record-components
 target:: /req/uml-record-components
 inherit:: /conf/uml-simple-components
 classification:: Target Type: Derived Models and Software Implementations
+
+conformance-test:: /conf/uml-record-components/package-fully-implemented
+conformance-test:: /conf/uml-record-components/record-field-name-unique
+conformance-test:: /conf/uml-record-components/vector-coord-name-unique
+conformance-test:: /conf/uml-record-components/vector-component-no-ref-frame
+conformance-test:: /conf/uml-record-components/vector-component-axis-defined
+conformance-test:: /conf/uml-record-components/vector-local-frame-valid
 ====
 
 include::./ATS_test1.adoc[]

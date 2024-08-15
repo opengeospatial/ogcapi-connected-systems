@@ -6,6 +6,15 @@ identifier:: /conf/json-encoding-rules
 target:: /req/json-encoding-rules
 inherit:: /conf/general-encoding-rules
 classification:: Target Type: Encoded Values Instance
+
+conformance-test:: /conf/json-encoding-rules/json-valid
+conformance-test:: /conf/json-encoding-rules/scalar-value-valid
+conformance-test:: /conf/json-encoding-rules/range-value-valid
+conformance-test:: /conf/json-encoding-rules/record-object-valid
+conformance-test:: /conf/json-encoding-rules/vector-object-valid
+conformance-test:: /conf/json-encoding-rules/choice-object-valid
+conformance-test:: /conf/json-encoding-rules/array-values-valid
+conformance-test:: /conf/json-encoding-rules/geometry-valid
 ====
 
 include::./ATS_test1.adoc[]

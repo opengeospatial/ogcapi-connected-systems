@@ -6,6 +6,11 @@ identifier:: /conf/uml-block-components
 target:: /req/uml-block-components
 inherit:: /conf/uml-simple-components
 classification:: Target Type: Derived Models and Software Implementations
+
+conformance-test:: /conf/uml-block-components/package-fully-implemented
+conformance-test:: /conf/uml-block-components/array-component-no-value
+conformance-test:: /conf/uml-block-components/array-values-properly-encoded
+conformance-test:: /conf/uml-block-components/matrix-element-type-valid
 ====
 
 include::./ATS_test1.adoc[]

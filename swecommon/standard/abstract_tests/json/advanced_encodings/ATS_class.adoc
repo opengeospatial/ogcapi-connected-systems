@@ -7,6 +7,15 @@ target:: /req/json-advanced-encodings
 inherit:: /conf/json-simple-encodings
 inherit:: /conf/binary-encoding-rules
 classification:: Target Type: JSON Document
+
+conformance-test:: /conf/json-advanced-encodings/encoding-types
+conformance-test:: /conf/json-advanced-encodings/binary-encoding-rules-applied
+conformance-test:: /conf/json-advanced-encodings/ref-syntax-valid
+conformance-test:: /conf/json-advanced-encodings/scalar-ref-component-valid
+conformance-test:: /conf/json-advanced-encodings/datatype-valid
+conformance-test:: /conf/json-advanced-encodings/datatype-compatible
+conformance-test:: /conf/json-advanced-encodings/no-datatype-length
+conformance-test:: /conf/json-advanced-encodings/block-ref-component-valid
 ====
 
 include::./ATS_test1.adoc[]

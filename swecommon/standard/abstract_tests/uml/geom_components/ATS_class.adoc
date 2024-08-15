@@ -6,6 +6,10 @@ identifier:: /conf/uml-geom-components
 target:: /req/uml-geom-components
 inherit:: /conf/uml-simple-components
 classification:: Target Type: Derived Models and Software Implementations
+
+conformance-test:: /conf/uml-geom-components/package-fully-implemented
+conformance-test:: /conf/uml-geom-components/srs-valid
+conformance-test:: /conf/uml-geom-components/geom-value-valid
 ====
 
 include::./ATS_test1.adoc[]
