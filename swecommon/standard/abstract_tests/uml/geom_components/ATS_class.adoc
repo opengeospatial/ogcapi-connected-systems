@@ -10,5 +10,6 @@ classification:: Target Type: Derived Models and Software Implementations
 
 include::./ATS_test1.adoc[]
 include::./ATS_test2.adoc[]
+include::./ATS_test3.adoc[]
 
 

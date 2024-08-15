@@ -1,0 +1,13 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/binary-encoding-rules/geometry-valid
+
+target:: /req/binary-encoding-rules/geometry-valid
+
+test-purpose:: Check that the encoded geometry value is valid
+
+test-method::
+step::: Verify that the geometry value is valid WKB data.
+step::: Verify that the number of dimensions in the WKB data is compatible with the specified geometry SRS.
+====

@@ -12,12 +12,8 @@ All tests in this conformance test class and in the following shall be used to c
 
 include::./ATS_test1.adoc[]
 include::./ATS_test2.adoc[]
-// include::./ATS_test3.adoc[]
-// include::./ATS_test4.adoc[]
-// include::./ATS_test5.adoc[]
-// include::./ATS_test6.adoc[]
-// include::./ATS_test7.adoc[]
-// include::./ATS_test8.adoc[]
-// include::./ATS_test9.adoc[]
-
-
+include::./ATS_test3.adoc[]
+include::./ATS_test4.adoc[]
+include::./ATS_test5.adoc[]
+include::./ATS_test6.adoc[]
+include::./ATS_test7.adoc[]

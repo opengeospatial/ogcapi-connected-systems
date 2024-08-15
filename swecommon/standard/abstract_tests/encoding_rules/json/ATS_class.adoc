@@ -14,5 +14,7 @@ include::./ATS_test3.adoc[]
 include::./ATS_test4.adoc[]
 include::./ATS_test5.adoc[]
 include::./ATS_test6.adoc[]
+include::./ATS_test7.adoc[]
+include::./ATS_test8.adoc[]
 
 

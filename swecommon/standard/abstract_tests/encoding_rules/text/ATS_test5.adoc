@@ -1,0 +1,13 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/text-encoding-rules/geometry-valid
+
+target:: /req/text-encoding-rules/geometry-valid
+
+test-purpose:: Check that the encoded geometry value is valid
+
+test-method::
+step::: Verify that the geometry value is a valid WKT string.
+step::: Verify that the number of dimensions in the WKT is compatible with the specified geometry SRS.
+====

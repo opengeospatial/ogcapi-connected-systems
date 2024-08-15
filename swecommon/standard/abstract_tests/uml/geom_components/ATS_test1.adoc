@@ -1,13 +1,11 @@
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/uml-geom-components/srs-valid
+identifier:: /conf/uml-geom-components/package-fully-implemented
 
-target:: /req/uml-geom-components/srs-valid
+target:: /req/uml-geom-components/package-fully-implemented
 
-test-purpose:: Verify that the SRS is valid.
+test-purpose:: Verify that the target implements all classes in the UML package.
 
-test-method::
-- Inspect the model or software implementation.
-- Check that the “srs” attribute references a valid coordinate reference system.
+test-method:: Inspect the model or software implementation.
 ====

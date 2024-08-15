@@ -1,7 +1,7 @@
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/binary-encodings-rules/geometry-valid
+identifier:: /req/binary-encoding-rules/geometry-valid
 
 part:: The value of a “Geometry” component shall be encoded using the WKB format defined in <<OGC_SFA>>, clause 8. 
 
