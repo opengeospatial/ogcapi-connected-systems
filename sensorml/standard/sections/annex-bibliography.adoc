@@ -2,4 +2,12 @@
 [[Bibliography]]
 == Bibliography
 
-* [[[1, OGC Compliance Testing]]], www.opengeospatial.org/cite
+* [[[OGC20-082r4,OGC 20-082r4]]], Topic 20 – Observations, measurements and samples, version 3.0, 2023
+
+* [[[OGC12-000r2,OGC 12-000r2]]], OGC SensorML: Model and XML Encoding Standard, version 2.1, 2019
+
+* [[[OGC08-094r1,OGC 08-094r1]]], SWE Common Data Model Encoding Standard, version 2.0, 2011
+
+* [[[OGC12-006,OGC 12-006]]], OGC® Sensor Observation Service Interface Standard, version 3.0, 2012
+
+* [[[OGC09-000,OGC 09-000]]], OGC® Sensor Planning Service Implementation Standard, version 3.0, 2011
