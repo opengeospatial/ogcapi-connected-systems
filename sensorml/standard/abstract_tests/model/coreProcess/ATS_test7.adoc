@@ -2,9 +2,9 @@
 .ObservableProperty and SWE Common Data used for process input, output, and parameters
 ====
 [%metadata]
-identifier:: /conf/model/coreProcess/SWE-Common-dependency 
+identifier:: /conf/model/coreProcess/SWE-Common-dependency1
 
-target:: /req/model/coreProcess/SWE-Common-dependency
+target:: /req/model/coreProcess/SWE-Common-dependency1
 test-purpose:: Verify that the target implementation uses ObservableProperty and/or SWE Common Data for process input, output, and parameters.
 
 test-method:: 

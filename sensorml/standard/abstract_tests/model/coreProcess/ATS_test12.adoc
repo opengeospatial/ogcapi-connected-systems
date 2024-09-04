@@ -2,9 +2,9 @@
 .Dependency on SWE Common Data simple types
 ====
 [%metadata]
-identifier:: /conf/model/coreProcess/SWE-Common_dependency  
+identifier:: /conf/model/coreProcess/SWE-Common-dependency2  
 
-target:: /req/model/coreProcess/SWE-Common_dependency  
+target:: /req/model/coreProcess/SWE-Common-dependency2 
 test-purpose:: Verify that the target implementation passes conformance test classes.
 
 test-method:: 

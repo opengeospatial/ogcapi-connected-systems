@@ -2,7 +2,7 @@
 .A process model has a unique ID
 ====
 [%metadata]
-identifier:: /conf/uniqueID
+identifier:: /conf/core/uniqueID
 
 target:: /req/core/uniqueID
 

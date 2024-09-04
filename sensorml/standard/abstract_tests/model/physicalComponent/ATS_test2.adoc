@@ -2,7 +2,7 @@
 .Dependency on core process 
 ====
 [%metadata]
-identifier:: /conf/model/physicalComponentdependency-core 
+identifier:: /conf/model/physicalComponent/dependency-core 
 
 target:: /req/model/physicalComponent/dependency-core 
 test-purpose:: Verify that the target implementation correctly passes the "Core Abstract Process" comformance test class.

@@ -2,7 +2,7 @@
 .A process model has metadata
 ====
 [%metadata]
-identifier:: /conf/metadata
+identifier:: /conf/core/metadata
 
 target:: /req/core/metadata
 

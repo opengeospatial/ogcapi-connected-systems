@@ -6,6 +6,11 @@ identifier:: /conf/model/aggregateProcess
 target:: /req/model/aggregateProcess
 classification:: Target Type: Derived Encoding and Software Implementation
 inherit:: /conf/model/coreProcess
+
+conformance-test:: /conf/model/aggregateProcess/dependency-core 
+conformance-test:: /conf/model/aggregateProcess/package-fully-implemented  
+conformance-test:: /conf/model/aggregateProcess/definition 
+conformance-test:: /conf/model/aggregateProcess/components
 ====
 
 include::./ATS_test1.adoc[]

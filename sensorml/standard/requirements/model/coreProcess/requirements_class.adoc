@@ -16,10 +16,10 @@ requirement:: /req/model/coreProcess/gmlDependency
 requirement:: /req/model/coreProcess/uniqueID
 requirement:: /req/model/coreProcess/extensionIndependence
 requirement:: /req/model/coreProcess/extensionRestrictions
-requirement:: /req/model/coreProcess/SWE-Common_dependency1
+requirement:: /req/model/coreProcess/SWE-Common-dependency1
 requirement:: /req/model/coreProcess/aggregateData
 requirement:: /req/model/coreProcess/typeOf
 requirement:: /req/model/coreProcess/simpleInheritance
 requirement:: /req/model/coreProcess/configuration
-requirement:: /req/model/coreProcess/SWE-Common_dependency2
+requirement:: /req/model/coreProcess/SWE-Common-dependency2
 ====

@@ -6,6 +6,11 @@ identifier:: /conf/model/simpleProcess
 target:: /req/model/coreProcess
 classification:: Target Type: Derived Encoding and Software Implementation
 inherit:: /conf/model/coreProcess
+
+conformance-test:: /conf/model/simpleProcess/dependency-core 
+conformance-test:: /conf/model/simpleProcess/package-fully-implemented 
+conformance-test:: /conf/model/simpleProcess/definition
+conformance-test:: /conf/model/simpleProcess/method
 ====
 
 include::./ATS_test1.adoc[]

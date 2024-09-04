@@ -6,6 +6,14 @@ identifier:: /conf/model/configurableProcess
 target:: /req/model/configurableProcess 
 classification:: Target Type: Derived Encoding and Software Implementation
 inherit:: /conf/req/coreProcess
+
+conformance-test:: /conf/model/configurableProcess/dependency-core 
+conformance-test:: /conf/model/configurableProcess/package-fully-implemented 
+conformance-test:: /conf/model/configurableProcess/twoModesRequired
+conformance-test:: /conf/model/configurableProcess/settingsProperty 
+conformance-test:: /conf/model/configurableProcess/setValueRestriction 
+conformance-test:: /conf/model/configurableProcess/setArrayValueRestriction 
+conformance-test:: /conf/model/configurableProcess/setConstraintRestriction
 ====
 
 include::./ATS_test1.adoc[]

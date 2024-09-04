@@ -8,6 +8,9 @@ classification:: Target Type: Derived Encoding and Software Implementation
 inherit:: /conf/model/coreProcess
 inherit:: http://www.opengis.net/spec/SWE/2.0/req/uml-block-components
 inherit:: http://www.opengis.net/spec/SWE/2.0/req/uml-choice-components
+
+conformance-test:: /conf/model/advancedProcess/dependency-core 
+conformance-test:: /conf/model/advancedProcess/package-fully-implemented
 ====
 
 include::./ATS_test1.adoc[]

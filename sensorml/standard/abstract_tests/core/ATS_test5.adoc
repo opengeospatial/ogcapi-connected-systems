@@ -2,7 +2,7 @@
 .Metadata not used in process execution
 ====
 [%metadata]
-identifier:: /conf/execution
+identifier:: /conf/core/execution
 
 target:: /req/core/execution
 

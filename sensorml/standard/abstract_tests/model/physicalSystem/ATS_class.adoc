@@ -6,6 +6,10 @@ identifier:: /conf/model/physicalSystem
 target:: /req/model/physicalSystem
 classification:: Target Type: Derived Encoding and Software Implementation
 inherit:: /conf/model/physicalComponent
+
+conformance-test:: /conf/model/physicalSystem/package-fully-implemented
+conformance-test:: /conf/model/physicalSystem/definition
+conformance-test:: /conf/model/physicalSystem/dependency-core
 ====
 
 include::./ATS_test1.adoc[]

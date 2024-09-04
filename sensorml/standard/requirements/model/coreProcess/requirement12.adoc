@@ -1,7 +1,7 @@
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/model/coreProcess/SWE-Common_dependency2
+identifier:: /req/model/coreProcess/SWE-Common-dependency2
 
 Contents of all properties of type AbstractDataComponents shall pass the SWE Common Data Model “Records Components Package” conformance test class.
 ====

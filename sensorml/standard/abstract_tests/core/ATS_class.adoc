@@ -5,6 +5,12 @@
 identifier:: /conf/core
 target:: /req/core
 classification:: Target Type: Derived Models and Software Implementations
+
+conformance-test:: /conf/core/concepts-used
+conformance-test:: /conf/core/processes
+conformance-test:: /conf/core/uniqueID
+conformance-test:: /conf/core/metadata
+conformance-test:: /conf/core/execution
 ====
 
 include::./ATS_test1.adoc[]
