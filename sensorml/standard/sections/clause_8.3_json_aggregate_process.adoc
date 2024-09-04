@@ -9,7 +9,9 @@ type:: class
 identifier:: /req/json-aggregate-process
 subject:: JSON Document
 inherit:: /req/json-simple-process
-indirect-dependency:: {sml-spec-url}/req/model/aggregateProcess
+indirect-dependency:: /req/model/aggregateProcess
+
+requirement:: /req/json-aggregate-process/schema-valid
 ====
 
 

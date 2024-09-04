@@ -10,6 +10,8 @@ identifier:: /req/json-deployment
 subject:: JSON Document
 inherit:: /req/json-core
 indirect-dependency:: /req/model-deployment
+
+requirement:: /req/json-deployment/schema-valid
 ====
 
 

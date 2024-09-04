@@ -10,6 +10,8 @@ identifier:: /req/json-derived-property
 subject:: JSON Document
 inherit:: /req/json-core
 indirect-dependency:: /req/uml-derived-property
+
+requirement:: /req/json-derived-property/schema-valid
 ====
 
 

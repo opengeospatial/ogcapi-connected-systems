@@ -9,7 +9,9 @@ type:: class
 identifier:: /req/json-physical-component
 subject:: JSON Document
 inherit:: /req/json-simple-process
-indirect-dependency:: {sml-spec-url}/req/model/physicalComponent
+indirect-dependency:: /req/model/physicalComponent
+
+requirement:: /req/json-physical-component/schema-valid
 ====
 
 

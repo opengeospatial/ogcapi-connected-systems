@@ -9,7 +9,9 @@ type:: class
 identifier:: /req/json-simple-process
 subject:: JSON Document
 inherit:: /req/json-core
-indirect-dependency:: {sml-spec-url}/req/model/simpleProcess
+indirect-dependency:: /req/model/simpleProcess
+
+requirement:: /req/json-simple-process/schema-valid
 ====
 
 

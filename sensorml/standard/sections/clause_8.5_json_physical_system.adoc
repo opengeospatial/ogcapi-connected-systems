@@ -10,7 +10,9 @@ identifier:: /req/json-physical-system
 subject:: JSON Document
 inherit:: /req/json-aggregate-process
 inherit:: /req/json-physical-component
-indirect-dependency:: {sml-spec-url}/req/model/physicalSystem
+indirect-dependency:: /req/model/physicalSystem
+
+requirement:: /req/json-physical-system/schema-valid
 ====
 
 
