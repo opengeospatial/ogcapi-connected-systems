@@ -1,4 +1,0 @@
-[[annex_ats]]
-[appendix,obligation=normative]
-== Conformance Class Abstract Test Suite
-
