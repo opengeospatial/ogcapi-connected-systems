@@ -252,7 +252,7 @@ include::../requirements/core/requirement11.adoc[]
 
 Full lineage and traceability is not in the scope of this specification. It is fully addressed by the OGC® Sensor Model Language Standard, which allows robust definition of measurement chains, with detailed information about the processing that takes place at each stage of the chain. This means that complex lineage guarantying full traceability can be recorded in a SensorML process chain, separately from the data itself.
 
-Datasets can be associated to lineage information described using the Sensor Model Language by using a metadata wrapper such as the “Observation” object defined in the OGC® Observations and Measurements Standard (O&M). In this standard, the “procedure” property of the “Observation” class allows attaching detailed information about the measurement procedure, that is to say a description of how the data was obtained (i.e. lineage), to the data itself.
+Datasets can be associated to lineage information described using the Sensor Model Language by using a metadata wrapper such as the “Observation” object defined in the OGC® Observations and Measurements Standard (O&M). In this standard, the “procedure” and “observer” properties of the “Observation” class allows attaching detailed information about the measurement process (that is to say a description of how the data was obtained, i.e. lineage), to the data itself.
 
 
 [[core_data_structure]]
