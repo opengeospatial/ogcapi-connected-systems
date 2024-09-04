@@ -137,11 +137,6 @@ include::../requirements/encoding_rules/json/requirement8.adoc[]
 See example: <<enc_json_geom_example,style=basic%>>
 
 
-==== JSON Schema
-
-#In order to maximize compatibility with existing tools, A JSON Schema can be easily auto-generated from the Datastream description.#
-
-
 ==== Media Types
 
 When array or datastream values are encoded with the JSON encoding method and provided standalone (i.e. outside of any wrapper format), one of the following media type identifiers shall be used:
