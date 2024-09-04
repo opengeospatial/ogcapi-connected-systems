@@ -1,0 +1,16 @@
+[conformance_class]
+.Conformance Test Class: Derived Property
+====
+[%metadata]
+identifier:: /conf/model/derived-property
+target:: /req/model/derived-property
+classification:: Target Type: Derived Models, Encodings, and Software Implementations 
+inherit:: /conf/core
+inherit:: http://www.opengis.net/spec/SWE/2.0/req/uml-block-components
+inherit:: ISO 19115:2006 (All Metadata)
+inherit:: ISO 19136 (GML)
+
+conformance-test:: /conf/model/derived-property/package-fully-implemented
+====
+
+include::./ATS_test1.adoc[]

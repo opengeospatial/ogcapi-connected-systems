@@ -5,6 +5,8 @@
 identifier:: /conf/json-simple-process
 target:: /req/json-simple-process
 classification:: Target Type: JSON Document
+
+conformance-test:: /conf/json-simple-process/schema-valid
 ====
 
 include::./ATS_test1.adoc[]

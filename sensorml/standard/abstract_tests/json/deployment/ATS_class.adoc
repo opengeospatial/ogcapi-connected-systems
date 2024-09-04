@@ -5,6 +5,8 @@
 identifier:: /conf/json-deployment
 target:: /req/json-deployment
 classification:: Target Type: JSON Document
+
+conformance-test:: /conf/json-deployment/schema-valid
 ====
 
 include::./ATS_test1.adoc[]

@@ -5,6 +5,8 @@
 identifier:: /conf/json-derived-property
 target:: /req/json-derived-property
 classification:: Target Type: JSON Document
+
+conformance-test:: /conf/json-derived-property/schema-valid
 ====
 
 include::./ATS_test1.adoc[]

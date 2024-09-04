@@ -5,6 +5,8 @@
 identifier:: /conf/json-aggregate-process
 target:: /req/json-aggregate-process
 classification:: Target Type: JSON Document
+
+conformance-test:: /conf/json-aggregate-process/schema-valid
 ====
 
 include::./ATS_test1.adoc[]

@@ -1,0 +1,12 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/model/derived-property/package-fully-implemented 
+
+target:: /req/model/derived-property/package-fully-implemented
+
+test-purpose:: Verify that the target implements all UML classes.
+
+test-method:: 
+Inspect the model or software implementation to verify the above.
+====

@@ -3,7 +3,7 @@
 ====
 [%metadata]
 identifier:: /conf/model/coreProcess
-target:: /req/core
+target:: /req/model/coreProcess
 classification:: Target Type: Derived Models, Encodings, and Software Implementations 
 inherit:: /conf/core
 inherit:: http://www.opengis.net/spec/SWE/2.0/req/uml-block-components

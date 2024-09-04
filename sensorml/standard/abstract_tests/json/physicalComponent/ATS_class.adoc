@@ -5,6 +5,8 @@
 identifier:: /conf/json-physical-component
 target:: /req/json-physical-component
 classification:: Target Type: JSON Document
+
+conformance-test:: /conf/json-physical-component/schema-valid
 ====
 
 include::./ATS_test1.adoc[]

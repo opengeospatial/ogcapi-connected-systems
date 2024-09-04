@@ -38,6 +38,14 @@ include::../abstract_tests/model/advancedProcess/ATS_class.adoc[]
 Tests described in this section shall be used to test conformance of software and encoding models implementing the conceptual models defined in Requirements Class: Configurable Processes.
 include::../abstract_tests/model/configurableProcess/ATS_class.adoc[]
 
+==== Deployment
+Tests described in this section shall be used to test conformance of software and encoding models implementing the conceptual models defined in Requirements Class: Deployment.
+include::../abstract_tests/model/deployment/ATS_class.adoc[]
+
+==== Derived Property
+Tests described in this section shall be used to test conformance of software and encoding models implementing the conceptual models defined in Requirements Class: Derived Property.
+include::../abstract_tests/model/derivedProperty/ATS_class.adoc[]
+
 
 === JSON Implementation
 
