@@ -10,10 +10,20 @@ identifier:: /req/json-core
 subject:: JSON Document
 inherit:: {swecommon-spec-url}/req/json-block-components
 indirect-dependency:: /req/model/coreProcess
+
+requirement:: /req/json-core/media-type
 ====
 
 
 ==== Media Types
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/json-core/media-type
+
+A SensorML JSON document shall be advertised using the media type specified below.
+====
 
 ===== application/sml+json
 
@@ -253,14 +263,5 @@ The following snippet shows an example configuration:
 ----
 include::../schemas/json/examples/spec/configuration.json[]
 ----
-
-
-
-===== Feature of Interest
-
-
-
-
-===== Inputs, Outputs and Parameters
 
 

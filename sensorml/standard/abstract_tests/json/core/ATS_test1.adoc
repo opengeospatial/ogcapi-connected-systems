@@ -1,0 +1,9 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-core/media-type
+
+target:: /req/json-core/media-type
+
+test-method:: Check that the media type used when retrieving the document is set to the `application/sml+json`.
+====

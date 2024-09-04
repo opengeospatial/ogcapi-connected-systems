@@ -1,0 +1,12 @@
+[conformance_class]
+.Conformance Test Class: Core Schema
+====
+[%metadata]
+identifier:: /conf/json-core
+target:: /req/json-core
+classification:: Target Type: JSON Document
+
+conformance-test:: /conf/json-core/media-type
+====
+
+include::./ATS_test1.adoc[]
