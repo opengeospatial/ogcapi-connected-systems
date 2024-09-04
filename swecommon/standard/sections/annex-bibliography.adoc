@@ -2,23 +2,12 @@
 [[Bibliography]]
 == Bibliography
 
-#TODO#
+* [[[OGC20-082r4,OGC 20-082r4]]], Topic 20 – Observations, measurements and samples, version 3.0, 2023
 
-[NOTE]
-.Example Bibliography (Delete this note).
-===============================================
-The TC has approved Springer LNCS as the official document citation type.
+* [[[OGC12-000r2,OGC 12-000r2]]], OGC SensorML: Model and XML Encoding Standard, version 2.1, 2019
 
-Springer LNCS is widely used in technical and computer science journals and other publications
+* [[[OGC08-094r1,OGC 08-094r1]]], SWE Common Data Model Encoding Standard, version 2.0, 2011
 
-* For citations in the text please use square brackets and consecutive numbers: [1], [2], [3]
+* [[[OGC12-006,OGC 12-006]]], OGC® Sensor Observation Service Interface Standard, version 3.0, 2012
 
-– Actual References:
-
-[n] Journal: Author Surname, A.: Title. Publication Title. Volume number, Issue number, Pages Used (Year Published)
-
-[n] Web: Author Surname, A.: Title, http://Website-Url
-
-===============================================
-
-* [[[OGC2015,OGCTB12]]], _OGC: OGC Testbed 12 Annex B: Architecture_ (2015).
+* [[[OGC09-000,OGC 09-000]]], OGC® Sensor Planning Service Implementation Standard, version 3.0, 2011
