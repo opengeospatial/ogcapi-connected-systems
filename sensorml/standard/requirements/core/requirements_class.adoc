@@ -5,4 +5,10 @@
 type:: class
 identifier:: /req/core
 subject:: Derived Model, Encoding, and Software Implementation
+
+requirement:: /req/core/concepts-used
+requirement:: /req/core/processes
+requirement:: /req/core/uniqueID
+requirement:: /req/core/metadata
+requirement:: /req/core/execution
 ====

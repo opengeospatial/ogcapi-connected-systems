@@ -6,4 +6,9 @@ type:: class
 identifier:: /req/model/aggregateProcess
 subject:: Derived Encoding or Software Implementation
 inherit:: /req/model/simpleProcess
+
+requirement:: /req/model/aggregateProcess/dependency-core
+requirement:: /req/model/aggregateProcess/package-fully-implemented
+requirement:: /req/model/aggregateProcess/definition
+requirement:: /req/model/aggregateProcess/components
 ====

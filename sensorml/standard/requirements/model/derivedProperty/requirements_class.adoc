@@ -1,0 +1,10 @@
+[requirement,model=ogc]
+====
+[%metadata]
+type:: class
+identifier:: /req/model/derived-property
+subject:: Derived Encoding or Software Implementation
+inherit:: {swecommon-spec-url}/req/uml-simple-components
+
+requirement:: /req/model/derived-property/package-fully-implemented
+====

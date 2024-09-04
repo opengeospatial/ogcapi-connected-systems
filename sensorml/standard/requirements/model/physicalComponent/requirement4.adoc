@@ -3,5 +3,5 @@
 [%metadata]
 identifier:: /req/model/physicalComponent/byPosition
 
-Specification of position “byPosition” shall specify, using two Vectors, the location and orientation of the object’s reference frame relative to a well-defined and specified external reference frame.
+Specification of position “byPosition” shall specify, using a GeoPose or Relative Pose object, the location and orientation of the object’s reference frame relative to a well-defined and specified external reference frame.
 ====

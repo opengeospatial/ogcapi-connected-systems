@@ -1,0 +1,10 @@
+[requirement,model=ogc]
+====
+[%metadata]
+type:: class
+identifier:: /req/model/deployment
+subject:: Derived Encoding or Software Implementation
+inherit:: /req/model/coreProcess
+
+requirement:: /req/model/deployment/package-fully-implemented
+====

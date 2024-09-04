@@ -9,4 +9,17 @@ inherit:: /req/core
 inherit:: {swecommon-spec-url}/req/uml-record-components
 inherit:: ISO 19115:2006 (All Metadata)
 inherit:: ISO 19136 (GML)
+
+requirement:: /req/model/coreProcess/dependency-core
+requirement:: /req/model/coreProcess/package-fully-implemented
+requirement:: /req/model/coreProcess/gmlDependency
+requirement:: /req/model/coreProcess/uniqueID
+requirement:: /req/model/coreProcess/extensionIndependence
+requirement:: /req/model/coreProcess/extensionRestrictions
+requirement:: /req/model/coreProcess/SWE-Common_dependency1
+requirement:: /req/model/coreProcess/aggregateData
+requirement:: /req/model/coreProcess/typeOf
+requirement:: /req/model/coreProcess/simpleInheritance
+requirement:: /req/model/coreProcess/configuration
+requirement:: /req/model/coreProcess/SWE-Common_dependency2
 ====

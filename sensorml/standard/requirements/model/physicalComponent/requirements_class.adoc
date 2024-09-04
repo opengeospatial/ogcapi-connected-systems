@@ -8,4 +8,12 @@ subject:: Derived Encoding or Software Implementation
 inherit:: /req/model/coreProcess
 inherit:: {geopose-spec-url}/req/basic-ypr
 inherit:: {geopose-spec-url}/req/basic-quaternion
+
+requirement:: /req/model/physicalComponent/package-fully-implemented
+requirement:: /req/model/physicalComponent/dependency-core
+requirement:: /req/model/physicalComponent/byPointOrLocation
+requirement:: /req/model/physicalComponent/byPosition
+requirement:: /req/model/physicalComponent/byTrajectory
+requirement:: /req/model/physicalComponent/byProcess
+requirement:: /req/model/physicalComponent/definition
 ====

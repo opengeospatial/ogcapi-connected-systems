@@ -6,4 +6,8 @@ type:: class
 identifier:: /req/model/physicalSystem
 subject:: Derived Encoding or Software Implementations
 inherit:: /req/model/physicalComponent
+
+requirement:: /req/model/physicalSystem/package-fully-implemented
+requirement:: /req/model/physicalSystem/definition
+requirement:: /req/model/physicalSystem/dependency-core
 ====

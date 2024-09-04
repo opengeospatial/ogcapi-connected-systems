@@ -6,4 +6,12 @@ type:: class
 identifier:: /req/model/configurableProcess 
 subject:: Derived Encoding or Software Implementations
 inherit:: /req/coreProcess
+
+requirement:: /req/model/configurableProcess/dependency-core
+requirement:: /req/model/configurableProcess/package-fully-implemented
+requirement:: /req/model/configurableProcess/twoModesRequired
+requirement:: /req/model/configurableProcess/settingsProperty
+requirement:: /req/model/configurableProcess/setValueRestriction
+requirement:: /req/model/configurableProcess/setArrayValueRestriction
+requirement:: /req/model/configurableProcess/setConstraintRestriction
 ====

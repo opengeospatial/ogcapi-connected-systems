@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/model/deployment/package-fully-implemented
+
+The encoding or software shall correctly implement all UML classes defined in the “Deployment” package described in this section.
+====

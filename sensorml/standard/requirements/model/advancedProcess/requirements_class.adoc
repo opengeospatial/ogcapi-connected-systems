@@ -8,4 +8,7 @@ subject:: Derived Encoding or Software Implementation
 inherit:: /req/model/simpleProcess
 inherit:: {swecommon-spec-url}/req/uml-block-components
 inherit:: {swecommon-spec-url}/req/uml-choice-components
+
+requirement:: /req/model/advancedProcess/dependency-core
+requirement:: /req/model/advancedProcess/package-fully-implemented
 ====

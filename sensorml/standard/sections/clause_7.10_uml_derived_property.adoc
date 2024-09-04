@@ -2,14 +2,9 @@
 === Requirements Class: Derived Property
 
 ==== Overview
-[requirement,model=ogc]
-====
-[%metadata]
-type:: class
-identifier:: /req/model-derived-property
-subject:: Derived Encoding or Software Implementation
-inherit:: {swecommon-spec-url}/req/uml-simple-components
-====
+include::../requirements/model/derivedProperty/requirements_class.adoc[]
+
+include::../requirements/model/derivedProperty/requirement1.adoc[]
 
 
 ==== DerivedProperty Class

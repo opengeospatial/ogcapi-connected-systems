@@ -1,7 +1,7 @@
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/model/coreProcess/SWE-Common-dependency
+identifier:: /req/model/coreProcess/SWE-Common-dependency1
 
 Any derived model or encoding for process shall utilize ObservableProperty or SWE Common Data Components as values for inputs, outputs, and parameters, and shall at a minimum conform to the SWE Common Data “Block Components Package” class (http://www.opengis.net/spec/SWE/2.0/req/uml-block-components).
 ====
