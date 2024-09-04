@@ -23,13 +23,12 @@ This Standard defines the following requirements classes and standardization tar
 | <<uml_configurable_processes,style=full%>>
 | <<uml_deployment,style=full%>>
 | <<uml_derived_property,style=full%>>
-| *JSON Encodings*                            .9+| JSON Document
+| *JSON Encodings*                            .8+| JSON Document
 | <<clause_json_core,style=full%>>
 | <<clause_json_simple_process,style=full%>>
 | <<clause_json_aggregate_process,style=full%>>
 | <<clause_json_physical_component,style=full%>>
 | <<clause_json_physical_system,style=full%>>
-| <<clause_json_configurable_process,style=full%>>
 | <<clause_json_deployment,style=full%>>
 | <<clause_json_derived_property,style=full%>>
 |====
