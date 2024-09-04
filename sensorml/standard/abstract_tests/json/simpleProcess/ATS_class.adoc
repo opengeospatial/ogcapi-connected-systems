@@ -1,0 +1,10 @@
+[conformance_class]
+.Conformance Test Class: Simple Process Schema
+====
+[%metadata]
+identifier:: /conf/json-simple-process
+target:: /req/json-simple-process
+classification:: Target Type: JSON Document
+====
+
+include::./ATS_test1.adoc[]

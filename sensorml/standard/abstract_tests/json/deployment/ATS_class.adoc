@@ -1,0 +1,10 @@
+[conformance_class]
+.Conformance Test Class: Deployment Schema
+====
+[%metadata]
+identifier:: /conf/json-deployment
+target:: /req/json-deployment
+classification:: Target Type: JSON Document
+====
+
+include::./ATS_test1.adoc[]

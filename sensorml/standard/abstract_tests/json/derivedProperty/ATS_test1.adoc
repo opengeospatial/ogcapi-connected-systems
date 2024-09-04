@@ -1,0 +1,9 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-derived-property/schema-valid
+
+target:: /req/json-derived-property/schema-valid
+
+test-method:: Validate the JSON document using the JSON schema {jsonschema-base-url}/DerivedProperty.json[“DerivedProperty.json”].
+====

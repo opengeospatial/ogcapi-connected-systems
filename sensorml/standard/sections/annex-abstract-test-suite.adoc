@@ -41,7 +41,25 @@ include::../abstract_tests/model/configurableProcess/ATS_class.adoc[]
 
 === JSON Implementation
 
+Tests in the following conformance test classes shall be used to check conformance of JSON documents created according to the schemas this Standard. They shall also be used to check conformance of software implementations that output these JSON documents.
 
+==== Simple Process
+include::../abstract_tests/json/simpleProcess/ATS_class.adoc[]
+
+==== Aggregate Process
+include::../abstract_tests/json/aggregateProcess/ATS_class.adoc[]
+
+==== Physical Component
+include::../abstract_tests/json/physicalComponent/ATS_class.adoc[]
+
+==== Physical System
+include::../abstract_tests/json/physicalSystem/ATS_class.adoc[]
+
+==== Deployment
+include::../abstract_tests/json/deployment/ATS_class.adoc[]
+
+==== Derived Property
+include::../abstract_tests/json/derivedProperty/ATS_class.adoc[]
 
 
 

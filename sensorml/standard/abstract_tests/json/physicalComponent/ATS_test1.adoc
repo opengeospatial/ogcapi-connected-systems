@@ -1,0 +1,9 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-physical-component/schema-valid
+
+target:: /req/json-physical-component/schema-valid
+
+test-method:: Validate the JSON document using the JSON schema {jsonschema-base-url}/PhysicalComponent.json[“PhysicalComponent.json”].
+====

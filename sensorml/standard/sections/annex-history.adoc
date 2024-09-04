@@ -14,4 +14,5 @@
 |2019-04-21 | 2.1 | Eric Hirschorn | Introduction, Normative References |Edits requested by OAB review
 |2019-07-11 | 2.1 | Eric Hirschorn | All | Requested edits from public review, including 2.0 -> 2.1
 |2024-04-30 | 3.0 | Alex Robin | All | Refactored to v3.0, added JSON encoding, removed XML encoding sections
+|2024-09-04 | 3.0 | Alex Robin | All | Updated ATS
 |===

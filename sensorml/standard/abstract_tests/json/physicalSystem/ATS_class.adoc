@@ -1,0 +1,10 @@
+[conformance_class]
+.Conformance Test Class: Physical System Schema
+====
+[%metadata]
+identifier:: /conf/json-physical-system
+target:: /req/json-physical-system
+classification:: Target Type: JSON Document
+====
+
+include::./ATS_test1.adoc[]

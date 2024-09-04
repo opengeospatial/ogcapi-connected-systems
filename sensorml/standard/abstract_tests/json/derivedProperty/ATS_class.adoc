@@ -1,0 +1,10 @@
+[conformance_class]
+.Conformance Test Class: Derived Property Schema
+====
+[%metadata]
+identifier:: /conf/json-derived-property
+target:: /req/json-derived-property
+classification:: Target Type: JSON Document
+====
+
+include::./ATS_test1.adoc[]

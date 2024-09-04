@@ -1,0 +1,9 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-aggregate-process/schema-valid
+
+target:: /req/json-aggregate-process/schema-valid
+
+test-method:: Validate the JSON document using the JSON schema {jsonschema-base-url}/AggregateProcess.json[“AggregateProcess.json”].
+====

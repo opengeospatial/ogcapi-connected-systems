@@ -1,0 +1,9 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-deployment/schema-valid
+
+target:: /req/json-deployment/schema-valid
+
+test-method:: Validate the JSON document using the JSON schema {jsonschema-base-url}/Deployment.json[“Deployment.json”].
+====

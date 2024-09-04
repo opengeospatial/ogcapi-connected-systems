@@ -1,0 +1,9 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-simple-process/schema-valid
+
+target:: /req/json-simple-process/schema-valid
+
+test-method:: Validate the JSON document using the JSON schema {jsonschema-base-url}/SimpleProcess.json[“SimpleProcess.json”].
+====

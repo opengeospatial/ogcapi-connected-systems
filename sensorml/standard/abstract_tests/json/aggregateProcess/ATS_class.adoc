@@ -1,0 +1,10 @@
+[conformance_class]
+.Conformance Test Class: Aggregate Process Schema
+====
+[%metadata]
+identifier:: /conf/json-aggregate-process
+target:: /req/json-aggregate-process
+classification:: Target Type: JSON Document
+====
+
+include::./ATS_test1.adoc[]

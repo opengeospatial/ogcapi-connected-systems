@@ -1,0 +1,10 @@
+[conformance_class]
+.Conformance Test Class: Physical Component Schema
+====
+[%metadata]
+identifier:: /conf/json-physical-component
+target:: /req/json-physical-component
+classification:: Target Type: JSON Document
+====
+
+include::./ATS_test1.adoc[]
