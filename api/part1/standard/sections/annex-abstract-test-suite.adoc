@@ -9,15 +9,31 @@ These tests are not associated to any specific requirement but are referenced by
 [abstract_test]
 ====
 [%metadata]
+identifier:: /conf/api-common/canonical-resources
+
+test-purpose:: Retrieve all items from their canonical endpoint. +
+               _This is a parameterized test that requires the `resource-type` parameter_
+
+test-method:: Given the `resource-type` parameter:
+step::: Issue an HTTP GET request to the URL `/{resource-type}` with the `Accepted` header set to a media type supported by the server.
+step::: Validate that a document was returned with a status code 200.
+step::: Iterate through the list of resources in the response, following `next` links as appropriate.
+====
+
+[abstract_test]
+====
+[%metadata]
 identifier:: /conf/api-common/collection-items
 
-test-purpose:: Retrieve items of a collection.
+test-purpose:: Retrieve items of a collection. +
+               _This is a parameterized test that requires the `collectionId` parameter_
 
 test-method::
 step::: Retrieve the media types supported by the server for the collection items by inspecting the links with relation type `items`.
 step::: If the server does not offer any media type supported by the testing engine, issue a warning and skip the test.
 step::: Issue an HTTP GET request to the URL `/collections/{collectionId}/items` where `{collectionId}` is the ID of the desired collection.
 step::: Validate that a document was returned with a status code 200.
+step::: Iterate through all items in the collection, following `next` links as appropriate.
 ====
 
 
@@ -40,30 +56,14 @@ classification:: Target Type:Web API
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/api-common/collection-type
-target:: /req/api-common/collection-type
-
-test-purpose:: Validate that the resource collection `featureType` property is properly set.
-
-test-method:: For each collection advertised by the server with `itemType=feature`:
-step::: Read the value of the `featureType` property in the collection metadata.
-step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
-step::: Iterate through all items in the collection and identify their type (follow `next` links as appropriate).
-step::: If the collection `featureType` property was set, check that all items are of a type compatible with the specified collection.`featureType`
-step:::: If the collection `featureType` property was not set, check that the items are either of mixed types or not of a type defined by this Standard.
-====
-
-[abstract_test]
-====
-[%metadata]
 identifier:: /conf/api-common/resource-ids
 target:: /req/api-common/resource-ids
 
 test-purpose:: Validate that resource IDs assigned by the server are unique for a given resource type.
 
-test-method:: For each collection advertised by the server:
-step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
-step::: Iterate through all items in the collection, following `next` links as appropriate, and retrieve their local ID.
+test-method:: For each resource type supported by the server:
+step::: Retrieve all resources as described in test xref:/conf/api-common/canonical-resources[style=id%].
+step::: For each resource in the response, retrieve its local ID.
 step::: Compare the ID with all IDs read previously from resources of the same type and make sure it is unique.
 ====
 
@@ -75,10 +75,24 @@ target:: /req/api-common/resource-uids
 
 test-purpose:: Validate that resource UIDs exposed by the server are unique across all collections.
 
-test-method:: For each collection advertised by the server:
-step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
-step::: Iterate through all items in the collection, following `next` links as appropriate, and retrieve their unique ID, if any.
+test-method:: For each resource type supported by the server:
+step::: Retrieve resources as described in test xref:/conf/api-common/canonical-items[style=id%].
+step::: Retrieve the unique ID of each resource in the response.
 step::: Compare the UID with all UIDs previously read from any resource and make sure it is unique.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/api-common/resource-uids-types
+target:: /rec/api-common/resource-uids-types
+
+test-purpose:: Validate that resource UIDs are valid URIs, with a high probability of uniqueness.
+
+test-method:: For each resource type supported by the server:
+step::: Retrieve resources as described in test xref:/conf/api-common/canonical-items[style=id%].
+step::: Retrieve the unique ID of each resource in the response.
+step::: Validate that the unique ID is either a UUID or a URN with a known registered namespace. Issue a warning if not.
 ====
 
 [abstract_test]
@@ -110,14 +124,28 @@ classification:: Target Type:Web API
 [abstract_test]
 ====
 [%metadata]
+identifier:: /conf/system/location
+target:: /rec/system/location
+
+test-purpose:: Validate that system features include a location.
+
+test-method:: 
+step::: Retrieve `System` resources by running test xref:/conf/api-common/canonical-items[style=id%] with `resource-type=systems`.
+step::: For each `System` resource in the response that does not have `assetType` set to `Simulation` or `Process`, check that the resource representation contains a location. Issue a warning if not.
+====
+
+[abstract_test]
+====
+[%metadata]
 identifier:: /conf/system/location-time
 target:: /req/system/location-time
 
-test-purpose:: Validate that the server updates the system location according to the `datetime` parameter.
+test-purpose:: Validate that the server updates the system location when it changes.
 
-test-method:: Given the ID `sysId` of a mobile system that is known to change location between time instants `t1` and `t2`.
-step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}` with the `datetime` query parameter set to `t1`.
-step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}` with the `datetime` query parameter set to `t2`.
+test-method:: Given the ID `sysId` of a mobile system that is known to change location.
+step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}`.
+step::: Wait until the system has changed location.
+step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}`.
 step::: Verify that the locations reported in the two responses are different.
 ====
 
@@ -129,9 +157,8 @@ target:: /req/system/canonical-url
 
 test-purpose:: Validate that every `System` resource is accessible via its canonical URL.
 
-test-method:: For every collection advertised by the server with the `featureType` property set to `ssn:System`:
+test-method:: For every collection advertised by the server with the `featureType` property set to `sosa:System`:
 step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
-step::: Iterate through all items in the collection, following `next` links as appropriate.
 step::: For each item, check that a link with relation type `canonical` is included.
 step::: Dereference this link and validate that a document is returned with a status code 200.
 step::: Check that the returned document has the same content as the resource originally included in the collection items (except for the canonical link).
@@ -140,13 +167,14 @@ step::: Check that the returned document has the same content as the resource or
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/system/canonical-collection
-target:: /req/system/canonical-collection
+identifier:: /conf/system/resources-endpoint
+target:: /req/system/resources-endpoint
 
-test-purpose:: Validate that the server exposes the `System` root collection.
+test-purpose:: Validate that the server implements a System resources endpoint correctly. +
+_This is a parameterized test that requires the endpoint URL as a parameter_
 
 test-method:: 
-step::: Issue an HTTP GET request to the URL `{api_root}/systems`.
+step::: Issue an HTTP GET request to the endpoint URL.
 step::: Validate that a document was returned with a status code 200.
 step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
 step:::: If the response content type is `{geojson-mediatype}`, execute test xref:/conf/geojson/system-schema[style=id%].
@@ -157,14 +185,25 @@ step:::: For other response content types not supported by the testing engine, i
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/system/collection-type
-target:: /req/system/collection-type
+identifier:: /conf/system/canonical-endpoint
+target:: /req/system/canonical-endpoint
+
+test-purpose:: Validate that the server exposes the canonical `System` resources endpoint.
+
+test-method:: Validate that the server implements a {system-resources-endpoint} at path `{api_root}/systems` using test xref:/conf/system/resources-endpoint[style=id%].
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/system/collections
+target:: /req/system/collections
 
 test-purpose:: Validate that `System` collections are tagged with the proper feature type.
 
-test-method:: For every collection advertised by the server with the `featureType` property set to `ssn:System`:
+test-method:: For every collection advertised by the server with the `featureType` property set to `sosa:System`:
 step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
-step::: Iterate through all items in the collection and retrieve their type.
+step::: For each item, retrieve its type.
 step::: Check that the reported type is one of the URI or CURIE listed in <<system-types>>.
 step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
 step:::: If the response content type is `{geojson-mediatype}`, execute test xref:/conf/geojson/system-schema[style=id%].
@@ -254,52 +293,27 @@ step::: Verify that all subsystems (at all nesting levels) are included in the r
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/subsystem/recursive-search-samplingfeatures
-target:: /req/subsystem/recursive-search-samplingfeatures
+identifier:: /conf/subsystem/recursive-assoc
+target:: /req/subsystem/recursive-assoc
 
-test-purpose:: Verify that nested sampling features can be queried using the `recursive` query parameter.
+test-purpose:: Verify that a system's nested resources endpoints include resources from its subsystems.
 
-test-method:: Given the ID `sysId` of a parent system that has subsystems:
-step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/samplingFeatures`.
-step::: Verify that only sampling features of the parent system are included in the response.
-step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/samplingFeatures?recursive=false`.
-step::: Verify that only sampling features of the parent system are included in the response.
-step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/samplingFeatures?recursive=true`.
-step::: Verify that sampling features of the parent system and all its subsystems (at all nesting levels) are included in the response.
-====
+test-method:: For each `System` resource with local ID `sysId` that has subsystems:
 
-[abstract_test]
-====
-[%metadata]
-identifier:: /conf/subsystem/recursive-search-datastreams
-target:: /req/subsystem/recursive-search-datastreams
+step::: If the server implements `Sampling Feature` resources, verify that all nested sampling features are returned
+step:::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/samplingFeatures`.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Validate that the response includes all `Sampling Feature` resources associated to the parent system or any of its subsystems (at all nesting levels).
 
-test-purpose:: Verify that nested datastreams can be queried using the `recursive` query parameter.
+step::: If the server implements `DataStream` resources, verify that all nested datastreams are returned
+step:::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/datastreams`.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Validate that the response includes all `DataStream` resources associated to the parent system or any of its subsystems (at all nesting levels).
 
-test-method:: Given the ID `sysId` of a parent system that has subsystems:
-step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/datastreams`.
-step::: Verify that only datastreams of the parent system are included in the response.
-step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/datastreams?recursive=false`.
-step::: Verify that only datastreams of the parent system are included in the response.
-step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/datastreams?recursive=true`.
-step::: Verify that datastreams of the parent system and all its subsystems (at all nesting levels) are included in the response.
-====
-
-[abstract_test]
-====
-[%metadata]
-identifier:: /conf/subsystem/recursive-search-controlstreams
-target:: /req/subsystem/recursive-search-controlstreams
-
-test-purpose:: Verify that nested control streams can be queried using the `recursive` query parameter.
-
-test-method:: Given the ID `sysId` of a parent system that has subsystems:
-step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/controlstreams`.
-step::: Verify that only control streams of the parent system are included in the response.
-step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/controlstreams?recursive=false`.
-step::: Verify that only control streams of the parent system are included in the response.
-step::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/controlstreams?recursive=true`.
-step::: Verify that control streams of the parent system and all its subsystems (at all nesting levels) are included in the response.
+step::: If the server implements `ControlStream` resources, verify that all nested controlstreams are returned
+step:::: Issue an HTTP GET request to the URL `{api_root}/systems/{sysId}/controlstreams`.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Validate that the response includes all `ControlStream` resources associated to the parent system or any of its subsystems (at all nesting levels).
 ====
 
 
@@ -323,9 +337,8 @@ target:: /req/deployment/canonical-url
 
 test-purpose:: Validate that every `Deployment` resource is accessible via its canonical URL.
 
-test-method:: For every collection advertised by the server with the `featureType` property set to `ssn:Deployment`:
+test-method:: For every collection advertised by the server with the `featureType` property set to `sosa:Deployment`:
 step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
-step::: Iterate through all items in the collection, following `next` links as appropriate.
 step::: For each item, check that a link with relation type `canonical` is included.
 step::: Dereference this link and validate that a document is returned with a status code 200.
 step::: Check that the returned document has the same content as the resource originally included in the collection items (except for the canonical link).
@@ -334,13 +347,14 @@ step::: Check that the returned document has the same content as the resource or
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/deployment/canonical-collection
-target:: /req/deployment/canonical-collection
+identifier:: /conf/deployment/resources-endpoint
+target:: /req/deployment/resources-endpoint
 
-test-purpose:: Validate that the server exposes the `Deployment` root collection.
+test-purpose:: Validate that the server implements a Deployment resources endpoint correctly. +
+_This is a parameterized test that requires the endpoint URL as a parameter_
 
 test-method:: 
-step::: Issue an HTTP GET request to the URL `{api_root}/deployments`.
+step::: Issue an HTTP GET request to the endpoint URL.
 step::: Validate that a document was returned with a status code 200.
 step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
 step:::: If the response content type is `{geojson-mediatype}`, execute test xref:/conf/geojson/deployment-schema[style=id%].
@@ -351,19 +365,47 @@ step:::: For other response content types not supported by the testing engine, i
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/deployment/collection-type
-target:: /req/deployment/collection-type
+identifier:: /conf/deployment/canonical-endpoint
+target:: /req/deployment/canonical-endpoint
+
+test-purpose:: Validate that the server exposes the canonical `Deployment` resources endpoint.
+
+test-method:: Validate that the server implements a {deployment-resources-endpoint} at path `{api_root}/deployments` using test xref:/conf/deployment/resources-endpoint[style=id%].
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/deployment/collections
+target:: /req/deployment/collections
 
 test-purpose:: Validate that `Deployment` collections are tagged with the proper feature type.
 
-test-method:: For every collection advertised by the server with the `featureType` property set to `ssn:Deployment`:
+test-method:: For every collection advertised by the server with the `featureType` property set to `sosa:Deployment`:
 step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
-step::: Iterate through all items in the collection and retrieve their type.
-step::: Check that the reported type a valid URI or CURIE.
 step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
 step:::: If the response content type is `{geojson-mediatype}`, execute test xref:/conf/geojson/deployment-schema[style=id%].
 step:::: If the response content type is `{sensorml-json-mediatype}`, execute test xref:/conf/sensorml/deployment-schema[style=id%].
 step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/deployment/ref-from-system
+target:: /req/deployment/ref-from-system
+
+test-purpose:: Validate that `Deployment` resources associated to a `System` are available as a sub-resources.
+
+test-method::
+step::: Retrieve all `System` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=systems`.
+step::: For each `System` resource in the response:
+step:::: Issue an HTTP GET request at path `{api_root}/systems/{sysId}/deployments`, where `sysId` is the local ID of the `System` resource.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Iterate through the list of resources in the response, following `next` links as appropriate.
+step:::: If the response content type is `{geojson-mediatype}`, execute test xref:/conf/geojson/deployment-schema[style=id%].
+step:::: If the response content type is `{sensorml-mediatype}`, execute test xref:/conf/sensorml/deployment-schema[style=id%].
+step:::: Check that the `Deployment` resource contains a link to the `System` with ID `sysId`.
 ====
 
 
@@ -448,69 +490,37 @@ step::: Verify that all subdeployments (at all nesting levels) are included in t
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/subdeployment/recursive-search-deployedsystems
-target:: /req/subdeployment/recursive-search-deployedsystems
+identifier:: /conf/subdeployment/recursive-assoc
+target:: /req/subdeployment/recursive-assoc
 
-test-purpose:: Verify that nested deployed systems can be queried using the `recursive` query parameter.
+test-purpose:: Verify that a deployment's nested resources endpoints include resources from its subdeployments.
 
-test-method:: Given the ID `depId` of a parent deployment that has subdeployments:
-step::: Issue an HTTP GET request to the URL `{api_root}/deployments/{depId}/deployedsystems`.
-step::: Verify that only systems deployed in the parent deployment are included in the response.
-step::: Issue an HTTP GET request to the URL `{api_root}/deployments/{depId}/deployedsystems?recursive=false`.
-step::: Verify that only systems deployed in the parent deployment are included in the response.
-step::: Issue an HTTP GET request to the URL `{api_root}/deployments/{depId}/deployedsystems?recursive=true`.
-step::: Verify that all systems deployed in the parent deployment and all its subdeployments (at all nesting levels) are included in the response.
-====
+test-method:: For each `Deployment` resource with local ID `depId` that has subdeployments:
 
-[abstract_test]
-====
-[%metadata]
-identifier:: /conf/subdeployment/recursive-search-fois
-target:: /req/subdeployment/recursive-search-fois
+step::: If the `Deployment` resource contains a link with relation type `deployedSystems`, verify that all deployed systems are returned
+step:::: Issue an HTTP GET request to the link URL.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Validate that the response includes all `System` resources associated to the parent deployment or any of its subdeployments (at all nesting levels).
 
-test-purpose:: Verify that features of interest can be queried using the `recursive` query parameter.
+step::: If the `Deployment` resource contains a link with relation type `featuresOfInterest`, verify that all related features of interest are returned
+step:::: Issue an HTTP GET request to the link URL.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Validate that the response includes all `Feature of Interest` resources associated to the parent deployment or any of its subdeployments (at all nesting levels).
 
-test-method:: Given the ID `depId` of a parent deployment that has subdeployments:
-step::: Issue an HTTP GET request to the URL `{api_root}/deployments/{depId}/featuresOfInterest`.
-step::: Verify that only features of interest of the parent deployment are included in the response.
-step::: Issue an HTTP GET request to the URL `{api_root}/deployments/{depId}/featuresOfInterest?recursive=false`.
-step::: Verify that only features of interest of the parent deployment are included in the response.
-step::: Issue an HTTP GET request to the URL `{api_root}/deployments/{depId}/featuresOfInterest?recursive=true`.
-step::: Verify that features of interest of the parent deployment and all its subdeployments (at all nesting levels) are included in the response.
-====
+step::: If the `Deployment` resource contains a link with relation type `samplingFeatures`, verify that all related sampling features are returned
+step:::: Issue an HTTP GET request to the link URL.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Validate that the response includes all `Sampling Feature` resources associated to the parent deployment or any of its subdeployments (at all nesting levels).
 
-[abstract_test]
-====
-[%metadata]
-identifier:: /conf/subdeployment/recursive-search-datastreams
-target:: /req/subdeployment/recursive-search-datastreams
+step::: If the `Deployment` resource contains a link with relation type `datastreams`, verify that all related datastreams are returned
+step:::: Issue an HTTP GET request to the link URL.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Validate that the response includes all `DataStream` resources associated to the parent deployment or any of its subdeployments (at all nesting levels).
 
-test-purpose:: Verify that nested datastreams can be queried using the `recursive` query parameter.
-
-test-method:: Given the ID `depId` of a parent deployment that has subdeployments:
-step::: Issue an HTTP GET request to the URL `{api_root}/deployments/{depId}/datastreams`.
-step::: Verify that only datastreams associated to the parent deployment are included in the response.
-step::: Issue an HTTP GET request to the URL `{api_root}/deployments/{depId}/datastreams?recursive=false`.
-step::: Verify that only datastreams associated to the parent deployment are included in the response.
-step::: Issue an HTTP GET request to the URL `{api_root}/deployments/{depId}/datastreams?recursive=true`.
-step::: Verify that datastreams associated to the parent deployment and all its subdeployments (at all nesting levels) are included in the response.
-====
-
-[abstract_test]
-====
-[%metadata]
-identifier:: /conf/subdeployment/recursive-search-controlstreams
-target:: /req/subdeployment/recursive-search-controlstreams
-
-test-purpose:: Verify that nested control streams can be queried using the `recursive` query parameter.
-
-test-method:: Given the ID `depId` of a parent deployment that has subdeployments:
-step::: Issue an HTTP GET request to the URL `{api_root}/deployments/{depId}/controlstreams`.
-step::: Verify that only control streams associated to the parent deployment are included in the response.
-step::: Issue an HTTP GET request to the URL `{api_root}/deployments/{depId}/controlstreams?recursive=false`.
-step::: Verify that only control streams associated to the parent deployment are included in the response.
-step::: Issue an HTTP GET request to the URL `{api_root}/deployments/{depId}/controlstreams?recursive=true`.
-step::: Verify that control streams associated to the parent deployment and all its subdeployments (at all nesting levels) are included in the response.
+step::: If the `Deployment` resource contains a link with relation type `controlstreams`, verify that all related controlstreams are returned
+step:::: Issue an HTTP GET request to the link URL.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Validate that the response includes all `ControlStream` resources associated to the parent deployment or any of its subdeployments (at all nesting levels).
 ====
 
 
@@ -553,7 +563,6 @@ test-purpose:: Validate that every `Procedure` resource is accessible via its ca
 
 test-method:: For every collection advertised by the server with the `featureType` property set to `sosa:Procedure`:
 step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
-step::: Iterate through all items in the collection, following `next` links as appropriate.
 step::: For each item, check that a link with relation type `canonical` is included.
 step::: Dereference this link and validate that a document is returned with a status code 200.
 step::: Check that the returned document has the same content as the resource originally included in the collection items (except for the canonical link).
@@ -562,13 +571,14 @@ step::: Check that the returned document has the same content as the resource or
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/procedure/canonical-collection
-target:: /req/procedure/canonical-collection
+identifier:: /conf/procedure/resources-endpoint
+target:: /req/procedure/resources-endpoint
 
-test-purpose:: Validate that the server exposes the `Procedure` root collection.
+test-purpose:: Validate that the server implements a `Procedure` resources endpoint correctly. +
+_This is a parameterized test that requires the endpoint URL as a parameter_
 
 test-method:: 
-step::: Issue an HTTP GET request to the URL `{api_root}/procedures`.
+step::: Issue an HTTP GET request to the endpoint URL.
 step::: Validate that a document was returned with a status code 200.
 step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
 step:::: If the response content type is `{geojson-mediatype}`, execute test xref:/conf/geojson/procedure-schema[style=id%].
@@ -579,14 +589,25 @@ step:::: For other response content types not supported by the testing engine, i
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/procedure/collection-type
-target:: /req/procedure/collection-type
+identifier:: /conf/procedure/canonical-endpoint
+target:: /req/procedure/canonical-endpoint
+
+test-purpose:: Validate that the server exposes the canonical `Procedure` resources endpoint.
+
+test-method:: Validate that the server implements a {procedure-resources-endpoint} at path `{api_root}/procedures` using test xref:/conf/procedure/resources-endpoint[style=id%].
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/procedure/collections
+target:: /req/procedure/collections
 
 test-purpose:: Validate that `Procedure` collections are tagged with the proper feature type.
 
 test-method:: For every collection advertised by the server with the `featureType` property set to `sosa:Procedure`:
 step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
-step::: Iterate through all items in the collection and retrieve their type.
+step::: For each item, retrieve its type.
 step::: Check that the reported type is one of the URI or CURIE listed in <<procedure-types>>.
 step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
 step:::: If the response content type is `{geojson-mediatype}`, execute test xref:/conf/geojson/procedure-schema[style=id%].
@@ -601,8 +622,8 @@ step:::: For other response content types not supported by the testing engine, i
 [conformance_class]
 ====
 [%metadata]
-identifier:: /conf/sampling
-target:: /req/sampling
+identifier:: /conf/sf
+target:: /req/sf
 inherit:: /conf/system
 classification:: Target Type:Web API
 ====
@@ -610,14 +631,13 @@ classification:: Target Type:Web API
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/sampling/canonical-url
-target:: /req/sampling/canonical-url
+identifier:: /conf/sf/canonical-url
+target:: /req/sf/canonical-url
 
 test-purpose:: Validate that every `Sampling Feature` resource is accessible via its canonical URL.
 
 test-method:: For every collection advertised by the server with the `featureType` property set to `sosa:Sample`:
 step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
-step::: Iterate through all items in the collection, following `next` links as appropriate.
 step::: For each item, check that a link with relation type `canonical` is included.
 step::: Dereference this link and validate that a document is returned with a status code 200.
 step::: Check that the returned document has the same content as the resource originally included in the collection items (except for the canonical link).
@@ -626,13 +646,14 @@ step::: Check that the returned document has the same content as the resource or
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/sampling/canonical-collection
-target:: /req/sampling/canonical-collection
+identifier:: /conf/sf/resources-endpoint
+target:: /req/sf/resources-endpoint
 
-test-purpose:: Validate that the server exposes the `Sampling Feature` root collection.
+test-purpose:: Validate that the server implements a `Sampling Feature` resources endpoint correctly. +
+_This is a parameterized test that requires the endpoint URL as a parameter_
 
 test-method:: 
-step::: Issue an HTTP GET request to the URL `{api_root}/samplingFeatures`.
+step::: Issue an HTTP GET request to the endpoint URL.
 step::: Validate that a document was returned with a status code 200.
 step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
 step:::: If the response content type is `{geojson-mediatype}`, execute test xref:/conf/geojson/sf-schema[style=id%].
@@ -642,8 +663,19 @@ step:::: For other response content types not supported by the testing engine, i
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/sampling/collection-type
-target:: /req/sampling/collection-type
+identifier:: /conf/sf/canonical-endpoint
+target:: /req/sf/canonical-endpoint
+
+test-purpose:: Validate that the server exposes the canonical `Sampling Feature` resources endpoint.
+
+test-method:: Validate that the server implements a {sf-resources-endpoint} at path `{api_root}/samplingFeatures` using test xref:/conf/sf/resources-endpoint[style=id%].
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/sf/collections
+target:: /req/sf/collections
 
 test-purpose:: Validate that `Sampling Feature` collections are tagged with the proper feature type.
 
@@ -652,6 +684,23 @@ step::: Retrieve the collection items as described in test xref:/conf/api-common
 step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
 step:::: If the response content type is `{geojson-mediatype}`, execute test xref:/conf/geojson/sf-schema[style=id%].
 step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/sf/ref-from-system
+target:: /req/sf/ref-from-system
+
+test-purpose:: Validate that `Sampling Features` attached to a given system are available as a sub-resources.
+
+test-method::
+step::: Retrieve all `System` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=systems`.
+step::: For each `System` resource in the response:
+step:::: Issue an HTTP GET request at path `{api_root}/systems/{sysId}/samplingFeatures`, where `sysId` is the local ID of the `System` resource.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Iterate through the list of resources in the response, following `next` links as appropriate.
+step:::: If the response content type is `{geojson-mediatype}`, execute test xref:/conf/geojson/sf-schema[style=id%].
 ====
 
 
@@ -675,9 +724,8 @@ target:: /req/property/canonical-url
 
 test-purpose:: Validate that every `Property` resource is accessible via its canonical URL.
 
-test-method:: For every collection advertised by the server with the `itemType` property set to `ssn:Property`:
+test-method:: For every collection advertised by the server with the `itemType` property set to `sosa:Property`:
 step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
-step::: Iterate through all items in the collection, following `next` links as appropriate.
 step::: For each item, check that a link with relation type `canonical` is included.
 step::: Dereference this link and validate that a document is returned with a status code 200.
 step::: Check that the returned document has the same content as the resource originally included in the collection items (except for the canonical link).
@@ -686,33 +734,43 @@ step::: Check that the returned document has the same content as the resource or
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/property/canonical-collection
-target:: /req/property/canonical-collection
+identifier:: /conf/property/resources-endpoint
+target:: /req/property/resources-endpoint
 
-test-purpose:: Validate that the server exposes the `Property` root collection.
+test-purpose:: Validate that the server implements a `Property` resources endpoint correctly. +
+_This is a parameterized test that requires the endpoint URL as a parameter_
 
 test-method:: 
-step::: Issue an HTTP GET request to the URL `{api_root}/properties`.
+step::: Issue an HTTP GET request to the endpoint URL.
 step::: Validate that a document was returned with a status code 200.
 step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
-//step:::: If the response content type is `{geojson-mediatype}`, execute test xref:/conf/geojson/property-schema[style=id%].
-step:::: If the response content type is `{sensorml-json-mediatype}`, execute test xref:/conf/sensorml/property-schema[style=id%].
+step:::: If the response content type is `{sensorml-mediatype}`, execute test xref:/conf/sensorml/property-schema[style=id%].
 step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
 ====
 
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/property/collection-type
-target:: /req/property/collection-type
+identifier:: /conf/property/canonical-endpoint
+target:: /req/property/canonical-endpoint
+
+test-purpose:: Validate that the server exposes the canonical `Property` resources endpoint.
+
+test-method:: Validate that the server implements a {property-resources-endpoint} at path `{api_root}/properties` using test xref:/conf/property/resources-endpoint[style=id%].
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/property/collections
+target:: /req/property/collections
 
 test-purpose:: Validate that `Property` collections are tagged with the proper item type.
 
-test-method:: For every collection advertised by the server with the `itemType` property set to `ssn:Property`:
+test-method:: For every collection advertised by the server with the `itemType` property set to `sosa:Property`:
 step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
 step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
-//step:::: If the response content type is `{geojson-mediatype}`, execute test xref:/conf/geojson/property-schema[style=id%].
-step:::: If the response content type is `{sensorml-json-mediatype}`, execute test xref:/conf/sensorml/property-schema[style=id%].
+step:::: If the response content type is `{sensorml-mediatype}`, execute test xref:/conf/sensorml/property-schema[style=id%].
 step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
 ====
 
@@ -748,9 +806,9 @@ target:: /req/advanced-filtering/resource-by-id
 
 test-purpose:: Validate that the `id` query parameter is processed correctly.
 
-test-method:: For every root collection:
+test-method:: For every canonical resources endpoint:
 step::: Generate an `id` parameter set to a list of resource IDs (see test xref:/conf/advanced-filtering/id-list-schema[style=id%]).
-step::: Issue an HTTP GET request at the root collection URL with the previously generated `id` parameter in the query string.
+step::: Issue an HTTP GET request at the resources endpoint URL with the previously generated `id` parameter in the query string.
 step::: Validate that a document was returned with a status code 200.
 step::: Validate that the returned collection only includes the resources with the selected identifiers.
 step::: Repeat the previous steps with an `id` parameter containing a list of UIDs.
@@ -764,11 +822,26 @@ target:: /req/advanced-filtering/resource-by-keyword
 
 test-purpose:: Validate that the `q` query parameter is processed correctly.
 
-test-method:: For every root collection:
+test-method:: For every canonical resources endpoint:
 step::: Generate a `q` parameter set to a list of keywords, as specified by the provided OpenAPI 3.0 schema.
-step::: Issue an HTTP GET request at the root collection URL with the `q` parameter in the query string.
+step::: Issue an HTTP GET request at the resources endpoint URL with the `q` parameter in the query string.
 step::: Validate that a document was returned with a status code 200.
 step::: Validate that the returned collection only includes resources with plain text content that includes the keyword.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/resource-by-property
+target:: /rec/advanced-filtering/resource-by-property
+
+test-purpose:: Validate that custom property query parameters are processed correctly.
+
+test-method:: For every canonical resources endpoint:
+step::: Generate a custom parameter with the same name as a feature property, and set the value to a possible value of the property.
+step::: Issue an HTTP GET request at the resources endpoint URL with the custom parameter in the query string.
+step::: Validate that a document was returned with a status code 200.
+step::: Validate that the returned collection only includes resources with matching property values.
 ====
 
 [abstract_test]
@@ -779,9 +852,9 @@ target:: /req/advanced-filtering/feature-by-geom
 
 test-purpose:: Validate that the `geom` query parameter is processed correctly.
 
-test-method:: For each of the `systems`, `deployments` and `samplingFeatures` root collections:
+test-method:: For each of the `systems`, `deployments` and `samplingFeatures` canonical resources endpoints:
 step::: Generate a `geom` parameter set to a WKT geometry conforming to the provided OpenAPI 3.0 schema.
-step::: Issue an HTTP GET request at the root collection URL with the `geom` parameter in the query string.
+step::: Issue an HTTP GET request at the resources endpoint URL with the `geom` parameter in the query string.
 step::: Validate that a document was returned with a status code 200.
 step::: Validate that the returned collection only includes resources with a geometry intersecting the provided geometry.
 ====
@@ -799,7 +872,7 @@ test-purpose:: Validate that the `parent` query parameter is processed correctly
 test-method::
 step::: Issue an HTTP GET request at URL `{api_root}/systems?parent={idList}` where `{idList}` is a list of one or more local IDs of `System` resources. +
 See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
-step::: Validate the response using the steps described in test xref:/conf/system/canonical-collection[style=id%].
+step::: Validate the response using the steps described in test xref:/conf/system/resources-endpoint[style=id%].
 step::: For each `System` resource in the returned collection:
 step:::: Follow the `parentSystem` association to retrieve the parent system description.
 step:::: Verify that the system has one of the identifiers included in `{idList}`.
@@ -817,7 +890,7 @@ test-purpose:: Validate that the `procedure` query parameter is processed correc
 test-method::
 step::: Issue an HTTP GET request at URL `{api_root}/systems?procedure={idList}` where `{idList}` is a list of one or more local IDs of `Procedure` resources. +
 See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
-step::: Validate the response using the steps described in test xref:/conf/system/canonical-collection[style=id%].
+step::: Validate the response using the steps described in test xref:/conf/system/resources-endpoint[style=id%].
 step::: For each `System` resource in the returned collection:
 step:::: Follow the `procedure` association to retrieve the procedure description.
 step:::: Verify that the procedure has one of the identifiers included in `{idList}`.
@@ -835,7 +908,7 @@ test-purpose:: Validate that the `foi` query parameter is processed correctly.
 test-method::
 step::: Issue an HTTP GET request at URL `{api_root}/systems?foi={idList}` where `{idList}` is a list of one or more local IDs of `Feature` resources. +
 See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
-step::: Validate the response using the steps described in test xref:/conf/system/canonical-collection[style=id%].
+step::: Validate the response using the steps described in test xref:/conf/system/resources-endpoint[style=id%].
 step::: For each `System` resource in the returned collection:
 step:::: Retrieve the system's sampling features by issuing an HTTP GET request at `{systemCanonicalUrl}/samplingFeatures?recursive=true`.
 step:::: For each `Sampling Feature` resource in the returned collection:
@@ -855,7 +928,7 @@ test-purpose:: Validate that the `observedProperty` query parameter is processed
 test-method::
 step::: Issue an HTTP GET request at URL `{api_root}/systems?observedProperty={idList}` where `{idList}` is a list of one or more local IDs of `Property` resources. +
 See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
-step::: Validate the response using the steps described in test xref:/conf/system/canonical-collection[style=id%].
+step::: Validate the response using the steps described in test xref:/conf/system/resources-endpoint[style=id%].
 step::: For each `System` resource in the returned collection:
 step:::: Retrieve all its nested subsystems by issuing an HTTP GET request at `{systemCanonicalUrl}/components?recursive=true`.
 step:::: Retrieve all observed properties referenced by the main system or one of its subsystems.
@@ -874,7 +947,7 @@ test-purpose:: Validate that the `controlledProperty` query parameter is process
 test-method::
 step::: Issue an HTTP GET request at URL `{api_root}/systems?controlledProperty={idList}` where `{idList}` is a list of one or more local IDs of `Property` resources. +
 See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
-step::: Validate the response using the steps described in test xref:/conf/system/canonical-collection[style=id%].
+step::: Validate the response using the steps described in test xref:/conf/system/resources-endpoint[style=id%].
 step::: For each `System` resource in the returned collection:
 step:::: Retrieve all its nested subsystems by issuing an HTTP GET request at `{systemCanonicalUrl}/components?recursive=true`.
 step:::: Retrieve all controlled properties referenced by the main system or one of its subsystems.
@@ -882,45 +955,25 @@ step:::: Verify that at least one of the collected properties has one of the ide
 step::: Repeat the previous steps with the `controlledProperty` parameter set to a list of one or more URIs of `Property` resources.
 ====
 
-// Procedures
-
-[abstract_test]
-====
-[%metadata]
-identifier:: /conf/advanced-filtering/procedure-by-obsprop
-target:: /req/advanced-filtering/procedure-by-obsprop
-
-test-purpose:: Validate that the `observedProperty` query parameter is processed correctly.
-
-test-method::
-step::: Issue an HTTP GET request at URL `{api_root}/procedures?observedProperty={idList}` where `{idList}` is a list of one or more local IDs of `Property` resources. +
-See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
-step::: Validate the response using the steps described in test xref:/conf/procedure/canonical-collection[style=id%].
-step::: For each `Procedure` resource in the returned collection:
-step:::: Retrieve all observed properties referenced by the procedure description.
-step:::: Verify that at least one of the collected properties has one of the identifiers included in `{idList}`.
-step::: Repeat the previous steps with the `observedProperty` parameter set to a list of one or more URIs of `Property` resources.
-====
-
-[abstract_test]
-====
-[%metadata]
-identifier:: /conf/advanced-filtering/procedure-by-controlprop
-target:: /req/advanced-filtering/procedure-by-controlprop
-
-test-purpose:: Validate that the `controlledProperty` query parameter is processed correctly.
-
-test-method::
-step::: Issue an HTTP GET request at URL `{api_root}/procedures?controlledProperty={idList}` where `{idList}` is a list of one or more local IDs of `Property` resources. +
-See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
-step::: Validate the response using the steps described in test xref:/conf/procedure/canonical-collection[style=id%].
-step::: For each `Procedure` resource in the returned collection:
-step:::: Retrieve all controlled properties referenced by the procedure description.
-step:::: Verify that at least one of the collected properties has one of the identifiers included in `{idList}`.
-step::: Repeat the previous steps with the `controlledProperty` parameter set to a list of one or more URIs of `Property` resources.
-====
-
 // Deployments
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/deployment-by-parent
+target:: /req/advanced-filtering/deployment-by-parent
+
+test-purpose:: Validate that the `parent` query parameter is processed correctly.
+
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/deployments?parent={idList}` where `{idList}` is a list of one or more local IDs of `Deployment` resources. +
+See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
+step::: Validate the response using the steps described in test xref:/conf/deployment/resources-endpoint[style=id%].
+step::: For each `Deployment` resource in the returned collection:
+step:::: Follow the `parentSystem` association to retrieve the parent deployment description.
+step:::: Verify that the deployment has one of the identifiers included in `{idList}`.
+step::: Repeat the previous steps with the `parent` parameter set to a list of one or more UIDs of `Deployment` resources..
+====
 
 [abstract_test]
 ====
@@ -933,7 +986,7 @@ test-purpose:: Validate that the `system` query parameter is processed correctly
 test-method::
 step::: Issue an HTTP GET request at URL `{api_root}/deployments?system={idList}` where `{idList}` is a list of one or more local IDs of `System` resources. +
 See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
-step::: Validate the response using the steps described in test xref:/conf/deployment/canonical-collection[style=id%].
+step::: Validate the response using the steps described in test xref:/conf/deployment/resources-endpoint[style=id%].
 step::: For each `Deployment` resource in the returned collection:
 step:::: Retrieve all deployed systems by issuing an HTTP GET request at `{deploymentCanonicalUrl}/deployedSystems?recursive=true`.
 step:::: Verify that at least one of the systems has one of the identifiers included in `{idList}`.
@@ -951,7 +1004,7 @@ test-purpose:: Validate that the `foi` query parameter is processed correctly.
 test-method::
 step::: Issue an HTTP GET request at URL `{api_root}/deployments?foi={idList}` where `{idList}` is a list of one or more local IDs of `Feature` resources. +
 See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
-step::: Validate the response using the steps described in test xref:/conf/deployment/canonical-collection[style=id%].
+step::: Validate the response using the steps described in test xref:/conf/deployment/resources-endpoint[style=id%].
 step::: For each `Deployment` resource in the returned collection:
 step:::: Retrieve the deployment's features of interest by issuing an HTTP GET request at `{deploymentCanonicalUrl}/featuresOfInterest`
 step:::: Verify that at least one of the features has one of the identifiers included in `{idList}`.
@@ -969,7 +1022,7 @@ test-purpose:: Validate that the `observedProperty` query parameter is processed
 test-method::
 step::: Issue an HTTP GET request at URL `{api_root}/deployments?observedProperty={idList}` where `{idList}` is a list of one or more local IDs of `Property` resources. +
 See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
-step::: Validate the response using the steps described in test xref:/conf/deployment/canonical-collection[style=id%].
+step::: Validate the response using the steps described in test xref:/conf/deployment/resources-endpoint[style=id%].
 step::: For each `Deployment` resource in the returned collection:
 step:::: Retrieve all deployed systems by issuing an HTTP GET request at `{deploymentCanonicalUrl}/deployedSystems?recursive=true`.
 step:::: For each `Deployed System` resource in the returned collection:
@@ -990,12 +1043,50 @@ test-purpose:: Validate that the `controlledProperty` query parameter is process
 test-method::
 step::: Issue an HTTP GET request at URL `{api_root}/deployments?controlledProperty={idList}` where `{idList}` is a list of one or more local IDs of `Property` resources. +
 See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
-step::: Validate the response using the steps described in test xref:/conf/deployment/canonical-collection[style=id%].
+step::: Validate the response using the steps described in test xref:/conf/deployment/resources-endpoint[style=id%].
 step::: For each `Deployment` resource in the returned collection:
 step:::: Retrieve all deployed systems by issuing an HTTP GET request at `{deploymentCanonicalUrl}/deployedSystems?recursive=true`.
 step:::: For each `Deployed System` resource in the returned collection:
          . Retrieve the system description by following the system association link.
          . Collect all controlled properties referenced by the system description.
+step:::: Verify that at least one of the collected properties has one of the identifiers included in `{idList}`.
+step::: Repeat the previous steps with the `controlledProperty` parameter set to a list of one or more URIs of `Property` resources.
+====
+
+// Procedures
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/procedure-by-obsprop
+target:: /req/advanced-filtering/procedure-by-obsprop
+
+test-purpose:: Validate that the `observedProperty` query parameter is processed correctly.
+
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/procedures?observedProperty={idList}` where `{idList}` is a list of one or more local IDs of `Property` resources. +
+See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
+step::: Validate the response using the steps described in test xref:/conf/procedure/resources-endpoint[style=id%].
+step::: For each `Procedure` resource in the returned collection:
+step:::: Retrieve all observed properties referenced by the procedure description.
+step:::: Verify that at least one of the collected properties has one of the identifiers included in `{idList}`.
+step::: Repeat the previous steps with the `observedProperty` parameter set to a list of one or more URIs of `Property` resources.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/procedure-by-controlprop
+target:: /req/advanced-filtering/procedure-by-controlprop
+
+test-purpose:: Validate that the `controlledProperty` query parameter is processed correctly.
+
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/procedures?controlledProperty={idList}` where `{idList}` is a list of one or more local IDs of `Property` resources. +
+See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
+step::: Validate the response using the steps described in test xref:/conf/procedure/resources-endpoint[style=id%].
+step::: For each `Procedure` resource in the returned collection:
+step:::: Retrieve all controlled properties referenced by the procedure description.
 step:::: Verify that at least one of the collected properties has one of the identifiers included in `{idList}`.
 step::: Repeat the previous steps with the `controlledProperty` parameter set to a list of one or more URIs of `Property` resources.
 ====
@@ -1013,7 +1104,7 @@ test-purpose:: Validate that the `foi` query parameter is processed correctly.
 test-method:: 
 step::: Issue an HTTP GET request at URL `{api_root}/samplingFeatures?foi={idList}` where `{idList}` is a list of one or more local IDs of `Feature` resources. +
 See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
-step::: Validate the response using the steps described in test xref:/conf/sampling/canonical-collection[style=id%].
+step::: Validate the response using the steps described in test xref:/conf/sampling/resources-endpoint[style=id%].
 step::: For each `Sampling Feature` resource in the returned collection:
 step:::: Follow the `sampledFeature` links to collect the target features, recursively. If a link does not resolve or the link media type is not supported by the testing engine, use the link target as the identifier of the feature.
 step::: Verify that at least one of the collected features has one of the identifiers included in `{idList}`.
@@ -1031,7 +1122,7 @@ test-purpose:: Validate that the `observedProperty` query parameter is processed
 test-method:: 
 step::: Issue an HTTP GET request at URL `{api_root}/samplingFeatures?observedProperty={idList}` where `{idList}` is a list of one or more local IDs of `Property` resources. +
 See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
-step::: Validate the response using the steps described in test xref:/conf/sampling/canonical-collection[style=id%].
+step::: Validate the response using the steps described in test xref:/conf/sampling/resources-endpoint[style=id%].
 step::: For each `Sampling Feature` resource in the returned collection:
 step:::: Follow the `datastreams` links to get the datastreams containing observations for this sampling feature.
 step:::: Verify that at least one of the datastreams has one or more of the observed properties included in `{idList}`.
@@ -1049,11 +1140,11 @@ test-purpose:: Validate that the `controlledProperty` query parameter is process
 test-method:: 
 step::: Issue an HTTP GET request at URL `{api_root}/samplingFeatures?controlledProperty={idList}` where `{idList}` is a list of one or more local IDs of `Property` resources. +
 See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
-step::: Validate the response using the steps described in test xref:/conf/sampling/canonical-collection[style=id%].
+step::: Validate the response using the steps described in test xref:/conf/sampling/resources-endpoint[style=id%].
 step::: For each `Sampling Feature` resource in the returned collection:
 step:::: Follow the `controlstreams` links to get the control streams with commands  targeting this sampling feature.
 step:::: Verify that at least one of the control streams has one or more of the controlled properties included in `{idList}`.
-step::: Repeat the previous steps with the `controlledPropertyProperty` parameter set to a list of one or more URIs of `Property` resources.
+step::: Repeat the previous steps with the `controlledProperty` parameter set to a list of one or more URIs of `Property` resources.
 ====
 
 // Properties
@@ -1069,7 +1160,7 @@ test-purpose:: Validate that the `baseProperty` query parameter is processed cor
 test-method:: 
 step::: Issue an HTTP GET request at URL `{api_root}/properties?baseProperty={idList}` where `{idList}` is a list of one or more local IDs of `Property` resources. +
 See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
-step::: Validate the response using the steps described in test xref:/conf/property/canonical-collection[style=id%].
+step::: Validate the response using the steps described in test xref:/conf/property/resources-endpoint[style=id%].
 step::: For each `Property` resource in the returned collection:
 step:::: Follow the `baseProperty` links to collect the base property, recursively. If a link does not resolve or the link media type is not supported by the testing engine, use the link target as the identifier of the property.
 step::: Verify that at least one of the collected properties has one of the identifiers included in `{idList}`.
@@ -1087,7 +1178,7 @@ test-purpose:: Validate that the `objectType` query parameter is processed corre
 test-method:: 
 step::: Issue an HTTP GET request at URL `{api_root}/properties?objectType={uriList}` where `{uriList}` is a list of one or more URIs of feature/object types. +
 See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
-step::: Validate the response using the steps described in test xref:/conf/property/canonical-collection[style=id%].
+step::: Validate the response using the steps described in test xref:/conf/property/resources-endpoint[style=id%].
 step::: Verify that each `Property` resource in the result set has its `objectType` property set to one of the URIs included in `{uriList}`.
 ====
 
@@ -1099,9 +1190,82 @@ target:: /req/advanced-filtering/combined-filters
 
 test-purpose:: Validate that the server correctly implements a logical AND between query filters.
 
-test-method:: For each root collection: 
-step::: Issue HTTP GET requests at the root collection URL with different combinations of query parameters that are available for this resource type.
+test-method:: For each canonical resources endpoint: 
+step::: Issue HTTP GET requests at the resources endpoint URL with different combinations of query parameters that are available for this resource type.
 step::: Verify that each resource in the result set passes the checks described in the test corresponding to each filter.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/indirect-prop
+target:: /rec/advanced-filtering/indirect-prop
+
+test-purpose:: Check if the server can follow `baseProperty` associations transitively.
+
+test-method:: For each `Property` resource available at the canonical resources endpoint: 
+step::: Retrieve the value of the `id` attribute. Store it as `propId`.
+step::: Retrieve the value of the `baseProperty` attribute. Store it as `basePropId`.
+
+step::: Verify that the server supports querying systems using transitive base properties:
+step:::: Issue an HTTP GET request at URL {api_root}/systems?observedProperty={propId}. Store the response as set 1.
+step:::: Issue an HTTP GET request at URL {api_root}/systems?observedProperty={basePropId}. Store the response as set 2.
+step:::: Check that set 2 contains all resources from set 1. Issue a warning if not.
+
+step::: Verify that the server supports querying deployments using transitive base properties:
+step:::: Issue an HTTP GET request at URL {api_root}/deployments?observedProperty={propId}. Store the response as set 1.
+step:::: Issue an HTTP GET request at URL {api_root}/deployments?observedProperty={basePropId}. Store the response as set 2.
+step:::: Check that set 2 contains all resources from set 1. Issue a warning if not.
+
+step::: Verify that the server supports querying procedures using transitive base properties:
+step:::: Issue an HTTP GET request at URL {api_root}/procedures?observedProperty={propId}. Store the response as set 1.
+step:::: Issue an HTTP GET request at URL {api_root}/procedures?observedProperty={basePropId}. Store the response as set 2.
+step:::: Check that set 2 contains all resources from set 1. Issue a warning if not.
+
+step::: Verify that the server supports querying sampling features using transitive base properties:
+step:::: Issue an HTTP GET request at URL {api_root}/systems?observedProperty={propId}. Store the response as set 1.
+step:::: Issue an HTTP GET request at URL {api_root}/systems?observedProperty={basePropId}. Store the response as set 2.
+step:::: Check that set 2 contains all resources from set 1. Issue a warning if not.
+
+step::: Verify that the server supports querying properties using transitive base properties:
+step:::: Issue an HTTP GET request at URL {api_root}/properties?baseProperty={propId}. Store the response as set 1.
+step:::: Issue an HTTP GET request at URL {api_root}/properties?baseProperty={basePropId}. Store the response as set 2.
+step:::: Check that set 2 contains all resources from set 1. Issue a warning if not.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/indirect-foi
+target:: /rec/advanced-filtering/indirect-foi
+
+test-purpose:: Check if the server can follow `sampledFeature` and `relatedSamplingFeatures` associations transitively.
+
+test-method:: For each `SamplingFeature` resource available at the canonical resources endpoint: 
+step::: Retrieve the value of the `id` attribute. Store it as `sfId`.
+step::: Retrieve the feature referenced by the `sampledFeature` property. Retrieve the value of the feature `id` attribute and store it as `ultimateFoiId`.
+step::: Retrieve one of the features referenced by the `sampleOf` association. Retrieve the value of the feature `id` attribute and store it as `parentSfId`.
+
+step::: Verify that the server supports querying sampling features using transitive sampleOf associations:
+step:::: Issue an HTTP GET request at URL {api_root}/samplingFeatures?foi={parentSfId}. Store the response as set 1.
+step:::: Issue an HTTP GET request at URL {api_root}/samplingFeatures?foi={ultimateFoiId}. Store the response as set 2.
+step:::: Check that both resource sets contain the `Sampling Feature` with local ID `sfId`.
+
+step::: Verify that the server supports querying systems using transitive sampled features:
+step:::: Issue an HTTP GET request at URL {api_root}/systems?foi={sfId}. Store the response as set 1.
+step:::: Issue an HTTP GET request at URL {api_root}/systems?foi={parentSfId}. Store the response as set 2.
+step:::: Issue an HTTP GET request at URL {api_root}/systems?foi={ultimateFoiId}. Store the response as set 3.
+step:::: Check that set 3 contains all resources from set 1. Issue a warning if not.
+step:::: Check that set 3 contains all resources from set 2. Issue a warning if not.
+step:::: Check that set 2 contains all resources from set 1. Issue a warning if not.
+
+step::: Verify that the server supports querying deployments using transitive base properties:
+step:::: Issue an HTTP GET request at URL {api_root}/deployments?foi={sfId}. Store the response as set 1.
+step:::: Issue an HTTP GET request at URL {api_root}/deployments?foi={parentSfId}. Store the response as set 2.
+step:::: Issue an HTTP GET request at URL {api_root}/deployments?foi={ultimateFoiId}. Store the response as set 3.
+step:::: Check that set 3 contains all resources from set 1. Issue a warning if not.
+step:::: Check that set 3 contains all resources from set 2. Issue a warning if not.
+step:::: Check that set 2 contains all resources from set 1. Issue a warning if not.
 ====
 
 
@@ -1128,7 +1292,7 @@ test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operati
 
 test-method::
 step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
-step:::: For the `System` root collection:
+step:::: For the `System` canonical resources endpoint:
          - Resources endpoint `{api_root}/systems` (for CREATE)
          - Resource endpoint `{api_root}/systems/{id}` (for REPLACE and DELETE)
 step:::: For each `System` Feature Collection advertised by the server:
@@ -1186,7 +1350,7 @@ test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operati
 
 test-method::
 step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
-step:::: For the `Deployment` root collection:
+step:::: For the `Deployment` canonical resources endpoint:
          - Resources endpoint `{api_root}/deployments` (for CREATE)
          - Resource endpoint `{api_root}/deployments/{id}` (for REPLACE and DELETE)
 step:::: For each `Deployment` feature collection advertised by the server:
@@ -1222,7 +1386,7 @@ test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operati
 
 test-method::
 step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
-step:::: For the `Procedure` root collection:
+step:::: For the `Procedure` canonical resources endpoint:
          - Resources endpoint `{api_root}/procedures` (for CREATE)
          - Resource endpoint `{api_root}/procedures/{id}` (for REPLACE and DELETE)
 step:::: For each `Procedure` feature collection advertised by the server:
@@ -1240,7 +1404,7 @@ test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operati
 
 test-method::
 step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
-step:::: For the `Sampling Feature` root collection:
+step:::: For the `Sampling Feature` canonical resources endpoint:
          - Resources endpoint `{api_root}/samplingFeatures` (for CREATE)
          - Resource endpoint `{api_root}/samplingFeatures/{id}` (for REPLACE and DELETE)
 step:::: For each `Sampling Feature` collection advertised by the server:
@@ -1258,7 +1422,7 @@ test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operati
 
 test-method::
 step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
-step:::: For the `Property` root collection:
+step:::: For the `Property` canonical resources endpoint:
          - Resources endpoint `{api_root}/properties` (for CREATE)
          - Resource endpoint `{api_root}/properties/{id}` (for REPLACE and DELETE)
 step:::: For each `Property` resource collection advertised by the server:
@@ -1278,7 +1442,7 @@ test-method:: For each resource type among `System`, `Procedure`, `Deployment`, 
 step::: Find a resource collection for a resource of that type. Assume its ID is `colId`.
 step::: Add a new resource at the resources endpoint `{api_root}/collections/{colId}/items` by following requirements for the CREATE operation (see tests {ogcapi-features-4-spec-url}/create-replace-delete/conf/post*).
 step::: Retrieve the canonical URL of the resource that must be included in the response.
-step::: Verify that the new resource exists in the root collection:
+step::: Verify that the new resource exists at the canonical resources endpoint:
 step:::: Issue an HTTP GET request at the resource's canonical URL.
 step:::: Validate that a document was returned with a status code 200.
 step:::: Validate that the received document has the same content as the one provided in the POST request.
@@ -1295,7 +1459,7 @@ test-purpose:: Validate that the server implements the correct behavior when rep
 test-method:: For each resource type among `System`, `Procedure`, `Deployment`, `Sampling Feature`, `Property`:
 step::: Find a resource collection for a resource of that type. Assume its ID is `colId`.
 step::: Replace the resource at the resource endpoint `{api_root}/collections/{colId}/items/{id}` by following requirements for the REPLACE operation (see tests {ogcapi-features-4-spec-url}/create-replace-delete/conf/put*).
-step::: Verify that the resource has been updated in the root collection:
+step::: Verify that the resource has been updated at its canonical location:
 step:::: Issue an HTTP GET request at the resource's canonical URL.
 step:::: Validate that a document was returned with a status code 200.
 step:::: Validate that the received document has the same content as the one provided in the PUT request.
@@ -1312,7 +1476,7 @@ test-purpose:: Validate that the server implements the correct behavior when del
 test-method:: For each resource type among `System`, `Procedure`, `Deployment`, `Sampling Feature`, `Property`:
 step::: Find a resource collection for a resource of that type. Assume its ID is `colId`.
 step::: Delete the resource at the resource endpoint `{api_root}/collections/{colId}/items/{id}` by following requirements for the DELETE operation (see tests {ogcapi-features-4-spec-url}/create-replace-delete/conf/delete*).
-step::: Verify that the resource is still present in the root collection:
+step::: Verify that the resource is still available at its canonical location:
 step:::: Issue an HTTP GET request at the resource's canonical URL.
 step:::: Validate that a document was returned with a status code 200.
 ====
@@ -1362,7 +1526,7 @@ test-purpose:: Validate that the server implements the UPDATE operation correctl
 
 test-method::
 step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/update at the following endpoints:
-step:::: For the `System` root collection:
+step:::: For the `System` canonical resources endpoint:
          - Resource endpoint `{api_root}/systems/{id}`
 step:::: For each `System` Feature Collection advertised by the server:
          - Resource endpoint `{api_root}/collections/{systemCollectionId}/items/{id}`
@@ -1378,7 +1542,7 @@ test-purpose:: Validate that the server implements the UPDATE operation correctl
 
 test-method::
 step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/update at the following endpoints:
-step:::: For the `Deployment` root collection:
+step:::: For the `Deployment` canonical resources endpoint:
          - Resource endpoint `{api_root}/deployments/{id}`
 step:::: For each `Deployment` Feature Collection advertised by the server:
          - Resource endpoint `{api_root}/collections/{deploymentCollectionId}/items/{id}`
@@ -1394,7 +1558,7 @@ test-purpose:: Validate that the server implements the UPDATE operation correctl
 
 test-method::
 step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/update at the following endpoints:
-step:::: For the `Procedure` root collection:
+step:::: For the `Procedure` canonical resources endpoint:
          - Resource endpoint `{api_root}/procedures/{id}`
 step:::: For each `Procedure` Feature Collection advertised by the server:
          - Resource endpoint `{api_root}/collections/{procedureCollectionId}/items/{id}`
@@ -1410,7 +1574,7 @@ test-purpose:: Validate that the server implements the UPDATE operation correctl
 
 test-method::
 step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/update at the following endpoints:
-step:::: For the `Sampling Feature` root collection:
+step:::: For the `Sampling Feature` canonical resources endpoint:
          - Resource endpoint `{api_root}/samplingFeatures/{id}`
 step:::: For each `Sampling Feature` Collection advertised by the server:
          - Resource endpoint `{api_root}/collections/{sfCollectionId}/items/{id}`
@@ -1426,7 +1590,7 @@ test-purpose:: Validate that the server implements the UPDATE operation correctl
 
 test-method::
 step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/update at the following endpoints:
-step:::: For the `Property` root collection:
+step:::: For the `Property` canonical resources endpoint:
          - Resource endpoint `{api_root}/properties/{id}`
 step:::: For each `Property` Resource Collection advertised by the server:
          - Resource endpoint `{api_root}/collections/{sfCollectionId}/items/{id}`
@@ -1457,7 +1621,7 @@ test-purpose:: Verify that the server advertises support for the GeoJSON format 
 test-method:: 
 step::: Execute test {ogcapi-features-1-spec-url}/conf/geojson/definition.
 step::: Verify that server advertises support for media type `{geojson-mediatype}` in the API definition for GET operations:
-step:::: On the root collection endpoints of resource types supported by the server.
+step:::: On the canonical resources endpoints of resource types supported by the server.
 step:::: On the custom collection endpoints advertised by the server.
 ====
 
@@ -1470,8 +1634,7 @@ target:: /req/geojson/mediatype-write
 test-purpose:: Verify that the server advertises support for the GeoJSON format on transactional operations.
 
 test-method:: 
-step::: Verify that server advertises support for media type `{geojson-mediatype}` in the API definition for CREATE or REPLACE operations:
-step:::: On at least one root collection endpoint.
+step::: Verify that server advertises support for media type `{geojson-mediatype}` in the API definition for CREATE or REPLACE operations, for at least one canonical resources endpoint.
 ====
 
 [abstract_test]
@@ -1537,6 +1700,7 @@ test-method-type:: Manual Inspection
 test-method:: Given the GeoJSON representation of a `System` resource returned by the server:
 step::: Inspect the contents of the GeoJSON Feature object.
 step::: Check that the properties are used as described in <<system-attribute-geojson-mappings>> and <<system-assoc-geojson-mappings>>.
+====
 
 [abstract_test]
 ====
@@ -1571,7 +1735,6 @@ test-method-type:: Manual Inspection
 test-method:: Given the GeoJSON representation of a `Deployment` resource returned by the server:
 step::: Inspect the contents of the GeoJSON Feature object.
 step::: Check that the properties are used as described in <<deployment-attribute-geojson-mappings>> and <<deployment-assoc-geojson-mappings>>.
-====
 ====
 
 [abstract_test]
@@ -1668,7 +1831,7 @@ test-purpose:: Verify that the server advertises support for the SensorML format
 
 test-method:: 
 step::: Verify that server advertises support for media type `{sensorml-json-mediatype}` in the API definition for GET operations:
-step:::: On the root collection endpoints of resource types supported by the server.
+step:::: On the canonical resources endpoints of resource types supported by the server.
 step:::: On the custom collection endpoints advertised by the server.
 ====
 
@@ -1680,8 +1843,7 @@ target:: /req/sensorml/mediatype-write
 
 test-purpose:: Verify that the server advertises support for the SensorML format on transactional operations.
 
-step::: Verify that server advertises support for media type `{sensorml-json-mediatype}` in the API definition for CREATE or REPLACE operations:
-step:::: On at least one root collection endpoint.
+step::: Verify that server advertises support for media type `{sensorml-json-mediatype}` in the API definition for CREATE or REPLACE operations, for at least one canonical resources endpoint.
 ====
 
 [abstract_test]

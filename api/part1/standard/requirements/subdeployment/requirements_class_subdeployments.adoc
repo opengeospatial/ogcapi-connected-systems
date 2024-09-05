@@ -9,8 +9,5 @@ requirement:: /req/subdeployment/collection
 requirement:: /req/subdeployment/recursive-param
 requirement:: /req/subdeployment/recursive-search-deployments
 requirement:: /req/subdeployment/recursive-search-subdeployments
-requirement:: /req/subdeployment/recursive-search-deployedsystems
-requirement:: /req/subdeployment/recursive-search-fois
-requirement:: /req/subdeployment/recursive-search-datastreams
-requirement:: /req/subdeployment/recursive-search-controlstreams
+requirement:: /req/subdeployment/recursive-assoc
 ====

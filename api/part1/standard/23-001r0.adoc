@@ -1,0 +1,136 @@
+= OGC API - Connected Systems - Part 1: Feature Resources
+:doctype: standard
+:encoding: utf-8
+:lang: en
+:status: draft
+:committee: technical
+:external-id: http://www.opengis.net/doc/DIS/ogcapi-connectedsystems-1/1.0
+:docnumber: 23-001r0
+:received-date: yyyy-mm-dd
+:issued-date: yyyy-mm-dd
+:published-date: yyyy-mm-dd
+:fullname: Alex Robin
+:docsubtype: implementation
+:keywords: ogcdoc, OGC document, OpenAPI, REST, feature, API, system, smart system, connected system, IoT, sensorweb, ssn, sensor, actuator, transducer, sampling, platform, robot, drone, unmanned, autonomous, observation, measurement, datastream, command, control, trajectory, dynamic
+:submitting-organizations: GeoRobotix, Inc.; Botts Innovative Research, Inc.; Cesium GS, Inc.; 52° North Initiative for Geospatial Open Source Software GmbH; Riverside Research; Pelagis Data Solutions; National Geospatial-Intelligence Agency (NGA); 
+:mn-document-class: ogc
+:mn-output-extensions: xml,html,doc,pdf
+:local-cache-only:
+:data-uri-image:
+:edition: 1.0
+//
+:ogcapi-common: <<OGCAPI-Common-1, OGC API - Common>>
+:ogcapi-common-1: <<OGCAPI-Common-1, OGC API - Common - Part 1: Core>>
+:ogcapi-common-2: <<OGCAPI-Common-2, OGC API - Common - Part 2: Collections>>
+:ogcapi-features: <<OGCAPI-Features-1, OGC API - Features>>
+:ogcapi-features-1: <<OGCAPI-Features-1, OGC API - Features - Part 1: Core>>
+:ogcapi-features-2: <<OGCAPI-Features-2, OGC API - Features - Part 2: Coordinate Reference Systems by Reference>>
+:ogcapi-features-4: <<OGCAPI-Features-4, OGC API - Features - Part 4: Create, Replace, Update and Delete>>
+:ogc-w3c-ssn: <<SOSA-SSN, Semantic Sensor Network Ontology (SOSA/SSN)>>
+//
+:weblinks-footnote: pass:quotes[* The link relation type (`rel` property) must be set to the association name prefixed by `ogc-rel:`.]
+:part2-footnote: pass:quotes[** `DataStream` and `ControlStream` resources are defined in OGC API - Connected Systems - Part 2.]
+//
+:jsonschema-root: https://opengeospatial.github.io/ogcapi-connected-systems/api/part1/openapi/schemas
+//:jsonschema-root: ../openapi/schemas
+:add-byref-schema: link:{jsonschema-root}/common/links.json[links.json]
+:batch-response-schema: link:{jsonschema-root}/common/batch_response.json[batch_response.json]
+:batch-delete-schema: link:{jsonschema-root}/common/batch_delete.json[batch_delete.json]
+//
+:geojson-schema-root: {jsonschema-root}/geojson
+:geojson-system-schema: link:{geojson-schema-root}/system.json[system.json]
+:geojson-system-collection-schema: link:{geojson-schema-root}/systemCollection.json[systemCollection.json]
+:geojson-procedure-schema: link:{geojson-schema-root}/procedure.json[procedure.json]
+:geojson-procedure-collection-schema: link:{geojson-schema-root}/procedureCollection.json[procedureCollection.json]
+:geojson-deployment-schema: link:{geojson-schema-root}/deployment.json[deployment.json]
+:geojson-deployment-collection-schema: link:{geojson-schema-root}/deploymentCollection.json[deploymentCollection.json]
+:geojson-deployed-system-schema: link:{geojson-schema-root}/deployedSystem.json[deployedSystem.json]
+:geojson-deployed-system-collection-schema: link:{geojson-schema-root}/deployedSystemCollection.json[deployedSystemCollection.json]
+:geojson-samplingFeature-schema: link:{geojson-schema-root}/anySamplingFeature.json[anySamplingFeature.json]
+:geojson-samplingFeature-collection-schema: link:{geojson-schema-root}/samplingFeatureCollection.json[samplingFeatureCollection.json]
+//
+:sensorml-schema-root: {jsonschema-root}/sensorml
+:sensorml-system-schema: link:{sensorml-schema-root}/system.json[system.json]
+:sensorml-system-collection-schema: link:{sensorml-schema-root}/systemCollection.json[systemCollection.json]
+:sensorml-procedure-schema: link:{sensorml-schema-root}/procedure.json[procedure.json]
+:sensorml-procedure-collection-schema: link:{sensorml-schema-root}/procedureCollection.json[procedureCollection.json]
+:sensorml-deployment-schema: link:{sensorml-schema-root}/deployment.json[deployment.json]
+:sensorml-deployment-collection-schema: link:{sensorml-schema-root}/deploymentCollection.json[deploymentCollection.json]
+:sensorml-deployed-system-schema: link:{sensorml-schema-root}/deployedSystem.json[deployedSystem.json]
+:sensorml-deployed-system-collection-schema: link:{sensorml-schema-root}/deployedSystemCollection.json[deployedSystemCollection.json]
+:sensorml-property-schema: link:{sensorml-schema-root}/property.json[property.json]
+:sensorml-property-collection-schema: link:{sensorml-schema-root}/propertyCollection.json[propertyCollection.json]
+//
+:ogcapi-features-1-spec-url: http://www.opengis.net/spec/ogcapi-features-1/1.0
+:ogcapi-features-4-spec-url: http://www.opengis.net/spec/ogcapi-features-4/1.0
+//
+:system-resources-endpoint: <<clause-system-resources-endpoint,System resources endpoint>>
+:deployment-resources-endpoint: <<clause-deployment-resources-endpoint,Deployment resources endpoint>>
+:procedure-resources-endpoint: <<clause-procedure-resources-endpoint,Procedure resources endpoint>>
+:sf-resources-endpoint: <<clause-sf-resources-endpoint,Sampling Feature resources endpoint>>
+:property-resources-endpoint: <<clause-property-resources-endpoint,Property resources endpoint>>
+
+////
+Make sure to complete each included document
+////
+include::sections/clause_0_front_material.adoc[]
+
+include::sections/clause_1_scope.adoc[]
+
+include::sections/clause_2_conformance.adoc[]
+
+include::sections/clause_3_references.adoc[]
+
+include::sections/clause_4_terms_and_definitions.adoc[]
+
+include::sections/clause_5_conventions.adoc[]
+
+include::sections/clause_6_overview.adoc[]
+
+include::sections/clause_7_requirements_class_common.adoc[]
+
+include::sections/clause_8_requirements_class_system_features.adoc[]
+
+include::sections/clause_9_requirements_class_subsystems.adoc[]
+
+include::sections/clause_10_requirements_class_deployment_features.adoc[]
+
+include::sections/clause_11_requirements_class_subdeployments.adoc[]
+
+include::sections/clause_12_requirements_class_procedure_features.adoc[]
+
+include::sections/clause_13_requirements_class_sampling_features.adoc[]
+
+include::sections/clause_14_requirements_class_property_definitions.adoc[]
+
+include::sections/clause_15_requirements_class_advanced_filtering.adoc[]
+
+include::sections/clause_16_requirements_class_create_replace_delete.adoc[]
+
+include::sections/clause_17_requirements_class_update.adoc[]
+
+[[clause-encodings]]
+== Requirements Classes for Encodings
+
+include::sections/clause_20_requirements_class_geojson_encoding.adoc[]
+
+include::sections/clause_21_requirements_class_sensorml_encoding.adoc[]
+
+//include::sections/clause_22_requirements_class_jsonfg_encoding.adoc[]
+
+////
+Annexes
+////
+include::sections/annex-abstract-test-suite.adoc[]
+
+include::sections/annex-examples.adoc[]
+
+include::sections/annex-relationships_with_standards.adoc[]
+
+////
+Revision History should be the last annex before the Bibliography
+Bibliography should be the last annex
+////
+include::sections/annex-history.adoc[]
+
+include::sections/annex-bibliography.adoc[]

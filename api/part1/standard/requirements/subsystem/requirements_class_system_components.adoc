@@ -9,7 +9,5 @@ requirement:: /req/subsystem/collection
 requirement:: /req/subsystem/recursive-param
 requirement:: /req/subsystem/recursive-search-systems
 requirement:: /req/subsystem/recursive-search-subsystems
-requirement:: /req/subsystem/recursive-search-samplingfeatures
-requirement:: /req/subsystem/recursive-search-datastreams
-requirement:: /req/subsystem/recursive-search-controlstreams
+requirement:: /req/subsystem/recursive-assoc
 ====
