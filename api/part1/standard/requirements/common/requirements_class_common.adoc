@@ -8,10 +8,9 @@ inherit:: http://www.opengis.net/spec/ogcapi-features-1/1.0/req/core[^]
 inherit:: http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core[^]
 inherit:: http://www.opengis.net/spec/ogcapi-common-1/1.0/req/landing-page[^]
 inherit:: http://www.opengis.net/spec/ogcapi-common-1/1.0/req/json[^]
-inherit:: http://www.opengis.net/spec/ogcapi-common-2/1.0/req/collections[^]
-inherit:: http://www.opengis.net/spec/ogcapi-common-2/1.0/req/simple-query[^]
-requirement:: /req/api-common/collection-type
+
 requirement:: /req/api-common/resource-ids
 requirement:: /req/api-common/resource-uids
+requirement:: /rec/api-common/resource-uids-types
 requirement:: /req/api-common/datetime
 ====
