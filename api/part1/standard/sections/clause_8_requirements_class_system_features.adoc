@@ -118,6 +118,16 @@ include::../requirements/system/req_location.adoc[]
 
 include::../requirements/system/req_location_time.adoc[]
 
+[NOTE]
+====
+If the system is a virtual asset, such as a simulation or process, reporting its location is not always desired or possible. If an implementation wishes to report such location, the recommendation is the following:
+
+- If the location of the computing hardware that executes the process is known, it should be used as the feature location (e.g. the location of the datacenter).
+
+- If the process can be run in multiple locations (e.g. distributed or redundant process), a multi-point geometry or an entire geographic area should be used as the feature location.
+
+- If the location is unknown, the location is not set.
+====
 
 
 === System Canonical URL
