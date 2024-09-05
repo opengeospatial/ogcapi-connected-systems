@@ -1312,7 +1312,7 @@ step:::: Check that set 2 contains all resources from set 1. Issue a warning if 
 identifier:: /conf/advanced-filtering/indirect-foi
 target:: /rec/advanced-filtering/indirect-foi
 
-test-purpose:: Check if the server can follow `sampledFeature` and `relatedSamplingFeatures` associations transitively.
+test-purpose:: Check if the server can follow `sampledFeature` and `sampleOf` associations transitively.
 
 test-method:: For each `SamplingFeature` resource available at the canonical resources endpoint: 
 step::: Retrieve the value of the `id` attribute. Store it as `sfId`.

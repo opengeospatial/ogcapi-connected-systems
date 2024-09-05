@@ -212,7 +212,7 @@ The following link relation types are defined and used in this Standard:
                                        <<deployment-assocs,`Deployment`>>          | Link to the ultimate features of interest associated to the entity.
 | `ogc-rel:implementingSystems`      | <<procedure-assocs,`Procedure`>>            | Link to the systems that implement the procedure.
 | `ogc-rel:sampledFeature`           | <<sf-assocs,`Sampling Feature`>>            | Link to the the ultimate feature of interest sampled by the sampling feature.
-| `ogc-rel:relatedSamplingFeatures`  | <<sf-assocs,`Sampling Feature`>>            | Link to other sampling features that are either parent sample or subsamples of the sampling feature.
+| `ogc-rel:sampleOf`                 | <<sf-assocs,`Sampling Feature`>>            | Link to other sampling features that the sampling feature is a sample of.
 | `ogc-rel:datastreams`              | <<system-assocs,`System`>>,
                                        <<deployment-assocs,`Deployment`>>,
                                        <<sf-assocs,`Sampling Feature`>>            | Link to the datastreams that are associated to the entity,

@@ -277,7 +277,7 @@ A GeoJSON document representing a `Sampling Feature` resource SHALL implement th
 | *Association Name (see <<sf-assocs>>)* | *JSON Member*        | *Usage*
 | `sampledFeature`           | `properties/sampledFeature@link` | Value is a weblink resolving to a `Feature` resource.
 | `parentSystem`             | `links`                          | Value is a weblink* resolving to a `System` resource.
-| `relatedSamplingFeatures`  | `links`                          | Value is a weblink* resolving to a {sf-resources-endpoint}.
+| `sampleOf`                 | `links`                          | Value is a weblink* resolving to a {sf-resources-endpoint}.
 
 | `datastreams`              | `links`                          | Value is a weblink* resolving to a `DataStream` resources endpoint**.
 | `controlstreams`           | `links`                          | Value is a weblink* resolving to a `ControlStream` resources endpoint**.

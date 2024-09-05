@@ -108,7 +108,7 @@ Valid time is used when the sampling feature is not meaningful or usable outside
 | *Relation Name*           | *SOSA/SSN Property* | *Definition* | *Target Content* | *Usage*
 | `parentSystem`            | - | The `System` that created or uses this `Sampling Feature`. | A single `System` resource. | Required
 | `sampledFeature`          | `sosa:hasSampledFeature` | The ultimate feature of interest that is being sampled or controlled. | A single `Feature` resource. | Required
-| `relatedSamplingFeatures` | `sosa:isSampleOf` | Other `Sampling Features` related to this `Sampling Feature` via sub-sampling. | A list of `Sampling Feature` resources (inline or by-reference). | Optional
+| `sampleOf` | `sosa:isSampleOf` | Other `Sampling Features` related to this `Sampling Feature` via sub-sampling. | A list of `Sampling Feature` resources (inline or by-reference). | Optional
 | `datastreams`             | - | The `Data Streams` that contain observations of this `Sampling Feature`. | A list of `DataStream` resources (inline or by-reference). | Optional
 | `controlstreams`          | - | The `Control Streams` that received commands impacting this `Sampling Feature`. | A list of `ControlStream` resources (inline or by-reference). | Optional
 |====
@@ -148,7 +148,9 @@ include::../requirements/sf/req_canonical_endpoint.adoc[]
 [%metadata]
 identifier:: /req/sf/ref-from-system
 
-part:: The server SHALL expose a {sf-resources-endpoint} at the paths defined by the URL template `{api_root}/systems/{sysId}/samplingFeatures`.
+part:: For each `System` resource, the server SHALL expose a {sf-resources-endpoint} at the path `{api_root}/systems/{sysId}/samplingFeatures`.
+
+part:: This {sf-resources-endpoint} SHALL only list `Sampling Feature` resources that are associated to the parent `System` resource with local ID `sysId`.
 
 part:: The `samplingFeatures` association in the parent `System` resource representation SHALL be implemented as a link to this {sf-resources-endpoint}.
 
