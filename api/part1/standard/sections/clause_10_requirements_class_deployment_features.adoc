@@ -103,6 +103,22 @@ The CS API Standard requires that a canonical `Deployment` resources endpoint, e
 
 include::../requirements/deployment/req_canonical_endpoint.adoc[]
 
+==== Nested Deployment Resources Endpoint
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/deployment/ref-from-system
+
+conditions:: 
+  - The server implements the requirements class <<clause-system-features,style=basic%>>
+  - The server provides the `deployments` association as part of `System` resource representations
+
+part:: The `deployments` association in a `System` resource representation SHALL be implemented as a link to a {deployment-resources-endpoint} at path `{api_root}/systems/{sysId}/deployments`.
+
+part:: The endpoint SHALL only expose the `Deployment` resources where the `System` with ID `sysId` was deployed.
+====
+
 
 
 === Deployment Feature Collections
