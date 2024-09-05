@@ -8,5 +8,6 @@ inherit:: /req/api-common
 requirement:: /req/deployment/canonical-url
 requirement:: /req/deployment/resources-endpoint
 requirement:: /req/deployment/canonical-endpoint
+requirement:: /req/deployment/ref-from-system
 requirement:: /req/deployment/collections
 ====

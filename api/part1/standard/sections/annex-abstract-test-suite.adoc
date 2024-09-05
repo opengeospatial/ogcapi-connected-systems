@@ -51,6 +51,11 @@ inherit:: http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/landing-page
 inherit:: http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/collections
 inherit:: http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/simple-query
 classification:: Target Type:Web API
+
+conformance-test:: /conf/api-common/resource-ids
+conformance-test:: /conf/api-common/resource-uids
+conformance-test:: /conf/api-common/resource-uids-types
+conformance-test:: /conf/api-common/datetime
 ====
 
 [abstract_test]
@@ -119,6 +124,13 @@ identifier:: /conf/system
 target:: /req/system
 inherit:: /conf/api-common
 classification:: Target Type:Web API
+
+conformance-test:: /conf/system/location
+conformance-test:: /conf/system/location-time
+conformance-test:: /conf/system/canonical-url
+conformance-test:: /conf/system/resources-endpoint
+conformance-test:: /conf/system/canonical-endpoint
+conformance-test:: /conf/system/collections
 ====
 
 [abstract_test]
@@ -222,6 +234,12 @@ identifier:: /conf/subsystem
 target:: /req/subsystem
 inherit:: /conf/system
 classification:: Target Type:Web API
+
+conformance-test:: /conf/subsystem/collection
+conformance-test:: /conf/subsystem/recursive-param
+conformance-test:: /conf/subsystem/recursive-search-systems
+conformance-test:: /conf/subsystem/recursive-search-subsystems
+conformance-test:: /conf/subsystem/recursive-assoc
 ====
 
 [abstract_test]
@@ -327,6 +345,12 @@ identifier:: /conf/deployment
 target:: /req/deployment
 inherit:: /conf/api-common
 classification:: Target Type:Web API
+
+conformance-test:: /conf/deployment/canonical-url
+conformance-test:: /conf/deployment/resources-endpoint
+conformance-test:: /conf/deployment/canonical-endpoint
+conformance-test:: /conf/deployment/ref-from-system
+conformance-test:: /conf/deployment/collections
 ====
 
 [abstract_test]
@@ -419,6 +443,12 @@ identifier:: /conf/subdeployment
 target:: /req/subdeployment
 inherit:: /conf/deployment
 classification:: Target Type:Web API
+
+conformance-test:: /conf/subdeployment/collection
+conformance-test:: /conf/subdeployment/recursive-param
+conformance-test:: /conf/subdeployment/recursive-search-deployments
+conformance-test:: /conf/subdeployment/recursive-search-subdeployments
+conformance-test:: /conf/subdeployment/recursive-assoc
 ====
 
 [abstract_test]
@@ -534,6 +564,12 @@ identifier:: /conf/procedure
 target:: /req/procedure
 inherit:: /conf/api-common
 classification:: Target Type:Web API
+
+conformance-test:: /conf/procedure/location
+conformance-test:: /conf/procedure/canonical-url
+conformance-test:: /conf/procedure/resources-endpoint
+conformance-test:: /conf/procedure/canonical-endpoint
+conformance-test:: /conf/procedure/collections
 ====
 
 [abstract_test]
@@ -626,6 +662,12 @@ identifier:: /conf/sf
 target:: /req/sf
 inherit:: /conf/system
 classification:: Target Type:Web API
+
+conformance-test:: /conf/sf/canonical-url
+conformance-test:: /conf/sf/resources-endpoint
+conformance-test:: /conf/sf/canonical-endpoint
+conformance-test:: /conf/sf/ref-from-system
+conformance-test:: /conf/sf/collections
 ====
 
 [abstract_test]
@@ -714,6 +756,11 @@ identifier:: /conf/property
 target:: /req/property
 inherit:: /conf/api-common
 classification:: Target Type:Web API
+
+conformance-test:: /conf/property/canonical-url
+conformance-test:: /conf/property/resources-endpoint
+conformance-test:: /conf/property/canonical-endpoint
+conformance-test:: /conf/property/collections
 ====
 
 [abstract_test]
@@ -785,6 +832,32 @@ identifier:: /conf/advanced-filtering
 target:: 	/req/advanced-filtering
 inherit:: /conf/api-common
 classification:: Target Type:Web API
+
+conformance-test:: /conf/advanced-filtering/id-list-schema
+conformance-test:: /conf/advanced-filtering/resource-by-id
+conformance-test:: /conf/advanced-filtering/resource-by-keyword
+conformance-test:: /conf/advanced-filtering/resource-by-property
+conformance-test:: /conf/advanced-filtering/feature-by-geom
+conformance-test:: /conf/advanced-filtering/system-by-parent
+conformance-test:: /conf/advanced-filtering/system-by-procedure
+conformance-test:: /conf/advanced-filtering/system-by-foi
+conformance-test:: /conf/advanced-filtering/system-by-obsprop
+conformance-test:: /conf/advanced-filtering/system-by-controlprop
+conformance-test:: /conf/advanced-filtering/deployment-by-parent
+conformance-test:: /conf/advanced-filtering/deployment-by-system
+conformance-test:: /conf/advanced-filtering/deployment-by-foi
+conformance-test:: /conf/advanced-filtering/deployment-by-obsprop
+conformance-test:: /conf/advanced-filtering/deployment-by-controlprop
+conformance-test:: /conf/advanced-filtering/procedure-by-obsprop
+conformance-test:: /conf/advanced-filtering/procedure-by-controlprop
+conformance-test:: /conf/advanced-filtering/sf-by-foi
+conformance-test:: /conf/advanced-filtering/sf-by-obsprop
+conformance-test:: /conf/advanced-filtering/sf-by-controlprop
+conformance-test:: /conf/advanced-filtering/prop-by-baseprop
+conformance-test:: /conf/advanced-filtering/prop-by-object
+conformance-test:: /conf/advanced-filtering/combined-filters
+conformance-test:: /conf/advanced-filtering/indirect-prop
+conformance-test:: /conf/advanced-filtering/indirect-foi
 ====
 
 [abstract_test]
@@ -1280,6 +1353,19 @@ target:: 	/req/create-replace-delete
 inherit:: /conf/api-common
 inherit:: http://www.opengis.net/spec/ogcapi-4/1.0/conf/create-replace-delete
 classification:: Target Type:Web API
+
+conformance-test:: /conf/create-replace-delete/system
+conformance-test:: /conf/create-replace-delete/system-delete-cascade
+conformance-test:: /conf/create-replace-delete/subsystem
+conformance-test:: /conf/create-replace-delete/deployment
+conformance-test:: /conf/create-replace-delete/subdeployment
+conformance-test:: /conf/create-replace-delete/procedure
+conformance-test:: /conf/create-replace-delete/sampling-feature
+conformance-test:: /conf/create-replace-delete/property
+conformance-test:: /conf/create-replace-delete/create-in-collection
+conformance-test:: /conf/create-replace-delete/replace-in-collection
+conformance-test:: /conf/create-replace-delete/delete-in-collection
+conformance-test:: /conf/create-replace-delete/add-to-collection
 ====
 
 [abstract_test]
@@ -1514,6 +1600,12 @@ target:: 	/req/update
 inherit:: /conf/api-common
 inherit:: http://www.opengis.net/spec/ogcapi-4/1.0/conf/update
 classification:: Target Type:Web API
+
+conformance-test:: /conf/update/system
+conformance-test:: /conf/update/deployment
+conformance-test:: /conf/update/procedure
+conformance-test:: /conf/update/sampling-feature
+conformance-test:: /conf/update/property
 ====
 
 [abstract_test]
@@ -1608,6 +1700,19 @@ target:: 	/req/geojson
 inherit:: /conf/api-common
 inherit:: http://www.opengis.net/spec/ogcapi-1/1.0/conf/geojson
 classification:: Target Type:Web API
+
+conformance-test:: /conf/geojson/mediatype-read
+conformance-test:: /conf/geojson/mediatype-write
+conformance-test:: /conf/geojson/relation-types
+conformance-test:: /conf/geojson/feature-attribute-mapping
+conformance-test:: /conf/geojson/system-schema
+conformance-test:: /conf/geojson/system-mappings
+conformance-test:: /conf/geojson/deployment-schema
+conformance-test:: /conf/geojson/deployment-mappings
+conformance-test:: /conf/geojson/procedure-schema
+conformance-test:: /conf/geojson/procedure-mappings
+conformance-test:: /conf/geojson/sf-schema
+conformance-test:: /conf/geojson/sf-mappings
 ====
 
 [abstract_test]
@@ -1819,6 +1924,22 @@ target:: 	/req/sensorml
 inherit:: /conf/api-common
 indirect-dependency:: http://www.opengis.net/spec/sensorml/2.1/conf/json
 classification:: Target Type:Web API
+
+conformance-test:: /conf/sensorml/mediatype-read
+conformance-test:: /conf/sensorml/mediatype-write
+conformance-test:: /conf/sensorml/relation-types
+conformance-test:: /conf/sensorml/resource-id
+conformance-test:: /conf/sensorml/feature-attribute-mapping
+conformance-test:: /conf/sensorml/system-schema
+conformance-test:: /conf/sensorml/system-sml-class
+conformance-test:: /conf/sensorml/system-mappings
+conformance-test:: /conf/sensorml/deployment-schema
+conformance-test:: /conf/sensorml/deployment-mappings
+conformance-test:: /conf/sensorml/procedure-schema
+conformance-test:: /conf/sensorml/procedure-sml-class
+conformance-test:: /conf/sensorml/procedure-mappings
+conformance-test:: /conf/sensorml/property-schema
+conformance-test:: /conf/sensorml/property-mappings
 ====
 
 [abstract_test]
