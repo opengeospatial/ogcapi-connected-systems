@@ -20,7 +20,7 @@ For even better efficiency, this encoding can be combined with a transport proto
 
 ==== Media Type
 
-NOTE: Implementations should use *`application/vnd.ogc.swe+binary`* as a preliminary media type until the <<OGC-SWECOMMON,SWE Common 3.0>> Standard is stable to avoid confusing future implementations accessing JSON documents from draft versions of the Standard. The media type `{swe-binary-mediatype}` will be registered for SensorML-JSON, if and once this Standard is approved by the OGC Members. This note will be removed before publishing this Standard.
+NOTE: Implementations should use *`application/vnd.ogc.swe+binary`* as a preliminary media type until the <<OGC-SWECOMMON,SWE Common 3.0>> Standard is stable to avoid confusing future implementations accessing JSON documents from draft versions of the Standard. The media type `{swe-binary-mediatype}` will be registered for SWE Common binary encoding, if and once this Standard is approved by the OGC Members. This note will be removed before publishing this Standard.
 
 The media type used when using the SWE Common Text encoding is *`{swe-binary-mediatype}`*.
 

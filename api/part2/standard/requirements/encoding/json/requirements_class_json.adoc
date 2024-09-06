@@ -4,7 +4,8 @@
 type:: class
 identifier:: /req/json
 subject:: Web API
-inherit:: <<OGC-SWECOMMON>>, SWE Common Data Model Encoding Standard, Clause 9: Requirements Class: JSON Implementation
+inherit:: http://www.opengis.net/spec/SWE/3.0/req/json-record-components
+
 requirement:: /req/json/mediatype-read
 requirement:: /req/json/mediatype-write
 requirement:: /req/json/datastream-schema

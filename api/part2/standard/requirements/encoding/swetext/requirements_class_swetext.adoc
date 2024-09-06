@@ -4,7 +4,8 @@
 type:: class
 identifier:: /req/swecommon-text
 subject:: Web API
-inherit:: <<OGC-SWECOMMON>>, SWE Common Data Model Encoding Standard, Clause 10.3: Requirements Class: Text Encoding Rules
+inherit:: http://www.opengis.net/spec/SWE/3.0/req/text-encoding-rules
+
 requirement:: /req/swecommon-text/mediatype-read
 requirement:: /req/swecommon-text/mediatype-write
 requirement:: /req/swecommon-text/obsschema-schema

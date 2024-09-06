@@ -4,7 +4,8 @@
 type:: class
 identifier:: /req/swecommon-json
 subject:: Web API
-inherit:: <<OGC-SWECOMMON>>, SWE Common Data Model Encoding Standard, Clause 10.2: Requirements Class: JSON Encoding Rules
+inherit:: http://www.opengis.net/spec/SWE/3.0/req/json-encoding-rules
+
 requirement:: /req/swecommon-json/mediatype-read
 requirement:: /req/swecommon-json/mediatype-write
 requirement:: /req/swecommon-json/obsschema-schema
