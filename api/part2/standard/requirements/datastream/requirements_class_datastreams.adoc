@@ -4,7 +4,8 @@
 type:: class
 identifier:: /req/datastream
 subject:: Web API
-inherit:: http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/req/api-common
+inherit:: /req/api-common
+
 requirement:: /req/datastream/sf-ref-from-datastream
 requirement:: /req/datastream/foi-ref-from-datastream
 requirement:: /req/datastream/canonical-url

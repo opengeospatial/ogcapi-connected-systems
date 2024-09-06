@@ -28,6 +28,7 @@
 :ogcapi-features-4: <<OGCAPI-Features-4, OGC API - Features - Part 4: Create, Replace, Update and Delete>>
 :ogc-w3c-ssn: <<SOSA-SSN, Semantic Sensor Network Ontology (SOSA/SSN)>>
 //
+:part1-specurl: http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0
 :resources-endpoint: link:file:///home/alex/Projects/OGC/CONNSYS%20SWG/connected-systems/api/part1/standard/23-001r0.html#_endpoint_types[resources endpoint]
 :datastream-resources-endpoint: <<clause-datastream-resources-endpoint,DataStream resources endpoint>>
 :observation-resources-endpoint: <<clause-observation-resources-endpoint,Observation resources endpoint>>

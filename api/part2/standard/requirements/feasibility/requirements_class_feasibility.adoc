@@ -1,0 +1,14 @@
+[requirement,model=ogc]
+====
+[%metadata]
+type:: class
+identifier:: /req/feasibility
+subject:: Web API
+inherit:: /req/controlstream
+
+requirement:: /req/feasibility/canonical-url
+requirement:: /req/feasibility/ref-from-controlstream
+requirement:: /req/feasibility/status-endpoint
+requirement:: /req/feasibility/result-endpoint
+requirement:: /req/feasibility/collections
+====

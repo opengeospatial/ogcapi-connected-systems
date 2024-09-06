@@ -4,7 +4,8 @@
 type:: class
 identifier:: /req/controlstream
 subject:: Web API
-inherit:: http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/req/api-common
+inherit:: /req/api-common
+
 requirement:: /req/controlstream/sf-ref-from-controlstream
 requirement:: /req/controlstream/foi-ref-from-controlstream
 requirement:: /req/controlstream/canonical-url

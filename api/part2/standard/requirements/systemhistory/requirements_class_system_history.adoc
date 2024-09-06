@@ -4,5 +4,7 @@
 type:: class
 identifier:: /req/system-history
 subject:: Web API
-inherit:: http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/req/system-features
+inherit:: /req/api-common
+inherit:: {part1-specurl}/req/system
+
 ====

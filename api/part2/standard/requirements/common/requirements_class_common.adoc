@@ -4,7 +4,8 @@
 type:: class
 identifier:: /req/api-common
 subject:: Web API
-inherit:: http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/req/api-common
+inherit:: {part1-specurl}/req/api-common
+
 requirement:: /req/common/resources
 requirement:: /req/common/resource-collection
 ====

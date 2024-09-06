@@ -4,7 +4,9 @@
 type:: class
 identifier:: /req/advanced-filtering
 subject:: Web API
-inherit:: http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/req/advanced-filtering
+inherit:: /req/api-common
+inherit:: {part1-specurl}/req/advanced-filtering
+
 requirement:: /req/advanced-filtering/datastream-by-phenomenontime
 requirement:: /req/advanced-filtering/datastream-by-resulttime
 requirement:: /req/advanced-filtering/datastream-by-obsprop

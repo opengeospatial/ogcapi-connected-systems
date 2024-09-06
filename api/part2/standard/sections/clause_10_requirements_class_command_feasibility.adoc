@@ -2,6 +2,7 @@
 == Requirements Class "Command Feasibility"
 
 === Overview
+include::../requirements/feasibility/requirements_class_feasibility.adoc[]
 
 The execution of certain commands is sometimes impossible due to internal or external constraints (e.g. conflict with other scheduled commands, conflict with another user that has exclusive control on the system, etc.).
 
@@ -26,7 +27,7 @@ All nested resources available under a regular command resource are also availab
 
 The CS API Standard requires that every `Feasibility` resource has a canonical URL.
 
-include::../requirements/controlstream/feasibility/req_canonical_url.adoc[]
+include::../requirements/feasibility/req_canonical_url.adoc[]
 
 
 
@@ -37,7 +38,7 @@ The set of feasibility requests received for a specific control stream is availa
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/controlstream/feasibility-ref-from-controlstream
+identifier:: /req/feasibility/ref-from-controlstream
 
 part:: The server SHALL implement a <<clause-command-endpoint,Command resources endpoint>> at path `{api_root}/controlstream/{csId}/feasibility` for each available `ControlStream` resource.
 
@@ -73,7 +74,7 @@ The set of status reports associated to a given feasibility request is available
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/controlstream/feasibility-status-endpoint
+identifier:: /req/feasibility/status-endpoint
 
 part:: The server SHALL implement a <<clause-commandstatus-resources-endpoint,Command Status resources endpoint>> at path `{api_root}/feasibility/{feasId}/status` for every `Feasibility` resource.
 
@@ -104,9 +105,17 @@ The set of result items associated to a given feasibility request is available a
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/controlstream/feasibility-result-endpoint
+identifier:: /req/feasibility/result-endpoint
 
 part:: The server SHALL implement a <<clause-commandresult-resources-endpoint,Command Result resources endpoint>> at path `{api_root}/feasibility/{feasId}/result` for every `Feasibility` resource.
 
 part:: The endpoint SHALL only expose the `CommandResult` resources that are related to the `Feasibility` resource with local ID `feasId`.
 ====
+
+
+
+=== Feasibility Collections
+
+Collections of feasibility resources are also supported, but are optional.
+
+include::../requirements/feasibility/req_collections.adoc[]
