@@ -419,7 +419,7 @@ step:::: For other response content types not supported by the testing engine, i
 identifier:: /conf/deployment/ref-from-system
 target:: /req/deployment/ref-from-system
 
-test-purpose:: Validate that `Deployment` resources associated to a `System` are available as a sub-resources.
+test-purpose:: Validate that `Deployment` resources associated to a `System` are available as sub-resources.
 
 test-method::
 step::: Retrieve all `System` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=systems`.
@@ -985,7 +985,7 @@ step::: Validate the response using the steps described in test xref:/conf/syste
 step::: For each `System` resource in the returned collection:
 step:::: Retrieve the system's sampling features by issuing an HTTP GET request at `{systemCanonicalUrl}/samplingFeatures?recursive=true`.
 step:::: For each `Sampling Feature` resource in the returned collection:
-         . Follow the `sampledFeature` links to retrieve the target features, recursively. If a link does not resolve or the link media type is not supported by the testing engine, use the link target as the identifier of the feature.
+         . Follow the `sampleOf` links to retrieve the target features, recursively. If a link does not resolve or the link media type is not supported by the testing engine, use the link target as the identifier of the feature.
 step:::: Verify that at least one of the collected features has one of the identifiers included in `{idList}`.
 step::: Repeat the previous steps with the `foi` parameter set to a list of one or more UIDs of `Feature` resources.
 ====
@@ -1179,7 +1179,7 @@ step::: Issue an HTTP GET request at URL `{api_root}/samplingFeatures?foi={idLis
 See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
 step::: Validate the response using the steps described in test xref:/conf/sampling/resources-endpoint[style=id%].
 step::: For each `Sampling Feature` resource in the returned collection:
-step:::: Follow the `sampledFeature` links to collect the target features, recursively. If a link does not resolve or the link media type is not supported by the testing engine, use the link target as the identifier of the feature.
+step:::: Follow the `sampleOf` links to collect the target features, recursively. If a link does not resolve or the link media type is not supported by the testing engine, use the link target as the identifier of the feature.
 step::: Verify that at least one of the collected features has one of the identifiers included in `{idList}`.
 step::: Repeat the previous steps with the `foi` parameter set to a list of one or more UIDs of `Feature` resources.
 ====
@@ -1378,12 +1378,8 @@ test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operati
 
 test-method::
 step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
-step:::: For the `System` canonical resources endpoint:
-         - Resources endpoint `{api_root}/systems` (for CREATE)
-         - Resource endpoint `{api_root}/systems/{id}` (for REPLACE and DELETE)
-step:::: For each `System` Feature Collection advertised by the server:
-         - Resources endpoint `{api_root}/collections/{systemCollectionId}/items` (for CREATE)
-         - Resource endpoint `{api_root}/collections/{systemCollectionId}/items/{id}` (for REPLACE and DELETE)
+step:::: At resources endpoint `{api_root}/systems` (for CREATE)
+step:::: At resource endpoint `{api_root}/systems/{id}` (for REPLACE and DELETE)
 ====
 
 [abstract_test]
@@ -1436,12 +1432,8 @@ test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operati
 
 test-method::
 step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
-step:::: For the `Deployment` canonical resources endpoint:
-         - Resources endpoint `{api_root}/deployments` (for CREATE)
-         - Resource endpoint `{api_root}/deployments/{id}` (for REPLACE and DELETE)
-step:::: For each `Deployment` feature collection advertised by the server:
-         - Resources endpoint `{api_root}/collections/{deploymentCollectionId}/items` (for CREATE)
-         - Resource endpoint `{api_root}/collections/{deploymentCollectionId}/items/{id}` (for REPLACE and DELETE)
+step:::: At resources endpoint `{api_root}/deployments` (for CREATE)
+step:::: At resource endpoint `{api_root}/deployments/{id}` (for REPLACE and DELETE)
 ====
 
 [abstract_test]
@@ -1472,12 +1464,8 @@ test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operati
 
 test-method::
 step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
-step:::: For the `Procedure` canonical resources endpoint:
-         - Resources endpoint `{api_root}/procedures` (for CREATE)
-         - Resource endpoint `{api_root}/procedures/{id}` (for REPLACE and DELETE)
-step:::: For each `Procedure` feature collection advertised by the server:
-         - Resources endpoint `{api_root}/collections/{procedureCollectionId}/items` (for CREATE)
-         - Resource endpoint `{api_root}/collections/{procedureCollectionId}/items/{id}` (for REPLACE and DELETE)
+step:::: At resources endpoint `{api_root}/procedures` (for CREATE)
+step:::: At resource endpoint `{api_root}/procedures/{id}` (for REPLACE and DELETE)
 ====
 
 [abstract_test]
@@ -1490,12 +1478,9 @@ test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operati
 
 test-method::
 step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
-step:::: For the `Sampling Feature` canonical resources endpoint:
-         - Resources endpoint `{api_root}/samplingFeatures` (for CREATE)
-         - Resource endpoint `{api_root}/samplingFeatures/{id}` (for REPLACE and DELETE)
-step:::: For each `Sampling Feature` collection advertised by the server:
-         - Resources endpoint `{api_root}/collections/{sfCollectionId}/items` (for CREATE)
-         - Resource endpoint `{api_root}/collections/{sfCollectionId}/items/{id}` (for REPLACE and DELETE)
+step:::: At resources endpoint `{api_root}/systems/{sysId}/samplingFeatures` (for CREATE)
+step:::: At resource endpoint `{api_root}/systems/{sysId}/samplingFeatures/{id}` (for REPLACE and DELETE)
+step:::: At resource endpoint `{api_root}/samplingFeatures/{id}` (for REPLACE and DELETE)
 ====
 
 [abstract_test]
@@ -1508,12 +1493,8 @@ test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operati
 
 test-method::
 step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
-step:::: For the `Property` canonical resources endpoint:
-         - Resources endpoint `{api_root}/properties` (for CREATE)
-         - Resource endpoint `{api_root}/properties/{id}` (for REPLACE and DELETE)
-step:::: For each `Property` resource collection advertised by the server:
-         - Resources endpoint `{api_root}/collections/{propertyCollectionId}/items` (for CREATE)
-         - Resource endpoint `{api_root}/collections/{propertyCollectionId}/items/{id}` (for REPLACE and DELETE)
+step:::: At resources endpoint `{api_root}/properties` (for CREATE)
+step:::: At resource endpoint `{api_root}/properties/{id}` (for REPLACE and DELETE)
 ====
 
 [abstract_test]
