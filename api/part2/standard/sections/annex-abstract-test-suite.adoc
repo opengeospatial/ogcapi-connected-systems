@@ -1,3 +1,2423 @@
+:json-mediatype: application/json
+:geojson-mediatype: application/geo+json
+:swejson-mediatype: application/swe+json
+:swetext-mediatype: application/swe+text
+:swebinary-mediatype: application/swe+binary
+
+
+[[annex_ats]]
 [appendix,obligation=normative]
 == Conformance Class Abstract Test Suite
 
+=== Conformance Class "Common"
+
+[conformance_class]
+====
+[%metadata]
+identifier:: /conf/api-common
+target:: /req/api-common
+inherit:: {part1-specurl}/conf/api-common
+classification:: Target Type:Web API
+
+conformance-test:: /conf/api-common/resources
+conformance-test:: /conf/api-common/resource-collection
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/api-common/resources
+target:: /req/api-common/resources
+
+test-purpose:: No test required for this requirement as it is tested in other classes.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/api-common/resource-collection
+target:: /req/api-common/resource-collection
+
+test-purpose:: Verify that resource collections are implemented like feature collections.
+
+test-method::
+step::: For each resource collection available on the server with the property `itemType` that is NOT set to `feature`:
+step:::: Execute the following tests from {ogcapi-features-1}: +
+         - /conf/core/fc-md-links
+         - /conf/core/fc-md-items
+         - /conf/core/fc-md-items-links
+         - /conf/core/fc-md-extent
+         - /conf/core/sfc-md-op
+         - /conf/core/sfc-md-success
+         - /conf/core/fc-op
+         - /conf/core/fc-limit-definition
+         - /conf/core/fc-limit-response
+         - /conf/core/query-param-invalid
+         - /conf/core/query-param-unknown
+         - /conf/core/fc-links
+         - /conf/core/fc-timeStamp
+         - /conf/core/fc-numberMatched
+         - /conf/core/fc-numberReturned
+         - /conf/core/f-op
+         - /conf/core/f-success
+         - /conf/core/f-links
+====
+
+
+
+=== Conformance Class "Datastreams & Observations"
+
+[conformance_class]
+====
+[%metadata]
+identifier:: /conf/datastream
+target:: /req/datastream
+inherit:: /conf/api-common
+classification:: Target Type:Web API
+
+conformance-test:: /conf/datastream/sf-ref-from-datastream
+conformance-test:: /conf/datastream/foi-ref-from-datastream
+conformance-test:: /conf/datastream/canonical-url
+conformance-test:: /conf/datastream/resources-endpoint
+conformance-test:: /conf/datastream/canonical-endpoint
+conformance-test:: /conf/datastream/ref-from-system
+conformance-test:: /conf/datastream/ref-from-deployment
+conformance-test:: /conf/datastream/collections
+conformance-test:: /conf/datastream/schema-op
+conformance-test:: /conf/datastream/obs-canonical-url
+conformance-test:: /conf/datastream/obs-resources-endpoint
+conformance-test:: /conf/datastream/obs-canonical-endpoint
+conformance-test:: /conf/datastream/obs-ref-from-datastream
+conformance-test:: /conf/datastream/obs-collections
+====
+
+// Datastreams
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/datastream/sf-ref-from-datastream
+target:: /req/datastream/sf-ref-from-datastream
+
+test-purpose:: Validate that `Sampling Features` associated to a given datastream are available as sub-resources.
+
+test-method::
+step::: Retrieve all `DataStream` resources by executing test {part1-specurl}/conf/api-common/canonical-resources with parameter `resource-type=datastreams`.
+step::: For each `DataStream` resource in the response:
+step:::: Validate that the server implements an Sampling Features resources endpoint at path `{api_root}/datastreams/{dsId}/samplingFeatures` using test {part1-specurl}/conf/sf/resources-endpoint, where `dsId` is the local ID of the `DataStream` resource.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/datastream/foi-ref-from-datastream
+target:: /req/datastream/foi-ref-from-datastream
+
+test-purpose:: Validate that `Features of Interest` associated to a given datastream are available as sub-resources.
+
+test-method::
+step::: Retrieve all `DataStream` resources by executing test {part1-spec}/conf/api-common/canonical-resources with parameter `resource-type=datastreams`.
+step::: For each `DataStream` resource in the response:
+step:::: Issue an HTTP GET request at path `{api_root}/datastreams/{dsId}/featuresOfInterest`, where `dsId` is the local ID of the `DataStream` resource.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Iterate through the list of resources in the response, following `next` links as appropriate.
+step:::: If the response content type is `{geojson-mediatype}`, validate the response using the GeoJSON schema.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/datastream/canonical-url
+target:: /req/datastream/canonical-url
+
+test-purpose:: Validate that every `DataStream` resource is accessible via its canonical URL.
+
+test-method:: For every collection advertised by the server with the `itemType` property set to `DataStream`:
+step::: Retrieve the collection items as described in test {part1-specurl}/conf/api-common/collection-items.
+step::: For each item, check that a link with relation type `canonical` is included.
+step::: Dereference this link and validate that a document is returned with a status code 200.
+step::: Check that the returned document has the same content as the resource originally included in the collection items (except for the canonical link).
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/datastream/resources-endpoint
+target:: /req/datastream/resources-endpoint
+
+test-purpose:: Validate that the server implements a `DataStream` resources endpoint correctly. +
+_This is a parameterized test that requires the endpoint URL as a parameter_
+
+test-method:: 
+step::: Issue an HTTP GET request to the endpoint URL.
+step::: Validate that a document was returned with a status code 200.
+step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
+step:::: If the response content type is `{json-mediatype}`, execute test xref:/conf/json/datastream-schema[style=id%].
+step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/datastream/canonical-endpoint
+target:: /req/datastream/canonical-endpoint
+
+test-purpose:: Validate that the server exposes the canonical `DataStream` resources endpoint.
+
+test-method:: Validate that the server implements a {datastream-resources-endpoint} at path `{api_root}/datastreams` using test xref:/conf/datastream/resources-endpoint[style=id%].
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/datastream/ref-from-system
+target:: /req/datastream/ref-from-system
+
+test-purpose:: Validate that `DataStream` resources associated to a `System` are available as sub-resources.
+
+test-method::
+step::: Retrieve all `System` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=systems`.
+step::: For each `System` resource in the response:
+step:::: Validate that the server implements a {datastream-resources-endpoint} at path `{api_root}/systems/{sysId}/datastreams` using test xref:/conf/datastream/datastream-resources-endpoint[style=id%], where `sysId` is the local ID of the `System` resource.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/datastream/ref-from-deployment
+target:: /req/datastream/ref-from-deployment
+
+test-purpose:: Validate that `DataStream` resources associated to a `Deployment` are available as sub-resources.
+
+test-method::
+step::: Retrieve all `Deployment` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=deployments`.
+step::: For each `Deployment` resource in the response:
+step:::: Validate that the server implements a {datastream-resources-endpoint} at path `{api_root}/deployments/{depId}/datastreams` using test xref:/conf/datastream/datastream-resources-endpoint[style=id%], where `depId` is the local ID of the `Deployment` resource.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/datastream/collections
+target:: /req/datastream/collections
+
+test-purpose:: Validate that `DataStream` collections are tagged with the proper item type.
+
+test-method:: For every collection advertised by the server with the `itemType` property set to `DataStream`:
+step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
+step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
+step:::: If the response content type is `{json-mediatype}`, execute test xref:/conf/json/datastream-schema[style=id%].
+step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
+====
+
+// Observation Schema
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/datastream/schema-op
+target:: /req/datastream/schema-op
+
+test-purpose:: Validate that every `DataStream` resource has a schema sub-resource.
+
+test-method::
+step::: Retrieve all `DataStream` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=datastreams`.
+step::: For each `DataStream` resource in the response:
+step:::: Retrieve the list of supported observation formats listed in the `DataStream` resource.
+step:::: For each supported observation format:
+step::::: Issue an HTTP GET request at path `{api_root}/datastreams/{dsId}/schema?obsFormat={format}`, where `dsId` is the local ID of the `DataStream` resource, and `format` is one of the supported formats.
+step::::: Validate that a document was returned with a status code 200.
+====
+
+// Observations
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/datastream/obs-canonical-url
+target:: /req/datastream/obs-canonical-url
+
+test-purpose:: Validate that every `Observation` resource is accessible via its canonical URL.
+
+test-method:: For every collection advertised by the server with the `itemType` property set to `Observation`:
+step::: Retrieve the collection items as described in test {part1-specurl}/conf/api-common/collection-items.
+step::: For each item, check that a link with relation type `canonical` is included.
+step::: Dereference this link and validate that a document is returned with a status code 200.
+step::: Check that the returned document has the same content as the resource originally included in the collection items (except for the canonical link).
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/datastream/obs-resources-endpoint
+target:: /req/datastream/obs-resources-endpoint
+
+test-purpose:: Validate that the server implements a `Observation` resources endpoint correctly. +
+_This is a parameterized test that requires the endpoint URL as a parameter_
+
+test-method:: 
+step::: Issue an HTTP GET request to the endpoint URL.
+step::: Validate that a document was returned with a status code 200.
+step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
+step:::: If the response content type is `{json-mediatype}`, execute test xref:/conf/json/observation-schema[style=id%].
+step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/datastream/obs-canonical-endpoint
+target:: /req/datastream/obs-canonical-endpoint
+
+test-purpose:: Validate that the server exposes the canonical `Observation` resources endpoint.
+
+test-method:: Validate that the server implements an {observation-resources-endpoint} at path `{api_root}/observations` using test xref:/conf/datastream/obs-resources-endpoint[style=id%].
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/datastream/obs-ref-from-datastream
+target:: /req/datastream/obs-ref-from-datastream
+
+test-purpose:: Validate that `Observation` resources associated to a `DataStream` are available as sub-resources.
+
+test-method::
+step::: Retrieve all `DataStream` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=datastreams`.
+step::: For each `DataStream` resource in the response:
+step:::: Validate that the server implements an {observation-resources-endpoint} at path `{api_root}/datastreams/{dsId}/observations` using test xref:/conf/datastream/obs-resources-endpoint[style=id%], where `dsId` is the local ID of the `DataStream` resource.
+====
+
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/datastream/obs-collections
+target:: /req/datastream/obs-collections
+
+test-purpose:: Validate that `Observation` collections are tagged with the proper item type.
+
+test-method:: For every collection advertised by the server with the `itemType` property set to `Observation`:
+step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
+step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
+step:::: If the response content type is `{json-mediatype}`, execute test xref:/conf/json/observation-schema[style=id%].
+step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
+====
+
+
+
+=== Conformance Class "Control Streams & Commands"
+
+[conformance_class]
+====
+[%metadata]
+identifier:: /conf/controlstream
+target:: /req/controlstream
+inherit:: /conf/api-common
+classification:: Target Type:Web API
+
+conformance-test:: /conf/controlstream/sf-ref-from-controlstream
+conformance-test:: /conf/controlstream/foi-ref-from-controlstream
+conformance-test:: /conf/controlstream/canonical-url
+conformance-test:: /conf/controlstream/resources-endpoint
+conformance-test:: /conf/controlstream/canonical-endpoint
+conformance-test:: /conf/controlstream/ref-from-system
+conformance-test:: /conf/controlstream/ref-from-deployment
+conformance-test:: /conf/controlstream/collections
+conformance-test:: /conf/controlstream/schema-op
+conformance-test:: /conf/controlstream/cmd-canonical-url
+conformance-test:: /conf/controlstream/cmd-resources-endpoint
+conformance-test:: /conf/controlstream/cmd-canonical-endpoint
+conformance-test:: /conf/controlstream/cmd-ref-from-controlstream
+conformance-test:: /conf/controlstream/cmd-collections
+conformance-test:: /conf/controlstream/status-resources-endpoint
+conformance-test:: /conf/controlstream/command-status-endpoint
+conformance-test:: /conf/controlstream/result-resources-endpoint
+conformance-test:: /conf/controlstream/command-result-endpoint
+====
+
+// Control Streams
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/controlstream/sf-ref-from-controlstream
+target:: /req/controlstream/sf-ref-from-controlstream
+
+test-purpose:: Validate that `Sampling Features` associated to a given control stream are available as sub-resources.
+
+test-method::
+step::: Retrieve all `ControlStream` resources by executing test {part1-specurl}/conf/api-common/canonical-resources with parameter `resource-type=controlstreams`.
+step::: For each `ControlStream` resource in the response:
+step:::: Validate that the server implements an Sampling Features resources endpoint at path `{api_root}/controlstreams/{dsId}/samplingFeatures` using test {part1-specurl}/conf/sf/resources-endpoint, where `dsId` is the local ID of the `ControlStream` resource.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/controlstream/foi-ref-from-controlstream
+target:: /req/controlstream/foi-ref-from-controlstream
+
+test-purpose:: Validate that `Features of Interest` associated to a given control stream are available as sub-resources.
+
+test-method::
+step::: Retrieve all `controlstream` resources by executing test {part1-spec}/conf/api-common/canonical-resources with parameter `resource-type=controlstreams`.
+step::: For each `ControlStream` resource in the response:
+step:::: Issue an HTTP GET request at path `{api_root}/controlstreams/{dsId}/featuresOfInterest`, where `dsId` is the local ID of the `ControlStream` resource.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Iterate through the list of resources in the response, following `next` links as appropriate.
+step:::: If the response content type is `{geojson-mediatype}`, validate the response using the GeoJSON schema.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/controlstream/canonical-url
+target:: /req/controlstream/canonical-url
+
+test-purpose:: Validate that every `ControlStream` resource is accessible via its canonical URL.
+
+test-method:: For every collection advertised by the server with the `itemType` property set to `ControlStream`:
+step::: Retrieve the collection items as described in test {part1-specurl}/conf/api-common/collection-items.
+step::: For each item, check that a link with relation type `canonical` is included.
+step::: Dereference this link and validate that a document is returned with a status code 200.
+step::: Check that the returned document has the same content as the resource originally included in the collection items (except for the canonical link).
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/controlstream/resources-endpoint
+target:: /req/controlstream/resources-endpoint
+
+test-purpose:: Validate that the server implements a `ControlStream` resources endpoint correctly. +
+_This is a parameterized test that requires the endpoint URL as a parameter_
+
+test-method:: 
+step::: Issue an HTTP GET request to the endpoint URL.
+step::: Validate that a document was returned with a status code 200.
+step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
+step:::: If the response content type is `{json-mediatype}`, execute test xref:/conf/json/controlstream-schema[style=id%].
+step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/controlstream/canonical-endpoint
+target:: /req/controlstream/canonical-endpoint
+
+test-purpose:: Validate that the server exposes the canonical `ControlStream` resources endpoint.
+
+test-method:: Validate that the server implements a {controlstream-resources-endpoint} at path `{api_root}/controlstreams` using test xref:/conf/controlstream/resources-endpoint[style=id%].
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/controlstream/ref-from-system
+target:: /req/controlstream/ref-from-system
+
+test-purpose:: Validate that `ControlStream` resources associated to a `System` are available as sub-resources.
+
+test-method::
+step::: Retrieve all `System` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=systems`.
+step::: For each `System` resource in the response:
+step:::: Validate that the server implements a {controlstream-resources-endpoint} at path `{api_root}/systems/{sysId}/controlstreams` using test xref:/conf/controlstream/controlstream-resources-endpoint[style=id%], where `sysId` is the local ID of the `System` resource.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/controlstream/ref-from-deployment
+target:: /req/controlstream/ref-from-deployment
+
+test-purpose:: Validate that `ControlStream` resources associated to a `Deployment` are available as sub-resources.
+
+test-method::
+step::: Retrieve all `Deployment` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=deployments`.
+step::: For each `Deployment` resource in the response:
+step:::: Validate that the server implements a {controlstream-resources-endpoint} at path `{api_root}/deployments/{depId}/controlstreams` using test xref:/conf/controlstream/controlstream-resources-endpoint[style=id%], where `depId` is the local ID of the `Deployment` resource.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/controlstream/collections
+target:: /req/controlstream/collections
+
+test-purpose:: Validate that `ControlStream` collections are tagged with the proper item type.
+
+test-method:: For every collection advertised by the server with the `itemType` property set to `ControlStream`:
+step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
+step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
+step:::: If the response content type is `{json-mediatype}`, execute test xref:/conf/json/controlstream-schema[style=id%].
+step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
+====
+
+// Command Schema
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/controlstream/schema-op
+target:: /req/controlstream/schema-op
+
+test-purpose:: Validate that every `ControlStream` resource has a schema sub-resource.
+
+test-method::
+step::: Retrieve all `ControlStream` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=controlstreams`.
+step::: For each `ControlStream` resource in the response:
+step:::: Retrieve the list of supported command formats listed in the `ControlStream` resource.
+step:::: For each supported command format:
+step::::: Issue an HTTP GET request at path `{api_root}/controlstreams/{dsId}/schema?cmdFormat={format}`, where `dsId` is the local ID of the `ControlStream` resource, and `format` is one of the supported formats.
+step::::: Validate that a document was returned with a status code 200.
+====
+
+// Commands
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/controlstream/cmd-canonical-url
+target:: /req/controlstream/cmd-canonical-url
+
+test-purpose:: Validate that every `Command` resource is accessible via its canonical URL.
+
+test-method:: For every collection advertised by the server with the `itemType` property set to `Command`:
+step::: Retrieve the collection items as described in test {part1-specurl}/conf/api-common/collection-items.
+step::: For each item, check that a link with relation type `canonical` is included.
+step::: Dereference this link and validate that a document is returned with a status code 200.
+step::: Check that the returned document has the same content as the resource originally included in the collection items (except for the canonical link).
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/controlstream/cmd-resources-endpoint
+target:: /req/controlstream/cmd-resources-endpoint
+
+test-purpose:: Validate that the server implements a `Command` resources endpoint correctly. +
+_This is a parameterized test that requires the endpoint URL as a parameter_
+
+test-method:: 
+step::: Issue an HTTP GET request to the endpoint URL.
+step::: Validate that a document was returned with a status code 200.
+step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
+step:::: If the response content type is `{json-mediatype}`, execute test xref:/conf/json/command-schema[style=id%].
+step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/controlstream/cmd-canonical-endpoint
+target:: /req/controlstream/cmd-canonical-endpoint
+
+test-purpose:: Validate that the server exposes the canonical `Command` resources endpoint.
+
+test-method:: Validate that the server implements a {command-resources-endpoint} at path `{api_root}/commands` using test xref:/conf/controlstream/cmd-resources-endpoint[style=id%].
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/controlstream/cmd-ref-from-controlstream
+target:: /req/controlstream/cmd-ref-from-controlstream
+
+test-purpose:: Validate that `Command` resources associated to a `ControlStream` are available as sub-resources.
+
+test-method::
+step::: Retrieve all `ControlStream` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=controlstreams`.
+step::: For each `ControlStream` resource in the response:
+step:::: Validate that the server implements a {command-resources-endpoint} at path `{api_root}/controlstreams/{dsId}/commands` using test xref:/conf/controlstream/command-resources-endpoint[style=id%], where `dsId` is the local ID of the `ControlStream` resource.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/controlstream/cmd-collections
+target:: /req/controlstream/cmd-collections
+
+test-purpose:: Validate that `Command` collections are tagged with the proper item type.
+
+test-method:: For every collection advertised by the server with the `itemType` property set to `Command`:
+step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
+step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
+step:::: If the response content type is `{json-mediatype}`, execute test xref:/conf/json/command-schema[style=id%].
+step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
+====
+
+// Command Status
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/controlstream/status-resources-endpoint
+target:: /req/controlstream/status-resources-endpoint
+
+test-purpose:: Validate that the server implements a `CommandStatus` resources endpoint correctly. +
+_This is a parameterized test that requires the endpoint URL as a parameter_
+
+test-method:: 
+step::: Issue an HTTP GET request to the endpoint URL.
+step::: Validate that a document was returned with a status code 200.
+step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
+step:::: If the response content type is `{json-mediatype}`, execute test xref:/conf/json/commandstatus-schema[style=id%].
+step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/controlstream/command-status-endpoint
+target:: /req/controlstream/command-status-endpoint
+
+test-purpose:: Validate that every `Command` resource has a status endpoint
+
+test-method::
+step::: Retrieve all `Command` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=commands`.
+step::: For each `Command` resource in the response:
+step:::: Validate that the server implements a {commandstatus-resources-endpoint} at path `{api_root}/commands/{cmdId}/status` using test xref:/conf/controlstream/status-resources-endpoint[style=id%], where `cmdId` is the local ID of the `Command` resource.
+====
+
+// Command Result
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/controlstream/result-resources-endpoint
+target:: /req/controlstream/result-resources-endpoint
+
+test-purpose:: Validate that the server implements a `CommandResult` resources endpoint correctly. +
+_This is a parameterized test that requires the endpoint URL as a parameter_
+
+test-method:: 
+step::: Issue an HTTP GET request to the endpoint URL.
+step::: Validate that a document was returned with a status code 200.
+step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
+step:::: If the response content type is `{json-mediatype}`, execute test xref:/conf/json/commandresult-schema[style=id%].
+step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/controlstream/command-result-endpoint
+target:: /req/controlstream/command-result-endpoint
+
+test-purpose:: Validate that every `Command` resource has a result endpoint
+
+test-method::
+step::: Retrieve all `Command` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=commands`.
+step::: For each `Command` resource in the response:
+step:::: Validate that the server implements a {commandresult-resources-endpoint} at path `{api_root}/commands/{cmdId}/result` using test xref:/conf/controlstream/result-resources-endpoint[style=id%], where `cmdId` is the local ID of the `Command` resource.
+====
+
+=== Conformance Class "Command Feasibility"
+
+[conformance_class]
+====
+[%metadata]
+identifier:: /conf/feasibility
+target:: /req/feasibility
+inherit:: /conf/controlstream
+classification:: Target Type:Web API
+
+conformance-test:: /conf/feasibility/canonical-url
+conformance-test:: /conf/feasibility/ref-from-controlstream
+conformance-test:: /conf/feasibility/status-endpoint
+conformance-test:: /conf/feasibility/result-endpoint
+conformance-test:: /conf/feasibility/collections
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/feasibility/canonical-url
+target:: /req/feasibility/canonical-url
+
+test-purpose:: Validate that every `Command` resource is accessible via its canonical URL.
+
+test-method:: For every collection advertised by the server with the `itemType` property set to `Command`:
+step::: Retrieve the collection items as described in test {part1-specurl}/conf/api-common/collection-items.
+step::: For each item, check that a link with relation type `canonical` is included.
+step::: Dereference this link and validate that a document is returned with a status code 200.
+step::: Check that the returned document has the same content as the resource originally included in the collection items (except for the canonical link).
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/feasibility/ref-from-controlstream
+target:: /req/feasibility/ref-from-controlstream
+
+test-purpose:: Validate that `Command` resources associated to a `ControlStream` are available as sub-resources.
+
+test-method::
+step::: Retrieve all `ControlStream` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=controlstreams`.
+step::: For each `ControlStream` resource in the response:
+step:::: Validate that the server implements a {command-resources-endpoint} at path `{api_root}/controlstreams/{dsId}/commands` using test xref:/conf/controlstream/command-resources-endpoint[style=id%], where `dsId` is the local ID of the `ControlStream` resource.
+====
+
+// Feasibility Status
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/feasibility/status-endpoint
+target:: /req/feasibility/status-endpoint
+
+test-purpose:: Validate that every `Feasibility` resource has a status endpoint
+
+test-method::
+step::: Retrieve all `Feasibility` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=feasibility`.
+step::: For each `Feasibility` resource in the response:
+step:::: Validate that the server implements a {commandstatus-resources-endpoint} at path `{api_root}/feasibility/{cmdId}/status` using test xref:/conf/controlstream/status-resources-endpoint[style=id%], where `cmdId` is the local ID of the `Feasibility` resource.
+====
+
+// Feasibility Result
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/feasibility/result-endpoint
+target:: /req/feasibility/result-endpoint
+
+test-purpose:: Validate that every `Feasibility` resource has a result endpoint
+
+test-method::
+step::: Retrieve all `Feasibility` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=feasibility`.
+step::: For each `Feasibility` resource in the response:
+step:::: Validate that the server implements a {commandresult-resources-endpoint} at path `{api_root}/feasibility/{cmdId}/result` using test xref:/conf/controlstream/result-resources-endpoint[style=id%], where `cmdId` is the local ID of the `Feasibility` resource.
+====
+
+// Feasibility Collections
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/feasibility/collections
+target:: /req/feasibility/collections
+
+test-purpose:: Validate that `Feasibility` collections are tagged with the proper item type.
+
+test-method:: For every collection advertised by the server with the `itemType` property set to `Feasibility`:
+step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
+step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
+step:::: If the response content type is `{json-mediatype}`, execute test xref:/conf/json/command-schema[style=id%].
+step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
+====
+
+
+
+=== Conformance Class "System Events"
+
+[conformance_class]
+====
+[%metadata]
+identifier:: /conf/system-event
+target:: /req/system-event
+inherit:: /conf/api-common
+inherit:: {part1-specurl}/conf/system
+classification:: Target Type:Web API
+
+conformance-test:: /conf/system-event/canonical-url
+conformance-test:: /conf/system-event/resources-endpoint
+conformance-test:: /conf/system-event/canonical-endpoint
+conformance-test:: /conf/system-event/ref-from-system
+conformance-test:: /conf/system-event/collections
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/system-event/canonical-url
+target:: /req/system-event/canonical-url
+
+test-purpose:: Validate that every `ControlStream` resource is accessible via its canonical URL.
+
+test-method:: For every collection advertised by the server with the `itemType` property set to `ControlStream`:
+step::: Retrieve the collection items as described in test {part1-specurl}/conf/api-common/collection-items.
+step::: For each item, check that a link with relation type `canonical` is included.
+step::: Dereference this link and validate that a document is returned with a status code 200.
+step::: Check that the returned document has the same content as the resource originally included in the collection items (except for the canonical link).
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/system-event/resources-endpoint
+target:: /req/system-event/resources-endpoint
+
+test-purpose:: Validate that the server implements a `SystemEvent` resources endpoint correctly. +
+_This is a parameterized test that requires the endpoint URL as a parameter_
+
+test-method:: 
+step::: Issue an HTTP GET request to the endpoint URL.
+step::: Validate that a document was returned with a status code 200.
+step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
+step:::: If the response content type is `{json-mediatype}`, execute test xref:/conf/json/systemevent-schema[style=id%].
+step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/system-event/canonical-endpoint
+target:: /req/system-event/canonical-endpoint
+
+test-purpose:: Validate that the server exposes the canonical `SystemEvent` resources endpoint.
+
+test-method:: Validate that the server implements a {systemevent-resources-endpoint} at path `{api_root}/systemEvents` using test xref:/conf/controlstream/resources-endpoint[style=id%].
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/system-event/ref-from-system
+target:: /req/system-event/ref-from-system
+
+test-purpose:: Validate that `SystemEvent` resources associated to a `System` are available as sub-resources.
+
+test-method::
+step::: Retrieve all `System` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=systems`.
+step::: For each `System` resource in the response:
+step:::: Validate that the server implements a {systemevent-resources-endpoint} at path `{api_root}/systems/{sysId}/systemEvents` using test xref:/conf/controlstream/systemevent-resources-endpoint[style=id%], where `sysId` is the local ID of the `System` resource.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/system-event/collections
+target:: /req/system-event/collections
+
+test-purpose:: Validate that `SystemEvent` collections are tagged with the proper item type.
+
+test-method:: For every collection advertised by the server with the `itemType` property set to `SystemEvent`:
+step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
+step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
+step:::: If the response content type is `{json-mediatype}`, execute test xref:/conf/json/systemevent-schema[style=id%].
+step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
+====
+
+
+
+=== Conformance Class "Advanced Filtering"
+
+[conformance_class]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering
+target:: /req/advanced-filtering
+inherit:: /conf/api-common
+classification:: Target Type:Web API
+
+conformance-test:: /conf/advanced-filtering/datastream-by-phenomenontime
+conformance-test:: /conf/advanced-filtering/datastream-by-resulttime
+conformance-test:: /conf/advanced-filtering/datastream-by-obsprop
+conformance-test:: /conf/advanced-filtering/datastream-by-foi
+conformance-test:: /conf/advanced-filtering/obs-by-phenomenontime
+conformance-test:: /conf/advanced-filtering/obs-by-resulttime
+conformance-test:: /conf/advanced-filtering/obs-by-foi
+conformance-test:: /conf/advanced-filtering/controlstream-by-issuetime
+conformance-test:: /conf/advanced-filtering/controlstream-by-exectime
+conformance-test:: /conf/advanced-filtering/controlstream-by-controlprop
+conformance-test:: /conf/advanced-filtering/controlstream-by-foi
+conformance-test:: /conf/advanced-filtering/cmd-by-issuetime
+conformance-test:: /conf/advanced-filtering/cmd-by-exectime
+conformance-test:: /conf/advanced-filtering/cmd-by-status
+conformance-test:: /conf/advanced-filtering/cmd-by-sender
+conformance-test:: /conf/advanced-filtering/cmd-by-foi
+conformance-test:: /conf/advanced-filtering/status-by-statuscode
+conformance-test:: /conf/advanced-filtering/event-by-type
+====
+
+// DataStreams
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/datastream-by-phenomenontime
+target:: /req/advanced-filtering/datastream-by-phenomenontime
+
+test-purpose:: Validate that the `phenomenonTime` query parameter is processed correctly.
+
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/datastreams?phenomenonTime={datetime}` where `{datetime}` is a time instant or period (see the requirement for the exact syntax of the parameter).
+step::: Validate the response using the steps described in test xref:/conf/datastream/resources-endpoint[style=id%].
+step::: For each `DataStream` resource in the response:
+step:::: Retrieve its `phenomenonTime` property.
+step:::: Verify that the value of the property intersects the time specified in the request.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/datastream-by-resulttime
+target:: /req/advanced-filtering/datastream-by-resulttime
+
+test-purpose:: Validate that the `resultTime` query parameter is processed correctly.
+
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/datastreams?resultTime={datetime}` where `{datetime}` is a time instant or period (see the requirement for the exact syntax of the parameter).
+step::: Validate the response using the steps described in test xref:/conf/datastream/resources-endpoint[style=id%].
+step::: For each `DataStream` resource in the response:
+step:::: Retrieve its `resultTime` property.
+step:::: Verify that the value of the property intersects the time specified in the request.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/datastream-by-obsprop
+target:: /req/advanced-filtering/datastream-by-obsprop
+
+test-purpose:: Validate that the `observedProperty` query parameter is processed correctly.
+
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/datastreams?observedProperty={idList}` where `{idList}` is a list of one or more local IDs of `Property` resources. +
+See test {part1-specurl}/conf/advanced-filtering/id-list-schema
+step::: Validate the response using the steps described in test xref:/conf/datastream/resources-endpoint[style=id%].
+step::: For each `DataStream` resource in the response:
+step:::: Retrieve all observed properties listed in the `DataStream` resource.
+step:::: Verify that at least one of the collected properties has one of the identifiers included in `{idList}`.
+step::: Repeat the previous steps with the `observedProperty` parameter set to a list of one or more URIs identifying observable properties.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/datastream-by-foi
+target:: /req/advanced-filtering/datastream-by-foi
+
+test-purpose:: Validate that the `foi` query parameter is processed correctly.
+
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/datastreams?foi={idList}` where `{idList}` is a list of one or more local IDs of `Sampling Feature` or `Feature` resources. +
+See test {part1-specurl}/conf/advanced-filtering/id-list-schema
+step::: Validate the response using the steps described in test xref:/conf/datastream/resources-endpoint[style=id%].
+step::: For each `DataStream` resource in the response:
+step:::: Retrieve the datastreams's sampling features by issuing an HTTP GET request at `{api_root}/datastreams/{dsId}/samplingFeatures`.
+step:::: For each `Sampling Feature` resource in the returned collection:
+         . Follow the `sampleOf` links to retrieve the target features, recursively. If a link does not resolve or the link media type is not supported by the testing engine, use the link target as the identifier of the feature.
+step:::: Verify that at least one of the collected features has one of the identifiers included in `{idList}`.
+step::: Repeat the previous steps with the `foi` parameter set to a list of one or more UIDs of `Feature` resources.
+====
+
+// Observations
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/obs-by-phenomenontime
+target:: /req/advanced-filtering/obs-by-phenomenontime
+
+test-purpose:: Validate that the `phenomenonTime` query parameter is processed correctly.
+
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/observations?phenomenonTime={datetime}` where `{datetime}` is a time instant or period (see the requirement for the exact syntax of the parameter).
+step::: Validate the response using the steps described in test xref:/conf/datastream/obs-resources-endpoint[style=id%].
+step::: For each `Observation` resource in the response:
+step:::: Retrieve its `phenomenonTime` property.
+step:::: Verify that the value of the property intersects the time specified in the request.
+
+step::: Repeat the steps above for every observation resources endpoint nested under a `DataStream` resource, that is at endpoints `{api_root}/datastreams/{dsId}/observations` where `dsId` is the local ID of a `DataStream` resource.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/obs-by-resulttime
+target:: /req/advanced-filtering/obs-by-resulttime
+
+test-purpose:: Validate that the `resultTime` query parameter is processed correctly.
+
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/observations?resultTime={datetime}` where `{datetime}` is a time instant or period (see the requirement for the exact syntax of the parameter).
+step::: Validate the response using the steps described in test xref:/conf/datastream/obs-resources-endpoint[style=id%].
+step::: For each `Observation` resource in the response:
+step:::: Retrieve its `resultTime` property.
+step:::: Verify that the value of the property intersects the time specified in the request.
+
+step::: Repeat the steps above for every observation resources endpoint nested under a `DataStream` resource, that is at endpoints `{api_root}/datastreams/{dsId}/observations` where `dsId` is the local ID of a `DataStream` resource.
+====
+
+// [abstract_test]
+// ====
+// [%metadata]
+// identifier:: /conf/advanced-filtering/obs-by-obsprop
+// target:: /req/advanced-filtering/obs-by-obsprop
+
+// test-purpose:: Validate that the `observedProperty` query parameter is processed correctly.
+
+// test-method::
+// step::: Issue an HTTP GET request at URL `{api_root}/observations?observedProperty={idList}` where `{idList}` is a list of one or more local IDs of `Property` resources. +
+// See test {part1-specurl}/conf/advanced-filtering/id-list-schema
+// step::: Validate the response using the steps described in test xref:/conf/datastream/obs-resources-endpoint[style=id%].
+// step::: For each `Observation` resource in the response:
+// step:::: Retrieve the parent `DataStream` resource.
+// step:::: Retrieve all observed properties listed in the `DataStream` resource.
+// step:::: Verify that at least one of the collected properties has one of the identifiers included in `{idList}`.
+// step::: Repeat the previous steps with the `observedProperty` parameter set to a list of one or more URIs identifying observable properties.
+// ====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/obs-by-foi
+target:: /req/advanced-filtering/obs-by-foi
+
+test-purpose:: Validate that the `foi` query parameter is processed correctly.
+
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/observations?foi={idList}` where `{idList}` is a list of one or more local IDs of `Sampling Feature` or `Feature` resources. +
+See test {part1-specurl}/conf/advanced-filtering/id-list-schema
+step::: Validate the response using the steps described in test xref:/conf/datastream/obs-resources-endpoint[style=id%].
+step::: For each `Observation` resource in the response:
+step:::: Retrieve its `samplingFeature` property.
+step:::: Follow the `sampleOf` links to retrieve the sampled features, recursively. If a link does not resolve or the link media type is not supported by the testing engine, use the link target as the identifier of the feature.
+step:::: Verify that at least one of the collected features has one of the identifiers included in `{idList}`.
+step::: Repeat the previous steps with the `foi` parameter set to a list of one or more UIDs of `Feature` resources.
+
+step::: Repeat the steps above for every observation resources endpoint nested under a `DataStream` resource, that is at endpoints `{api_root}/datastreams/{dsId}/observations` where `dsId` is the local ID of a `DataStream` resource.
+====
+
+// ControlStreams
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/controlstream-by-issuetime
+target:: /req/advanced-filtering/controlstream-by-issuetime
+
+test-purpose:: Validate that the `issueTime` query parameter is processed correctly.
+
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/controlstreams?issueTime={datetime}` where `{datetime}` is a time instant or period (see the requirement for the exact syntax of the parameter).
+step::: Validate the response using the steps described in test xref:/conf/controlstream/resources-endpoint[style=id%].
+step::: For each `ControlStream` resource in the response:
+step:::: Retrieve its `issueTime` property.
+step:::: Verify that the value of the property intersects the time specified in the request.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/controlstream-by-exectime
+target:: /req/advanced-filtering/controlstream-by-exectime
+
+test-purpose:: Validate that the `executionTime` query parameter is processed correctly.
+
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/controlstreams?executionTime={datetime}` where `{datetime}` is a time instant or period (see the requirement for the exact syntax of the parameter).
+step::: Validate the response using the steps described in test xref:/conf/controlstream/resources-endpoint[style=id%].
+step::: For each `ControlStream` resource in the response:
+step:::: Retrieve its `executionTime` property.
+step:::: Verify that the value of the property intersects the time specified in the request.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/controlstream-by-controlprop
+target:: /req/advanced-filtering/controlstream-by-controlprop
+
+test-purpose:: Validate that the `controlledProperty` query parameter is processed correctly.
+
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/controlstreams?controlledProperty={idList}` where `{idList}` is a list of one or more local IDs of `Property` resources. +
+See test {part1-specurl}/conf/advanced-filtering/id-list-schema
+step::: Validate the response using the steps described in test xref:/conf/controlstream/resources-endpoint[style=id%].
+step::: For each `ControlStream` resource in the response:
+step:::: Retrieve all controlled properties listed in the `ControlStream` resource.
+step:::: Verify that at least one of the collected properties has one of the identifiers included in `{idList}`.
+step::: Repeat the previous steps with the `controlledProperty` parameter set to a list of one or more URIs identifying controllable properties.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/controlstream-by-foi
+target:: /req/advanced-filtering/controlstream-by-foi
+
+test-purpose:: Validate that the `foi` query parameter is processed correctly.
+
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/controlstreams?foi={idList}` where `{idList}` is a list of one or more local IDs of `Sampling Feature` or `Feature` resources. +
+See test {part1-specurl}/conf/advanced-filtering/id-list-schema
+step::: Validate the response using the steps described in test xref:/conf/controlstream/resources-endpoint[style=id%].
+step::: For each `ControlStream` resource in the response:
+step:::: Retrieve the control streams's sampling features by issuing an HTTP GET request at `{api_root}/controlstreams/{dsId}/samplingFeatures`.
+step:::: For each `Sampling Feature` resource in the returned collection:
+         . Follow the `sampleOf` links to retrieve the target features, recursively. If a link does not resolve or the link media type is not supported by the testing engine, use the link target as the identifier of the feature.
+step:::: Verify that at least one of the collected features has one of the identifiers included in `{idList}`.
+step::: Repeat the previous steps with the `foi` parameter set to a list of one or more UIDs of `Feature` resources.
+====
+
+// Commands
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/cmd-by-issuetime
+target:: /req/advanced-filtering/cmd-by-issuetime
+
+test-purpose:: Validate that the `issueTime` query parameter is processed correctly.
+
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/commands?issueTime={datetime}` where `{datetime}` is a time instant or period (see the requirement for the exact syntax of the parameter).
+step::: Validate the response using the steps described in test xref:/conf/controlstream/cmd-resources-endpoint[style=id%].
+step::: For each `Command` resource in the response:
+step:::: Retrieve its `issueTime` property.
+step:::: Verify that the value of the property intersects the time specified in the request.
+
+step::: Repeat the steps above for every command resources endpoint nested under a `ControlStream` resource, that is at endpoints `{api_root}/controlstreams/{dsId}/commands` where `dsId` is the local ID of a `ControlStream` resource.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/cmd-by-exectime
+target:: /req/advanced-filtering/cmd-by-exectime
+
+test-purpose:: Validate that the `executionTime` query parameter is processed correctly.
+
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/commands?executionTime={datetime}` where `{datetime}` is a time instant or period (see the requirement for the exact syntax of the parameter).
+step::: Validate the response using the steps described in test xref:/conf/controlstream/cmd-resources-endpoint[style=id%].
+step::: For each `Command` resource in the response:
+step:::: Retrieve its `executionTime` property.
+step:::: Verify that the value of the property intersects the time specified in the request.
+
+step::: Repeat the steps above for every command resources endpoint nested under a `ControlStream` resource, that is at endpoints `{api_root}/controlstreams/{dsId}/commands` where `dsId` is the local ID of a `ControlStream` resource.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/cmd-by-status
+target:: /req/advanced-filtering/cmd-by-status
+
+test-purpose:: Validate that the `statusCode` query parameter is processed correctly.
+
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/commands?statusCode={idList}` where `{idList}` is a list of one or more status codes (see requirement for the possible values).
+step::: Validate the response using the steps described in test xref:/conf/controlstream/cmd-resources-endpoint[style=id%].
+step::: For each `Command` resource in the response:
+step:::: Retrieve its `currentStatus` property
+step:::: Verify that the value of the property is equal to one of the status codes listed in the request.
+
+step::: Repeat the steps above for every command resources endpoint nested under a `ControlStream` resource, that is at endpoints `{api_root}/controlstreams/{dsId}/commands` where `dsId` is the local ID of a `ControlStream` resource.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/cmd-by-sender
+target:: /req/advanced-filtering/cmd-by-sender
+
+test-purpose:: Validate that the `sender` query parameter is processed correctly.
+
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/commands?sender={idList}` where `{idList}` is a list of one or more sender IDs.
+step::: Validate the response using the steps described in test xref:/conf/controlstream/cmd-resources-endpoint[style=id%].
+step::: For each `Command` resource in the response:
+step:::: Retrieve its `sender` property
+step:::: Verify that the value of the property is equal to one of the IDs listed in the request.
+
+step::: Repeat the steps above for every command resources endpoint nested under a `ControlStream` resource, that is at endpoints `{api_root}/controlstreams/{dsId}/commands` where `dsId` is the local ID of a `ControlStream` resource.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/cmd-by-foi
+target:: /req/advanced-filtering/cmd-by-foi
+
+test-purpose:: Validate that the `foi` query parameter is processed correctly.
+
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/commands?foi={idList}` where `{idList}` is a list of one or more local IDs of `Sampling Feature` or `Feature` resources. +
+See test {part1-specurl}/conf/advanced-filtering/id-list-schema
+step::: Validate the response using the steps described in test xref:/conf/controlstream/cmd-resources-endpoint[style=id%].
+step::: For each `Command` resource in the response:
+step:::: Retrieve its `samplingFeature` property.
+step:::: Follow the `sampleOf` links to retrieve the sampled features, recursively. If a link does not resolve or the link media type is not supported by the testing engine, use the link target as the identifier of the feature.
+step:::: Verify that at least one of the collected features has one of the identifiers included in `{idList}`.
+step::: Repeat the previous steps with the `foi` parameter set to a list of one or more UIDs of `Feature` resources.
+
+step::: Repeat the steps above for every commands resources endpoint nested under a `ControlStream` resource, that is at endpoints `{api_root}/controlstreams/{dsId}/commands` where `dsId` is the local ID of a `ControlStream` resource.
+====
+
+// CommandStatus
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/status-by-statuscode
+target:: /req/advanced-filtering/status-by-statuscode
+
+test-purpose:: Validate that the `statusCode` query parameter is processed correctly.
+
+test-method:: Retrieve all `Command` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=commands`, then for or every `Command` resource:
+step::: Issue an HTTP GET request at URL `{api_root}/commands/{cmdId}/status?statusCode={idList}` where `{idList}` is a list of one or more status codes (see requirement for the possible values).
+step::: Validate the response using the steps described in test xref:/conf/controlstream/status-resources-endpoint[style=id%].
+step::: For each `Command` resource in the response:
+step:::: Retrieve its `currentStatus` property
+step:::: Verify that the value of the property is equal to one of the status codes listed in the request.
+====
+
+// SystemEvents
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/advanced-filtering/event-by-type
+target:: /req/advanced-filtering/event-by-type
+
+test-purpose:: Validate that the `eventType` query parameter is processed correctly.
+
+test-method::
+step::: Issue an HTTP GET request at URL `{api_root}/systemevents?eventType={type}` where `{type}` is a list of one or more event types.
+step::: Validate the response using the steps described in test xref:/conf/system-events/resources-endpoint[style=id%].
+step::: For each `SystemEvent` resource in the response:
+step:::: Retrieve its `type` property
+step:::: Verify that the value of the property is equal to one of the types listed in the request.
+
+step::: Repeat the steps above for every system event resources endpoint nested under a `System` resource, that is at endpoints `{api_root}/systems/{sysId}/events` where `sysId` is the local ID of a `System` resource.
+====
+
+
+
+=== Conformance Class "Create/Replace/Delete"
+
+[conformance_class]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete
+target:: /req/create-replace-delete
+inherit:: http://www.opengis.net/spec/ogcapi-features-4/1.0/conf/create-replace-delete
+classification:: Target Type:Web API
+
+conformance-test:: /conf/create-replace-delete/datastream
+conformance-test:: /conf/create-replace-delete/datastream-update-schema
+conformance-test:: /conf/create-replace-delete/datastream-delete-cascade
+conformance-test:: /conf/create-replace-delete/observation
+conformance-test:: /conf/create-replace-delete/observation-schema
+conformance-test:: /conf/create-replace-delete/controlstream
+conformance-test:: /conf/create-replace-delete/controlstream-update-schema
+conformance-test:: /conf/create-replace-delete/controlstream-delete-cascade
+conformance-test:: /conf/create-replace-delete/command
+conformance-test:: /conf/create-replace-delete/command-schema
+conformance-test:: /conf/create-replace-delete/command-status
+conformance-test:: /conf/create-replace-delete/command-result
+conformance-test:: /conf/create-replace-delete/feasibility
+conformance-test:: /conf/create-replace-delete/feasibility-status
+conformance-test:: /conf/create-replace-delete/feasibility-result
+conformance-test:: /conf/create-replace-delete/system-event
+====
+
+// DataStreams
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/datastream
+target:: /req/create-replace-delete/datastream
+
+test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operations correctly for `DataStream` resources.
+
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
+step:::: At resources endpoint `{api_root}/systems/{sysId}/datastreams` (for CREATE)
+step:::: At resource endpoint `{api_root}/systems/{sysId}/datastreams/{id}` (for REPLACE and DELETE)
+step:::: At resource endpoint `{api_root}/datastreams/{id}` (for REPLACE and DELETE)
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/datastream-update-schema
+target:: /req/create-replace-delete/datastream-update-schema
+
+test-purpose:: Validate that the server rejects `DataStream` REPLACE requests with incompatible schemas.
+
+test-method:: 
+step::: Given a `DataStream` resource with ID `dsId` that has associated observations:
+step:::: Issue an HTTP PUT request at URL `{api_root}/datastreams/{dsId}` with a different observation schema.
+step:::: Verify that the server responds with an error code 409.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/datastream-delete-cascade
+target:: /req/create-replace-delete/datastream-delete-cascade
+
+test-purpose:: Validate that the server implements the `cascade` query parameter correctly.
+
+test-method:: 
+step::: Given a `DataStream` resource with ID `dsId` that has observations:
+step:::: Issue an HTTP DELETE request at URL `{api_root}/datastreams/{dsId}?cascade=false`.
+step:::: Verify that the server responds with an error code 409.
+step:::: Issue an HTTP DELETE request at URL `{api_root}/datastreams/{dsId}?cascade=true`.
+step:::: Verify that the datastream and all its observations have been deleted.
+====
+
+// Observations
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/observation
+target:: /req/create-replace-delete/observation
+
+test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operations correctly for `Observation` resources.
+
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
+step:::: At resources endpoint `{api_root}/datastreams/{dsId}/observations` (for CREATE)
+step:::: At resource endpoint `{api_root}/datastreams/{dsId}/observations/{id}` (for REPLACE and DELETE)
+step:::: At resource endpoint `{api_root}/observations/{id}` (for REPLACE and DELETE)
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/observation-schema
+target:: /req/create-replace-delete/observation-schema
+
+test-purpose:: Validate that the server rejects observations with incompatible schemas.
+
+test-method:: 
+step::: Given a `DataStream` resource with ID `dsId`:
+step:::: Issue an HTTP CREATE request at URL `{api_root}/datastreams/{dsId}/observations` with an observation whose result structure is incompatible with the observation schema registered with the datastream.
+step:::: Verify that the server responds with an error code 400.
+====
+
+// ControlStreams
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/controlstream
+target:: /req/create-replace-delete/controlstream
+
+test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operations correctly for `ControlStream` resources.
+
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
+step:::: At resources endpoint `{api_root}/systems/{sysId}/controlstreams` (for CREATE)
+step:::: At resource endpoint `{api_root}/systems/{sysId}/controlstreams/{id}` (for REPLACE and DELETE)
+step:::: At resource endpoint `{api_root}/controlstreams/{id}` (for REPLACE and DELETE)
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/controlstream-update-schema
+target:: /req/create-replace-delete/controlstream-update-schema
+
+test-purpose:: Validate that the server rejects `ControlStream` REPLACE requests with incompatible schemas.
+
+test-method:: 
+step::: Given a `ControlStream` resource with ID `dsId` that has associated commands:
+step:::: Issue an HTTP PUT request at URL `{api_root}/controlstreams/{dsId}` with a different observation schema.
+step:::: Verify that the server responds with an error code 409.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/controlstream-delete-cascade
+target:: /req/create-replace-delete/controlstream-delete-cascade
+
+test-purpose:: Validate that the server implements the `cascade` query parameter correctly.
+
+test-method:: 
+step::: Given a `ControlStream` resource with ID `dsId` that has commands:
+step:::: Issue an HTTP DELETE request at URL `{api_root}/controlstreams/{dsId}?cascade=false`.
+step:::: Verify that the server responds with an error code 409.
+step:::: Issue an HTTP DELETE request at URL `{api_root}/controlstreams/{dsId}?cascade=true`.
+step:::: Verify that the control stream and all its commands have been deleted.
+====
+
+// Commands
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/command
+target:: /req/create-replace-delete/command
+
+test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operations correctly for `Command` resources.
+
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
+step:::: At resources endpoint `{api_root}/controlstreams/{dsId}/commands` (for CREATE)
+step:::: At resource endpoint `{api_root}/controlstreams/{dsId}/commands/{id}` (for REPLACE and DELETE)
+step:::: At resource endpoint `{api_root}/commands/{id}` (for REPLACE and DELETE)
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/command-schema
+target:: /req/create-replace-delete/command-schema
+
+test-purpose:: Validate that the server rejects commands with incompatible schemas.
+
+test-method:: 
+step::: Given a `ControlStream` resource with ID `dsId`:
+step:::: Issue an HTTP CREATE request at URL `{api_root}/controlstreams/{dsId}/commands` with a command whose result structure is incompatible with the command schema registered with the control stream.
+step:::: Verify that the server responds with an error code 400.
+====
+
+// CommandStatus
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/command-status
+target:: /req/create-replace-delete/command-status
+
+test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operations correctly for `CommandStatus` resources.
+
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
+step:::: At resources endpoint `{api_root}/commands/{cmdId}/status` (for CREATE)
+step:::: At resource endpoint `{api_root}/commands/{cmdId}/status/{id}` (for REPLACE and DELETE)
+====
+
+// CommandResult
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/command-result
+target:: /req/create-replace-delete/command-result
+
+test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operations correctly for `CommandResult` resources.
+
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
+step:::: At resources endpoint `{api_root}/commands/{cmdId}/result` (for CREATE)
+step:::: At resource endpoint `{api_root}/commands/{cmdId}/result/{id}` (for REPLACE and DELETE)
+====
+
+// Feasibility
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/feasibility
+target:: /req/create-replace-delete/feasibility
+
+test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operations correctly for `Feasibility` resources.
+
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
+step:::: At resources endpoint `{api_root}/controlstreams/{dsId}/feasibility` (for CREATE)
+step:::: At resource endpoint `{api_root}/controlstreams/{dsId}/feasibility/{id}` (for REPLACE and DELETE)
+step:::: At resource endpoint `{api_root}/feasibility/{id}` (for REPLACE and DELETE)
+====
+
+// FeasibilityStatus
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/feasibility-status
+target:: /req/create-replace-delete/feasibility-status
+
+test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operations correctly for feasibility status.
+
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
+step:::: At resources endpoint `{api_root}/feasibility/{cmdId}/status` (for CREATE)
+step:::: At resource endpoint `{api_root}/feasibility/{cmdId}/status/{id}` (for REPLACE and DELETE)
+====
+
+// FeasibilityResult
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/feasibility-result
+target:: /req/create-replace-delete/feasibility-result
+
+test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operations correctly for feasibility result.
+
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
+step:::: At resources endpoint `{api_root}/feasibility/{cmdId}/result` (for CREATE)
+step:::: At resource endpoint `{api_root}/feasibility/{cmdId}/result/{id}` (for REPLACE and DELETE)
+====
+
+// SystemEvents
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/system-event
+target:: /req/create-replace-delete/system-event
+
+test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operations correctly for `SystemEvent` resources.
+
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
+step:::: At resources endpoint `{api_root}/systems/{sysId}/events` (for CREATE)
+step:::: At resource endpoint `{api_root}/systems/{sysId}/events/{id}` (for REPLACE and DELETE)
+step:::: At resource endpoint `{api_root}/systemEvents/{id}` (for REPLACE and DELETE)
+====
+
+
+
+=== Conformance Class "Update"
+
+[conformance_class]
+====
+[%metadata]
+identifier:: /conf/update
+target:: /req/update
+inherit:: /conf/create-replace-delete
+inherit:: http://www.opengis.net/spec/ogcapi-features-4/1.0/conf/update
+classification:: Target Type:Web API
+
+conformance-test:: /conf/update/datastream
+conformance-test:: /conf/update/datastream-update-schema
+conformance-test:: /conf/update/observation
+conformance-test:: /conf/update/observation-schema
+conformance-test:: /conf/update/controlstream
+conformance-test:: /conf/update/controlstream-update-schema
+conformance-test:: /conf/update/command
+conformance-test:: /conf/update/command-schema
+conformance-test:: /conf/update/command-status
+conformance-test:: /conf/update/command-result
+conformance-test:: /conf/update/feasibility
+conformance-test:: /conf/update/feasibility-status
+conformance-test:: /conf/update/feasibility-result
+conformance-test:: /conf/update/system-event
+====
+
+// DataStreams
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/update/datastream
+target:: /req/update/datastream
+
+test-purpose:: Validate that the server implements the UPDATE operation correctly for `DataStream` resources.
+
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/update at the following endpoints:
+step:::: At resource endpoint `{api_root}/systems/{sysId}/datastreams/{id}`
+step:::: At resource endpoint `{api_root}/datastreams/{id}`
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/update/datastream-update-schema
+target:: /req/update/datastream-update-schema
+
+test-purpose:: Validate that the server rejects `DataStream` UPDATE requests with incompatible schemas.
+
+test-method:: 
+step::: Given a `DataStream` resource with ID `dsId` that has associated observations:
+step:::: Issue HTTP UPDATE request at URL `{api_root}/datastreams/{dsId}` with a different observation schema.
+step:::: Verify that the server responds with an error code 409.
+====
+
+// Observations
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/update/observation
+target:: /req/update/observation
+
+test-purpose:: Validate that the server implements the UPDATE operation correctly for `Observation` resources.
+
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/update at the following endpoints:
+step:::: At resource endpoint `{api_root}/datastreams/{dsId}/observations/{id}`
+step:::: At resource endpoint `{api_root}/observations/{id}`
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/update/observation-schema
+target:: /req/update/observation-schema
+
+test-purpose:: Validate that the server rejects observations with incompatible schemas.
+
+test-method:: 
+step::: Given a `DataStream` resource with ID `dsId`:
+step:::: Issue an HTTP PATCH request at URL `{api_root}/datastreams/{dsId}/observations/{id}` changing the observation's result to something incompatible with the observation schema registered with the datastream.
+step:::: Verify that the server responds with an error code 400.
+====
+
+// ControlStreams
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/update/controlstream
+target:: /req/update/controlstream
+
+test-purpose:: Validate that the server implements the UPDATE operation correctly for `ControlStream` resources.
+
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/update at the following endpoints:
+step:::: At resource endpoint `{api_root}/systems/{sysId}/controlstreams/{id}`
+step:::: At resource endpoint `{api_root}/controlstreams/{id}`
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/update/controlstream-update-schema
+target:: /req/update/controlstream-update-schema
+
+test-purpose:: Validate that the server rejects `ControlStream` UPDATE requests with incompatible schemas.
+
+test-method:: 
+step::: Given a `ControlStream` resource with ID `dsId` that has associated observations:
+step:::: Issue HTTP UPDATE request at URL `{api_root}/controlstreams/{dsId}` with a different command schema.
+step:::: Verify that the server responds with an error code 409.
+====
+
+// Commands
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/update/command
+target:: /req/update/command
+
+test-purpose:: Validate that the server implements the UPDATE operation correctly for `Command` resources.
+
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/update at the following endpoints:
+step:::: At resource endpoint `{api_root}/controlstreams/{dsId}/commands/{id}`
+step:::: At resource endpoint `{api_root}/commands/{id}`
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/update/command-schema
+target:: /req/update/command-schema
+
+test-purpose:: Validate that the server rejects commands with incompatible schemas.
+
+test-method:: 
+step::: Given a `ControlStream` resource with ID `dsId`:
+step:::: Issue an HTTP PATCH request at URL `{api_root}/controlstreams/{dsId}/commands/{id}` changing the command's parameters to something incompatible with the command schema registered with the control stream.
+step:::: Verify that the server responds with an error code 400.
+====
+
+// CommandStatus
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/update/command-status
+target:: /req/update/command-status
+
+test-purpose:: Validate that the server implements the UPDATE operation correctly for `CommandStatus` resources.
+
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/update at the following endpoints:
+step:::: At resource endpoint `{api_root}/commands/{cmdId}/status/{id}`
+====
+
+// CommandResult
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/update/command-result
+target:: /req/update/command-result
+
+test-purpose:: Validate that the server implements the UPDATE operation correctly for `CommandResult` resources.
+
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/update at the following endpoints:
+step:::: At resource endpoint `{api_root}/commands/{cmdId}/result/{id}`
+====
+
+// Feasibility
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/update/feasibility
+target:: /req/update/feasibility
+
+test-purpose:: Validate that the server implements the UPDATE operation correctly for `Feasibility` resources.
+
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/update at the following endpoints:
+step:::: At resource endpoint `{api_root}/controlstreams/{dsId}/feasibility/{id}`
+step:::: At resource endpoint `{api_root}/feasibility/{id}`
+====
+
+// FeasibilityStatus
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/update/feasibility-status
+target:: /req/update/feasibility-status
+
+test-purpose:: Validate that the server implements the UPDATE operation correctly for feasibility status resources.
+
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/update at the following endpoints:
+step:::: At resource endpoint `{api_root}/feasibility/{cmdId}/status/{id}`
+====
+
+// FeasibilityResult
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/update/feasibility-result
+target:: /req/update/feasibility-result
+
+test-purpose:: Validate that the server implements the UPDATE operation correctly for feasibility result resources.
+
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/update at the following endpoints:
+step:::: At resource endpoint `{api_root}/feasibility/{cmdId}/result/{id}`
+====
+
+// SystemEvents
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/update/system-event
+target:: /req/update/system-event
+
+test-purpose:: Validate that the server implements the UPDATE operation correctly for `SystemEvent` resources.
+
+test-method::
+step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/update at the following endpoints:
+step:::: At resource endpoint `{api_root}/systems/{sysId}/events/{id}`
+step:::: At resource endpoint `{api_root}/systemEvents/{id}`
+====
+
+
+
+=== Conformance Class "JSON Encoding"
+
+[conformance_class]
+====
+[%metadata]
+identifier:: /conf/json
+target:: /req/json
+inherit:: http://www.opengis.net/spec/SWE/3.0/conf/json-record-components
+classification:: Target Type:Web API
+
+conformance-test:: /conf/json/mediatype-read
+conformance-test:: /conf/json/mediatype-write
+conformance-test:: /conf/json/datastream-schema
+conformance-test:: /conf/json/obsschema-schema
+conformance-test:: /conf/json/observation-schema
+conformance-test:: /conf/json/observation-constraints
+conformance-test:: /conf/json/controlstream-schema
+conformance-test:: /conf/json/commandschema-schema
+conformance-test:: /conf/json/command-schema
+conformance-test:: /conf/json/command-constraints
+conformance-test:: /conf/json/commandstatus-schema
+conformance-test:: /conf/json/commandresult-schema
+conformance-test:: /conf/json/commandresult-constraints
+conformance-test:: /conf/json/systemevent-schema
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json/mediatype-read
+target:: /req/json/mediatype-read
+
+test-purpose:: Verify that the server supports the JSON format on retrieval operations.
+
+test-method:: 
+step::: For each supported conformance class: 
+step:::: Request resources from the specified resources endpoint with media type `{json-mediatype}`.
+step:::: Verify that the server responds with HTTP code 200.
+step:::: Verify that the `Content-Type` header of the response is set to `{json-mediatype}`.
+step:::: Verify that the response is properly encoded as JSON.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json/mediatype-write
+target:: /req/json/mediatype-write
+
+test-purpose:: Verify that the server advertises support for the JSON format on transactional operations.
+
+test-method:: 
+step::: For each supported conformance class: 
+step:::: Verify that server advertises support for media type `{json-mediatype}` in the API definition for CREATE or REPLACE operations, for the specified resources endpoint.
+====
+
+// DataStreams
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json/datastream-schema
+target:: /req/json/datastream-schema
+
+test-purpose:: Validate that the JSON representation of `DataStream` resources is valid.
+
+test-method::
+step::: Request a single `DataStream` resource.
+step:::: Issue an HTTP GET request at `{api_root}/datastreams/{id}` with the `Accept` header set to `{json-mediatype}`.
+step:::: Validate that a document was returned with a status code 200. 
+step:::: Validate the document against the schema {json-datastream-schema} using a JSON Schema validator.
+
+step::: Request multiple `DataStream` resources.
+step:::: Issue an HTTP GET request at `{api_root}/datastreams` with the `Accept` header set to `{json-mediatype}`.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Validate the document against the schema {json-datastream-collection-schema} using a JSON Schema validator.
+step:::: Repeat the steps above for nested `DataStream` resources endpoints `{api_root}/systems/{sysId}/datastreams`.
+====
+
+// Observations
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json/obsschema-schema
+target:: /req/json/obsschema-schema
+
+test-purpose:: Validate that the JSON representation of observation schema resources is valid.
+
+test-method:: For every `DataStream` resource:
+step::: Issue an HTTP GET request at `{api_root}/datastreams/{id}/schema?obsFormat={json-mediatype}`.
+step::: Validate the document against the schema {json-observationschema-schema-json} using a JSON Schema validator.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json/observation-schema
+target:: /req/json/observation-schema
+
+test-purpose:: Validate that the JSON representation of `Observation` resources is valid.
+
+test-method::
+step::: Request a single `Observation` resource.
+step:::: Issue an HTTP GET request at `{api_root}/observations/{id}` with the `Accept` header set to `{json-mediatype}`.
+step:::: Validate that a document was returned with a status code 200. 
+step:::: Validate the document against the schema {json-observation-schema} using a JSON Schema validator.
+
+step::: Request multiple `Observation` resources.
+step:::: Issue an HTTP GET request at `{api_root}/observations` with the `Accept` header set to `{json-mediatype}`.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Validate the document against the schema {json-observation-collection-schema} using a JSON Schema validator.
+step:::: For each observation in the response, validate it with test xref:/conf/json/observation-constraints[style=id%]
+step:::: Repeat the steps above for nested `Observation` resources endpoints `{api_root}/datastreams/{dsId}/observations`.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json/observation-constraints
+target:: /req/json/observation-constraints
+
+test-purpose:: Validate that `Observation` result and parameters are encoded properly.
+
+test-method:: 
+step::: Retrieve the schema from the parent `DataStream` resource.
+step::: Validate that the `Observation` result is valid according to the `resultSchema`.
+step::: Validate that the `Observation` parameters, if any, are valid according to the `parametersSchema`.
+====
+
+// ControlStreams
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json/controlstream-schema
+target:: /req/json/controlstream-schema
+
+test-purpose:: Validate that the JSON representation of `ControlStream` resources is valid.
+
+test-method::
+step::: Request a single `ControlStream` resource.
+step:::: Issue an HTTP GET request at `{api_root}/controlstreams/{id}` with the `Accept` header set to `{json-mediatype}`.
+step:::: Validate that a document was returned with a status code 200. 
+step:::: Validate the document against the schema {json-controlstream-schema} using a JSON Schema validator.
+
+step::: Request multiple `ControlStream` resources.
+step:::: Issue an HTTP GET request at `{api_root}/controlstreams` with the `Accept` header set to `{json-mediatype}`.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Validate the document against the schema {json-controlstream-collection-schema} using a JSON Schema validator.
+step:::: Repeat the steps above for nested `ControlStream` resources endpoints `{api_root}/systems/{sysId}/controlstreams`.
+====
+
+// Commands
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json/commandschema-schema
+target:: /req/json/commandschema-schema
+
+test-purpose:: Validate that the JSON representation of command schema resources is valid.
+
+test-method:: For every `ControlStream` resource:
+step::: Issue an HTTP GET request at `{api_root}/controlstreams/{id}/schema?cmdFormat={json-mediatype}`.
+step::: Validate the document against the schema {json-commandschema-schema-json} using a JSON Schema validator.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json/command-schema
+target:: /req/json/command-schema
+
+test-purpose:: Validate that the JSON representation of `Command` resources is valid.
+
+test-method::
+step::: Request a single `Command` resource.
+step:::: Issue an HTTP GET request at `{api_root}/commands/{id}` with the `Accept` header set to `{json-mediatype}`.
+step:::: Validate that a document was returned with a status code 200. 
+step:::: Validate the document against the schema {json-command-schema} using a JSON Schema validator.
+
+step::: Request multiple `Command` resources.
+step:::: Issue an HTTP GET request at `{api_root}/commands` with the `Accept` header set to `{json-mediatype}`.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Validate the document against the schema {json-command-collection-schema} using a JSON Schema validator.
+step:::: Repeat the steps above for nested `Command` resources endpoints `{api_root}/controlstreams/{dsId}/commands`.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json/command-constraints
+target:: /req/json/command-constraints
+
+test-purpose:: Validate that `Command` parameters are encoded properly.
+
+test-method:: 
+step::: Retrieve the schema from the parent `ControlStream` resource.
+step::: Validate that the `Command` parameters are valid according to the `parametersSchema`.
+====
+
+// CommandStatus
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json/commandstatus-schema
+target:: /req/json/commandstatus-schema
+
+test-purpose:: Validate that the JSON representation of `CommandStatus` resources is valid.
+
+test-method::
+step::: Request a single `CommandStatus` resource.
+step:::: Issue an HTTP GET request at `{api_root}/commands/{cmdId}/status/{id}` with the `Accept` header set to `{json-mediatype}`.
+step:::: Validate that a document was returned with a status code 200. 
+step:::: Validate the document against the schema {json-commandstatus-schema} using a JSON Schema validator.
+
+step::: Request multiple `CommandStatus` resources.
+step:::: Issue an HTTP GET request at `{api_root}/commands/{cmdId}/status` with the `Accept` header set to `{json-mediatype}`.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Validate the document against the schema {json-commandstatus-collection-schema} using a JSON Schema validator.
+====
+
+// CommandResult
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json/commandresult-schema
+target:: /req/json/commandresult-schema
+
+test-purpose:: Validate that the JSON representation of `CommandResult` resources is valid.
+
+test-method::
+step::: Request a single `CommandResult` resource.
+step:::: Issue an HTTP GET request at `{api_root}/commands/{cmdId}/result/{id}` with the `Accept` header set to `{json-mediatype}`.
+step:::: Validate that a document was returned with a status code 200. 
+step:::: Validate the document against the schema {json-commandresult-schema} using a JSON Schema validator.
+
+step::: Request multiple `CommandResult` resources.
+step:::: Issue an HTTP GET request at `{api_root}/commands/{cmdId}/result` with the `Accept` header set to `{json-mediatype}`.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Validate the document against the schema {json-commandresult-collection-schema} using a JSON Schema validator.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json/commandresult-constraints
+target:: /req/json/commandresult-constraints
+
+test-purpose:: Validate that `CommandResult` results are encoded properly.
+
+test-method:: 
+step::: Retrieve the schema from the parent `ControlStream` resource.
+step::: Validate that the `CommandResult` `result` field is valid according to the `resultSchema`.
+====
+
+// SystemEvent
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json/systemevent-schema
+target:: /req/json/systemevent-schema
+
+test-purpose:: Validate that the JSON representation of `SystemEvent` resources is valid.
+
+test-method::
+step::: Request a single `SystemEvent` resource.
+step:::: Issue an HTTP GET request at `{api_root}/systemEvents/{id}` with the `Accept` header set to `{json-mediatype}`.
+step:::: Validate that a document was returned with a status code 200. 
+step:::: Validate the document against the schema {json-systemevent-schema} using a JSON Schema validator.
+
+step::: Request multiple `SystemEvent` resources.
+step:::: Issue an HTTP GET request at `{api_root}/systemEvents` with the `Accept` header set to `{json-mediatype}`.
+step:::: Validate that a document was returned with a status code 200.
+step:::: Validate the document against the schema {json-systemevent-collection-schema} using a JSON Schema validator.
+step:::: Repeat the steps above for nested `SystemEvent` resources endpoints `{api_root}/systems/{sysId}/events`.
+====
+
+
+
+=== Conformance Class "SWE Common JSON Encoding"
+
+[conformance_class]
+====
+[%metadata]
+identifier:: /conf/swecommon-json
+target:: /req/swecommon-json
+inherit:: http://www.opengis.net/spec/SWE/3.0/conf/json-encoding-rules
+classification:: Target Type:Web API
+
+conformance-test:: /conf/swecommon-json/mediatype-read
+conformance-test:: /conf/swecommon-json/mediatype-write
+conformance-test:: /conf/swecommon-json/obsschema-schema
+conformance-test:: /conf/swecommon-json/obsschema-mapping
+conformance-test:: /conf/swecommon-json/observation-encoding
+conformance-test:: /conf/swecommon-json/cmdschema-schema
+conformance-test:: /conf/swecommon-json/cmdschema-mapping
+conformance-test:: /conf/swecommon-json/command-encoding
+====
+
+// Media Types
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/swecommon-json/mediatype-read
+target:: /req/swecommon-json/mediatype-read
+
+test-purpose:: Verify that the server supports the SWE Common JSON format on retrieval operations.
+
+test-method::
+step::: For at least one of the `Observation` and/or `Command` resources endpoint:
+step:::: Verify that the server advertises support for media type `{swe-json-mediatype}` in the API definition for retrieval operations.
+step:::: Request resources from the resources endpoint with media type `{swe-json-mediatype}`.
+step:::: Verify that the server responds with HTTP code 200.
+step:::: Verify that the `Content-Type` header of the response is set to `{swe-json-mediatype}`.
+step:::: Verify that the response is properly encoded as JSON.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/swecommon-json/mediatype-write
+target:: /req/swecommon-json/mediatype-write
+
+test-purpose:: Verify that the server advertises support for the SWE Common JSON format on transactional operations.
+
+test-method:: 
+step::: For at least one of the `Observation` and/or `Command` resources endpoint:
+step:::: Verify that the server advertises support for media type `{swe-json-mediatype}` in the API definition for CREATE or REPLACE operations.
+====
+
+// Observations
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/swecommon-json/obsschema-schema
+target:: /req/swecommon-json/obsschema-schema
+
+test-purpose:: Validate that the JSON representation of observation schema resources is valid.
+
+test-method:: For every `DataStream` resource:
+step::: Issue an HTTP GET request at `{api_root}/datastreams/{id}/schema?obsFormat={swe-json-mediatype}`.
+step::: Validate the document against the schema {json-observationschema-schema-swe} using a JSON Schema validator.
+step::: Validate that the SWE Common encoding is set to `JSONEncoding`.
+step::: Validate the schema using test xref:/conf/swecommon-json/obsschema-mapping[style=id%]
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/swecommon-json/obsschema-mapping
+target:: /req/swecommon-json/obsschema-mapping
+
+test-purpose:: Verify that the mandatory fields are present in the schema.
+
+test-method::
+step::: Scan the schema and validate that at least one Time data component is present
+step::: Validate the the definition field of the Time component is one of: +
+        - `http://www.w3.org/ns/sosa/phenomenonTime`
+        - `http://www.opengis.net/def/property/OGC/0/SamplingTime`
+        - `http://www.w3.org/ns/sosa/resultTime`
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/swecommon-json/observation-encoding
+target:: /req/swecommon-json/observation-encoding
+
+test-purpose:: Validate that the JSON representation of `Observation` resources is valid.
+
+test-method::
+step::: For every `DataStream` that advertises support for the `{swe-json-mediatype}` format:
+step:::: Issue an HTTP GET request at `{api_root}/datastreams/{dsId}/observations` with the `Accept` header set to `{swe-json-mediatype}`.
+step:::: Validate that a document was returned with a status code 200. 
+step:::: Validate the response using a SWE Common validator implementing the JSON encoding rules.
+====
+
+// Commands
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/swecommon-json/cmdschema-schema
+target:: /req/swecommon-json/cmdschema-schema
+
+test-purpose:: Validate that the JSON representation of command schema resources is valid.
+
+test-method:: For every `ControlStream` resource:
+step::: Issue an HTTP GET request at `{api_root}/controlstreams/{id}/schema?cmdFormat={swe-json-mediatype}`.
+step::: Validate the document against the schema {json-commandschema-schema-swe} using a JSON Schema validator.
+step::: Validate that the SWE Common encoding is set to `JSONEncoding`.
+step::: Validate the schema using test xref:/conf/swecommon-json/cmdschema-mapping[style=id%]
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/swecommon-json/cmdschema-mapping
+target:: /req/swecommon-json/cmdschema-mapping
+
+test-purpose:: Verify that the mandatory fields are present in the schema.
+
+test-method::
+step::: Scan the schema and validate that at least one Time data component is present
+step::: Validate the the definition field of the Time component is one of: +
+        - `http://www.opengis.net/def/property/OGC/0/IssueTime`
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/swecommon-json/command-encoding
+target:: /req/swecommon-json/command-encoding
+
+test-purpose:: Validate that the JSON representation of `Command` resources is valid.
+
+test-method::
+step::: For every `ControlStream` that advertises support for the `{swe-json-mediatype}` format:
+step:::: Issue an HTTP GET request at `{api_root}/controlstreams/{dsId}/commands` with the `Accept` header set to `{swe-json-mediatype}`.
+step:::: Validate that a document was returned with a status code 200. 
+step:::: Validate the response using a SWE Common validator implementing the JSON encoding rules.
+====
+
+
+
+=== Conformance Class "SWE Common Text Encoding"
+
+[conformance_class]
+====
+[%metadata]
+identifier:: /conf/swecommon-text
+target:: /req/swecommon-text
+inherit:: http://www.opengis.net/spec/SWE/3.0/conf/text-encoding-rules
+classification:: Target Type:Web API
+
+conformance-test:: /conf/swecommon-text/mediatype-read
+conformance-test:: /conf/swecommon-text/mediatype-write
+conformance-test:: /conf/swecommon-text/obsschema-schema
+conformance-test:: /conf/swecommon-text/obsschema-mapping
+conformance-test:: /conf/swecommon-text/observation-encoding
+conformance-test:: /conf/swecommon-text/cmdschema-schema
+conformance-test:: /conf/swecommon-text/cmdschema-mapping
+conformance-test:: /conf/swecommon-text/command-encoding
+====
+
+// Media Types
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/swecommon-text/mediatype-read
+target:: /req/swecommon-text/mediatype-read
+
+test-purpose:: Verify that the server supports the SWE Common Text format on retrieval operations.
+
+test-method::
+step::: For at least one of the `Observation` and/or `Command` resources endpoint:
+step:::: Verify that the server advertises support for media type `{swe-binary-mediatype}` in the API definition for retrieval operations.
+step:::: Request resources from the resources endpoint with media type `{swe-text-mediatype}`.
+step:::: Verify that the server responds with HTTP code 200.
+step:::: Verify that the `Content-Type` header of the response is set to `{swe-text-mediatype}`.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/swecommon-text/mediatype-write
+target:: /req/swecommon-text/mediatype-write
+
+test-purpose:: Verify that the server advertises support for the SWE Common Text format on transactional operations.
+
+test-method:: 
+step::: For at least one of the `Observation` and/or `Command` resources endpoint:
+step:::: Verify that the server advertises support for media type `{swe-text-mediatype}` in the API definition for CREATE or REPLACE operations.
+====
+
+// Observations
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/swecommon-text/obsschema-schema
+target:: /req/swecommon-text/obsschema-schema
+
+test-purpose:: Validate that the JSON representation of observation schema resources is valid.
+
+test-method:: For every `DataStream` resource:
+step::: Issue an HTTP GET request at `{api_root}/datastreams/{id}/schema?obsFormat={swe-text-mediatype}`.
+step::: Validate the document against the schema {json-observationschema-schema-swe} using a JSON Schema validator.
+step::: Validate that the SWE Common encoding is set to `TextEncoding`.
+step::: Validate the schema using test xref:/conf/swecommon-text/obsschema-mapping[style=id%]
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/swecommon-text/obsschema-mapping
+target:: /req/swecommon-text/obsschema-mapping
+
+test-purpose:: Verify that the mandatory fields are present in the schema.
+
+test-method:: Execute test xref:/conf/swecommon-json/obsschema-mapping[style=id%]
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/swecommon-text/observation-encoding
+target:: /req/swecommon-text/observation-encoding
+
+test-purpose:: Validate that the Text (DSV) representation of `Observation` resources is valid.
+
+test-method::
+step::: For every `DataStream` that advertises support for the `{swe-text-mediatype}` format:
+step:::: Issue an HTTP GET request at `{api_root}/datastreams/{dsId}/observations` with the `Accept` header set to `{swe-text-mediatype}`.
+step:::: Validate that a document was returned with a status code 200. 
+step:::: Validate the response using a SWE Common validator implementing the Text encoding rules.
+====
+
+// Commands
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/swecommon-text/cmdschema-schema
+target:: /req/swecommon-text/cmdschema-schema
+
+test-purpose:: Validate that the JSON representation of command schema resources is valid.
+
+test-method:: For every `ControlStream` resource:
+step::: Issue an HTTP GET request at `{api_root}/controlstreams/{id}/schema?cmdFormat={swe-text-mediatype}`.
+step::: Validate the document against the schema {json-commandschema-schema-swe} using a JSON Schema validator.
+step::: Validate that the SWE Common encoding is set to `TextEncoding`.
+step::: Validate the schema using test xref:/conf/swecommon-text/cmdschema-mapping[style=id%]
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/swecommon-text/cmdschema-mapping
+target:: /req/swecommon-text/cmdschema-mapping
+
+test-purpose:: Verify that the mandatory fields are present in the schema.
+
+test-method:: Execute test xref:/conf/swecommon-json/cmdschema-mapping[style=id%]
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/swecommon-text/command-encoding
+target:: /req/swecommon-text/command-encoding
+
+test-purpose:: Validate that the Text (DSV) representation of `Command` resources is valid.
+
+test-method::
+step::: For every `ControlStream` that advertises support for the `{swe-text-mediatype}` format:
+step:::: Issue an HTTP GET request at `{api_root}/controlstreams/{dsId}/commands` with the `Accept` header set to `{swe-text-mediatype}`.
+step:::: Validate that a document was returned with a status code 200. 
+step:::: Validate the response using a SWE Common validator implementing the Text encoding rules.
+====
+
+
+
+=== Conformance Class "SWE Common Binary Encoding"
+
+[conformance_class]
+====
+[%metadata]
+identifier:: /conf/swecommon-binary
+target:: /req/swecommon-binary
+inherit:: http://www.opengis.net/spec/SWE/3.0/conf/binary-encoding-rules
+classification:: Target Type:Web API
+
+conformance-test:: /conf/swecommon-binary/mediatype-read
+conformance-test:: /conf/swecommon-binary/mediatype-write
+conformance-test:: /conf/swecommon-binary/obsschema-schema
+conformance-test:: /conf/swecommon-binary/obsschema-mapping
+conformance-test:: /conf/swecommon-binary/observation-encoding
+conformance-test:: /conf/swecommon-binary/cmdschema-schema
+conformance-test:: /conf/swecommon-binary/cmdschema-mapping
+conformance-test:: /conf/swecommon-binary/command-encoding
+====
+
+// Media Types
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/swecommon-binary/mediatype-read
+target:: /req/swecommon-binary/mediatype-read
+
+test-purpose:: Verify that the server supports the SWE Common Binary format on retrieval operations.
+
+test-method::
+step::: For at least one of the `Observation` and/or `Command` resources endpoint:
+step:::: Verify that the server advertises support for media type `{swe-binary-mediatype}` in the API definition for retrieval operations.
+step:::: Request resources from the resources endpoint with media type `{swe-binary-mediatype}`.
+step:::: Verify that the server responds with HTTP code 200.
+step:::: Verify that the `Content-Type` header of the response is set to `{swe-binary-mediatype}`.
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/swecommon-binary/mediatype-write
+target:: /req/swecommon-binary/mediatype-write
+
+test-purpose:: Verify that the server advertises support for the SWE Common Binary format on transactional operations.
+
+test-method:: 
+step::: For at least one of the `Observation` and/or `Command` resources endpoint:
+step:::: Verify that the server advertises support for media type `{swe-binary-mediatype}` in the API definition for CREATE or REPLACE operations.
+====
+
+// Observations
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/swecommon-binary/obsschema-schema
+target:: /req/swecommon-binary/obsschema-schema
+
+test-purpose:: Validate that the JSON representation of observation schema resources is valid.
+
+test-method:: For every `DataStream` resource:
+step::: Issue an HTTP GET request at `{api_root}/datastreams/{id}/schema?obsFormat={swe-binary-mediatype}`.
+step::: Validate the document against the schema {json-observationschema-schema-swe} using a JSON Schema validator.
+step::: Validate that the SWE Common encoding is set to `BinaryEncoding`.
+step::: Validate the schema using test xref:/conf/swecommon-binary/obsschema-mapping[style=id%]
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/swecommon-binary/obsschema-mapping
+target:: /req/swecommon-binary/obsschema-mapping
+
+test-purpose:: Verify that the mandatory fields are present in the schema.
+
+test-method:: Execute test xref:/conf/swecommon-json/obsschema-mapping[style=id%]
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/swecommon-binary/observation-encoding
+target:: /req/swecommon-binary/observation-encoding
+
+test-purpose:: Validate that the binary representation of `Observation` resources is valid.
+
+test-method::
+step::: For every `DataStream` that advertises support for the `{swe-binary-mediatype}` format:
+step:::: Issue an HTTP GET request at `{api_root}/datastreams/{dsId}/observations` with the `Accept` header set to `{swe-binary-mediatype}`.
+step:::: Validate that a document was returned with a status code 200. 
+step:::: Validate the response using a SWE Common validator implementing the Text encoding rules.
+====
+
+// Commands
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/swecommon-binary/cmdschema-schema
+target:: /req/swecommon-binary/cmdschema-schema
+
+test-purpose:: Validate that the JSON representation of command schema resources is valid.
+
+test-method:: For every `ControlStream` resource:
+step::: Issue an HTTP GET request at `{api_root}/controlstreams/{id}/schema?cmdFormat={swe-binary-mediatype}`.
+step::: Validate the document against the schema {json-commandschema-schema-swe} using a JSON Schema validator.
+step::: Validate that the SWE Common encoding is set to `BinaryEncoding`.
+step::: Validate the schema using test xref:/conf/swecommon-binary/cmdschema-mapping[style=id%]
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/swecommon-binary/cmdschema-mapping
+target:: /req/swecommon-binary/cmdschema-mapping
+
+test-purpose:: Verify that the mandatory fields are present in the schema.
+
+test-method:: Execute test xref:/conf/swecommon-json/cmdschema-mapping[style=id%]
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/swecommon-binary/command-encoding
+target:: /req/swecommon-binary/command-encoding
+
+test-purpose:: Validate that the binary representation of `Command` resources is valid.
+
+test-method::
+step::: For every `ControlStream` that advertises support for the `{swe-binary-mediatype}` format:
+step:::: Issue an HTTP GET request at `{api_root}/controlstreams/{dsId}/commands` with the `Accept` header set to `{swe-binary-mediatype}`.
+step:::: Validate that a document was returned with a status code 200. 
+step:::: Validate the response using a SWE Common validator implementing the Text encoding rules.
+====

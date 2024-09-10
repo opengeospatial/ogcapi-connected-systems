@@ -14,7 +14,7 @@ Resources defined in this Standard are not considered features, but many of the 
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/common/resources
+identifier:: /req/api-common/resources
 
 part:: All references to the term "features" or "feature" in the {ogcapi-features-1} and {ogcapi-features-4} Standards SHALL be replaced by the terms "resources" or "resource" when interpreting requirements for OGC API - Connected Systems - Part 2.
 ====
@@ -28,7 +28,7 @@ Resource collections are exposed in the same way feature collections are in {ogc
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/common/resource-collection
+identifier:: /req/api-common/resource-collection
 
 part:: A resource collection SHALL fulfill all requirements from https://docs.ogc.org/is/17-069r4/17-069r4.html#_collections_[Clauses 7.14, 7.15 and 7.16] of {ogcapi-features-1}, except for clauses 7.15.3 (parameter `bbox`) and 7.15.4 (parameter `datetime`).
 

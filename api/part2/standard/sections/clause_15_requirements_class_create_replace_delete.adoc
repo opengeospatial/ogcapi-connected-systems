@@ -75,7 +75,7 @@ part:: The server SHALL support the CREATE operation at the `Observation` resour
   - `{api_root}/datastreams/{dsId}/observations`
 
 part:: The server SHALL support the REPLACE and DELETE operations at the `Observation` resource endpoints defined by the following URI templates:
-  - `{api_root}/datastreams/{dsId}/observations`
+  - `{api_root}/datastreams/{dsId}/observations/{id}`
   - `{api_root}/observations/{id}`
 
 part:: The `dsId` parameter is the local identifier of the `DataStream` resource the `Observation` is (or will be) associated to. +
@@ -155,7 +155,7 @@ part:: The server SHALL support the CREATE operation at the `Command` resources 
   - `{api_root}/controlstreams/{csId}/commands`
 
 part:: The server SHALL support the REPLACE and DELETE operations at the `Command` resource endpoints defined by the following URI templates:
-  - `{api_root}/controlstreams/{csId}/commands`
+  - `{api_root}/controlstreams/{csId}/commands/{id}`
   - `{api_root}/commands/{id}`
 
 part:: The `csId` parameter is the local identifier of the `ControlStream` resource the `Command` is (or will be) associated to. +

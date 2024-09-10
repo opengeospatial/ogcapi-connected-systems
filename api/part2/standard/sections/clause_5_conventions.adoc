@@ -17,6 +17,8 @@ In this document the following abbreviations and acronyms are used or introduced
 - API: Application Programming Interface
 - CRS:	Coordinate Reference System
 - CSML:	Climate Science Modeling Language
+- CSV: Comma-Separated Values
+- DSV: Delimiter-Separated Values (a generalization of CSV)
 - GPS:	Global Positioning System
 - ISO:	International Organization for Standardization
 - MISB:	Motion Imagery Standards Board

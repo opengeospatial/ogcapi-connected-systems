@@ -142,6 +142,20 @@ part:: In addition to the possible parameter values defined in {ogcapi-features-
 |===
 ====
 
+// ==== Observed Property Filter
+
+// This filter is used to select observations that include specific observable properties.
+
+// [requirement,model=ogc]
+// ====
+// [%metadata]
+// identifier:: /req/advanced-filtering/obs-by-obsprop
+
+// part:: The HTTP GET operation at a {observation-resources-endpoint} SHALL support a parameter `observedProperty` of type {filter-idlist-schema}.
+
+// part:: Only `Observation` resources that contain a result value for an observed property that has one of the requested identifiers SHALL be part of the result set.
+// ====
+
 ==== Feature of Interest Filter
 
 This filter is used to select observations that are associated to specific sampling features or ultimate features of interests.
@@ -265,6 +279,20 @@ part:: The parameter SHALL fulfill the same requirements as the parameter `datet
 
 part:: Only the `executionTime` property of `Command` resources SHALL be used to determine the temporal extent evaluated against the parameter.
 ====
+
+// ==== Controlled Property Filter
+
+// This filter is used to select commands that include specific controllable properties.
+
+// [requirement,model=ogc]
+// ====
+// [%metadata]
+// identifier:: /req/advanced-filtering/cmd-by-controlprop
+
+// part:: The HTTP GET operation at a {command-resources-endpoint} SHALL support a parameter `controlledProperty` of type {filter-idlist-schema}.
+
+// part:: Only `Command` resources that contain a value for a controlled property that has one of the requested identifiers SHALL be part of the result set.
+// ====
 
 ==== Status Filter
 

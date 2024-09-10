@@ -6,6 +6,6 @@ identifier:: /req/api-common
 subject:: Web API
 inherit:: {part1-specurl}/req/api-common
 
-requirement:: /req/common/resources
-requirement:: /req/common/resource-collection
+requirement:: /req/api-common/resources
+requirement:: /req/api-common/resource-collection
 ====
