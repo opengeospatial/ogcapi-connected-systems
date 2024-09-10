@@ -176,9 +176,9 @@ target:: /req/datastream/ref-from-system
 test-purpose:: Validate that `DataStream` resources associated to a `System` are available as sub-resources.
 
 test-method::
-step::: Retrieve all `System` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=systems`.
+step::: Retrieve all `System` resources by executing test {part1-specurl}/conf/api-common/canonical-resources with parameter `resource-type=systems`.
 step::: For each `System` resource in the response:
-step:::: Validate that the server implements a {datastream-resources-endpoint} at path `{api_root}/systems/{sysId}/datastreams` using test xref:/conf/datastream/datastream-resources-endpoint[style=id%], where `sysId` is the local ID of the `System` resource.
+step:::: Validate that the server implements a {datastream-resources-endpoint} at path `{api_root}/systems/{sysId}/datastreams` using test xref:/conf/datastream/resources-endpoint[style=id%], where `sysId` is the local ID of the `System` resource.
 ====
 
 [abstract_test]
@@ -190,9 +190,9 @@ target:: /req/datastream/ref-from-deployment
 test-purpose:: Validate that `DataStream` resources associated to a `Deployment` are available as sub-resources.
 
 test-method::
-step::: Retrieve all `Deployment` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=deployments`.
+step::: Retrieve all `Deployment` resources by executing test {part1-specurl}/conf/api-common/canonical-resources with parameter `resource-type=deployments`.
 step::: For each `Deployment` resource in the response:
-step:::: Validate that the server implements a {datastream-resources-endpoint} at path `{api_root}/deployments/{depId}/datastreams` using test xref:/conf/datastream/datastream-resources-endpoint[style=id%], where `depId` is the local ID of the `Deployment` resource.
+step:::: Validate that the server implements a {datastream-resources-endpoint} at path `{api_root}/deployments/{depId}/datastreams` using test xref:/conf/datastream/resources-endpoint[style=id%], where `depId` is the local ID of the `Deployment` resource.
 ====
 
 [abstract_test]
@@ -204,7 +204,7 @@ target:: /req/datastream/collections
 test-purpose:: Validate that `DataStream` collections are tagged with the proper item type.
 
 test-method:: For every collection advertised by the server with the `itemType` property set to `DataStream`:
-step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
+step::: Retrieve the collection items as described in test {part1-specurl}/conf/api-common/collection-items.
 step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
 step:::: If the response content type is `{json-mediatype}`, execute test xref:/conf/json/datastream-schema[style=id%].
 step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
@@ -221,7 +221,7 @@ target:: /req/datastream/schema-op
 test-purpose:: Validate that every `DataStream` resource has a schema sub-resource.
 
 test-method::
-step::: Retrieve all `DataStream` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=datastreams`.
+step::: Retrieve all `DataStream` resources by executing test {part1-specurl}/conf/api-common/canonical-resources with parameter `resource-type=datastreams`.
 step::: For each `DataStream` resource in the response:
 step:::: Retrieve the list of supported observation formats listed in the `DataStream` resource.
 step:::: For each supported observation format:
@@ -283,7 +283,7 @@ target:: /req/datastream/obs-ref-from-datastream
 test-purpose:: Validate that `Observation` resources associated to a `DataStream` are available as sub-resources.
 
 test-method::
-step::: Retrieve all `DataStream` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=datastreams`.
+step::: Retrieve all `DataStream` resources by executing test {part1-specurl}/conf/api-common/canonical-resources with parameter `resource-type=datastreams`.
 step::: For each `DataStream` resource in the response:
 step:::: Validate that the server implements an {observation-resources-endpoint} at path `{api_root}/datastreams/{dsId}/observations` using test xref:/conf/datastream/obs-resources-endpoint[style=id%], where `dsId` is the local ID of the `DataStream` resource.
 ====
@@ -298,7 +298,7 @@ target:: /req/datastream/obs-collections
 test-purpose:: Validate that `Observation` collections are tagged with the proper item type.
 
 test-method:: For every collection advertised by the server with the `itemType` property set to `Observation`:
-step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
+step::: Retrieve the collection items as described in test {part1-specurl}/conf/api-common/collection-items.
 step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
 step:::: If the response content type is `{json-mediatype}`, execute test xref:/conf/json/observation-schema[style=id%].
 step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
@@ -421,9 +421,9 @@ target:: /req/controlstream/ref-from-system
 test-purpose:: Validate that `ControlStream` resources associated to a `System` are available as sub-resources.
 
 test-method::
-step::: Retrieve all `System` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=systems`.
+step::: Retrieve all `System` resources by executing test {part1-specurl}/conf/api-common/canonical-resources with parameter `resource-type=systems`.
 step::: For each `System` resource in the response:
-step:::: Validate that the server implements a {controlstream-resources-endpoint} at path `{api_root}/systems/{sysId}/controlstreams` using test xref:/conf/controlstream/controlstream-resources-endpoint[style=id%], where `sysId` is the local ID of the `System` resource.
+step:::: Validate that the server implements a {controlstream-resources-endpoint} at path `{api_root}/systems/{sysId}/controlstreams` using test xref:/conf/controlstream/resources-endpoint[style=id%], where `sysId` is the local ID of the `System` resource.
 ====
 
 [abstract_test]
@@ -435,9 +435,9 @@ target:: /req/controlstream/ref-from-deployment
 test-purpose:: Validate that `ControlStream` resources associated to a `Deployment` are available as sub-resources.
 
 test-method::
-step::: Retrieve all `Deployment` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=deployments`.
+step::: Retrieve all `Deployment` resources by executing test {part1-specurl}/conf/api-common/canonical-resources with parameter `resource-type=deployments`.
 step::: For each `Deployment` resource in the response:
-step:::: Validate that the server implements a {controlstream-resources-endpoint} at path `{api_root}/deployments/{depId}/controlstreams` using test xref:/conf/controlstream/controlstream-resources-endpoint[style=id%], where `depId` is the local ID of the `Deployment` resource.
+step:::: Validate that the server implements a {controlstream-resources-endpoint} at path `{api_root}/deployments/{depId}/controlstreams` using test xref:/conf/controlstream/resources-endpoint[style=id%], where `depId` is the local ID of the `Deployment` resource.
 ====
 
 [abstract_test]
@@ -449,7 +449,7 @@ target:: /req/controlstream/collections
 test-purpose:: Validate that `ControlStream` collections are tagged with the proper item type.
 
 test-method:: For every collection advertised by the server with the `itemType` property set to `ControlStream`:
-step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
+step::: Retrieve the collection items as described in test {part1-specurl}/conf/api-common/collection-items.
 step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
 step:::: If the response content type is `{json-mediatype}`, execute test xref:/conf/json/controlstream-schema[style=id%].
 step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
@@ -466,7 +466,7 @@ target:: /req/controlstream/schema-op
 test-purpose:: Validate that every `ControlStream` resource has a schema sub-resource.
 
 test-method::
-step::: Retrieve all `ControlStream` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=controlstreams`.
+step::: Retrieve all `ControlStream` resources by executing test {part1-specurl}/conf/api-common/canonical-resources with parameter `resource-type=controlstreams`.
 step::: For each `ControlStream` resource in the response:
 step:::: Retrieve the list of supported command formats listed in the `ControlStream` resource.
 step:::: For each supported command format:
@@ -528,9 +528,9 @@ target:: /req/controlstream/cmd-ref-from-controlstream
 test-purpose:: Validate that `Command` resources associated to a `ControlStream` are available as sub-resources.
 
 test-method::
-step::: Retrieve all `ControlStream` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=controlstreams`.
+step::: Retrieve all `ControlStream` resources by executing test {part1-specurl}/conf/api-common/canonical-resources with parameter `resource-type=controlstreams`.
 step::: For each `ControlStream` resource in the response:
-step:::: Validate that the server implements a {command-resources-endpoint} at path `{api_root}/controlstreams/{dsId}/commands` using test xref:/conf/controlstream/command-resources-endpoint[style=id%], where `dsId` is the local ID of the `ControlStream` resource.
+step:::: Validate that the server implements a {command-resources-endpoint} at path `{api_root}/controlstreams/{dsId}/commands` using test xref:/conf/controlstream/cmd-resources-endpoint[style=id%], where `dsId` is the local ID of the `ControlStream` resource.
 ====
 
 [abstract_test]
@@ -542,7 +542,7 @@ target:: /req/controlstream/cmd-collections
 test-purpose:: Validate that `Command` collections are tagged with the proper item type.
 
 test-method:: For every collection advertised by the server with the `itemType` property set to `Command`:
-step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
+step::: Retrieve the collection items as described in test {part1-specurl}/conf/api-common/collection-items.
 step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
 step:::: If the response content type is `{json-mediatype}`, execute test xref:/conf/json/command-schema[style=id%].
 step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
@@ -576,7 +576,7 @@ target:: /req/controlstream/command-status-endpoint
 test-purpose:: Validate that every `Command` resource has a status endpoint
 
 test-method::
-step::: Retrieve all `Command` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=commands`.
+step::: Retrieve all `Command` resources by executing test {part1-specurl}/conf/api-common/canonical-resources with parameter `resource-type=commands`.
 step::: For each `Command` resource in the response:
 step:::: Validate that the server implements a {commandstatus-resources-endpoint} at path `{api_root}/commands/{cmdId}/status` using test xref:/conf/controlstream/status-resources-endpoint[style=id%], where `cmdId` is the local ID of the `Command` resource.
 ====
@@ -609,7 +609,7 @@ target:: /req/controlstream/command-result-endpoint
 test-purpose:: Validate that every `Command` resource has a result endpoint
 
 test-method::
-step::: Retrieve all `Command` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=commands`.
+step::: Retrieve all `Command` resources by executing test {part1-specurl}/conf/api-common/canonical-resources with parameter `resource-type=commands`.
 step::: For each `Command` resource in the response:
 step:::: Validate that the server implements a {commandresult-resources-endpoint} at path `{api_root}/commands/{cmdId}/result` using test xref:/conf/controlstream/result-resources-endpoint[style=id%], where `cmdId` is the local ID of the `Command` resource.
 ====
@@ -655,9 +655,9 @@ target:: /req/feasibility/ref-from-controlstream
 test-purpose:: Validate that `Command` resources associated to a `ControlStream` are available as sub-resources.
 
 test-method::
-step::: Retrieve all `ControlStream` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=controlstreams`.
+step::: Retrieve all `ControlStream` resources by executing test {part1-specurl}/conf/api-common/canonical-resources with parameter `resource-type=controlstreams`.
 step::: For each `ControlStream` resource in the response:
-step:::: Validate that the server implements a {command-resources-endpoint} at path `{api_root}/controlstreams/{dsId}/commands` using test xref:/conf/controlstream/command-resources-endpoint[style=id%], where `dsId` is the local ID of the `ControlStream` resource.
+step:::: Validate that the server implements a {command-resources-endpoint} at path `{api_root}/controlstreams/{dsId}/commands` using test xref:/conf/controlstream/cmd-resources-endpoint[style=id%], where `dsId` is the local ID of the `ControlStream` resource.
 ====
 
 // Feasibility Status
@@ -671,7 +671,7 @@ target:: /req/feasibility/status-endpoint
 test-purpose:: Validate that every `Feasibility` resource has a status endpoint
 
 test-method::
-step::: Retrieve all `Feasibility` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=feasibility`.
+step::: Retrieve all `Feasibility` resources by executing test {part1-specurl}/conf/api-common/canonical-resources with parameter `resource-type=feasibility`.
 step::: For each `Feasibility` resource in the response:
 step:::: Validate that the server implements a {commandstatus-resources-endpoint} at path `{api_root}/feasibility/{cmdId}/status` using test xref:/conf/controlstream/status-resources-endpoint[style=id%], where `cmdId` is the local ID of the `Feasibility` resource.
 ====
@@ -687,7 +687,7 @@ target:: /req/feasibility/result-endpoint
 test-purpose:: Validate that every `Feasibility` resource has a result endpoint
 
 test-method::
-step::: Retrieve all `Feasibility` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=feasibility`.
+step::: Retrieve all `Feasibility` resources by executing test {part1-specurl}/conf/api-common/canonical-resources with parameter `resource-type=feasibility`.
 step::: For each `Feasibility` resource in the response:
 step:::: Validate that the server implements a {commandresult-resources-endpoint} at path `{api_root}/feasibility/{cmdId}/result` using test xref:/conf/controlstream/result-resources-endpoint[style=id%], where `cmdId` is the local ID of the `Feasibility` resource.
 ====
@@ -703,7 +703,7 @@ target:: /req/feasibility/collections
 test-purpose:: Validate that `Feasibility` collections are tagged with the proper item type.
 
 test-method:: For every collection advertised by the server with the `itemType` property set to `Feasibility`:
-step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
+step::: Retrieve the collection items as described in test {part1-specurl}/conf/api-common/collection-items.
 step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
 step:::: If the response content type is `{json-mediatype}`, execute test xref:/conf/json/command-schema[style=id%].
 step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
@@ -781,9 +781,9 @@ target:: /req/system-event/ref-from-system
 test-purpose:: Validate that `SystemEvent` resources associated to a `System` are available as sub-resources.
 
 test-method::
-step::: Retrieve all `System` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=systems`.
+step::: Retrieve all `System` resources by executing test {part1-specurl}/conf/api-common/canonical-resources with parameter `resource-type=systems`.
 step::: For each `System` resource in the response:
-step:::: Validate that the server implements a {systemevent-resources-endpoint} at path `{api_root}/systems/{sysId}/systemEvents` using test xref:/conf/controlstream/systemevent-resources-endpoint[style=id%], where `sysId` is the local ID of the `System` resource.
+step:::: Validate that the server implements a {systemevent-resources-endpoint} at path `{api_root}/systems/{sysId}/systemEvents` using test xref:/conf/system-event/resources-endpoint[style=id%], where `sysId` is the local ID of the `System` resource.
 ====
 
 [abstract_test]
@@ -795,7 +795,7 @@ target:: /req/system-event/collections
 test-purpose:: Validate that `SystemEvent` collections are tagged with the proper item type.
 
 test-method:: For every collection advertised by the server with the `itemType` property set to `SystemEvent`:
-step::: Retrieve the collection items as described in test xref:/conf/api-common/collection-items[style=id%].
+step::: Retrieve the collection items as described in test {part1-specurl}/conf/api-common/collection-items.
 step::: Validate that the contents of the returned document conform to the media type reported by the response `Content-Type` header.
 step:::: If the response content type is `{json-mediatype}`, execute test xref:/conf/json/systemevent-schema[style=id%].
 step:::: For other response content types not supported by the testing engine, issue a warning and skip this test.
@@ -1160,7 +1160,7 @@ target:: /req/advanced-filtering/status-by-statuscode
 
 test-purpose:: Validate that the `statusCode` query parameter is processed correctly.
 
-test-method:: Retrieve all `Command` resources by executing test xref:/conf/api-common/canonical-resources[style=id%] with parameter `resource-type=commands`, then for or every `Command` resource:
+test-method:: Retrieve all `Command` resources by executing test {part1-specurl}/conf/api-common/canonical-resources with parameter `resource-type=commands`, then for or every `Command` resource:
 step::: Issue an HTTP GET request at URL `{api_root}/commands/{cmdId}/status?statusCode={idList}` where `{idList}` is a list of one or more status codes (see requirement for the possible values).
 step::: Validate the response using the steps described in test xref:/conf/controlstream/status-resources-endpoint[style=id%].
 step::: For each `Command` resource in the response:
@@ -1180,7 +1180,7 @@ test-purpose:: Validate that the `eventType` query parameter is processed correc
 
 test-method::
 step::: Issue an HTTP GET request at URL `{api_root}/systemevents?eventType={type}` where `{type}` is a list of one or more event types.
-step::: Validate the response using the steps described in test xref:/conf/system-events/resources-endpoint[style=id%].
+step::: Validate the response using the steps described in test xref:/conf/system-event/resources-endpoint[style=id%].
 step::: For each `SystemEvent` resource in the response:
 step:::: Retrieve its `type` property
 step:::: Verify that the value of the property is equal to one of the types listed in the request.
