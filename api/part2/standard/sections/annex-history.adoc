@@ -7,4 +7,5 @@
 | 2023-01-10 | 1.0 draft | Alex Robin | All | Initial draft version
 | 2023-04-21 | 1.0 draft | Alex Robin | All | Migration to Metanorma
 | 2024-06-10 | 1.0 draft | Alex Robin | All | Added missing sections, alignment with Part 1
+| 2024-09-10 | 1.0 draft | Alex Robin | All | Added ATS
 |===

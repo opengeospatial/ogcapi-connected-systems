@@ -1,2 +1,4 @@
 [appendix,obligation=informative]
 == Relationship with other OGC/ISO standards (Informative)
+
+See {ogcapi-cs-1}, Annex C, for a description of relationships with other Standards.
