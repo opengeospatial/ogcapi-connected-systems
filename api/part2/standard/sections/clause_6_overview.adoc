@@ -5,15 +5,21 @@ All resources defined in Part 1 of this Standard are feature resources, among wh
 
 Part 2 of this Standard defines resource types that allow the provision of dynamic data about all kinds of devices, hardware components or processes that can transmit and/or receive data via communication networks (a.k.a. connected systems), including sensors, platforms, robots, human observers, forecast models, computer simulations, etc.
 
-Flows carrying observation and status data coming out of a system are called `Datastreams` while flows carrying commands sent to a system are called `Control Streams` (note that the direction of the flow mentionned here is relative to the real system, which is different from the direction of the data flows going in and out of the API server). 
+Flows carrying observation and status data coming out of a system are called `Datastreams` while flows carrying commands sent to a system are called `Control Streams` (note that the direction of the flow mentioned here is relative to the real system, which is different from the direction of the data flows going in and out of the API server). 
+
 
 
 === Design Considerations
 
-#TODO#
+In this Standard, `Observations` and `Commands` are purposefully not modelled as `Features`. This choice was made to keep a clear separation between the `Features of Interest` that represent concrete or virtual objects (or things) of interest (and in the vast majority of use cases, real-world objects) and the other concepts that are used to encapsulate dynamic data related to these features:
 
-Modeling of Observations not as Feature Resources
-to Keep features separate from the properties and estimate of these properties (obs is an event that captures information about when and how the estimate of hte property was collected) 
+- `Observations` carry the result of the estimation of one or more feature properties, at a given time (and location).
+
+- `Commands` carry the desired value of one or more feature properties, at a given time.
+
+
+Likewise, `DataStreams` and `ControlStreams` are not modelled as features, as they are simply containers for `Observations` and `Commands`, respectively. More specifically, they are particular cases of homogeneous collections that are associated to a single `System` (see <<clause-datastreams;and!clause-controlstreams>>).
+
 
 
 === Resource Types
@@ -32,14 +38,17 @@ The table below provides a short summary description of these resource types:
 .Overview of resource types defined by this Standard
 [width="100%",cols="2,2,6,3",options="header"]
 |====
-| *Resource Type*    | *Requirements Class*      | *Description*          | *Possible Encodings*
-| DataStream         | <<clause-datastreams>>    | Description of datastreams, including observed properties and features of interest.| JSON
-| Observation        | <<clause-datastreams>>    | Actual observations, including the result data. | JSON, SWE-JSON, SWE-Text, SWE-Binary
-| ControlStream      | <<clause-controlstreams>> | Description of control channels, including controllable properties and features of interest. | JSON
-| Command            | <<clause-controlstreams>> | Actual command messages, including the command parameters data. | JSON, SWE-JSON, SWE-Text, SWE-Binary
-| Command Status     | <<clause-controlstreams>> | Status info about a given command. | JSON
-| Command Result     | <<clause-controlstreams>> | Result of a given command. | JSON
-| System Event       | <<clause-system-events>>  | System events (e.g. deployment, maintenance or replacement events). | SML-JSON
+| *Resource Type*    | *Requirements Class*           | *Description*          | *Possible Encodings*
+| DataStream         | <<clause-datastreams>>         | Description of datastreams, including observed properties and features of interest.| JSON
+| Observation        | <<clause-datastreams>>         | Actual observations, including the result data. | JSON, SWE-JSON, SWE-Text, SWE-Binary
+| ControlStream      | <<clause-controlstreams>>      | Description of control channels, including controllable properties and features of interest. | JSON
+| Command            | <<clause-controlstreams>>      | Actual command messages, including the command parameters data. | JSON, SWE-JSON, SWE-Text, SWE-Binary
+| Command Status     | <<clause-controlstreams>>      | Status info about a given command. | JSON
+| Command Result     | <<clause-controlstreams>>      | Result of a given command. | JSON
+| Feasibility        | <<clause-command-feasibility>> | Feasibility requests, including the command parameters data. | JSON, SWE-JSON, SWE-Text, SWE-Binary
+| Feasibility Status | <<clause-command-feasibility>> | Status info about a given feasibility request. | JSON
+| Feasibility Result | <<clause-command-feasibility>> | Result of a given feasibility request. | JSON
+| System Event       | <<clause-system-events>>       | System events (e.g. deployment, maintenance or replacement events). | JSON
 |====
 
 NOTE: The encodings listed in the table are the ones defined in this Standard document but extensions can define additional encodings.
@@ -58,6 +67,7 @@ The canonical resources endpoints for resource types defined in Part 2 of the CS
 - `{api_root}/observations`
 - `{api_root}/controlstreams`
 - `{api_root}/commands`
+- `{api_root}/feasibility`
 - `{api_root}/systemEvents`
 
 ==== Canonical Resource Endpoints
@@ -68,4 +78,5 @@ The canonical URL templates to access a single resource defined in Part 2 of the
 - `{api_root}/observations/{id}`
 - `{api_root}/controlstreams/{id}`
 - `{api_root}/commands/{id}`
+- `{api_root}/feasibility/{id}`
 - `{api_root}/systemEvents/{id}`
