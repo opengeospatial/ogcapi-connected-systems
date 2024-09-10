@@ -5,7 +5,7 @@ include::../requirements/systemevent/requirements_class_system_events.adoc[]
 
 === Overview
 
-`SystemEvent` resources are used to capture information about various events and maintenance operations occuring on (observing) systems such as recalibrations, part replacements, software updates, relocations/deployments, operator handoffs, decommissioning, etc.
+`SystemEvent` resources are used to capture information about various events and maintenance operations occurring on (observing) systems such as recalibrations, part replacements, software updates, relocations/deployments, operator handoffs, decommissioning, etc.
 
 This section predefines a certain number of event types but the list can be extended further by extensions.
 
@@ -38,7 +38,7 @@ The following tables describe the attributes and associations of a `SystemEvent`
 | `name`               | The name of the event. | String | Required
 | `description`        | A human readable description for the event. | String | Optional
 | `type`               | The type of event (see <<system-event-types>>). | URI | Required
-| `eventTime`          | The time the event occured on the system. | TimeExtent | Required
+| `eventTime`          | The time the event occurred on the system. | TimeExtent | Required
 | `message`            | A human readable message from the operator. | String | Optional
 |====
 
