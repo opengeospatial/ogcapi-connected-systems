@@ -81,7 +81,7 @@ target:: /req/api-common/resource-uids
 test-purpose:: Validate that resource UIDs exposed by the server are unique across all collections.
 
 test-method:: For each resource type supported by the server:
-step::: Retrieve resources as described in test xref:/conf/api-common/canonical-items[style=id%].
+step::: Retrieve resources as described in test xref:/conf/api-common/canonical-resources[style=id%].
 step::: Retrieve the unique ID of each resource in the response.
 step::: Compare the UID with all UIDs previously read from any resource and make sure it is unique.
 ====
@@ -95,7 +95,7 @@ target:: /rec/api-common/resource-uids-types
 test-purpose:: Validate that resource UIDs are valid URIs, with a high probability of uniqueness.
 
 test-method:: For each resource type supported by the server:
-step::: Retrieve resources as described in test xref:/conf/api-common/canonical-items[style=id%].
+step::: Retrieve resources as described in test xref:/conf/api-common/canonical-resources[style=id%].
 step::: Retrieve the unique ID of each resource in the response.
 step::: Validate that the unique ID is either a UUID or a URN with a known registered namespace. Issue a warning if not.
 ====
@@ -142,7 +142,7 @@ target:: /rec/system/location
 test-purpose:: Validate that system features include a location.
 
 test-method:: 
-step::: Retrieve `System` resources by running test xref:/conf/api-common/canonical-items[style=id%] with `resource-type=systems`.
+step::: Retrieve `System` resources by running test xref:/conf/api-common/canonical-resources[style=id%] with `resource-type=systems`.
 step::: For each `System` resource in the response that does not have `assetType` set to `Simulation` or `Process`, check that the resource representation contains a location. Issue a warning if not.
 ====
 
@@ -1177,7 +1177,7 @@ test-purpose:: Validate that the `foi` query parameter is processed correctly.
 test-method:: 
 step::: Issue an HTTP GET request at URL `{api_root}/samplingFeatures?foi={idList}` where `{idList}` is a list of one or more local IDs of `Feature` resources. +
 See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
-step::: Validate the response using the steps described in test xref:/conf/sampling/resources-endpoint[style=id%].
+step::: Validate the response using the steps described in test xref:/conf/sf/resources-endpoint[style=id%].
 step::: For each `Sampling Feature` resource in the returned collection:
 step:::: Follow the `sampleOf` links to collect the target features, recursively. If a link does not resolve or the link media type is not supported by the testing engine, use the link target as the identifier of the feature.
 step::: Verify that at least one of the collected features has one of the identifiers included in `{idList}`.
@@ -1195,7 +1195,7 @@ test-purpose:: Validate that the `observedProperty` query parameter is processed
 test-method:: 
 step::: Issue an HTTP GET request at URL `{api_root}/samplingFeatures?observedProperty={idList}` where `{idList}` is a list of one or more local IDs of `Property` resources. +
 See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
-step::: Validate the response using the steps described in test xref:/conf/sampling/resources-endpoint[style=id%].
+step::: Validate the response using the steps described in test xref:/conf/sf/resources-endpoint[style=id%].
 step::: For each `Sampling Feature` resource in the returned collection:
 step:::: Follow the `datastreams` links to get the datastreams containing observations for this sampling feature.
 step:::: Verify that at least one of the datastreams has one or more of the observed properties included in `{idList}`.
@@ -1213,7 +1213,7 @@ test-purpose:: Validate that the `controlledProperty` query parameter is process
 test-method:: 
 step::: Issue an HTTP GET request at URL `{api_root}/samplingFeatures?controlledProperty={idList}` where `{idList}` is a list of one or more local IDs of `Property` resources. +
 See test xref:/conf/advanced-filtering/id-list-schema[style=id%]
-step::: Validate the response using the steps described in test xref:/conf/sampling/resources-endpoint[style=id%].
+step::: Validate the response using the steps described in test xref:/conf/sf/resources-endpoint[style=id%].
 step::: For each `Sampling Feature` resource in the returned collection:
 step:::: Follow the `controlstreams` links to get the control streams with commands  targeting this sampling feature.
 step:::: Verify that at least one of the control streams has one or more of the controlled properties included in `{idList}`.
