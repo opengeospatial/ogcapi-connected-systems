@@ -4,21 +4,24 @@
 
 [#table_implementation,reftext='{table-caption} {counter:table-num}']
 .Service implementations
-[cols=",,",width="75%",options="header",align="center"]
+[cols=",,,,",width="100%",options="header",align="center"]
 |===
-|Implementation | Type | Contact
+| Implementation | Type | Open Source | Status | Contact
 
-| https://opensensorhub.org/[OpenSensorHub]
-| OGC API - Connected Systems
+| https://opensensorhub.org/[OpenSensorHub Server (Java)]
+| OGC API - Connected Systems +
+  Parts 1, 2, 3, 4, 5
+| Yes
+| In progress
 | https://github.com/alexrobin[Alex Robin]
 
-| https://github.com/52North/pygeoapi/tree/feature/connected-systems[pygeoapi extension]
-| OGC API - Connected Systems
+| https://github.com/52North/pygeoapi/tree/feature/connected-systems[pygeoapi extension (Python)]
+| OGC API - Connected Systems +
+  Parts 1, 2, 3, 5
+| Yes
+| In progress
 | https://github.com/autermann[Christian Autermann]
 
-| TBA
-| TBA
-| TBA
 |===
 
 
@@ -26,17 +29,21 @@
 
 [#table_implementation,reftext='{table-caption} {counter:table-num}']
 .Client implementations
-[cols=",,",width="75%",options="header",align="center"]
+[cols=",,,,",width="100%",options="header",align="center"]
 |===
-|Implementation | Type | Contact
+| Implementation | Type | Open Source | Status | Contact
 
+| WebTAK Plugin
 | TBA
-| TBA
-| TBA
+| No
+| In progress
+| https://github.com/nickgaray[Nick Garay]
 
+| ATAK Plugin
 | TBA
 | TBA
-| TBA
+| In progress
+| https://github.com/nickgaray[Nick Garay]
 |===
 
 
@@ -44,16 +51,36 @@
 
 [#table_implementation,reftext='{table-caption} {counter:table-num}']
 .Client implementations
-[cols=",,",width="75%",options="header",align="center"]
+[cols=",,,,",width="100%",options="header",align="center"]
 |===
-|Implementation | Type | Contact
+| Implementation | Type | Open Source | Status | Contact
 
-| https://owslib.readthedocs.io/en/latest/usage.html#ogc-api-connected-systems-part-1-feature-resources-part-2-dynamic-data[OWSLib]
-| OGC API - Connected Systems
+| https://opensensorhub.org/[OpenSensorHub Java Client]
+| OGC API - Connected Systems +
+  Parts 1, 2, 3
+| Yes
+| In progress
+| https://github.com/alexrobin[Alex Robin]
+
+| https://github.com/opensensorhub/osh-js[OpenSensorHub JS Client]
+| OGC API - Connected Systems +
+  Parts 1, 2, 3
+| Yes
+| In progress
+| https://github.com/mdhsl[Mathieu Dhainaut]
+
+| https://owslib.readthedocs.io/en/latest/usage.html#ogc-api-connected-systems-part-1-feature-resources-part-2-dynamic-data[OWSLib (Python)]
+| OGC API - Connected Systems +
+  Parts 1, 2, 3
+| Yes
+| In progress
 | https://github.com/ChainReaction31[Ian Patterson]
 
-| TBA
-| TBA
-| TBA
+| C++ Client Lib
+| OGC API - Connected Systems
+| Yes
+| In progress
+| https://github.com/ChainReaction31[Ian Patterson]
+
 |===
 
