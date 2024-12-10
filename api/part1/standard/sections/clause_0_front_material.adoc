@@ -45,7 +45,7 @@ Security considerations are detailed in <<security_considerations>>.
 
 All questions regarding this submission should be directed to the editor or the submitters:
 
-[%unnumbered,width="100%",cols="3,10",options="header"]
+[%unnumbered,width="100%",options="header"]
 |===
 | *Name* | *Affiliation*
 | Alex Robin (Editor) | GeoRobotix, Inc.
@@ -59,7 +59,7 @@ All questions regarding this submission should be directed to the editor or the 
 
 Additional contributors to this Standard include the following:
 
-[%unnumbered,width="100%",cols="3,10",options="header"]
+[%unnumbered,width="100%",options="header"]
 |===
 | *Name* | *Affiliation*
 | Chris Tucker | GeoRobotix, Inc.

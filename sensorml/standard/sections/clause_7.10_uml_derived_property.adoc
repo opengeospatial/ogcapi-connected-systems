@@ -19,7 +19,7 @@ image::./figures/FIG003-derived-property-class.png[derived-prop-class-diagram, a
 
 [#derived-prop-class-properties,reftext='{table-caption} {counter:table-num}']
 .DerivedProperty Class Properties
-[width="100%",cols="5,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Name*           | *Definition*
 | `identifier`     | Unique identifier of the property.

@@ -62,7 +62,7 @@ If using a URI or CURIE is not practical, the encoding SHALL explicitely define 
 
 [#sf-spatial-types,reftext='{table-caption} {counter:table-num}']
 .Sampling Spatial Feature Types
-[width="100%",cols="5,10,5,5",options="header"]
+[width="100%",options="header"]
 |====
 | *System Type* | *URI* | *CURIE* | *Example Usage*
 | Sampling Point    | http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint   | om:SamplingPoint |Observing station location 
@@ -85,7 +85,7 @@ Support for attributes listed in the following table is required:
 
 [#sf-spatial-attributes,reftext='{table-caption} {counter:table-num}']
 .Common Sampling Feature Attributes
-[width="100%",cols="4,10,3,3",options="header"]
+[width="100%",options="header"]
 |====
 | *Name*    | *Definition* | *Data Type* | *Usage*
 | `shape`   | The location or geometry of the spatial sampling feature. | Geometry | Required
@@ -184,7 +184,7 @@ The attributes of this class are recalled below:
 
 [#sf-specimen-attributes,reftext='{table-caption} {counter:table-num}']
 .Specimen Attributes
-[width="100%",cols="4,10,3,3",options="header"]
+[width="100%",options="header"]
 |====
 | *Name*              | *Definition* | *Data Type* | *Usage*
 | `materialClass`     | Basic classification of the material type of the specimen. +
@@ -240,7 +240,7 @@ The attributes of this class are recalled below:
 
 // [#sf-material-sample-attributes,reftext='{table-caption} {counter:table-num}']
 // .Material Sample Attributes
-// [width="100%",cols="4,10,3,3",options="header"]
+// [width="100%",options="header"]
 // |====
 // | *Name*              | *Definition* | *Data Type* | *Usage*
 // | `size`              | The size describes the physical extent of the sample. It can be length, mass, volume, etc. as appropriate for the MaterialSample instance and its material type. | Measure | Optional
@@ -299,7 +299,7 @@ The attributes of this class are recalled below:
 
 [#sf-material-sample-attributes,reftext='{table-caption} {counter:table-num}']
 .Material Sample Attributes
-[width="100%",cols="4,10,3,3",options="header"]
+[width="100%",options="header"]
 |====
 | *Name*            | *Definition* | *Data Type* | *Usage*
 | `classification`  | The criterion by which the subset was defined. | CodeListValue | Optional
@@ -362,7 +362,7 @@ part:: All attributes marked as `Required` SHALL be present on an instance of th
 
 [#sf-part-attributes,reftext='{table-caption} {counter:table-num}']
 .Feature Part Attributes
-[width="100%",cols="4,10,3,3",options="header"]
+[width="100%",options="header"]
 |====
 | *Name*        | *Definition* | *Data Type* | *Usage*
 | `definition`  | Points to an ontology/dictionary entry that defines the nature of the part. | URI | Optional
@@ -401,7 +401,7 @@ part:: All attributes marked as `Required` SHALL be present on an instance of th
 
 [#sf-parametric-attributes,reftext='{table-caption} {counter:table-num}']
 .Parametric Sampling Feature Attributes
-[width="100%",cols="4,10,3,3",options="header"]
+[width="100%",options="header"]
 |====
 | *Name*  | *Definition* | *Data Type* | *Usage*
 | `pose`  | The pose of the sampling feature, relative to the base reference frame. | Pose | Optional
@@ -529,7 +529,7 @@ part:: All attributes marked as `Required` SHALL be present on an instance of th
 
 [#sf-sphere-attributes,reftext='{table-caption} {counter:table-num}']
 .Sampling Sphere Attributes
-[width="100%",cols="4,10,3,3",options="header"]
+[width="100%",options="header"]
 |====
 | *Name*    | *Definition* | *Data Type* | *Usage*
 | `radius`  | Radius of the sphere in meters. | Number | Required
@@ -590,7 +590,7 @@ part:: All attributes marked as `Required` SHALL be present on an instance of th
 
 [#sf-profile-attributes,reftext='{table-caption} {counter:table-num}']
 .Sampling Profile Attributes
-[width="100%",cols="4,10,3,3",options="header"]
+[width="100%",options="header"]
 |====
 | *Name*          | *Definition* | *Data Type* | *Usage*
 | `pose`          | The position and orientation of the profile, relative to the outer reference frame | GeoPose | Required
@@ -656,7 +656,7 @@ part:: All attributes marked as `Required` SHALL be present on an instance of th
 
 [#sf-frustum-attributes,reftext='{table-caption} {counter:table-num}']
 .Viewing Frustum Attributes
-[width="100%",cols="4,10,3,3",options="header"]
+[width="100%",options="header"]
 |====
 | *Name*          | *Definition* | *Data Type* | *Usage*
 | `pose`          | The position and orientation of the frustum, relative to the outer reference frame. | GeoPose | Required
@@ -731,7 +731,7 @@ part:: All attributes marked as `Required` SHALL be present on an instance of th
 
 [#sf-spherical-sector-attributes,reftext='{table-caption} {counter:table-num}']
 .Spherical Sector Attributes
-[width="100%",cols="4,10,3,3",options="header"]
+[width="100%",options="header"]
 |====
 | *Name*          | *Definition* | *Data Type* | *Usage*
 | `radius`        | Radius of the spherical sector, in meters. | Number | Required

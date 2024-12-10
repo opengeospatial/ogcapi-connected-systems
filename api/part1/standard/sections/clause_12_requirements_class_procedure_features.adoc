@@ -42,7 +42,7 @@ All `Procedure` resource representations provided by encoding requirements class
 
 [#procedure-attributes,reftext='{table-caption} {counter:table-num}']
 .Procedure Attributes
-[width="100%",cols="5,5,17,3,3",options="header"]
+[width="100%",options="header"]
 |====
 | *Name*             | *SOSA/SSN Property* | *Definition* | *Data Type* | *Usage*
 | `uniqueIdentifier` | RDF concept URI | The unique identifier of the procedure in the form of a URI (preferably a URN). This identifier should be persistent and independent of the actual resource URL | URI | Required
@@ -56,7 +56,7 @@ NOTE: The validity time period of a `Procedure` description starts on the date t
 
 [#procedure-assocs,reftext='{table-caption} {counter:table-num}']
 .Procedure Associations
-[width="100%",cols="5,5,10,10,3",options="header"]
+[width="100%",options="header"]
 |====
 | *Name* | *SOSA/SSN Property* | *Definition* | *Target Content* | *Usage*
 | `implementingSystems` | `implementedBy` | The `Systems` that implement the `Procedure`. | A list of `System` resources (inline or by-reference). | Optional
@@ -64,7 +64,7 @@ NOTE: The validity time period of a `Procedure` description starts on the date t
 
 [#procedure-types,reftext='{table-caption} {counter:table-num}']
 .Procedure Types
-[width="100%",cols="5,10,5,5,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Procedure Type*  | *URI* | *CURIE* | *Implemented By* | *Usage*
 | Observing         | http://www.w3.org/ns/sosa/ObservingProcedure  | sosa:ObservingProcedure | Sensor   | An observation method.
