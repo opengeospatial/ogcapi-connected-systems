@@ -1397,11 +1397,20 @@ step:::: Verify that the server responds with an error code 409.
 step:::: Issue an HTTP DELETE request at URL `{api_root}/systems/{sysId}?cascade=true`.
 step:::: Verify that the system and all its sub-resources have been deleted.
 
-step::: Given a `System` resource with ID `sysId` that is referenced by a `Deployed System` resource:
+step::: Given a `System` resource with ID `sysId` that is referenced by a `Deployment` with ID `deploymentId` that has no other linked systems:
 step:::: Issue an HTTP DELETE request at URL `{api_root}/systems/{sysId}?cascade=false`.
 step:::: Verify that the server responds with an error code 409.
 step:::: Issue an HTTP DELETE request at URL `{api_root}/systems/{sysId}?cascade=true`.
+step:::: Verify that the deployment with ID `deploymentId` is deleted
+step:::: Verify that the system with ID `sysId` is deleted
+
+step::: Given a `System` resource with ID `sysId` that is referenced by a `Deployment` with ID `deploymentId` which has links to multiple other systems:
+step:::: Issue an HTTP DELETE request at URL `{api_root}/systems/{sysId}?cascade=false`.
 step:::: Verify that the server responds with an error code 409.
+step:::: Issue an HTTP DELETE request at URL `{api_root}/systems/{sysId}?cascade=true`.
+step:::: Verify that the deployment with ID `deploymentId` is still present
+step:::: Verify that the deployment with ID `deploymentId` does not reference the system with ID `sysId` anymore
+step:::: Verify that the system with ID `sysId` is deleted
 ====
 
 [abstract_test]
@@ -1479,7 +1488,6 @@ test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operati
 test-method::
 step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
 step:::: At resources endpoint `{api_root}/systems/{sysId}/samplingFeatures` (for CREATE)
-step:::: At resource endpoint `{api_root}/systems/{sysId}/samplingFeatures/{id}` (for REPLACE and DELETE)
 step:::: At resource endpoint `{api_root}/samplingFeatures/{id}` (for REPLACE and DELETE)
 ====
 
