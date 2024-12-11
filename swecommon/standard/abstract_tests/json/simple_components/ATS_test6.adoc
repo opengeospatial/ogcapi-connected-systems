@@ -1,9 +1,9 @@
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/json-simple-components/ucum-code-used
+identifier:: /conf/json-simple-components/ucum-code-and-href-represent-same-unit
 
-target:: /req/json-simple-components/ucum-code-used
+target:: /req/json-simple-components/ucum-code-and-href-represent-same-unit
 
-test-method:: If the `uom` attribute is set to a URI of a UCUM code, check that the specified unit cannot be represented by UCUM.
+test-method:: If the `uom/code` property is set to a <<UCUM>> code and the `uom/href` attribute is set to reference an external unit definition, check that both properties represent the same unit.
 ====

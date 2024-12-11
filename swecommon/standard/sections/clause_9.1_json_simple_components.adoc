@@ -157,6 +157,8 @@ The unit of measure is defined using either a URI or a code expressed using the 
 
 include::../requirements/json/simple_components/requirement6.adoc[]
 
+include::../requirements/json/simple_components/requirement7.adoc[]
+
 The following snippets show how “Quantity” components are used to define various (observable or controllable) properties with continuous decimal representations:
 
 [source%unnumbered,json]
@@ -189,7 +191,7 @@ Constraints on a “Time” representation are expressed using the <<json_allowe
 
 The unit of measure is defined using either a URI or a code expressed using the Unified Code for Units of Measure (<<UCUM>>) standard. When the temporal property is provided in the <<ISO8601>> format, this is indicated by using a specific URI.
 
-include::../requirements/json/simple_components/requirement7.adoc[]
+include::../requirements/json/simple_components/requirement8.adoc[]
 
 The following snippets show how “Time” components are used to define various temporal properties, with different time scales:
 
