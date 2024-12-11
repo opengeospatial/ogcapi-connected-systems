@@ -25,3 +25,6 @@ period6:
 latest:
   summary: Latest
   value: 'latest'
+earliest:
+  summary: Earliest
+  value: 'earliest'

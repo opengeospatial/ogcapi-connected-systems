@@ -4,7 +4,7 @@ oneOf:
       ISO 8601 encoded time instant or special value.
       Examples:
         * A time instant: "2020-02-12T23:20:50Z" or "2020-01-15Z"
-        * Special indeterminate value: "now", "latest"
+        * Special indeterminate value: "earliest", "now", "latest"
     oneOf:
       - title: ISO Date
         type: string
@@ -14,7 +14,7 @@ oneOf:
         format: date-time
       - title: Special Value
         type: string
-        enum: [now, latest]
+        enum: [earliest, now, latest]
 
   - title: Time Period
     description: |-
@@ -36,5 +36,5 @@ oneOf:
           format: date-time
         - title: Special Value
           type: string
-          enum: [now, latest]
+          enum: [earliest, now, latest]
     
