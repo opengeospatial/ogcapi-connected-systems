@@ -14,14 +14,12 @@
         "elementType": {
           "description": "Definition and structure of one stream element",
           "allOf": [
+            { "$ref": "basicTypes.json#/definitions/SoftNamedProperty" },
             {
-              "$ref": "basicTypes.json#/definitions/SoftNamedProperty"
-            },
-            {
-              "$ref": "basicTypes.json#/definitions/AssociationAttributeGroup"
-            },
-            {
-              "$ref": "sweCommon.json#/definitions/AnyComponent"
+              "oneOf": [
+                { "$ref": "basicTypes.json#/definitions/AssociationAttributeGroup" },
+                { "$ref": "sweCommon.json#/definitions/AnyComponent" }
+              ]
             }
           ]
         },
