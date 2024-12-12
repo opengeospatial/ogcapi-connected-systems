@@ -5,6 +5,6 @@ content:
     schema:
       oneOf:
       - title: Single Feature
-        $ref: ../schemas/geojson/anySamplingFeature.json
+        $ref: ../schemas/geojson/samplingFeature.json
       - title: List of Features
         $ref: ../schemas/geojson/samplingFeatureArray.json
