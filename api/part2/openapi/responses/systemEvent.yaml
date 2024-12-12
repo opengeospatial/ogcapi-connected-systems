@@ -11,4 +11,4 @@ content:
       simple:
         summary: Scalar Observation (Measure)
         value:
-          $ref: ../examples/events/datastream-added.json
+          $ref: ../examples/events/systemEvent.json

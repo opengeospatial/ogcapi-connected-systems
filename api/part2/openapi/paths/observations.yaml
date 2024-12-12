@@ -8,7 +8,7 @@ get:
     - $ref: ../../../part1/openapi/parameters/idList.yaml
     - $ref: ../parameters/phenomenonTime.yaml
     - $ref: ../parameters/resultTime.yaml
-    - $ref: ../../../part1/openapi/parameters/dataStreamIdList.yaml
+    - $ref: ../parameters/dataStreamIdList.yaml
     - $ref: ../../../part1/openapi/parameters/systemIdList.yaml
     - $ref: ../../../part1/openapi/parameters/foiIdList.yaml
     - $ref: ../../../part1/openapi/parameters/obsPropIdList.yaml

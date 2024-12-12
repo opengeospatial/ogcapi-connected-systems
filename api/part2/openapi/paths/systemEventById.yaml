@@ -1,5 +1,5 @@
 parameters:
-  - $ref: ../parameters/systemId.yaml
+  - $ref: ../../../part1/openapi/parameters/systemId.yaml
   - $ref: ../parameters/eventId.yaml
 
 get:
