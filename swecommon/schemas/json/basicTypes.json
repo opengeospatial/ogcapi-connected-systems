@@ -25,27 +25,23 @@
           "description": "The preferred unit symbol to use when presenting the data in a UI (use the UCUM code instead if no symbol is provided)",
           "type": "string",
           "minLength": 1
+        },
+        "code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "href": {
+          "type": "string",
+          "format": "uri"
         }
       },
-      "oneOf": [
+      "anyOf": [
         {
           "title": "UCUM Code",
-          "properties": {
-            "code": {
-              "type": "string",
-              "minLength": 1
-            }
-          },
           "required": [ "code" ]
         },
         {
           "title": "URI",
-          "properties": {
-            "href": {
-              "type": "string",
-              "format": "uri"
-            }
-          },
           "required": [ "href" ]
         }
       ],

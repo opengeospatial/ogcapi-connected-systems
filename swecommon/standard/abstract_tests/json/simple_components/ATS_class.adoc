@@ -12,6 +12,7 @@ conformance-test:: /conf/json-simple-components/schema-valid
 conformance-test:: /conf/json-simple-components/special-numerical-values
 conformance-test:: /conf/json-simple-components/definition-resolvable
 conformance-test:: /conf/json-simple-components/inline-value-constraint-valid
+conformance-test:: /conf/json-simple-components/ucum-code-and-href-represent-same-unit
 conformance-test:: /conf/json-simple-components/ucum-code-used
 conformance-test:: /conf/json-simple-components/iso8601-uom-used
 ====
@@ -25,3 +26,4 @@ include::./ATS_test4.adoc[]
 include::./ATS_test5.adoc[]
 include::./ATS_test6.adoc[]
 include::./ATS_test7.adoc[]
+include::./ATS_test8.adoc[]
