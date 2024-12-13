@@ -6,7 +6,7 @@ This Standard defines the following requirements classes and standardization tar
 
 [#datastream-attributes,reftext='{table-caption} {counter:table-num}']
 .Requirements Classes
-[width="100%",cols="2,1",options="header"]
+[width="100%",options="header"]
 |====
 | *Requirements Class*                          | *Standardization Target*
 | *Core*                                     .2+| Derived Models and Software Implementations

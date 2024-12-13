@@ -45,7 +45,7 @@ The <<OGC-OMS,Observations, Measurements and Samples (OMS)>> Standard is one of 
 The following table indicates which classes of OMS https://docs.ogc.org/as/20-082r4/20-082r4.html#_conceptual_observation_schema[Conceptual Observation Schema] and https://docs.ogc.org/as/20-082r4/20-082r4.html#_conceptual_sample_schema[Conceptual Sample Schema] are implemented by OGC API - Connected Systems (CS API):
 
 [%unnumbered,#oms-concept-mappings,reftext='{table-caption} {counter:table-num}']
-[width="100%",cols="5,5,10,10",options="header"]
+[width="100%",options="header"]
 |====
 | *OMS Class*           | *O&M Class*           | *CS API Resource*                              | *Comments*
 | `Observation`         | `OM_Observation`      | `Observation`                                  | 
@@ -107,7 +107,7 @@ Weblinks can be used to associate resources exposed by OGC API - EDR and OGC API
 To this effect, the following weblinks can be added to OGC API - EDR resources to refer to OGC API - Connected Systems (CS API) resources:
 
 [%unnumbered,#edr-to-csapi-links,reftext='{table-caption} {counter:table-num}']
-[width="100%",cols="5,5,10",options="header"]
+[width="100%",options="header"]
 |====
 | *EDR Resource*            | *Target CS API Resources*  | *Comments*
 | `Collection Metadata`     | `System` +
@@ -121,7 +121,7 @@ To this effect, the following weblinks can be added to OGC API - EDR resources t
 And the following weblinks can be added to OGC API - Connected Systems resources to refer to OGC API - EDR resources:
 
 [%unnumbered,#csapi-to-edr-links,reftext='{table-caption} {counter:table-num}']
-[width="100%",cols="5,5,10",options="header"]
+[width="100%",options="header"]
 |====
 | *CS API Resource*        | *Target EDR Resources*      | *Comments*
 | `System`                 | `Collection` +
@@ -141,7 +141,7 @@ Although the two API Standards are in some ways similar, the SensorThings API wa
 The following table compares the design choices made in OGC API - Connected Systems and SensorThings API:
 
 [%unnumbered,#design-comparison,reftext='{table-caption} {counter:table-num}']
-[width="100%",cols="3,5,5",options="header"]
+[width="100%",options="header"]
 |====
 | *Design Choice*                 | *Connected Systems*                                        | *SensorThings*
 | API Platform                    | Extension of OGC API Common and OGC - API Features.        | OData Version 4.0
@@ -155,7 +155,7 @@ The following table compares the design choices made in OGC API - Connected Syst
 The next table shows a comparison of SensorThings and OGC API - Connected Systems (CS API) resources:
 
 [%unnumbered,#sta-mappings,reftext='{table-caption} {counter:table-num}']
-[width="100%",cols="5,5,10",options="header"]
+[width="100%",options="header"]
 |====
 | *STA Resource*         | *CS API Resource*    | *Comments*
 | `Thing`                | `System`             | type = `sosa:Platform`
@@ -176,7 +176,7 @@ The next table shows a comparison of SensorThings and OGC API - Connected System
 If needed, the following weblinks can be added to OGC API - Connected Systems resources to refer to SensorThings API resources:
 
 [%unnumbered,#csapi-to-sta-links,reftext='{table-caption} {counter:table-num}']
-[width="100%",cols="5,5,10",options="header"]
+[width="100%",options="header"]
 |====
 | *CS API Resource*        | *Target STA Resources*    | *Comments*
 | `System`                 | `Thing` +
@@ -229,7 +229,7 @@ The exact mechanism for linking Connected Systems resources and 3D objects is im
 The functionality provided by a conformant implementation of the OGC SOS Standard (web service) is fully supported by Parts 1 and 2 of the OGC API - Connected Systems Standard. The following table lists the mappings between SOS service operations and corresponding OGC API - Connected Systems (CS API) resources:
 
 [%unnumbered,#sos-mappings,reftext='{table-caption} {counter:table-num}']
-[width="100%",cols="5,5,3,10",options="header"]
+[width="100%",options="header"]
 |====
 | *SOS Operation*           | *CS API Resource*  | *API Verb*      |   *Comments*
 | `GetCapabilities`         | Landing Page       | GET             |
@@ -253,7 +253,7 @@ The functionality provided by a conformant implementation of the OGC SOS Standar
 The functionality provided by a conformant implementation of the SPS Standard (web service) is fully supported by Parts 1 and 2 of the OGC API - Connected Systems Standard. The following table lists the mappings between SPS service operations and corresponding OGC API - Connected Systems (CS API) resources:
 
 [%unnumbered,#sos-mappings,reftext='{table-caption} {counter:table-num}']
-[width="100%",cols="5,5,3,10",options="header"]
+[width="100%",options="header"]
 |====
 | *SPS Operation*           | *CS API Resource*  | *API Verb*      |   *Comments*
 | `GetCapabilities`         | Landing Page       | GET             |

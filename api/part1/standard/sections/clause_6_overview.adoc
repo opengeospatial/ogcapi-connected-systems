@@ -37,7 +37,7 @@ All resources defined in Part 1 of this Standard are feature types, except for t
 
 [#feature-types,reftext='{table-caption} {counter:table-num}']
 .Overview of resource types defined by this Standard
-[width="100%",cols="2,2,6,3",options="header"]
+[width="100%",options="header"]
 |====
 | *Resource Type*      | *Requirements Class*           | *Description* | *Possible Encodings*
 | System (Feature)     | <<clause-system-features>>     | Description of system instances such as sensors, platforms, human observers, etc.  | GeoJSON, SML-JSON
@@ -178,7 +178,7 @@ Additional filters are defined on a per resource type basis, as shown in the fol
 
 [#query-params,reftext='{table-caption} {counter:table-num}']
 .Query Parameters
-[width="100%",cols="2,4",options="header"]
+[width="100%",options="header"]
 |====
 | *Requirements Class*       | *Query Parameters*
 | System Features            | `parent`, `procedure`, `foi`, `observedProperty`, `controlledProperty`
@@ -196,7 +196,7 @@ See <<clause-advanced-filtering,style=full%>> for more details.
 The following link relation types are defined and used in this Standard:
 
 .Link Relation Types
-[width="100%",cols="3,5,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Relation Type*                    | *Used in Resource*                          | *Description*
 | `ogc-rel:parentSystem`             | <<subsystem-assocs,`System (Subsystem)`>>, 

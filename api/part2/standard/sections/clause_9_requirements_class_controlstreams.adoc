@@ -43,7 +43,7 @@ The following tables describe the attributes and associations of the `ControlStr
 
 [#controlstream-attributes,reftext='{table-caption} {counter:table-num}']
 .ControlStream Attributes
-[width="100%",cols="5,5,17,3,3",options="header"]
+[width="100%",options="header"]
 |====
 | *Name*                 | *SOSA/SSN Property* | *Definition* | *Data Type* | *Usage*
 | `name`                 | `rdfs:label` | The human readable name of the control stream. | String | Required
@@ -60,7 +60,7 @@ The following tables describe the attributes and associations of the `ControlStr
 
 [#controlstream-types,reftext='{table-caption} {counter:table-num}']
 .ControlStream Types
-[width="100%",cols="2,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Type*      | *Usage*
 | self        | For control streams that affect the parent system itself or one of its subsystems.
@@ -69,7 +69,7 @@ The following tables describe the attributes and associations of the `ControlStr
 
 [#controlstream-assocs,reftext='{table-caption} {counter:table-num}']
 .ControlStream Associations
-[width="100%",cols="5,5,10,10,3",options="header"]
+[width="100%",options="header"]
 |====
 | *Name*               | *SOSA/SSN Property* | *Definition* | *Target Content* | *Usage*
 | `system`             | `sosa:madeByActuator` | The `System` that received commands from the `ControlStream`. | A single `System` resource. | Required
@@ -276,7 +276,7 @@ The following tables describe the attributes and associations of the `Command` r
 
 [#command-attributes,reftext='{table-caption} {counter:table-num}']
 .Command Attributes
-[width="100%",cols="4,10,3,3",options="header"]
+[width="100%",options="header"]
 |====
 | *Name*               | *Definition* | *Data Type* | *Usage*
 | `issueTime`          | The time the command was received by the system. | DateTime | Required*
@@ -290,7 +290,7 @@ The following tables describe the attributes and associations of the `Command` r
 
 [#command-assocs,reftext='{table-caption} {counter:table-num}']
 .Command Associations
-[width="100%",cols="5,10,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Relation Name*     | *Definition* | *Target Content*
 | `controlstream`     | The `ControlStream` that the command is part of. | A single `ControlStream` resource.
@@ -386,7 +386,7 @@ The following tables describe the attributes and associations of the `CommandSta
 
 [#commandstatus-attributes,reftext='{table-caption} {counter:table-num}']
 .Command Status Attributes
-[width="100%",cols="4,10,3,3",options="header"]
+[width="100%",options="header"]
 |====
 | *Name*                | *Definition* | *Data Type* | *Usage*
 | `reportTime`          | The time when the status report was generated. | DateTime | Required
@@ -399,7 +399,7 @@ The following tables describe the attributes and associations of the `CommandSta
 
 [#command-status-codes,reftext='{table-caption} {counter:table-num}']
 .Command Status Codes
-[width="100%",cols="2,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Code*      | *Usage*
 | PENDING     | The command is pending, meaning it has been received by the system but no decision to accept or reject it has been made.
@@ -415,7 +415,7 @@ The following tables describe the attributes and associations of the `CommandSta
 
 [#commandstatus-assocs,reftext='{table-caption} {counter:table-num}']
 .Command Status Associations
-[width="100%",cols="5,10,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Name*              | *Definition* | *Target Content*
 | `command`           | The `Command` that this status report relates to. | A single `Command` resource.
@@ -503,7 +503,7 @@ The following tables describe the attributes and associations of the `CommandRes
 
 [#commandresult-attributes,reftext='{table-caption} {counter:table-num}']
 .Command Result Attributes
-[width="100%",cols="4,10,3,3",options="header"]
+[width="100%",options="header"]
 |====
 | *Name*              | *Definition* | *Data Type* | *Usage*
 | `inline`            | The result data provided inline (encoded according to the `ControlStream` result schema). | Any | Optional
@@ -511,7 +511,7 @@ The following tables describe the attributes and associations of the `CommandRes
 
 [#commandresult-assocs,reftext='{table-caption} {counter:table-num}']
 .Command Result Associations
-[width="100%",cols="5,10,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Name*              | *Definition* | *Target Content*
 | `observation`       | An observation resulting from the execution of the command | A list of `Observation` resources (by reference).

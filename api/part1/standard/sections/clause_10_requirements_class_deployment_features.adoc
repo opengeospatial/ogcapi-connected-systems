@@ -43,7 +43,7 @@ All `Deployment` resource representations provided by encoding requirements clas
 
 [#deployment-attributes,reftext='{table-caption} {counter:table-num}']
 .Deployment Attributes
-[width="100%",cols="5,5,17,3,3",options="header"]
+[width="100%",options="header"]
 |====
 | *Name*              | *SOSA/SSN Property* | *Definition* | *Data Type* | *Usage*
 | `uniqueIdentifier`  | RDF concept URI | The unique identifier of the deployment in the form of a URI (preferably a URN). This identifier should be persistent and independent of the actual resource URL. | URI | Required
@@ -61,7 +61,7 @@ NOTE: For deployments of models or processes, the location would usually not be 
 
 [#deployment-assocs,reftext='{table-caption} {counter:table-num}']
 .Deployment Associations
-[width="100%",cols="5,5,10,10,3",options="header"]
+[width="100%",options="header"]
 |====
 | *Name*                | *SOSA/SSN Property*  | *Definition* | *Target Content* | *Usage*
 | `platform`            | `sosa:deployedOnPlatform` | The platform on which the systems are deployed. | A single `Feature` resource (inline or by-reference). | Optional
