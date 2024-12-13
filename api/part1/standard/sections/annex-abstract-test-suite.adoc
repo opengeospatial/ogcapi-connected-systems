@@ -1397,13 +1397,6 @@ step:::: Verify that the server responds with an error code 409.
 step:::: Issue an HTTP DELETE request at URL `{api_root}/systems/{sysId}?cascade=true`.
 step:::: Verify that the system and all its sub-resources have been deleted.
 
-step::: Given a `System` resource with ID `sysId` that is referenced by a `Deployment` with ID `deploymentId` that has no other linked systems:
-step:::: Issue an HTTP DELETE request at URL `{api_root}/systems/{sysId}?cascade=false`.
-step:::: Verify that the server responds with an error code 409.
-step:::: Issue an HTTP DELETE request at URL `{api_root}/systems/{sysId}?cascade=true`.
-step:::: Verify that the deployment with ID `deploymentId` is deleted
-step:::: Verify that the system with ID `sysId` is deleted
-
 step::: Given a `System` resource with ID `sysId` that is referenced by a `Deployment` with ID `deploymentId` which has links to multiple other systems:
 step:::: Issue an HTTP DELETE request at URL `{api_root}/systems/{sysId}?cascade=false`.
 step:::: Verify that the server responds with an error code 409.
