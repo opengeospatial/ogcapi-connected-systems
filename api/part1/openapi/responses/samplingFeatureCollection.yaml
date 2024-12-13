@@ -1,18 +1,5 @@
 description: OK. Successful request
 content:
   application/geo+json:
-    schema:
-      type: object
-      required: features
-      properties:
-        type:
-          type: string
-          const: FeatureCollection
-        features:
-          type: array
-          items:
-            $ref: ../schemas/geojson/anySamplingFeature.json
-        links:
-          type: array
-          items:
-            $ref: ../schemas/common/commonDefs.json#/definitions/Link
+    schema: 
+      $ref: ../schemas/geojson/samplingFeatureCollection.json

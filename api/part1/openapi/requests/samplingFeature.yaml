@@ -2,7 +2,7 @@ required: true
 content:
   application/geo+json:
     schema:
-      $ref: ../schemas/geojson/anySamplingFeature.json
+      $ref: ../schemas/geojson/samplingFeature.json
     examples:
       sf-point:
         summary: Sampling Point

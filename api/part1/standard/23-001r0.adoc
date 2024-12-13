@@ -46,7 +46,7 @@
 :geojson-deployment-collection-schema: link:{geojson-schema-root}/deploymentCollection.json[deploymentCollection.json]
 :geojson-deployed-system-schema: link:{geojson-schema-root}/deployedSystem.json[deployedSystem.json]
 :geojson-deployed-system-collection-schema: link:{geojson-schema-root}/deployedSystemCollection.json[deployedSystemCollection.json]
-:geojson-samplingFeature-schema: link:{geojson-schema-root}/anySamplingFeature.json[anySamplingFeature.json]
+:geojson-samplingFeature-schema: link:{geojson-schema-root}/samplingFeature.json[samplingFeature.json]
 :geojson-samplingFeature-collection-schema: link:{geojson-schema-root}/samplingFeatureCollection.json[samplingFeatureCollection.json]
 //
 :sensorml-schema-root: {jsonschema-root}/sensorml
