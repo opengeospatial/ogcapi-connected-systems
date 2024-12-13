@@ -436,7 +436,9 @@ The equivalent JSON description for this “DataArray” is provided below:
     {"temp": 0, "error": 5},
     {"temp": 10, "error": 2},
     {"temp": 50, "error": 2},
-    {"temp": 80, "error": 5}
+    {"temp": 80, "error": 5},
+    {"temp": 70, "error": 3}
+  ]
 }
 ----
 
