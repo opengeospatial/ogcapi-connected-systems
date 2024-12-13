@@ -138,9 +138,8 @@ part:: The server SHALL support the CREATE operation at the `Sampling Feature` r
 
 part:: The server SHALL support the REPLACE and DELETE operations at the `Sampling Feature` resources endpoints defined by the following URI templates:
   - `{api_root}/samplingFeatures/{id}`
-  - `{api_root}/systems/{sysId}/samplingFeatures/{id}`
 
-part::  The `sysId` parameter SHALL be the local identifier of the parent `System` resource that the new sampling feature is or will be attached to. +
+part::  The `sysId` parameter SHALL be the local identifier of the parent `System` resource that the new sampling feature will be attached to. +
         The `id` parameter SHALL be the local identifier of the `Sampling Feature` resource to replace or delete.
 ====
 
