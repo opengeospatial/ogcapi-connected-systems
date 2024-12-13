@@ -66,10 +66,10 @@
             },
             {
               "description": "Time extent spanning all phenomenon times of observations in this datastream",
-              "$ref": "../common/commonDefs.json#/definitions/TimePeriod",
-              "readOnly": true
+              "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
             }
-          ]
+          ],
+          "readOnly": true
         },
         "phenomenonTimeInterval": {
           "description": "An indication of how often feature of interest properties are observed",
@@ -83,10 +83,10 @@
             },
             {
               "description": "Time extent spanning all result times of observations in this datastream",
-              "$ref": "../common/commonDefs.json#/definitions/TimePeriod",
-              "readOnly": true
+              "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
             }
-          ]
+          ],
+          "readOnly": true
         },
         "resultTimeInterval": {
           "description": "An indication of how often observation results are produced",
@@ -113,10 +113,10 @@
                 "record",
                 "coverage",
                 "complex"
-              ],
-              "readOnly": true
+              ]
             }
-          ]
+          ],
+          "readOnly": true
         },
         "live": {
           "oneOf": [
