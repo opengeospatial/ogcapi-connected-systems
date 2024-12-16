@@ -1,7 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "allOf": [
-    { "$ref": "baseStream.json" },
+    {
+      "$ref": "baseStream.json"
+    },
     {
       "properties": {
         "system@link": {
@@ -30,29 +32,43 @@
           "$ref": "../common/commonDefs.json#/definitions/Link"
         },
         "observedProperties": {
-          "description": "List of observed properties included in this datastream",
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "type": "object",
-            "properties": {
-              "definition": {
-                "type": "string",
-                "format": "uri"
-              },
-              "label": {
-                "type": "string"
-              },
-              "description": {
-                "type": "string"
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "description": "List of observed properties included in this datastream",
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "definition": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                }
               }
             }
-          },
+          ],
           "readOnly": true
         },
         "phenomenonTime": {
-          "description": "Time extent spanning all phenomenon times of observations in this datastream",
-          "$ref": "../common/commonDefs.json#/definitions/TimePeriod",
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "description": "Time extent spanning all phenomenon times of observations in this datastream",
+              "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
+            }
+          ],
           "readOnly": true
         },
         "phenomenonTimeInterval": {
@@ -61,8 +77,15 @@
           "format": "duration"
         },
         "resultTime": {
-          "description": "Time extent spanning all result times of observations in this datastream",
-          "$ref": "../common/commonDefs.json#/definitions/TimePeriod",
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "description": "Time extent spanning all result times of observations in this datastream",
+              "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
+            }
+          ],
           "readOnly": true
         },
         "resultTimeInterval": {
@@ -72,17 +95,39 @@
         },
         "type": {
           "type": "string",
-          "enum": ["status", "observation"]
+          "enum": [
+            "status",
+            "observation"
+          ]
         },
         "resultType": {
-          "type": "string",
-          "enum": ["measure", "vector", "record", "coverage", "complex"],
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "measure",
+                "vector",
+                "record",
+                "coverage",
+                "complex"
+              ]
+            }
+          ],
           "readOnly": true
         },
         "live": {
-          "description": "Flag indicating if the datastream is currently streaming data",
-          "type": "boolean",
-          "readOnly": true
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "description": "Flag indicating if the datastream is currently streaming data",
+              "type": "boolean"
+            }
+          ]
         },
         "schema": {
           "description": "Schema describing the content of observations in this datastream. The exact syntax of the schema depends on the encoding format.",
@@ -97,6 +142,12 @@
     }
   ],
   "required": [
-    "name", "system@link", "observedProperties", "phenomenonTime", "resultTime", "resultType", "live"
+    "name",
+    "system@link",
+    "observedProperties",
+    "phenomenonTime",
+    "resultTime",
+    "resultType",
+    "live"
   ]
 }
