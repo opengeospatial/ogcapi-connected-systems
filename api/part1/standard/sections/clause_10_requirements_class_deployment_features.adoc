@@ -73,9 +73,10 @@ NOTE: For deployments of models or processes, the location would usually not be 
 | `controlstreams`      | - | The `Control Streams` that received commands issued during the `Deployment`. | A list of `ControlStream` resources (inline or by-reference). | Optional
 |====
 
+When referencing a deployed local system resource via `deployedSystems`, the system SHALL be identified using a URN.
+When referencing an external system resource the system SHALL be identified using a URL.
+
 NOTE: The platform can be another `System` (e.g. a UAV or a station), but can also be any feature (e.g. a building or a tree).
-
-
 
 === Deployment Canonical URL
 
