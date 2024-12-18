@@ -128,7 +128,11 @@ part:: The parameter SHALL fulfill the same requirements as the parameter `datet
 
 part:: Only the `resultTime` property of `Observation` resources SHALL be used to determine the temporal extent evaluated against the parameter.
 
-part:: In addition to the possible parameter values defined in {ogcapi-features-1}, the parameter SHALL also support the special value `latest`. When this special value is used, only observations with the latest result time SHALL be included in the result set.
+part:: The parameter SHALL support the special value `earliest`. When this special value is used, only observations with the temporally earliest result time SHALL be included in the result set.
+
+part:: The parameter SHALL support the special value `now`. When this special value is used, only observations with the result time matching the current time SHALL be included in the result set.
+
+part:: The parameter SHALL support the special value `latest`. When this special value is used, only observations with the temporally latest result time SHALL be included in the result set.
 ====
 
 [example%unnumbered]
