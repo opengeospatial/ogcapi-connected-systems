@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "allOf": [
     {
@@ -32,7 +32,7 @@
       }
     }
   ],
-  "definitions": {
+  "$defs": {
     "SpatialFrame": {
       "description": "A general spatial Cartesian Reference Frame where the axes and origin will be defined textually relative to a physical component.",
       "type": "object",

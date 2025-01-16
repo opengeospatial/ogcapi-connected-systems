@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "Time value pair for specifying a time range (can be a decimal or ISO 8601)",
   "type": "object",
   "allOf": [

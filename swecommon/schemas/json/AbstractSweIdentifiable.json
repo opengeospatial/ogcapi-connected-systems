@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "Base substitution groups for all SWE Common objects with identification metadata",
   "type": "object",
   "allOf": [

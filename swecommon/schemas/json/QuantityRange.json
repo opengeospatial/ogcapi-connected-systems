@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "Decimal pair for specifying a quantity range with a unit of measure",
   "type": "object",
   "allOf": [

@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "A Pose object that can be either a GeoPose Basic instance of a relative pose.",
   "oneOf": [
     {
@@ -105,7 +105,7 @@
       ]
     }
   ],
-  "definitions": {
+  "$defs": {
     "PositionGeo": {
       "description": "Geographic position in EPSG:4979 CRS (WGS84)",
       "properties": {
