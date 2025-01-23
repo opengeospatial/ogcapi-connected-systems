@@ -42,7 +42,7 @@ All questions regarding this submission should be directed to the editor or the 
 |===
 | *Name* | *Affiliation*
 | Alex Robin (Editor) | GeoRobotix, Inc.
-| Christian Autermann | 52° North Initiative
+| Christian Autermann | 52° North Spatial Information Research GmbH
 | Chuck Heazel | Heazeltech
 | Glenn Laughlin | Pelagis Data Solutions
 | Mike Botts | Botts Innovative Research, Inc.
@@ -60,4 +60,5 @@ Additional contributors to this Standard include the following:
 | Qihua Li | GovTech Singapore
 | Rob Atkinson | Open Geospatial Consortium, Inc.
 | Simon Cox | Open Geospatial Consortium, Inc.
+| Jan Speckamp | 52°North Spatial Information Research GmbH
 |===
