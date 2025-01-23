@@ -21,6 +21,7 @@ The schema for this abstract class is provided in {jsonschema-base-url}/Abstract
 
 It is imported by the schemas of derived classes and thus does not need to be used directly for validation.
 
+Note that an AbstractPhysicalProcess is not a GeoJSON feature, because GeoJSON implementations do not deal well with complex nested structures, though the position of an AbstractPhysicalProcess may be encoded as GeoJSON point.
 
 
 ==== PhysicalComponent
@@ -35,7 +36,7 @@ identifier:: /req/json-physical-component/schema-valid
 The JSON document instance shall be valid with respect to the JSON schema {jsonschema-base-url}/PhysicalComponent.json[“PhysicalComponent.json”].
 ====
 
-The following snippet illustrates how a simple sensor instance can be described as a physical component with a fixed geographic location:
+The following snippet illustrates how a simple sensor instance can be described as a physical component with a fixed geographic location encoded as a GeoJSON point as defined in <<GeoJSON>>.
 
 [source%unnumbered,json]
 ----
