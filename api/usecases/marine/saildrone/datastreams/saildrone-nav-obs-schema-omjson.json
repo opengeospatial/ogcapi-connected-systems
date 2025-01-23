@@ -88,7 +88,7 @@
         "type": "Quantity",
         "definition": " http://sensorml.com/ont/swe/property/PitchAngle",
         "label": "Pitch",
-        "description": "Vessel pitch angle w.r.t to the local horizontal plane",
+        "description": "Vessel pitch angle with respect to the local horizontal plane",
         "uom": {
           "code": "deg"
         }
@@ -98,7 +98,7 @@
         "type": "Quantity",
         "definition": "http://sensorml.com/ont/swe/property/RollAngle",
         "label": "Roll",
-        "description": "Vessel roll angle w.r.t to the local horizontal plane",
+        "description": "Vessel roll angle with respect to the local horizontal plane",
         "uom": {
           "code": "deg"
         }

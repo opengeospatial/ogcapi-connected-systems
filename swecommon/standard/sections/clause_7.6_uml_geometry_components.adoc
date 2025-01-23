@@ -19,7 +19,7 @@ image::figures/fig7.36.png[]
 
 *Coordinate Reference System*
 
-The “crs” attribute provides the URI of the coordinate reference system w.r.t which the geometry coordinates are expressed. The unit of the coordinates is also provided by the coordinate reference system.
+The “crs” attribute provides the URI of the coordinate reference system with respect to which the geometry coordinates are expressed. The unit of the coordinates is also provided by the coordinate reference system.
 
 include::../requirements/uml/geom_components/requirement2.adoc[]
 
