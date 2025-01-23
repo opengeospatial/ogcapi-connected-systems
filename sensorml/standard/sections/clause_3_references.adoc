@@ -29,4 +29,4 @@ The following normative documents contain provisions that, through reference in 
 
 * [[[JSONSchema, IETF JSON Schema]]], JSON Schema Validation: A Vocabulary for Structural Validation of JSON, Version 2020-12, https://json-schema.org/draft/2020-12/json-schema-validation.html
 
-
+* [[[GeoJSON, IETF RFC 7946]]], The GeoJSON Format, https://www.rfc-editor.org/rfc/rfc7946
