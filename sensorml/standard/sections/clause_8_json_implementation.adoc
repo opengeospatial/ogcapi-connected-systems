@@ -3,8 +3,8 @@
 
 This standard defines a normative JSON implementation of the conceptual models presented in <<OGC-SML,SensorML 2.1>> and in the following clauses of this document:
 
-- <<clause_model_deployment,style=full%>>
-- <<clause_model_derived_property,style=full%>>
+- <<uml_deployment,style=full%>>
+- <<uml_derived_property,style=full%>>
 - <<clause_model_3dpose,style=full%>>
 
 The standardization target type for all requirements classes in this clause is a JSON instance document that seeks compliance with this JSON encoding model.
