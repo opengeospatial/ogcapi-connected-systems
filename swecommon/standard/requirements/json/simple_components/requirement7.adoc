@@ -1,7 +1,7 @@
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/json-simple-components/iso8601-uom-used
+identifier:: /req/json-simple-components/ucum-code-and-href-represent-same-unit
 
-When ISO 8601 notation is used to express the value associated to a “Time” element, the URI “http://www.opengis.net/def/uom/ISO-8601/0/Gregorian” shall be used as the value of the “uom/href” property.
+If the unit of measurements is specified using a <<UCUM>> code as the value of the “uom/code” property and an external unit definition is referenced in the “uom/href” property, both the UCUM code and the external unit definition shall reference the same unit.
 ====

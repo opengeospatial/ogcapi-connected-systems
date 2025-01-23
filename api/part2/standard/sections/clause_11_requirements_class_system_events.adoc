@@ -32,7 +32,7 @@ The following tables describe the attributes and associations of a `SystemEvent`
 
 [#system-event-attributes,reftext='{table-caption} {counter:table-num}']
 .System Event Attributes
-[width="100%",cols="4,10,3,3",options="header"]
+[width="100%",options="header"]
 |====
 | *Name*               | *Definition* | *Data Type* | *Usage*
 | `name`               | The name of the event. | String | Required
@@ -44,7 +44,7 @@ The following tables describe the attributes and associations of a `SystemEvent`
 
 [#system-event-types,reftext='{table-caption} {counter:table-num}']
 .System Event Types
-[width="100%",cols="10,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Type URI*       | *Usage*
 | http://www.opengis.net/def/x-OGC/TBD/Calibration          | System was calibrated or recalibrated.
@@ -58,7 +58,7 @@ The following tables describe the attributes and associations of a `SystemEvent`
 
 [#system-event-assocs,reftext='{table-caption} {counter:table-num}']
 .System Event Associations
-[width="100%",cols="5,10,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Relation Name*    | *Definition* | *Target Content*
 | `system`           | Link to the `System` this event relates to. | A single `System` resource.

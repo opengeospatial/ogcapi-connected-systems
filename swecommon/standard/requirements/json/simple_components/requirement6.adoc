@@ -1,7 +1,7 @@
-[requirement,model=ogc]
+[recommendation,model=ogc]
 ====
 [%metadata]
-identifier:: /req/json-simple-components/ucum-code-used
+identifier:: /rec/json-simple-components/ucum-code-used
 
-Whenever it can be constructed using the <<UCUM>> specification, the unit of measure shall be specified using a UCUM code as the value of the “uom/code” property. Otherwise the “uom/href” property shall be used to reference an external unit definition.
+Whenever it can be constructed using the <<UCUM>> specification, the unit of measure should be specified using a UCUM code as the value of the “uom/code” property. Otherwise the “uom/href” property should be used to reference an external unit definition.
 ====

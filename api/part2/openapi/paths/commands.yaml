@@ -10,7 +10,7 @@ get:
     - $ref: ../parameters/executionTime.yaml
     - $ref: ../parameters/statusCodeList.yaml
     - $ref: ../parameters/senderList.yaml
-    - $ref: ../../../part1/openapi/parameters/controlStreamIdList.yaml
+    - $ref: ../parameters/controlStreamIdList.yaml
     - $ref: ../../../part1/openapi/parameters/systemIdList.yaml
     - $ref: ../../../part1/openapi/parameters/foiIdList.yaml
     - $ref: ../../../part1/openapi/parameters/controlPropIdList.yaml

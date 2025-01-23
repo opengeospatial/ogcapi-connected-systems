@@ -3,6 +3,6 @@
   "type": "array",
   "items": {
     "title": "Sampling Feature",
-    "$ref": "./anySamplingFeature.json"
+    "$ref": "./samplingFeature.json"
   }
 }

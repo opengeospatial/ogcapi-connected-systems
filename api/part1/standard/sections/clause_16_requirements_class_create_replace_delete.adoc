@@ -38,11 +38,11 @@ identifier:: /req/create-replace-delete/system-delete-cascade
 
 conditions:: The server implements <<clause-system-features,style=basic%>>
 
-part:: By default, the server SHALL reject a DELETE request on a `System` resource that has nested resources (i.e. subsystems, sampling features, datastreams, control streams) or that is associated with a deployment.
+part:: By default (`cascade` parameter is not set), the server SHALL reject a DELETE request on a `System` resource that has nested resources (i.e. subsystems, sampling features, datastreams, control streams) or is associated with a deployment.
 
-part:: If the `System` resource is not associated with any `Deployment` resource, and the request contains the `cascade` parameter, the server SHALL accept the DELETE request and delete the `System` resource as well as all its nested resources.
+part:: If the request contains the `cascade` parameter, the server SHALL accept the DELETE request and delete the `System` resource as well as all its nested resources.
 
-part:: If the `System` resource is associated with a `Deployment` resource, the `Deployment` resource SHALL be deleted first.
+part:: If the `System` resource is associated with a `Deployment` resource, the `Deployment` resource SHALL be be updated, removing the link to the System.
 ====
 
 
@@ -138,9 +138,8 @@ part:: The server SHALL support the CREATE operation at the `Sampling Feature` r
 
 part:: The server SHALL support the REPLACE and DELETE operations at the `Sampling Feature` resources endpoints defined by the following URI templates:
   - `{api_root}/samplingFeatures/{id}`
-  - `{api_root}/systems/{sysId}/samplingFeatures/{id}`
 
-part::  The `sysId` parameter SHALL be the local identifier of the parent `System` resource that the new sampling feature is or will be attached to. +
+part::  The `sysId` parameter SHALL be the local identifier of the parent `System` resource that the new sampling feature will be attached to. +
         The `id` parameter SHALL be the local identifier of the `Sampling Feature` resource to replace or delete.
 ====
 

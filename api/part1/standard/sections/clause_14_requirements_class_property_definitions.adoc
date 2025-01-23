@@ -48,7 +48,7 @@ All `Property` resource representations provided by encoding requirements classe
 
 [#property-attributes,reftext='{table-caption} {counter:table-num}']
 .Property Definition Attributes
-[width="100%",cols="5,5,17,3,3",options="header"]
+[width="100%",options="header"]
 |====
 | *Name*             | *SOSA/SSN Property* | *Definition* | *Data Type* | *Usage*
 | `uniqueIdentifier` | RDF concept URI | The unique identifier of the property in the form of a URI (preferably a URN). This identifier should be persistent and independent of the actual resource URL. | URI | Required

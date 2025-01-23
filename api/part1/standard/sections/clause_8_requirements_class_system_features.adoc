@@ -54,7 +54,7 @@ All `System` resource representations provided by encoding requirements classes 
 
 [#system-attributes,reftext='{table-caption} {counter:table-num}']
 .System Attributes
-[width="100%",cols="5,5,17,3,3",options="header"]
+[width="100%",options="header"]
 |====
 | *Name*               | *SOSA/SSN Property* | *Definition* | *Data Type* | *Usage*
 | `uniqueIdentifier`   | RDF concept URI | The unique identifier of the system in the form of a URI (preferably a URN). This identifier should be persistent and independent of the actual resource URL. | URI | Required
@@ -68,7 +68,7 @@ All `System` resource representations provided by encoding requirements classes 
 
 [#system-assocs,reftext='{table-caption} {counter:table-num}']
 .System Associations
-[width="100%",cols="5,5,10,10,3",options="header"]
+[width="100%",options="header"]
 |====
 | *Name*              | *SOSA/SSN Property* | *Definition* | *Target Content* | *Usage*
 | `systemKind`        | `ssn:hasSystemKind` | The description of the kind of `System` (e.g. datasheet). | A single `Procedure` resource (inline or by-reference). | Optional
@@ -82,7 +82,7 @@ All `System` resource representations provided by encoding requirements classes 
 
 [#system-types,reftext='{table-caption} {counter:table-num}']
 .System Types
-[width="100%",cols="5,10,5,15",options="header"]
+[width="100%",options="header"]
 |====
 | *System Type* | *URI* | *CURIE* | *Usage*
 | Sensor      | http://www.w3.org/ns/sosa/Sensor           | sosa:Sensor    | When the system's primary activity is 'sensing' or 'observing'.
@@ -96,7 +96,7 @@ NOTE: Tagging a `System` resource with a particular type only carries semantic m
 
 [#asset-types,reftext='{table-caption} {counter:table-num}']
 .Asset Types
-[width="100%",cols="3,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Asset Type Value* | *Usage*
 | Equipment    | The system is composed of one or more hardware devices or pieces of equipment, that interact directly with the real-world and can be either automated or manually operated (e.g. sensor or actuator device, vehicle, robot, etc.).

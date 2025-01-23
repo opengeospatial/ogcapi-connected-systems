@@ -1,7 +1,7 @@
 [appendix,obligation=informative]
 == Revision history
 
-[cols="12,18,12,12,46",options="header"]
+[options="header"]
 .Revision History
 |===
 |Date |Release |Author |Paragraph modified |Description

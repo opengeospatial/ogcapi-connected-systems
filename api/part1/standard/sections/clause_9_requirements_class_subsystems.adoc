@@ -55,7 +55,7 @@ A `System` resource that is a subsystem of a parent system also includes the fol
 
 [#subsystem-assocs,reftext='{table-caption} {counter:table-num}']
 .Subsystem Associations
-[width="100%",cols="5,5,10,10,3",options="header"]
+[width="100%",options="header"]
 |====
 | *Name* | *SOSA/SSN Property* | *Definition* | *Target Content* | *Usage*
 | `parentSystem` | inverse Of `sosa:hasSubSystem` | The parent `System` that this subsystem is part of. | A single `System` resource. | Required
@@ -84,7 +84,7 @@ Some systems have interchangeable components that are often called "payloads" (e
 
 By default, the <<clause-canonical-system-rep,canonical `System` resources endpoint>> only exposes top-level systems (i.e. subsystems are not visible).
 
-Likewise, <<clause-subsystem-resources-endpoint,Subsystem resources endpointw>> only expose the direct subsystems, but not subsystems nested at deeper levels (i.e. the subsystems of the subsystems and so on).
+Likewise, <<clause-subsystem-resources-endpoint,Subsystem resources endpoints>> only expose the direct subsystems, but not subsystems nested at deeper levels (i.e. the subsystems of the subsystems and so on).
 
 The `recursive` query parameter changes the default behavior by instructing the server to process all subsystems recursively (at all levels below the current level).
 
@@ -110,7 +110,7 @@ part:: Whenever a `System` resource has subsystems, the target content of its as
 
 [#system-assocs-recursive,reftext='{table-caption} {counter:table-num}']
 .System Associations
-[width="100%",cols="3,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Association Name*  | *Target Content*
 | `samplingFeatures`  | The `Sampling Features` associated to the `System` and all its subsystems, recursively. 

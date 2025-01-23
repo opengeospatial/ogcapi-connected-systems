@@ -75,7 +75,7 @@ A SensorML JSON document representing a `Feature` resource SHALL implement the m
 
 [#feature-attribute-sml-mappings,reftext='{table-caption} {counter:table-num}']
 .SensorML Mappings of Common Attributes
-[width="100%",cols="3,3,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Attribute Name*    | *JSON Member*  | *Usage*
 | `uniqueIdentifier`  | `uniqueId`     | Value is a JSON string that is a valid URI.
@@ -120,7 +120,7 @@ A SensorML JSON document representing a `System` resource SHALL implement the ma
 
 [#system-attribute-sml-mappings,reftext='{table-caption} {counter:table-num}']
 .SensorML Mappings of System Attributes
-[width="100%",cols="3,3,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Attribute Name (see <<system-attributes>>)* | *JSON Member* | *Usage*
 | `systemType`     | `definition`  | Use the URI or CURIE from <<system-types>> as the value.
@@ -131,7 +131,7 @@ A SensorML JSON document representing a `System` resource SHALL implement the ma
 
 [#system-assoc-sml-mappings,reftext='{table-caption} {counter:table-num}']
 .SensorML Mappings of System Associations
-[width="100%",cols="3,3,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Association Name (see <<system-assocs>>)* | *JSON Member* | *Usage*
 | `systemKind`        | `typeOf`      | Value is a weblink resolving to a `Procedure` resource.
@@ -184,7 +184,7 @@ A SensorML JSON document representing a `Deployment` resource SHALL implement th
 
 [#deployment-attribute-sml-mappings,reftext='{table-caption} {counter:table-num}']
 .SensorML Mappings of Deployment Attributes
-[width="100%",cols="3,3,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Attribute Name (see <<deployment-attributes>>)* | *JSON Member* | *Usage*
 | `deploymentType` | `definition`  | Use the URI or CURIE identifying the type of deployment as the value.
@@ -194,7 +194,7 @@ A SensorML JSON document representing a `Deployment` resource SHALL implement th
 
 [#deployment-assoc-sml-mappings,reftext='{table-caption} {counter:table-num}']
 .SensorML Mappings of Deployment Associations
-[width="100%",cols="3,3,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Association Name (see <<deployment-assocs>>)* | *JSON Member*      | *Usage*
 | `platform`            | `platform`         | Value is a weblink resolving to a `System` resource.
@@ -255,7 +255,7 @@ A SensorML JSON document representing a `Procedure` resource SHALL implement the
 
 [#procedure-attribute-sml-mappings,reftext='{table-caption} {counter:table-num}']
 .SensorML Mappings of Procedure Attributes
-[width="100%",cols="3,3,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Attribute Name (see <<procedure-attributes>>)* | *JSON Member* | *Usage*
 | `procedureType`  | `definition`  | Use the URI or CURIE from <<procedure-types>> as the value.
@@ -264,7 +264,7 @@ A SensorML JSON document representing a `Procedure` resource SHALL implement the
 
 [#procedure-assoc-sml-mappings,reftext='{table-caption} {counter:table-num}']
 .SensorML Mappings of Procedure Associations
-[width="100%",cols="3,3,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Association Name (see <<procedure-assocs>>)* | *JSON Member* | *Usage*
 | `implementingSystems`  | `links`       | Value is a weblink* resolving to a {system-resources-endpoint}.
@@ -307,7 +307,7 @@ A SensorML JSON document representing a `Property` resource SHALL implement the 
 
 [#property-attribute-sml-mappings,reftext='{table-caption} {counter:table-num}']
 .SensorML Mappings of Property Attributes
-[width="100%",cols="3,3,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Attribute Name (see <<property-attributes>>)* | *JSON Member*  | *Usage*
 | `baseProperty`   | `baseProperty` | Value is a JSON string that is a valid URI.

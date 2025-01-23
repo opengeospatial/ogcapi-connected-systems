@@ -33,7 +33,7 @@ A `Deployment` resource that is a subdeployment of a parent deployment also incl
 
 [#subdeployment-assocs,reftext='{table-caption} {counter:table-num}']
 .Subdeployment Associations
-[width="100%",cols="5,5,10,10,3",options="header"]
+[width="100%",options="header"]
 |====
 | *Name* | *SOSA/SSN Property* | *Definition* | *Target Content* | *Usage*
 | `parentDeployment` | - | The parent `Deployment` that this subdeployment is part of. | A single `Deployment` resource. | Required
@@ -86,7 +86,7 @@ part:: Whenever a `Deployment` resource has subdeployments, the target content o
 
 [#deployment-assocs-recursive,reftext='{table-caption} {counter:table-num}']
 .Deployment Associations
-[width="100%",cols="3,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Association Name*  | *Target Content*
 | `deployedSystems`  | The `Systems` deployed during the `Deployment` and all its subdeployments, recursively. 

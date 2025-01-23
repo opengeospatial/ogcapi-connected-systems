@@ -25,7 +25,7 @@ image::./figures/FIG002-deployment-class.png[deployment-class-diagram, align="ce
 
 [#deployment-class-properties,reftext='{table-caption} {counter:table-num}']
 .Deployment Class Properties
-[width="100%",cols="5,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Name*           | *Definition*
 | `location`       | The geographic location or area where the systems are deployed.
@@ -39,7 +39,7 @@ The `DeployedSystem` class is used to describe each system deployed as part of a
 
 [#dep-sys-class-properties,reftext='{table-caption} {counter:table-num}']
 .DeployedSystem Class Properties
-[width="100%",cols="5,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Name*           | *Definition*
 | `name`           | A code name for the system within the deployment (e.g. UAV1).

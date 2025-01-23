@@ -60,7 +60,7 @@ A GeoJSON document representing a `Feature` resource SHALL implement the mapping
 
 [#feature-attribute-geojson-mappings,reftext='{table-caption} {counter:table-num}']
 .GeoJSON Mappings of Common Attributes
-[width="100%",cols="3,3,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Attribute Name*   | *JSON Member*             | *Usage*
 | `uniqueIdentifier` | `properties/uid`          | Value is a JSON string that is a valid URI.
@@ -93,7 +93,7 @@ A GeoJSON document representing a `System` resource SHALL implement the mappings
 
 [#system-attribute-geojson-mappings,reftext='{table-caption} {counter:table-num}']
 .GeoJSON Encoding of System Attributes
-[width="100%",cols="3,3,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Attribute Name (see <<system-attributes>>)* | *JSON Member*            | *Usage*
 | `systemType`     | `properties/featureType` | Use the URI or CURIE from <<system-types>> as the value.
@@ -104,7 +104,7 @@ A GeoJSON document representing a `System` resource SHALL implement the mappings
 
 [#system-assoc-geojson-mappings,reftext='{table-caption} {counter:table-num}']
 .GeoJSON Encoding of System Associations
-[width="100%",cols="3,3,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Association Name (see <<system-assocs>>)* | *JSON Member* | *Usage*
 | `systemKind`        | `properties/systemKind@link`    | Value is a weblink resolving to a `Procedure` resource.
@@ -154,7 +154,7 @@ A GeoJSON document representing a `Deployment` resource SHALL implement the mapp
 
 [#deployment-attribute-geojson-mappings,reftext='{table-caption} {counter:table-num}']
 .GeoJSON Encoding of Deployment Attributes
-[width="100%",cols="3,3,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Attribute Name (see <<deployment-attributes>>)* | *JSON Member* | *Usage*
 | `deploymentType`   | `properties/featureType`     | Use the URI or CURIE identifying the type of deployment as the value.
@@ -164,7 +164,7 @@ A GeoJSON document representing a `Deployment` resource SHALL implement the mapp
 
 [#deployment-assoc-geojson-mappings,reftext='{table-caption} {counter:table-num}']
 .GeoJSON Encoding of Deployment Associations
-[width="100%",cols="3,3,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Association Name (see <<deployment-assocs>>)* | *JSON Member* | *Usage*
 | `platform`            | `properties/platform@link` | Value is a weblink resolving to a `System` resource.
@@ -213,7 +213,7 @@ A GeoJSON document representing a `Procedure` resource SHALL implement the mappi
 
 [#procedure-attribute-geojson-mappings,reftext='{table-caption} {counter:table-num}']
 .GeoJSON Encoding of Procedure Attributes
-[width="100%",cols="3,3,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Attribute Name (see <<procedure-attributes>>)* | *JSON Member* | *Usage*
 | `procedureType`  | `properties/featureType` | Use the URI or CURIE from <<procedure-types>> as the value.
@@ -222,7 +222,7 @@ A GeoJSON document representing a `Procedure` resource SHALL implement the mappi
 
 [#procedure-assoc-geojson-mappings,reftext='{table-caption} {counter:table-num}']
 .GeoJSON Encoding of Procedure Associations
-[width="100%",cols="3,3,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Association Name (see <<procedure-assocs>>)* | *JSON Member* | *Usage*
 | `implementingSystems`  | `links` | Value is a weblink* resolving to a {system-resources-endpoint}.
@@ -263,7 +263,7 @@ A GeoJSON document representing a `Sampling Feature` resource SHALL implement th
 
 [#sf-attribute-geojson-mappings,reftext='{table-caption} {counter:table-num}']
 .GeoJSON Encoding of Sampling Feature Attributes
-[width="100%",cols="3,3,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Attribute Name (see <<sf-attributes>>)* | *JSON Member* | *Usage*
 | `featureType`    | `properties/featureType` | Use the URI or CURIE specific to a sampling feature type.
@@ -272,7 +272,7 @@ A GeoJSON document representing a `Sampling Feature` resource SHALL implement th
 
 [#sf-assoc-geojson-mappings,reftext='{table-caption} {counter:table-num}']
 .GeoJSON Encoding of Sampling Feature Associations
-[width="100%",cols="3,3,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Association Name (see <<sf-assocs>>)* | *JSON Member*        | *Usage*
 | `sampledFeature`           | `properties/sampledFeature@link` | Value is a weblink resolving to a `Feature` resource.

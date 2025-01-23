@@ -28,6 +28,10 @@ content:
         summary: Observation with link to external result
         value:
           $ref: ../examples/observations/obs-link.json
+      inline-image:
+        summary: Observation with an PNG image encoded using the data URI schema
+        value:
+          $ref: ../examples/observations/obs-link-inline-image.json
         
   application/swe+json:
     schema:

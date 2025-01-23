@@ -55,7 +55,7 @@ The following table clarifies the meaning of status codes in the case of a feasi
 
 [#feasibility-status-codes,reftext='{table-caption} {counter:table-num}']
 .Feasibility Status Codes
-[width="100%",cols="2,10",options="header"]
+[width="100%",options="header"]
 |====
 | *Code*      | *Usage*
 | PENDING     | The feasibility request is pending, meaning it has been received by the system but no decision to accept or reject it has been made.

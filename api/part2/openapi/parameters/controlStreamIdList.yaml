@@ -1,0 +1,10 @@
+
+name: controlStream
+description: |-
+  List of control stream local IDs or unique IDs (URI).
+  Only resources that are associated to a control stream that has one of the provided identifiers are selected.
+in: query
+required: false
+schema:
+  $ref: ../../../part1/openapi/parameters/idListSchema.yaml
+explode: false
