@@ -18,10 +18,14 @@
               "$ref": "basicTypes.json#/definitions/SoftNamedProperty"
             },
             {
-              "$ref": "basicTypes.json#/definitions/AssociationAttributeGroup"
-            },
-            {
-              "$ref": "sweCommon.json#/definitions/AnyComponent"
+              "oneOf": [
+                {
+                  "$ref": "sweCommon.json#/definitions/AnyComponent"
+                },
+                {
+                  "$ref": "basicTypes.json#/definitions/AssociationAttributeGroup"
+                }
+              ]
             }
           ]
         },
