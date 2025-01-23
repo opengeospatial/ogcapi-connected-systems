@@ -63,6 +63,16 @@
           "properties": {
             "type": {
               "const": "JSONEncoding"
+            },
+            "recordsAsArrays": {
+              "type": "boolean",
+              "default": false,
+              "description": "If true, DataRecord values are encoded as JSON arrays instead of JSON objects"
+            },
+            "vectorsAsArrays": {
+              "type": "boolean",
+              "default": false,
+              "description": "If true, Vector values are encoded as JSON arrays instead of JSON objects"
             }
           },
           "required": [

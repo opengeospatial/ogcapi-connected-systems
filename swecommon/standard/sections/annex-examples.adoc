@@ -484,7 +484,7 @@ The following snippet shows how this datastream records are encoded using the JS
 
 This example is based on the same datastream description as the one provided in <<enc_text_optional_fields_example,style=short%>>.
 
-The following snippet shows how this datastream records are encoded using the XML encoding method:
+The following snippet shows how this datastream records are encoded using the JSON encoding method:
 
 [source%unnumbered,json]
 ----
@@ -511,6 +511,36 @@ The following snippet shows how this datastream records are encoded using the XM
       "lon": -90.6,
       "alt": 312 
     }
+  },
+  ...
+]
+----
+
+
+[[enc_json_optional_fields_example_vectors_as_arrays]]
+==== Datastream with records and vector fields encoded as arrays (navigation data)
+
+This example is based on the same datastream description as the one provided in <<enc_text_optional_fields_example,style=short%>>.
+
+The following snippet shows how this datastream records are encoded using the JSON encoding method, when `vectorsAsArrays` is `true`:
+
+[source%unnumbered,json]
+----
+[
+  {
+    "time": "2007-10-23T15:46:12Z",
+    "speed": 15.3,
+    "location": [ 45.3, -90.5, 311 ]
+  },
+  {
+    "time": "2007-10-23T15:46:22Z",
+    "speed": 25.3,
+    "location": null
+  },
+  {
+    "time": "2007-10-23T15:46:32Z",
+    "speed": 20.6,
+    "location": [ 45.3, -90.6, 312 ]
   },
   ...
 ]

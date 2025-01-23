@@ -3,11 +3,10 @@
 [%metadata]
 identifier:: /req/json-encoding-rules/record-object-valid
 
-part:: “DataRecord” values shall be wrapped in a JSON Object.
+part:: “DataRecord” values shall be wrapped either in a JSON Object or in a JSON Array. If the attribute 'recordsAsArrays' of the corresponding 'JSONEncoding' is true, all “DataRecord” values shall be encoded as JSON objects, else as JSON arrays. If the 'recordsAsArrays' or the corresponding 'JSONEncoding' is omitted, “DataRecord” values shall be encoded as JSON objects by default.
 
-part:: The name of the JSON object members shall be the same as the “DataRecord” field names.
+part:: If “DataRecord” values are encoded as JSON objects, the name of the JSON object members shall be the same as the “DataRecord” field names. The value of each JSON object member shall be chosen by following the encoding rules of the data component used as the record field with the same name. If a record field is marked as 'optional', the corresponding JSON object member can be omitted or its JSON value can be set to `null`.
 
-part:: The value of each JSON Object member shall be chosen by following the encoding rules of the data component used as the record field with the same name.
+part:: If “DataRecord” values are encoded as JSON arrays, the order of JSON array items shall be the same as the “DataRecord” fields. The value of each JSON array item shall be chosen by following the encoding rules of the data component used as the record field at the same position. If a record field is marked as 'optional', the corresponding JSON array item can be set `null`, but can not be omitted.
 
-part:: If a record field is marked as 'optional', the corresponding JSON object member can be omitted or its JSON value can be set to `null`.
 ====

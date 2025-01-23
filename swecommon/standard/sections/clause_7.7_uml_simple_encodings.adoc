@@ -8,6 +8,7 @@ Encoding methods describe how structured array and stream data is encoded into a
 This package includes two classes that provide definitions of simple encoding methods. They are used as descriptors of the method used to encode data component values wrapped by aggregate classes defined in the “Block Components” package. There model is shown on the diagram below:
 
 .Simple Encodings
+// FIXME this image needs to be updated for the new JSON Encoding attributes
 image::figures/fig7.32.png[]
 
 include::../requirements/uml/simple_encodings/requirement1.adoc[]
@@ -22,7 +23,11 @@ In the model provided in this standard, the encoding specification is provided s
 [[uml_jsonencoding_class]]
 ==== JSONEncoding Class
 
-The “JSONEncoding” class defines a method allowing encoding arbitrarily complex data as JSON. This class has no parameters.
+The “JSONEncoding” class defines a method allowing encoding arbitrarily complex data as JSON. The class used to specify this encoding method is shown below:
+
+// FIXME missing image of the JSON encoding class
+
+The “recordsAsArrays” attribute specifies whether “DataRecord” values are encoded as JSON objects or JSON arrays. The “vectorsAsArrays” attribute specifies wether “Vector” values are encoded as JSON objects or JSON arrays. Both attributes are optional and default to false, meaning “DataRecord” and “Vector” values are per default encoded as JSON objects. The detailed rules are given in the implementation in <<encoding_rules_json>>.
 
 
 [[uml_textencoding_class]]
@@ -33,7 +38,7 @@ The “TextEncoding” class defines a method allowing encoding arbitrarily comp
 .TextEncoding Class
 image::figures/fig7.33.png[]
 
-The “tokenSeparator” attribute specifies the characters to use for separating each scalar value from one another. Scalar values appear sequentially in the stream alternatively with the token separator characters, in an order unambiguously defined by the data component structure. The detailed rules are given in the implementation <<encoding_rules_text>>.
+The “tokenSeparator” attribute specifies the characters to use for separating each scalar value from one another. Scalar values appear sequentially in the stream alternatively with the token separator characters, in an order unambiguously defined by the data component structure. The detailed rules are given in the implementation in <<encoding_rules_text>>.
 
 The “blockSeparator” attribute specifies characters used to mark the end of a “block”, corresponding to the complete structure defined by the data component tree (in a “DataArray”, “Matrix” or “DataStream” one block corresponds to one element, that is to say the structure defined by the “elementType” property). Stream or array data can then be composed of several blocks of the same type separated by block separator characters.
 
