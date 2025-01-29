@@ -42,12 +42,19 @@ The following example shows how elements of an array defined as a “DataRecord�
     "type": "TextEncoding",
     "blockSeparator": " ",
     "tokenSeparator": ","
-  },
-  "values": {
-    "href": "data:text/plain,0,5 10,2 50,2 80,5 100,15"
   }
 }
 ----
+
+
+
+The data array values encoded using the text encoding method as shown below:
+
+[source%unnumbered]
+----
+0,5 10,2 50,2 80,5 100,15
+----
+
 
 In this example, each element consists of a record of two values. The array element structure also corresponds to one block so that tuples are separated by block separators (here the ‘,’ character). Since the array is of size 5, there are 5 tuples listed sequentially in the data block, each one composed of the two values of the data record separated by the token separator. The pattern is “temp,error temp,error …” since values have to be listed in the same order as the fields.
 
@@ -333,11 +340,15 @@ The following example illustrates how values of a fixed size 3x3 stress matrix c
     "type": "TextEncoding",
     "blockSeparator": " ",
     "tokenSeparator": ","
-  },
-  "values": {
-    "href": "data:text/plain,0.36,0.48,-0.8 -0.8,0.6,0.0 0.48,0.64,0.6"
   }
 }
+----
+
+The matrix encoded using the Text encoding method as shown below:
+
+[source%unnumbered]
+----
+0.36,0.48,-0.8 -0.8,0.6,0.0 0.48,0.64,0.6
 ----
 
 Note that elements of the outer array (i.e. a matrix is a special kind of array) are separated by block separators (i.e. each block surrounded by spaces corresponds to one row of the matrix) while the inner array elements are separated by token separators.
