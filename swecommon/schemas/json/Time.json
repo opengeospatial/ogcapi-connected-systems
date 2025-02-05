@@ -23,16 +23,16 @@
         },
         "uom": {
           "description": "Temporal unit of measure used to express the value of this data component",
-          "$ref": "basicTypes.json#/definitions/UnitReference"
+          "$ref": "basicTypes.json#/$defs/UnitReference"
         },
         "constraint": {
-          "$ref": "basicTypes.json#/definitions/AllowedTimes"
+          "$ref": "basicTypes.json#/$defs/AllowedTimes"
         },
         "nilValues": {
-          "$ref": "basicTypes.json#/definitions/NilValuesTime"
+          "$ref": "basicTypes.json#/$defs/NilValuesTime"
         },
         "value": {
-          "$ref": "basicTypes.json#/definitions/DateTimeNumberOrSpecial"
+          "$ref": "basicTypes.json#/$defs/DateTimeNumberOrSpecial"
         }
       },
       "required": [

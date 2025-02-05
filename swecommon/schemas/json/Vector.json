@@ -26,7 +26,7 @@
           "type": "array",
           "items": {
             "allOf": [
-              { "$ref": "basicTypes.json#/definitions/SoftNamedProperty" },
+              { "$ref": "basicTypes.json#/$defs/SoftNamedProperty" },
               {
                 "oneOf": [
                   { "$ref": "Count.json" },

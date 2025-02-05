@@ -4,7 +4,7 @@
   "type": "object",
   "allOf": [
     {
-      "$ref": "basicTypes.json#/definitions/AbstractSWE"
+      "$ref": "basicTypes.json#/$defs/AbstractSWE"
     },
     {
       "properties": {

@@ -11,10 +11,10 @@
           "required": [ "featureType", "sampledFeature@link" ],
           "properties": {
             "validTime": {
-              "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
+              "$ref": "../common/commonDefs.json#/$defs/TimePeriod"
             },
             "sampledFeature@link": {
-              "$ref": "../common/commonDefs.json#/definitions/Link"
+              "$ref": "../common/commonDefs.json#/$defs/Link"
             }
           }
         }

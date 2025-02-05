@@ -10,7 +10,7 @@
         "properties": {
           "properties": {
             "featureType": {
-              "$ref": "../common/uris.json#/definitions/ProcedureTypeUris"
+              "$ref": "../common/uris.json#/$defs/ProcedureTypeUris"
             }
           }
         }

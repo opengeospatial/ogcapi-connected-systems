@@ -4,7 +4,7 @@
   "type": "object",
   "allOf": [
     {
-      "$ref": "sweCommonDefs.json#/definitions/AbstractSWEIdentifiable"
+      "$ref": "sweCommonDefs.json#/$defs/AbstractSWEIdentifiable"
     },
     {
       "properties": {
@@ -17,14 +17,14 @@
           "description": "Additional identifiers for the event, useful for discovery.",
           "type": "array",
           "items": {
-            "$ref": "commonDefs.json#/definitions/Term"
+            "$ref": "commonDefs.json#/$defs/Term"
           }
         },
         "classifiers": {
           "description": "Additional classifiers for the event, useful for discovery.",
           "type": "array",
           "items": {
-            "$ref": "commonDefs.json#/definitions/Term"
+            "$ref": "commonDefs.json#/$defs/Term"
           }
         },
         "contacts": {
@@ -43,13 +43,13 @@
         },
         "time": {
           "description": "Time of the event",
-          "$ref": "commonDefs.json#/definitions/TimeInstantOrPeriod"
+          "$ref": "commonDefs.json#/$defs/TimeInstantOrPeriod"
         },
         "properties": {
           "description": "A list of additional properties of interest to the event (e.g. calibration values, condition category, error codes, etc).",
           "type": "array",
           "items": {
-            "$ref": "commonDefs.json#/definitions/AnyProperty"
+            "$ref": "commonDefs.json#/$defs/AnyProperty"
           }
         },
         "configuration": {

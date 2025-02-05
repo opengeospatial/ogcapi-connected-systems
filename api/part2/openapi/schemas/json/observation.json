@@ -21,15 +21,15 @@
     },
     "procedure@link": {
       "description": "Link to the procedure/method used to make the observation",
-      "$ref": "../common/commonDefs.json#/definitions/Link"
+      "$ref": "../common/commonDefs.json#/$defs/Link"
     },
     "phenomenonTime": {
       "description": "Time at which the observation result is a valid estimate of the sampling feature property(ies). Defaults to the same value as `resultTime`.",
-      "$ref": "../common/commonDefs.json#/definitions/TimeInstant"
+      "$ref": "../common/commonDefs.json#/$defs/TimeInstant"
     },
     "resultTime": {
       "description": "Time at which the observation result was generated.",
-      "$ref": "../common/commonDefs.json#/definitions/TimeInstant"
+      "$ref": "../common/commonDefs.json#/$defs/TimeInstant"
     },
     "parameters": {
       "description": "Parameters of the observation. Must be valid according to the parameters schema provided in the datastream metadata.",
@@ -40,7 +40,7 @@
     },
     "result@link": {
       "description": "Link to external result data (e.g. large raster dataset served by a tiling service)",
-      "$ref": "../common/commonDefs.json#/definitions/Link"
+      "$ref": "../common/commonDefs.json#/$defs/Link"
     }
   },
   "required": [

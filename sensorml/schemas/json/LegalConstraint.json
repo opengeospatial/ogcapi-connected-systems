@@ -11,13 +11,13 @@
     "accessConstraints": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/CodeListValue"
+        "$ref": "#/$defs/CodeListValue"
       }
     },
     "useConstraints": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/CodeListValue"
+        "$ref": "#/$defs/CodeListValue"
       }
     },
     "otherConstraints": {

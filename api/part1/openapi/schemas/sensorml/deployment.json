@@ -1,11 +1,11 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "allOf": [
-    { "$ref": "sensormlDefs.json#/definitions/Deployment" },
+    { "$ref": "sensormlDefs.json#/$defs/Deployment" },
     {
       "properties": {
         "definition": {
-          "$ref": "../common/uris.json#/definitions/DeploymentTypeUris"
+          "$ref": "../common/uris.json#/$defs/DeploymentTypeUris"
         },
         "links": {
           "description": "Links to related resources",

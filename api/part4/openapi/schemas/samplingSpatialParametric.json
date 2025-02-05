@@ -10,7 +10,7 @@
           "properties": {
             "pose": {
               "description": "Pose relative to LTP frame or other local reference frame. If a point geometry is provided, the pose LTP frame is considered to be located at the point location",
-              "$ref": "../sensorml/sensormlDefs.json#/definitions/Pose"
+              "$ref": "../sensorml/sensormlDefs.json#/$defs/Pose"
             }
           }
         }

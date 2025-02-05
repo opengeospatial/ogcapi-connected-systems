@@ -7,13 +7,13 @@
       "const": "application/json"
     },
     "parametersSchema": {
-      "$ref": "../common/sweCommonDefs.json#/definitions/AnyComponent"
+      "$ref": "../common/sweCommonDefs.json#/$defs/AnyComponent"
     },
     "resultSchema": {
-      "$ref": "../common/sweCommonDefs.json#/definitions/AnyComponent"
+      "$ref": "../common/sweCommonDefs.json#/$defs/AnyComponent"
     },
     "feasibilityResultSchema": {
-      "$ref": "../common/sweCommonDefs.json#/definitions/AnyComponent"
+      "$ref": "../common/sweCommonDefs.json#/$defs/AnyComponent"
     }
   },
   "required": [

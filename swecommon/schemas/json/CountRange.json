@@ -12,10 +12,10 @@
           "const": "CountRange"
         },
         "constraint": {
-          "$ref": "basicTypes.json#/definitions/AllowedValues"
+          "$ref": "basicTypes.json#/$defs/AllowedValues"
         },
         "nilValues": {
-          "$ref": "basicTypes.json#/definitions/NilValuesText"
+          "$ref": "basicTypes.json#/$defs/NilValuesText"
         },
         "value": {
           "type": "array",

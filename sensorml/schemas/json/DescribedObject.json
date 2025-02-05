@@ -23,18 +23,18 @@
           "description": "Additional identifiers for the asset, useful for discovery (e.g. short name, mission id, model number, serial number, etc.).",
           "type": "array",
           "items": {
-            "$ref": "commonDefs.json#/definitions/Term"
+            "$ref": "commonDefs.json#/$defs/Term"
           }
         },
         "classifiers": {
           "description": "Classifiers for the asset, useful for discovery (e.g. process type, sensor type, intended application, etc.).",
           "type": "array",
           "items": {
-            "$ref": "commonDefs.json#/definitions/Term"
+            "$ref": "commonDefs.json#/$defs/Term"
           }
         },
         "validTime": {
-          "$ref": "commonDefs.json#/definitions/TimePeriod"
+          "$ref": "commonDefs.json#/$defs/TimePeriod"
         },
         "securityConstraints": {
           "description": "Overall security tagging of process description; Individual tagging of properties can be done using extension properties.",
@@ -62,14 +62,14 @@
           "description": "Groups of characteristics applicable to this asset under various conditions",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/CharacteristicList"
+            "$ref": "#/$defs/CharacteristicList"
           }
         },
         "capabilities": {
           "description": "Groups of capabilities applicable to this asset under various conditions",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/CapabilityList"
+            "$ref": "#/$defs/CapabilityList"
           }
         },
         "contacts": {
@@ -103,7 +103,7 @@
     "CharacteristicList": {
       "allOf": [
         {
-          "$ref": "sweCommonDefs.json#/definitions/AbstractSWEIdentifiable"
+          "$ref": "sweCommonDefs.json#/$defs/AbstractSWEIdentifiable"
         },
         {
           "type": "object",
@@ -117,14 +117,14 @@
               "description": "The conditions under which the characteristics apply",
               "type": "array",
               "items": {
-                "$ref": "sweCommonDefs.json#/definitions/AnySimpleComponent"
+                "$ref": "sweCommonDefs.json#/$defs/AnySimpleComponent"
               }
             },
             "characteristics": {
               "description": "The list of characteristics in this group",
               "type": "array",
               "items": {
-                "$ref": "commonDefs.json#/definitions/AnyProperty"
+                "$ref": "commonDefs.json#/$defs/AnyProperty"
               }
             }
           },
@@ -136,7 +136,7 @@
     "CapabilityList": {
       "allOf": [
         {
-          "$ref": "sweCommonDefs.json#/definitions/AbstractSWEIdentifiable"
+          "$ref": "sweCommonDefs.json#/$defs/AbstractSWEIdentifiable"
         },
         {
           "description": "A group of capabilities.",
@@ -151,14 +151,14 @@
               "description": "The conditions under which the capabilities apply",
               "type": "array",
               "items": {
-                "$ref": "sweCommonDefs.json#/definitions/AnySimpleComponent"
+                "$ref": "sweCommonDefs.json#/$defs/AnySimpleComponent"
               }
             },
             "capabilities": {
               "description": "The list of capabilities in this group",
               "type": "array",
               "items": {
-                "$ref": "commonDefs.json#/definitions/AnyProperty"
+                "$ref": "commonDefs.json#/$defs/AnyProperty"
               }
             }
           },

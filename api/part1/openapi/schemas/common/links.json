@@ -4,6 +4,6 @@
   "type": "array",
   "minItems": 1,
   "items": {
-    "$ref": "commonDefs.json#/definitions/Link"
+    "$ref": "commonDefs.json#/$defs/Link"
   }
 }

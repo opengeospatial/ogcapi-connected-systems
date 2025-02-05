@@ -12,7 +12,7 @@
       "type": "string"
     },
     "contactInfo": {
-      "$ref": "#/definitions/Contact"
+      "$ref": "#/$defs/Contact"
     },
     "role": {
       "type": "string",
@@ -38,10 +38,10 @@
       "type": "object",
       "properties": {
         "phone": {
-          "$ref": "#/definitions/Phone"
+          "$ref": "#/$defs/Phone"
         },
         "address": {
-          "$ref": "#/definitions/Address"
+          "$ref": "#/$defs/Address"
         },
         "website": {
           "type": "string"

@@ -3,7 +3,7 @@
   "description": "Implementation of ISO-11404 Array datatype. This defines an array of identical data components with a elementCount. Values are given as a block and can be encoded in different ways",
   "allOf": [
     {
-      "$ref": "#/definitions/AbstractArray"
+      "$ref": "#/$defs/AbstractArray"
     },
     {
       "properties": {
@@ -29,18 +29,18 @@
             "elementCount": {
               "description": "Specifies the size of the array (i.e. the number of elements of the defined type it contains)",
               "oneOf": [
-                { "$ref": "basicTypes.json#/definitions/AssociationAttributeGroup" },
-                { "$ref": "basicTypes.json#/definitions/ElementCount" }
+                { "$ref": "basicTypes.json#/$defs/AssociationAttributeGroup" },
+                { "$ref": "basicTypes.json#/$defs/ElementCount" }
               ]
             },
             "elementType": {
               "description": "Defines the structure of the element that will be repeated in the array",
               "allOf": [
-                { "$ref": "basicTypes.json#/definitions/SoftNamedProperty" },
+                { "$ref": "basicTypes.json#/$defs/SoftNamedProperty" },
                 {
                   "oneOf": [
-                    { "$ref": "basicTypes.json#/definitions/AssociationAttributeGroup" },
-                    { "$ref": "sweCommon.json#/definitions/AnyComponent" }
+                    { "$ref": "basicTypes.json#/$defs/AssociationAttributeGroup" },
+                    { "$ref": "sweCommon.json#/$defs/AnyComponent" }
                   ]
                 }
               ]
@@ -48,15 +48,15 @@
             "encoding": {
               "description": "Specifies the type of method used to encode the array values",
               "oneOf": [
-                { "$ref": "encodings.json#/definitions/BinaryEncoding" },
-                { "$ref": "encodings.json#/definitions/TextEncoding" },
-                { "$ref": "encodings.json#/definitions/XMLEncoding" },
-                { "$ref": "encodings.json#/definitions/JSONEncoding" }
+                { "$ref": "encodings.json#/$defs/BinaryEncoding" },
+                { "$ref": "encodings.json#/$defs/TextEncoding" },
+                { "$ref": "encodings.json#/$defs/XMLEncoding" },
+                { "$ref": "encodings.json#/$defs/JSONEncoding" }
               ]
             },
             "values": {
               "description": "If present, contains an encoded block of the values contained in the array. Values are optional so that the array definition can be used a as a schema for values provided separately",
-              "$ref": "basicTypes.json#/definitions/EncodedValues"
+              "$ref": "basicTypes.json#/$defs/EncodedValues"
             }
           }
         }

@@ -15,7 +15,7 @@
         },
         {
           "title": "Link to external file",
-          "$ref": "../common/commonDefs.json#/definitions/Link"
+          "$ref": "../common/commonDefs.json#/$defs/Link"
         }
       ]
     }

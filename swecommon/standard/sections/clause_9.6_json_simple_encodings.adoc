@@ -15,7 +15,7 @@ When datastream or data array values are provided out-of-band (i.e. not inline i
 
 include::../requirements/json/simple_encodings/requirement2.adoc[]
 
-The “JSONEncoding” object is the JSON schema implementation of the “JSONEncoding” UML class defined in <<uml_jsonencoding_class>>. The schema for this class is provided in {jsonschema-base-url}/encodings.json[encodings.json#/definitions/JSONEncoding].
+The “JSONEncoding” object is the JSON schema implementation of the “JSONEncoding” UML class defined in <<uml_jsonencoding_class>>. The schema for this class is provided in {jsonschema-base-url}/encodings.json[encodings.json#/$defs/JSONEncoding].
 
 [source%unnumbered,json]
 ----
@@ -30,7 +30,7 @@ The JSON encoding method is the default method when the data component tree is i
 
 include::../requirements/json/simple_encodings/requirement3.adoc[]
 
-The “TextEncoding” object is the JSON schema implementation of the “TextEncoding” UML class defined in <<uml_textencoding_class>>. The schema for this class is provided in {jsonschema-base-url}/encodings.json[encodings.json#/definitions/TextEncoding].
+The “TextEncoding” object is the JSON schema implementation of the “TextEncoding” UML class defined in <<uml_textencoding_class>>. The schema for this class is provided in {jsonschema-base-url}/encodings.json[encodings.json#/$defs/TextEncoding].
 
 [source%unnumbered,json]
 ----

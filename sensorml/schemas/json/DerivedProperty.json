@@ -3,7 +3,7 @@
   "type": "object",
   "allOf": [
     {
-      "$ref": "sweCommonDefs.json#/definitions/AbstractSWEIdentifiable"
+      "$ref": "sweCommonDefs.json#/$defs/AbstractSWEIdentifiable"
     },
     {
       "properties": {
@@ -42,7 +42,7 @@
           "type": "array",
           "minItems": 1,
           "items": {
-            "$ref": "sweCommonDefs.json#/definitions/AnySimpleComponent"
+            "$ref": "sweCommonDefs.json#/$defs/AnySimpleComponent"
           }
         }
       },

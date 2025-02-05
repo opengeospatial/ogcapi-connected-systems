@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "allOf": [
     {
       "$ref": "baseStream.json"
@@ -8,7 +8,7 @@
       "properties": {
         "system@link": {
           "description": "Link to the system producing the observations",
-          "$ref": "../common/commonDefs.json#/definitions/Link",
+          "$ref": "../common/commonDefs.json#/$defs/Link",
           "readOnly": true
         },
         "outputName": {
@@ -17,19 +17,19 @@
         },
         "procedure@link": {
           "description": "Link to the procedure used to acquire observations (only provided if all observations in the datastream share the same procedure)",
-          "$ref": "../common/commonDefs.json#/definitions/Link"
+          "$ref": "../common/commonDefs.json#/$defs/Link"
         },
         "deployment@link": {
           "description": "Link to the deployment during which the observations are/were collected (only provided if all observations in the datastream share the same deployment)",
-          "$ref": "../common/commonDefs.json#/definitions/Link"
+          "$ref": "../common/commonDefs.json#/$defs/Link"
         },
         "featureOfInterest@link": {
           "description": "Link to the ultimate feature of interest (only provided if all observations in the datastream share the same feature of interest)",
-          "$ref": "../common/commonDefs.json#/definitions/Link"
+          "$ref": "../common/commonDefs.json#/$defs/Link"
         },
         "samplingFeature@link": {
           "description": "Link to the sampling feature (only provided if all observations in the datastream share the same sampling feature)",
-          "$ref": "../common/commonDefs.json#/definitions/Link"
+          "$ref": "../common/commonDefs.json#/$defs/Link"
         },
         "observedProperties": {
           "oneOf": [
@@ -66,7 +66,7 @@
             },
             {
               "description": "Time extent spanning all phenomenon times of observations in this datastream",
-              "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
+              "$ref": "../common/commonDefs.json#/$defs/TimePeriod"
             }
           ],
           "readOnly": true
@@ -83,7 +83,7 @@
             },
             {
               "description": "Time extent spanning all result times of observations in this datastream",
-              "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
+              "$ref": "../common/commonDefs.json#/$defs/TimePeriod"
             }
           ],
           "readOnly": true
@@ -136,7 +136,7 @@
         },
         "links": {
           "description": "Other links to related resources",
-          "$ref": "../common/commonDefs.json#/definitions/Links"
+          "$ref": "../common/commonDefs.json#/$defs/Links"
         }
       }
     }

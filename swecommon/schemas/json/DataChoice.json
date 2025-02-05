@@ -20,11 +20,11 @@
           "type": "array",
           "items": {
             "allOf": [
-              { "$ref": "basicTypes.json#/definitions/SoftNamedProperty" },
+              { "$ref": "basicTypes.json#/$defs/SoftNamedProperty" },
               {
                 "oneOf": [
-                  { "$ref": "basicTypes.json#/definitions/AssociationAttributeGroup" },
-                  { "$ref": "sweCommon.json#/definitions/AnyComponent" }
+                  { "$ref": "basicTypes.json#/$defs/AssociationAttributeGroup" },
+                  { "$ref": "sweCommon.json#/$defs/AnyComponent" }
                 ]
               }
             ]

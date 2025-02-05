@@ -20,7 +20,7 @@
     },
     "validTime": {
       "description": "Validity period of the resource",
-      "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
+      "$ref": "../common/commonDefs.json#/$defs/TimePeriod"
     },
     "formats": {
       "description": "List of available formats",

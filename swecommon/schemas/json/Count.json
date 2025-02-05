@@ -12,10 +12,10 @@
           "const": "Count"
         },
         "constraint": {
-          "$ref": "basicTypes.json#/definitions/AllowedValues"
+          "$ref": "basicTypes.json#/$defs/AllowedValues"
         },
         "nilValues": {
-          "$ref": "basicTypes.json#/definitions/NilValuesInteger"
+          "$ref": "basicTypes.json#/$defs/NilValuesInteger"
         },
         "value": {
           "type": "integer"

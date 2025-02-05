@@ -12,11 +12,11 @@
         },
         "components": {
           "description": "The list of sub-processes",
-          "$ref": "#/definitions/ComponentList"
+          "$ref": "#/$defs/ComponentList"
         },
         "connections": {
           "description": "The explicit definition of data links between outputs, inputs, and parameters of the components within an aggregate process.",
-          "$ref": "#/definitions/ConnectionList"
+          "$ref": "#/$defs/ConnectionList"
         }
       }
     }
@@ -27,7 +27,7 @@
       "minItems": 1,
       "items": {
         "allOf": [
-          { "$ref": "sweCommonDefs.json#/definitions/SoftNamedProperty" },
+          { "$ref": "sweCommonDefs.json#/$defs/SoftNamedProperty" },
           {
             "oneOf": [
               { "$ref": "SimpleProcess.json" },
@@ -35,7 +35,7 @@
               { "$ref": "PhysicalComponent.json" },
               { "$ref": "PhysicalSystem.json" },
               {
-                "$ref": "commonDefs.json#/definitions/XLink",
+                "$ref": "commonDefs.json#/$defs/XLink",
                 "properties": {
                   "type": {
                     "const": "Link"
@@ -54,10 +54,10 @@
         "type": "object",
         "properties": {
           "source": {
-            "$ref": "commonDefs.json#/definitions/PathRef"
+            "$ref": "commonDefs.json#/$defs/PathRef"
           },
           "destination": {
-            "$ref": "commonDefs.json#/definitions/PathRef"
+            "$ref": "commonDefs.json#/$defs/PathRef"
           }
         },
         "required": ["source", "destination"]

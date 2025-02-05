@@ -13,7 +13,7 @@
     },
     "link": {
       "description": "Link to complete contact information",
-      "$ref": "commonDefs.json#/definitions/XLink"
+      "$ref": "commonDefs.json#/$defs/XLink"
     }
   },
   "unevaluatedProperties": false,

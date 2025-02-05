@@ -12,7 +12,7 @@ This requirement class defines an additional encoding method that can be used to
 
 include::../requirements/json/advanced_encodings/requirement2.adoc[]
 
-The “BinaryEncoding” object is the JSON schema implementation of the “BinaryEncoding” UML class defined in <<uml_binaryencoding_class>>. The schema for this class is provided in {jsonschema-base-url}/encodings.json[encodings.json#/definitions/BinaryEncoding].
+The “BinaryEncoding” object is the JSON schema implementation of the “BinaryEncoding” UML class defined in <<uml_binaryencoding_class>>. The schema for this class is provided in {jsonschema-base-url}/encodings.json[encodings.json#/$defs/BinaryEncoding].
 
 An example instance is provided below:
 

@@ -9,25 +9,25 @@
       "properties": {
         "attachedTo": {
           "description": "References the physical component or system (e.g. platform) to which to which this component or system is attached.",
-          "$ref": "commonDefs.json#/definitions/XLink"
+          "$ref": "commonDefs.json#/$defs/XLink"
         },
         "localReferenceFrames": {
           "description": "A list of spatial reference frames, attached to the physical component itself.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/SpatialFrame"
+            "$ref": "#/$defs/SpatialFrame"
           }
         },
         "localTimeFrames": {
           "description": "Supports local time reference frames such as \"time past mission start\". Note that units are handled in timePosition so they are not specified in the TemporalFrame.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/TemporalFrame"
+            "$ref": "#/$defs/TemporalFrame"
           }
         },
         "position": {
           "description": "Provides positional information relating the component's spatial reference frame to an external spatial reference frame.",
-          "$ref": "#/definitions/Position"
+          "$ref": "#/$defs/Position"
         }
       }
     }
@@ -38,7 +38,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "sweCommonDefs.json#/definitions/AbstractSWEIdentifiable"
+          "$ref": "sweCommonDefs.json#/$defs/AbstractSWEIdentifiable"
         },
         {
           "properties": {
@@ -79,7 +79,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "sweCommonDefs.json#/definitions/AbstractSWEIdentifiable"
+          "$ref": "sweCommonDefs.json#/$defs/AbstractSWEIdentifiable"
         },
         {
           "properties": {
@@ -99,7 +99,7 @@
         {
           "title": "by Text",
           "description": "A textual description of where the system is located (e.g. a building name, a room number, etc.)",
-          "$ref": "sweCommonDefs.json#/definitions/Text"
+          "$ref": "sweCommonDefs.json#/$defs/Text"
         },
         {
           "title": "by Point",
@@ -115,22 +115,22 @@
         },
         {
           "title": "by Datastream",
-          "$ref": "commonDefs.json#/definitions/XLink"
+          "$ref": "commonDefs.json#/$defs/XLink"
         },
         {
           "title": "by Location Vector",
           "deprecated": true,
-          "$ref": "sweCommonDefs.json#/definitions/Vector"
+          "$ref": "sweCommonDefs.json#/$defs/Vector"
         },
         {
           "title": "by Position (DataRecord)",
           "deprecated": true,
-          "$ref": "sweCommonDefs.json#/definitions/DataRecord"
+          "$ref": "sweCommonDefs.json#/$defs/DataRecord"
         },
         {
           "title": "by Trajectory (DataArray)",
           "deprecated": true,
-          "$ref": "sweCommonDefs.json#/definitions/DataArray"
+          "$ref": "sweCommonDefs.json#/$defs/DataArray"
         }
       ]
     }

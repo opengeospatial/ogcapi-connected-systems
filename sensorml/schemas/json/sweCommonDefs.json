@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$defs": {
     "AbstractSWE": {
-      "$ref": "../../../swecommon/schemas/json/basicTypes.json#/definitions/AbstractSWE"
+      "$ref": "../../../swecommon/schemas/json/basicTypes.json#/$defs/AbstractSWE"
     },
     "AbstractSWEIdentifiable": {
       "$ref": "../../../swecommon/schemas/json/AbstractSweIdentifiable.json"
@@ -26,19 +26,19 @@
       "$ref": "../../../swecommon/schemas/json/Category.json"
     },
     "AnySimpleComponent": {
-      "$ref": "../../../swecommon/schemas/json/sweCommon.json#/definitions/AnySimpleComponent"
+      "$ref": "../../../swecommon/schemas/json/sweCommon.json#/$defs/AnySimpleComponent"
     },
     "AnyComponent": {
-      "$ref": "../../../swecommon/schemas/json/sweCommon.json#/definitions/AnyComponent"
+      "$ref": "../../../swecommon/schemas/json/sweCommon.json#/$defs/AnyComponent"
     },
     "SoftNamedProperty": {
-      "$ref": "../../../swecommon/schemas/json/basicTypes.json#/definitions/SoftNamedProperty"
+      "$ref": "../../../swecommon/schemas/json/basicTypes.json#/$defs/SoftNamedProperty"
     },
     "AnyConstraint": {
       "oneOf": [
-        { "$ref": "../../../swecommon/schemas/json/basicTypes.json#/definitions/AllowedTokens" },
-        { "$ref": "../../../swecommon/schemas/json/basicTypes.json#/definitions/AllowedValues" },
-        { "$ref": "../../../swecommon/schemas/json/basicTypes.json#/definitions/AllowedTimes" }
+        { "$ref": "../../../swecommon/schemas/json/basicTypes.json#/$defs/AllowedTokens" },
+        { "$ref": "../../../swecommon/schemas/json/basicTypes.json#/$defs/AllowedValues" },
+        { "$ref": "../../../swecommon/schemas/json/basicTypes.json#/$defs/AllowedTimes" }
       ]
     }
   }

@@ -12,10 +12,10 @@
         },
         "components": {
           "description": "The list of sub-components",
-          "$ref": "AggregateProcess.json#/definitions/ComponentList"
+          "$ref": "AggregateProcess.json#/$defs/ComponentList"
         },
         "connections": {
-          "$ref": "AggregateProcess.json#/definitions/ConnectionList"
+          "$ref": "AggregateProcess.json#/$defs/ConnectionList"
         }
       }
     }

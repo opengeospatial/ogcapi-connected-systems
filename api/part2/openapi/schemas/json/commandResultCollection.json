@@ -10,7 +10,7 @@
     },
     "links": {
       "description": "Links to related resources (including paging)",
-      "$ref": "../common/commonDefs.json#/definitions/Links"
+      "$ref": "../common/commonDefs.json#/$defs/Links"
     }
   },
   "required": [ "items" ]

@@ -5,7 +5,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "basicTypes.json#/definitions/AbstractSWE"
+          "$ref": "basicTypes.json#/$defs/AbstractSWE"
         },
         {
           "properties": {}
@@ -17,7 +17,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/AbstractEncoding"
+          "$ref": "#/$defs/AbstractEncoding"
         },
         {
           "properties": {
@@ -57,7 +57,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/AbstractEncoding"
+          "$ref": "#/$defs/AbstractEncoding"
         },
         {
           "properties": {
@@ -76,7 +76,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/AbstractEncoding"
+          "$ref": "#/$defs/AbstractEncoding"
         },
         {
           "properties": {
@@ -99,7 +99,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/AbstractEncoding"
+          "$ref": "#/$defs/AbstractEncoding"
         },
         {
           "properties": {
@@ -133,10 +133,10 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Component"
+                    "$ref": "#/$defs/Component"
                   },
                   {
-                    "$ref": "#/definitions/Block"
+                    "$ref": "#/$defs/Block"
                   }
                 ]
               }
@@ -156,7 +156,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "basicTypes.json#/definitions/AbstractSWE"
+          "$ref": "basicTypes.json#/$defs/AbstractSWE"
         },
         {
           "properties": {
@@ -202,7 +202,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "basicTypes.json#/definitions/AbstractSWE"
+          "$ref": "basicTypes.json#/$defs/AbstractSWE"
         },
         {
           "properties": {
@@ -245,8 +245,8 @@
     }
   },
   "oneOf": [
-    { "$ref": "#/definitions/TextEncoding" },
-    { "$ref": "#/definitions/XMLEncoding" },
-    { "$ref": "#/definitions/JSONEncoding" }
+    { "$ref": "#/$defs/TextEncoding" },
+    { "$ref": "#/$defs/XMLEncoding" },
+    { "$ref": "#/$defs/JSONEncoding" }
   ]
 }

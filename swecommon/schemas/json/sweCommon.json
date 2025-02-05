@@ -4,7 +4,7 @@
     "AnyComponent": {
       "oneOf": [
         {
-          "$ref": "#/definitions/AnySimpleComponent"
+          "$ref": "#/$defs/AnySimpleComponent"
         },
         {
           "$ref": "./DataRecord.json"
@@ -29,7 +29,7 @@
     "AnySimpleComponent": {
       "oneOf": [
         {
-          "$ref": "#/definitions/AnyScalarComponent"
+          "$ref": "#/$defs/AnyScalarComponent"
         },
         {
           "$ref": "./CountRange.json"
@@ -69,7 +69,7 @@
     }
   },
   "oneOf": [
-    { "$ref": "#/definitions/AnyComponent" },
+    { "$ref": "#/$defs/AnyComponent" },
     { "$ref": "./DataStream.json" }
   ]
 }

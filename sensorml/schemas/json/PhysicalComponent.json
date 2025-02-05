@@ -11,7 +11,7 @@
           "const": "PhysicalComponent"
         },
         "method": {
-          "$ref": "SimpleProcess.json#/definitions/ProcessMethod"
+          "$ref": "SimpleProcess.json#/$defs/ProcessMethod"
         }
       }
     }

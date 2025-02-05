@@ -15,10 +15,10 @@
           "format": "uri"
         },
         "position": {
-          "$ref": "#/definitions/PositionGeo"
+          "$ref": "#/$defs/PositionGeo"
         },
         "angles": {
-          "$ref": "#/definitions/AnglesYPR"
+          "$ref": "#/$defs/AnglesYPR"
         }
       },
       "required": [
@@ -40,10 +40,10 @@
           "format": "uri"
         },
         "position": {
-          "$ref": "#/definitions/PositionGeo"
+          "$ref": "#/$defs/PositionGeo"
         },
         "quaternion": {
-          "$ref": "#/definitions/Quaternion"
+          "$ref": "#/$defs/Quaternion"
         }
       },
       "required": [
@@ -65,10 +65,10 @@
           "format": "uri"
         },
         "position": {
-          "$ref": "#/definitions/PositionXYZ"
+          "$ref": "#/$defs/PositionXYZ"
         },
         "angles": {
-          "$ref": "#/definitions/AnglesYPR"
+          "$ref": "#/$defs/AnglesYPR"
         }
       },
       "required": [
@@ -91,10 +91,10 @@
           "format": "uri"
         },
         "position": {
-          "$ref": "#/definitions/PositionXYZ"
+          "$ref": "#/$defs/PositionXYZ"
         },
         "quaternion": {
-          "$ref": "#/definitions/Quaternion"
+          "$ref": "#/$defs/Quaternion"
         }
       },
       "required": [

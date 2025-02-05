@@ -6,7 +6,7 @@
       "properties": {
         "system@link": {
           "description": "Link to the system receiving the commands",
-          "$ref": "../common/commonDefs.json#/definitions/Link",
+          "$ref": "../common/commonDefs.json#/$defs/Link",
           "readOnly": true
         },
         "inputName": {
@@ -15,19 +15,19 @@
         },
         "procedure@link": {
           "description": "Link to the procedure used to execute commands (only provided if all commands in the control stream share the same procedure)",
-          "$ref": "../common/commonDefs.json#/definitions/Link"
+          "$ref": "../common/commonDefs.json#/$defs/Link"
         },
         "deployment@link": {
           "description": "Link to the deployment during which the commands are/were received (only provided if all commands in the control stream share the same deployment)",
-          "$ref": "../common/commonDefs.json#/definitions/Link"
+          "$ref": "../common/commonDefs.json#/$defs/Link"
         },
         "featureOfInterest@link": {
           "description": "Link to the ultimate feature of interest (only provided if all commands in the control stream share the same feature of interest)",
-          "$ref": "../common/commonDefs.json#/definitions/Link"
+          "$ref": "../common/commonDefs.json#/$defs/Link"
         },
         "samplingFeature@link": {
           "description": "Link to the sampling feature (only provided if all commands in the control stream share the same sampling feature)",
-          "$ref": "../common/commonDefs.json#/definitions/Link"
+          "$ref": "../common/commonDefs.json#/$defs/Link"
         },
         "controlledProperties": {
           "description": "List of properties that are controllable through this control stream",
@@ -52,12 +52,12 @@
         },
         "issueTime": {
           "description": "Time extent spanning all issue times of commands in this control stream",
-          "$ref": "../common/commonDefs.json#/definitions/TimePeriod",
+          "$ref": "../common/commonDefs.json#/$defs/TimePeriod",
           "readOnly": true
         },
         "executionTime": {
           "description": "Time extent spanning all execution times of commands in this control stream",
-          "$ref": "../common/commonDefs.json#/definitions/TimePeriod",
+          "$ref": "../common/commonDefs.json#/$defs/TimePeriod",
           "readOnly": true
         },
         "live": {
@@ -76,7 +76,7 @@
         },
         "links": {
           "description": "Links to related resources",
-          "$ref": "../common/commonDefs.json#/definitions/Links"
+          "$ref": "../common/commonDefs.json#/$defs/Links"
         }
       }
     }

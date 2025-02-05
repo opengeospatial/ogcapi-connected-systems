@@ -9,7 +9,7 @@
         "type": "object",
         "properties": {
           "ref": {
-            "$ref": "commonDefs.json#/definitions/PathRef"
+            "$ref": "commonDefs.json#/$defs/PathRef"
           },
           "value": {
             "oneOf": [
@@ -35,7 +35,7 @@
         "type": "object",
         "properties": {
           "ref": {
-            "$ref": "commonDefs.json#/definitions/PathRef"
+            "$ref": "commonDefs.json#/$defs/PathRef"
           },
           "value": {
             "type": "array"
@@ -52,7 +52,7 @@
         "type": "object",
         "properties": {
           "ref": {
-            "$ref": "commonDefs.json#/definitions/PathRef"
+            "$ref": "commonDefs.json#/$defs/PathRef"
           },
           "value": {
             "type": "string"
@@ -70,12 +70,12 @@
           {
             "properties": {
               "ref": {
-                "$ref": "commonDefs.json#/definitions/PathRef"
+                "$ref": "commonDefs.json#/$defs/PathRef"
               }
             }
           },
           {
-            "$ref": "sweCommonDefs.json#/definitions/AnyConstraint"
+            "$ref": "sweCommonDefs.json#/$defs/AnyConstraint"
           }
         ],
         "required": ["type", "ref"],
@@ -89,7 +89,7 @@
         "type": "object",
         "properties": {
           "ref": {
-            "$ref": "commonDefs.json#/definitions/PathRef"
+            "$ref": "commonDefs.json#/$defs/PathRef"
           },
           "value": {
             "type": "string",

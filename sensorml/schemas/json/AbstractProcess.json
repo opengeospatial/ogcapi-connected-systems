@@ -14,7 +14,7 @@
         },
         "typeOf": {
           "description": "A reference to a base process from which this process inherits properties and constraints (e.g. original equipment manufacturer's model description, generic equation, etc.).",
-          "$ref": "commonDefs.json#/definitions/XLink"
+          "$ref": "commonDefs.json#/$defs/XLink"
         },
         "configuration": {
           "description": "Value settings that further constrain the properties of the base process.",
@@ -22,19 +22,19 @@
         },
         "featuresOfInterest": {
           "description": "A collection of sampling features or domain features relevant to the process (e.g. the Gulf of Mexico, the White House, the Atmosphere, a vehicle, etc.).",
-          "$ref": "#/definitions/FeatureList"
+          "$ref": "#/$defs/FeatureList"
         },
         "inputs": {
           "description": "The list of process or system inputs.",
-          "$ref": "#/definitions/InputList"
+          "$ref": "#/$defs/InputList"
         },
         "outputs": {
           "description": "The list of process or system outputs.",
-          "$ref": "#/definitions/OutputList"
+          "$ref": "#/$defs/OutputList"
         },
         "parameters": {
           "description": "The list of process or system parameters.",
-          "$ref": "#/definitions/ParameterList"
+          "$ref": "#/$defs/ParameterList"
         },
         "modes": {
           "description": "A collection of parameters that can be set at once through the selection of a particular predefined mode.",
@@ -51,28 +51,28 @@
       "type": "array",
       "minItems": 1,
       "items": {
-        "$ref": "commonDefs.json#/definitions/XLink"
+        "$ref": "commonDefs.json#/$defs/XLink"
       }
     },
     "InputList": {
       "type": "array",
       "minItems": 1,
       "items": {
-        "$ref": "#/definitions/IOComponentChoice"
+        "$ref": "#/$defs/IOComponentChoice"
       }
     },
     "OutputList": {
       "type": "array",
       "minItems": 1,
       "items": {
-        "$ref": "#/definitions/IOComponentChoice"
+        "$ref": "#/$defs/IOComponentChoice"
       }
     },
     "ParameterList": {
       "type": "array",
       "minItems": 1,
       "items": {
-        "$ref": "#/definitions/IOComponentChoice"
+        "$ref": "#/$defs/IOComponentChoice"
       }
     },
     "ModeChoice": {
@@ -92,15 +92,15 @@
         {
           "title": "DataComponent",
           "allOf": [
-            { "$ref": "sweCommonDefs.json#/definitions/SoftNamedProperty" },
-            { "$ref": "sweCommonDefs.json#/definitions/AnyComponent" }
+            { "$ref": "sweCommonDefs.json#/$defs/SoftNamedProperty" },
+            { "$ref": "sweCommonDefs.json#/$defs/AnyComponent" }
           ]
         },
         {
           "title": "ObservableProperty",
           "allOf": [
-            { "$ref": "sweCommonDefs.json#/definitions/SoftNamedProperty" },
-            { "$ref": "commonDefs.json#/definitions/ObservableProperty" }
+            { "$ref": "sweCommonDefs.json#/$defs/SoftNamedProperty" },
+            { "$ref": "commonDefs.json#/$defs/ObservableProperty" }
           ]
         }
       ]

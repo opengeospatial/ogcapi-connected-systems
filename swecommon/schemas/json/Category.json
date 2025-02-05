@@ -17,10 +17,10 @@
           "format": "uri"
         },
         "constraint": {
-          "$ref": "basicTypes.json#/definitions/AllowedTokens"
+          "$ref": "basicTypes.json#/$defs/AllowedTokens"
         },
         "nilValues": {
-          "$ref": "basicTypes.json#/definitions/NilValuesText"
+          "$ref": "basicTypes.json#/$defs/NilValuesText"
         },
         "value": {
           "type": "string"

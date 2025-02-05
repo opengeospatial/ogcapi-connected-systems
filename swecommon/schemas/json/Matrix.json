@@ -4,7 +4,7 @@
   "type": "object",
   "allOf": [
     {
-      "$ref": "./DataArray.json#/definitions/AbstractArray"
+      "$ref": "./DataArray.json#/$defs/AbstractArray"
     },
     {
       "properties": {

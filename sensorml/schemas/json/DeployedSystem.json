@@ -9,7 +9,7 @@
     },
     "system": {
       "description": "Link to the system being deployed",
-      "$ref": "commonDefs.json#/definitions/XLink"
+      "$ref": "commonDefs.json#/$defs/XLink"
     },
     "configuration": {
       "description": "The configuration of the system used during this deployment (e.g. sampling rate setting, etc.)",

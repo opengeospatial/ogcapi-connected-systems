@@ -7,4 +7,4 @@ content:
       - properties:
           links:
             description: Links to related resources
-            $ref: ../schemas/common/commonDefs.json#/definitions/Links
+            $ref: ../schemas/common/commonDefs.json#/$defs/Links

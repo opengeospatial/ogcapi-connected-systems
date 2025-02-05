@@ -17,33 +17,6 @@
           "type": "string",
           "minLength": 1
         },
-        "quality": {
-          "description": "Provides an indication of the reliability of the component value in the form of a decimal number (e.g. relative accuracy), a range (e.g. bidirectional tolerance), a categorical value (e.g. good, bad) or plain textual statement",
-          "type": "array",
-          "items": {
-            "allOf": [
-              {
-                "$ref": "basicTypes.json#/definitions/AssociationAttributeGroup"
-              },
-              {
-                "oneOf": [
-                  {
-                    "$ref": "Quantity.json"
-                  },
-                  {
-                    "$ref": "QuantityRange.json"
-                  },
-                  {
-                    "$ref": "Category.json"
-                  },
-                  {
-                    "$ref": "Text.json"
-                  }
-                ]
-              }
-            ]
-          }
-        },
         "nilValues": {
           "description": "Defines reserved values with special meaning (e.g. missing, out-of-range, etc.)"
         },

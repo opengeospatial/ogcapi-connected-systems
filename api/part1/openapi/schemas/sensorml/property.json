@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "allOf": [
     { 
-      "$ref": "sensormlDefs.json#/definitions/DerivedProperty"
+      "$ref": "sensormlDefs.json#/$defs/DerivedProperty"
     },
     {
       "properties": {
