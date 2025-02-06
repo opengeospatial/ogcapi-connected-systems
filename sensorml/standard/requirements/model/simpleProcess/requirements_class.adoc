@@ -7,7 +7,6 @@ identifier:: /req/model/simpleProcess
 subject:: Derived Encoding or Software Implementation
 inherit:: /req/model/coreProcess
 inherit:: ISO 19115:2006 (All Metadata)
-inherit:: ISO 19136 (GML)
 
 requirement:: /req/model/simpleProcess/dependency-core
 requirement:: /req/model/simpleProcess/package-fully-implemented
