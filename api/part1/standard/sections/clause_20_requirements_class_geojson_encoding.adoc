@@ -168,7 +168,7 @@ A GeoJSON document representing a `Deployment` resource SHALL implement the mapp
 |====
 | *Association Name (see <<deployment-assocs>>)* | *JSON Member* | *Usage*
 | `platform`            | `properties/platform@link` | Value is a weblink resolving to a `System` resource.
-| `deployedSystems`     | `properties/deployedSystems@link` | Value is a JSON Array of links to `System` resources.
+| `deployedSystems`     | `properties/deployedSystems@link` | Value is a JSON Array of links*** to `System` resources.
 | `parentDeployment`    | `links`  | Value is a weblink* resolving to a `Deployment` resource.
 | `subdeployments`      | `links`  | Value is a weblink* resolving to a {deployment-resources-endpoint}.
 | `featuresOfInterest`  | `links`  | Value is a weblink* resolving to a `Feature` resources endpoint.
@@ -176,7 +176,8 @@ A GeoJSON document representing a `Deployment` resource SHALL implement the mapp
 | `datastreams`         | `links`  | Value is a weblink* resolving to a `DataStream` resources endpoint**.
 | `controlstreams`      | `links`  | Value is a weblink* resolving to a `ControlStream` resources endpoint**.
 3+| {weblinks-footnote} +
-    {part2-footnote}
+    {part2-footnote} +
+    {local-system-linking-footnote}
 |====
 
 [[example_geojson_dep1]]
