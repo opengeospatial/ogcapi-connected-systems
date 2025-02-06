@@ -29,7 +29,7 @@ The CS API also help solve several issues for application running in Denied, Dis
 - Reduction of payload sizes in contrast to predecessor standards (OGC SOS and OGC SPS) by using a resource oriented JSON API instead of remote procedure calls with XML payloads
 - SWE Common encoding supported by the OGC API - Connected Systems - Part 2: Dynamic data allows the separation of datastream schemas from actual data values which helps to reduce payload size compared to other encoding standards.
 - Pub/Sub protocols supported by OGC API - Connected Systems - Part 3: Pub/Sub will help track changes and only download changes when required, or receive new data without continuous polling.
--  OGC API - Connected Systems - Part 4: Binary Encoding will add even more compact encodings such as FlatGeobuf for feature resources or Protobuf and FlatBuffers for observations and commands
+-  OGC API - Connected Systems - Part 5: Binary Encoding will add even more compact encodings such as FlatGeobuf for feature resources or Protobuf and FlatBuffers for observations and commands
 
 
 === Resource Types
