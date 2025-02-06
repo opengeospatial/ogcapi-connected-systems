@@ -143,6 +143,12 @@ This second observation has a vector result type:
 ----
 include::../openapi/examples/observations/obs-location.json[]
 ----
+
+This third observation has PNG image as a result type that is a PNG image encoded inline as a `data:` URL
+[source%autofit,json]
+----
+include::../openapi/examples/observations/obs-link-inline-image.json[]
+----
 =================
 
 
