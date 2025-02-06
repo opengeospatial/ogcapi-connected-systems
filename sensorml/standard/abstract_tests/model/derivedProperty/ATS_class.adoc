@@ -8,7 +8,6 @@ classification:: Target Type: Derived Models, Encodings, and Software Implementa
 inherit:: /conf/core
 inherit:: http://www.opengis.net/spec/SWE/2.0/req/uml-block-components
 inherit:: ISO 19115:2006 (All Metadata)
-inherit:: ISO 19136 (GML)
 
 conformance-test:: /conf/model/derived-property/package-fully-implemented
 ====
