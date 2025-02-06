@@ -27,6 +27,7 @@ include::../schemas/json/examples/spec/array2.json[]
 
 “DataArray” components can also be nested to form multi-dimensional arrays, as shown in the following example of a 2D array:
 
+[[example_array_3]]
 [source%unnumbered,json]
 ----
 include::../schemas/json/examples/spec/array3.json[]
@@ -66,4 +67,13 @@ Inline values for “DataArray”, “Matrix” and “DataStream” components 
 
 include::../requirements/json/block_components/requirement2.adoc[]
 
-However, when values are provided separately from the component description (e.g. when datastream values are provided separately), any encoding methods defined in <<encoding_rules>> can be used.
+However, when values are provided separately from the component description (e.g. when datastream values are provided separately), any encoding methods defined in <<encoding_rules>> can be used. The out-of-band values can be referenced using an URL, for which at least the schemes http, https and data (as specified in <<RFC2397>>) shall be supported.
+
+include::../requirements/json/block_components/requirement3.adoc[]
+
+The data schema can be used to include all kind of data inline:
+
+[source%unnumbered,json]
+----
+include::../schemas/json/examples/spec/array3-encoded-values.json[]
+----

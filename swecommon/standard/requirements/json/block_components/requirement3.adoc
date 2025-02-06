@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/json-block-components/referenced-encoded-values-valid
+
+Implementations SHALL support at least the schemes `http`, `https` and `data` for referenced values.
+====
