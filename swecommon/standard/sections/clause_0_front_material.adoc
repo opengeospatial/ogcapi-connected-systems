@@ -30,7 +30,7 @@ All questions regarding this submission should be directed to the editor or the 
 |===
 | *Name* | *Affiliation*
 | Alex Robin (Editor) | GeoRobotix, Inc.
-| Christian Autermann | 52° North Initiative
+| Christian Autermann | 52° North Spatial Information Research GmbH
 | Chuck Heazel | Heazeltech
 | Mike Botts | Botts Innovative Research, Inc.
 |===

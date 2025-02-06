@@ -10,4 +10,5 @@ inherit:: /req/json-simple-components
 
 requirement:: /req/json-block-components/component-types
 requirement:: /req/json-block-components/encoded-values-valid
+requirement:: /req/json-block-components/referenced-encoded-values-valid
 ====

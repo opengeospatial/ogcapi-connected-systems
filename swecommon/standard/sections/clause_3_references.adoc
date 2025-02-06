@@ -57,3 +57,5 @@ References are to follow the Springer LNCS style, with the exception that option
 * [[[RFC5234, IETF RFC 5234]]], Augmented BNF for Syntax Specifications: ABNF, January 2008
 
 * [[[IEEE754, IEEE STD 754-2008]]], IEEE Standard for Floating-Point Arithmetic.
+
+* [[[RFC2397, IETF RFC 2397]]] The data URL scheme, https://www.rfc-editor.org/rfc/rfc2397
