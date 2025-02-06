@@ -74,8 +74,9 @@ The classifier property provides a list of possible classifiers that might aid i
 Definitions for a classifier Term might include, for instance, sensorType, observableType, processType, intendedApplication, or missionType. 
 ====
 
+[[clause-uml-security-constraints]]
 ===== Security Constraints
-The model for specification of security constraints shall be based on external security models, such as the Security Banner Marking model of the Intelligence Community Information Security Marking (IC ISM) Standard. The securityConstraints property takes a value of xs:Any which allows various communities and countries to utilize their standard XML encoding for security tags. This security constraint is for the overall document. As will be discussed in the XML encoding, extension points provided with SWE Common Data elements will allow security tagging for individual properties or property aggregates.
+The model for specification of security constraints shall be based on external security models, such as the Security Banner Marking model of the Intelligence Community Information Security Marking (IC ISM) Standard. The securityConstraints property takes an any value which allows various communities and countries to utilize their standard encoding for security tags. This security constraint is for the overall document. As will be discussed in the JSON encoding, extension points provided with SWE Common Data elements will allow security tagging for individual properties or property aggregates.
 
 [example%unnumbered]
 ====

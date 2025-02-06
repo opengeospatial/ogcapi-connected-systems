@@ -19,7 +19,7 @@ requirement:: /req/json-physical-system/schema-valid
 
 ==== PhysicalSystem
 
-The `PhysicalSystem.json` schema is the JSON schema implementation of the `PhysicalSystem` UML class defined in <<uml_physical_systems>>.
+The `PhysicalSystem.json` schema is the JSON schema implementation of the `PhysicalSystem` UML class defined in <<uml_physical_system>>.
 
 [requirement,model=ogc]
 ====
