@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14.13cm" height="10.82cm" viewBox="0 0 534 409">
+<title></title>
+<desc>Created with Enterprise Architect (Build: 1625) 2</desc>
+
+<g style="fill:#FFFFFF;fill-opacity:1.00;">
+	 <rect x="0" y="0" width="534" height="409" shape-rendering="auto"/>
+</g><g style="stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel; fill:#FCF4EF;fill-opacity:1.00; stroke:#000000; stroke-opacity:1.00">
+ <rect x="10" y="311" width="228" height="88" rx="0.00" shape-rendering="auto"  />
+</g>
+<g style="stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel; fill:#000000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00">
+	<text x="106.00" y="327.00" textLength="36" style="font-family:Arial; font-weight:0; font-style:normal; font-size:10px; fill:#000000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00 stroke-width:0; white-space: pre;" xml:space="preserve" transform="rotate(-0.00 106.00 327.00)">«Type»</text>
+	<text x="91.00" y="340.00" textLength="66" style="font-family:Arial; font-weight:700; font-style:normal; font-size:10px; fill:#000000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00 stroke-width:0; white-space: pre;" xml:space="preserve" transform="rotate(-0.00 91.00 340.00)">CapabilityList</text>
+</g>
+<g style="stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel; fill:#000000;fill-opacity:0.00; stroke:#000000; stroke-opacity:1.00">
+  <path d="M 10 348 L 237 348" shape-rendering="auto"/>
+</g>
+<g style="stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel; fill:#000000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00">
+	<text x="23.00" y="366.00" textLength="50" style="font-family:Arial; font-weight:0; font-style:normal; font-size:10px; fill:#000000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00 stroke-width:0; white-space: pre;" xml:space="preserve" transform="rotate(-0.00 23.00 366.00)">«property»</text>
+</g>
+<g style="stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel; fill:#8B0000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00">
+	<text x="15.00" y="379.00" textLength="9" style="font-family:Arial; font-weight:0; font-style:normal; font-size:10px; fill:#8B0000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00 stroke-width:0; white-space: pre;" xml:space="preserve" transform="rotate(-0.00 15.00 379.00)">+ </text>
+	<text x="32.00" y="379.00" textLength="191" style="font-family:Arial; font-weight:0; font-style:normal; font-size:10px; fill:#8B0000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00 stroke-width:0; white-space: pre;" xml:space="preserve" transform="rotate(-0.00 32.00 379.00)">capability: AbstractDataComponent [1..*]</text>
+	<text x="15.00" y="392.00" textLength="9" style="font-family:Arial; font-weight:0; font-style:normal; font-size:10px; fill:#8B0000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00 stroke-width:0; white-space: pre;" xml:space="preserve" transform="rotate(-0.00 15.00 392.00)">+ </text>
+	<text x="32.00" y="392.00" textLength="201" style="font-family:Arial; font-weight:0; font-style:normal; font-size:10px; fill:#8B0000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00 stroke-width:0; white-space: pre;" xml:space="preserve" transform="rotate(-0.00 32.00 392.00)">condition: AbstractSimpleComponent [0..*]</text>
+</g>
+<g style="stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel; fill:#FCF4EF;fill-opacity:1.00; stroke:#000000; stroke-opacity:1.00">
+ <rect x="288" y="311" width="236" height="88" rx="0.00" shape-rendering="auto"  />
+</g>
+<g style="stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel; fill:#000000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00">
+	<text x="388.00" y="327.00" textLength="36" style="font-family:Arial; font-weight:0; font-style:normal; font-size:10px; fill:#000000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00 stroke-width:0; white-space: pre;" xml:space="preserve" transform="rotate(-0.00 388.00 327.00)">«Type»</text>
+	<text x="362.00" y="340.00" textLength="87" style="font-family:Arial; font-weight:700; font-style:normal; font-size:10px; fill:#000000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00 stroke-width:0; white-space: pre;" xml:space="preserve" transform="rotate(-0.00 362.00 340.00)">CharacteristicList</text>
+</g>
+<g style="stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel; fill:#000000;fill-opacity:0.00; stroke:#000000; stroke-opacity:1.00">
+  <path d="M 288 348 L 523 348" shape-rendering="auto"/>
+</g>
+<g style="stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel; fill:#000000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00">
+	<text x="301.00" y="366.00" textLength="50" style="font-family:Arial; font-weight:0; font-style:normal; font-size:10px; fill:#000000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00 stroke-width:0; white-space: pre;" xml:space="preserve" transform="rotate(-0.00 301.00 366.00)">«property»</text>
+</g>
+<g style="stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel; fill:#8B0000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00">
+	<text x="293.00" y="379.00" textLength="9" style="font-family:Arial; font-weight:0; font-style:normal; font-size:10px; fill:#8B0000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00 stroke-width:0; white-space: pre;" xml:space="preserve" transform="rotate(-0.00 293.00 379.00)">+ </text>
+	<text x="310.00" y="379.00" textLength="206" style="font-family:Arial; font-weight:0; font-style:normal; font-size:10px; fill:#8B0000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00 stroke-width:0; white-space: pre;" xml:space="preserve" transform="rotate(-0.00 310.00 379.00)">characteristic: AbstractDataComponent [1..*]</text>
+	<text x="293.00" y="392.00" textLength="9" style="font-family:Arial; font-weight:0; font-style:normal; font-size:10px; fill:#8B0000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00 stroke-width:0; white-space: pre;" xml:space="preserve" transform="rotate(-0.00 293.00 392.00)">+ </text>
+	<text x="310.00" y="392.00" textLength="201" style="font-family:Arial; font-weight:0; font-style:normal; font-size:10px; fill:#8B0000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00 stroke-width:0; white-space: pre;" xml:space="preserve" transform="rotate(-0.00 310.00 392.00)">condition: AbstractSimpleComponent [0..*]</text>
+</g>
+<g style="stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel; fill:#FCF4EF;fill-opacity:1.00; stroke:#000000; stroke-opacity:1.00">
+ <rect x="156" y="10" width="202" height="120" rx="0.00" shape-rendering="auto"  />
+</g>
+<g style="stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel; fill:#000000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00">
+	<text x="294.00" y="23.00" textLength="61" style="font-family:Arial; font-weight:0; font-style:italic; font-size:10px; fill:#000000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00 stroke-width:0; white-space: pre;" xml:space="preserve" transform="rotate(-0.00 294.00 23.00)">AbstractSWE</text>
+	<text x="239.00" y="42.00" textLength="36" style="font-family:Arial; font-weight:0; font-style:normal; font-size:10px; fill:#000000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00 stroke-width:0; white-space: pre;" xml:space="preserve" transform="rotate(-0.00 239.00 42.00)">«Type»</text>
+	<text x="164.00" y="54.00" textLength="185" style="font-family:Arial; font-weight:700; font-style:italic; font-size:10px; fill:#000000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00 stroke-width:0; white-space: pre;" xml:space="preserve" transform="rotate(-0.00 164.00 54.00)">Basic Types::AbstractSWEIdentifiable</text>
+</g>
+<g style="stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel; fill:#000000;fill-opacity:0.00; stroke:#000000; stroke-opacity:1.00">
+  <path d="M 156 63 L 357 63" shape-rendering="auto"/>
+</g>
+<g style="stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel; fill:#000000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00">
+	<text x="169.00" y="81.00" textLength="50" style="font-family:Arial; font-weight:0; font-style:normal; font-size:10px; fill:#000000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00 stroke-width:0; white-space: pre;" xml:space="preserve" transform="rotate(-0.00 169.00 81.00)">«property»</text>
+</g>
+<g style="stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel; fill:#8B0000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00">
+	<text x="161.00" y="94.00" textLength="9" style="font-family:Arial; font-weight:0; font-style:normal; font-size:10px; fill:#8B0000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00 stroke-width:0; white-space: pre;" xml:space="preserve" transform="rotate(-0.00 161.00 94.00)">+ </text>
+	<text x="178.00" y="94.00" textLength="139" style="font-family:Arial; font-weight:0; font-style:normal; font-size:10px; fill:#8B0000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00 stroke-width:0; white-space: pre;" xml:space="preserve" transform="rotate(-0.00 178.00 94.00)">identifier: ScopedName [0..1]</text>
+	<text x="161.00" y="107.00" textLength="9" style="font-family:Arial; font-weight:0; font-style:normal; font-size:10px; fill:#8B0000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00 stroke-width:0; white-space: pre;" xml:space="preserve" transform="rotate(-0.00 161.00 107.00)">+ </text>
+	<text x="178.00" y="107.00" textLength="130" style="font-family:Arial; font-weight:0; font-style:normal; font-size:10px; fill:#8B0000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00 stroke-width:0; white-space: pre;" xml:space="preserve" transform="rotate(-0.00 178.00 107.00)">label: CharacterString [0..1]</text>
+	<text x="161.00" y="120.00" textLength="9" style="font-family:Arial; font-weight:0; font-style:normal; font-size:10px; fill:#8B0000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00 stroke-width:0; white-space: pre;" xml:space="preserve" transform="rotate(-0.00 161.00 120.00)">+ </text>
+	<text x="178.00" y="120.00" textLength="157" style="font-family:Arial; font-weight:0; font-style:normal; font-size:10px; fill:#8B0000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00 stroke-width:0; white-space: pre;" xml:space="preserve" transform="rotate(-0.00 178.00 120.00)">description: CharacterString [0..1]</text>
+</g>
+<g style="stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel; fill:#FCF4EF;fill-opacity:1.00; stroke:#000000; stroke-opacity:1.00">
+ <rect x="167" y="178" width="172" height="76" rx="0.00" shape-rendering="auto"  />
+</g>
+<g style="stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel; fill:#000000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00">
+	<text x="235.00" y="194.00" textLength="36" style="font-family:Arial; font-weight:0; font-style:normal; font-size:10px; fill:#000000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00 stroke-width:0; white-space: pre;" xml:space="preserve" transform="rotate(-0.00 235.00 194.00)">«Type»</text>
+	<text x="201.00" y="207.00" textLength="104" style="font-family:Arial; font-weight:700; font-style:normal; font-size:10px; fill:#000000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00 stroke-width:0; white-space: pre;" xml:space="preserve" transform="rotate(-0.00 201.00 207.00)">AbstractMetadataList</text>
+</g>
+<g style="stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel; fill:#000000;fill-opacity:0.00; stroke:#000000; stroke-opacity:1.00">
+  <path d="M 167 215 L 338 215" shape-rendering="auto"/>
+</g>
+<g style="stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel; fill:#000000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00">
+	<text x="180.00" y="233.00" textLength="50" style="font-family:Arial; font-weight:0; font-style:normal; font-size:10px; fill:#000000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00 stroke-width:0; white-space: pre;" xml:space="preserve" transform="rotate(-0.00 180.00 233.00)">«property»</text>
+</g>
+<g style="stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel; fill:#8B0000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00">
+	<text x="172.00" y="246.00" textLength="9" style="font-family:Arial; font-weight:0; font-style:normal; font-size:10px; fill:#8B0000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00 stroke-width:0; white-space: pre;" xml:space="preserve" transform="rotate(-0.00 172.00 246.00)">+ </text>
+	<text x="189.00" y="246.00" textLength="142" style="font-family:Arial; font-weight:0; font-style:normal; font-size:10px; fill:#8B0000;fill-opacity:1.00; stroke:#000000; stroke-opacity:0.00 stroke-width:0; white-space: pre;" xml:space="preserve" transform="rotate(-0.00 189.00 246.00)">definition: ScopedName [0..1]</text>
+</g>
+<g style="stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel; fill:#000000;fill-opacity:0.00; stroke:#000000; stroke-opacity:1.00">
+  <path d="M 254 178 L 255 130" shape-rendering="auto"/>
+</g>
+<g style="stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel; fill:#FCF4EF;fill-opacity:1.00; stroke:#000000; stroke-opacity:1.00">
+  <polygon points="261 146 249 146 255 130" shape-rendering="auto"   style="fill-rule:evenodd;"/>
+</g>
+<g style="stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel; fill:#000000;fill-opacity:0.00; stroke:#000000; stroke-opacity:1.00">
+  <path d="M 357 311 L 294 254" shape-rendering="auto"/>
+</g>
+<g style="stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel; fill:#FCF4EF;fill-opacity:1.00; stroke:#000000; stroke-opacity:1.00">
+  <polygon points="310 260 302 269 294 254" shape-rendering="auto"   style="fill-rule:evenodd;"/>
+</g>
+<g style="stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel; fill:#000000;fill-opacity:0.00; stroke:#000000; stroke-opacity:1.00">
+  <path d="M 166 311 L 218 254" shape-rendering="auto"/>
+</g>
+<g style="stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel; fill:#FCF4EF;fill-opacity:1.00; stroke:#000000; stroke-opacity:1.00">
+  <polygon points="212 270 203 262 218 254" shape-rendering="auto"   style="fill-rule:evenodd;"/>
+</g>
+</svg>
