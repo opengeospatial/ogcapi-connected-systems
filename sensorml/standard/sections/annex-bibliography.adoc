@@ -11,3 +11,5 @@
 * [[[OGC12-006,OGC 12-006]]], OGC® Sensor Observation Service Interface Standard, version 3.0, 2012
 
 * [[[OGC09-000,OGC 09-000]]], OGC® Sensor Planning Service Implementation Standard, version 3.0, 2011
+
+* [[[OGC18-062r2,OGC 18-062r2]]], OGC API - Processes - Part 1: Core, version 1.0.0., 2021
