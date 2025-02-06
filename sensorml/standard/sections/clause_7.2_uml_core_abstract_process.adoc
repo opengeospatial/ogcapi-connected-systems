@@ -2,7 +2,7 @@
 === Requirements Class: Core Abstract Process
 include::../requirements/model/coreProcess/requirements_class.adoc[]
 
-All major classes in SensorML are based on a process model, as presented in the core concepts. Processes are features as defined in ISO 19109:2006 and modeled in GML 3.2. SensorML also supports interoperable discovery, identification, and qualification of these processes through the definition of a standard collection of metadata.
+All major classes in SensorML are based on a process model, as presented in the core concepts. Processes are features as defined in ISO 19109:2006. SensorML also supports interoperable discovery, identification, and qualification of these processes through the definition of a standard collection of metadata.
 
 include::../requirements/model/coreProcess/requirement1.adoc[]
 include::../requirements/model/coreProcess/requirement2.adoc[]
@@ -23,11 +23,7 @@ In ObservableProperty the phenomenon property will be defined by reference using
 
 [[uml_described_object]]
 ==== DescribedObject
-As shown in the UML model below, the DescribedObject class provides a specific set of metadata for all process classes in SensorML. Since DescribedObject is itself derived from GML AbstractFeature, all processes in SensorML are themselves features, which conforms to the conceptual models for processes as stated in Section 6.
-
-include::../requirements/model/coreProcess/requirement3.adoc[]
-
-The GML AbstractFeature inheritance provides a unique ID, and support for multiple names and a description. The unique ID in SensorML will be supported by a single gml:identifier property inherited from GML AbstractFeature.
+As shown in the UML model below, the DescribedObject class provides a specific set of metadata for all process classes in SensorML. The DescribedObject provides a unique ID, and support for a label and a description. The unique ID in SensorML will be supported by a single uniqueId property.
 
 include::../requirements/model/coreProcess/requirement4.adoc[]
 

@@ -8,11 +8,9 @@ subject:: Derived Encoding or Software Implementation
 inherit:: /req/core
 inherit:: {swecommon-spec-url}/req/uml-record-components
 inherit:: ISO 19115:2006 (All Metadata)
-inherit:: ISO 19136 (GML)
 
 requirement:: /req/model/coreProcess/dependency-core
 requirement:: /req/model/coreProcess/package-fully-implemented
-requirement:: /req/model/coreProcess/gmlDependency
 requirement:: /req/model/coreProcess/uniqueID
 requirement:: /req/model/coreProcess/extensionIndependence
 requirement:: /req/model/coreProcess/extensionRestrictions
