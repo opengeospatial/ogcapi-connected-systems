@@ -21,7 +21,7 @@ The UML diagram of the `Deployment` class is shown on <<deployment-class-diagram
 
 [#deployment-class-diagram,reftext='{figure-caption} {counter:figure-num}']
 .Deployment Class
-image::./figures/FIG002-deployment-class.png[deployment-class-diagram, align="center"]
+image::./figures/Deployment.png[deployment-class-diagram, align="center"]
 
 [#deployment-class-properties,reftext='{table-caption} {counter:table-num}']
 .Deployment Class Properties

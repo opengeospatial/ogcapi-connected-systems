@@ -29,7 +29,7 @@ include::../requirements/model/coreProcess/requirement4.adoc[]
 
 Metadata about each process is essential to supporting identification, discovery, and qualification of the process. Metadata is provided by the base class, DescribedObject, from which AbstractProcess is derived. While these metadata may provide relevant information to understand quality of output from the process, the values of properties within the DescribedObject should not be required for execution of the process. The model for the DescribedObject is shown in Figure 9, while the models for the individual property values are provided in either Figure 10 or in the ISO 19115 models in Figure 11.
 
-The DescribedObject includes several descriptive properties that support rapid discovery (keywords, identification, and classification), constraints (validTime, securityConstraints, legalConstraints), qualification (characteristics and capabilities), references (contacts and documentation), and history. These are each grouped in lists, which provide for easy seaparation and parsing of these properties.
+The DescribedObject includes several descriptive properties that support rapid discovery (keywords, identification, and classification), constraints (validTime, securityConstraints, legalConstraints), qualification (characteristics and capabilities), references (contacts and documentation), and history. These are each grouped in lists, which provide for easy separation and parsing of these properties.
 
 ===== Extension Property
 The extension property allows one to add domain or community-specific content to a DescribedObject instance. This might include, for example, security taggings, vendor or community-specific metadata, or information encoded in other models or schema. Extension properties must exist in a separate namespace and SensorML-compliant software is not required to understand or utilize the information contained within the extension property.
@@ -40,10 +40,10 @@ include::../requirements/model/coreProcess/requirement5.adoc[]
 include::../requirements/model/coreProcess/requirement6.adoc[]
 
 .DescribedObject with Metadata Properties
-image::figures/describedobject.png[]
+image::figures/DescribedObject.png[]
 
 .Models for Metadata Elements
-image::figures/metadata_models.png[]
+image::figures/MetadataLists.png[]
 
 ===== Keywords
 Keywords provide a simple means of discovery using short tokens that may be recognized by the general audience or specific communities. Keywords are unqualified terms in that they are not necessarily required to be related to a specific codespace or ontology, as are classifiers and identifiers.
@@ -143,7 +143,7 @@ As discussed in the Core Concepts, the major elements of SensorML are modeled as
 
 [[abstract_process_uml]]
 .UML models for DescribedObject and AbstractProcess
-image::figures/abstract_process_uml.png[]
+image::figures/AbstractProcess.png[]
 
 ===== Inputs, Outputs, and Parameters
 
@@ -159,7 +159,7 @@ A digital thermometer is stimulated by an observable property of the environment
 Thus, an AbstractProcess model supports the inputs, outputs, and parameters properties in conformance with the Core Concepts. These properties can accept ObservableProperty or SWE Common elements AbstractDataComponent or DataStream as their values. Classes derived from AbstractDataComponent include Quantity, Count, Category, Boolean, Text, and Time, as well as ranges and aggregates of these simple data types.
 
 .UML models for process inputs, outputs, and parameters
-image::figures/process_iops_uml.png[]
+image::figures/ProcessIOLists.png[]
 
 The core process model will utilize the SWE Common Data Models for defining inputs, outputs, and parameters, as well as for other metadata properties. SensorML models are required to support the SWE Common Data Model up to the Block Components Requirements Class, but many instances of SensorML will find ALL conformance levels of SWE Common Data to be useful, including binary encodings.
 

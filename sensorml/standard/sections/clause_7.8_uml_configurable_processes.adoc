@@ -49,7 +49,7 @@ include::../requirements/model/configurableProcess/requirement3.adoc[]
 
 [[modes]]
 .Model for Modes
-image::figures/modes.png[]
+image::figures/Mode.png[]
 
 The configuration property takes a Settings object, which will be described in more detail below.
 ==== Settings

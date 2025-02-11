@@ -24,4 +24,4 @@ The model for AggregateProcess is shown in the figure below. AggregateProcess ex
 The derivation from AbstractProcess means that an AggregateProcess instance itself has its own inputs, outputs, and parameters, as well as identification and possible metadata.
 
 .Model for Aggregate Process
-image::figures/aggregateProcess.png[]
+image::figures/AggregateProcess.png[]
