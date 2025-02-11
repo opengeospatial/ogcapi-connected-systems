@@ -60,7 +60,7 @@ The following changes have been made:
 
   * Addition of the JSON encodings and schemas
   * Addition of the Geometry data component (modeled on OGC simple feature geometries)
-  * Deprecation of the XML encodings
+  * Removal of the XML encodings
   * Technical revision and improved explanations in various clauses
 
-This release is not fully backward compatible with version 2.0 even though changes were kept to a minimum.
+This release is not fully backward compatible with version 2.0, this concerns especially the removal of the XML encodings.
