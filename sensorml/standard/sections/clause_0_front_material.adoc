@@ -28,7 +28,11 @@ SensorML is well-suited for describing sensor model imaging geometries – the S
 
 == Security considerations
 
-No security considerations have been made for this standard.
+SensorML documents will often be used to transmit confidential or sensitive data. Encryption in-transit using HTTPS (i.e. HTTP over TLS/SSL) is thus highly recommended and is now very common practice on the web.
+
+In addition, implementations of this standard may also store confidential or sensitive data (e.g. in a database) for extended periods of time. In this case, encryption at rest is also recommended, especially if data is hosted on a shared infrastructure (e.g. public clouds).
+
+Security constraints for individual documents may be defined as described in <<clause-uml-security-constraints>>.
 
 == Submitters
 
@@ -38,7 +42,7 @@ All questions regarding this submission should be directed to the editor or the 
 |===
 | *Name* | *Affiliation*
 | Alexandre Robin | GeoRobotix, Inc.
-| Christian Autermann | 52° North Initiative
+| Christian Autermann | 52° North Spatial Information Research GmbH
 | Chuck Heazel | Heazeltech
 | Mike Botts | Botts Innovative Research, Inc.
 |===

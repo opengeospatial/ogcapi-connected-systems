@@ -27,7 +27,7 @@ identifier:: /req/json-deployment/schema-valid
 The JSON document instance shall be valid with respect to the JSON schema {jsonschema-base-url}/Deployment.json[“Deployment.json”].
 ====
 
-The following snippet provides an example of a Saildrone mission:
+The following snippet provides an example of a mission with three Saildrones deployed in an area encoded as a GeoJSON polygon as defined in <<GeoJSON>>:
 
 [source%unnumbered,json]
 ----

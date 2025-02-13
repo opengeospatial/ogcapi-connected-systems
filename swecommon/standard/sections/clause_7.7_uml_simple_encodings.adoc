@@ -58,7 +58,7 @@ Where `,` (comma) is the token separator and `¶` (carriage return) is the block
 Note that there could be many more values in a single block if the data set has a large number of fields, or if it contains an array of values.
 ====
 
-The “collapseWhiteSpaces” attribute is a boolean flag used to specify if extra white spaces (including line feeds, tabs, spaces and carriage returns) surrounding the token and block separators should be ignored (skipped) when processing the stream. This is useful for encoded blocks of data that are embedded in an XML document, since formatting (indenting with spaces or tabs especially) is often done in XML content.
+The “collapseWhiteSpaces” attribute is a boolean flag used to specify if extra white spaces (including line feeds, tabs, spaces and carriage returns) surrounding the token and block separators should be ignored (skipped) when processing the stream.
 
 This type of encoding is used when compactness is important but balanced by a desire of human readability. This type of encoding is easily readable (for debugging or manual usage) as well as easily imported in various spreadsheet, charting or scientific software.
 
