@@ -8,18 +8,9 @@ The packages defined by the SensorML Model and their dependencies are shown in t
 .Internal Package Dependencies
 image::figures/package_dependencies.png[]
 
-SensorML also has dependencies on several external packages defined within other standards, namely GML 3.2, ISO 19103, ISO 19108, ISO 19111, and ISO 19115, as described below.
+SensorML also has dependencies on several external packages defined within other standards, ISO 19103, ISO 19108, ISO 19111, and ISO 19115, as described below.
 
-==== Dependency on GML Feature Model and ISO TC 211 Models
-A process represents a feature type as defined by the ISO General Feature Model and is thus modeled as an instance of the _metaclass_ GF_FeatureType (ISO 19109:2006). This association of SensorML process with GF_FeatureType primarily brings recognition of SensorML processes as features and provides important identity properties.
-
-.External Package Dependencies – GML 
-image::figures/gml_dependency.png[]
-The base feature classes in GML from which all processes in SensorML derive include AbstractGML and AbstractFeature, as shown in the figure below:
-
-.Models for dependent GML Feature classes 
-image::figures/gml_base_classes.png[]
-SensorML is dependent on ISO 19108:206 for Temporal Schema. In particular, the temporal elements, TM_Instant and TM_Period are used within the core SensorML model for Abstract Process. Additionally, SensorML depends on ISO 19115 for general metadata elements.
+==== Dependency on ISO TC 211 Models
 
 .External Package Dependencies – ISO TC 211
 image::figures/iso_dependencies.png[]

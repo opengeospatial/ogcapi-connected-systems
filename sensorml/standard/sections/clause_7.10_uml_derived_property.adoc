@@ -15,7 +15,7 @@ The UML diagram of the `DerivedProperty` class is shown on <<derived-prop-class-
 
 [#derived-prop-class-diagram,reftext='{figure-caption} {counter:figure-num}']
 .DerivedProperty Class
-image::./figures/FIG003-derived-property-class.png[derived-prop-class-diagram, align="center"]
+image::./figures/DerivedProperty.png[derived-prop-class-diagram, align="center"]
 
 [#derived-prop-class-properties,reftext='{table-caption} {counter:table-num}']
 .DerivedProperty Class Properties

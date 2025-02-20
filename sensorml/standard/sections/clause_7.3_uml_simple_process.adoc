@@ -20,7 +20,7 @@ The SimpleProcess model, as shown in Figure 14, is a concrete instantiation of t
 include::../requirements/model/simpleProcess/requirement4.adoc[]
 
 .Model for Simple Process
-image::figures/simpleProcess.png[]
+image::figures/SimpleProcess.png[]
 
 [example%unnumbered]
 ====
