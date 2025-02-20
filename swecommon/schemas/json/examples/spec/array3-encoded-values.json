@@ -59,12 +59,12 @@
       },
       {
         "type": "Component",
-        "ref": "row/pixel/band1",
+        "ref": "row/pixel/band2",
         "dataType": "http://www.opengis.net/def/dataType/OGC/0/unsignedByte"
       },
       {
         "type": "Component",
-        "ref": "row/pixel/band1",
+        "ref": "row/pixel/band3",
         "dataType": "http://www.opengis.net/def/dataType/OGC/0/unsignedByte"
       }
     ]
