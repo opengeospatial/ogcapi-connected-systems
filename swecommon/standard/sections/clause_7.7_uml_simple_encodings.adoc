@@ -8,7 +8,7 @@ Encoding methods describe how structured array and stream data is encoded into a
 This package includes two classes that provide definitions of simple encoding methods. They are used as descriptors of the method used to encode data component values wrapped by aggregate classes defined in the “Block Components” package. There model is shown on the diagram below:
 
 .Simple Encodings
-// FIXME this image needs to be updated for the new JSON Encoding attributes
+[[uml_simple_encodings_fig]]
 image::figures/fig7.32.png[]
 
 include::../requirements/uml/simple_encodings/requirement1.adoc[]
@@ -23,9 +23,7 @@ In the model provided in this standard, the encoding specification is provided s
 [[uml_jsonencoding_class]]
 ==== JSONEncoding Class
 
-The “JSONEncoding” class defines a method allowing encoding arbitrarily complex data as JSON. The class used to specify this encoding method is shown below:
-
-// FIXME missing image of the JSON encoding class
+The “JSONEncoding” class defines a method allowing encoding arbitrarily complex data as JSON. The class used to specify this encoding method is shown in <<uml_simple_encodings_fig>>.
 
 The “recordsAsArrays” attribute specifies whether “DataRecord” values are encoded as JSON objects or JSON arrays. The “vectorsAsArrays” attribute specifies wether “Vector” values are encoded as JSON objects or JSON arrays. Both attributes are optional and default to false, meaning “DataRecord” and “Vector” values are per default encoded as JSON objects. The detailed rules are given in the implementation in <<encoding_rules_json>>.
 
