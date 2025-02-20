@@ -3,7 +3,17 @@ content:
   application/json:
     schema:
       $ref: ../schemas/json/observation.json
-        
+    examples:
+      inline:
+        id: "1"
+        resultTime: "2023-01-01T12:45:56Z"
+        result: 123
+      external:
+        id: "2"
+        resultTime: "2024-01-01T12:45:56Z"
+        result@link: 
+          href: "https://data.example.com/link/to/result"
+          uid: "bbf3623c-8ec0-444e-bc7c-7f51d2a046e1"
   application/swe+json:
     schema:
       type: object
