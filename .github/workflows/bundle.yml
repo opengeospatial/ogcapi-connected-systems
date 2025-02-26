@@ -4,14 +4,17 @@ name: Bundle schemas
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+  push:
+    tags:
+    - "*"
 
 permissions:
   contents: write
 
 jobs:
-  bundle_part1:
+  bundle:
     runs-on: ubuntu-latest
-    name: part1
+    name: generate-bundle
     steps:
       - name: Checkout
         uses: actions/checkout@v4
