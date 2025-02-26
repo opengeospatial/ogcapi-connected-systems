@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "properties": {
     "useLimitations": {
@@ -11,13 +11,13 @@
     "accessConstraints": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/CodeListValue"
+        "$ref": "#/$defs/CodeListValue"
       }
     },
     "useConstraints": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/CodeListValue"
+        "$ref": "#/$defs/CodeListValue"
       }
     },
     "otherConstraints": {
@@ -27,7 +27,7 @@
       }
     }
   },
-  "definitions": {
+  "$defs": {
     "CodeListValue": {
       "type": "object",
       "properties": {

@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "properties": {
     "id": {
@@ -21,16 +21,16 @@
     },
     "procedure@link": {
       "description": "Link to the procedure/method used to process the command",
-      "$ref": "../common/commonDefs.json#/definitions/Link"
+      "$ref": "../common/commonDefs.json#/$defs/Link"
     },
     "issueTime": {
       "description": "Time at which the command was issued. If omitted on creation, the server sets it to the time the request was received.",
-      "$ref": "../common/commonDefs.json#/definitions/TimeInstant",
+      "$ref": "../common/commonDefs.json#/$defs/TimeInstant",
       "readOnly": true
     },
     "executionTime": {
       "description": "Time period during which the command was executed",
-      "$ref": "../common/commonDefs.json#/definitions/TimePeriod",
+      "$ref": "../common/commonDefs.json#/$defs/TimePeriod",
       "readOnly": true
     },
     "sender": {

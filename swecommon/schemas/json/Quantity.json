@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "Scalar component with decimal representation and a unit of measure used to store value of a continuous quantity",
   "type": "object",
   "allOf": [
@@ -13,16 +13,16 @@
         },
         "uom": {
           "description": "Unit of measure used to express the value of this data component",
-          "$ref": "basicTypes.json#/definitions/UnitReference"
+          "$ref": "basicTypes.json#/$defs/UnitReference"
         },
         "constraint": {
-          "$ref": "basicTypes.json#/definitions/AllowedValues"
+          "$ref": "basicTypes.json#/$defs/AllowedValues"
         },
         "nilValues": {
-          "$ref": "basicTypes.json#/definitions/NilValuesNumber"
+          "$ref": "basicTypes.json#/$defs/NilValuesNumber"
         },
         "value": {
-          "$ref": "basicTypes.json#/definitions/NumberOrSpecial"
+          "$ref": "basicTypes.json#/$defs/NumberOrSpecial"
         }
       },
       "required": [

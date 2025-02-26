@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "properties": {
     "id": {
@@ -37,7 +37,7 @@
         "command@id": {},
         "observation@link": {
           "description": "Link to an observation resulting from the execution of the command",
-          "$ref": "../common/commonDefs.json#/definitions/Link"
+          "$ref": "../common/commonDefs.json#/$defs/Link"
         }
       },
       "required": ["observation@link"]
@@ -49,7 +49,7 @@
         "command@id": {},
         "observationSet@link": {
           "description": "Link to a set of observations resulting from the execution of the command",
-          "$ref": "../common/commonDefs.json#/definitions/Link"
+          "$ref": "../common/commonDefs.json#/$defs/Link"
         }
       },
       "required": ["observationSet@link"]
@@ -62,12 +62,12 @@
         "datastream@link": {
           "description": "Link to a datastream containing observations resulting from the execution of the command",
           "allOf": [
-            { "$ref": "../common/commonDefs.json#/definitions/Link" },
+            { "$ref": "../common/commonDefs.json#/$defs/Link" },
             {
               "properties": {
                 "resultTime": {
                   "description": "Time range during which the resulting observations were generated (If not provided, the entire datastream is assumed to be the result)",
-                  "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
+                  "$ref": "../common/commonDefs.json#/$defs/TimePeriod"
                 }
               }
             }
@@ -83,7 +83,7 @@
         "command@id": {},
         "external@link": {
           "description": "Link to an external dataset containing the result(s) of the command",
-          "$ref": "../common/commonDefs.json#/definitions/Link"
+          "$ref": "../common/commonDefs.json#/$defs/Link"
         }
       },
       "required": ["external@link"]

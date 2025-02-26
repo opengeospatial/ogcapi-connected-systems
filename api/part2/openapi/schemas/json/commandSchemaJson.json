@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "properties": {
     "commandFormat": {
@@ -7,13 +7,13 @@
       "const": "application/json"
     },
     "parametersSchema": {
-      "$ref": "../common/sweCommonDefs.json#/definitions/AnyComponent"
+      "$ref": "../common/sweCommonDefs.json#/$defs/AnyComponent"
     },
     "resultSchema": {
-      "$ref": "../common/sweCommonDefs.json#/definitions/AnyComponent"
+      "$ref": "../common/sweCommonDefs.json#/$defs/AnyComponent"
     },
     "feasibilityResultSchema": {
-      "$ref": "../common/sweCommonDefs.json#/definitions/AnyComponent"
+      "$ref": "../common/sweCommonDefs.json#/$defs/AnyComponent"
     }
   },
   "required": [

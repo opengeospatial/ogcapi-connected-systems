@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "allOf": [
     {
@@ -16,33 +16,6 @@
           "description": "Specifies the reference axis (refer to CRS axisID). The reference frame URI should also be specified unless it is inherited from parent Vector",
           "type": "string",
           "minLength": 1
-        },
-        "quality": {
-          "description": "Provides an indication of the reliability of the component value in the form of a decimal number (e.g. relative accuracy), a range (e.g. bidirectional tolerance), a categorical value (e.g. good, bad) or plain textual statement",
-          "type": "array",
-          "items": {
-            "allOf": [
-              {
-                "$ref": "basicTypes.json#/definitions/AssociationAttributeGroup"
-              },
-              {
-                "oneOf": [
-                  {
-                    "$ref": "Quantity.json"
-                  },
-                  {
-                    "$ref": "QuantityRange.json"
-                  },
-                  {
-                    "$ref": "Category.json"
-                  },
-                  {
-                    "$ref": "Text.json"
-                  }
-                ]
-              }
-            ]
-          }
         },
         "nilValues": {
           "description": "Defines reserved values with special meaning (e.g. missing, out-of-range, etc.)"

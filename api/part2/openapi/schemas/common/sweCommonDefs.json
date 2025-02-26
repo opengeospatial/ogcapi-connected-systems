@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "definitions": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
     "AnyComponent": {
-      "$ref": "../../../../../swecommon/schemas/json/sweCommon.json#/definitions/AnyComponent"
+      "$ref": "../../../../../swecommon/schemas/json/sweCommon.json#/$defs/AnyComponent"
     },
     "DataRecord": {
       "$ref": "../../../../../swecommon/schemas/json/DataRecord.json"
@@ -17,13 +17,13 @@
       "$ref": "../../../../../swecommon/schemas/json/encodings.json"
     },
     "JSONEncoding": {
-      "$ref": "../../../../../swecommon/schemas/json/encodings.json#/definitions/JSONEncoding"
+      "$ref": "../../../../../swecommon/schemas/json/encodings.json#/$defs/JSONEncoding"
     },
     "TextEncoding": {
-      "$ref": "../../../../../swecommon/schemas/json/encodings.json#/definitions/TextEncoding"
+      "$ref": "../../../../../swecommon/schemas/json/encodings.json#/$defs/TextEncoding"
     },
     "BinaryEncoding": {
-      "$ref": "../../../../../swecommon/schemas/json/encodings.json#/definitions/BinaryEncoding"
+      "$ref": "../../../../../swecommon/schemas/json/encodings.json#/$defs/BinaryEncoding"
     }
   }
 }

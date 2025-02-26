@@ -1,6 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "definitions": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
     "XLink": {
       "$ref": "../../../common/link.json"
     },
@@ -21,7 +21,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "sweCommonDefs.json#/definitions/AbstractSWEIdentifiable"
+          "$ref": "sweCommonDefs.json#/$defs/AbstractSWEIdentifiable"
         },
         {
           "properties": {
@@ -72,10 +72,10 @@
     },
     "AnyProperty": {
       "oneOf": [
-        { "$ref": "sweCommonDefs.json#/definitions/AnySimpleComponent" },
-        { "$ref": "sweCommonDefs.json#/definitions/Vector" },
-        { "$ref": "sweCommonDefs.json#/definitions/DataArray" },
-        { "$ref": "sweCommonDefs.json#/definitions/Matrix" }
+        { "$ref": "sweCommonDefs.json#/$defs/AnySimpleComponent" },
+        { "$ref": "sweCommonDefs.json#/$defs/Vector" },
+        { "$ref": "sweCommonDefs.json#/$defs/DataArray" },
+        { "$ref": "sweCommonDefs.json#/$defs/Matrix" }
       ]
     },
     "PathRef": {

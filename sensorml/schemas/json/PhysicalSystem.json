@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "allOf": [
     {
@@ -12,10 +12,10 @@
         },
         "components": {
           "description": "The list of sub-components",
-          "$ref": "AggregateProcess.json#/definitions/ComponentList"
+          "$ref": "AggregateProcess.json#/$defs/ComponentList"
         },
         "connections": {
-          "$ref": "AggregateProcess.json#/definitions/ConnectionList"
+          "$ref": "AggregateProcess.json#/$defs/ConnectionList"
         }
       }
     }

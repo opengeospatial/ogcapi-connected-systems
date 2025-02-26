@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Link",
   "description": "Link object following standard Web Linking conventions (see RFC5988 and RFC6690)",
   "type": "object",
