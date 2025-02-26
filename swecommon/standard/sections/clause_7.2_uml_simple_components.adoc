@@ -198,7 +198,7 @@ The “constraint” attribute allows further restricting the range of possible 
 
 The “value” attribute (or the corresponding value in out-of-band data) is a string that must match the constraint.
 
-NOTE: _The “Text” component can be used to wrap a string representing complex content such as an expression in a programming language, xml or html content. This practice should however be used only for systems that don’t require high level of interoperability since the client must know how to interpret the content. Also care must be taken to properly escape such content before it is inserted in a JSON or XML document or in a SWE Common data stream._
+NOTE: _The “Text” component can be used to wrap a string representing complex content such as an expression in a programming language, xml or html content. This practice should however be used only for systems that don’t require high level of interoperability since the client must know how to interpret the content. Also care must be taken to properly escape such content before it is inserted in a JSON document or in a SWE Common data stream._
 
 
 [[uml_category_class]]

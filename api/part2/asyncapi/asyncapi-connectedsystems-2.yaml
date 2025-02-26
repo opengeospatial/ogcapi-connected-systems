@@ -18,7 +18,7 @@ channels:
         title: System Event
         contentType: application/sml+json
         payload:
-          $ref: ../openapi/schemas/json/systemEvent_view.json
+          $ref: ../openapi/schemas/json/systemEvent.json
     publish:
       summary: Publish events for a specific system
       message:
@@ -26,7 +26,7 @@ channels:
         title: System Event
         contentType: application/sml+json
         payload:
-          $ref: ../openapi/schemas/json/systemEvent_create.json
+          $ref: ../openapi/schemas/json/systemEvent.json
 
 
   systems/events:
@@ -40,7 +40,7 @@ channels:
         title: System Event
         contentType: application/sml+json
         payload:
-          $ref: ../openapi/schemas/json/systemEvent_view.json
+          $ref: ../openapi/schemas/json/systemEvent.json
 
 
   datastreams/{dataStreamId}/observations:
@@ -54,7 +54,7 @@ channels:
         title: Observation
         contentType: application/om+json
         payload:
-          $ref: ../openapi/schemas/json/observation_view.json
+          $ref: ../openapi/schemas/json/observation.json
     publish:
       summary: Publish observations in a specific datastream
       message:
@@ -62,7 +62,7 @@ channels:
         title: Observation
         contentType: application/om+json
         payload:
-          $ref: ../openapi/schemas/json/observation_create.json
+          $ref: ../openapi/schemas/json/observation.json
 
 
   controls/{controlStreamId}/commands:
@@ -76,7 +76,7 @@ channels:
         title: Command
         contentType: application/cmd+json
         payload:
-          $ref: ../openapi/schemas/json/command_view.json
+          $ref: ../openapi/schemas/json/command.json
     publish:
       summary: Publish commands in a specific control stream
       message:
@@ -84,7 +84,7 @@ channels:
         title: Command
         contentType: application/cmd+json
         payload:
-          $ref: ../openapi/schemas/json/command_create.json
+          $ref: ../openapi/schemas/json/command.json
 
 
   controls/{controlStreamId}/commands/{cmdId}/status:
@@ -100,7 +100,7 @@ channels:
         title: Command
         contentType: application/cmd+json
         payload:
-          $ref: ../openapi/schemas/json/commandStatus_view.json
+          $ref: ../openapi/schemas/json/commandStatus.json
     publish:
       summary: Publish commands in a specific control stream
       message:
@@ -108,4 +108,4 @@ channels:
         title: Command
         contentType: application/cmd+json
         payload:
-          $ref: ../openapi/schemas/json/commandStatus_create.json
+          $ref: ../openapi/schemas/json/commandStatus.json

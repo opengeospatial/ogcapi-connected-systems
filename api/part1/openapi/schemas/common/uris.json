@@ -28,22 +28,22 @@
       "enum": [
         "http://www.w3.org/ns/sosa/Procedure",
         "http://www.w3.org/ns/sosa/ObservingProcedure",
-        "http://www.w3.org/ns/sosa/ActuatingProcedure",
         "http://www.w3.org/ns/sosa/SamplingProcedure",
-        "http://www.w3.org/ns/ssn-system/SystemKind",
-        "http://www.w3.org/ns/ssn-system/SensorKind",
-        "http://www.w3.org/ns/ssn-system/ActuatorKind",
-        "http://www.w3.org/ns/ssn-system/SamplerKind",
-        "http://www.w3.org/ns/ssn-system/PlatformKind",
+        "http://www.w3.org/ns/sosa/ActuatingProcedure",
+        "http://www.w3.org/ns/sosa/System",
+        "http://www.w3.org/ns/sosa/Sensor",
+        "http://www.w3.org/ns/sosa/Actuator",
+        "http://www.w3.org/ns/sosa/Sampler",
+        "http://www.w3.org/ns/sosa/Platform",
         "sosa:Procedure",
         "sosa:ObservingProcedure",
-        "sosa:ActuatingProcedure",
         "sosa:SamplingProcedure",
-        "ssn:SystemKind",
-        "ssn:SensorKind",
-        "ssn:ActuatorKind",
-        "ssn:SamplerKind",
-        "ssn:PlatformKind"
+        "sosa:ActuatingProcedure",
+        "sosa:System",
+        "sosa:Sensor",
+        "sosa:Actuator",
+        "sosa:Sampler",
+        "sosa:Platform"
       ]
     }
   }

@@ -92,6 +92,11 @@ This is an example schema for vector observations:
 ----
 include::../openapi/examples/schemas/observationSchema-vector-json.json[]
 ----
+
+This third example has an out-of-band PNG image as the result:
+[source%autofit,json]
+----
+include::../openapi/examples/observations/observationSchema-image-link.json[]
 =================
 
 NOTE: All other observation properties are the same for all datastreams and thus described in the static schema provided in <<clause-json-observation>>.
@@ -142,6 +147,12 @@ This second observation has a vector result type:
 [source%autofit,json]
 ----
 include::../openapi/examples/observations/obs-location.json[]
+----
+
+This third observation has PNG image as a result type that is a PNG image encoded inline as a `data:` URL
+[source%autofit,json]
+----
+include::../openapi/examples/observations/obs-link-inline-image.json[]
 ----
 =================
 

@@ -12,9 +12,30 @@
     "resultSchema": {
       "description": "Schema for the observation `result` property. This describes the observed properties included in the result and how they are structured if the result is a record, a vector quantity or a coverage.",
       "$ref": "../common/sweCommonDefs.json#/$defs/AnyComponent"
+    },
+    "resultLink": {
+      "description": "Encoding information in case the result is provided out-of-band via the `result@link` property.",
+      "type": "object",
+      "properties": {
+        "mediaType": {
+          "description": "Media type of out-of-band resources obtained by dereferencing the result links",
+          "type": "string"
+        }
+      },
+      "required": [ "mediaType" ]
     }
   },
   "required": [
-    "obsFormat", "resultSchema"
+    "obsFormat"
+  ],
+  "oneOf": [
+    { 
+      "title": "Inline Result",
+      "required": [ "resultSchema" ]
+    },
+    {
+      "title": "Result Link",
+      "required": [ "resultLink" ]
+    }
   ]
 }

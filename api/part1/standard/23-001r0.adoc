@@ -30,6 +30,7 @@
 //
 :weblinks-footnote: pass:quotes[* The link relation type (`rel` property) must be set to the association name prefixed by `ogc-rel:`.]
 :part2-footnote: pass:quotes[** `DataStream` and `ControlStream` resources are defined in OGC API - Connected Systems - Part 2.]
+:local-system-linking-footnote: pass:quotes[*** When inserting or modifying a link to a system stored locally, the link url (`href` property) shall be set to the `uniqueID` of the system to be linked.]
 //
 :jsonschema-root: https://opengeospatial.github.io/ogcapi-connected-systems/api/part1/openapi/schemas
 //:jsonschema-root: ../openapi/schemas

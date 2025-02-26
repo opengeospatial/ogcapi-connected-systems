@@ -1,0 +1,11 @@
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json-block-components/referenced-encoded-values-valid
+
+target:: /req/json-block-components/referenced-encoded-values-valid
+
+test-purpose:: Verify that referenced values provided in the JSON instance are supported.
+
+test-method:: Run the tests in this conformance class (and its prerequisites) on a set of JSON documents containing instances of the data component types _DataArray_, _Matrix_ and _DataStream_ having the `value/href` attribute set to URLs with the following schemes: `http`, `https` and `data`.
+====

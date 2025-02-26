@@ -1,3 +1,5 @@
 {
-  "type": "JSONEncoding"
+  "type": "JSONEncoding",
+  "recordsAsArrays": false,
+  "vectorsAsArrays": false
 }

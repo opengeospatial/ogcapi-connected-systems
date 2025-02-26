@@ -732,7 +732,7 @@ The following snippet shows how this datastream records are encoded using the JS
 
 This example is based on the same datastream description as the one provided in <<enc_text_optional_fields_example,style=short%>>.
 
-The following snippet shows how this datastream records are encoded using the XML encoding method:
+The following snippet shows how this datastream records are encoded using the JSON encoding method:
 
 [source%unnumbered,json]
 ----
