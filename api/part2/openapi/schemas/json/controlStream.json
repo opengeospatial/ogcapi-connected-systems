@@ -66,7 +66,7 @@
             },
             {
               "description": "Time extent spanning all issue times of commands in this control stream",
-              "$ref": "../common/commonDefs.json#/$def/TimePeriod",
+              "$ref": "../common/commonDefs.json#/$defs/TimePeriod",
               "readOnly": true
             }
           ]
@@ -78,7 +78,7 @@
             },
             {
               "description": "Time extent spanning all execution times of commands in this control stream",
-              "$ref": "../common/commonDefs.json#/$def/TimePeriod",
+              "$ref": "../common/commonDefs.json#/$defs/TimePeriod",
               "readOnly": true
             }
           ]
