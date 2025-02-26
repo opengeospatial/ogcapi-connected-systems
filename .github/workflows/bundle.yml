@@ -1,0 +1,38 @@
+# Simple workflow for bundling schemas into one
+name: Bundle schemas
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  bundle_part1:
+    runs-on: ubuntu-latest
+    name: part1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Redocly CLI Bundle Part 1
+        uses: fluximus-prime/redocly-cli-github-action@v1
+        with:
+          args: 'bundle api/part1/openapi/openapi-connectedsystems-1.yaml -o ogcapi-connectedsystems-1.bundled.oas31.yaml'
+
+      - name: Redocly CLI Bundle Part 2
+        uses: fluximus-prime/redocly-cli-github-action@v1
+        with:
+          args: 'bundle -d api/part2/openapi/openapi-connectedsystems-2.yaml -o ogcapi-connectedsystems-2.bundled.oas31.yaml'
+
+      - name: release
+        uses: softprops/action-gh-release@v2
+        # if: startsWith(github.ref, 'refs/tags/')
+        id: create_release
+        with:
+          prerelease: true
+          fail_on_unmatched_files: true
+          files: |
+            ogcapi-connectedsystems-1.bundled.oas31.yaml
+            ogcapi-connectedsystems-2.bundled.oas31.yaml
