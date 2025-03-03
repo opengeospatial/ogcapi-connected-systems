@@ -134,7 +134,7 @@ Documentation can be provided which provides further clarification about the Des
 Within SensorML, the history of a process can be provided through a collection of Event objects. These are provided within an EventList that serves as the value of the history property. Events might for instance, specify calibration or maintenance history of a sensor, changes to an algorithm or parameter within a computational process, or deployment and maintenance events.
 
 .Model for history events
-image::figures/history_events_model.png[]
+image::figures/History.png[]
 
 
 [[uml_abstract_process]]
