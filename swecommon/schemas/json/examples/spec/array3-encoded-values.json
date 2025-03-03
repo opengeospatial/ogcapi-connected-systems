@@ -1,0 +1,73 @@
+{
+  "$schema": "file:///home/autermann/Source/ogcapi-connected-systems/swecommon/schemas/json/DataArray.json",
+  "type": "DataArray",
+  "definition": "http://sensorml.com/ont/swe/property/RasterImage",
+  "label": "Satellite Image",
+  "elementCount": {
+    "definition": "http://www.opengis.net/def/property/OGC/0/NumberOfRows",
+    "value": 4
+  },
+  "elementType": {
+    "name": "row",
+    "type": "DataArray",
+    "definition": "http://sensorml.com/ont/swe/property/RasterImage",
+    "elementCount": {
+      "definition": "http://www.opengis.net/def/property/OGC/0/NumberOfSamples",
+      "value": 4
+    },
+    "elementType": {
+      "name": "pixel",
+      "type": "DataRecord",
+      "definition": "http://sensorml.com/ont/swe/property/GridCell",
+      "fields": [
+        {
+          "name": "band1",
+          "type": "Quantity",
+          "definition": "http://qudt.org/vocab/quantitykind/Radiance",
+          "label": "Radiance",
+          "description": "Radiance measured on band1",
+          "uom": { "code": "W.m-2.Sr-1" }
+        },
+        {
+          "name": "band2",
+          "type": "Quantity",
+          "definition": "http://qudt.org/vocab/quantitykind/Radiance",
+          "label": "Radiance",
+          "description": "Radiance measured on band2",
+          "uom": { "code": "W.m-2.Sr-1" }
+        },
+        {
+          "name": "band3",
+          "type": "Quantity",
+          "definition": "http://qudt.org/vocab/quantitykind/Radiance",
+          "label": "Radiance",
+          "description": "Radiance measured on band3",
+          "uom": { "code": "W.m-2.Sr-1" }
+        }
+      ]
+    }
+  },
+  "encoding": {
+    "type": "BinaryEncoding",
+    "byteEncoding": "raw",
+    "byteOrder": "bigEndian",
+    "members": [
+      {
+        "type": "Component",
+        "ref": "row/pixel/band1",
+        "dataType": "http://www.opengis.net/def/dataType/OGC/0/unsignedByte"
+      },
+      {
+        "type": "Component",
+        "ref": "row/pixel/band2",
+        "dataType": "http://www.opengis.net/def/dataType/OGC/0/unsignedByte"
+      },
+      {
+        "type": "Component",
+        "ref": "row/pixel/band3",
+        "dataType": "http://www.opengis.net/def/dataType/OGC/0/unsignedByte"
+      }
+    ]
+  },
+  "values":{"href": "data:application/octet-stream;base64,MptSyfqPYAB5A9aV3j1uYw9EywICwMDZVcmnRlpS1NI1crn8K7NUe/X0I8r4IVq9"}
+}

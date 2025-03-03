@@ -10,9 +10,11 @@ classification:: Target Type: JSON Document
 
 conformance-test:: /conf/json-block-components/component-types
 conformance-test:: /conf/json-block-components/encoded-values-valid
+conformance-test:: /conf/json-block-components/referenced-encoded-values-valid
 ====
 
 include::./ATS_test1.adoc[]
 include::./ATS_test2.adoc[]
+include::./ATS_test3.adoc[]
 
 

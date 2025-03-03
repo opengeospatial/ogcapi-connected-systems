@@ -22,7 +22,7 @@ References are to follow the Springer LNCS style, with the exception that option
 
 * [[[SOSA-SSN, SOSA/SSN]]], Semantic Sensor Network Ontology, (October 19 2017), https://www.w3.org/TR/vocab-ssn
 
-* [[[OMS: ISO 19156]]], Observations and Measurements, version 2.0
+* [[[OMS: ISO 19156:2011]]], Observations and Measurements, version 2.0
 
 * [[[OGC-SML-JSON, OGC 23-000]]], OGC SensorML Encoding Standard, version 3.0, https://docs.ogc.org/DRAFTS/23-000.html
 

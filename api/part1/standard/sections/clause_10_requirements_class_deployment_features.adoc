@@ -75,8 +75,6 @@ NOTE: For deployments of models or processes, the location would usually not be 
 
 NOTE: The platform can be another `System` (e.g. a UAV or a station), but can also be any feature (e.g. a building or a tree).
 
-
-
 === Deployment Canonical URL
 
 The CS API Standard requires that every `Deployment` resource has a canonical URL.

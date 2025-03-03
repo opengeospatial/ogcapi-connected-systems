@@ -1,7 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "allOf": [
-    { "$ref": "baseStream.json" },
+    {
+      "$ref": "baseStream.json"
+    },
     {
       "properties": {
         "system@link": {
@@ -30,40 +32,68 @@
           "$ref": "../common/commonDefs.json#/definitions/Link"
         },
         "controlledProperties": {
-          "description": "List of properties that are controllable through this control stream",
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "type": "object",
-            "properties": {
-              "definition": {
-                "type": "string",
-                "format": "uri"
-              },
-              "label": {
-                "type": "string"
-              },
-              "description": {
-                "type": "string"
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "description": "List of properties that are controllable through this control stream",
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "definition": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                }
               }
             }
-          },
+          ],
           "readOnly": true
         },
         "issueTime": {
-          "description": "Time extent spanning all issue times of commands in this control stream",
-          "$ref": "../common/commonDefs.json#/definitions/TimePeriod",
-          "readOnly": true
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "description": "Time extent spanning all issue times of commands in this control stream",
+              "$ref": "../common/commonDefs.json#/definitions/TimePeriod",
+              "readOnly": true
+            }
+          ]
         },
         "executionTime": {
-          "description": "Time extent spanning all execution times of commands in this control stream",
-          "$ref": "../common/commonDefs.json#/definitions/TimePeriod",
-          "readOnly": true
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "description": "Time extent spanning all execution times of commands in this control stream",
+              "$ref": "../common/commonDefs.json#/definitions/TimePeriod",
+              "readOnly": true
+            }
+          ]
         },
         "live": {
-          "description": "Flag indicating if the command channel can currently accept commands",
-          "type": "boolean",
-          "readOnly": true
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "description": "Flag indicating if the command channel can currently accept commands",
+              "type": "boolean",
+              "readOnly": true
+            }
+          ]
         },
         "async": {
           "description": "Flag indicating if the command channel processes commands asynchronously",
@@ -82,6 +112,12 @@
     }
   ],
   "required": [
-    "name", "system@link", "controlledProperties", "issueTime", "executionTime", "live", "async"
+    "name",
+    "system@link",
+    "controlledProperties",
+    "issueTime",
+    "executionTime",
+    "live",
+    "async"
   ]
 }
