@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "Defines the structure of the element that will be repeated in the stream",
   "type": "object",
   "allOf": [
@@ -14,11 +14,11 @@
         "elementType": {
           "description": "Definition and structure of one stream element",
           "allOf": [
-            { "$ref": "basicTypes.json#/definitions/SoftNamedProperty" },
+            { "$ref": "basicTypes.json#/$defs/SoftNamedProperty" },
             {
               "oneOf": [
-                { "$ref": "basicTypes.json#/definitions/AssociationAttributeGroup" },
-                { "$ref": "sweCommon.json#/definitions/AnyComponent" }
+                { "$ref": "basicTypes.json#/$defs/AssociationAttributeGroup" },
+                { "$ref": "sweCommon.json#/$defs/AnyComponent" }
               ]
             }
           ]
@@ -27,22 +27,22 @@
           "description": "Method used to encode the stream values",
           "oneOf": [
             {
-              "$ref": "encodings.json#/definitions/BinaryEncoding"
+              "$ref": "encodings.json#/$defs/BinaryEncoding"
             },
             {
-              "$ref": "encodings.json#/definitions/TextEncoding"
+              "$ref": "encodings.json#/$defs/TextEncoding"
             },
             {
-              "$ref": "encodings.json#/definitions/XMLEncoding"
+              "$ref": "encodings.json#/$defs/XMLEncoding"
             },
             {
-              "$ref": "encodings.json#/definitions/JSONEncoding"
+              "$ref": "encodings.json#/$defs/JSONEncoding"
             }
           ]
         },
         "values": {
           "description": "Encoded values for the stream (can be out of band)",
-          "$ref": "basicTypes.json#/definitions/AssociationAttributeGroup"
+          "$ref": "basicTypes.json#/$defs/AssociationAttributeGroup"
         }
       },
       "required": [

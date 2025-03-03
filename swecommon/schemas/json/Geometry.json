@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Geometry",
   "description": "Implementation of ISO-19107 geometry datatype. This allows embedding a geometry in a larger schema",
   "type": "object",
@@ -34,7 +34,7 @@
           "additionalProperties": false
         },
         "nilValues": {
-          "$ref": "basicTypes.json#/definitions/NilValuesText"
+          "$ref": "basicTypes.json#/$defs/NilValuesText"
         },
         "srs": {
           "description": "Coordinate reference system with respect to which the coordinates of this geometry are expressed",

@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "properties": {
     "id": {
@@ -15,7 +15,7 @@
     },
     "resultTime": {
       "description": "Time at which the observation result was generated.",
-      "$ref": "../common/commonDefs.json#/definitions/TimeInstant"
+      "$ref": "../common/commonDefs.json#/$defs/TimeInstant"
     },
     "result": {
       "type": "number",

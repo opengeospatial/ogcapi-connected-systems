@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "definitions": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
     "AbstractSWE": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
       "description": "Base substitution groups for all SWE Common objects other than value objects",
       "type": "object",
       "properties": {
@@ -95,7 +95,7 @@
           "type": "array",
           "minItems": 1,
           "items": {
-            "$ref": "#/definitions/NumberOrSpecial"
+            "$ref": "#/$defs/NumberOrSpecial"
           }
         },
         "intervals": {
@@ -106,7 +106,7 @@
             "minItems": 2,
             "maxItems": 2,
             "items": {
-              "$ref": "#/definitions/NumberOrSpecial"
+              "$ref": "#/$defs/NumberOrSpecial"
             }
           }
         },
@@ -138,7 +138,7 @@
           "type": "array",
           "minItems": 1,
           "items": {
-            "$ref": "#/definitions/DateTimeNumberOrSpecial"
+            "$ref": "#/$defs/DateTimeNumberOrSpecial"
           }
         },
         "intervals": {
@@ -148,7 +148,7 @@
             "minItems": 2,
             "maxItems": 2,
             "items": {
-              "$ref": "#/definitions/DateTimeNumberOrSpecial"
+              "$ref": "#/$defs/DateTimeNumberOrSpecial"
             }
           }
         },
@@ -228,7 +228,7 @@
           },
           "value": {
             "description": "The reserved value itself",
-            "$ref": "#/definitions/NumberOrSpecial"
+            "$ref": "#/$defs/NumberOrSpecial"
           }
         },
         "required": [
@@ -251,7 +251,7 @@
           },
           "value": {
             "description": "The reserved value itself",
-            "$ref": "#/definitions/DateTimeNumberOrSpecial"
+            "$ref": "#/$defs/DateTimeNumberOrSpecial"
           }
         },
         "required": [
@@ -265,7 +265,7 @@
       "type": "object",
       "properties": {
         "name": {
-          "$ref": "#/definitions/NameToken"
+          "$ref": "#/$defs/NameToken"
         }
       },
       "required": [ "name" ]
@@ -318,7 +318,7 @@
           "format": "date-time"
         },
         {
-          "$ref": "#/definitions/NumberOrSpecial"
+          "$ref": "#/$defs/NumberOrSpecial"
         }
       ]
     },
@@ -331,7 +331,7 @@
         {
           "properties": {
             "constraint": {
-              "$ref": "basicTypes.json#/definitions/AllowedValues"
+              "$ref": "basicTypes.json#/$defs/AllowedValues"
             },
             "value": {
               "description": "Value is optional, to enable structure to act as a schema for values provided using other encodings",
@@ -347,7 +347,7 @@
           "type": "array"
         },
         {
-          "$ref": "#/definitions/AssociationAttributeGroup"
+          "$ref": "#/$defs/AssociationAttributeGroup"
         }
       ]
     }

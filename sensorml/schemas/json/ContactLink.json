@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "properties": {
     "role": {
@@ -13,7 +13,7 @@
     },
     "link": {
       "description": "Link to complete contact information",
-      "$ref": "commonDefs.json#/definitions/XLink"
+      "$ref": "commonDefs.json#/$defs/XLink"
     }
   },
   "unevaluatedProperties": false,

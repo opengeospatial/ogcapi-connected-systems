@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "properties": {
     "role": {
@@ -17,7 +17,7 @@
     },
     "link": {
       "description": "URI of the document (Favor a URL if the document is directly accessible online)",
-      "$ref": "commonDefs.json#/definitions/XLink"
+      "$ref": "commonDefs.json#/$defs/XLink"
     }
   },
   "unevaluatedProperties": false,

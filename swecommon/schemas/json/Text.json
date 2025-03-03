@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "Free text component used to store comments or any other type of textual statement",
   "type": "object",
   "allOf": [
@@ -12,10 +12,10 @@
           "const": "Text"
         },
         "constraint": {
-          "$ref": "basicTypes.json#/definitions/AllowedTokens"
+          "$ref": "basicTypes.json#/$defs/AllowedTokens"
         },
         "nilValues": {
-          "$ref": "basicTypes.json#/definitions/NilValuesText"
+          "$ref": "basicTypes.json#/$defs/NilValuesText"
         },
         "value": {
           "type": "string"

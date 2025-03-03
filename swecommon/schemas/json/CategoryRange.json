@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "Pair of categorical values used to specify a range in an ordinal reference system (specified by the code space)",
   "type": "object",
   "allOf": [
@@ -17,10 +17,10 @@
           "format": "uri"
         },
         "constraint": {
-          "$ref": "basicTypes.json#/definitions/AllowedTokens"
+          "$ref": "basicTypes.json#/$defs/AllowedTokens"
         },
         "nilValues": {
-          "$ref": "basicTypes.json#/definitions/NilValuesText"
+          "$ref": "basicTypes.json#/$defs/NilValuesText"
         },
         "value": {
           "type": "array",

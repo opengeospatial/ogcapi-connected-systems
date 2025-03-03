@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "properties": {
     "id": {
@@ -20,7 +20,7 @@
     },
     "validTime": {
       "description": "Validity period of the resource",
-      "$ref": "../common/commonDefs.json#/definitions/TimePeriod"
+      "$ref": "../common/commonDefs.json#/$defs/TimePeriod"
     },
     "formats": {
       "description": "List of available formats",

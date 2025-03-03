@@ -1,12 +1,12 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "properties": {
     "obsFormat": {
       "type": "string"
     },
     "recordSchema": {
-      "$ref": "../common/sweCommonDefs.json#/definitions/AnyComponent"
+      "$ref": "../common/sweCommonDefs.json#/$defs/AnyComponent"
     },
     "encoding": {}
   },
@@ -21,7 +21,7 @@
           "const": "application/swe+json"
         },
         "encoding": {
-          "$ref": "../common/sweCommonDefs.json#/definitions/JSONEncoding"
+          "$ref": "../common/sweCommonDefs.json#/$defs/JSONEncoding"
         }
       }
     },
@@ -32,7 +32,7 @@
           "const": "application/swe+text"
         },
         "encoding": {
-          "$ref": "../common/sweCommonDefs.json#/definitions/TextEncoding"
+          "$ref": "../common/sweCommonDefs.json#/$defs/TextEncoding"
         }
       }
     },
@@ -44,7 +44,7 @@
         },
         "encoding": {
           "allOf": [
-            { "$ref": "../common/sweCommonDefs.json#/definitions/TextEncoding" },
+            { "$ref": "../common/sweCommonDefs.json#/$defs/TextEncoding" },
             {
               "properties": {
                 "tokenSeparator": {
@@ -67,7 +67,7 @@
           "const": "application/swe+binary"
         },
         "encoding": {
-          "$ref": "../common/sweCommonDefs.json#/definitions/BinaryEncoding"
+          "$ref": "../common/sweCommonDefs.json#/$defs/BinaryEncoding"
         }
       }
     }

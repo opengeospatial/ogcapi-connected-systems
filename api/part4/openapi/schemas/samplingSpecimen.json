@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Specimen",
   "allOf": [
     { "$ref": "samplingFeature.json" },
@@ -15,7 +15,7 @@
               "const": "http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_Specimen"
             },
             "samplingTime": {
-              "$ref": "../common/commonDefs.json#/definitions/TimeInstant"
+              "$ref": "../common/commonDefs.json#/$defs/TimeInstant"
             },
             "materialClass": {
               "type": "string",
@@ -29,7 +29,7 @@
               "type": "number"
             },
             "samplingMethod@link": {
-              "$ref": "../common/commonDefs.json#/definitions/Link"
+              "$ref": "../common/commonDefs.json#/$defs/Link"
             }
           }
         }

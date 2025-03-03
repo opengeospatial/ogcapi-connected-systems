@@ -1,18 +1,18 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "allOf": [
     { 
       "oneOf": [
-        { "$ref": "sensormlDefs.json#/definitions/SimpleProcess" },
-        { "$ref": "sensormlDefs.json#/definitions/AggregateProcess" },
-        { "$ref": "sensormlDefs.json#/definitions/PhysicalComponent" },
-        { "$ref": "sensormlDefs.json#/definitions/PhysicalSystem" }
+        { "$ref": "sensormlDefs.json#/$defs/SimpleProcess" },
+        { "$ref": "sensormlDefs.json#/$defs/AggregateProcess" },
+        { "$ref": "sensormlDefs.json#/$defs/PhysicalComponent" },
+        { "$ref": "sensormlDefs.json#/$defs/PhysicalSystem" }
       ]  
     },
     {
       "properties": {
         "definition": {
-          "$ref": "../common/uris.json#/definitions/SystemTypeUris"
+          "$ref": "../common/uris.json#/$defs/SystemTypeUris"
         },
         "links": {
           "description": "Links to related resources",

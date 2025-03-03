@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "properties": {
     "obsFormat": {
@@ -7,11 +7,11 @@
     },
     "parametersSchema": {
       "description": "Record schema for the observation `parameters` property. If omitted, parameters are not included in the datastream.",
-      "$ref": "../common/sweCommonDefs.json#/definitions/DataRecord"
+      "$ref": "../common/sweCommonDefs.json#/$defs/DataRecord"
     },
     "resultSchema": {
       "description": "Schema for the observation `result` property. This describes the observed properties included in the result and how they are structured if the result is a record, a vector quantity or a coverage.",
-      "$ref": "../common/sweCommonDefs.json#/definitions/AnyComponent"
+      "$ref": "../common/sweCommonDefs.json#/$defs/AnyComponent"
     },
     "resultLink": {
       "description": "Encoding information in case the result is provided out-of-band via the `result@link` property.",

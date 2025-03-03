@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "Implementation of ISO-11404 Record datatype. This allows grouping (sequence) of data components which can themselves be simple types, records, arrays or choices",
   "type": "object",
   "allOf": [
@@ -17,11 +17,11 @@
           "minItems": 1,
           "items": {
             "allOf": [
-              { "$ref": "basicTypes.json#/definitions/SoftNamedProperty" },
+              { "$ref": "basicTypes.json#/$defs/SoftNamedProperty" },
               {
                 "oneOf": [
-                  { "$ref": "basicTypes.json#/definitions/AssociationAttributeGroup" },
-                  { "$ref": "sweCommon.json#/definitions/AnyComponent" }
+                  { "$ref": "basicTypes.json#/$defs/AssociationAttributeGroup" },
+                  { "$ref": "sweCommon.json#/$defs/AnyComponent" }
                 ]
               }
             ]

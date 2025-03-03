@@ -1,11 +1,11 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "definitions": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
     "AbstractEncoding": {
       "type": "object",
       "allOf": [
         {
-          "$ref": "basicTypes.json#/definitions/AbstractSWE"
+          "$ref": "basicTypes.json#/$defs/AbstractSWE"
         },
         {
           "properties": {}
@@ -17,7 +17,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/AbstractEncoding"
+          "$ref": "#/$defs/AbstractEncoding"
         },
         {
           "properties": {
@@ -57,12 +57,22 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/AbstractEncoding"
+          "$ref": "#/$defs/AbstractEncoding"
         },
         {
           "properties": {
             "type": {
               "const": "JSONEncoding"
+            },
+            "recordsAsArrays": {
+              "type": "boolean",
+              "default": false,
+              "description": "If true, DataRecord values are encoded as JSON arrays instead of JSON objects"
+            },
+            "vectorsAsArrays": {
+              "type": "boolean",
+              "default": false,
+              "description": "If true, Vector values are encoded as JSON arrays instead of JSON objects"
             }
           },
           "required": [
@@ -76,7 +86,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/AbstractEncoding"
+          "$ref": "#/$defs/AbstractEncoding"
         },
         {
           "properties": {
@@ -99,7 +109,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/AbstractEncoding"
+          "$ref": "#/$defs/AbstractEncoding"
         },
         {
           "properties": {
@@ -133,10 +143,10 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "#/definitions/Component"
+                    "$ref": "#/$defs/Component"
                   },
                   {
-                    "$ref": "#/definitions/Block"
+                    "$ref": "#/$defs/Block"
                   }
                 ]
               }
@@ -156,7 +166,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "basicTypes.json#/definitions/AbstractSWE"
+          "$ref": "basicTypes.json#/$defs/AbstractSWE"
         },
         {
           "properties": {
@@ -202,7 +212,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "basicTypes.json#/definitions/AbstractSWE"
+          "$ref": "basicTypes.json#/$defs/AbstractSWE"
         },
         {
           "properties": {
@@ -245,8 +255,8 @@
     }
   },
   "oneOf": [
-    { "$ref": "#/definitions/TextEncoding" },
-    { "$ref": "#/definitions/XMLEncoding" },
-    { "$ref": "#/definitions/JSONEncoding" }
+    { "$ref": "#/$defs/TextEncoding" },
+    { "$ref": "#/$defs/XMLEncoding" },
+    { "$ref": "#/$defs/JSONEncoding" }
   ]
 }

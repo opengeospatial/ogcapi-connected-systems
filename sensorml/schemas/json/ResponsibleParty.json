@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "properties": {
     "individualName": {
@@ -12,7 +12,7 @@
       "type": "string"
     },
     "contactInfo": {
-      "$ref": "#/definitions/Contact"
+      "$ref": "#/$defs/Contact"
     },
     "role": {
       "type": "string",
@@ -33,15 +33,15 @@
       "required": ["organisationName"]
     }
   ],
-  "definitions": {
+  "$defs": {
     "Contact": {
       "type": "object",
       "properties": {
         "phone": {
-          "$ref": "#/definitions/Phone"
+          "$ref": "#/$defs/Phone"
         },
         "address": {
-          "$ref": "#/definitions/Address"
+          "$ref": "#/$defs/Address"
         },
         "website": {
           "type": "string"
