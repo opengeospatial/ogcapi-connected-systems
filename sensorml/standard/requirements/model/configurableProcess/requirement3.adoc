@@ -3,5 +3,5 @@
 [%metadata]
 identifier:: /req/model/configurableProcess/twoModesRequired
 
-A ModeChoice instantiation must include two or more mode properties.
+A modes list must include two or more mode properties if present.
 ====

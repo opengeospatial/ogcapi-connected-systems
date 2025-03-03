@@ -1,5 +1,5 @@
 [abstract_test]
-.ModeChoice requires 2 or more Modes
+.Mode list requires 2 or more Modes
 ====
 [%metadata]
 identifier:: /conf/model/configurableProcess/twoModesRequired

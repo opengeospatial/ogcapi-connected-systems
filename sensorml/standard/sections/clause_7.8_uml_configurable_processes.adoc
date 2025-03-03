@@ -41,9 +41,8 @@ A process becomes “configured” by having both of the following two character
 A Doppler radar for monitoring storms may have several modes from which one can select depending on the prevailing conditions at the time. For instance, there can be “clear-sky”, “storm”, and “severe-storm” modes in which the scanning properties, radar intensity, and gain settings can all change by simply changing the mode setting
 ==== 
 
-A configurable process can but is not required to contain one or more modes properties. The modes property takes an AbstractModes as its value. As shown in <<modes>>, the concrete ModeChoice class defined in this conformance clause is derived from AbstractModes and serves as the concrete instantiation for defining modes in this specification.
-
-ModeChoice shall include two or more mode properties that take Mode as their value. In addition to metadata provided by the base DescribedObject class, Mode includes a configuration property that allows one to define a collection of settings for that mode.
+A configurable process can but is not required to contain two or more Modes. The modes property takes a list of Modes as its values, as shown in <<modes>>.
+A mode list shall include two or more mode properties that take Mode as their value. In addition to metadata provided by the base DescribedObject class, Mode includes a configuration property that allows one to define a collection of settings for that mode.
 
 include::../requirements/model/configurableProcess/requirement3.adoc[]
 
@@ -62,7 +61,7 @@ The configuration property and it Settings value can be utilized in two cases:
 
 include::../requirements/model/configurableProcess/requirement4.adoc[]
 
-The Settings class is shown in <<modes>> with its possible property values shown in <<configured_process_settings>>. For all settings, the property in the configurable process is specified by the DataComponentPath reference. 
+The Settings class is shown in <<configured_process_settings>> with its possible property values shown in <<configured_process_settings_implementations>>. For all settings, the property in the configurable process is specified by the DataComponentPath reference. 
 
 Within the Settings class, one may (a) set particular values for parameters, (b) set an array of values for a parameter (and only a parameter that takes a DataArray as its value, (c) further constrain allowed values for parameters, (d) set the operational mode, and (e) enable or disable an input or output.
 
@@ -74,6 +73,6 @@ include::../requirements/model/configurableProcess/requirement5.adoc[]
 include::../requirements/model/configurableProcess/requirement6.adoc[]
 include::../requirements/model/configurableProcess/requirement7.adoc[]
 
-[[]]
+[[configured_process_settings_implementations]]
 .Model for Settings Elements 
 image::figures/settings_elements.png[]
