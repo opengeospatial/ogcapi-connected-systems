@@ -1,104 +1,126 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
-  "allOf": [
-    {
-      "$ref": "AbstractFeature.json"
+  "properties": {
+    "type": {
+      "description": "Type of object",
+      "type": "string"
     },
-    {
-      "properties": {
-        "lang": {
-          "description": "Language of this document",
-          "type": "string"
-        },
-        "keywords": {
-          "description": "Short keywords describing the context of this document to aid in discovery.",
-          "type": "array",
-          "items": {
+    "id": {
+      "description": "Local ID of the feature (e.g. locally unique on a server)",
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "description": "A textual description of the feature",
+      "type": "string",
+      "minLength": 1
+    },
+    "uniqueId": {
+      "description": "URI serving as the globally unique identifier of the feature (typically a URN)",
+      "type": "string",
+      "format": "uri"
+    },
+    "label": {
+      "description": "A human readable label for the feature",
+      "type": "string",
+      "minLength": 1
+    },
+    "lang": {
+      "description": "Language of this document",
+      "type": "string"
+    },
+    "keywords": {
+      "description": "Short keywords describing the context of this document to aid in discovery.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "identifiers": {
+      "description": "Additional identifiers for the asset, useful for discovery (e.g. short name, mission id, model number, serial number, etc.).",
+      "type": "array",
+      "items": {
+        "$ref": "commonDefs.json#/$defs/Term"
+      }
+    },
+    "classifiers": {
+      "description": "Classifiers for the asset, useful for discovery (e.g. process type, sensor type, intended application, etc.).",
+      "type": "array",
+      "items": {
+        "$ref": "commonDefs.json#/$defs/Term"
+      }
+    },
+    "validTime": {
+      "$ref": "commonDefs.json#/$defs/TimePeriod"
+    },
+    "securityConstraints": {
+      "description": "Overall security tagging of process description; Individual tagging of properties can be done using extension properties.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
             "type": "string",
-            "minLength": 1
+            "format": "uri"
           }
         },
-        "identifiers": {
-          "description": "Additional identifiers for the asset, useful for discovery (e.g. short name, mission id, model number, serial number, etc.).",
-          "type": "array",
-          "items": {
-            "$ref": "commonDefs.json#/$defs/Term"
-          }
-        },
-        "classifiers": {
-          "description": "Classifiers for the asset, useful for discovery (e.g. process type, sensor type, intended application, etc.).",
-          "type": "array",
-          "items": {
-            "$ref": "commonDefs.json#/$defs/Term"
-          }
-        },
-        "validTime": {
-          "$ref": "commonDefs.json#/$defs/TimePeriod"
-        },
-        "securityConstraints": {
-          "description": "Overall security tagging of process description; Individual tagging of properties can be done using extension properties.",
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "format": "uri"
-              }
-            },
-            "required": ["type"],
-            "additionalProperties": true
-          }
-        },
-        "legalConstraints": {
-          "description": "Legal constraints applied to this description (e.g. copyrights, legal use, etc.)",
-          "type": "array",
-          "items": {
-            "$ref": "LegalConstraint.json"
-          }
-        },
-        "characteristics": {
-          "description": "Groups of characteristics applicable to this asset under various conditions",
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/CharacteristicList"
-          }
-        },
-        "capabilities": {
-          "description": "Groups of capabilities applicable to this asset under various conditions",
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/CapabilityList"
-          }
-        },
-        "contacts": {
-          "description": "The list of contacts related to this asset",
-          "type": "array",
-          "items": {
-            "oneOf": [
-              { "$ref": "ResponsibleParty.json" },
-              { "$ref": "ContactLink.json" }
-            ]
-          }
-        },
-        "documents": {
-          "description": "Additional documentation about the asset",
-          "type": "array",
-          "items": {
-            "$ref": "Document.json"
-          }
-        },
-        "history": {
-          "description": "The list of events related to this asset",
-          "type": "array",
-          "items": {
-            "$ref": "Event.json"
-          }
-        }
+        "required": ["type"],
+        "additionalProperties": true
+      }
+    },
+    "legalConstraints": {
+      "description": "Legal constraints applied to this description (e.g. copyrights, legal use, etc.)",
+      "type": "array",
+      "items": {
+        "$ref": "LegalConstraint.json"
+      }
+    },
+    "characteristics": {
+      "description": "Groups of characteristics applicable to this asset under various conditions",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/CharacteristicList"
+      }
+    },
+    "capabilities": {
+      "description": "Groups of capabilities applicable to this asset under various conditions",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/CapabilityList"
+      }
+    },
+    "contacts": {
+      "description": "The list of contacts related to this asset",
+      "type": "array",
+      "items": {
+        "oneOf": [
+          { "$ref": "ResponsibleParty.json" },
+          { "$ref": "ContactLink.json" }
+        ]
+      }
+    },
+    "documents": {
+      "description": "Additional documentation about the asset",
+      "type": "array",
+      "items": {
+        "$ref": "Document.json"
+      }
+    },
+    "history": {
+      "description": "The list of events related to this asset",
+      "type": "array",
+      "items": {
+        "$ref": "Event.json"
       }
     }
-  ],  
+  },
+  "required": [
+    "type", 
+    "label",
+    "uniqueId"
+  ],
   "$defs": {
     "CharacteristicList": {
       "allOf": [

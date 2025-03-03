@@ -20,7 +20,7 @@ The main changes of SensorML 3.0 from SensorML version 2.0 are:
 - Addition of the JSON encodings and schemas
 - Addition of the Deployment class
 - Addition of the Derived Property class
-- Deprecation of the XML encodings
+- Removal of the XML encodings
 
 This release is fully backward compatible with version 2.0.
 

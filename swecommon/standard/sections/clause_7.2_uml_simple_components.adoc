@@ -52,22 +52,18 @@ image::figures/fig7.5.png[]
 [[uml_alldatacomponents]]
 ==== Attributes shared by all data components
 
-All SWE Common data component classes carry standard attributes inherited (transitively) from the “AbstractDataComponent” and “AbstractSWEValue” classes (The “AbstractSWEValue” class is actually defined in the “Basic Types” package but is shown here for clarity). The class hierarchy is shown on the following UML diagram:
+All SWE Common data component classes carry standard attributes inherited (transitively) from the “AbstractDataComponent” and “AbstractSWEIdentifiable” classes (The “AbstractSWEIdentifiable” class is actually defined in the “Basic Types” package but is shown here for clarity). The class hierarchy is shown on the following UML diagram:
 
 .AbstractDataComponent Class
-image::figures/fig7.6.png[]
+image::figures/AbstractDataComponent.png[]
 
-**Extension Slot**
+**Label and Description**
 
-The “extension” attribute is used as a container for future extensions. It allows adding new extended properties to an existing class at the instance level.
-
-**Name and Description**
-
-The optional “name” and “description” attributes can be used to provide human readable information describing what property the component represents. The “name” is meant to hold a short descriptive name whereas “description” can carry any length of plain text. These two fields should not be used to specify robust semantic information (see <<core_robust_semantics>>). Instead, the “definition” attribute described below should be used for that purpose.
+The optional “label” and “description” attributes can be used to provide human readable information describing what property the component represents. The “label” is meant to hold a short descriptive name whereas “description” can carry any length of plain text. These two fields should not be used to specify robust semantic information (see <<core_robust_semantics>>). Instead, the “definition” attribute described below should be used for that purpose.
 
 **Identifier**
 
-The optional “identifier” attribute allows assigning a unique identifier to the component, so that it can be referenced later on. It can be used, for example, when defining the unique identifier of a universal constant.
+The optional “id” attribute allows assigning a unique identifier to the component, so that it can be referenced later on. It can be used, for example, when defining the unique identifier of a universal constant.
 
 **Definition**
 

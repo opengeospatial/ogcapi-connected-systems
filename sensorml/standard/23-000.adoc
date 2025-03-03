@@ -11,7 +11,7 @@
 :published-date: yyyy-mm-dd
 :fullname: Alexandre Robin
 :docsubtype: implementation
-:keywords: ogcdoc, OGC document, html, SWE, sensor, sensorweb, connected systems, xml, encoding, observation, command, tasking, property
+:keywords: ogcdoc, OGC document, html, SWE, sensor, sensorweb, connected systems, encoding, observation, command, tasking, property
 :submitting-organizations: Botts Innovative Research, Inc.; GeoRobotix, Inc.; 52°North Spatial Information Research GmbH; National Geospatial-Intelligence Agency (NGA); Cesium GS, Inc.; Pelagis Data Solutions; 
 :docfile: document.adoc
 :mn-document-class: ogc
