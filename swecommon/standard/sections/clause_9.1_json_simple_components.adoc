@@ -64,7 +64,7 @@ include::../requirements/json/simple_components/requirement5.adoc[]
 [[json_unitreference_obj]]
 ==== Unit Reference Object
 
-The “UnitReference” object is the JSON schema representation of the “UnitOfMeasure” UML classes used in <<uml_quantity_class>> and <<uml_quantityrange_class>>,  and the “UomTime” UML class used in <<uml_time_class>> and <<uml_timerange_class>>, as defining the model for “UnitOfMeasure” and “UomTime” are out of scope for SWE Common.
+The “UnitReference” object is the partial JSON schema implementation of the “UnitOfMeasure” UML class used in <<uml_quantity_class>> and <<uml_quantityrange_class>>,  and the “UomTime” UML class used in <<uml_time_class>> and <<uml_timerange_class>>, as defining the model for “UnitOfMeasure” and “UomTime” are out of scope for SWE Common. SWE Common only references implementations of “UnitOfMeasure”, like for instance the ones provided by <<UCUM>>.
 
 The schema for this class is provided in {jsonschema-base-url}/basicTypes.json[basicTypes.json] (see #definitions/UnitReference). Further details on the usage of “UnitReference” object can be found in <<json_quantity_obj>> and <<json_time_obj>>.
 
