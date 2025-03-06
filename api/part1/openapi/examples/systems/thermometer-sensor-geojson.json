@@ -10,7 +10,7 @@
     "name": "Outdoor Thermometer 001",
     "description": "Digital thermometer located on first floor window 1",
     "featureType": "http://www.w3.org/ns/sosa/Sensor",
-    "assetType": "http://www.opengis.net/def/x-OGC/TBD/Equipment",
+    "assetType": "Equipment",
     "systemKind@link": {
       "href": "https://data.example.org/api/procedures/TP60S?f=json",
       "uid": "urn:x-myorg:datasheets:ThermoPro:TP60S:v001",

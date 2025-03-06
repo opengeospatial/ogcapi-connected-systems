@@ -13,10 +13,13 @@
               "description": "Type of asset represented by this system.",
               "type": "string",
               "enum": [
-                "http://www.opengis.net/def/x-OGC/TBD/Equipment",
-                "http://www.opengis.net/def/x-OGC/TBD/Human",
-                "http://www.opengis.net/def/x-OGC/TBD/Simulation",
-                "http://www.opengis.net/def/x-OGC/TBD/Mixed"
+                "Equipment",
+                "Human",
+                "LivingThing",
+                "Simulation",
+                "Process",
+                "Group",
+                "Other"
               ]
             },
             "validTime": {
