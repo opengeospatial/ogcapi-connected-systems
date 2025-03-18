@@ -18,4 +18,5 @@
 | 2023-03-21 | 2.1 draft | Alex Robin | Clause 9 | Clarified use of media types
 | 2024-04-29 | 3.0 draft | Alex Robin | All | Refactored to v3.0, added JSON encoding, removed XML encoding sections
 | 2024-08-13 | 3.0 draft | Alex Robin | All | Updated ATS
+| 2025-03-18 | 3.0 draft | Christian Autermann | All | Incorporated feedback from public comments
 |===

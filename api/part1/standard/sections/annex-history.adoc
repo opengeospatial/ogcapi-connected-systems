@@ -9,4 +9,5 @@
 | 2023-12-07 | 1.0 draft | Alex Robin | All | Incorporated feedback from various SWG
 | 2024-05-21 | 1.0 draft | Alex Robin | All | Incorporated OAB feedback ("resources endpoint" terminology)
 | 2024-09-05 | 1.0 draft | Alex Robin | All | Updated ATS
+| 2025-03-18 | 1.0 draft | Christian Autermann | All | Incorporated feedback from public comments
 |===

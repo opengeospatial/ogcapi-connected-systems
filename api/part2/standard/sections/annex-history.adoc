@@ -8,4 +8,5 @@
 | 2023-04-21 | 1.0 draft | Alex Robin | All | Migration to Metanorma
 | 2024-06-10 | 1.0 draft | Alex Robin | All | Added missing sections, alignment with Part 1
 | 2024-09-10 | 1.0 draft | Alex Robin | All | Added ATS
+| 2025-03-18 | 1.0 draft | Christian Autermann | All | Incorporated feedback from public comments
 |===
