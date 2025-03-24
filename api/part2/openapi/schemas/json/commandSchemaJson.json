@@ -7,12 +7,15 @@
       "const": "application/json"
     },
     "parametersSchema": {
+      "description": "Schema for the command `parameters`.",
       "$ref": "../common/sweCommonDefs.json#/$defs/AnyComponent"
     },
     "resultSchema": {
+      "description": "Schema for the inline command results (if any).",
       "$ref": "../common/sweCommonDefs.json#/$defs/AnyComponent"
     },
     "feasibilityResultSchema": {
+      "description": "Schema for the feasibility results (if any).",
       "$ref": "../common/sweCommonDefs.json#/$defs/AnyComponent"
     }
   },
