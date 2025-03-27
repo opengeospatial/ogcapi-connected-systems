@@ -110,7 +110,7 @@ The SWG will curate all of the semantic definitions required to build a future w
 
 ## Communication
 
-Most all work on the specification takes place in [GitHub issues](https://github.com/opengeospatial/connected_systems/issues), so browse there to get a good idea of what is happening, as well as past decisions. 
+Most all work on the specification takes place in [GitHub issues](https://github.com/opengeospatial/ogcapi-connected-systems/issues), so browse there to get a good idea of what is happening, as well as past decisions. 
 
 
 ## Contributing
@@ -121,8 +121,8 @@ The contributor understands that any contributions, if accepted by the OGC Membe
 
 The OGC Connected Systems Standards Working Group (SWG) is the group at OGC responsible for the stewardship of the resultant Standard(s), but is working to do as much work in public as possible.
 
-* [Open issues](https://github.com/opengeospatial/ogcapi-connected_systems/issues)
-* [Copy of License Language](https://github.com/opengeospatial/ogcapi-connected_systems/blob/master/LICENSE)
+* [Open issues](https://github.com/opengeospatial/ogcapi-connected-systems/issues)
+* [Copy of License Language](https://github.com/opengeospatial/ogcapi-connected-systems/blob/master/LICENSE)
 
 Pull Requests from contributors are welcomed. However, please note that by sending a Pull Request or Commit to this GitHub repository, you are agreeing to the terms in the Observer Agreement https://portal.ogc.org/files/?artifact_id=103056
 
