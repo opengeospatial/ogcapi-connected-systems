@@ -12,7 +12,7 @@
       "$ref": "commonDefs.json#/$defs/XLink"
     },
     "configuration": {
-      "description": "The configuration of the system used during this deployment (e.g. sampling rate setting, etc.)",
+      "description": "The configuration of the system used during this deployment (e.g., sampling rate setting, etc.)",
       "$ref": "Settings.json"
     }
   },

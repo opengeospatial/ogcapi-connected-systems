@@ -13,8 +13,8 @@ JSON schemas defined in this section are a direct implementation of the UML conc
 
 All JSON examples given in this section are informative and are used solely for illustrating features of the normative model. Many of these examples reference semantic information by using URLs that resolve to the following online ontologies:
 
-- The OGC online registry at http://www.opengis.net/def/.
-- The QUDT quantity kinds ontology at http://qudt.org/2.1/vocab/quantitykind.
+- The OGC online registry at http://www.opengis.net/def/;
+- The QUDT quantity kinds ontology at http://qudt.org/2.1/vocab/quantitykind.; and
 - The MMI ontology registry and repository at http://mmisw.org/ont/.
 
 

@@ -22,15 +22,15 @@ A configurable process based on the linear equation (y=mx+b) defines two paramet
 
 A process becomes “configurable” by one or more of the following characteristics:
 
-* it defines parameters, but not defining their values
-* it defines a range or selection of possible values for parameters using the swe:AllowedValues property
-* it defines modes which in turn set a collection of parameter values when enabled
-* it allows inputs, outputs, or components to be enabled or disabled
+* it defines parameters, but not defining their values;
+* it defines a range or selection of possible values for parameters using the swe:AllowedValues property;
+* it defines modes which in turn set a collection of parameter values when enabled; and
+* it allows inputs, outputs, or components to be enabled or disabled.
 
 A process becomes “configured” by having both of the following two characteristics:
 
-* it inherits from a configurable process using the typeOf property
-* it specifies one or more settings within the configuration property
+* it inherits from a configurable process using the typeOf property; and
+* it specifies one or more settings within the configuration property.
 
 ==== Modes
 
@@ -55,9 +55,9 @@ The configuration property takes a Settings object, which will be described in m
 
 The configuration property and it Settings value can be utilized in two cases:
 
-* within the Mode definition of a configurable process for defining a collection of settings for that particular mode
+* within the Mode definition of a configurable process for defining a collection of settings for that particular mode; and
 
-* as a required property within a configured process for setting one or more configurable properties
+* as a required property within a configured process for setting one or more configurable properties.
 
 include::../requirements/model/configurableProcess/requirement4.adoc[]
 

@@ -13,7 +13,7 @@
           "format": "uri"
         },
         "typeOf": {
-          "description": "A reference to a base process from which this process inherits properties and constraints (e.g. original equipment manufacturer's model description, generic equation, etc.).",
+          "description": "A reference to a base process from which this process inherits properties and constraints (e.g., original equipment manufacturer's model description, generic equation, etc.).",
           "$ref": "commonDefs.json#/$defs/XLink"
         },
         "configuration": {
@@ -21,7 +21,7 @@
           "$ref": "Settings.json"
         },
         "featuresOfInterest": {
-          "description": "A collection of sampling features or domain features relevant to the process (e.g. the Gulf of Mexico, the White House, the Atmosphere, a vehicle, etc.).",
+          "description": "A collection of sampling features or domain features relevant to the process (e.g., the Gulf of Mexico, the White House, the Atmosphere, a vehicle, etc.).",
           "$ref": "#/$defs/FeatureList"
         },
         "inputs": {

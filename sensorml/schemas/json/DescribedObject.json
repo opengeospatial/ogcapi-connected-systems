@@ -7,7 +7,7 @@
       "type": "string"
     },
     "id": {
-      "description": "Local ID of the feature (e.g. locally unique on a server)",
+      "description": "Local ID of the feature (e.g., locally unique on a server)",
       "type": "string",
       "minLength": 1
     },
@@ -39,14 +39,14 @@
       }
     },
     "identifiers": {
-      "description": "Additional identifiers for the asset, useful for discovery (e.g. short name, mission id, model number, serial number, etc.).",
+      "description": "Additional identifiers for the asset, useful for discovery (e.g., short name, mission id, model number, serial number, etc.).",
       "type": "array",
       "items": {
         "$ref": "commonDefs.json#/$defs/Term"
       }
     },
     "classifiers": {
-      "description": "Classifiers for the asset, useful for discovery (e.g. process type, sensor type, intended application, etc.).",
+      "description": "Classifiers for the asset, useful for discovery (e.g., process type, sensor type, intended application, etc.).",
       "type": "array",
       "items": {
         "$ref": "commonDefs.json#/$defs/Term"
@@ -71,7 +71,7 @@
       }
     },
     "legalConstraints": {
-      "description": "Legal constraints applied to this description (e.g. copyrights, legal use, etc.)",
+      "description": "Legal constraints applied to this description (e.g., copyrights, legal use, etc.)",
       "type": "array",
       "items": {
         "$ref": "LegalConstraint.json"

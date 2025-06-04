@@ -33,13 +33,19 @@ Atomic part of a composite Measurement System defining sampling and response cha
 
 === Determinand
 
-A Parameter or a characteristic of a phenomenon subject to observation. Synonym for observable.[O&M]
+A Parameter or a characteristic of a phenomenon subject to observation. Synonym for observable.
+
+.[source]
+<<OGC20-082r4>>
 
 === Feature
 
-Abstraction of real-world phenomena [ISO 19101:2002, definition 4.11].
+Abstraction of real-world phenomena
 
 NOTE: A feature may occur as a type or an instance. Feature type or feature instance should be used when only one is meant.
+
+.[source]
+<<ISO 19101:2002, ISO 19101:2002, definition 4.11>>
 
 === Location
 
@@ -51,7 +57,10 @@ A model that allows one to locate objects in one local reference frame relative 
 
 === Measurand
 
-Physical parameter or a characteristic of a phenomenon subject to a measurement,whose value is described using a Measure (ISO 19103). Subset of determinand or observable. [O&M]
+Physical parameter or a characteristic of a phenomenon subject to a measurement,whose value is described using a Measure (ISO 19103). Subset of determinand or observable.
+
+.[source]
+<<OGC20-082r4>>
 
 === Measure (noun)
 
@@ -59,7 +68,10 @@ Value described using a numeric amount with a scale or using a scalar reference 
 
 === Measurement (noun)
 
-An observation whose result is a measure [O&M]
+An observation whose result is a measure.
+
+.[source]
+<<OGC20-082r4>>
 
 === Measurement (verb)
 
@@ -71,23 +83,34 @@ A data stream that consists of disparate but well-defined data packets within th
 
 === Observable, Observable Property (noun)
 
-A parameter or a characteristic of a phenomenon subject to observation. Synonym for determinand.[O&M] A physical property of a phenomenon that can be observed and measured (e.g., temperature, gravitational force, position, chemical concentration, orientation, number-of-individuals, physical switch status, etc.), or a characteristic of one or more feature types, the value for which must be estimated by application of some procedure in an observation. It is thus a physical stimulus that can be sensed by a detector or created by an actuator.
+A parameter or a characteristic of a phenomenon subject to observation. Synonym for determinand. A physical property of a phenomenon that can be observed and measured (e.g., temperature, gravitational force, position, chemical concentration, orientation, number-of-individuals, physical switch status, etc.), or a characteristic of one or more feature types, the value for which must be estimated by application of some procedure in an observation. It is thus a physical stimulus that can be sensed by a detector or created by an actuator.
+
+NOTE: definition includes content from [OGC20-082r4].
 
 === Observation
 
-Act of observing a property or phenomenon [ISO 19156, definition 4.10].
+Act of observing a property or phenomenon.
 
 NOTE: The goal of an observation may be to measure, estimate or otherwise determine the value of a property.
 
+.[source]
+<<ISO 19156, ISO 19156, definition 4.10>>
+
 === Observation Procedure
 
-Method, algorithm or instrument, or system of these which may be used in making an observation [ISO 19156, definition 4.11].
+Method, algorithm or instrument, or system of these which may be used in making an observation.
 
 NOTE: In the context of the sensor web, an observation procedure is often composed of one or more sensors that transform a real world phenomenon into digital information, plus additional processing steps.
 
+.[source]
+<<ISO 19156, ISO 19156, definition 4.11>>
+
 === Observed Value
 
-A value describing a natural phenomenon, which may use one of a variety of scales including nominal, ordinal, ratio and interval.  The term is used regardless of whether the value is due to an instrumental observation, a subjective assignment or some other method of estimation or assignment.  [O&M]
+A value describing a natural phenomenon, which may use one of a variety of scales including nominal, ordinal, ratio and interval.  The term is used regardless of whether the value is due to an instrumental observation, a subjective assignment or some other method of estimation or assignment.
+
+.[source]
+<<OGC20-082r4>>
 
 === Orientation
 
@@ -111,13 +134,16 @@ An operation that takes one or more inputs, and based on a set of parameters, an
 
 === Process Method
 
-Definition of the algorithm, behaviour, and interface of a Process.
+Definition of the algorithm, behavior, and interface of a Process.
 
 === Property
 
-Facet or attribute of an object referenced by a name. [ISO 19143:2010]
+Facet or attribute of an object referenced by a name.
 
 EXAMPLE: Abby's car has the color red, where "color" is a property of the car instance, and "red" is the value of that property.
+
+.[source]
+<<ISO 19143:2010>>
 
 === Reference Frame
 
@@ -125,7 +151,10 @@ A coordinate system by which the position (location and orientation) of an objec
 
 === Result
 
-An estimate of the value of some property generated by a known procedure [O&M]
+An estimate of the value of some property generated by a known procedure.
+
+.[source]
+<<OGC20-082r4>>
 
 === Sample
 
@@ -163,4 +192,7 @@ An entity that receives a signal as input and generates a modified signal as out
 
 === Value
 
-A member of the value-space of a datatype. A value may use one of a variety of scales including nominal, ordinal, ratio and interval, spatial and temporal. Primitive datatypes may be combined to form aggregate datatypes with aggregate values, including vectors, tensors and images [ISO11404].
+A member of the value-space of a datatype. A value may use one of a variety of scales including nominal, ordinal, ratio and interval, spatial and temporal. Primitive datatypes may be combined to form aggregate datatypes with aggregate values, including vectors, tensors and images.
+
+.[source]
+<<ISO 11404>>

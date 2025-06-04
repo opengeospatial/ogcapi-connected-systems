@@ -3,7 +3,7 @@ Differences between XML and JSON schemas:
 - Added Deployment
 
 - Rename "identifier" to "uniqueId" and encode as simple string (URI)
-- Rename "name" to "label" (and keep only one) to avoid conflict with property names (e.g. in component and mode lists)
+- Rename "name" to "label" (and keep only one) to avoid conflict with property names (e.g., in component and mode lists)
 
 - Keep only a single validTime
 

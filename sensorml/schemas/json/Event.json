@@ -46,7 +46,7 @@
           "$ref": "commonDefs.json#/$defs/TimeInstantOrPeriod"
         },
         "properties": {
-          "description": "A list of additional properties of interest to the event (e.g. calibration values, condition category, error codes, etc).",
+          "description": "A list of additional properties of interest to the event (e.g., calibration values, condition category, error codes, etc).",
           "type": "array",
           "items": {
             "$ref": "commonDefs.json#/$defs/AnyProperty"

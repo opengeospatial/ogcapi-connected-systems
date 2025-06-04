@@ -2,7 +2,7 @@
 === Requirements Class: Physical Component
 include::../requirements/model/physicalComponent/requirements_class.adoc[]
 
-In the context of SensorML, physical processes represent real processing devices whose spatio-temporal position is important. Physical processes include detectors, actuators, sensor systems, and actuator systems. Such processes typically, but not always, involve interactions beween a real-world domain (or environment) and a digital domain.
+In the context of SensorML, physical processes represent real processing devices whose spatio-temporal position is important. Physical processes include detectors, actuators, sensor systems, and actuator systems. Such processes typically, but not always, involve interactions between a real-world domain (or environment) and a digital domain.
 
 [example%unnumbered]
 ====
@@ -94,7 +94,7 @@ These classes are used to define the pose of an object relatively to the earth e
 
 The Relative Pose classes `Relative_YPR` and `Relative_Quaternion` are modeled on their GeoPose counterparts, but in this case, both position and orientation are provided relative to a cartesian reference frame.
 
-These classes are used to define the pose of an object relatively to another object (e.g. a sensor relative to its platform).
+These classes are used to define the pose of an object relatively to another object (e.g., a sensor relative to its platform).
 
 
 ==== Physical Component Defined

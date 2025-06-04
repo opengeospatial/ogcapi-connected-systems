@@ -28,6 +28,6 @@ image::./figures/DerivedProperty.png[derived-prop-class-diagram, align="center"]
 | `baseProperty`   | Reference to the definition of the base property that this property is derived from (which can be itself a derived property).
 | `objectType`     | Reference to the definition of a type of object/entity that the base property applies to.
 
-| `statistic`      | Reference to the definition of the statistical operator that is applied to the base property (e.g. hourly mean, daily maximum, standard deviation, etc.).
-| `qualifier`      | Additional qualifier for the property (e.g. frequency range, measurement height, medium, etc.).
+| `statistic`      | Reference to the definition of the statistical operator that is applied to the base property (e.g., hourly mean, daily maximum, standard deviation, etc.).
+| `qualifier`      | Additional qualifier for the property (e.g., frequency range, measurement height, medium, etc.).
 |====

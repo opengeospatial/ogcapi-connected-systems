@@ -13,7 +13,7 @@ The aims of SensorML are to:
 - Provide a machine interpretable description of the interfaces and data streams flowing in and out of a component;
 - Provide an explicit description of the process by which an observation was obtained (i.e., its lineage);
 - Provide an executable aggregate process for deriving new data products on demand (i.e., derivable products); and
-- Archive fundamental properties and assumptions regarding sensor systems and computational processes
+- Archive fundamental properties and assumptions regarding sensor systems and computational processes.
 
 
 SensorML provides a common framework for any process, but is particularly well-suited for the description of sensor and systems and the processes surrounding sensor observations. Within SensorML, sensor and transducer components (detectors, transmitters, actuators, and filters) are all modeled as physical processes that can be connected and participate equally within a process network or system, and which utilize the same model framework as any other process.

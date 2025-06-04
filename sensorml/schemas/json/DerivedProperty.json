@@ -38,7 +38,7 @@
           "example": "http://sensorml.com/ont/x-stats/HourlyMean"
         },
         "qualifiers": {
-          "description": "Additional qualifiers for the property (e.g. frequency range, measurement height, medium, etc.)",
+          "description": "Additional qualifiers for the property (e.g., frequency range, measurement height, medium, etc.)",
           "type": "array",
           "minItems": 1,
           "items": {

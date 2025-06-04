@@ -171,7 +171,7 @@ The input, output, or parameters of many processes include multiple values, poss
 ====
 *Examples*
 
-The location of a dynamic object can be specified through the aggregate values of time, latitude, longitude, and altitude. In such cases, the expression of one of the values separate from the others is meaningless or less complete than the expression of these values as a set or aggregate. These four values should be encapsulated in a Vector data type that also identifies the reference frame in which the latitude, longitude and altitude coordinates are expressed  
+The location of a dynamic object can be specified through the aggregate values of time, latitude, longitude, and altitude. In such cases, the expression of one of the values separate from the others is meaningless or less complete than the expression of these values as a set or aggregate. These four values should be encapsulated in a Vector data type that also identifies the reference frame in which the latitude, longitude and altitude coordinates are expressed.
 
 Weather stations often express a set of measurements of the atmosphere as a single record that might include for instance temperature, pressure, relative humidity, cloudiness, wind speed, and wind direction. These would be considered a tuple of values that provides a more complete picture of the environment at a particular time. This tuple should be modeled as a DataRecord with 7 fields (one for each measured parameters listed above + one time stamp) to indicate that the sampling time applies to all observable values included in the record. 
 ====
@@ -196,7 +196,7 @@ SensorML supports the concepts of inheritance, extension, and configuration. In 
 
 The inheritance model will support two cases:
 
-* Simple inheritance – the specific process description provides only additional information to the description of the general process, without modifying or restricting any property values of the general process.
+* Simple inheritance – the specific process description provides only additional information to the description of the general process, without modifying or restricting any property values of the general process; and
 * Configuration – the specific process description is able to set or restrict property values within the allowable range provided by the general process description, as well as provide additional information.
 
 The key to inheritance, extension, and configuration of a process lies in the typeOf property, by which a specific process can reference its more general base process. The typeOf property takes as its value any process model derived from AbstractProcess. This will be “by-reference-only” meaning that the value must be in the form of a resolvable link to another process instance.

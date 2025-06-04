@@ -8,7 +8,7 @@
     {
       "properties": {
         "attachedTo": {
-          "description": "References the physical component or system (e.g. platform) to which to which this component or system is attached.",
+          "description": "References the physical component or system (e.g., platform) to which to which this component or system is attached.",
           "$ref": "commonDefs.json#/$defs/XLink"
         },
         "localReferenceFrames": {
@@ -43,11 +43,11 @@
         {
           "properties": {
             "origin": {
-              "description": "A textual description of the origin of the reference frame relative to the physical device (e.g. \"the origin is at the point of attachment of the sensor to the platform\").",
+              "description": "A textual description of the origin of the reference frame relative to the physical device (e.g., \"the origin is at the point of attachment of the sensor to the platform\").",
               "type": "string"
             },
             "axes": {
-              "description": "Axis with name attribute and a textual description of the relationship of the axis to the physical device; the order of the axes listed determines their relationship according to the right-handed rule (e.g. axis 1 cross axis 2 = axis 3).",
+              "description": "Axis with name attribute and a textual description of the relationship of the axis to the physical device; the order of the axes listed determines their relationship according to the right-handed rule (e.g., axis 1 cross axis 2 = axis 3).",
               "type": "array",
               "items": {
                 "type": "object",
@@ -75,7 +75,7 @@
       "unevaluatedProperties": false
     },
     "TemporalFrame": {
-      "description": "A general temporal frame such as a mission start time or timer start time. The origin should just describe context of the start of time (e.g. start of local timer).",
+      "description": "A general temporal frame such as a mission start time or timer start time. The origin should just describe context of the start of time (e.g., start of local timer).",
       "type": "object",
       "allOf": [
         {
@@ -98,7 +98,7 @@
       "oneOf": [
         {
           "title": "by Text",
-          "description": "A textual description of where the system is located (e.g. a building name, a room number, etc.)",
+          "description": "A textual description of where the system is located (e.g., a building name, a room number, etc.)",
           "$ref": "sweCommonDefs.json#/$defs/Text"
         },
         {
