@@ -38,13 +38,13 @@ tags:
       In particular, Collections allow a service provider to group resources logically according to any criteria.
       
       For example, collections can be used to:
-        - Group all `Systems` of the same type (e.g. all UAV platforms, all hydrological sensors, etc.).
-        - Group all `Procedures` of the same type (e.g. all platform types, all CBRNE sensor models, etc.).
-        - Group resources by project (e.g. all `Deployments`, `Systems`, `Datastreams` and `Sampling Features` relevant to a given data acquisition campaign)
+        - Group all `Systems` of the same type (e.g., all UAV platforms, all hydrological sensors, etc.).
+        - Group all `Procedures` of the same type (e.g., all platform types, all CBRNE sensor models, etc.).
+        - Group resources by project (e.g., all `Deployments`, `Systems`, `Datastreams` and `Sampling Features` relevant to a given data acquisition campaign)
 
   - name: Systems
     description: |-
-      Systems are entities that can produce data feeds and/or receive commands (e.g. sensors and sensor networks, platforms, actuators,
+      Systems are entities that can produce data feeds and/or receive commands (e.g., sensors and sensor networks, platforms, actuators,
       processing components, etc.). Many systems can be classified as 'observing systems' that produce observations of one or more
       features of interest.
   - name: Deployments
@@ -53,8 +53,8 @@ tags:
   - name: Procedures
     description: |-
       Procedures provide information about the behavior of a system to accomplish its task(s).
-      Procedures include descriptions of system kinds (e.g. a hardware device's datasheet), as well as methodologies or specific
-      configurations of these systems (e.g. steps followed by an operator to accomplish a sensing or sampling task).
+      Procedures include descriptions of system kinds (e.g., a hardware device's datasheet), as well as methodologies or specific
+      configurations of these systems (e.g., steps followed by an operator to accomplish a sensing or sampling task).
   - name: Sampling Features
     description: |-
       Sampling Features link Systems with ultimate features of interest, describing exactly what part of a larger feature is being
@@ -66,7 +66,7 @@ tags:
       Derived properties are specific to a type of feature, a type of system, or even to a particular organization, project or deployment.
       Property definitions are referenced by feature schemas, system and deployment descriptions, datastream and control stream schemas, etc.
       
-      Depending on the context they are used in, they can represent properties that are asserted (e.g. system characteristic), observed
+      Depending on the context they are used in, they can represent properties that are asserted (e.g., system characteristic), observed
       (observed or observable property) or controlled (controlled or controllable property).
 
 paths:

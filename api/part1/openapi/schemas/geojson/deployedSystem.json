@@ -12,7 +12,7 @@
               "$ref": "../common/commonDefs.json#/$defs/Link"
             },
             "procedure@link": {
-              "description": "Link to the procedure used by the system, or to operate the system, during the deployment (e.g. mission plan for an autonomous system, methodology for human operator).",
+              "description": "Link to the procedure used by the system, or to operate the system, during the deployment (e.g., mission plan for an autonomous system, methodology for human operator).",
               "$ref": "../common/commonDefs.json#/$defs/Link"
             }
           }

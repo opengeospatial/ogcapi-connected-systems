@@ -6,13 +6,13 @@
 
 The W3C {ogc-w3c-ssn} Recommendation provides the semantic model from which the resource model of the OGC API - Connected Systems Standard (CS API) is derived.
 
-The CS API does not use any SOSA/SSN serialization (e.g. RDF, Turtle, etc.) directly as a resource representation format. Instead, GeoJSON, SensorML-JSON or in some cases plain JSON and even binary representations are used, with references to SOSA/SSN concepts (by URI or CURIE) whenever appropriate (e.g. System Types, Procedure Types, etc.).
+The CS API does not use any SOSA/SSN serialization (e.g., RDF, Turtle, etc.) directly as a resource representation format. Instead, GeoJSON, SensorML-JSON or in some cases plain JSON and even binary representations are used, with references to SOSA/SSN concepts (by URI or CURIE) whenever appropriate (e.g., System Types, Procedure Types, etc.).
 
 **Divergence from the SOSA/SSN Patterns**
 
-The CS API resource model diverges from currently used SOSA/SSN patterns in the following ways:
+The CS API resource model diverges from currently used SOSA/SSN patterns in the following ways.
 
-1. In the CS API, all systems can have both `datastreams` and `controlstreams`, even though they are tagged with only one type (i.e.`sosa:Sensor`, `sosa:Actuator`, `sosa:Sampler` or `sosa:Platform`). Semantic tagging is only used to provide the main role of the system or subsystem without limiting other API functionality. This design simplifies the description of sensors that can also accept commands (e.g. even simple sensors often have commands to change the sampling rate or the sensitivity), or actuators that output data (e.g. most actuators provide some kind of state information). The same effect can be achieved when using the SOSA/SSN ontology by creating RDF resources that have several parent classes such as: +
+1. In the CS API, all systems can have both `datastreams` and `controlstreams`, even though they are tagged with only one type (i.e.`sosa:Sensor`, `sosa:Actuator`, `sosa:Sampler` or `sosa:Platform`). Semantic tagging is only used to provide the main role of the system or subsystem without limiting other API functionality. This design simplifies the description of sensors that can also accept commands (e.g., even simple sensors often have commands to change the sampling rate or the sensitivity), or actuators that output data (e.g., most actuators provide some kind of state information). The same effect can be achieved when using the SOSA/SSN ontology by creating RDF resources that have several parent classes such as: +
 `<Motor1> a sosa:System, sosa:Sensor, sosa:Actuator ; ...` +
 `<UAV1> a sosa:System, sosa:Platform ; ...`
 
@@ -66,9 +66,9 @@ The following table indicates which classes of OMS https://docs.ogc.org/as/20-08
 
 GeoJSON is one of the main encoding formats specified in the OGC API - Connected Systems Standard. A GeoJSON profile for each feature type is provided in <<clause-encoding-geojson>>, with complete JSON schemas and mappings to the abstract resource model.
 
-Since SensorML is available for cases where detailed information about systems, procedures and deployments is needed (e.g. contact information, detailed system datasheets, etc.), the GeoJSON profile is intentionally kept simple and is intended to be used as a summary representation.
+Since SensorML is available for cases where detailed information about systems, procedures and deployments is needed (e.g., contact information, detailed system datasheets, etc.), the GeoJSON profile is intentionally kept simple and is intended to be used as a summary representation.
 
-Although not mandated by the Standard, a typical workflow would be to retrieve collections of feature descriptions (e.g. as the result of search) by requesting the GeoJSON representation first, since the GeoJSON encoding leads to much smaller documents than the SensorML-JSON encoding. Then, after reviewing the summary descriptions provided as GeoJSON, the full SensorML description could be fetched (typically only for some of the features of the collection).
+Although not mandated by the Standard, a typical workflow would be to retrieve collections of feature descriptions (e.g., as the result of search) by requesting the GeoJSON representation first, since the GeoJSON encoding leads to much smaller documents than the SensorML-JSON encoding. Then, after reviewing the summary descriptions provided as GeoJSON, the full SensorML description could be fetched (typically only for some of the features of the collection).
 
 
 
@@ -82,7 +82,7 @@ Similarly to GeoJSON, a profile of JSON-FG could be defined to provide an altern
 
 The OGC API - Connected Systems Standard is an extension of the OGC API - Features Standard, and thus inherits all requirements from {ogcapi-features-1}. In addition, requirements from {ogcapi-features-4} are inherited by <<clause-resource-crd,style=basic%>> and <<clause-resource-update,style=basic%>>. Requirements from {ogcapi-features-2} also apply if coordinate reference systems other than `CRS:84` or `CRS:84h` are to be used.
 
-Additionally, some resources defined by the CS API Standard are designed to link to feature resources hosted by other servers (e.g. domain features) that act as features of interest of observations (e.g. rivers, roads, buildings, etc.). Such domain features can typically be hosted by separate implementation instances of OGC API - Features. This linking capability allows OGC API - Connected Systems implementation instances to refer to existing feature repositories such as land registers, building databases, transportation networks, hydrographic networks, oceanic features, etc, without duplicating the data.
+Additionally, some resources defined by the CS API Standard are designed to link to feature resources hosted by other servers (e.g., domain features) that act as features of interest of observations (e.g., rivers, roads, buildings, etc.). Such domain features can typically be hosted by separate implementation instances of OGC API - Features. This linking capability allows OGC API - Connected Systems implementation instances to refer to existing feature repositories such as land registers, building databases, transportation networks, hydrographic networks, oceanic features, etc, without duplicating the data.
 
 
 
@@ -98,11 +98,11 @@ If needed, both APIs can be implemented at the same endpoint (since both extend 
 
 The <<OGCAPI-EDR,OGC API - Environmental Data Retrieval (EDR)>> Standard can also be used to retrieve observation data. EDR is especially suited for extracting data from large multi-dimensional coverages and can be used jointly with the OGC API - Connected Systems Standard.
 
-Weblinks can be used to associate resources exposed by OGC API - EDR and OGC API - Connected Systems (CS API). Such links can be used to implement the following client functionality:
+Weblinks can be used to associate resources exposed by OGC API - EDR and OGC API - Connected Systems (CS API). Such links can be used to implement the following client functionality.
 
-- An EDR API client can retrieve more information about the observing system that produced the data (i.e. the data in an EDR collection or instance) from the CS API.
+- An EDR API client can retrieve more information about the observing system that produced the data (i.e., the data in an EDR collection or instance) from the CS API.
 
-- Conversely, a Connected Systems API client can be redirected to an EDR accessible collection or instance in order to benefit from the advanced query operators defined in the EDR Standard (e.g. radius, cube, trajectory, corridor, etc.), and thus extract data from large coverage results more efficiently.
+- Conversely, a Connected Systems API client can be redirected to an EDR accessible collection or instance in order to benefit from the advanced query operators defined in the EDR Standard (e.g., radius, cube, trajectory, corridor, etc.), and thus extract data from large coverage results more efficiently.
 
 To this effect, the following weblinks can be added to OGC API - EDR resources to refer to OGC API - Connected Systems (CS API) resources:
 
@@ -190,7 +190,7 @@ If needed, the following weblinks can be added to OGC API - Connected Systems re
 
 === Coverages
 
-Observation results are sometimes coverages (e.g. satellite imagery, weather forecast, etc.). In the case of large coverages, providing access to the observation result is better handled by APIs that allow subsetting the coverage along its various dimensions.
+Observation results are sometimes coverages (e.g., satellite imagery, weather forecast, etc.). In the case of large coverages, providing access to the observation result is better handled by APIs that allow subsetting the coverage along its various dimensions.
 
 Instead of duplicating existing functionality, OGC API - Connected Systems supports linking to coverage datasets hosted by other API implementations or web services when appropriate, instead of including the coverage result data inline in the observation.
 
@@ -216,9 +216,9 @@ The following OGC Standards can be used to represent and/or transfer complex 3D 
 - OGC Indexed 3d Scene Layer (I3S) Community Standard
 - OGC API - 3D GeoVolumes (Draft)
 
-Such 3D scenes contain feature objects (i.e. features of interest) that can be the target of observations or commands (e.g. a building feature in the 3D model of a city, a mechanical part in the 3D model of an engine, etc.).
+Such 3D scenes contain feature objects (i.e., features of interest) that can be the target of observations or commands (e.g., a building feature in the 3D model of a city, a mechanical part in the 3D model of an engine, etc.).
 
-These features of interest can be referenced by OGC API - Connected Systems resources, enabling clients to associate the observations to the exact object in the 3D scene (e.g. the user could click an object in the scene and be presented with a chart or a list of dynamic data stream about this object). The reverse link going from the 3D model to the Connected Systems datastream is also desirable.
+These features of interest can be referenced by OGC API - Connected Systems resources, enabling clients to associate the observations to the exact object in the 3D scene (e.g., the user could click an object in the scene and be presented with a chart or a list of dynamic data stream about this object). The reverse link going from the 3D model to the Connected Systems datastream is also desirable.
 
 The exact mechanism for linking Connected Systems resources and 3D objects is implemented will be specified in a future OGC Best Practice document.
 

@@ -73,7 +73,7 @@ A workflow, protocol, plan, algorithm, or computational method specifying how to
 === Property
 Facet or attribute of an object referenced by a name.
 
-Example	: Abby's car has the color red, where "color red" is a property of the car instance
+Example: Abby's car has the color red, where "color red" is a property of the car instance
 
 [.source]
 <<ISO19143, ISO-19143>>
@@ -107,7 +107,7 @@ Device, agent (including humans), or software (simulation) involved in, or imple
 === Sensor Network
 A collection of sensors and processing nodes, in which information on properties observed by the sensors may be transferred and processed.
 
-Note:	A particular type of a sensor network is an ad-hoc sensor network.
+Note: A particular type of a sensor network is an ad-hoc sensor network.
 
 
 === System

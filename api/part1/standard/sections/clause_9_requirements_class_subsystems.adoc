@@ -7,16 +7,16 @@ include::../requirements/subsystem/requirements_class_system_components.adoc[]
 
 Describing complex systems in terms of a hierarchy of components (or subsystems) is often useful. The "Subsystems" requirements class specifies how such hierarchical systems are described and made discoverable in an implementation of the CS API Standard.
 
-Subsystems (i.e. system components) are regular `System` features that are made available through a sub-collection of a parent `System` resource. Subsystems can be any kind of `System` and can be indefinitely nested.
+Subsystems (i.e., system components) are regular `System` features that are made available through a sub-collection of a parent `System` resource. Subsystems can be any kind of `System` and can be indefinitely nested.
 
 
 === Types of System/Subsystem Associations
 
 Subsystems can be associated to their parent system either by **Composition** or **Aggregation**.
 
-**Composition** means that a subsystem is an integral part of a parent system (i.e. the subsystem cannot or is not usually taken apart from its parent system during its lifetime, except for maintenance). Composition is implemented in the API by creating subsystems as nested resources under their parent system.
+**Composition** means that a subsystem is an integral part of a parent system (i.e., the subsystem cannot or is not usually taken apart from its parent system during its lifetime, except for maintenance). Composition is implemented in the API by creating subsystems as nested resources under their parent system.
 
-**Aggregation** means that a subsystem is not permanently attached to its parent system (i.e. it can be taken apart and can be attached to different parent systems at different times). Aggregation is implemented in the API using `Deployment` resources that describe what subsystems are mounted on a parent system at any given time.
+**Aggregation** means that a subsystem is not permanently attached to its parent system (i.e., it can be taken apart and can be attached to different parent systems at different times). Aggregation is implemented in the API using `Deployment` resources that describe what subsystems are mounted on a parent system at any given time.
 
 NOTE: This definition is slightly looser that the UML definition for **Composition** associations. In UML, composition is used if a child cannot exist independently from the parent. In the context of the CS API Standard, composition can be used by choice if it is known that the component is rarely taken apart from its parent, even though, in principle the component could exist independently.
 
@@ -76,15 +76,15 @@ Subsystems are accessible as sub-resources of their parent `System`.
 
 include::../requirements/subsystem/req_subcollection.adoc[]
 
-Some systems have interchangeable components that are often called "payloads" (e.g. UAV platform carrying different sensors at different times). Although such payloads can be listed as subsystems by the server, the best way to describe this is by creating a new `Deployment` resource every time the payloads are changed (the deployment description allows one to explicitly list which payloads are mounted on a platform during a given time period).
+Some systems have interchangeable components that are often called "payloads" (e.g., UAV platform carrying different sensors at different times). Although such payloads can be listed as subsystems by the server, the best way to describe this is by creating a new `Deployment` resource every time the payloads are changed (the deployment description allows one to explicitly list which payloads are mounted on a platform during a given time period).
 
 
 
 === System Recursive Search
 
-By default, the <<clause-canonical-system-rep,canonical `System` resources endpoint>> only exposes top-level systems (i.e. subsystems are not visible).
+By default, the <<clause-canonical-system-rep,canonical `System` resources endpoint>> only exposes top-level systems (i.e., subsystems are not visible).
 
-Likewise, <<clause-subsystem-resources-endpoint,Subsystem resources endpoints>> only expose the direct subsystems, but not subsystems nested at deeper levels (i.e. the subsystems of the subsystems and so on).
+Likewise, <<clause-subsystem-resources-endpoint,Subsystem resources endpoints>> only expose the direct subsystems, but not subsystems nested at deeper levels (i.e., the subsystems of the subsystems and so on).
 
 The `recursive` query parameter changes the default behavior by instructing the server to process all subsystems recursively (at all levels below the current level).
 

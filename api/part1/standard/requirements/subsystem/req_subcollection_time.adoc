@@ -3,7 +3,7 @@
 [%metadata]
 identifier:: /rec/subsystem/collection-datetime
 
-part:: When the `datetime` parameter is omitted, the server SHOULD also include all subsystems that are currently deployed on the parent system (i.e. the association is made via a `Deployment` resource that is currently valid).
+part:: When the `datetime` parameter is omitted, the server SHOULD also include all subsystems that are currently deployed on the parent system (i.e., the association is made via a `Deployment` resource that is currently valid).
 
 part:: When the `datetime` parameter is set to a time instant, the server SHOULD also include all subsystems that were deployed on the parent system at the specified time. This condition is true when the association is made via a `Deployment` resource whose valid time period contains the specified time instant.
 

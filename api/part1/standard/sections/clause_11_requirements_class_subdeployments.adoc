@@ -58,7 +58,7 @@ include::../requirements/subdeployment/req_subcollection.adoc[]
 
 === Deployment Recursive Search
 
-By default, the <<clause-canonical-deployment-rep,canonical `Deployment` resources endpoint>> only exposes top-level deployments (i.e. subdeployments are not visible).
+By default, the <<clause-canonical-deployment-rep,canonical `Deployment` resources endpoint>> only exposes top-level deployments (i.e., subdeployments are not visible).
 
 Likewise, <<clause-subdeployment-resources-endpoint,Subdeployment resources endpoints>> only expose the direct subdeployments, but not subdeployments nested at deeper levels.
 

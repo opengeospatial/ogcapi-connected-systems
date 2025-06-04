@@ -5,7 +5,7 @@
     {
       "properties": {
         "id": {
-          "description": "Local ID of the deployed system resource (e.g. locally unique on a server)",
+          "description": "Local ID of the deployed system resource (e.g., locally unique on a server)",
           "type": "string",
           "minLength": 1,
           "readOnly": true

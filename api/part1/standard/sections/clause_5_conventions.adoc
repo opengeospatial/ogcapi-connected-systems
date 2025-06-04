@@ -13,7 +13,7 @@ All requirements and conformance tests that appear in this document are denoted 
 
 URL template notation is used in various places in this document.
 
-Fixed parts of the URL are written as plain string while the variable parts of the URL (i.e. the parameters) are surrounded by curly brackets `{ }`.
+Fixed parts of the URL are written as plain string while the variable parts of the URL (i.e., the parameters) are surrounded by curly brackets `{ }`.
 
 In particular, the following parameters are used in various places:
 
@@ -63,5 +63,3 @@ In this document the following abbreviations and acronyms are used or introduced
 - 1D:	One Dimensional
 - 2D:	Two Dimensional
 - 3D:	Three Dimensional
-
-

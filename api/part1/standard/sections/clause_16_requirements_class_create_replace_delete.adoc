@@ -38,7 +38,7 @@ identifier:: /req/create-replace-delete/system-delete-cascade
 
 conditions:: The server implements <<clause-system-features,style=basic%>>
 
-part:: By default (`cascade` parameter is not set), the server SHALL reject a DELETE request on a `System` resource that has nested resources (i.e. subsystems, sampling features, datastreams, control streams) or is associated with a deployment.
+part:: By default (`cascade` parameter is not set), the server SHALL reject a DELETE request on a `System` resource that has nested resources (i.e., subsystems, sampling features, datastreams, control streams) or is associated with a deployment.
 
 part:: If the request contains the `cascade` parameter, the server SHALL accept the DELETE request and delete the `System` resource as well as all its nested resources.
 
@@ -48,7 +48,7 @@ part:: If the `System` resource is associated with a `Deployment` resource, the 
 
 === Subsystems
 
-Subsystems (i.e. system components) can only be created as sub-resources of a parent system, but are updated/deleted at their canonical URL just like any other `System` resource.
+Subsystems (i.e., system components) can only be created as sub-resources of a parent system, but are updated/deleted at their canonical URL just like any other `System` resource.
 
 [requirement,model=ogc]
 ====

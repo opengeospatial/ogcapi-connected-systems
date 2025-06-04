@@ -2,7 +2,7 @@
 
 This Standard was written to be compliant with the OGC Specification Model – A Standard for Modular Specification (OGC 08-131r3). Extensions of this Standard shall themselves be conformant to the OGC Specification Model.
 
-This Standard defines the following requirements classes:
+This Standard defines the following requirements classes.
 
 - <<clause-api-common,style=full%>> defines requirements that are shared by several other requirements classes. +
   {empty} +

@@ -241,7 +241,7 @@ part:: A request or response body with media type `{sensorml-json-mediatype}` co
 [%metadata]
 identifier:: /req/sensorml/procedure-sml-class
 
-part:: SensorML class `PhysicalComponent` or `PhysicalSystem` SHALL be used to describe hardware equipment specifications (i.e. datasheet).
+part:: SensorML class `PhysicalComponent` or `PhysicalSystem` SHALL be used to describe hardware equipment specifications (i.e., datasheet).
 part:: SensorML class `SimpleProcess` or `AggregateProcess` SHALL be used to describe a procedure implemented by humans, such as a methodology or steps.
 part:: No position information SHALL be provided as part of the procedure description.
 ====

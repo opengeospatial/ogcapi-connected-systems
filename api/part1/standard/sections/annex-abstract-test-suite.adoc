@@ -2024,7 +2024,7 @@ test-method-type:: Manual Inspection
 
 test-method:: Given the SensorML representation of a `System` resource returned by the server:
 step::: Inspect the contents of the SensorML object.
-step::: Check that the value of the `type` property is compatible with the system being described (i.e. process/simulation vs. physical thing).
+step::: Check that the value of the `type` property is compatible with the system being described (i.e., process/simulation vs. physical thing).
 ====
 
 [abstract_test]
@@ -2109,7 +2109,7 @@ test-method-type:: Manual Inspection
 
 test-method:: Given the SensorML representation of a `Procedure` resource returned by the server:
 step::: Inspect the contents of the SensorML object.
-step::: Check that the value of the `type` property is compatible with the procedure being described (i.e. process/simulation/methodology vs. datasheet of hardware equipment).
+step::: Check that the value of the `type` property is compatible with the procedure being described (i.e., process/simulation/methodology vs. datasheet of hardware equipment).
 ====
 
 [abstract_test]

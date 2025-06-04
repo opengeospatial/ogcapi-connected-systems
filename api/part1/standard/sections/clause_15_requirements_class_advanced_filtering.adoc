@@ -50,7 +50,7 @@ All items in the list SHALL be of the same ID type (either all resource IDs or a
 
 The filtering options defined in this section are common to all resource types defined in this Standard, and may also be used with other resource types that are hosted at the same CS API endpoint.
 
-When this requirements class is implemented, the requirements in this class are applicable to all HTTP GET operations used to retrieve items from any collection offered by the server (i.e. it is not allowed to implement this class only for certain collections).
+When this requirements class is implemented, the requirements in this class are applicable to all HTTP GET operations used to retrieve items from any collection offered by the server (i.e., it is not allowed to implement this class only for certain collections).
 
 
 ==== ID Filter
@@ -184,9 +184,9 @@ The coordinate values SHALL be within the extent specified for the coordinate re
 
 This section specifies query parameters that must be supported by the server at all <<clause-system-resources-endpoint,System resources endpoints>>, including:
 
-- The canonical System resources endpoint at `{api_root}/systems`
-- The `subsystems` resources endpoints at `{api_root}/systems/{id}/subsystems`
-- The `items` resources endpoints of System Feature collections at `{api_root}/collections/{colId}/items`
+- The canonical System resources endpoint at `{api_root}/systems`;
+- The `subsystems` resources endpoints at `{api_root}/systems/{id}/subsystems`; and
+- The `items` resources endpoints of System Feature collections at `{api_root}/collections/{colId}/items`.
 
 ==== Parent System Filter
 
@@ -561,8 +561,8 @@ part:: Only procedures that can be used to control a property that has one of th
 
 This section specifies query parameters that must be supported by the server at all <<clause-sf-resources-endpoint,Sampling Feature resources endpoints>>, including:
 
-- The canonical Sampling Feature resources endpoint at `{api_root}/samplingFeatures`
-- The `items` resources endpoints of Sampling Feature collections at `{api_root}/collections/{colId}/items`
+- The canonical Sampling Feature resources endpoint at `{api_root}/samplingFeatures`; and
+- The `items` resources endpoints of Sampling Feature collections at `{api_root}/collections/{colId}/items`.
 
 ==== Feature of Interest Filter
 
@@ -636,8 +636,6 @@ part:: Only sampling features with a controlled property that has one of the req
 |===
 ====
 
-
-
 [[clause-prop-query-params]]
 === Property Resources Endpoint Query Parameters
 
@@ -645,8 +643,8 @@ part:: Only sampling features with a controlled property that has one of the req
 
 This section specifies query parameters that must be supported by the server at all <<clause-property-resources-endpoint,Property resources endpoints>>, including:
 
-- The canonical Property resources endpoint at `{api_root}/samplingFeatures`
-- The `items` resources endpoints of Property resource collections at `{api_root}/collections/{colId}/items`
+- The canonical Property resources endpoint at `{api_root}/samplingFeatures`; and
+- The `items` resources endpoints of Property resource collections at `{api_root}/collections/{colId}/items`.
 
 ==== Base Property Filter
 
@@ -743,8 +741,6 @@ When several filters are used in the same request, they SHALL be combined with t
 |===
 ====
 
-
-
 === Indirect Associations
 
 It is recommended that servers implement certain filtering capabilities in a way that does not require a "direct association" to exist between resources.
@@ -756,7 +752,6 @@ identifier:: /rec/advanced-filtering/indirect-prop
 
 When evaluating `observedProperty` or `controlledProperty` filters, the server SHOULD also evaluate all properties that derive from the specified property, that is properties whose `baseProperty` attribute point to the specified property, either directly or transitively.
 ====
-
 
 [recommendation,model=ogc]
 ====

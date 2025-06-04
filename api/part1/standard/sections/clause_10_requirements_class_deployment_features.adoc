@@ -56,7 +56,7 @@ All `Deployment` resource representations provided by encoding requirements clas
 
 NOTE: The deployment location is not to be confused with the features of interest or sampling features location/geometry. For in-situ and short-range remote sensors, the deployment location may include the sampling features, but it is usually not true for long range remote sensing such as space based earth observation. If the deployed systems are mobile, the deployment location should be the entire area where the systems can be moved to.
 
-NOTE: For deployments of models or processes, the location would usually not be provided, and the user should query the area covered by the sampling feature(s) instead (i.e. the geographic area covered by the model). If a deployment location is provided, it should be the location where the hardware executing the process is located, not the location of the sampling features.
+NOTE: For deployments of models or processes, the location would usually not be provided, and the user should query the area covered by the sampling feature(s) instead (i.e., the geographic area covered by the model). If a deployment location is provided, it should be the location where the hardware executing the process is located, not the location of the sampling features.
 
 
 [#deployment-assocs,reftext='{table-caption} {counter:table-num}']
@@ -73,7 +73,7 @@ NOTE: For deployments of models or processes, the location would usually not be 
 | `controlstreams`      | - | The `Control Streams` that received commands issued during the `Deployment`. | A list of `ControlStream` resources. | Optional
 |====
 
-NOTE: The platform can be another `System` (e.g. a UAV or a station), but can also be any feature (e.g. a building or a tree).
+NOTE: The platform can be another `System` (e.g., a UAV or a station), but can also be any feature (e.g., a building or a tree).
 
 === Deployment Canonical URL
 

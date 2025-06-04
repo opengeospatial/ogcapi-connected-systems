@@ -9,11 +9,11 @@ The "Property Definitions" requirements class specifies how property definitions
 
 The `Property` resource implements the _http://www.w3.org/ns/ssn/Property[Property]_ concept defined in the <<SOSA-SSN,SSN Ontology>>. Properties in the scope of the CS API are features of interest properties, including:
 
-- Observable properties (i.e. subject of an observation, see _http://www.w3.org/ns/sosa/ObservableProperty[sosa:ObservableProperty]_)
-- Controllable properties (i.e. subject of an actuation, see _http://www.w3.org/ns/sosa/ActuatableProperty[sosa:ActuatableProperty]_)
-- System properties (i.e. system characteristics and capabilities, which are sometimes asserted, see _http://www.w3.org/ns/ssn/systems/SystemCapability[ssn-system:SystemCapability]_)
+- Observable properties (i.e., subject of an observation, see _http://www.w3.org/ns/sosa/ObservableProperty[sosa:ObservableProperty]_);
+- Controllable properties (i.e., subject of an actuation, see _http://www.w3.org/ns/sosa/ActuatableProperty[sosa:ActuatableProperty]_); and
+- System properties (i.e., system characteristics and capabilities, which are sometimes asserted, see _http://www.w3.org/ns/ssn/systems/SystemCapability[ssn-system:SystemCapability]_).
 
-NOTE: The same property can be used in all 3 contexts simultaneously (e.g. the same "engine temperature" property can be measured by a sensor, controlled by the cooling system, and asserted in a min/max specification).
+NOTE: The same property can be used in all 3 contexts simultaneously (e.g., the same "engine temperature" property can be measured by a sensor, controlled by the cooling system, and asserted in a min/max specification).
 
 The definition is provided by deriving the property from a well known entity referenced in an ontology such as <<QUDT, QUDT Quantity Kinds>>.
 

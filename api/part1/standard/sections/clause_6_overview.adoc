@@ -22,14 +22,14 @@ Another key design decision was to allow linking to implementations of other OGC
 
 Models from the {ogc-w3c-ssn} are the basis for the design of the CS API, and the <<OGC-SML,SensorML>> language is used as an implementation model to provide concrete implementations of the SOSA/SSN concepts. An alternative GeoJSON encoding of these concepts is also defined.
 
-The CS API defines several resource/feature types in separate requirements classes, any combination of which can be implemented by the server. This allows resources to be distributed across several servers (potentially different implementations of the CS API) and connected via hyperlinks. For example, a given implementation can choose to implement only `System` and `Deployment` features and rely on other servers to host complementary metadata such as `Procedures`, `Property Definitions` and `Features of Interest` (i.e. domain features). This is a common use cases since procedure descriptions (i.e. system datasheets) and domain features (e.g. geographical or hydrological features) can typically be shared by many different organizations.
+The CS API defines several resource/feature types in separate requirements classes, any combination of which can be implemented by the server. This allows resources to be distributed across several servers (potentially different implementations of the CS API) and connected via hyperlinks. For example, a given implementation can choose to implement only `System` and `Deployment` features and rely on other servers to host complementary metadata such as `Procedures`, `Property Definitions` and `Features of Interest` (i.e., domain features). This is a common use cases since procedure descriptions (i.e., system datasheets) and domain features (e.g., geographical or hydrological features) can typically be shared by many different organizations.
 
-The CS API also help solve several issues for application running in Denied, Disrupted, Intermittent, and Limited (DDIL) environments, e.g. under tactical implementation conditions. This includes:
+The CS API also help solve several issues for application running in Denied, Disrupted, Intermittent, and Limited (DDIL) environments, e.g., under tactical implementation conditions. This includes:
 
-- Reduction of payload sizes in contrast to predecessor standards (OGC SOS and OGC SPS) by using a resource oriented JSON API instead of remote procedure calls with XML payloads
-- SWE Common encoding supported by the OGC API - Connected Systems - Part 2: Dynamic data allows the separation of datastream schemas from actual data values which helps to reduce payload size compared to other encoding standards.
-- Pub/Sub protocols supported by OGC API - Connected Systems - Part 3: Pub/Sub will help track changes and only download changes when required, or receive new data without continuous polling.
--  OGC API - Connected Systems - Part 5: Binary Encoding will add even more compact encodings such as FlatGeobuf for feature resources or Protobuf and FlatBuffers for observations and commands
+- Reduction of payload sizes in contrast to predecessor standards (OGC SOS and OGC SPS) by using a resource oriented JSON API instead of remote procedure calls with XML payloads;
+- SWE Common encoding supported by the OGC API - Connected Systems - Part 2: Dynamic data allows the separation of datastream schemas from actual data values which helps to reduce payload size compared to other encoding standards;
+- Pub/Sub protocols supported by OGC API - Connected Systems - Part 3: Pub/Sub will help track changes and only download changes when required, or receive new data without continuous polling; and
+-  OGC API - Connected Systems - Part 5: Binary Encoding will add even more compact encodings such as FlatGeobuf for feature resources or Protobuf and FlatBuffers for observations and commands.
 
 
 === Resource Types
@@ -49,8 +49,8 @@ All resources defined in Part 1 of this Standard are feature types, except for t
 | *Resource Type*      | *Requirements Class*           | *Description* | *Possible Encodings*
 | System (Feature)     | <<clause-system-features>>     | Description of system instances such as sensors, platforms, human observers, etc.  | GeoJSON, SML-JSON
 | Deployment (Feature) | <<clause-deployment-features>> | Description of deployments involving one or more systems for a particular purpose. | GeoJSON, SML-JSON
-| Procedure (Feature)  | <<clause-procedure-features>>  | Description of procedures implemented by systems such as datasheets or methods (e.g. system types). | GeoJSON, SML-JSON
-| Sampling Feature     | <<clause-sampling-features>>   | Description of sampling strategies associated with specific systems (e.g. sampling geometry or method). | GeoJSON
+| Procedure (Feature)  | <<clause-procedure-features>>  | Description of procedures implemented by systems such as datasheets or methods (e.g., system types). | GeoJSON, SML-JSON
+| Sampling Feature     | <<clause-sampling-features>>   | Description of sampling strategies associated with specific systems (e.g., sampling geometry or method). | GeoJSON
 | Property Definition  | <<clause-property-definitions>>  | Description of feature properties (observable properties, controllable properties, system properties). | SML-JSON
 |====
 
@@ -70,11 +70,11 @@ The CS API Standard defines several resource types that are intended to be offer
 
 The CS API makes use of this collection mechanism to allow a server to provide a more organized view of its content, by grouping them into logical collections according to any criteria.
 
-Note that a given resource can be made available through more than one collection endpoints (i.e. collections can overlap). This provides great flexibility for a server to organize resources according to multiple criteria and thus provide different view points to the client simultaneously. See the requirements classes of the different resource types for examples.
+Note that a given resource can be made available through more than one collection endpoints (i.e., collections can overlap). This provides great flexibility for a server to organize resources according to multiple criteria and thus provide different view points to the client simultaneously. See the requirements classes of the different resource types for examples.
 
 When exposing resources via a collection endpoint, the server must indicate the type of the items contained in the collection. This is done using the `itemType` attribute of the collection. For feature collections, the `itemType` is always set to `feature`, so this Standard defines the `featureType` attribute to further specify the type of features contained in the collection.
 
-Heterogeneous feature collections (i.e. collections containing a mix of feature types) are allowed but this Standard does not define the behavior of such collections.
+Heterogeneous feature collections (i.e., collections containing a mix of feature types) are allowed but this Standard does not define the behavior of such collections.
 
 
 [[clause_api_endpoints]]
@@ -88,9 +88,9 @@ However, the CS API also defines different types of endpoints that are useful fo
 
 - Providing a canonical endpoint to add resources of a given type, independently of the collections it will be added to,
 
-- Searching for resources across all collections of a given resource type,
+- Searching for resources across all collections of a given resource type, and
 
-- Access resources as sub-resources of a parent resource (allows to provide a pre-filtered view of the resources)
+- Access resources as sub-resources of a parent resource (allows to provide a pre-filtered view of the resources).
 
 ==== Endpoint Types
 
@@ -98,15 +98,15 @@ The CS API Standard defines the behavior of "resource**s** endpoints" and "resou
 
 The terms "resource**s** endpoint" and "resource endpoint" are used as defined by {ogcapi-features-4}, that is:
 
-- A "resource endpoint" is an API endpoint exposing a single resource.
+- A "resource endpoint" is an API endpoint exposing a single resource; and
 - A "resource**s** endpoint" is an API endpoint exposing a set of resources.
 
 Several types of API endpoints are defined by the CS API Standard:
 
-- Canonical resource**s** endpoints (e.g. `{api_root}/systems`)
-- Canonical resource endpoints (e.g. `{api_root}/systems/{id}`)
-- Nested resource**s** endpoints (e.g. `{api_root}/systems/{id}/subsystems`)
-- Collection items resource**s** endpoints (e.g. `{api_root}/collections/{id}/items`)
+- Canonical resource**s** endpoints (e.g., `{api_root}/systems`)
+- Canonical resource endpoints (e.g., `{api_root}/systems/{id}`)
+- Nested resource**s** endpoints (e.g., `{api_root}/systems/{id}/subsystems`)
+- Collection items resource**s** endpoints (e.g., `{api_root}/collections/{id}/items`)
 
 ==== Canonical Resources Endpoints
 
@@ -132,7 +132,7 @@ The canonical URL for a single resource is based on the URL of the canonical res
 - `{api_root}/samplingFeatures/{id}`
 - `{api_root}/properties/{id}`
 
-When a resource is retrieved from a URL that is NOT its canonical URL (e.g. through a collection), its canonical URL must be provided in the response.
+When a resource is retrieved from a URL that is NOT its canonical URL (e.g., through a collection), its canonical URL must be provided in the response.
 
 An example of `canonical` link is provided in the following JSON snippet:
 
@@ -172,13 +172,13 @@ All resource collections support paging via the `limit` query parameter and the 
 The core search capability is based on the {ogcapi-features-1} Standard and thus supports:
 
 * Bounding box searches using the `bbox` parameter,
-* Time instant or time period searches using the `datetime` parameter,
-* Equality predicates on feature properties (i.e. _property_=_value_).
+* Time instant or time period searches using the `datetime` parameter, and
+* Equality predicates on feature properties (i.e., _property_=_value_).
 
 The CS API Standard extends these core search capabilities to include:
 
-* Search by resource local ID or UID using the `id` parameter.
-* Geospatial searches using the `geom` parameter encoded as a WKT geometry,
+* Search by resource local ID or UID using the `id` parameter,
+* Geospatial searches using the `geom` parameter encoded as a WKT geometry, and
 * Full-text searches using the `q` parameter (prefix search only).
 
 Additional filters are defined on a per resource type basis, as shown in the following table:
@@ -234,7 +234,7 @@ The following link relation types are defined and used in this Standard:
 
 ==== Authentication
 
-The expectation is that certain functionality of the CS API will be protected by an access control mechanism (e.g. RBAC), which requires each user to authenticate.
+The expectation is that certain functionality of the CS API will be protected by an access control mechanism (e.g., RBAC), which requires each user to authenticate.
 
 This Standard does not mandate a particular authentication method, but the following methods are commonly used and supported by OpenAPI:
 
@@ -247,15 +247,15 @@ NOTE: Some of these authentication methods are only recommended over HTTPS.
 
 ==== Encryption
 
-A CS API implementation will often be used to transmit confidential or sensitive data. Encryption in-transit using HTTPS (i.e. HTTP over TLS/SSL) is thus highly recommended and is now very common practice on the web.
+A CS API implementation will often be used to transmit confidential or sensitive data. Encryption in-transit using HTTPS (i.e., HTTP over TLS/SSL) is thus highly recommended and is now very common practice on the web.
 
-In addition, implementations of this Standard may also store confidential or sensitive data (e.g. in a database) for extended periods of time. In this case, encryption at rest is also recommended, especially if data is hosted on a shared infrastructure (e.g. public clouds).
+In addition, implementations of this Standard may also store confidential or sensitive data (e.g., in a database) for extended periods of time. In this case, encryption at rest is also recommended, especially if data is hosted on a shared infrastructure (e.g., public clouds).
 
 ==== M2M Communications
 
 It is expected that clients implementing the CS API Standard will sometime be machines that connect to the API automatically without human intervention.
 
-To mitigate data spoofing, it is highly recommended that this type of clients use a strong authentication method and digital signatures relying on asymmetric cryptography, and whose access can be easily revoked (e.g. PKI certificates).
+To mitigate data spoofing, it is highly recommended that this type of clients use a strong authentication method and digital signatures relying on asymmetric cryptography, and whose access can be easily revoked (e.g., PKI certificates).
 
 ==== Common Weaknesses
 

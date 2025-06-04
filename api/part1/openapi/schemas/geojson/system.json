@@ -27,7 +27,7 @@
               "$ref": "../common/commonDefs.json#/$defs/TimePeriod"
             },
             "systemKind@link": {
-              "description": "Link to the system kind description (i.e. its nature or specifications).",
+              "description": "Link to the system kind description (i.e., its nature or specifications).",
               "$ref": "../common/commonDefs.json#/$defs/Link"
             }
           }

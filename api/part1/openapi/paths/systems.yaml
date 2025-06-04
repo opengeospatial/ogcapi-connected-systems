@@ -3,7 +3,7 @@ get:
   description: |-
     List or search all `System` resources available from this server endpoint.
 
-    By default, only top level systems are included (i.e. subsystems are ommitted) unless the `parent` query parameter is set.
+    By default, only top level systems are included (i.e., subsystems are ommitted) unless the `parent` query parameter is set.
 
   tags:
     - Systems
@@ -39,7 +39,7 @@ get:
 post:
   summary: Create a new system
   description: |-
-    Add a new top-level `System` resource (i.e. the system will have no parent).
+    Add a new top-level `System` resource (i.e., the system will have no parent).
   tags:
     - Systems
   requestBody:

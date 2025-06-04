@@ -3,7 +3,7 @@
     {
       "id": "all_systems",
       "title": "All Connected Systems",
-      "description": "All systems registered on this server (e.g. platforms, sensors, actuators, processes)",
+      "description": "All systems registered on this server (e.g., platforms, sensors, actuators, processes)",
       "itemType": "feature",
       "featureType": "ssn:System",
       "links": [
@@ -18,7 +18,7 @@
     {
       "id": "all_procedures",
       "title": "All Procedures and System Datasheets",
-      "description": "All procedures (e.g. system datasheets) implemented by systems registered on this server",
+      "description": "All procedures (e.g., system datasheets) implemented by systems registered on this server",
       "itemType": "feature",
       "featureType": "sosa:Procedure",
       "links": [

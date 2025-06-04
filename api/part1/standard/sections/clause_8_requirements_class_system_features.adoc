@@ -9,11 +9,11 @@ The "System Features" requirements class specifies how system descriptions are p
 
 The `System` resource implements the _http://www.w3.org/ns/ssn/System[System]_ concept defined in the {ogc-w3c-ssn}. `System` resources are used to expose metadata about several kinds of systems and their components, including sensors, actuators, samplers, processes, platforms, etc.
 
-NOTE: `System` resources describe *system instances* (e.g. a sensor device, a UAV platform) while `Procedure` resources are used to describe *system types* (e.g. a particular model of sensor or vehicle, specified using the manufacturer datasheet). Several `System` instances can implement the same `Procedure` (i.e. be of the same model).
+NOTE: `System` resources describe *system instances* (e.g., a sensor device, a UAV platform) while `Procedure` resources are used to describe *system types* (e.g., a particular model of sensor or vehicle, specified using the manufacturer datasheet). Several `System` instances can implement the same `Procedure` (i.e., be of the same model).
 
 NOTE: `System` resources are used to model instances of _http://www.w3.org/ns/ssn/System[sosa:System]_ (including its subclasses: _http://www.w3.org/ns/sosa/Sensor[sosa:Sensor]_, _http://www.w3.org/ns/sosa/Actuator[sosa:Actuator]_ and _http://www.w3.org/ns/sosa/Sampler[sosa:Sampler]_), as well as _http://www.w3.org/ns/sosa/Platform[sosa:Platform]_. Semantic tagging is used to provide the exact type.
 
-NOTE: The {ogc-w3c-ssn} does not define `sosa:Platform` as a subclass of `sosa:System`. However, the ontology allows an individual to be both a `sosa:System` and a `sosa:Platform`. This is the specific case that is modeled in this Standard as a `System` resource tagged with `systemType=sosa:Platform`. However, not all types of platforms need be modeled as systems (i.e. trees, buildings, etc. can also serve as platforms). Thus, this Standard does not put any restriction as to what type of Features can be used as platforms. This enables a `Deployment` to refer to any Feature as the platform, which includes linking to external feature stores (e.g. building databases, etc.).
+NOTE: The {ogc-w3c-ssn} does not define `sosa:Platform` as a subclass of `sosa:System`. However, the ontology allows an individual to be both a `sosa:System` and a `sosa:Platform`. This is the specific case that is modeled in this Standard as a `System` resource tagged with `systemType=sosa:Platform`. However, not all types of platforms need be modeled as systems (i.e., trees, buildings, etc. can also serve as platforms). Thus, this Standard does not put any restriction as to what type of Features can be used as platforms. This enables a `Deployment` to refer to any Feature as the platform, which includes linking to external feature stores (e.g., building databases, etc.).
 
 [example%unnumbered]
 ====
@@ -71,8 +71,8 @@ All `System` resource representations provided by encoding requirements classes 
 [width="100%",options="header"]
 |====
 | *Name*              | *SOSA/SSN Property* | *Definition* | *Target Content* | *Usage*
-| `systemKind`        | `ssn:hasSystemKind` | The description of the kind of `System` (e.g. datasheet). | A single `Procedure` resource. | Optional
-| `subsystems`        | `sosa:hasSubSystem` | The list of subsystems (i.e. components) attached to the `System`, if any. | A list of `System` resources. | Required
+| `systemKind`        | `ssn:hasSystemKind` | The description of the kind of `System` (e.g., datasheet). | A single `Procedure` resource. | Optional
+| `subsystems`        | `sosa:hasSubSystem` | The list of subsystems (i.e., components) attached to the `System`, if any. | A list of `System` resources. | Required
 | `samplingFeatures`  | - | The `Sampling Features` associated to the `System`, if any. | A list of `SamplingFeature` resources. | Required
 | `deployments`       | `sosa:hasDeployment` | The `Deployments` that the `System` is part of, if any. | A list of `Deployment` resources. | Optional
 | `procedures`        | `sosa:implements` | The `Procedures` that can be implemented by the `System`, if any. | A list of `Procedure` resources. | Optional
@@ -99,16 +99,16 @@ NOTE: Tagging a `System` resource with a particular type only carries semantic m
 [width="100%",options="header"]
 |====
 | *Asset Type Value* | *Usage*
-| Equipment    | The system is composed of one or more hardware devices or pieces of equipment, that interact directly with the real-world and can be either automated or manually operated (e.g. sensor or actuator device, vehicle, robot, etc.).
-| Human        | The system consists of one or more human beings that follow well defined procedures (e.g. conducting polls or surveys, collecting samples, carrying sensors, etc.). 
+| Equipment    | The system is composed of one or more hardware devices or pieces of equipment, that interact directly with the real-world and can be either automated or manually operated (e.g., sensor or actuator device, vehicle, robot, etc.).
+| Human        | The system consists of one or more human beings that follow well defined procedures (e.g., conducting polls or surveys, collecting samples, carrying sensors, etc.). 
 | LivingThing | The system consists of one or more animals or other living organisms (most often used with `systemType=Platform` when it carries sensors).
-| Simulation   | The system is a software algorithm that simulates or predicts the state of the real-world (e.g. weather forecasts, mathematical models, training simulations, etc.).
+| Simulation   | The system is a software algorithm that simulates or predicts the state of the real-world (e.g., weather forecasts, mathematical models, training simulations, etc.).
 | Process      | The system is a process or process chain that transforms data coming from or going to other systems.
-| Group        | The system represents a group of similar systems (e.g. sensor network, vehicle fleet, etc.). Such system usually has subsystems that provide detailed information about each member in the group.
+| Group        | The system represents a group of similar systems (e.g., sensor network, vehicle fleet, etc.). Such system usually has subsystems that provide detailed information about each member in the group.
 | Other        | Any other type of asset not accounted for in this list. In this case, an application specific property can be used to provide the type.
 |====
 
-NOTE: Deployments can also be used to document how different types of systems are used together. For instance, a deployment may describe how a "human" (e.g. system of type platform) uses a piece of "equipment" (e.g. system of type sensor) according to a well defined procedure.
+NOTE: Deployments can also be used to document how different types of systems are used together. For instance, a deployment may describe how a "human" (e.g., system of type platform) uses a piece of "equipment" (e.g., system of type sensor) according to a well defined procedure.
 
 ==== Location
 
@@ -122,9 +122,9 @@ include::../requirements/system/req_location_time.adoc[]
 ====
 If the system is a virtual asset, such as a simulation or process, reporting its location is not always desired or possible. If an implementation wishes to report such location, the recommendation is the following:
 
-- If the location of the computing hardware that executes the process is known, it should be used as the feature location (e.g. the location of the datacenter).
+- If the location of the computing hardware that executes the process is known, it should be used as the feature location (e.g., the location of the datacenter);
 
-- If the process can be run in multiple locations (e.g. distributed or redundant process), a multi-point geometry or an entire geographic area should be used as the feature location.
+- If the process can be run in multiple locations (e.g., distributed or redundant process), a multi-point geometry or an entire geographic area should be used as the feature location; and
 
 - If the location is unknown, the location is not set.
 ====
