@@ -12,7 +12,7 @@
           "type": "string"
         },
         "updatable": {
-          "description": "Specifies if the value of a data component can be updated externally (i.e. is variable)",
+          "description": "Specifies if the value of a data component can be updated externally (i.e., is variable)",
           "type": "boolean",
           "default": false
         },

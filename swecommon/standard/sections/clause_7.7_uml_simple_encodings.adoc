@@ -13,7 +13,7 @@ image::figures/fig7.32.png[]
 
 include::../requirements/uml/simple_encodings/requirement1.adoc[]
 
-All classes defining encoding methods derive from a common abstract class called “AbstractEncoding”. Extensions to this standard that define new encoding methods shall derive encoding classes from this abstract class.
+All classes defining encoding methods derive from a common abstract class called “AbstractEncoding.” Extensions to this standard that define new encoding methods shall derive encoding classes from this abstract class.
 
 The intent of this standard is to provide a set of core encodings covering most common needs. Each encoding has specific benefits that match the needs of different applications. Sometimes several encodings of the same dataset can be offered in order to satisfy several types of consumers and/or use cases.
 
@@ -52,7 +52,7 @@ In the case of a “DataStream” with an element type that is a “DataRecord�
 `STATUS_OK,24.5,1022.5¶` +
 `STATUS_OK,24.5,1022.5¶` +
 
-Where `,` (comma) is the token separator and `¶` (carriage return) is the block separator (i.e. this is the CSV format).
+Where `,` (comma) is the token separator and `¶` (carriage return) is the block separator (i.e., this is the CSV format).
 Note that there could be many more values in a single block if the data set has a large number of fields, or if it contains an array of values.
 ====
 

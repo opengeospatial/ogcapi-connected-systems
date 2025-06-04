@@ -25,7 +25,7 @@
               "const": "TextEncoding"
             },
             "collapseWhiteSpaces": {
-              "description": "Indicates whether white spaces (i.e. space, tab, CR, LF) should be collapsed with separators when parsing the data stream",
+              "description": "Indicates whether white spaces (i.e., space, tab, CR, LF) should be collapsed with separators when parsing the data stream",
               "type": "boolean"
             },
             "decimalSeparator": {
@@ -34,12 +34,12 @@
               "minLength": 1
             },
             "tokenSeparator": {
-              "description": "Character sequence used as the token separator (i.e. between two successive values)",
+              "description": "Character sequence used as the token separator (i.e., between two successive values)",
               "type": "string",
               "minLength": 1
             },
             "blockSeparator": {
-              "description": "Character sequence used as the block separator (i.e. between two successive blocks in the data set. The end of a block is reached once all values from the data tree have been encoded once)",
+              "description": "Character sequence used as the block separator (i.e., between two successive blocks in the data set. The end of a block is reached once all values from the data tree have been encoded once)",
               "type": "string",
               "minLength": 1
             }

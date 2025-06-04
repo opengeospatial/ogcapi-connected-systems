@@ -1,6 +1,6 @@
 <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:swe="http://www.opengis.net/swe/2.0" targetNamespace="http://www.opengis.net/swe/2.0" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.1">
     <annotation>
-        <documentation>SWE Common Data Model schema for choice data components (i.e. disjoint unions). See requirements class http://www.opengis.net/spec/SWE/2.0/req/xsd-choice-components/
+        <documentation>SWE Common Data Model schema for choice data components (i.e., disjoint unions). See requirements class http://www.opengis.net/spec/SWE/2.0/req/xsd-choice-components/
         
         SWE Common is an OGC Standard.
         Copyright (c) 2010 Open Geospatial Consortium. 

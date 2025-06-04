@@ -5,7 +5,7 @@ include::../requirements/uml/simple_components/requirements_class.adoc[]
 
 Data components are the most essential part of the SWE Common Data Model. They are used to describe all types of data structures, whether they represent data stream contents, tasking messages, alert messages or process inputs/outputs.
 
-The “Simple Components” UML package contains classes modeling simple data components, that is to say scalar components and range components (i.e. value extents). These classes implement concepts defined in the core section of this standard, and are designed to collect information about nature, representation and quality of data. These include six scalar types – Boolean, Text, Category, Count, Quantity, and Time – as well as four range types – CategoryRange, CountRange, QuantityRange and TimeRange.
+The “Simple Components” UML package contains classes modeling simple data components, that is to say scalar components and range components (i.e., value extents). These classes implement concepts defined in the core section of this standard, and are designed to collect information about nature, representation and quality of data. These include six scalar types – Boolean, Text, Category, Count, Quantity, and Time – as well as four range types – CategoryRange, CountRange, QuantityRange and TimeRange.
 
 The “Basic Types” UML package from which the “Simple Components” package is dependent is also included in this requirements class. 
 
@@ -27,7 +27,7 @@ include::../requirements/uml/simple_components/requirement1.adoc[]
 
 Several dependencies to ISO standards exist and are detailed below.
 
-Data types from several packages of the ISO 19103 standard are used directly which makes this requirement class dependent on it. These data types are “CharacterString”, “Boolean”, “Real”, “Integer”, “Date”, “Time”, “DateTime”, “ScopedName”, “UnitOfMeasure” and “UomTime”.
+Data types from several packages of the ISO 19103 standard are used directly which makes this requirement class dependent on it. These data types are “CharacterString,” “Boolean,” “Real,” “Integer,” “Date,” “Time,” “DateTime,” “ScopedName,” “UnitOfMeasure,” and “UomTime.”
 
 include::../requirements/uml/simple_components/requirement2.adoc[]
 
@@ -35,7 +35,7 @@ The “TM_Position” data type from the “Temporal Reference System” package
 
 include::../requirements/uml/simple_components/requirement3.adoc[]
 
-The “SC_CRS” and “TM_Temporal_CRS” classifiers are referenced conceptually from ISO 19111 but their implementation is not required by this standard. Implementations are allowed to simply use a CRS identifier as a mean of recognizing predefined coordinate reference systems. The use of identifiers from the EPSG database is recommended in this case. However, when new CRS definitions need to be created (e.g. engineering CRS attached to sensors or platforms), the models defined in ISO 19111 shall be used.
+The “SC_CRS” and “TM_Temporal_CRS” classifiers are referenced conceptually from ISO 19111 but their implementation is not required by this standard. Implementations are allowed to simply use a CRS identifier as a mean of recognizing predefined coordinate reference systems. The use of identifiers from the EPSG database is recommended in this case. However, when new CRS definitions need to be created (e.g., engineering CRS attached to sensors or platforms), the models defined in ISO 19111 shall be used.
 
 
 [[uml_basic_types]]
@@ -83,9 +83,9 @@ The description could be “Time at which the observation was made as measured b
 
 **Flags**
 
-The “optional” attribute is an optional flag indicating if the component value can be omitted in the data stream. It is only meaningful if the component is used as a schema descriptor (i.e. not for a component containing an inline value). It is 'false' by default.
+The “optional” attribute is an optional flag indicating if the component value can be omitted in the data stream. It is only meaningful if the component is used as a schema descriptor (i.e., not for a component containing an inline value). It is 'false' by default.
 
-The “updatable” attribute is an optional flag indicating if the component value is fixed or can be updated. It is only applicable if the data component is used to define the input of a process (i.e. when used to define the input or parameter of a service, process or sensor, but not when used to define the content of a dataset).
+The “updatable” attribute is an optional flag indicating if the component value is fixed or can be updated. It is only applicable if the data component is used to define the input of a process (i.e., when used to define the input or parameter of a service, process or sensor, but not when used to define the content of a dataset).
 
 [example%unnumbered]
 ====
@@ -93,11 +93,11 @@ The “updatable” attribute is an optional flag indicating if the component va
 
 The “updatable” flag can be used to identify what parameters of a system are changeable. The exact semantics depends on the context. For example:
 
-- In SensorML process chains, the “updatable” flag is used to identify process parameters that can accept an incoming connection (and thus can get changed while the process is in execution).
+- In SensorML process chains, the “updatable” flag is used to identify process parameters that can accept an incoming connection (and thus can get changed while the process is in execution);
 
-- In a SensorML System it is used to indicate whether or not a system parameter is changeable, either by an operator (i.e. by turning a screw or inserting a jumper) or remotely by sending a command.
+- In a SensorML System it is used to indicate whether or not a system parameter is changeable, either by an operator (i.e., by turning a screw or inserting a jumper) or remotely by sending a command; and
 
-- In the Sensor Planning Service it is used to indicate if tasking parameters are changeable by the client (i.e. by using the Update operation) after a task has been submitted.
+- In the Sensor Planning Service it is used to indicate if tasking parameters are changeable by the client (i.e., by using the Update operation) after a task has been submitted.
 ====
 
 
@@ -142,7 +142,7 @@ Both precision and accuracy of the value associated to a data component can be s
 
 **Nil Values**
 
-The optional “nilValues” attribute is used to provide a list (i.e. one or more) of NIL values as defined in <<core_nil_values>>. The model of the “NilValues” class is detailed in <<uml_nilvalues_class>>.
+The optional “nilValues” attribute is used to provide a list (i.e., one or more) of NIL values as defined in <<core_nil_values>>. The model of the “NilValues” class is detailed in <<uml_nilvalues_class>>.
 
 Concrete sub-classes of “AbstractSimpleComponent” can also define a “constraint” attribute that allows further restriction of the possible values allowed by the corresponding representation. This implements concepts defined in <<core_data_constraints>>. These constraints always apply to the value of the property as represented by the corresponding data component whether this value is given inline (data container case) or out-of-band (data descriptor case).
 
@@ -154,7 +154,7 @@ All concrete sub-classes of “AbstractSimpleComponent” also define a “value
 
 include::../requirements/uml/simple_components/requirement9.adoc[]
 
-The “value” attribute is always optional on any simple data component in order to allow for both data descriptor and data container cases:
+The “value” attribute is always optional on any simple data component in order to allow for both data descriptor and data container cases.
 
 - When the data component is used as a data container, this attribute always carries the value of the associated property (formally the representation of the estimated or asserted value of the property). Quality information, nil values definitions and constraints thus apply to the value taken by this attribute.
 
@@ -299,7 +299,7 @@ The “axisID” attribute inherited from the parent class does not need to be s
 
 *Reference Time*
 
-The “referenceTime” attribute is used to specify a different time origin than the one sometimes implied by the “referenceFrame”. This is used to express a time relative to an arbitrary epoch (i.e. different from the origin of a well known reference frame). The new time origin specified by “referenceTime” shall be expressed with respect to the reference frame specified and is of type “DateTime”. This forces the definition of this origin as a calendar date/time combination.
+The “referenceTime” attribute is used to specify a different time origin than the one sometimes implied by the “referenceFrame”. This is used to express a time relative to an arbitrary epoch (i.e., different from the origin of a well known reference frame). The new time origin specified by “referenceTime” shall be expressed with respect to the reference frame specified and is of type “DateTime”. This forces the definition of this origin as a calendar date/time combination.
 
 include::../requirements/uml/simple_components/requirement14.adoc[]
 
@@ -307,18 +307,18 @@ include::../requirements/uml/simple_components/requirement14.adoc[]
 ====
 *Example*
 
-This class can be used to define a value expressed as a UNIX time (i.e. number of seconds elapsed since January 1, 1970, 00:00:00 GMT) by:
+This class can be used to define a value expressed as a UNIX time (i.e., number of seconds elapsed since January 1, 1970, 00:00:00 GMT) by:
 
-- Specifying that the reference frame is the UTC reference system
-- Setting the reference time to January 1, 1970, 00:00:00 GMT.
-- Setting the unit of measure to seconds
+- Specifying that the reference frame is the UTC reference system;
+- Setting the reference time to January 1, 1970, 00:00:00 GMT; and
+- Setting the unit of measure to seconds.
 
 See definitions of some commonly accepted time standards at http://en.wikipedia.org/wiki/Time_standard or http://stjarnhimlen.se/comp/time.html.
 ==== 
 
 *Local Frame*
 
-The optional “localFrame” attribute allows for the definition of a local temporal frame of reference through the value of the component (i.e. we are specifying a time origin), as opposed to the referenceFrame which specifies that the value of the component is in reference to this frame.
+The optional “localFrame” attribute allows for the definition of a local temporal frame of reference through the value of the component (i.e., we are specifying a time origin), as opposed to the referenceFrame which specifies that the value of the component is in reference to this frame.
 
 include::../requirements/uml/simple_components/requirement15.adoc[]
 
@@ -350,7 +350,7 @@ The “value” attribute (or the corresponding value in out-of-band data) is of
 
 ==== Requirements applicable to all range classes
 
-This UML package defines four classes “CategoryRange”, “CountRange”, “QuantityRange” and “TimeRange” that are used for representing extents of property values. These classes have common requirements that are expressed in this clause.
+This UML package defines four classes “CategoryRange,” “CountRange,” “QuantityRange,” and “TimeRange” that are used for representing extents of property values. These classes have common requirements that are expressed in this clause.
 
 The “value” attribute of all these classes takes a pair of values (with a datatype corresponding to the representation) that represent the inclusive minimum and maximum bounds of the extent. These values must both satisfy the constraints specified by an instance of the class, and be expressed in the unit specified when applicable.
 
@@ -371,7 +371,7 @@ include::../requirements/uml/simple_components/requirement17.adoc[]
 
 *Code Space*
 
-The “CategoryRange” class also requires that the underlying code space is well-ordered (i.e. the ordering of the different categories in the code space is clearly defined) so that the range is meaningful.
+The “CategoryRange” class also requires that the underlying code space is well-ordered (i.e., the ordering of the different categories in the code space is clearly defined) so that the range is meaningful.
 
 include::../requirements/uml/simple_components/requirement18.adoc[]
 
@@ -504,9 +504,9 @@ This class allows constraints to be defined either by enumerating a list of allo
 
 include::../requirements/uml/simple_components/requirement22.adoc[]
 
-If the parent data component instance is used to define a projected quantity (i.e. when the “axisID” is set), then the constraints given by this class are expressed along the same spatial reference frame axis.
+If the parent data component instance is used to define a projected quantity (i.e., when the “axisID” is set), then the constraints given by this class are expressed along the same spatial reference frame axis.
 
-The number of significant digits can also be specified with the “significantFigures” property though it is only applicable when used with a decimal representation (i.e. within the “Quantity” class). This limits the total number of digits that can be included in the number represented whether a scientific notation is used or not.
+The number of significant digits can also be specified with the “significantFigures” property though it is only applicable when used with a decimal representation (i.e., within the “Quantity” class). This limits the total number of digits that can be included in the number represented whether a scientific notation is used or not.
 
 [example%unnumbered]
 ====
@@ -521,7 +521,7 @@ Leading zeros are not significant. 0.00052 has two significant figures: 5 and 2 
 Trailing zeros are significant. 12.2300 has six significant figures: 1, 2, 2, 3, 0 and 0 and would thus be invalid if the number of significant figures is restricted to 4.
 ====
 
-NOTE: _The number of significant figures and/or an interval constraint (i.e. min/max values) can help a software implementation choosing the best data type to use (i.e. ‘float’ or ‘double’, ‘short’, ‘int’ or ‘long’) to store values associated to a given data component._
+NOTE: _The number of significant figures and/or an interval constraint (i.e., min/max values) can help a software implementation choosing the best data type to use (i.e., ‘float’ or ‘double’, ‘short’, ‘int’ or ‘long’) to store values associated to a given data component._
 
 
 [[uml_allowedtimes_class]]

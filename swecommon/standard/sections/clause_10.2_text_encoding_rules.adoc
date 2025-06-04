@@ -62,7 +62,7 @@ range-values = min-value token-separator max-value
 
 ==== Rules for DataRecord and Vector
 
-Values of fields of a “DataRecord” are recursively encoded following rules associated to the type of component used for the field’s description (i.e. scalar, record, array, etc.) and separated by token separators as expressed by the following grammar:
+Values of fields of a “DataRecord” are recursively encoded following rules associated to the type of component used for the field’s description (i.e., scalar, record, array, etc.) and separated by token separators as expressed by the following grammar:
 
 [source%unnumbered]
 ----
@@ -117,7 +117,7 @@ See example: <<enc_text_choice_example,style=basic%>>.
 
 ==== Rules for DataArray and Matrix
 
-Values of each “DataArray” or “Matrix” element are recursively encoded following rules associated to the type of component used for the element type (i.e. scalar, record, array, etc.). Groups of values (or single value in the case of a scalar element type) corresponding to each element are sequentially appended to the data block and separated by token or block separators, depending on the context: When the “DataArray” is the root of the component tree that is being encoded, its elements are separated by block separators, otherwise its elements are separated by token separators.
+Values of each “DataArray” or “Matrix” element are recursively encoded following rules associated to the type of component used for the element type (i.e., scalar, record, array, etc.). Groups of values (or single value in the case of a scalar element type) corresponding to each element are sequentially appended to the data block and separated by token or block separators, depending on the context: When the “DataArray” is the root of the component tree that is being encoded, its elements are separated by block separators, otherwise its elements are separated by token separators.
 
 A “DataArray” or “Matrix” can have a fixed or variable size, which leads to two slightly different syntaxes for encoding values:
 array-separator = token-separator / block-separator  ; block-separator is only used when the array is the root of the component tree whose values are being encoded.
@@ -179,13 +179,13 @@ See example: <<enc_text_geom_example,style=basic%>>
 
 ==== Media Types
 
-When array or datastream values are encoded with the Text encoding method and provided standalone (i.e. outside of any wrapper format such as a JSON or XML document), one of the following media type identifiers shall be used:
+When array or datastream values are encoded with the Text encoding method and provided standalone (i.e., outside of any wrapper format such as a JSON or XML document), one of the following media type identifiers shall be used.
 
-1. One of *`text/plain`*, *`text/csv`*, or *`application/vnd.ogc.swe+text`* shall be used as the content-type for files and HTTP reponses.
+1. One of *`text/plain`*, *`text/csv`*, or *`application/vnd.ogc.swe+text`* shall be used as the content-type for files and HTTP responses.
 
   - *`text/csv`* can be used only when the token separator is set to a single comma ‘,’ and the block separator is set to ‘CRLF’.
   - *`text/plain`* and *`application/vnd.ogc.swe+text`* can be used for any combination of separators.
 
-2. *`application/vnd.ogc.swe+text`* shall be used for format negotiation between server and client (e.g. when the format is advertised by an API or web service). In particular, this media type shall be used in HTTP `Accept` and `Link` headers and in any server response used to advertise support or link to a resource encoded with this format.
+2. *`application/vnd.ogc.swe+text`* shall be used for format negotiation between server and client (e.g., when the format is advertised by an API or web service). In particular, this media type shall be used in HTTP `Accept` and `Link` headers and in any server response used to advertise support or link to a resource encoded with this format.
 
 NOTE: _It is recommended that the character set code be correctly appended to these media types if it differs from US-ASCII or UTF-8._

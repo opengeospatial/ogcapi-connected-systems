@@ -4,9 +4,9 @@ The OGC SWE Common Data Model Encoding Standard is the result of worked done by 
 
 To increase the brevity and readability of this Standard, many OGC document titles are shortened and/or abbreviated. Therefore, in the context of this document, the following phrases are defined:
 
-- “this Standard” shall be interpreted as equivalent to “OGC SWE Common Data Model Encoding Standard”.
+- “this Standard” shall be interpreted as equivalent to “OGC SWE Common Data Model Encoding Standard;” and
 
-- “SensorML” or “SensorML Standard” shall be interpreted as equivalent to “OGC SensorML Encoding Standard”
+- “SensorML” or “SensorML Standard” shall be interpreted as equivalent to “OGC SensorML Encoding Standard.”
 
 
 [abstract]
@@ -58,9 +58,9 @@ This document deprecates version 2.0 of the OGC® SWE Common Data Model Encoding
 
 The following changes have been made:
 
-  * Addition of the JSON encodings and schemas
-  * Addition of the Geometry data component (modeled on OGC simple feature geometries)
-  * Removal of the XML encodings
-  * Technical revision and improved explanations in various clauses
+  * Addition of the JSON encodings and schemas;
+  * Addition of the Geometry data component (modeled on OGC simple feature geometries);
+  * Removal of the XML encodings; and
+  * Technical revision and improved explanations in various clauses.
 
 This release is not fully backward compatible with version 2.0, this concerns especially the removal of the XML encodings.

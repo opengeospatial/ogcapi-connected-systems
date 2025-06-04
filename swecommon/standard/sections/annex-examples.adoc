@@ -351,7 +351,7 @@ The matrix encoded using the Text encoding method as shown below:
 0.36,0.48,-0.8 -0.8,0.6,0.0 0.48,0.64,0.6
 ----
 
-Note that elements of the outer array (i.e. a matrix is a special kind of array) are separated by block separators (i.e. each block surrounded by spaces corresponds to one row of the matrix) while the inner array elements are separated by token separators.
+Note that elements of the outer array (i.e., a matrix is a special kind of array) are separated by block separators (i.e., each block surrounded by spaces corresponds to one row of the matrix) while the inner array elements are separated by token separators.
 
 
 [[enc_text_profile_series_example]]

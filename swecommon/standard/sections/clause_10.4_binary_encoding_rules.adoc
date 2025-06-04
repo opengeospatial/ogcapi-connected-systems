@@ -48,7 +48,7 @@ Values are always included in the same order: The lower bound of the range first
 
 ==== Rules for DataRecord and Vector
 
-Values of fields of a “DataRecord” are recursively encoded following rules associated to the type of component used as the field’s description (i.e. scalar, record, array, etc.) and appended to the binary block:
+Values of fields of a “DataRecord” are recursively encoded following rules associated to the type of component used as the field’s description (i.e., scalar, record, array, etc.) and appended to the binary block:
 
 [source%unnumbered]
 ----
@@ -99,7 +99,7 @@ include::../requirements/encoding_rules/binary/requirement5.adoc[]
 
 ==== Rules for DataArray and Matrix
 
-Values of each “DataArray” or “Matrix” element are recursively encoded following rules associated to the type of component used for the element type (i.e. scalar, record, array, etc.). Groups of values (or single value in the case of a scalar element type) corresponding to each element are sequentially appended to the data block. Since a “DataArray” or “Matrix” can have a fixed or variable size, two slightly different syntaxes for encoding values are possible:
+Values of each “DataArray” or “Matrix” element are recursively encoded following rules associated to the type of component used for the element type (i.e., scalar, record, array, etc.). Groups of values (or single value in the case of a scalar element type) corresponding to each element are sequentially appended to the data block. Since a “DataArray” or “Matrix” can have a fixed or variable size, two slightly different syntaxes for encoding values are possible:
 
 [source%unnumbered]
 ----
@@ -161,8 +161,8 @@ In order to maximize compatibility with existing software, when compressing a bi
 
 ==== Media Types
 
-When array or stream values are encoded with the Binary encoding method and provided standalone (i.e. outside of any wrapper format), one of the following media type identifiers shall be used:
+When array or stream values are encoded with the Binary encoding method and provided standalone (i.e., outside of any wrapper format), one of the following media type identifiers shall be used:
 
 1. One of *`application/octet-stream`* or *`application/vnd.ogc.swe+binary`* shall be used as the content-type for files and HTTP responses.
 
-2. *`application/vnd.ogc.swe+binary`* shall be used for format negotiation between server and client (e.g. when the format is advertised by an API or web service). In particular, this media type shall be used in HTTP `Accept` and `Link` headers and in any server response used to advertise support or link to a resource encoded with this format.
+2. *`application/vnd.ogc.swe+binary`* shall be used for format negotiation between server and client (e.g., when the format is advertised by an API or web service). In particular, this media type shall be used in HTTP `Accept` and `Link` headers and in any server response used to advertise support or link to a resource encoded with this format.

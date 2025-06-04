@@ -22,7 +22,7 @@ The following rules were used when generating the JSON schemas:
 
 - Textual fields are implemented as a JSON String;
 
-- Decimal fields are implemented as a union of JSON Number and JSON String value types (the string value allowing for special values, see <<json_special_numerical_values>>);
+- Decimal fields are implemented as a union of JSON Number and JSON String value types (the string value allowing for special values, see <<json_special_numerical_values>>); and
 
 - ISO8601 date/time fields are implemented as a JSON String with a union of date/time formats.
 

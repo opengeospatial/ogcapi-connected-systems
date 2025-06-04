@@ -13,7 +13,7 @@ include::../requirements/uml/advanced_encodings/requirement1.adoc[]
 
 The “BinaryEncoding” class defines a method that allows encoding complex structured data using primitive data types encoded directly at the byte level, in the same way that they are usually represented in memory.
 
-The binary encoding method can lead to very compact streams that can be optimized for efficient parsing and fast random access. However this comes with the lack of human readability of the data and sometimes lack of compatibility with other software (i.e. software that is not SWE Common enabled).
+The binary encoding method can lead to very compact streams that can be optimized for efficient parsing and fast random access. However this comes with the lack of human readability of the data and sometimes lack of compatibility with other software (i.e., software that is not SWE Common enabled).
 
 More information is needed to fully define a binary encoding, so the model is more complex than the other encodings. It is shown below:
 
@@ -24,7 +24,7 @@ The main class “BinaryEncoding” specifies overall characteristics of the enc
 
 The “byteLength” attribute is optional and can be used to specify the overall length of the encoded data as a total number of bytes. This should be indicated whenever possible if the data size is known in advance as it can be useful for efficient memory allocation.
 
-The “BinaryEncoding” class also has several “member” attributes that contain detailed information about parts of the data stream. This attribute can take a choice of instance of two classes: “Component” or “Block”.
+The “BinaryEncoding” class also has several “member” attributes that contain detailed information about parts of the data stream. This attribute can take a choice of instance of two classes: “Component” or “Block.”
 
 The “Component” class is used to specify binary encoding details of a given scalar component in the stream. The following information can be provided for each scalar field:
 
@@ -32,9 +32,9 @@ The “Component” class is used to specify binary encoding details of a given 
 
 - The “dataType” attribute allows selecting a data type among commonly accepted ones such as ‘byte’, ‘short’, ‘int’, ‘long’, ‘double’, ‘float’, ‘string’, etc… 
 
-- The “byteLength” or “bitLength” attributes are mutually exclusive and used to further specify the length of the data type in the case where it is not a standard length (i.e. to encode integer numbers on more than 8 bytes or less than 8 bits for instance).
+- The “byteLength” or “bitLength” attributes are mutually exclusive and used to further specify the length of the data type in the case where it is not a standard length (i.e., to encode integer numbers on more than 8 bytes or less than 8 bits for instance).
 
-- The “significantBits” can be used to signal that only some of the bits of the data type are actually used to carry the value (i.e. a value may be encoded as a byte but only use 4 bits to encode a value between 0 and 15). This is mostly informational.
+- The “significantBits” can be used to signal that only some of the bits of the data type are actually used to carry the value (i.e., a value may be encoded as a byte but only use 4 bits to encode a value between 0 and 15). This is mostly informational.
 
 - The “encryption” attribute can be used to select the method with which the value is encrypted before being written to the stream.
 
@@ -44,7 +44,7 @@ The “Block” class is used to specify binary encoding details of a given aggr
 
 - The optional “byteLength” attribute allows indicating the overall length of the encoded block to facilitate memory allocation.
 
-- The “paddingBytes-before” and “paddingBytes-after” are used to specify the number of empty bytes (i.e. usually 0 bytes) that are inserted in the stream respectively before and after data for the referenced component. This is sometimes used to align data on N-bytes block for faster access.
+- The “paddingBytes-before” and “paddingBytes-after” are used to specify the number of empty bytes (i.e., usually 0 bytes) that are inserted in the stream respectively before and after data for the referenced component. This is sometimes used to align data on N-bytes block for faster access.
 
 - The “encryption” attribute identifies the encryption method that is used to encrypt the block of data before it is inserted in the stream.
 

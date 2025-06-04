@@ -58,7 +58,7 @@
             <extension base="swe:AbstractEncodingType">
                 <attribute default="true" name="collapseWhiteSpaces" type="boolean" use="optional">
                     <annotation>
-                        <documentation>Indicates whether white spaces (i.e. space, tab, CR, LF) should be collapsed with separators when parsing the data stream</documentation>
+                        <documentation>Indicates whether white spaces (i.e., space, tab, CR, LF) should be collapsed with separators when parsing the data stream</documentation>
                     </annotation>
                 </attribute>
                 <attribute default="." name="decimalSeparator" type="string" use="optional">
@@ -68,12 +68,12 @@
                 </attribute>
                 <attribute name="tokenSeparator" type="string" use="required">
                     <annotation>
-                        <documentation>Character sequence used as the token separator (i.e. between two successive values)</documentation>
+                        <documentation>Character sequence used as the token separator (i.e., between two successive values)</documentation>
                     </annotation>
                 </attribute>
                 <attribute name="blockSeparator" type="string" use="required">
                     <annotation>
-                        <documentation>Character sequence used as the block separator (i.e. between two successive blocks in the data set. The end of a block is reached once all values from the data tree have been encoded once)</documentation>
+                        <documentation>Character sequence used as the block separator (i.e., between two successive blocks in the data set. The end of a block is reached once all values from the data tree have been encoded once)</documentation>
                     </annotation>
                 </attribute>
             </extension>

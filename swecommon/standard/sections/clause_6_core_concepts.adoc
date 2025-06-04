@@ -7,7 +7,7 @@ include::../requirements/core/requirements_class.adoc[]
 
 The generic SWE Common data model defined by this standard aims at providing verbose information to robustly describe sensor related datasets. We define Sensor Data as data resulting from the observation of properties of virtual or real world objects (or features) by any type of Observation Procedure (See the Observation and Measurements specification OGC 07-022r1 for a more complete description of the observation model used in SWE).
 
-Sensor related datasets however are not limited to sensor observation values, but can also include auxiliary information such as status or ancillary data. In the following sections, we will use the term ‘property’ in a broader sense, which does not necessarily imply “property measured by a sensor”.
+Sensor related datasets however are not limited to sensor observation values, but can also include auxiliary information such as status or ancillary data. In the following sections, we will use the term ‘property’ in a broader sense, which does not necessarily imply “property measured by a sensor.”
 
 A dataset is composed of Data Components whose values need to be put into context in order to be fully understood and interpreted, by either humans or machines. The SWE Common Data Model provides several pieces of information that are necessary to achieve this goal. More precisely, the SWE Common Data Model covers the following aspects of datasets description:
 
@@ -24,7 +24,7 @@ include::../requirements/core/requirement1.adoc[]
 [[core_data_rep]]
 === Data Representation
 
-Data representation deals with how property values are represented and stored digitally. Each component (or field) in a dataset carries a value that represents the state of a property. This representation will vary depending on the nature of the method used to capture the data and/or the target usage. For instance, a fluid temperature can be represented as a decimal number expressed in degrees Celsius (i.e. 25.4 °C), or as a categorical value taken from a list of possible choices (such as “freezing, cold, normal, warm, hot”).
+Data representation deals with how property values are represented and stored digitally. Each component (or field) in a dataset carries a value that represents the state of a property. This representation will vary depending on the nature of the method used to capture the data and/or the target usage. For instance, a fluid temperature can be represented as a decimal number expressed in degrees Celsius (i.e., 25.4 °C), or as a categorical value taken from a list of possible choices (such as “freezing, cold, normal, warm, hot”).
 
 The following types of representations have been identified: Boolean, Categorical, Continuous Numerical, Discrete Countable and Textual. The paragraphs below explain basic features of each of these representation types.
 
@@ -51,7 +51,7 @@ The “Boolean” class described in <<uml_boolean_class>> is used to define a d
 [[core_categorical_rep]]
 ==== Categorical
 
-A categorical representation is a type of discrete representation of a property that only allows picking a value from a well defined list of possibilities (i.e. categories). This list is called a code space in this standard, following ISO 19103 terminology.
+A categorical representation is a type of discrete representation of a property that only allows picking a value from a well defined list of possibilities (i.e., categories). This list is called a code space in this standard, following ISO 19103 terminology.
 
 The different possible values constituting a code space are usually listed explicitly in an out-of-band dictionary or ontology. This is necessary because each value should be defined formally and unambiguously, so that it can be interpreted correctly.
 
@@ -61,7 +61,7 @@ The different possible values constituting a code space are usually listed expli
 
 Biological or chemical species data is usually represented by a categorical data component that can leverage on existing controlled vocabulary.
 
-A camera mode can be represented by a categorical value: AUTO_FOCUS, MANUAL_FOCUS, etc...
+A camera mode can be represented by a categorical value: AUTO_FOCUS, MANUAL_FOCUS, etc.
 ====
 
 include::../requirements/core/requirement3.adoc[]
@@ -79,7 +79,7 @@ Numerical representation is often used for continuous values and, in this case, 
 ====
 *Examples*
 
-Temperature measurements can be represented by a number associated to a unit such as degrees Celsius or Fahrenheit: 23.51°C, 94°F
+Temperature measurements can be represented by a number associated to a unit such as degrees Celsius or Fahrenheit: 23.51°C, 94°F.
 
 A velocity vector is composed of several values (usually 2 or 3) associated to a unit of speed: [1.0 2.0 3.0] m/s.
 ====
@@ -91,7 +91,7 @@ The “Quantity” class described in <<uml_quantity_class>> is used to define a
 [[core_countable_rep]]
 ==== Countable (discrete)
 
-Discrete countable properties are also of interest and are most accurately captured with a numerical integer representation. They do not require a unit since the unit is always the unit of count (i.e. the person if we are counting persons, the pixel if we are counting pixels, etc). Note that continuous properties can also be represented as integers with certain combinations of scale and precision. This case should not be confused with the countable properties described here.
+Discrete countable properties are also of interest and are most accurately captured with a numerical integer representation. They do not require a unit since the unit is always the unit of count (i.e., the person if we are counting persons, the pixel if we are counting pixels, etc). Note that continuous properties can also be represented as integers with certain combinations of scale and precision. This case should not be confused with the countable properties described here.
 
 [example%unnumbered]
 ====
@@ -131,7 +131,7 @@ The “Text” class described in <<uml_text_class>> is used to define a data co
 [[core_data_constraints]]
 ==== Constraints
 
-Constraints can be added to some representation types to further restrict the set of possible values allowed for a given property:
+Constraints can be added to some representation types to further restrict the set of possible values allowed for a given property.
 
   * A boolean representation cannot be restricted further since it is already limited to only two possibilities.
   * A numerical representation can be constrained by a list of allowed values and/or bounded or unbounded intervals. A decimal representation can also be constrained by the number of significant digits after the decimal point.
@@ -158,9 +158,9 @@ We define “Nature of data” as the information needed to understand what prop
 [[core_human_readable_info]]
 ==== Human readable information
 
-The first means by which nature of data can be communicated is through human readable text. The data component’s description, which is present in all data types defined in this specification, can hold any length of text for this purpose. The data component’s label is used to carry short human readable information (i.e. a short name); this is useful to allow data consumers to quickly identify the represented property.
+The first means by which nature of data can be communicated is through human readable text. The data component’s description, which is present in all data types defined in this specification, can hold any length of text for this purpose. The data component’s label is used to carry short human readable information (i.e., a short name); this is useful to allow data consumers to quickly identify the represented property.
 
-It is not recommended to use the concepts of “description” and “label” in a way that they contain robust semantic information (i.e. that machines can rely upon). The content of such fields is intended to be interpretable solely by humans.
+It is not recommended to use the concepts of “description” and “label” in a way that they contain robust semantic information (i.e., that machines can rely upon). The content of such fields is intended to be interpretable solely by humans.
 
 [[core_robust_semantics]]
 ==== Robust semantics
@@ -214,9 +214,9 @@ Quality information can be essential to the data consumer and the SWE Common Dat
 [[core_quality_info]]
 ==== Simple quality information
 
-Simple quality information can be associated with any scalar data component, in the form of another scalar or range value. The quality information defined here applies solely to the value of the associated data component (i.e. the measurement value) and, depending on its data type, quality can be represented by a numerical, categorical or textual value, or by a range of values.
+Simple quality information can be associated with any scalar data component, in the form of another scalar or range value. The quality information defined here applies solely to the value of the associated data component (i.e., the measurement value) and, depending on its data type, quality can be represented by a numerical, categorical or textual value, or by a range of values.
 
-This quality information can be static, i.e. constant over the whole dataset, or dynamic and provided with the data itself. In this case, the quality value is in fact carried by another component of the dataset (and described in SWE Common as such).
+This quality information can be static, i.e., constant over the whole dataset, or dynamic and provided with the data itself. In this case, the quality value is in fact carried by another component of the dataset (and described in SWE Common as such).
 
 The exact type of quality information provided should be specified via semantic tagging just like with any other property in SWE Common.
 
@@ -224,15 +224,15 @@ The exact type of quality information provided should be specified via semantic 
 ====
 *Examples*
 
-Examples of quality measures are “absolute accuracy”, “relative accuracy”, “absolute precision”, “tolerance”, and “confidence level”.
+Examples of quality measures are “absolute accuracy”, “relative accuracy”, “absolute precision”, “tolerance”, and “confidence level.”
 
-Quality related comments can also describe operating conditions, such as “sensor contained blockage and was removed” or “engineer on site, values may be affected”. This information can inform the user of potential inaccuracy in the data across certain periods.
+Quality related comments can also describe operating conditions, such as “sensor contained blockage and was removed” or “engineer on site, values may be affected.” This information can inform the user of potential inaccuracy in the data across certain periods.
 ====
 
 [[core_nil_values]]
 ==== Nil Values
 
-The concept of NIL value is used to indicate that the actual value of a property cannot be given in the data stream, and that a special code (i.e. reserved value) is used instead. It is thus a kind of quality information. The reason for which the value is not included is essential for a good interpretation of the data, so each reserved value is associated to a well-defined reason. In that sense, a NIL value definition is essentially a mapping between a reserved value and a reason.
+The concept of NIL value is used to indicate that the actual value of a property cannot be given in the data stream, and that a special code (i.e., reserved value) is used instead. It is thus a kind of quality information. The reason for which the value is not included is essential for a good interpretation of the data, so each reserved value is associated to a well-defined reason. In that sense, a NIL value definition is essentially a mapping between a reserved value and a reason.
 
 Each component of a dataset can define one or several NIL values corresponding to one or more reasons.
 
@@ -241,8 +241,8 @@ Each component of a dataset can define one or several NIL values corresponding t
 *Example*
 
 In low level satellite imagery with, for instance, 8-bits per channel, the imagery metadata often defines:
-- A reserved value to indicate that a pixel value was “Below Detection Limit” usually set to ‘0’
-- A reserved value to indicate that a pixel value was “Above Detection Limit” usually set to ‘255’
+- A reserved value to indicate that a pixel value was “Below Detection Limit” usually set to ‘0’; and
+- A reserved value to indicate that a pixel value was “Above Detection Limit” usually set to ‘255’.
 ====
 
 include::../requirements/core/requirement11.adoc[]
@@ -252,7 +252,7 @@ include::../requirements/core/requirement11.adoc[]
 
 Full lineage and traceability is not in the scope of this specification. It is fully addressed by the OGC® Sensor Model Language Standard, which allows robust definition of measurement chains, with detailed information about the processing that takes place at each stage of the chain. This means that complex lineage guarantying full traceability can be recorded in a SensorML process chain, separately from the data itself.
 
-Datasets can be associated to lineage information described using the Sensor Model Language by using a metadata wrapper such as the “Observation” object defined in the OGC® Observations, Measurements and Samples Specification (OMS). In this standard, the “procedure” and “observer” properties of the “Observation” class allows attaching detailed information about the measurement process (that is to say a description of how the data was obtained, i.e. lineage), to the data itself.
+Datasets can be associated to lineage information described using the Sensor Model Language by using a metadata wrapper such as the “Observation” object defined in the OGC® Observations, Measurements and Samples Specification (OMS). In this standard, the “procedure” and “observer” properties of the “Observation” class allows attaching detailed information about the measurement process (that is to say a description of how the data was obtained, i.e., lineage), to the data itself.
 
 
 [[core_data_structure]]
@@ -277,16 +277,16 @@ This standard also defines the concept of “data component” as any part of th
 
 A dataset representing a time series of observations acquired by a mobile sensor can be encoded with various methods depending on the requirements:
 
-- JSON encoding can be used when data needs to be easily styled to other markup formats (such as HTML) or when precise error localization (in the case of an error in the stream) is needed.
+- JSON encoding can be used when data needs to be easily styled to other markup formats (such as HTML) or when precise error localization (in the case of an error in the stream) is needed;
 
-- ASCII encoding can be used to achieve a good compromise between readability and size efficiency.
+- ASCII encoding can be used to achieve a good compromise between readability and size efficiency; and
 
-- Binary encoding can be used (eventually with embedded compression) when pure performance (i.e. size but also reading and writing throughput) is the main concern.
+- Binary encoding can be used (eventually with embedded compression) when pure performance (i.e., size but also reading and writing throughput) is the main concern.
 ====
 
 A data component can be both a data descriptor and a data container:
 
-- A data component used as a data descriptor defines the structure, representation, semantics, quality, and other metadata of a data set but does not include the actual data values. 
+- A data component used as a data descriptor defines the structure, representation, semantics, quality, and other metadata of a data set but does not include the actual data values; and
 
 - A data component used as a data container equally defines the dataset but also includes the actual property values.
 

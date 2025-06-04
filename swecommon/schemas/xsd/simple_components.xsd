@@ -1,6 +1,6 @@
 <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:swe="http://www.opengis.net/swe/2.0" targetNamespace="http://www.opengis.net/swe/2.0" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.1">
     <annotation>
-        <documentation>SWE Common Data Model schema for simple data components (i.e. without descendants). See requirements class http://www.opengis.net/spec/SWE/2.0/req/xsd-simple-components/
+        <documentation>SWE Common Data Model schema for simple data components (i.e., without descendants). See requirements class http://www.opengis.net/spec/SWE/2.0/req/xsd-simple-components/
         
         SWE Common is an OGC Standard.
         Copyright (c) 2010 Open Geospatial Consortium. 
@@ -124,7 +124,7 @@
     </complexType><!-- ================================================= -->
     <element name="Time" substitutionGroup="swe:AbstractSimpleComponent" type="swe:TimeType">
         <annotation>
-            <documentation>Scalar component used to represent a time quantity either as ISO 8601 (e.g. 2004-04-18T12:03:04.6Z) or as a duration relative to a time of reference</documentation>
+            <documentation>Scalar component used to represent a time quantity either as ISO 8601 (e.g., 2004-04-18T12:03:04.6Z) or as a duration relative to a time of reference</documentation>
         </annotation>
     </element>
     <complexType name="TimeType">
@@ -321,7 +321,7 @@
             <extension base="swe:AbstractSWEIdentifiableType">
                 <attribute name="updatable" type="boolean" use="optional">
                     <annotation>
-                        <documentation>Specifies if the value of a data component can be updated externally (i.e. is variable)</documentation>
+                        <documentation>Specifies if the value of a data component can be updated externally (i.e., is variable)</documentation>
                     </annotation>
                 </attribute>
                 <attribute default="false" name="optional" type="boolean" use="optional">

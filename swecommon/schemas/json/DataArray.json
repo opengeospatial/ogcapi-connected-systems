@@ -27,7 +27,7 @@
         {
           "properties": {
             "elementCount": {
-              "description": "Specifies the size of the array (i.e. the number of elements of the defined type it contains)",
+              "description": "Specifies the size of the array (i.e., the number of elements of the defined type it contains)",
               "oneOf": [
                 { "$ref": "basicTypes.json#/$defs/AssociationAttributeGroup" },
                 { "$ref": "basicTypes.json#/$defs/ElementCount" }

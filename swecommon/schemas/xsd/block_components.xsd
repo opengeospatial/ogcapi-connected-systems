@@ -22,7 +22,7 @@
                 <sequence>
                     <element name="elementCount" type="swe:CountPropertyType">
                         <annotation>
-                            <documentation>Specifies the size of the array (i.e. the number of elements of the defined type it contains)</documentation>
+                            <documentation>Specifies the size of the array (i.e., the number of elements of the defined type it contains)</documentation>
                         </annotation>
                     </element>
                     <element name="elementType">

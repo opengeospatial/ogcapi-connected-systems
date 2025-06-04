@@ -33,11 +33,11 @@ This Standard defines the following requirements classes and standardization tar
 | <<encoding_rules_json,style=full%>>
 |====
 
-Different types of implementations can seek conformance with this OGC® Standard:
+Different types of implementations can seek conformance with this OGC® Standard.
 
 * An implementation that defines a new data model shall at least conform with the core requirements class.
 
-* An encoding of the conceptual models (e.g. a protobuf encoding) shall implement at least one of the requirements classes listed in the "UML Models" section of the table.
+* An encoding of the conceptual models (e.g., a protobuf encoding) shall implement at least one of the requirements classes listed in the "UML Models" section of the table.
 
 * An implementation that produces or consumes SWE Common data components encoded in JSON shall implement at least one of the requirements classes listed in the "JSON Encodings" section of the table.
 

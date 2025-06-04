@@ -67,7 +67,7 @@ Inline values for “DataArray”, “Matrix” and “DataStream” components 
 
 include::../requirements/json/block_components/requirement2.adoc[]
 
-However, when values are provided separately from the component description (e.g. when datastream values are provided separately), any encoding methods defined in <<encoding_rules>> can be used. The out-of-band values can be referenced using an URL, for which at least the schemes http, https and data (as specified in <<RFC2397>>) shall be supported.
+However, when values are provided separately from the component description (e.g., when datastream values are provided separately), any encoding methods defined in <<encoding_rules>> can be used. The out-of-band values can be referenced using an URL, for which at least the schemes http, https and data (as specified in <<RFC2397>>) shall be supported.
 
 include::../requirements/json/block_components/requirement3.adoc[]
 

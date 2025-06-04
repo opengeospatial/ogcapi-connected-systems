@@ -7,12 +7,12 @@ JSON schemas defined in this section are a direct implementation of the UML conc
 
 All JSON examples given in this section are informative and are used solely for illustrating features of the normative model. Many of these examples reference semantic information by using URLs that resolve to the following online ontologies:
 
-- The OGC online registry at http://www.opengis.net/def/.
-- The QUDT quantity kinds ontology at http://qudt.org/2.1/vocab/quantitykind.
-- The SWEET ontology maintained by ESIP at http://sweetontology.net/.
+- The OGC online registry at http://www.opengis.net/def/;
+- The QUDT quantity kinds ontology at http://qudt.org/2.1/vocab/quantitykind;
+- The SWEET ontology maintained by ESIP at http://sweetontology.net/; and
 - The MMI ontology registry and repository at http://mmisw.org/ont/.
 
-Some of the JSON examples contain inline values while others don't. This is meant to illustrate that the component objects defined by the JSON implementation can be used as value objects for properties of larger metadata objects (e.g. SensorML system descriptions), but can also be used as descriptors to describe, for instance, the content of a datastream or the rangeset of a coverage.
+Some of the JSON examples contain inline values while others don't. This is meant to illustrate that the component objects defined by the JSON implementation can be used as value objects for properties of larger metadata objects (e.g., SensorML system descriptions), but can also be used as descriptors to describe, for instance, the content of a datastream or the rangeset of a coverage.
 
 
 // subsections

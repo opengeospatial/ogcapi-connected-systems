@@ -75,7 +75,7 @@ These data types are specified in the normative table below:
                      “byteLength” attribute is set. | Fixed length string composed of a sequence of UTF-8 encoded characters as specified by the Unicode Standard (2.5), and padded with 0 characters.
 |===
 
-The data type should be chosen so that its range allows the encoding of all possible values for a field (i.e. compatible with the field representation and constraints) including NIL values. This means that certain combinations of data type and components are not allowed. If a scalar component does not specify any constraint, any data type compatible with its representation can be used and it is the responsibility of the implementation to insure that all future values for the component will “fit” in the data type.
+The data type should be chosen so that its range allows the encoding of all possible values for a field (i.e., compatible with the field representation and constraints) including NIL values. This means that certain combinations of data type and components are not allowed. If a scalar component does not specify any constraint, any data type compatible with its representation can be used and it is the responsibility of the implementation to insure that all future values for the component will “fit” in the data type.
 
 include::../requirements/json/advanced_encodings/requirement6.adoc[]
 
@@ -91,10 +91,10 @@ The value of the “byteEncoding” attribute allows the selection of either the
 
 The “Block” element implements the UML class with the same name. It is used to specify padding, encryption and/or compression of a block of data corresponding to an aggregate component.
 
-The “ref” attribute shall point to an aggregate component in the data description and set one or more of the “compression”, “encryption” or “padding” attributes.
+The “ref” attribute shall point to an aggregate component in the data description and set one or more of the “compression,” “encryption,” or “padding” attributes.
 
 include::../requirements/json/advanced_encodings/requirement8.adoc[]
 
 When padding is specified, padding bytes with a value of zero are inserted before (when “paddingBytesBefore” is set) and/or after (when “paddingBytesAfter” is set) the whole block of values corresponding to the aggregate components. Decoders should skip these bytes completely.
 
-This standard does not specify specific compression or encryption methods. Future extensions can define single or groups of methods to target specific application domains. Compression methods can be specific such as the ones for video (e.g. MPEG-2, MPEG-4, etc.) or imagery (e.g. JPEG, JPEG2000, etc.) or generic so that they are applicable for any kind of data (e.g. GZIP, BZIP, etc.). They can be lossy or lossless. When a compression method results in variable length data blocks, the method should also define how the the block length is specified.
+This standard does not specify specific compression or encryption methods. Future extensions can define single or groups of methods to target specific application domains. Compression methods can be specific such as the ones for video (e.g., MPEG-2, MPEG-4, etc.) or imagery (e.g., JPEG, JPEG2000, etc.) or generic so that they are applicable for any kind of data (e.g., GZIP, BZIP, etc.). They can be lossy or lossless. When a compression method results in variable length data blocks, the method should also define how the the block length is specified.

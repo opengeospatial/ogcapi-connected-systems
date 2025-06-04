@@ -18,11 +18,11 @@ image::figures/fig7.27.png[]
 
 This class implements a full composite pattern, so that each “item” can be any data component, including simple and aggregate types.
 
-The “choiceValue” attribute is used to represent the token value that would be present in the data stream and that indicates the actual choice selection before the corresponding data can be given (i.e. knowing what choice item was selected ahead of time is necessary for proper decoding of encoded data streams). 
+The “choiceValue” attribute is used to represent the token value that would be present in the data stream and that indicates the actual choice selection before the corresponding data can be given (i.e., knowing what choice item was selected ahead of time is necessary for proper decoding of encoded data streams). 
 
 *Items*
 
-Each “item” attribute can take an instance of any concrete sub-class of “AbstractDataComponent”, which is the superset of all data component types defined in this standard. The name of each item shall be unique within a given “DataChoice” instance so that it can be used as a key to uniquely identify and/or index each one of the choice components.
+Each “item” attribute can take an instance of any concrete sub-class of “AbstractDataComponent,” which is the superset of all data component types defined in this standard. The name of each item shall be unique within a given “DataChoice” instance so that it can be used as a key to uniquely identify and/or index each one of the choice components.
 
 include::../requirements/uml/choice_components/requirement2.adoc[]
 

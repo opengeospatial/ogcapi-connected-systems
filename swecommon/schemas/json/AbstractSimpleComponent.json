@@ -18,12 +18,12 @@
           "minLength": 1
         },
         "nilValues": {
-          "description": "Defines reserved values with special meaning (e.g. missing, out-of-range, etc.)"
+          "description": "Defines reserved values with special meaning (e.g., missing, out-of-range, etc.)"
         },
         "constraint": {
         },
         "value": {
-          "description": "Inline value(s) for the component. This property is optional to enable structure to act as a schema for values provided separately (e.g. in a datastream)"
+          "description": "Inline value(s) for the component. This property is optional to enable structure to act as a schema for values provided separately (e.g., in a datastream)"
         }
       }
     }

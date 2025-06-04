@@ -48,7 +48,7 @@ include::../requirements/uml/record_components/requirement2.adoc[]
 ====
 *Example*
 
-A “DataRecord” can group related values such as “temperature”, “pressure” and “wind speed” into a structure called “weather measurements”. This feature is often used to organize the data and present it in a clear way to the user.
+A “DataRecord” can group related values such as “temperature,” “pressure,” and “wind speed” into a structure called “weather measurements.” This feature is often used to organize the data and present it in a clear way to the user.
 
 Similarly a “DataRecord” can be used to group values of several spectral bands in multi-spectral sensor data. However, using a “DataArray” may be easier to describe hyper spectral datasets with several hundreds of bands.
 ====
@@ -61,7 +61,7 @@ NOTE: _The slightly different definition of record found in ISO 19103 provides f
 
 The “Vector” class is used to express multi-dimensional quantities with respect to a well defined referenced frame (usually a spatial or spatio-temporal reference frame). This is done by projecting the quantity on one or several axes that define the reference frame and assigning a value to each of the axis projections.
 
-The “Vector” class is a special case of a record that takes a collection of coordinates that are restricted to a numerical representation. Coordinates of a “Vector” can thus only be of type “Quantity”, “Count” or “Time”. Its UML diagram is shown below:
+The “Vector” class is a special case of a record that takes a collection of coordinates that are restricted to a numerical representation. Coordinates of a “Vector” can thus only be of type “Quantity,” “Count,” or “Time.” Its UML diagram is shown below:
 
 .Vector Class
 image::figures/fig7.26.png[]
@@ -76,7 +76,7 @@ include::../requirements/uml/record_components/requirement3.adoc[]
 
 This class contains a mandatory “referenceFrame” attribute that identifies the frame of reference with respect to which the vector quantity is expressed. The coordinates of the vector correspond to values projected on the axes of this frame.
 
-The “referenceFrame” attribute is inherited by all components of the “Vector”, so that it shall not be redefined for each coordinate. However the “axisID” attribute shall be specified for each coordinate, in order to unambiguously indicate what axis of the reference frame it corresponds to.
+The “referenceFrame” attribute is inherited by all components of the “Vector,” so that it shall not be redefined for each coordinate. However the “axisID” attribute shall be specified for each coordinate, in order to unambiguously indicate what axis of the reference frame it corresponds to.
 
 include::../requirements/uml/record_components/requirement4.adoc[]
 
@@ -94,7 +94,7 @@ Correctly identifying the local and reference frame is an important feature that
 ====
 *Example 1*
 
-A position vector (or location vector) is used to locate the origin of a frame of interest (the local frame) relative to the origin of a frame of reference (the reference frame) through a linear translation. It is composed of three coordinates of type “Quantity”, each with a definition indicating that the coordinate represents a length expressed in the desired unit. The definition of the “Vector” itself should also indicate that it is a “location vector”.
+A position vector (or location vector) is used to locate the origin of a frame of interest (the local frame) relative to the origin of a frame of reference (the reference frame) through a linear translation. It is composed of three coordinates of type “Quantity”, each with a definition indicating that the coordinate represents a length expressed in the desired unit. The definition of the “Vector” itself should also indicate that it is a “location vector.”
 
 [%unnumbered]
 image::figures/vector_diagram1.png[]

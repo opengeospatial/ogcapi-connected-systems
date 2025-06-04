@@ -33,7 +33,7 @@ The “elementCount” attribute is used to indicate the size of the array, that
 
 *Element Type*
 
-The content of the “elementType” attribute defines the exact structure of each element in the array. The data component used and all of its children shall not include any inline values, as these will be block encoded in the “values” attribute of the parent “DataArray”.
+The content of the “elementType” attribute defines the exact structure of each element in the array. The data component used and all of its children shall not include any inline values, as these will be block encoded in the “values” attribute of the parent “DataArray.”
 
 include::../requirements/uml/block_components/requirement2.adoc[]
 
@@ -112,7 +112,7 @@ As with any other data component, the “name” and “description” can be us
 
 When a “DataArray” is used to package data relative to the spectral response of a sensor, the array “definition” attribute can be used to point to the formal out-of-band definition of the “spectral response” concept.
 
-Similarly a “DataArray” used to describe the output data of an Argo float would have its “definition” attribute reference the formal definition of a “profile”.
+Similarly a “DataArray” used to describe the output data of an Argo float would have its “definition” attribute reference the formal definition of a “profile.”
 ====
 
 The value of the “definition” attribute of the “Count” instance used as the “elementCount” is also especially important, since it is used to define the meaning of the array dimension. Thanks to this, it is possible to tag the dimension of an array as spatial, temporal, spectral, or any other kind. However it is not mandatory as it is on other simple components.
@@ -174,12 +174,12 @@ In particular it is often used to specify the orientation of an object relative 
 [[uml_datastream_class]]
 ==== DataStream Class
 
-The “DataStream” class has a structure similar than the “DataArray” class but is not a data component (i.e. it does not derive from “AbstractDataComponent”) and thus cannot be used as a child of other aggregate components. Below is its UML diagram:
+The “DataStream” class has a structure similar than the “DataArray” class but is not a data component (i.e., it does not derive from “AbstractDataComponent”) and thus cannot be used as a child of other aggregate components. Below is its UML diagram:
 
 .DataStream Class
 image::figures/fig7.31.png[]
 
-This class should be used as the wrapper object to define a complete data stream. It defines a data stream as containing a list of elements with an arbitrary complex structure. An important feature is that the data stream can be open ended (i.e. the number of elements is not known in advance) and is thus designed to support real time streaming of data.
+This class should be used as the wrapper object to define a complete data stream. It defines a data stream as containing a list of elements with an arbitrary complex structure. An important feature is that the data stream can be open ended (i.e., the number of elements is not known in advance) and is thus designed to support real time streaming of data.
 
 *Element Count*
 

@@ -12,7 +12,7 @@ The way values are encoded is linked to the data structure specified using a hie
 
 ==== Rules for Scalar Components
 
-The value of each scalar component is encoded as a single scalar value. The actual binary representation of this scalar value depends on the encoding method. For example, in “TextEncoding”, a numerical value is represented by its string representation that usually span several bytes (e.g. ‘1.2345’ spans 6 bytes), why with the “BinaryEncoding” encode a similar value would likely be encoded as an IEEE 754 single precision floating-point format.
+The value of each scalar component is encoded as a single scalar value. The actual binary representation of this scalar value depends on the encoding method. For example, in “TextEncoding,” a numerical value is represented by its string representation that usually span several bytes (e.g., ‘1.2345’ spans 6 bytes), why with the “BinaryEncoding” encode a similar value would likely be encoded as an IEEE 754 single precision floating-point format.
 
 The value of a “Time” component is encoded either as a decimal value or as a string in the case where a calendar representation or indeterminate value is used.
 
@@ -45,7 +45,7 @@ The “DataChoice” is an aggregate consisting of a choice of several child com
 [%unnumbered]
 image::figures/encoding_choice.png[]
 
-The data block corresponding to such a structure would then sequentially include the item identifier (i.e. the choice value) and then the value(s) for the selected item. The item may consist of a single value if it is a scalar or multiple values if it is itself an aggregate or a range component.
+The data block corresponding to such a structure would then sequentially include the item identifier (i.e., the choice value) and then the value(s) for the selected item. The item may consist of a single value if it is a scalar or multiple values if it is itself an aggregate or a range component.
 
 include::../requirements/encoding_rules/general/requirement2.adoc[]
 

@@ -2,12 +2,12 @@
 :doctype: standard
 :encoding: utf-8
 :lang: en
-:status: draft
+:status: approved
 :committee: technical
 :external-id: http://www.opengis.net/doc/DIS/SWE/3.0
 :docnumber: 24-014
-:received-date: yyyy-mm-dd
-:issued-date: yyyy-mm-dd
+:received-date: 2025-03-19
+:issued-date: 2025-06-02
 :published-date: yyyy-mm-dd
 :fullname: Alexandre Robin
 :docsubtype: implementation

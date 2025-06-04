@@ -47,7 +47,7 @@
 					</element>
 					<element name="description" type="string" minOccurs="0">
 						<annotation>
-							<documentation>Textual description (i.e. human readable) of the data component usually used to clarify its nature</documentation>
+							<documentation>Textual description (i.e., human readable) of the data component usually used to clarify its nature</documentation>
 						</annotation>
 					</element>
 				</sequence>
