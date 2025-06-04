@@ -20,7 +20,7 @@ A `DataStream` resource represents data produced by a single output of an (obser
 
 In the CS API Standard, `DataStream` resources are a special kind of resource that implements the _http://www.w3.org/ns/sosa/ObservationCollection[sosa:ObservationCollection]_ concept, with the following restrictions:
 
-- All observations in a `DataStream` are produced by the same `System`.
+- All observations in a `DataStream` are produced by the same `System`; and
 - All observations in a `DataStream` share the same observed properties and the same result schema.
 
 This section defines the attributes and associations composing a `DataStream` resource, but the exact way they are encoded in the payload is defined by each encoding. For encodings defined in this document, please see:
@@ -266,7 +266,7 @@ Note that the media type in the request has to be properly URL encoded, leading 
 
 In the CS API Standard, `Observation` resources are a special kind of resource that implements the _http://www.w3.org/ns/sosa/Observation[sosa:Observation]_ concept.
 
-In the CS API, `Observation` resources are always associated to a `DataStream` (e.g. a type of https://www.w3.org/TR/vocab-ssn-ext/#sosa:ObservationCollection[_ObservationCollection_]). Some properties of the observation (e.g. link to the observing system, observed properties) can thus be omitted as they are provided at the datastream level.
+In the CS API, `Observation` resources are always associated to a `DataStream` (e.g., a type of https://www.w3.org/TR/vocab-ssn-ext/#sosa:ObservationCollection[_ObservationCollection_]). Some properties of the observation (e.g., link to the observing system, observed properties) can thus be omitted as they are provided at the datastream level.
 
 In addition, the CS API does not restrict `Observation` resources to have a single observed property. It is thus possible to package the observation result of several properties in a single resource.
 
@@ -295,7 +295,7 @@ The following tables describe the attributes and associations of an `Observation
 | `result`            | `sosa:hasResult` | Observation result, carrying the estimated values of the observed properties. | Any | Required
 |====
 
-NOTE: The `phenomenonTime` can be in the far past (e.g. geological or deep space observations) or in the future (e.g. weather forecast). The `resultTime`, however, can never be in the future.
+NOTE: The `phenomenonTime` can be in the far past (e.g., geological or deep space observations) or in the future (e.g., weather forecast). The `resultTime`, however, can never be in the future.
 
 [#observation-assocs,reftext='{table-caption} {counter:table-num}']
 .Observation Associations

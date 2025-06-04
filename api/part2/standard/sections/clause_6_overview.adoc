@@ -13,7 +13,7 @@ Flows carrying observation and status data coming out of a system are called `Da
 
 In this Standard, `Observations` and `Commands` are purposefully not modelled as `Features`. This choice was made to keep a clear separation between the `Features of Interest` that represent concrete or virtual objects (or things) of interest (and in the vast majority of use cases, real-world objects) and the other concepts that are used to encapsulate dynamic data related to these features:
 
-- `Observations` carry the result of the estimation of one or more feature properties, at a given time (and location).
+- `Observations` carry the result of the estimation of one or more feature properties, at a given time (and location); and
 
 - `Commands` carry the desired value of one or more feature properties, at a given time.
 
@@ -48,7 +48,7 @@ The table below provides a short summary description of these resource types:
 | Feasibility        | <<clause-command-feasibility>> | Feasibility requests, including the command parameters data. | JSON, SWE-JSON, SWE-Text, SWE-Binary
 | Feasibility Status | <<clause-command-feasibility>> | Status info about a given feasibility request. | JSON
 | Feasibility Result | <<clause-command-feasibility>> | Result of a given feasibility request. | JSON
-| System Event       | <<clause-system-events>>       | System events (e.g. deployment, maintenance or replacement events). | JSON
+| System Event       | <<clause-system-events>>       | System events (e.g., deployment, maintenance or replacement events). | JSON
 |====
 
 NOTE: The encodings listed in the table are the ones defined in this Standard document but extensions can define additional encodings.

@@ -12,7 +12,7 @@
           "type": "Quantity",
           "definition": "http://sensorml.com/ont/swe/property/PanAngle",
           "label": "Pan Angle",
-          "description": "Rotation of the camera around its vertical axis (i.e. causing the image to translate along its horizontal axis)",
+          "description": "Rotation of the camera around its vertical axis (i.e., causing the image to translate along its horizontal axis)",
           "uom": {
             "code": "deg"
           }
@@ -22,7 +22,7 @@
           "type": "Quantity",
           "definition": "http://sensorml.com/ont/swe/property/PanAngle",
           "label": "Pan Angle",
-          "description": "Rotation of the camera around its horizontal axis (i.e. causing the image to translate along its vertical axis)",
+          "description": "Rotation of the camera around its horizontal axis (i.e., causing the image to translate along its vertical axis)",
           "uom": {
             "code": "deg"
           }

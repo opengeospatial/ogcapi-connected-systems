@@ -4,13 +4,13 @@
 === Overview
 include::../requirements/feasibility/requirements_class_feasibility.adoc[]
 
-The execution of certain commands is sometimes impossible due to internal or external constraints (e.g. conflict with other scheduled commands, conflict with another user that has exclusive control on the system, etc.).
+The execution of certain commands is sometimes impossible due to internal or external constraints (e.g., conflict with other scheduled commands, conflict with another user that has exclusive control on the system, etc.).
 
 In order for a client to know if a command/task is feasible without sending the actual command, feasibility channels are supported by the CS API.
 
-In addition to providing a binary (i.e. YES/NO) response to a feasibility request, the CS API also provides a mechanism for returning detailed feasibility analysis information to a client (e.g. provide chances of success, task execution steps, alternatives, etc.).
+In addition to providing a binary (i.e., YES/NO) response to a feasibility request, the CS API also provides a mechanism for returning detailed feasibility analysis information to a client (e.g., provide chances of success, task execution steps, alternatives, etc.).
 
-A feasibility request is initiated by creating a `Command` resource on the feasibility channel. The server can then respond synchronously or asynchronously just like for a regular command channel. The parameters used for the feasibility request are the same as the one for the corresponding commands (i.e. both commands and feasibility share the same parameters schema).
+A feasibility request is initiated by creating a `Command` resource on the feasibility channel. The server can then respond synchronously or asynchronously just like for a regular command channel. The parameters used for the feasibility request are the same as the one for the corresponding commands (i.e., both commands and feasibility share the same parameters schema).
 
 
 
@@ -97,7 +97,7 @@ Below are examples of feasibility results for various use cases:
 In addition to a binary (yes/no) feasibility response, the result of the feasibility analysis may include the earliest time at which the location could be reached, as well as the expected trajectory.
 
 *Example 2: Tasking a satellite to cover an area with visible imagery* +
-The result of the feasibility analysis may include all the attempts needed to have a high enough chance of success to obtain a clear (i.e. cloud free) image of the area. If the area is too large to be covered with a single image, an estimated success rate and completion time could be provided separately for each subdivision of the geographic area.
+The result of the feasibility analysis may include all the attempts needed to have a high enough chance of success to obtain a clear (i.e., cloud free) image of the area. If the area is too large to be covered with a single image, an estimated success rate and completion time could be provided separately for each subdivision of the geographic area.
 ====
 
 The set of result items associated to a given feasibility request is available at a nested endpoint under the corresponding `Feasibility` resource:

@@ -11,7 +11,7 @@ A `ControlStream` resource represents a control channel that is used to change t
 
 A `ControlStream` resource represents the real-time stream of command messages sent to the system, as well as all historical commands received through the channel. It can be used to provide access to real-time commands only, archived commands only, or both. The metadata in the `ControlStream` description can used to disambiguate between these cases.
 
-`Command` resources are available through their parent `ControlStream` resource, and each command can lead to the creation of one or more status reports (i.e. `CommandStatus` resources).
+`Command` resources are available through their parent `ControlStream` resource, and each command can lead to the creation of one or more status reports (i.e., `CommandStatus` resources).
 
 `ControlStream` and `Command` resources implement the _http://www.w3.org/ns/sosa/ActuationCollection[ActuationCollection]_ and _http://www.w3.org/ns/sosa/Actuation[Actuation]_ concepts defined in the {ogc-w3c-ssn}, respectively.
 
@@ -24,7 +24,7 @@ A `ControlStream` resource represents the real-time stream of command messages s
 
 In the CS API Standard, `ControlStream` resources are a special kind of resource that implements the _http://www.w3.org/ns/sosa/ActuationCollection[sosa:ActuationCollection]_ concept, with the following restrictions:
 
-- All commands in a `ControlStream` are received by the same `System`.
+- All commands in a `ControlStream` are received by the same `System`; and
 - All commands in a `ControlStream` share the same controlled properties and the same parameter schema.
 
 This section defines the attributes and associations composing a `ControlStream` resource, but the exact way they are encoded in the payload is defined by each encoding. For encodings defined in this document, please see:
@@ -80,7 +80,7 @@ The following tables describe the attributes and associations of the `ControlStr
 | `featuresOfInterest` | `sosa:hasUltimateFeatureOfInterest` | The ultimate features of interest that are affected by the commands in this control stream. | A list of `Feature` resources. | Optional
 |====
 
-NOTE: In the case of commands/actuations, the `sampling feature` is used to describe where the effector interacts with the feature of interest (e.g. the vent of an A/C system, the part of a larger system, etc.).
+NOTE: In the case of commands/actuations, the `sampling feature` is used to describe where the effector interacts with the feature of interest (e.g., the vent of an A/C system, the part of a larger system, etc.).
 
 When sampling features and ultimate features of interest are hosted on the same server, they are made accessible through sub-endpoints of the `DataStream` resource.
 
@@ -256,9 +256,9 @@ Note that the media type in the request has to be properly URL encoded.
 
 In the CS API Standard, `Command` resources are a special kind of resource that implements a generalization of the _http://www.w3.org/ns/sosa/Actuation[sosa:Actuation]_ concept.
 
-In the CS API, `Command` resources are always associated to a `ControlStream`. Some properties of the command (e.g. link to the parent system, controlled properties) can thus be omitted as they are provided at the control stream level.
+In the CS API, `Command` resources are always associated to a `ControlStream`. Some properties of the command (e.g., link to the parent system, controlled properties) can thus be omitted as they are provided at the control stream level.
 
-In addition, the CS API does not restrict `Command` resources to have a single controlled property. It is thus possible to package the desired value of several controlled parameters in a single command, and processing a command can result in actions on several properties at once (e.g. both orientation and FOV of a camera can be modified with a single 'ptz' command).
+In addition, the CS API does not restrict `Command` resources to have a single controlled property. It is thus possible to package the desired value of several controlled parameters in a single command, and processing a command can result in actions on several properties at once (e.g., both orientation and FOV of a camera can be modified with a single 'ptz' command).
 
 This section defines the attributes and associations composing a `Command` resource, but the exact way they are encoded in the payload is defined by each encoding. For encodings defined in this document, please see:
 
@@ -451,14 +451,14 @@ part:: The endpoint SHALL only expose the `CommandStatus` resources that are rel
 [[clause-commandresult-resource]]
 === CommandResult Resource
 
-Certain types of commands lead to the production of data (e.g. tasking a system for data collection, triggering a process such as a simulation run, etc.).
+Certain types of commands lead to the production of data (e.g., tasking a system for data collection, triggering a process such as a simulation run, etc.).
 
 Different types of result can be attached to a command status report:
 
-- Reference to one or more datastreams containing the result data, each with an optional time range.
-- Reference to one or more individual observations containing the result data.
-- Reference to a collection of observations containing the result data.
-- Inline result data encoded as described by the control stream result schema (can be one or more records)
+- Reference to one or more datastreams containing the result data, each with an optional time range;
+- Reference to one or more individual observations containing the result data;
+- Reference to a collection of observations containing the result data; and
+- Inline result data encoded as described by the control stream result schema (can be one or more records).
 
 NOTE: In the case of a command result provided inline, the result data may or may not be recorded separately in a datastream.
 
@@ -472,13 +472,13 @@ The following examples describe how command results are used in various use case
 A command is used to trigger a new run of a chemical plume dispersion model with certain parameters. The output of the model is a time series of observations where each observation provides the location of all particles for a given time (phenomenonTime). Each processed command leads to the creation of a new datastream that will contain all observations resulting for the model run. When the run is completed, a last progress report is provided with a reference to the datastream.
 
 *Example 2: UAV video footage task* +
-A command is used to task a UAV to collect video data while orbiting around a building. The output is a set of may observations (i.e. video frames) that are appended to the existing video datastream of the UAV. When the task is completed, a last status report is provided with a reference to the video datastream with a time range selecting the portion of the video stream that is relevant to the task.
+A command is used to task a UAV to collect video data while orbiting around a building. The output is a set of may observations (i.e., video frames) that are appended to the existing video datastream of the UAV. When the task is completed, a last status report is provided with a reference to the video datastream with a time range selecting the portion of the video stream that is relevant to the task.
 
 *Example 3: UAV picture task* +
 A command is used to task a UAV to collect an image at a specific location. The output is a single observation that is appended to the existing image datastream of the UAV. When the task is completed, a last progress report is provided with a reference to the image observation.
 
 *Example 4: Satellite imagery acquisition* +
-A command is used to task an earth observation satellite to collect imagery to cover a given geographic area (i.e. coverage request). The output is a set of one or more image observations that are appended to the existing image datastream of the EO sensor. When the task is completed, a last status report is provided with references to all the collected image observations.
+A command is used to task an earth observation satellite to collect imagery to cover a given geographic area (i.e., coverage request). The output is a set of one or more image observations that are appended to the existing image datastream of the EO sensor. When the task is completed, a last status report is provided with references to all the collected image observations.
 
 *Example 5: System state retrieval* +
 A command is used to query the state of a system. The result of the query is provided inline in the status report (potentially synchronously if the state data can be retrieved quickly).

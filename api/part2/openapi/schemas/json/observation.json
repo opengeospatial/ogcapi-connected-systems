@@ -39,7 +39,7 @@
       "description": "Result of the observation. Must be valid according to the result schema provided in the datastream metadata."
     },
     "result@link": {
-      "description": "Link to external result data (e.g. large raster dataset served by a tiling service)",
+      "description": "Link to external result data (e.g., large raster dataset served by a tiling service)",
       "$ref": "../common/commonDefs.json#/$defs/Link"
     }
   },

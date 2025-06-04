@@ -16,7 +16,7 @@ Dynamic feature properties are feature properties whose values change over time.
 
 === Dynamic Tag
 
-This requirements class defines a tag to be used in any JSON representation to identify properties that are dynamic (i.e. time varying).
+This requirements class defines a tag to be used in any JSON representation to identify properties that are dynamic (i.e., time varying).
 
 This is done by adding the `@dynamic` suffix to any JSON member name and setting the value to true.
 

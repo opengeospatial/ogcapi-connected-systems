@@ -29,7 +29,7 @@ put:
   summary: Update the command schema
   description: |-
     After a control stream has been created and commands have been issued through it, the server may
-    reject certain updates to the schema (e.g. adding or removing parameters, changing UoM, etc.).
+    reject certain updates to the schema (e.g., adding or removing parameters, changing UoM, etc.).
     In this case, the `409` response code is used.
   tags:
     - Control Streams

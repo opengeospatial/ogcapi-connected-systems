@@ -10,14 +10,14 @@
             "pan": {
               "type": "number",
               "title": "Pan Angle",
-              "description": "Rotation of the camera around its vertical axis (i.e. causing the image to translate along its horizontal axis)",
+              "description": "Rotation of the camera around its vertical axis (i.e., causing the image to translate along its horizontal axis)",
               "@swe.definition": "http://sensorml.com/ont/swe/property/PanAngle",
               "@swe.uomCode": "deg"
             },
             "tilt": {
               "type": "number",
               "title": "Tilt Angle",
-              "description": "Rotation of the camera around its horizontal axis (i.e. causing the image to translate along its vertical axis)",
+              "description": "Rotation of the camera around its horizontal axis (i.e., causing the image to translate along its vertical axis)",
               "@swe.definition": "http://sensorml.com/ont/swe/property/TiltAngle",
               "@swe.uomCode": "Cel"
             },

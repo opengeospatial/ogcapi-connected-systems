@@ -2,9 +2,9 @@
 
 This Standard defines extensions to {ogcapi-features} for exposing metadata and dynamic data regarding all kinds of observing systems and associated resources. It provides an actionable implementation of concepts defined in the <<SOSA-SSN,Semantic Sensor Network Ontology (SSN)>> and also complies with {ogcapi-common}.
 
-More specifically, Part 2 of the API, specified in this document, implements the SSN concepts allowing exchange of dynamic (possibly real-time) data flowing to and from various types of connected systems (e.g. sensors, actuators, platforms). Several encoding formats are defined in this Standard, including JSON, CSV and binary formats based on the OGC - SWE Common Standard. Additional encodings can be added by extensions.
+More specifically, Part 2 of the API, specified in this document, implements the SSN concepts allowing exchange of dynamic (possibly real-time) data flowing to and from various types of connected systems (e.g., sensors, actuators, platforms). Several encoding formats are defined in this Standard, including JSON, CSV and binary formats based on the OGC - SWE Common Standard. Additional encodings can be added by extensions.
 
-The following types of resources are defined by Part 2 of the API:
+The following types of resources are defined by Part 2 of the API.
 
   - *DataStream* resources represent data feeds coming out of `Systems` and are containers for `Observations`. They are used for receiving and ingesting real-time `Observations` as well as accessing historical `Observations`. A `DataStream` is a particular case of `sosa:ObservationCollection` where all `Observations` are coming from the same sensor.
 

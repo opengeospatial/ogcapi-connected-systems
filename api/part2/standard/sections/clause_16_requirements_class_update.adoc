@@ -4,7 +4,7 @@
 === Overview
 include::../requirements/crud/update/requirements_class_update.adoc[]
 
-The "Update" requirements class specifies how instances of the resource types defined in this Standard are updated (i.e. patched) via a CS API endpoint.
+The "Update" requirements class specifies how instances of the resource types defined in this Standard are updated (i.e., patched) via a CS API endpoint.
 
 All resources are updated using the UPDATE (HTTP PATCH) operation, as defined by the {ogcapi-features-4} Standard.
 

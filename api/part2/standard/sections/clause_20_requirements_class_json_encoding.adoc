@@ -305,7 +305,7 @@ part:: If a `CommandResult` resource includes inline data, the content of the `d
 
 part:: For regular commands, the schema is provided by the the `resultSchema` property of the schema resource.
 
-part:: For feasibility requests (i.e. commands received on a feasibility channel), the schema is provided by the the `feasibilityResultSchema` property of the schema resource.
+part:: For feasibility requests (i.e., commands received on a feasibility channel), the schema is provided by the the `feasibilityResultSchema` property of the schema resource.
 
 part:: See {json-commandschema-schema-json}.
 ====

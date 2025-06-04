@@ -29,7 +29,7 @@ put:
   summary: Update the observation schema
   description: |-
     After a datastream has been created and observations have been associated to it, the server may
-    reject certain updates to the schema (e.g. adding or removing result fields, changing UoM, etc.).
+    reject certain updates to the schema (e.g., adding or removing result fields, changing UoM, etc.).
     In this case, the `409` response code is used.
   tags:
     - Data Streams

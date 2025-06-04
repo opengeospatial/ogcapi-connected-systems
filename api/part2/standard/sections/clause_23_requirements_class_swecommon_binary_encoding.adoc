@@ -12,8 +12,8 @@ This requirements class defines binary encodings of `Observation` and `Command` 
 
 The main objective of this encoding is better data size efficiency than text or JSON, thus allowing for:
 
-- Transfer of observations and commands over very low power / low bandwidth network links (e.g. LoRa,  etc.)
-- Transfer high bandwidth data sets such as raster data (e.g. video, LiDAR, etc.)
+- Transfer of observations and commands over very low power / low bandwidth network links (e.g., LoRa,  etc.); and
+- Transfer high bandwidth data sets such as raster data (e.g., video, LiDAR, etc.).
 
 For even better efficiency, this encoding can be combined with a transport protocol such as <<clause-protocol-mqtt,MQTT>>.
 
