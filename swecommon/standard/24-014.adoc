@@ -20,7 +20,7 @@
 :edition: 3.0.0
 //
 //:xsd-base-url: https://schemas.opengis.net/sweCommon/2.0
-:jsonschema-base-url: https://raw.githubusercontent.com/opengeospatial/connected-systems/master/swecommon/schemas/json
+:jsonschema-base-url: https://schemas.opengis.net/sweCommon/3.0/json
 
 
 ////
