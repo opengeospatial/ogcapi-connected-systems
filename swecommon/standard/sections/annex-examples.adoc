@@ -545,7 +545,7 @@ The equivalent JSON description for this “DataArray” is provided below:
 
 This example is based on the same datastream description as the one provided in <<enc_text_weather_stream_example,style=short%>>.
 
-The following snippet shows how this datastream records are encoded using the JSON encoding method:
+The following snippet shows how the datastream records are encoded using the JSON encoding method:
 
 [source%unnumbered,json]
 ----
@@ -581,7 +581,7 @@ The following snippet shows how this datastream records are encoded using the JS
 
 This example is based on the same datastream description as the one provided in <<enc_text_optional_fields_example,style=short%>>.
 
-The following snippet shows how this datastream records are encoded using the JSON encoding method:
+The following snippet shows how the datastream records are encoded using the JSON encoding method:
 
 [source%unnumbered,json]
 ----
@@ -619,7 +619,7 @@ The following snippet shows how this datastream records are encoded using the JS
 
 This example is based on the same datastream description as the one provided in <<enc_text_optional_fields_example,style=short%>>.
 
-The following snippet shows how this datastream records are encoded using the JSON encoding method, when `vectorsAsArrays` is `true`:
+The following snippet shows how the datastream records are encoded using the JSON encoding method, when `vectorsAsArrays` is `true`:
 
 [source%unnumbered,json]
 ----
@@ -649,7 +649,7 @@ The following snippet shows how this datastream records are encoded using the JS
 
 This example is based on the same datastream description as the one provided in <<enc_text_choice_example,style=short%>>.
 
-The following snippet shows how this datastream records are encoded using the JSON encoding method:
+The following snippet shows how the datastream records are encoded using the JSON encoding method:
 
 [source%unnumbered,json]
 ----
@@ -724,7 +724,7 @@ The equivalent JSON description for this “Matrix” is provided below:
 
 This example is based on the same datastream description as the one provided in <<enc_text_profile_series_example,style=short%>>.
 
-The following snippet shows how this datastream records are encoded using the JSON encoding method:
+The following snippet shows how the datastream records are encoded using the JSON encoding method:
 
 [source%unnumbered,json]
 ----
@@ -768,7 +768,7 @@ The following snippet shows how this datastream records are encoded using the JS
 
 This example is based on the same datastream description as the one provided in <<enc_text_geom_example,style=short%>>.
 
-The following snippet shows how this datastream records are encoded using the JSON encoding method:
+The following snippet shows how the datastream records are encoded using the JSON encoding method:
 
 [source%unnumbered,json]
 ----

@@ -10,19 +10,19 @@ NOTE: A data component is a part of the overall dataset definition. The dataset 
 Abstraction of real-world phenomena
 
 [.source]
-<<ISO19101, ISO-19101, definition 4.11>>
+<<ISO19101, ISO 19101-1:2014, definition 4.1.11>>
 
 === Observation
-Act of observing a property
+Act of measuring or otherwise determining the value of a property
 
 [.source]
-<<ISO19156, ISO-19156, definition 4.10>>
+<<ISO19156, ISO 19156:2011, definition 4.11>>
 
 === Observation Procedure
-Method, algorithm or instrument, or system of these which may be used in making an observation
+Method, algorithm or instrument, or system of these, which may be used in making an observation
 
 [.source]
-<<ISO19156, ISO-19156, definition 4.11>>
+<<ISO19156, ISO 19156:2011, definition 4.12>>
 
 Note: In the context of the sensor web, an observation procedure is often composed of one or more sensors that transform a real world phenomenon into digital information, plus additional processing steps.
 
@@ -31,7 +31,7 @@ Facet or attribute of an object referenced by a name
 Example	: Abby's car has the color red, where "color red" is a property of the car instance
 
 [.source]
-<<ISO19143, ISO-19143>>
+<<ISO19143, ISO 19143:2010>>
 
 === Sensor
 

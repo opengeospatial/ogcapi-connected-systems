@@ -25,7 +25,7 @@ In the model provided in this standard, the encoding specification is provided s
 
 The “JSONEncoding” class defines a method allowing encoding arbitrarily complex data as JSON. The class used to specify this encoding method is shown in <<uml_simple_encodings_fig>>.
 
-The “recordsAsArrays” attribute specifies whether “DataRecord” values are encoded as JSON objects or JSON arrays. The “vectorsAsArrays” attribute specifies wether “Vector” values are encoded as JSON objects or JSON arrays. Both attributes are optional and default to false, meaning “DataRecord” and “Vector” values are per default encoded as JSON objects. The detailed rules are given in the implementation in <<encoding_rules_json>>.
+The “recordsAsArrays” attribute specifies whether “DataRecord” values are encoded as JSON objects or JSON arrays. The “vectorsAsArrays” attribute specifies whether “Vector” values are encoded as JSON objects or JSON arrays. Both attributes are optional and default to false, meaning “DataRecord” and “Vector” values are per default encoded as JSON objects. The detailed rules are given in the implementation in <<encoding_rules_json>>.
 
 
 [[uml_textencoding_class]]
