@@ -5,7 +5,7 @@ The following normative documents contain provisions that, through reference in 
 
 * [[[OGC08-131r3,OGC 08-131r3]]], The Specification Model -- A Standard for Modular Specification, 2009
 
-* [[[OGC24-014,OGC 24-014]]], SWE Common Data Model Encoding Standard, version 3.0, 2024
+* [[[OGC24-014,OGC 24-014]]], Alexandre Robin: OGC 24-014, OGC SWE Common Data Model Encoding Standard, version 3.0 (2025). https://docs.ogc.org/is/24-014/24-014.html
 
 * [[[OGC-GeoPose,OGC 21-056r11]]], OGC GeoPose Data Exchange Standard, version 1.0, 2022
 
