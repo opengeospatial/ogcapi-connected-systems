@@ -25,7 +25,7 @@ include::../requirements/encoding_rules/binary/requirement2.adoc[]
 
 Nil values are included in the stream just like normal scalar values. Since their data type has to match the field data type, there is no special treatment necessary for a decoder or encoder. It is the responsibility of the application to match the data value against the list of registered nil values for a given field in order to detect if it is associated to a nil reason or if it is an actual measurement value.
 
-When the ‘raw’ byte encoding option is selected, bytes resulting from the data type encoding process defined above are inserted in the binary stream directly. This is refered to as ‘raw binary’ encoding. When the ‘base64’ option is selected, each byte resulting from the binary encoding process is also encoded in Base64 before being included in the stream. Scalar values can be Base 64 encoded one by one or by blocks as long as the resulting stream is compatible with requirements of IETF RFC 2045.
+When the ‘raw’ byte encoding option is selected, bytes resulting from the data type encoding process defined above are inserted in the binary stream directly. This is referred to as ‘raw binary’ encoding. When the ‘base64’ option is selected, each byte resulting from the binary encoding process is also encoded in Base64 before being included in the stream. Scalar values can be Base 64 encoded one by one or by blocks as long as the resulting stream is compatible with requirements of IETF RFC 2045.
 
 include::../requirements/encoding_rules/binary/requirement3.adoc[]
 

@@ -1,6 +1,6 @@
 == Scope
 
-This standard defines low level data models for exchanging sensor related data between nodes of the OGC® Connected Systems framework (previously Sensor Web Enablement (SWE) framework). These models allow applications and/or servers to structure, encode and transmit sensor datasets in a self describing and semantically enabled way.
+This standard defines low level data models for exchanging sensor related data between nodes of the OGC® Connected Systems framework (previously Sensor Web Enablement (SWE) framework). These models allow applications and/or servers to structure, encode and transmit sensor datasets in a self-describing and semantically enabled way.
 
 More precisely, the SWE Common Data Model is used to define the representation, nature, structure and encoding of sensor related data. These four pieces of information, essential for fully describing a data stream, are further defined in section 6.
 

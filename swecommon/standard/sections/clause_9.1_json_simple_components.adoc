@@ -18,7 +18,7 @@ The following rules were used when generating the JSON schemas:
 
 - Classes are implemented as JSON Objects;
 
-- Any property with a multiplicty greater than one is implemented as a JSON Array and its name is converted to plural form;
+- Any property with a multiplicity greater than one is implemented as a JSON Array and its name is converted to plural form;
 
 - Textual fields are implemented as a JSON String;
 
@@ -68,7 +68,7 @@ The “UnitReference” object is the partial JSON schema implementation of the 
 
 The schema for this class is provided in {jsonschema-base-url}/basicTypes.json[basicTypes.json] (see #definitions/UnitReference). Further details on the usage of “UnitReference” object can be found in <<json_quantity_obj>> and <<json_time_obj>>.
 
-Examples of references to an unit of measure are provided below:
+Examples of references to a unit of measure are provided below:
 
 [source%unnumbered,json]
 ----

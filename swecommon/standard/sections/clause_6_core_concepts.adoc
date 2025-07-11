@@ -5,9 +5,9 @@ include::../requirements/core/requirements_class.adoc[]
 
 === Introduction
 
-The generic SWE Common data model defined by this standard aims at providing verbose information to robustly describe sensor related datasets. We define Sensor Data as data resulting from the observation of properties of virtual or real world objects (or features) by any type of Observation Procedure (See the Observation and Measurements specification OGC 07-022r1 for a more complete description of the observation model used in SWE).
+The generic SWE Common data model defined by this standard aims at providing verbose information to robustly describe sensor related datasets. This Standard defines Sensor Data as data resulting from the observation of properties of virtual or real world objects (or features) by any type of Observation Procedure (See the Observation and Measurements specification OGC 07-022r1 for a more complete description of the observation model used in SWE).
 
-Sensor related datasets however are not limited to sensor observation values, but can also include auxiliary information such as status or ancillary data. In the following sections, we will use the term ‘property’ in a broader sense, which does not necessarily imply “property measured by a sensor.”
+Sensor related datasets however are not limited to sensor observation values, but can also include auxiliary information such as status or ancillary data. In the following sections, this Standard will use the term ‘property’ in a broader sense, which does not necessarily imply “property measured by a sensor.”
 
 A dataset is composed of Data Components whose values need to be put into context in order to be fully understood and interpreted, by either humans or machines. The SWE Common Data Model provides several pieces of information that are necessary to achieve this goal. More precisely, the SWE Common Data Model covers the following aspects of datasets description:
 
@@ -59,7 +59,7 @@ The different possible values constituting a code space are usually listed expli
 ====
 *Examples*
 
-Biological or chemical species data is usually represented by a categorical data component that can leverage on existing controlled vocabulary.
+Biological or chemical species data is usually represented by a categorical data component that can leverage an existing controlled vocabulary.
 
 A camera mode can be represented by a categorical value: AUTO_FOCUS, MANUAL_FOCUS, etc.
 ====
@@ -296,6 +296,6 @@ A data component can be both a data descriptor and a data container:
 
 A key concept of the SWE Common Data Model is the ability to separate data values themselves from the description of the data structure, semantics and representation. This allows verbose metadata to be used in order to robustly define the content and meaning of a dataset while still being able to package the data values in very efficient manners.
 
-Data encoding methods define how the data is packed as blocks that can efficiently be transferred or stored using various protocols and formats. Different methods allow encoding the data as JSON, text (CSV like), binary and even compressed or encrypted formats in a way that is agnostic to a particular structure. This allows any of the encodings methods to be selected and used based on a particular requirement, such as performance, re-use of tools, alignment with existing standards and so on.
+Data encoding methods define how the data is packed as blocks that can efficiently be transferred or stored using various protocols and formats. Different methods allow encoding the data as JSON, text (CSV like), binary and even compressed or encrypted formats in a way that is agnostic to a particular structure. This allows any of the encoding methods to be selected and used based on a particular requirement, such as performance, re-use of tools, alignment with existing standards and so on.
 
 include::../requirements/core/requirement13.adoc[]
