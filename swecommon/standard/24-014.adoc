@@ -4,7 +4,7 @@
 :lang: en
 :status: approved
 :committee: technical
-:external-id: http://www.opengis.net/doc/DIS/SWE/3.0
+:external-id: http://www.opengis.net/doc/IS/SWE/3.0
 :docnumber: 24-014
 :received-date: 2025-03-19
 :issued-date: 2025-06-02
