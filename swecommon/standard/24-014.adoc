@@ -4,7 +4,7 @@
 :lang: en
 :status: approved
 :committee: technical
-:external-id: http://www.opengis.net/doc/DIS/SWE/3.0
+:external-id: http://www.opengis.net/doc/IS/SWE/3.0
 :docnumber: 24-014
 :received-date: 2025-03-19
 :issued-date: 2025-06-02
@@ -20,7 +20,7 @@
 :edition: 3.0.0
 //
 //:xsd-base-url: https://schemas.opengis.net/sweCommon/2.0
-:jsonschema-base-url: https://raw.githubusercontent.com/opengeospatial/connected-systems/master/swecommon/schemas/json
+:jsonschema-base-url: https://schemas.opengis.net/sweCommon/3.0/json
 
 
 ////
