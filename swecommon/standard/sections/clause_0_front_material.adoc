@@ -1,6 +1,6 @@
 .Preface
 
-The OGC SWE Common Data Model Encoding Standard is the result of worked done by the Connected Systems Working Group of the OGC, with the aim of modernizing the Sensor Web Enablement (SWE) suite of Standards.
+The OGC SWE Common Data Model Encoding Standard is the result of work done by the Connected Systems Working Group of the OGC, with the aim of modernizing the Sensor Web Enablement (SWE) suite of Standards.
 
 To increase the brevity and readability of this Standard, many OGC document titles are shortened and/or abbreviated. Therefore, in the context of this document, the following phrases are defined:
 
@@ -41,7 +41,7 @@ Additional contributors to this Standard include the following:
 |===
 | *Name* | *Affiliation*
 | Arne Broering | 52° North Initiative
-| Barry Reff | US DHS
+| Barry Reff | US Department of Homeland Security (DHS)
 | Ingo Simonis | iGSI
 | Johannes Echterhoff | iGSI
 | John Herring | Oracle USA
@@ -54,7 +54,7 @@ Additional contributors to this Standard include the following:
 [.preface]
 == Foreword
 
-This document deprecates version 2.0 of the OGC® SWE Common Data Model Encoding Standard (OGC 08-094r2). 
+This document supersedes version 2.0 of the OGC® SWE Common Data Model Encoding Standard (OGC 08-094r2). 
 
 The following changes have been made:
 

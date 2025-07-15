@@ -35,7 +35,7 @@ The “TM_Position” data type from the “Temporal Reference System” package
 
 include::../requirements/uml/simple_components/requirement3.adoc[]
 
-The “SC_CRS” and “TM_Temporal_CRS” classifiers are referenced conceptually from ISO 19111 but their implementation is not required by this standard. Implementations are allowed to simply use a CRS identifier as a mean of recognizing predefined coordinate reference systems. The use of identifiers from the EPSG database is recommended in this case. However, when new CRS definitions need to be created (e.g., engineering CRS attached to sensors or platforms), the models defined in ISO 19111 shall be used.
+The “SC_CRS” and “TM_Temporal_CRS” classifiers are referenced conceptually from ISO 19111 but their implementation is not required by this standard. Implementations are allowed to simply use a Coordinate Reference System (CRS) identifier as a means of recognizing predefined coordinate reference systems. The use of identifiers from the EPSG database is recommended in this case. However, when new CRS definitions need to be created (e.g., engineering CRS attached to sensors or platforms), the models defined in ISO 19111 shall be used.
 
 
 [[uml_basic_types]]
@@ -67,7 +67,7 @@ The optional “id” attribute allows assigning a unique identifier to the comp
 
 **Definition**
 
-The “definition” attribute identifies the property (often an observed property in our context) that the data component represents by using a scoped name. It should map to a controlled term defined in an (web accessible) dictionary, registry or ontology. Such terms provide the formal textual definition agreed upon by one or more communities, eventually illustrated by pictures and diagrams as well as additional semantic information such as relationships to units and other concepts, ontological mappings, etc.
+The “definition” attribute identifies the property (often an observed property in our context) that the data component represents by using a scoped name. It should map to a controlled term defined in a (web accessible) dictionary, registry or ontology. Such terms provide the formal textual definition agreed upon by one or more communities, eventually illustrated by pictures and diagrams as well as additional semantic information such as relationships to units and other concepts, ontological mappings, etc.
 
 [example%unnumbered]
 ====
@@ -431,7 +431,7 @@ The “value” attribute of the “TimeRange” class takes a pair of values of
 
 The “Quality” class is a union allowing the use of different representations of quality.
 
-Quality can be indeed be specified as a decimal value, an interval, a categorical value or a textual statement. In our model, quality objects are in fact data components used in a recursive way, as shown on the following diagram:
+Quality can indeed be specified as a decimal value, an interval, a categorical value or a textual statement. In our model, quality objects are in fact data components used in a recursive way, as shown on the following diagram:
 
 .Quality Union
 image::figures/fig7.18.png[]
