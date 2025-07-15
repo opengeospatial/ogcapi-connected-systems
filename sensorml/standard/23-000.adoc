@@ -20,7 +20,7 @@
 :data-uri-image:
 :edition: 3.0.0
 //
-:jsonschema-base-url: https://raw.githubusercontent.com/opengeospatial/ogcapi-connected-systems/master/sensorml/schemas/json
+:jsonschema-base-url: https://schemas.opengis.net/sensorML/3.0/json
 //
 :swecommon-spec-url: http://www.opengis.net/spec/SWE/3.0
 :geopose-spec-url: http://www.opengis.net/spec/GeoPose/1.0
