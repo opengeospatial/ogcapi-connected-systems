@@ -9,5 +9,5 @@ target:: /req/model/coreProcess/dependency-core
 test-purpose:: Verify that the target implementation passes the "Core Concepts" conformance test class.
 
 test-method:: 
-Apply all tests described in section A.1
+Apply all tests described in <<annex_core_concepts>>. 
 ====

@@ -3,7 +3,7 @@
 
 include::../requirements/model/simpleProcess/requirements_class.adoc[]
 
-A simple process is derived from abstract process model, as presented in Clause 7.2.
+A simple process is derived from abstract process model, as presented in <<uml_core_abstract_process>>.
 
 include::../requirements/model/simpleProcess/requirement1.adoc[]
 include::../requirements/model/simpleProcess/requirement2.adoc[]
@@ -15,10 +15,11 @@ Often simple processes are computational processes that can be executed with an 
 
 include::../requirements/model/simpleProcess/requirement3.adoc[]
 
-The SimpleProcess model, as shown in Figure 14, is a concrete instantiation of the AbstractProcess model. The SimpleProcess requires a method description.
+The SimpleProcess model, as shown in <<img_SimpleProcess>>, is a concrete instantiation of the AbstractProcess model. The SimpleProcess requires a method description.
 
 include::../requirements/model/simpleProcess/requirement4.adoc[]
 
+[[img_SimpleProcess]]
 .Model for Simple Process
 image::figures/SimpleProcess.png[]
 

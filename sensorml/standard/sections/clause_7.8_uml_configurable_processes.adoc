@@ -51,9 +51,10 @@ include::../requirements/model/configurableProcess/requirement3.adoc[]
 image::figures/Mode.png[]
 
 The configuration property takes a Settings object, which will be described in more detail below.
+
 ==== Settings
 
-The configuration property and it Settings value can be utilized in two cases:
+The configuration property and its Settings value can be utilized in two cases:
 
 * within the Mode definition of a configurable process for defining a collection of settings for that particular mode; and
 
@@ -63,7 +64,7 @@ include::../requirements/model/configurableProcess/requirement4.adoc[]
 
 The Settings class is shown in <<configured_process_settings>> with its possible property values shown in <<configured_process_settings_implementations>>. For all settings, the property in the configurable process is specified by the DataComponentPath reference. 
 
-Within the Settings class, one may (a) set particular values for parameters, (b) set an array of values for a parameter (and only a parameter that takes a DataArray as its value, (c) further constrain allowed values for parameters, (d) set the operational mode, and (e) enable or disable an input or output.
+Within the Settings class, one may: a) set particular values for parameters, b) set an array of values for a parameter - and only a parameter that takes a DataArray as its value, c) further constrain allowed values for parameters, d) set the operational mode, and e) enable or disable an input or output.
 
 [[configured_process_settings]]
 .Model for Configured Process Settings

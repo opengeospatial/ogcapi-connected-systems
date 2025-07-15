@@ -7,7 +7,7 @@ identifier:: /req/model/coreProcess
 subject:: Derived Encoding or Software Implementation
 inherit:: /req/core
 inherit:: {swecommon-spec-url}/req/uml-record-components
-inherit:: ISO 19115:2006 (All Metadata)
+inherit:: ISO 19115:2003/Cor.1:2006 (All Metadata)
 
 requirement:: /req/model/coreProcess/dependency-core
 requirement:: /req/model/coreProcess/package-fully-implemented

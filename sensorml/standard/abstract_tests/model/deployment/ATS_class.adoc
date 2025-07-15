@@ -6,8 +6,8 @@ identifier:: /conf/model/deployment
 target:: /req/model/deployment
 classification:: Target Type: Derived Models, Encodings, and Software Implementations 
 inherit:: /conf/core
-inherit:: http://www.opengis.net/spec/SWE/2.0/req/uml-block-components
-inherit:: ISO 19115:2006 (All Metadata)
+inherit:: http://www.opengis.net/spec/SWE/3.0/req/uml-block-components
+inherit:: ISO 19115:2003/Cor.1:2006 (All Metadata)
 
 conformance-test:: /conf/model/deployment/package-fully-implemented
 ====

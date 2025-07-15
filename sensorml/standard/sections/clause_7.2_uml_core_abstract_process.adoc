@@ -7,6 +7,7 @@ All major classes in SensorML are based on a process model, as presented in the 
 include::../requirements/model/coreProcess/requirement1.adoc[]
 include::../requirements/model/coreProcess/requirement2.adoc[]
 
+[[ObservableProperty_definition]]
 ==== ObservableProperty
 An ObservableProperty is a physical property of a phenomenon that can be observed and measured (e.g., temperature, gravitational force, position, chemical concentration, orientation, number-of-individuals, physical switch status, etc.), or a characteristic of one or more feature types, the value for which must be estimated by application of some procedure in an observation. It is thus a physical stimulus that can be sensed by a detector or created by an actuator.
 
@@ -27,21 +28,23 @@ As shown in the UML model below, the DescribedObject class provides a specific s
 
 include::../requirements/model/coreProcess/requirement4.adoc[]
 
-Metadata about each process is essential to supporting identification, discovery, and qualification of the process. Metadata is provided by the base class, DescribedObject, from which AbstractProcess is derived. While these metadata may provide relevant information to understand quality of output from the process, the values of properties within the DescribedObject should not be required for execution of the process. The model for the DescribedObject is shown in Figure 9, while the models for the individual property values are provided in either Figure 10 or in the ISO 19115 models in Figure 11.
+Metadata about each process is essential to supporting identification, discovery, and qualification of the process. Metadata is provided by the base class, DescribedObject, from which AbstractProcess is derived. While these metadata may provide relevant information to understand quality of output from the process, the values of properties within the DescribedObject should not be required for execution of the process. The model for the DescribedObject is shown in <<img_DescribedObject>>, while the models for the individual property values are provided in either <<img_MetadataLists>> or in the ISO 19115 models in <<img_History>>.
 
 The DescribedObject includes several descriptive properties that support rapid discovery (keywords, identification, and classification), constraints (validTime, securityConstraints, legalConstraints), qualification (characteristics and capabilities), references (contacts and documentation), and history. These are each grouped in lists, which provide for easy separation and parsing of these properties.
 
 ===== Extension Property
 The extension property allows one to add domain or community-specific content to a DescribedObject instance. This might include, for example, security taggings, vendor or community-specific metadata, or information encoded in other models or schema. Extension properties must exist in a separate namespace and SensorML-compliant software is not required to understand or utilize the information contained within the extension property.
 
-The constraints on the extension property include: (a) the extension model must be defined in a separate namespace, (b) the information added by the extension model must not be required for execution of the process, and (c) SensorML-compliant parsers may parse and utilize the information within these extensions but they are not required to do so in order to be compliant to the SensorML standard.
+The constraints on the extension property include: a) the extension model must be defined in a separate namespace, b) the information added by the extension model must not be required for execution of the process, and c) SensorML-compliant parsers may parse and utilize the information within these extensions but they are not required to do so in order to be compliant to the SensorML standard.
 
 include::../requirements/model/coreProcess/requirement5.adoc[]
 include::../requirements/model/coreProcess/requirement6.adoc[]
 
+[[img_DescribedObject]]
 .DescribedObject with Metadata Properties
 image::figures/DescribedObject.png[]
 
+[[img_MetadataLists]]
 .Models for Metadata Elements
 image::figures/MetadataLists.png[]
 
@@ -133,6 +136,7 @@ Documentation can be provided which provides further clarification about the Des
 
 Within SensorML, the history of a process can be provided through a collection of Event objects. These are provided within an EventList that serves as the value of the history property. Events might for instance, specify calibration or maintenance history of a sensor, changes to an algorithm or parameter within a computational process, or deployment and maintenance events.
 
+[[img_History]]
 .Model for history events
 image::figures/History.png[]
 
@@ -238,7 +242,7 @@ A concrete implementation of a Settings class will be provided in a later Confor
 ==== SWE Common Data Types
 Many properties in the DescribedObject and AbstractProcess classes described above are of type AbstractDataComponent as defined in the SWE Common Data Model standard. This data type is used for defining inputs, outputs and parameters, as well as for other metadata properties.
 
-This requirements class only mandates the support of the “Simple Components” and “Record Components” as defined in the SWE Common Data Model standard. These includes the scalar data types Boolean, Text, Count, Quantity, Category, Time and their range equivalents, as well as DataRecord and Vector.
+This requirements class only mandates the support of the “Simple Components” and “Record Components” as defined in the SWE Common Data Model standard. These include the scalar data types Boolean, Text, Count, Quantity, Category, Time and their range equivalents, as well as DataRecord and Vector.
 
 include::../requirements/model/coreProcess/requirement12.adoc[]
 

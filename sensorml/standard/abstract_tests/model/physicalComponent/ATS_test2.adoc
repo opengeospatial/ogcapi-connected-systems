@@ -7,5 +7,5 @@ identifier:: /conf/model/physicalComponent/dependency-core
 target:: /req/model/physicalComponent/dependency-core 
 test-purpose:: Verify that the target implementation correctly passes the "Core Abstract Process" comformance test class.
 test-method:: 
-Apply all tests described in section A.2. 
+Apply all tests described in <<annex_core_abstract_process>>. 
 ====

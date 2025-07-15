@@ -6,7 +6,7 @@ type:: class
 identifier:: /req/model/simpleProcess
 subject:: Derived Encoding or Software Implementation
 inherit:: /req/model/coreProcess
-inherit:: ISO 19115:2006 (All Metadata)
+inherit:: ISO 19115:2003/Cor.1:2006 (All Metadata)
 
 requirement:: /req/model/simpleProcess/dependency-core
 requirement:: /req/model/simpleProcess/package-fully-implemented

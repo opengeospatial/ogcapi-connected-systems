@@ -8,7 +8,7 @@ In the context of SensorML, physical processes represent real processing devices
 ====
 *Examples*
 
-A detector or sensor system typically senses an environmental stimulus and provides a digital number representing the measure of a property of that environment (e.g., temperature). Likewise, an actuator receives a digital number and based on its values causes an action in the real-world environment.Both devices interact with the real world and their position is usually of importance to the end-user. These should usually be modelled as physical components.
+A detector or sensor system typically senses an environmental stimulus and provides a digital number representing the measure of a property of that environment (e.g., temperature). Likewise, an actuator receives a digital number and based on its values causes an action in the real-world environment. Both devices interact with the real world and their position is usually of importance to the end-user. These should usually be modelled as physical components.
 ==== 
 
 Because physical processes typically interact with the real-world environment, the position (location and orientation), as well as perhaps the dynamic state (velocity and acceleration), are usually of importance. We wish to either measure an observable property at a particular location in the environment or we wish to affect a physical action at a particular place in the environment. Thus, the position where the physical process measures or acts becomes important.
@@ -41,9 +41,9 @@ A video camera is attached to a gimbal that allows rotation of the camera to vie
 
 In this standard, the position or dynamic state of a physical object is defined as a relationship of the reference frame of the object to some external reference frame. SensorML allows for the definition of direct orthogonal (i.e., Cartesian) reference frames that are assumed to be attached to the physical component where they are described.
 
-A reference frame is defined by its origin and its axes, which are described relative to the physical object itself using natural language and are not relative to any relationship of the object to some external frame. The relationship of this object’s reference frame to an external reference frame is defined by the position or dynamic state of the object. The models for reference frames and spatial position are provided in Figure 18.
-de style="display: block; background: #f1efee; color: #000000; padding: 0.5em; white-space: pre-wrap;white-space: -moz-pre-wrap; white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;" > Example The origin of an airplane’s spatial reference frame can be defined as the being at the center of the Inertial Navigation Unit main gyro. The axes can be defined by the following statements: “X is along the symmetric axis of the airplane’s fuselage from the gyro to the nose of the airplane (along the platform roll axis of the airplane), Z is perpendicular to X and toward the belly of the airplane (along the yaw axis of the aircraft), and Y is Z cross X (in the direction of of the right wing and along the pitch axis of the airplane)”. The location of this aircraft can then be given as the spatial relationship of the origin of this reference frame to some external reference frame (e.g., Earth-Centered-Earth-Fixed XYZ or latitude-longitude-altitude). Likewise, the orientation of the aircraft can be specified as the angular relationship of the axes of its reference frame to the axes of some external reference frame (e.g., ECEF or North-East-Down). 
+A reference frame is defined by its origin and its axes, which are described relative to the physical object itself using natural language and are not relative to any relationship of the object to some external frame. The relationship of this object’s reference frame to an external reference frame is defined by the position or dynamic state of the object. The models for reference frames and spatial position are provided in <<img_PositionUnion>>. The origin of an airplane’s spatial reference frame can be defined as the being at the center of the Inertial Navigation Unit main gyro. The axes can be defined by the following statements: “X is along the symmetric axis of the airplane’s fuselage from the gyro to the nose of the airplane (along the platform roll axis of the airplane), Z is perpendicular to X and toward the belly of the airplane (along the yaw axis of the aircraft), and Y is Z cross X (in the direction of the right wing and along the pitch axis of the airplane)”. The location of this aircraft can then be given as the spatial relationship of the origin of this reference frame to some external reference frame (e.g., Earth-Centered-Earth-Fixed XYZ or latitude-longitude-altitude). Likewise, the orientation of the aircraft can be specified as the angular relationship of the axes of its reference frame to the axes of some external reference frame (e.g., ECEF or North-East-Down). 
 
+[[img_PositionUnion]]
 .Models for SpatialFrame and PositionUnion
 image::figures/PositionUnion.png[]
 
@@ -71,10 +71,10 @@ A temporal frame can be attached to an event of interest, such as the start of t
 
 A temporal reference frame can be defined within a physical process and is particularly useful if the component is a process that outputs its own measure of time (such as an on-board clock or high-resolution counter).
 
-
+[[clause_model_3dpose]]
 ===== 3D Pose
 
-This sections introduces data types for expressing 3D pose information within SensorML documents. It builds on the <<OGC-GeoPose,GeoPose Standard>>.
+This section introduces data types for expressing 3D pose information within SensorML documents. It builds on the <<OGC-GeoPose,GeoPose Standard>>.
 
 When a 3D Pose object is used as the value of the `position` property within a SensorML `PhysicalComponent` or `PhysicalSystem` instance, it defines the pose of the local reference frame attached to the component (intrinsic reference frame), relative to an external reference frame (extrinsic reference frame). 
 

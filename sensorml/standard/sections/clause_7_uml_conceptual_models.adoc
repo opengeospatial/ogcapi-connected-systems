@@ -20,7 +20,7 @@ The SensorML standard utilizes the ISO 19115 models for common metadata properti
 image::figures/iso19115_dependencies.png[]
 
 ==== Dependency on SWE Common Data Models
-In particular, SensorML is heavily dependent on the SWE Common Data Model standard for defining inputs, outputs, and parameters, as well as for specifying characteristics, capabilities, interfaces, and event properties. The SWE Common Data Models, which were originally defined within the version 1.0 SensorML specification, are in version 2.1 defined as a separate specification and are utilized throughout the SWE family of encoding and web service specifications.
+In particular, SensorML is heavily dependent on the SWE Common Data Model standard for defining inputs, outputs, and parameters, as well as for specifying characteristics, capabilities, interfaces, and event properties. The SWE Common Data Models, which were originally defined within the version 1.0 SensorML specification, are since version 2.0 defined as a separate specification and are utilized throughout the SWE family of encoding and web service specifications.
 
 .External Package Dependencies - SWE Common Data
 image::figures/swe_dependencies.png[]
@@ -31,7 +31,7 @@ The data models in SWE Common provide additional properties than are provided by
 
 The main objective of SWE Common Data Models is to achieve interoperability, first at the syntactic level, and later at the semantic level (by using ontologies and semantic mediation) so that sensor data can be better understood by machines, processed automatically in complex workflows, and easily shared between intelligent sensor web nodes.
 
-SensorML depends heavily on the AbstractDataComponent element defined in SWE Common. This element serves as the base component from which all relevant data types in SWE Common are derived, including Quantity, Count, Category, Boolean, Text, DataRecord, DataArray, Vector, Matrix, and DataChoice. AbstractDataComponent thus serves as a substitution group that any of these data types can satisfy. AbstractSWEIdentifiable will serve as the basis for the ObservableProperty element defined in this specification (Section 7.2.1).
+SensorML depends heavily on the AbstractDataComponent element defined in SWE Common. This element serves as the base component from which all relevant data types in SWE Common are derived, including Quantity, Count, Category, Boolean, Text, DataRecord, DataArray, Vector, Matrix, and DataChoice. AbstractDataComponent thus serves as a substitution group that any of these data types can satisfy. AbstractSWEIdentifiable will serve as the basis for the ObservableProperty element defined in this specification (<<ObservableProperty_definition>>).
 
 The model for the SWE Common AbstractDataComponent is given in the figure below:
 
@@ -46,6 +46,6 @@ SensorML has an association to the O&M models but no direct dependencies on them
 ==== Relationship to OGC API - Processes
 The OGC API - Processes - Part 1: Core standard (<<OGC18-062r2>>) supports the wrapping of computational tasks into executable processes that can be offered by a server through a Web API and be invoked by a client application. The standard specifies a processing interface to communicate over a RESTful protocol using JSON encodings.
 
-Even though the the standard recommends implementations to support it's own encoding for process descriptions, the OGC Process Description, SensorML Simple Processes and Aggregate Processes are a suitable substitution. While the OGC Process Description allows for the definition of inputs and outputs using JSON Schema, a SensorML process description would allow for a definition using SWE Common.
+Even though the the standard recommends implementations to support its own encoding for process descriptions, the OGC Process Description, SensorML Simple Processes and Aggregate Processes are a suitable substitution. While the OGC Process Description allows for the definition of inputs and outputs using JSON Schema, a SensorML process description would allow for a definition using SWE Common.
 
 Physical Components and Physical Systems are also suitable surrogates for the OGC Process Description would for example allow OGC API - Processes to becoming a tasking interface for real world sensors.

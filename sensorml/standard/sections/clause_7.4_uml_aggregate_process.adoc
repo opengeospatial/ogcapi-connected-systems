@@ -2,7 +2,7 @@
 === Requirements Class: Aggregate Process
 include::../requirements/model/aggregateProcess/requirements_class.adoc[]
 
-An aggregate process is derived from abstract process model, as presented in Clause 7.2.
+An aggregate process is derived from abstract process model, as presented in <<uml_core_abstract_process>>.
 
 include::../requirements/model/aggregateProcess/requirement1.adoc[]
 include::../requirements/model/aggregateProcess/requirement2.adoc[]
