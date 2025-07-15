@@ -2,6 +2,7 @@
 [[abstract_test_suite]]
 == Conformance Class Abstract Test Suite
 
+[[annex_core_concepts]]
 === Core Concepts
 
 Tests described in this section shall be used to test conformance of software and encoding models implementing the Requirements Class: Core Concepts (normative core).
@@ -10,6 +11,7 @@ include::../abstract_tests/core/ATS_class.adoc[]
 
 === UML Models
 
+[[annex_core_abstract_process]]
 ==== Core Abstract Process
 Tests described in this section shall be used to test conformance of software and encoding models implementing the conceptual models defined in Requirements Class: Core Abstract Process
 include::../abstract_tests/model/coreProcess/ATS_class.adoc[]
@@ -22,6 +24,7 @@ include::../abstract_tests/model/simpleProcess/ATS_class.adoc[]
 Tests described in this section shall be used to test conformance of software and encoding models implementing the conceptual models defined in Requirements Class: Aggregate Process.
 include::../abstract_tests/model/aggregateProcess/ATS_class.adoc[]
 
+[[annex_physical_component]]
 ==== Physical Component
 Tests described in this section shall be used to test conformance of software and encoding models implementing the conceptual models defined in Requirements Class: Physical Component.
 include::../abstract_tests/model/physicalComponent/ATS_class.adoc[]

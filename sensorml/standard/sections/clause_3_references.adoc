@@ -21,6 +21,8 @@ The following normative documents contain provisions that, through reference in 
 
 * [[[ISO19111, ISO 19111:2007]]], Spatial Referencing by Coordinates
 
+* [[[ISO19115, ISO 19115:2003/Cor.1:2006]]], Metadata
+
 * [[[UCUM, UCUM]]], Unified Code for Units of Measure (UCUM), Version 2.1, November 2017, https://ucum.org/ucum
 
 * [[[JSON, IETF RFC 8259]]], The JavaScript Object Notation (JSON) Data Interchange Format, https://www.rfc-editor.org/rfc/rfc8259

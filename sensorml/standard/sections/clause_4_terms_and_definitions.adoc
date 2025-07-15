@@ -89,21 +89,21 @@ NOTE: definition includes content from [OGC20-082r4].
 
 === Observation
 
-Act of observing a property or phenomenon.
+Act of measuring or otherwise determining the value of a property.
 
 NOTE: The goal of an observation may be to measure, estimate or otherwise determine the value of a property.
 
 .[source]
-<<ISO 19156, ISO 19156, definition 4.10>>
+<<ISO19156, ISO 19156:2011, definition 4.11>>
 
 === Observation Procedure
 
-Method, algorithm or instrument, or system of these which may be used in making an observation.
+Method, algorithm or instrument, or system of these, which may be used in making an observation.
 
 NOTE: In the context of the sensor web, an observation procedure is often composed of one or more sensors that transform a real world phenomenon into digital information, plus additional processing steps.
 
 .[source]
-<<ISO 19156, ISO 19156, definition 4.11>>
+<<ISO19156, ISO 19156:2011, definition 4.12>>
 
 === Observed Value
 

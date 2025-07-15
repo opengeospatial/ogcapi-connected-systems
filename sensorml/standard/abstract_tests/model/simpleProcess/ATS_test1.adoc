@@ -7,5 +7,5 @@ identifier:: /conf/model/simpleProcess/dependency-core
 target:: /req/model/simpleProcess/dependency-core 
 test-purpose:: Verify that the target implementation passes the test class.
 test-method:: 
-Apply all tests described in section A.2. 
+Apply all tests described in <<annex_core_abstract_process>>. 
 ====
