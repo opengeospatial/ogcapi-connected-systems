@@ -3,5 +3,5 @@
 
 More JSON examples are available in the project's GitHub repository at:
 
-https://github.com/opengeospatial/ogcapi-connected-systems/tree/master/api/part1/openapi/examples
+https://schemas.opengis.net/ogcapi/connected-systems/part1/1.0/openapi/examples
 
