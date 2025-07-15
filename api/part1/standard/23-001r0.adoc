@@ -4,7 +4,7 @@
 :lang: en
 :status: approved
 :committee: technical
-:external-id: http://www.opengis.net/doc/DIS/ogcapi-connectedsystems-1/1.0
+:external-id: http://www.opengis.net/doc/IS/ogcapi-connectedsystems-1/1.0
 :docnumber: 23-001
 :received-date: 2025-03-19
 :issued-date: 2025-06-02
@@ -32,7 +32,7 @@
 :part2-footnote: pass:quotes[** `DataStream` and `ControlStream` resources are defined in OGC API - Connected Systems - Part 2.]
 :local-system-linking-footnote: pass:quotes[*** When inserting or modifying a link to a system stored locally, the link url (`href` property) shall be set to the `uniqueID` of the system to be linked.]
 //
-:jsonschema-root: https://opengeospatial.github.io/ogcapi-connected-systems/api/part1/openapi/schemas
+:jsonschema-root: https://schemas.opengis.net/ogcapi/connected-systems/part1/1.0/openapi/schemas
 //:jsonschema-root: ../openapi/schemas
 :add-byref-schema: link:{jsonschema-root}/common/links.json[links.json]
 :batch-response-schema: link:{jsonschema-root}/common/batch_response.json[batch_response.json]
