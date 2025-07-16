@@ -32,7 +32,7 @@ In this document the following abbreviations and acronyms are used or introduced
 - TAI:	Temps Atomique International (International Atomic Time)
 - UML:	Unified Modeling Language
 - UTC:	Coordinated Universal Time
-- XML:	eXtended Markup Language
+- XML:	eXtensible Markup Language
 - 1D:	One Dimensional
 - 2D:	Two Dimensional
 - 3D:	Three Dimensional
