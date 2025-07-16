@@ -9,7 +9,7 @@
 :received-date: 2025-03-19
 :issued-date: 2025-06-02
 :published-date: yyyy-mm-dd
-:fullname: Alex Robin
+:fullname: Alexandre Robin
 :docsubtype: implementation
 :keywords: ogcdoc, OGC document, OpenAPI, REST, feature, API, system, smart system, connected system, IoT, sensorweb, ssn, sensor, actuator, transducer, sampling, platform, robot, drone, unmanned, autonomous, observation, measurement, datastream, command, control, trajectory, dynamic
 :submitting-organizations: GeoRobotix, Inc.; Botts Innovative Research, Inc.; Cesium GS, Inc.; 52°North Spatial Information Research GmbH; Riverside Research; Pelagis Data Solutions; National Geospatial-Intelligence Agency (NGA); 
