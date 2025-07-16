@@ -50,10 +50,11 @@ The thing whose property is being estimated or calculated in the course of an Ob
 
 
 === Observation
-Act of observing a property
+Act of carrying out an (Observation) Procedure to estimate or calculate a value of a property of a Feature of Interest.
 
 [.source]
-<<ISO19156, ISO-19156, definition 4.10>>
+<<SOSA-SSN, SOSA/SSN, http://www.w3.org/ns/sosa/Observation[Observation Class]>>
+
 
 
 === Platform
