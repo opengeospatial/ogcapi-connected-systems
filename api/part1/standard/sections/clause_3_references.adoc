@@ -9,13 +9,13 @@ The following normative documents contain provisions that, through reference in 
 
 * [[[OGCAPI-Features-2, OGC 18-058]]], OGC API - Features - Part 2: Coordinate Reference Systems by Reference, version 1.0. https://docs.ogc.org/is/18-058/18-058.html
 
-* [[[OGCAPI-Features-4, OGC 20-002]]], OGC API - Features - Part 4: Create, Replace, Update and Delete, version 1.0.0-DRAFT. https://docs.ogc.org/DRAFTS/20-002.html
+* [[[OGCAPI-Features-4, OGC 20-002]]], OGC API - Features - Part 4: Create, Replace, Update and Delete, version 1.0.0-DRAFT. http://www.opengis.net/doc/IS/ogcapi-features-4/1.0
 
 * [[[OGCAPI-Common-1, OGC 19-072]]], OGC API - Common - Part 1: Core, version 1.0.0. https://docs.ogc.org/is/19-072/19-072.html
 
 * [[[SOSA-SSN, SOSA/SSN]]], Semantic Sensor Network Ontology, (October 19 2017), https://www.w3.org/TR/vocab-ssn
 
-* [[[OGC-SML, OGC 23-000]]], OGC SensorML Encoding Standard, version 3.0, https://docs.ogc.org/DRAFTS/23-000.html
+* [[[OGC-SML, OGC 23-000]]], Alexandre Robin: OGC 23-000, _OGC SensorML Encoding Standard, version 3.0_. Open Geospatial Consortium (2025). https://docs.ogc.org/is/23-000/23-000.html
 
 * [[[OGC_SFA, OGC 06-103r4]]], Simple feature access - Part 1: Common architecture
 

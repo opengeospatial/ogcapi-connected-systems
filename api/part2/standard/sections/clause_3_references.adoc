@@ -5,21 +5,21 @@ The following normative documents contain provisions that, through reference in 
 
 * [[[OGC08131, OGC 08-131r3]]], The Specification Model – A Standard for Modular Specification
 
-* [[[OGCAPI-Consys-1, OGC 23-001]]], OGC API - Connected Systems - Part 1: Feature Resources, version 1.0, https://docs.ogc.org/DRAFTS/23-001r0.html
+* [[[OGCAPI-Consys-1, OGC 23-001]]], Alexandre Robin: OGC 23-001, _OGC API - Connected Systems - Part 1: Feature Resources, version 1.0_. Open Geospatial Consortium (2025). https://docs.ogc.org/is/23-001/23-001.html
 
 * [[[OGCAPI-Features-1, OGC 17-069r4]]], OGC API - Features - Part 1: Core, version 1.0.1. https://docs.ogc.org/is/17-069r4/17-069r4.html
 
-* [[[OGCAPI-Features-4, OGC 20-002]]], OGC API - Features - Part 4: Create, Replace, Update and Delete, version 1.0.0-DRAFT. https://docs.ogc.org/DRAFTS/20-002.html
+* [[[OGCAPI-Features-4, OGC 20-002]]], OGC API - Features - Part 4: Create, Replace, Update and Delete, version 1.0.0-DRAFT. http://www.opengis.net/doc/IS/ogcapi-features-4/1.0
 
-* [[[OGCAPI-Common-1, OGC 19-072]]], OGC API - Common - Part 1: Core, version 1.0.0. https://docs.ogc.org/DRAFTS/19-072.html
+* [[[OGCAPI-Common-1, OGC 19-072]]], OGC API - Common - Part 1: Core, version 1.0.0. http://www.opengis.net/doc/is/ogcapi-common-1/1.0.0
 
 * [[[SOSA-SSN, SOSA/SSN]]], Semantic Sensor Network Ontology, (October 19 2017), https://www.w3.org/TR/vocab-ssn
 
 * [[[OMS: ISO 19156:2011]]], Observations and Measurements, version 2.0
 
-* [[[OGC-SML-JSON, OGC 23-000]]], OGC SensorML Encoding Standard, version 3.0, https://docs.ogc.org/DRAFTS/23-000.html
+* [[[OGC-SML-JSON, OGC 23-000]]], Alexandre Robin: OGC 23-000, _OGC SensorML Encoding Standard, version 3.0_. Open Geospatial Consortium (2025). https://docs.ogc.org/is/23-000/23-000.html
 
-* [[[OGC-SWECOMMON, OGC 24-014]]], OGC SWE Common Data Model Encoding Standard, version 3.0. https://docs.ogc.org/DRAFTS/24-014.html
+* [[[OGC-SWECOMMON, OGC 24-014]]], Alexandre Robin: OGC 24-014, _OGC SWE Common Data Model Encoding Standard, version 3.0_. Open Geospatial Consortium (2025). https://docs.ogc.org/is/24-014/24-014.html
 
 * [[[ISO8601, ISO 8601:2019]]], Date and time — Representations for information interchange — Part 1: Basic rules. International Organization for Standardization, Geneva (2019). https://www.iso.org/standard/70907.html.
 
