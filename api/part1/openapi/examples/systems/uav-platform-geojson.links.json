@@ -31,17 +31,17 @@
       "title" : "this resource as HTML"
     }, {
       "href" : "https://data.example.org/api/systems/PLT412/components?f=json",
-      "rel" : "subsystems",
+      "rel" : "ogc-rel:subsystems",
       "type" : "application/geo+json",
       "title" : "List of subsystems"
     }, {
       "href" : "https://data.example.org/api/systems/PLT412/samplingFeatures?f=json",
-      "rel" : "samplingFeatures",
+      "rel" : "ogc-rel:samplingFeatures",
       "type" : "application/geo+json",
       "title" : "List of sampling features attached to this system"
     }, {
       "href" : "https://data.example.org/api/systems/PLT412/deployments?f=json",
-      "rel" : "deployments",
+      "rel" : "ogc-rel:deployments",
       "type" : "application/geo+json",
       "title" : "List of deployments of this system"
     }
