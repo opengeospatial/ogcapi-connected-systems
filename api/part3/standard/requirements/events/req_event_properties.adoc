@@ -1,0 +1,19 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/resource-events/event-properties
+
+part:: A Resource Event SHALL set the CloudEvents context attributes as defined in <<cloudevents-properties-table>>.
+
+part:: The `id` attribute SHALL be a UUID version 4 or version 7, formatted as defined in {rfc9562}.
+
+part:: The `source` attribute SHALL be set to the CS API root URL of the server publishing the event.
+
+part:: The `subject` attribute SHALL be set to the canonical URL of the CS API resource the event applies to.
+
+part:: When the resource the event applies to has a parent resource, the `parentId` extension attribute SHALL be set to the canonical URL of that parent resource.
+
+part:: When the event payload includes a `data` member, the `datacontenttype` attribute SHALL be set to `application/json`.
+
+part:: When present, the `data` member SHALL be a JSON object containing at least the `name` and `description` properties of the resource, where those properties are defined on the resource.
+====

@@ -1,0 +1,17 @@
+[bibliography]
+[[Bibliography]]
+== Bibliography
+
+* [[[AsyncAPI, AsyncAPI 2.6]]], _AsyncAPI Specification, version 2.6.0_. https://www.asyncapi.com/docs/reference/specification/v2.6.0
+
+* [[[CloudEvents-Subscriptions, CloudEvents Subscriptions API]]], _CloudEvents Subscriptions API_. Cloud Native Computing Foundation. https://github.com/cloudevents/spec/blob/main/subscriptions/spec.md
+
+* [[[OGC-PubSub-DP, OGC 23-013]]], _Discussion paper for Publish-Subscribe workflow in OGC APIs_. Open Geospatial Consortium. https://docs.ogc.org/dp/23-013.html
+
+* [[[OGCAPI-EDR-2, OGC 23-057r1]]], _OGC API - Environmental Data Retrieval - Part 2: Publish-Subscribe Workflow_. Open Geospatial Consortium. https://docs.ogc.org/is/23-057r1/23-057r1.html
+
+* [[[OGC-OMS, OGC 20-082r4]]], _Topic 20: Observations, measurements and samples (OMS), Version 3.0_. Open Geospatial Consortium. https://docs.ogc.org/as/20-082r4/20-082r4.html
+
+* [[[OGC-STA-1, OGC 18-088]]], _SensorThings API Part 1: Sensing, Version 1.1_. Open Geospatial Consortium. https://docs.ogc.org/is/18-088/18-088.html
+
+* [[[OGC-STA-2, OGC 17-079r1]]], _SensorThings API Part 2: Tasking Core, Version 1.0_. Open Geospatial Consortium. https://docs.opengeospatial.org/is/17-079r1/17-079r1.html

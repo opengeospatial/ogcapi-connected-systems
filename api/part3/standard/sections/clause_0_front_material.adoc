@@ -1,0 +1,68 @@
+.Preface
+The OGC API - Connected Systems Standard is part of the suite of OGC API Standards.
+
+To increase the brevity and readability of this Standard, many OGC document titles are shortened and/or abbreviated.
+Therefore, in the context of this document, the following phrases are defined.
+
+- "this Standard" shall be interpreted as equivalent to "OGC API - Connected Systems - Part 3: Publish/Subscribe Standard."
+
+- "CS API" or "CS API Standard" shall be interpreted as equivalent to "OGC API - Connected Systems Standard" (including all its parts).
+
+- "OGC API - Features" shall be interpreted as equivalent to "OGC API - Features - Part 1: Core corrigendum."
+
+- "OGC API - Common" shall be interpreted as equivalent to "OGC API - Common - Part 1: Core."
+
+- "OGC API - Pub/Sub" shall be interpreted as equivalent to "OGC API - Publish-Subscribe Workflow - Part 1: Core."
+
+
+[abstract]
+== Abstract
+
+https://ogcapi.ogc.org/#standards[OGC API Standards] define modular API building blocks to spatially enable Web APIs in a consistent way.
+The https://www.openapis.org[OpenAPI] specification is used to define the API building blocks.
+
+This Standard ("Part 3 - Publish/Subscribe") defines how publish/subscribe protocols are used to asynchronously exchange CS API resources and their respective metadata and defined lifecycle events.
+It builds on the resource model and HTTP interface defined in {ogcapi-cs-1} and on the dynamic data resource types defined in {ogcapi-cs-2}. It also extends the message and payload framework defined in OGC API - Pub/Sub by specifying the resource events, resource data messages, and protocol bindings specific to Connected Systems.
+
+Part 3 provides a window into CS API and improves discoverability of resources as they become available for devices and systems already using popular pub/sub frameworks.
+It is intended to serve as a supplement to the REST API defined in Parts 1 & 2 while being robust enough that clients need not implement all both HTTP and Pub/Sub aspects of the standard.
+
+Two categories of pub/sub messages are defined. *Resource events* are CloudEvents-formatted notifications that signal the creation, update, or deletion of any CS API resource; they carry a reference (and optionally a short summary) of the affected resource. *Resource data messages* carry full resource representations using the native CS API encodings (JSON, SWE Common JSON, SWE Common Text, SWE Common Binary) and are intended for low-latency streaming of CS API resources, as well as for the registration of new resources from publishing clients.
+
+Protocol bindings define how these messages are exchanged over specific pub/sub transports.
+This Standard defines bindings for MQTT (v3 and v5), including topic/channel structure, subscribe and publish operations, optional content negotiation, and optional flow control.
+Additional bindings (e.g., AMQP, Kafka, NATS, Server-Sent Events(SSE)) may be defined in extensions or future revisions.
+
+== Security considerations
+
+Security considerations detailed in {ogcapi-cs-1} and {ogcapi-cs-2} also apply to this Standard.
+Additional security requirements specific to publish/subscribe interactions around the prevention of unauthorized publishing on server-controlled channels and the propagation of resource-level access control to event subscriptions are stated in the relevant requirements classes of this Standard.
+
+== Submitters
+
+All questions regarding this submission should be directed to the editor or the submitters listed in the following table:
+
+[%unnumbered,width="100%",options="header"]
+|===
+| *Name* | *Affiliation*
+| Ian Patterson (Editor) | GeoRobotix Innovative Research
+| Alex Robin | GeoRobotix, Inc.
+| Christian Autermann | 52°North Spatial Information Research GmbH
+| Chuck Heazel | Heazeltech
+| Glenn Laughlin | Pelagis Data Solutions
+| Mike Botts | Botts Innovative Research, Inc.
+| Patrick Cozzi | Cesium GS, Inc.
+| Sam Bolling | Riverside Research
+|===
+
+Additional contributors to this Standard include the following:
+
+[%unnumbered,width="100%",options="header"]
+|===
+| *Name* | *Affiliation*
+| Chris Tucker | GeoRobotix, Inc.
+| Qihua Li | GovTech Singapore
+| Rob Atkinson | Open Geospatial Consortium, Inc.
+| Simon Cox | Open Geospatial Consortium, Inc.
+| Jan Speckamp | 52°North Spatial Information Research GmbH
+|===

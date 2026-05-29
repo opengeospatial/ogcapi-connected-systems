@@ -1,0 +1,19 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/batch-resource-events/event-properties
+
+part:: A Batch Resource Event SHALL set the CloudEvents context attributes as defined in <<batch-events-properties-table>>.
+
+part:: The `id` attribute SHALL be a UUID version 4 or version 7, formatted as defined in {rfc9562}.
+
+part:: The `source` attribute SHALL be set to the CS API root URL of the server publishing the event.
+
+part:: The `subject` attribute SHALL be set to the canonical URL of the CS API resource collection (resources endpoint) that the batch summarizes. The collection SHALL be one of those enumerated in /req/batch-resource-events/allowed-collections.
+
+part:: The `parentId` extension attribute SHOULD be set to the canonical URL of the parent resource under which the summarized collection is nested.
+
+part:: The `data` member SHALL be present.
+
+part:: The `datacontenttype` attribute SHALL be set to `application/json`.
+====

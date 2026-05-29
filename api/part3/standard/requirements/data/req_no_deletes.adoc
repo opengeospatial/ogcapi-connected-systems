@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/resource-data-messages/no-deletes
+
+part:: Resource Data Messages SHALL NOT be published to signal a resource deletion.
+
+part:: Deletion of a CS API resource SHALL be conveyed only by <<clause-resource-events,Resource Events>>.
+====

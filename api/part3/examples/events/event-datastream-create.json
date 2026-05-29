@@ -1,0 +1,8 @@
+{
+  "id": "6e1c7f9f-dd6c-48d9-bbc4-aef0625f1fb8",
+  "specversion": "1.0",
+  "type": "org.ogc.api.consys.datastream.create",
+  "source": "https://example.org/csapi",
+  "subject": "https://example.org/csapi/datastreams/458",
+  "time": "2025-08-27T12:36:33Z"
+}

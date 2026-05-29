@@ -1,0 +1,16 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/batch-resource-events/allowed-collections
+
+part:: A server SHALL publish Batch Resource Events only on resource collections that are nested under exactly one parent resource. Batch Resource Events SHALL NOT be published for top-level resource collections, nor for collections that span multiple parent resources.
+
+part::
+A server implementing this requirements class SHALL only publish Batch Resource Events whose `topic` is the canonical URL of one of the following nested resource collections:
+
+* `{api_root}/datastreams/{dsId}/observations`
+* `{api_root}/controlstreams/{csId}/commands`
+* `{api_root}/controlstreams/{csId}/commands/{cmdId}/status`
+* `{api_root}/controlstreams/{csId}/commands/{cmdId}/result`
+* `{api_root}/systems/{sysId}/systemEvents`
+====

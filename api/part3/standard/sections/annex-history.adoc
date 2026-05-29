@@ -1,0 +1,8 @@
+[appendix]
+== Revision History
+
+[%unnumbered,width="90%",options="header"]
+|===
+| Date | Release | Editor | Primary clauses modified | Description
+| 2026-05 | 1.0 draft | Ian Patterson | All | Initial draft skeleton: Resource Events, Batch Resource Events, Resource Data Messages, Content Negotiation sub-class; front matter; bibliography.
+|===

@@ -1,0 +1,13 @@
+{
+  "id": "f1e2d3c4-b5a6-4798-8765-432109876543",
+  "specversion": "1.0",
+  "type": "org.ogc.api.consys.observation.create",
+  "source": "https://example.org/csapi",
+  "subject": "https://example.org/csapi/datastreams/132/observations",
+  "time": "2025-10-07T10:01:00.025Z",
+  "datacontenttype": "application/json",
+  "data": {
+    "timerange": ["2025-10-07T10:00:00Z", "2025-10-07T10:01:00Z"],
+    "count": 1254
+  }
+}

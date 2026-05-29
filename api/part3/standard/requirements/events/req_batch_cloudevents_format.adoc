@@ -1,0 +1,7 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/batch-resource-events/cloudevents-format
+
+part:: The payload of a Batch Resource Event SHALL be a CloudEvents v1.0 message encoded using the {cloudevents-json-format}.
+====

@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/resource-events/all-resource-types
+
+part:: A server implementing this requirements class SHOULD publish Resource Events for every resource type that it exposes through any other requirements class of this Standard.
+
+part:: A server MAY restrict the set of resource types and/or operations for which it publishes Resource Events. When restricted, the server SHALL declare the supported set via the mechanism defined in /req/resource-events/event-discoverability.
+====

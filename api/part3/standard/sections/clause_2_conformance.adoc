@@ -1,0 +1,22 @@
+== Conformance
+
+This Standard was written to be compliant with the OGC Specification Model – A Standard for Modular Specification (OGC 08-131r3). Extensions of this Standard shall themselves be conformant to the OGC Specification Model.
+
+This Standard defines the following requirements classes.
+
+- <<clause-resource-events,style=full%>> defines requirements for CloudEvents-formatted notifications of CS API resource lifecycle operations (create, update, delete). +
+  {empty} +
+- <<clause-batch-resource-events,style=full%>> defines requirements for CloudEvents-formatted aggregated lifecycle notifications, intended for high-volume cases such as observation streams. +
+  {empty} +
+- <<clause-resource-data-messages,style=full%>> defines requirements for pub/sub messages carrying full CS API resource representations in their native encodings. +
+  {empty} +
+- <<clause-resource-data-content-negotiation,style=full%>> defines an optional content-negotiation mechanism for Resource Data Messages, including a normalization rule for deriving channel-safe format-name suffixes from MIME types. +
+  {empty} +
+- <<clause-protocol-mqtt,style=full%>> defines requirements for using MQTT (v3.1.1 and v5) as a pub/sub transport for the message categories defined in this Standard. +
+  {empty} +
+
+The standardization target for these requirements classes is an implementation of the Web API.
+
+There is no _Core_ requirements class. An implementation target is expected to implement at least one message-category (Resource Events, Batch Resource Events, or Resource Data Messages) and at least one protocol-binding.
+
+The conformance classes corresponding to these requirements classes are presented in <<annex_ats,Annex A (normative)>>. Conformance with this Standard shall be checked using all the relevant tests specified in Annex A. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing website.

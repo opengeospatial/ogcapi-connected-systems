@@ -1,0 +1,17 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/resource-data-messages/allowed-resource-types
+
+part::
+A server implementing this requirements class SHALL only publish and accept, Resource Data Messages whose payload is a representation of one of the following CS API resource types:
+
+* `Observation` (defined in {ogcapi-cs-2})
+* `Command` (defined in {ogcapi-cs-2})
+* `Command Status` (defined in {ogcapi-cs-2})
+* `Command Result` (defined in {ogcapi-cs-2})
+* `System Event` (defined in {ogcapi-cs-2})
+* `System` (defined in {ogcapi-cs-1})
+* `Datastream` (defined in {ogcapi-cs-2})
+* `Controlstream` (defined in {ogcapi-cs-2})
+====

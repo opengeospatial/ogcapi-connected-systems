@@ -1,0 +1,17 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/resource-events/event-discoverability
+
+part:: A server implementing this requirements class SHALL make the set of event types it publishes discoverable to clients.
+
+part:: When the server restricts the set of resource types and/or operations for which it publishes events (see /req/resource-events/all-resource-types), the discoverability response SHALL enumerate exactly the supported `<resource>.<operation>` tokens.
+
+#TODO# The mechanism by which the server advertises its supported event types is not yet specified. Candidates under consideration include:
+
+* An AsyncAPI document published at a well-known endpoint of the API, with one channel per supported event type.
+* A conformance-class declaration enumerating the supported `<resource>.<operation>` tokens.
+* Link relations from the API root or a dedicated `/events` endpoint pointing at per-resource-type event channels.
+
+This requirement will be tightened in a future revision of this Standard once the chosen mechanism is finalized.
+====

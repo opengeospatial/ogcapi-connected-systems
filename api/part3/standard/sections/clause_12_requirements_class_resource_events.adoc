@@ -12,6 +12,26 @@ Resource events are a mechanism by which a CS API client can be notified of cert
 - Resource update (e.g. as initiated by an HTTP PUT or PATCH)
 - Resource deletion (e.g. as initiated by an HTTP DELETE)
 
-Listening for resource events can be done on a single resource or a set of resources (i.e. a resources endpoint).
+Listening for resource events can be done on a single resource or a valid collection of resources. The related topic will closely resemble a valid REST endpoint from parts 1 & 2.
+
+Resource Events are encoded as CloudEvents v1.0 messages using the JSON Event Format.
 
 
+=== Message Format
+
+include::cloudevents-properties.adoc[]
+
+
+=== Requirements
+
+include::../requirements/events/req_cloudevents_format.adoc[]
+
+include::../requirements/events/req_event_properties.adoc[]
+
+include::../requirements/events/req_event_types.adoc[]
+
+include::../requirements/events/req_publisher_restriction.adoc[]
+
+include::../requirements/events/req_all_resource_types.adoc[]
+
+include::../requirements/events/req_event_discoverability.adoc[]

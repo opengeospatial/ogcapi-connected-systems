@@ -1,0 +1,46 @@
+
+[[clause-resource-data-messages]]
+== Requirements Class "Resource Data Messages"
+include::../requirements/data/requirements_class_resource_data_messages.adoc[]
+
+
+=== Overview
+
+Resource Data Messages allow CS API resources to be exchanged through publish/subscribe channels as their native representations rather than as <<clause-resource-events,Resource Events>>. They are designed for low-latency, high-volume streaming of dynamic data — observations, commands, command status updates, command results, and system events — as well as for "registration" use cases where a publishing client introduces new systems, datastreams, or controlstreams to the server.
+
+A Resource Data Message carries the resource itself, not a notification about it. Subscribers receive the full resource representation; consumers do not need to make a follow-up request to retrieve the resource by URL.
+
+Resource Data Messages are restricted in two important ways:
+
+* Only specific CS API resource types are eligible (see <<resource-data-eligible-types-table>>). The Resource Events class remains the appropriate mechanism for lifecycle notifications of other resource types (deployments, procedures, properties, sampling features, etc.).
+* Resource deletions are *never* signaled by Resource Data Messages. Deletions are conveyed only by <<clause-resource-events,Resource Events>>.
+
+Implementing this requirements class is optional. A server MAY implement Resource Data Messages without implementing Resource Events, or vice versa, or both, or neither.
+
+
+=== Message Format
+
+include::resource-data-properties.adoc[]
+
+
+=== Requirements
+
+include::../requirements/data/req_payload_format.adoc[]
+
+include::../requirements/data/req_no_deletes.adoc[]
+
+include::../requirements/data/req_allowed_resource_types.adoc[]
+
+
+[[clause-resource-data-content-negotiation]]
+=== Content Negotiation (Optional)
+include::../requirements/data/requirements_class_content_negotiation.adoc[]
+
+==== Overview
+
+include::content-negotiation-formats.adoc[]
+
+
+==== Requirements
+
+include::../requirements/data/req_format_name.adoc[]

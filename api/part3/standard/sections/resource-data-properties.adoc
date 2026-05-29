@@ -1,0 +1,20 @@
+A Resource Data Message carries a complete representation of a single CS API resource. Unlike <<clause-resource-events,Resource Events>> and <<clause-batch-resource-events,Batch Resource Events>>, the message payload is *not* wrapped in a CloudEvents envelope — it is the resource representation itself, encoded in one of the formats supported by the server.
+
+[#resource-data-eligible-types-table,reftext='{table-caption} {counter:table-num}']
+.CS API resource types eligible for Resource Data Messages
+[width="100%",options="header"]
+|====
+| *Resource Type*  | *Defined In*  | *Typical Use Case*
+| `Observation`    | {ogcapi-cs-2} | Streaming observations into or out of the server.
+| `Command`        | {ogcapi-cs-2} | Sending commands to actuators or controllable systems.
+| `Command Status` | {ogcapi-cs-2} | Streaming command status transitions.
+| `Command Result` | {ogcapi-cs-2} | Streaming command results.
+| `System Event`   | {ogcapi-cs-2} | Streaming system-emitted events.
+| `System`         | {ogcapi-cs-1} | Registering a new system from the client side.
+| `Datastream`     | {ogcapi-cs-2} | Registering a new datastream associated with a system.
+| `Controlstream`  | {ogcapi-cs-2} | Registering a new controlstream associated with a system.
+|====
+
+Resource Data Messages support both server-to-client and client-to-server message flows. The publish authority for each resource type and channel is defined by the protocol binding (for example, the MQTT Publish requirements class); the message-format class defined here is silent on who may publish.
+
+The encoding used for a given Resource Data Message is one of the formats supported by the server for the resource type being carried, as defined by the encoding requirements classes of {ogcapi-cs-1}, {ogcapi-cs-2}, or future Parts. The mechanism by which a client requests a specific encoding (when more than one is supported by the server) is a protocol binding concern; this Standard does not define a general content-negotiation mechanism for Resource Data Messages.

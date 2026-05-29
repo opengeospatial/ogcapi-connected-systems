@@ -1,0 +1,35 @@
+
+[[clause-batch-resource-events]]
+== Requirements Class "Batch Resource Events"
+include::../requirements/events/requirements_class_batch_resource_events.adoc[]
+
+
+=== Overview
+
+Batch Resource Events are an alternative to per-resource <<clause-resource-events,Resource Events>>, intended for cases where publishing one event per resource transaction is impractical — for example, high-bandwidth datastreams and control streams where the per-resource event volume would overwhelm subscribers.
+
+A Batch Resource Event is a CloudEvents v1.0 message that summarizes a number of resource transactions of a single type (create, update, or delete) that occurred on a single nested resource collection during a defined time window. It does not carry the individual resources or their identifiers; only their count, the event type, and the time window.
+
+Implementing this requirements class is *optional*, even for servers that implement <<clause-resource-events,Resource Events>>. A server MAY implement either class, both, or neither.
+
+Batch Resource Events are *not* intended for low-frequency resource collections such as the canonical collections of systems, deployments, procedures, properties, or the per-system collections of subsystems, datastreams, controlstreams, sampling features, or deployments. For those collections, per-resource <<clause-resource-events,Resource Events>> are sufficient and avoid the additional complexity of batch aggregation. The specific resource collections for which Batch Resource Events MAY be published are enumerated in /req/batch-resource-events/allowed-collections.
+
+
+=== Message Format
+
+include::batch-events-properties.adoc[]
+
+
+=== Requirements
+
+include::../requirements/events/req_batch_cloudevents_format.adoc[]
+
+include::../requirements/events/req_batch_event_properties.adoc[]
+
+include::../requirements/events/req_batch_event_types.adoc[]
+
+include::../requirements/events/req_batch_publisher_restriction.adoc[]
+
+include::../requirements/events/req_batch_data_shape.adoc[]
+
+include::../requirements/events/req_batch_allowed_collections.adoc[]

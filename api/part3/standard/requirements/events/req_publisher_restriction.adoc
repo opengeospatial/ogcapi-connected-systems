@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/resource-events/publisher-restriction
+
+part:: Only the CS API server hosting the resources SHALL publish Resource Events for those resources.
+
+part:: The server SHALL reject any attempt by a client to publish a message on a channel reserved for Resource Events.
+====

@@ -1,0 +1,82 @@
+= OGC API - Connected Systems - Part 3: Publish/Subscribe
+:doctype: standard
+:encoding: utf-8
+:lang: en
+:status: swg-draft
+:committee: technical
+:external-id: http://www.opengis.net/doc/IS/ogcapi-connectedsystems-3/1.0
+:docnumber: 23-003
+:fullname: Ian Patterson
+:docsubtype: implementation
+:keywords: ogcdoc, OGC document, OpenAPI, AsyncAPI, REST, MQTT, CloudEvents, publish, subscribe, pub/sub, event, notification, API, system, smart system, connected system, IoT, sensorweb, ssn, sensor, actuator, observation, command
+:submitting-organizations:
+:mn-document-class: ogc
+:mn-output-extensions: xml,html,doc,pdf
+:local-cache-only:
+:data-uri-image:
+:edition: 1.0
+:toc: left
+:toclevels: 3
+:sectnums:
+:sectanchors:
+:icons: font
+:source-highlighter: rouge
+//
+// Bibliography cross-reference substitutions used throughout the document.
+// Each attribute expands to a cross-reference anchored in the normative
+// references clause (clause_3_references.adoc).
+//
+:rfc9562: <<RFC9562, RFC 9562>>
+:rfc3339: <<RFC3339, RFC 3339>>
+:cloudevents-json-format: <<CloudEvents-JSON, CloudEvents JSON Event Format 1.0.2>>
+:ogcapi-cs-1: <<OGCAPI-Consys-1, OGC API - Connected Systems - Part 1>>
+:ogcapi-cs-2: <<OGCAPI-Consys-2, OGC API - Connected Systems - Part 2>>
+:ogcapi-pubsub-1: <<OGCAPI-PubSub-1, OGC API - Pub/Sub - Part 1: Core>>
+//
+////
+==============================================================================
+DRAFT — work in progress
+
+This entry file currently wires in the front matter, the three
+message-type requirements classes (Resource Events, Batch Resource
+Events, Resource Data Messages), the Content Negotiation sub-class,
+the bibliography, and the revision history.
+
+Still missing: the MQTT binding (the existing file in
+sections/ is a level-3 stub with broken include paths and is not
+wired in here yet), the abstract test suite annex, and the examples /
+relationships-with-standards annexes.
+==============================================================================
+////
+
+include::sections/clause_0_front_material.adoc[]
+
+include::sections/clause_1_scope.adoc[]
+
+include::sections/clause_2_conformance.adoc[]
+
+include::sections/clause_3_references.adoc[]
+
+include::sections/clause_4_terms_and_definitions.adoc[]
+
+include::sections/clause_5_conventions.adoc[]
+
+include::sections/clause_6_overview.adoc[]
+
+include::sections/clause_12_requirements_class_resource_events.adoc[]
+
+include::sections/clause_13_requirements_class_batch_resource_events.adoc[]
+
+include::sections/clause_14_requirements_class_resource_data_messages.adoc[]
+
+// The MQTT binding section file (clause_31) uses level-3 (===)
+// headings and references requirement files under
+// requirements/protocol/mqtt/ which don't exist (the actual files
+// live at requirements/mqtt/). It needs both heading promotion and
+// include-path fixes before it can be wired in here.
+//
+// include::sections/clause_31_requirements_class_mqtt.adoc[]
+
+include::sections/annex-history.adoc[]
+
+include::sections/annex-bibliography.adoc[]

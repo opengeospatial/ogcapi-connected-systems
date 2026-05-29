@@ -1,0 +1,35 @@
+== Conventions
+
+This section provides details and examples for any conventions used in the document.
+
+=== Identifiers
+The normative provisions in this Standard are denoted by the URI
+
+`http://www.opengis.net/spec/ogcapi-connectedsystems-3/1.0`
+
+All requirements and conformance tests that appear in this document are denoted by partial URIs which are relative to this base.
+
+
+=== Abbreviated terms
+
+In this document the following abbreviations and acronyms are used or introduced:
+
+- API: Application Programming Interface
+- AsyncAPI: Specification for asynchronous APIs
+- CS API: OGC API - Connected Systems
+- HTTP: Hypertext Transfer Protocol
+- IETF: Internet Engineering Task Force
+- IoT: Internet of Things
+- JSON: JavaScript Object Notation
+- MIME: Multipurpose Internet Mail Extensions
+- MQTT: Message Queuing Telemetry Transport
+- OASIS: Organization for the Advancement of Structured Information Standards
+- OGC: Open Geospatial Consortium
+- Pub/Sub: Publish/Subscribe
+- REST: Representational State Transfer
+- RFC: Request for Comments
+- SSE: Server-Sent Events
+- SWE: Sensor Web Enablement
+- URI: Uniform Resource Identifier
+- URL: Uniform Resource Locator
+- UUID: Universally Unique IDentifier

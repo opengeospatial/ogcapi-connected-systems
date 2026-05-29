@@ -1,0 +1,13 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/batch-resource-events/batch-data-shape
+
+part:: The `data` member of a Batch Resource Event SHALL be a JSON object containing at least the `timerange` and `count` properties defined below.
+
+part:: The `timerange` property SHALL be a JSON array of exactly two {rfc3339} date-time strings, in chronological order, representing the window during which the batched resource operations became visible to API clients.
+
+part:: The `count` property SHALL be a non-negative integer representing the number of resource operations of the event type identified by `type` that occurred on the resource collection identified by `subject` during the `timerange`.
+
+part:: The `data` member MAY include additional properties beyond `timerange` and `count`. Consumers SHALL ignore any properties they do not recognize.
+====

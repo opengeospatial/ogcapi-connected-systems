@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/resource-data-messages/payload-format
+
+part:: The payload of a Resource Data Message SHALL be a complete representation of a single CS API resource, encoded in one of the resource encoding formats defined by the requirements classes of {ogcapi-cs-1}, {ogcapi-cs-2}, or this Standard.
+
+part:: The encoding format used for a given Resource Data Message SHALL be one of the formats that the server has declared as supported for the resource type being carried.
+====

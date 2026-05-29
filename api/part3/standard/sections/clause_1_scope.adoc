@@ -1,0 +1,15 @@
+== Scope
+
+This Standard defines protocol bindings and message payload formats for using publish/subscribe (pub/sub) protocols with the OGC API - Connected Systems (CS API) framework. It extends {ogcapi-cs-1} (resource model and HTTP interface) and {ogcapi-cs-2} (dynamic data resource types) by enabling clients and servers to exchange CS API resources, lifecycle notifications, and streaming data asynchronously over pub/sub transports.
+
+Specifically, Part 3 of the CS API defines:
+
+* Two main categories of pub/sub message payloads: *Resource Events* (CloudEvents-formatted lifecycle notifications) and *Resource Data Messages* (full resource representations carried in their native CS API encodings). A subtype of Resource Events *Batch Resource Events* (aggregated lifecycle notifications for high-volume cases), exists for cases where implementers require fewer message publications due to highly frequent lifecycle updates.
+
+* Protocol bindings that specify how these message categories are exchanged over particular pub/sub transports. Bindings for MQTT (v3.1.1 and v5) are defined in this Standard. Additional bindings may be defined in extensions or in future revisions.
+
+* An optional content-negotiation mechanism allowing a server to expose the same resource in multiple encoding formats over parallel pub/sub channels.
+
+This Standard does not redefine resource models or HTTP operations defined in {ogcapi-cs-1} or {ogcapi-cs-2}. It builds on the message-payload framework defined in {ogcapi-pubsub-1}, extending it for the Connected Systems domain.
+
+{ogcapi-cs-1} defines the feature resources that pub/sub channels in this Part exchange notifications and data about. {ogcapi-cs-2} defines the dynamic data resource types (`Observation`, `Command`, `Command Status`, `Command Result`, `System Event`) that are most commonly streamed using the message categories defined here.

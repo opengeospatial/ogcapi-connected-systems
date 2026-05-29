@@ -1,0 +1,10 @@
+[requirement,model=ogc]
+====
+[%metadata]
+type:: class
+identifier:: /req/resource-data-messages/content-negotiation
+subject:: Web API
+inherit:: /req/resource-data-messages
+
+requirement:: /req/resource-data-messages/content-negotiation/format-name
+====

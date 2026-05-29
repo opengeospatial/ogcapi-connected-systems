@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/batch-resource-events/event-types
+
+part:: The `type` attribute of a Batch Resource Event SHALL be one of the values listed in <<resource-event-types-table>>.
+
+part:: A single Batch Resource Event SHALL summarize resource transactions of exactly one event type (e.g. only `.create`, only `.update`, or only `.delete`) for resources of exactly one type.
+====

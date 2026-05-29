@@ -1,0 +1,52 @@
+The following table specifies the constraints on each CloudEvents context attribute for a CS API Resource Event.
+
+[#cloudevents-properties-table,reftext='{table-caption} {counter:table-num}']
+.CloudEvents Context Attributes for Resource Events
+[width="100%",options="header"]
+|====
+| *Attribute*       | *Value / Constraint*
+| `specversion`     | Fixed value `1.0`.
+| `type`            | A string identifying the affected resource type and the operation that took place. See <<resource-event-types-table>>.
+| `source`          | The CS API root URL of the server publishing the event.
+| `subject`         | The canonical URL of the CS API resource the event applies to.
+| `id`              | A UUID version 4 or version 7, as defined in {rfc9562}.
+| `parentId`        | _(extension)_ The canonical URL of the parent resource, when one exists (e.g. the parent `System` when a subsystem is created). Recommended whenever applicable.
+| `time`            | The timestamp of the resource operation. Ideally the moment the resource becomes visible to API clients; alternatively, the time the originating request was received or processed by the server.
+| `datacontenttype` | Required only when `data` is included. SHALL be `application/json`.
+| `data`            | _Optional._ When present, a JSON object summarizing the affected resource. Contains at least the resource's `name` and `description` properties when those are defined on the resource. Additional properties MAY be included.
+|====
+
+[#resource-event-types-table,reftext='{table-caption} {counter:table-num}']
+.Resource Event Types
+[width="100%",options="header"]
+|====
+| *Event Type*                                | *Description*
+| `org.ogc.api.consys.<resource>.create`      | A resource of the given type was created.
+| `org.ogc.api.consys.<resource>.update`      | A resource of the given type was replaced or updated.
+| `org.ogc.api.consys.<resource>.delete`      | A resource of the given type was deleted.
+|====
+
+The `<resource>` token in the table above is replaced by the resource type identifier (for example `system`, `subsystem`, `datastream`, `observation`, `controlstream`, `command`, `commandstatus`, `commandresult`, `systemevent`, `deployment`, `procedure`, `property`, `samplingfeature`). The complete mapping of resource types to event-type tokens is given in #TODO# (Annex).
+
+[[example_resource_event_minimal]]
+.Resource Event for a `DataStream` creation, with no `data` member
+=================
+This is a minimal Resource Event notifying subscribers that a new `DataStream` resource has been created. The event carries only the canonical URL of the affected resource in the `subject` attribute. Subscribers may fetch the resource representation via HTTP directly, given the canonical url.
+
+[source%autofit,json]
+----
+include::../examples/events/event-datastream-create.json[]
+----
+=================
+
+
+[[example_resource_event_with_data]]
+.Resource Event for a `System` creation, with a `data` summary
+=================
+This Resource Event signals the creation of a new `System` resource and includes an optional `data` member with a short summary of the resource.
+
+[source%autofit,json]
+----
+include::../examples/events/event-system-create-with-data.json[]
+----
+=================

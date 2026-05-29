@@ -1,0 +1,20 @@
+Content negotiation for Resource Data Messages is an *optional* extension to the Resource Data Messages requirements class. When a server supports more than one resource encoding format for the same resource type, it MAY expose each format on a separate pub/sub channel identified by a normalized format-name suffix.
+
+The actual channel-naming syntax (for example, an MQTT subtopic appended after `:data`) is defined by each protocol binding. This requirements class defines only the rule for deriving the format-name suffix from a MIME type. The rule is constrained primarily by MQTT, where the `+` character is a reserved single-level wildcard in topic filters and cannot appear inside a literal topic segment.
+
+[#resource-data-format-names-table,reftext='{table-caption} {counter:table-num}']
+.Normalized format names for common CS API encodings
+[width="100%",options="header"]
+|====
+| *MIME Type*               | *Defined in*                 | *Normalized Format Name*
+| `application/json`        | {ogcapi-cs-1}, {ogcapi-cs-2} | `json`
+| `application/geo+json`    | {ogcapi-cs-1}                | `geo-json`
+| `application/sml+json`    | {ogcapi-cs-1}                | `sml-json`
+| `application/om+json`     | {ogcapi-cs-2}                | `om-json`
+| `application/cmd+json`    | {ogcapi-cs-2}                | `cmd-json`
+| `application/swe+json`    | {ogcapi-cs-2}                | `swe-json`
+| `application/swe+text`    | {ogcapi-cs-2}                | `swe-text`
+| `application/swe+binary`  | {ogcapi-cs-2}                | `swe-binary`
+|====
+
+NOTE: This table is informative. The normative rule for deriving format names is given by /req/resource-data-messages/content-negotiation/format-name; the table above illustrates the rule applied to the encoding MIME types defined by the current Parts of the CS API Standard. Future encoding MIME types defined by extensions or future Parts derive their format names by applying the same rule.

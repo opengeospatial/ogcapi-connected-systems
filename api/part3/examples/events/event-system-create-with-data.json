@@ -1,0 +1,13 @@
+{
+  "id": "8b7a6c5d-4e3f-4210-9876-543210fedcba",
+  "specversion": "1.0",
+  "type": "org.ogc.api.consys.system.create",
+  "source": "https://example.org/csapi",
+  "subject": "https://example.org/csapi/systems/87",
+  "time": "2025-10-07T10:23:30Z",
+  "datacontenttype": "application/json",
+  "data": {
+    "name": "Sensor 01",
+    "description": "Air temperature sensor on my window"
+  }
+}

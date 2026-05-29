@@ -1,0 +1,11 @@
+[requirement,model=ogc]
+====
+[%metadata]
+type:: class
+identifier:: /req/resource-data-messages
+subject:: Web API
+
+requirement:: /req/resource-data-messages/payload-format
+requirement:: /req/resource-data-messages/no-deletes
+requirement:: /req/resource-data-messages/allowed-resource-types
+====

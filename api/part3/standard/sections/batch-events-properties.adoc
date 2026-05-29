@@ -1,0 +1,40 @@
+A Batch Resource Event uses the same CloudEvents v1.0 JSON envelope as a regular Resource Event (see <<cloudevents-properties-table>>) with a few key differences:
+
+* The `subject` attribute identifies a *nested resource collection* (resources endpoint) that the batch summarizes, rather than an individual resource. The collection is nested under exactly one parent resource (e.g. observations under a single datastream). Top-level resource collections and collections that span multiple parent resources are not allowed; the permitted collections are enumerated in /req/batch-resource-events/allowed-collections.
+* The `data` member is *required* and carries summary statistics for the batched operations.
+
+[#batch-events-properties-table,reftext='{table-caption} {counter:table-num}']
+.Batch Resource Event property differences from Resource Events
+[width="100%",options="header"]
+|====
+| *Attribute*       | *Value / Constraint*
+| `subject`         | The canonical URL of the nested resource collection (resources endpoint) summarized by the batch. SHALL be one of the collections enumerated in /req/batch-resource-events/allowed-collections.
+| `datacontenttype` | Required. SHALL be `application/json`.
+| `data`            | Required. JSON object carrying batch statistics; see <<batch-data-properties-table>>.
+|====
+
+All other CloudEvents context attributes (`specversion`, `type`, `source`, `id`, `parentId`, `time`) follow the same constraints as for regular Resource Events.
+
+[#batch-data-properties-table,reftext='{table-caption} {counter:table-num}']
+.Batch Resource Event `data` properties
+[width="100%",options="header"]
+|====
+| *Property*  | *Type*                          | *Description*
+| `timerange` | Array of two {rfc3339} date-time strings | The window during which the batched resource operations became visible to API clients. The two values SHALL be in chronological order.
+| `count`     | Non-negative integer            | The number of resource operations of the event type identified by `type` that occurred on the resource collection identified by `subject` during the `timerange`.
+|====
+
+Additional properties MAY be included in `data` (for example, per-observed-property statistics or latency metrics). Consumers SHALL ignore any properties they do not recognize.
+
+The `type` vocabulary is the same as for regular Resource Events; see <<resource-event-types-table>>.
+
+[[example_batch_resource_event]]
+.Batch Resource Event summarizing one minute of observation creations
+=================
+This Batch Resource Event reports that 1254 `Observation` resources were created under datastream 132 during a one-minute window. Individual observations are not enumerated; subscribers wishing to retrieve them can use the HTTP API or subscribe to per-observation Resource Events.
+
+[source%autofit,json]
+----
+include::../examples/events/batch-event-observations-create.json[]
+----
+=================

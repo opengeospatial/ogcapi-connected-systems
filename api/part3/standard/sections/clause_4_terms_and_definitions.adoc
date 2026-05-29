@@ -1,0 +1,42 @@
+== Terms and definitions
+
+All terms defined in {ogcapi-cs-1}, {ogcapi-cs-2}, and {ogcapi-pubsub-1} also apply.
+
+
+=== Channel
+An addressable path or topic through which messages of a particular kind are published and to which clients can subscribe. The exact syntax of a channel identifier depends on the protocol binding (for example, an MQTT topic).
+
+
+=== CloudEvents
+A vendor-neutral specification for describing event data in a common way. CloudEvents are envelopes carrying context attributes (such as `id`, `type`, `source`, `subject`, `time`) and an optional payload (`data`).
+
+[.source]
+<<CloudEvents>>
+
+
+=== Resource Event
+A CloudEvents-formatted message published by a CS API server to signal a lifecycle operation (create, update, or delete) on a single CS API resource.
+
+
+=== Batch Resource Event
+A CloudEvents-formatted message published by a CS API server to summarize a number of resource transactions of a single type that occurred on a single nested resource collection during a defined time window.
+
+
+=== Resource Data Message
+A pub/sub message whose payload is a complete representation of a single CS API resource, encoded in one of the server's supported native CS API encodings. Resource Data Messages do not use a CloudEvents envelope.
+
+
+=== Publisher
+The party (server or client, depending on the binding and channel) responsible for sending messages on a pub/sub channel.
+
+
+=== Subscriber
+A party that registers interest in receiving messages from one or more pub/sub channels.
+
+
+=== Protocol Binding
+A definition of how the abstract pub/sub message categories defined in this Standard map onto the concrete operations of a specific pub/sub transport protocol (for example, MQTT).
+
+
+=== Format Name
+A short, channel-safe identifier derived from a resource encoding's MIME type, used to distinguish parallel pub/sub channels carrying the same resource in different encodings. The normalization rule is defined in /req/resource-data-messages/content-negotiation/format-name.
