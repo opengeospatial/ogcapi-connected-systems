@@ -45,3 +45,34 @@ Open editorial questions intentionally left unresolved:
 Build this draft with:
 
 `./build.sh`
+
+== Build Validation Status
+
+This branch now has enough standalone wiring for a static validation pass:
+
+- the root entrypoint resolves;
+- the included references clause resolves;
+- the included sampling-feature-types clause resolves;
+- the requirement include targets under `../requirements/sampling/` resolve;
+- the currently wired local and bibliography cross-references resolve within the
+  standalone Part 4 draft files.
+
+Local artifact generation was not possible on this host during this pass:
+
+- `metanorma` is not installed or not available on `PATH`;
+- `bash`/`sh` is not installed or not available on `PATH`, so `build.sh`
+  could not be executed as written.
+
+Because of these tooling gaps, no HTML or PDF review artifacts were generated
+or committed in this pass.
+
+Remaining blockers and editorial gaps:
+
+- the Part 4 requirement-class files inherit `/req/sampling-features`, but the
+  standalone Part 4 draft does not yet define that base requirement class;
+- front matter, scope, conformance, terms, and overview sections remain
+  unwired;
+- annex treatment remains unresolved, including the status of
+  `text for annex C.txt`;
+- broader SensorML reference treatment remains open where the current Part 4
+  text refers to SensorML pose concepts.
