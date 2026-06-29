@@ -1,0 +1,35 @@
+= OGC API - Connected Systems Part 4 Working Draft Scaffold
+
+This directory contains the initial standalone draft scaffold for Part 4.
+
+This scaffold is intentionally minimal. It is designed to:
+
+- preserve the existing upstream `api/part4` source material;
+- provide a root draft entrypoint for a dedicated working branch;
+- mirror the Part 3 working-draft packaging pattern without inventing missing
+  standards content.
+
+Currently included:
+
+- `23-004r0.adoc` root draft entrypoint
+- `build.sh` draft build helper
+- `metanorma.yml` minimal Metanorma configuration
+
+Current wiring notes:
+
+- The root entrypoint includes the existing `../sections/clause_13_sampling_feature_types.adoc`.
+- The existing clause expects requirement files under `../requirements/sampling/`.
+- To preserve the existing source subtree while enabling mechanical wiring,
+  this scaffold pass adds that missing directory layout without deleting the
+  pre-existing requirement files.
+
+Known gaps intentionally left for later passes:
+
+- front matter, scope, conformance, references, terms, and overview sections
+- bibliography extraction and reconciliation
+- annex decisions
+- broader Part 1 provenance cleanup
+
+Build this draft with:
+
+`./build.sh`

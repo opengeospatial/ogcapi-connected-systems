@@ -1,0 +1,11 @@
+[requirement,model=ogc]
+====
+[%metadata]
+type:: class
+identifier:: /req/relative-sampling-point
+subject:: Web API
+inherit:: /req/sampling-features
+inherit:: /req/sampling-parametric
+requirement:: /req/relative-sampling-point/type
+requirement:: /req/relative-sampling-point/pose
+====

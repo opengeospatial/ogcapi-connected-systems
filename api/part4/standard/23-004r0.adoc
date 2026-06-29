@@ -1,0 +1,49 @@
+= OGC API - Connected Systems - Part 4: Sampling Features
+:doctype: standard
+:encoding: utf-8
+:lang: en
+:status: swg-draft
+:committee: technical
+:docnumber: 23-004
+:fullname: Alexandre Robin
+:docsubtype: implementation
+:keywords: ogcdoc, OGC document, OpenAPI, REST, API, connected system, sampling feature, specimen, statistical sample, spatial sampling, parametric sampling
+:mn-document-class: ogc
+:mn-output-extensions: xml,html,doc,pdf
+:local-cache-only:
+:data-uri-image:
+:edition: 1.0
+:toc: left
+:toclevels: 3
+:sectnums:
+:sectanchors:
+:icons: font
+:source-highlighter: rouge
+//
+////
+==============================================================================
+DRAFT — work in progress
+
+This scaffold pass establishes a standalone Part 4 draft entrypoint around the
+existing upstream `api/part4` source material.
+
+Currently wired:
+- the existing sampling feature types clause from `../sections/`
+- the existing requirement-class source files from `../requirements/`
+- a placeholder encodings anchor to preserve the existing clause cross-reference
+
+Still pending in later passes:
+- extracted front matter, scope, conformance, references, and terms sections
+- bibliography reconciliation
+- annex decisions and any remaining Part 1 extraction cleanup
+==============================================================================
+////
+
+include::../sections/clause_13_sampling_feature_types.adoc[]
+
+[[clause-encodings]]
+== Requirements Classes for Encodings
+
+This scaffold pass does not yet wire Part 4-specific encoding clauses into the
+standalone draft package. The anchor is provided so the existing Part 4 clause
+can remain intact while the extracted structure is reconciled in a later pass.

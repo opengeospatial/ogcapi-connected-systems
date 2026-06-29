@@ -1,0 +1,11 @@
+[requirement,model=ogc]
+====
+[%metadata]
+type:: class
+identifier:: /req/spherical-sector
+subject:: Web API
+inherit:: /req/sampling-features
+inherit:: /req/sampling-parametric
+requirement:: /req/spherical-sector/type
+requirement:: /req/spherical-sector/attributes
+====

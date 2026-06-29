@@ -1,0 +1,10 @@
+[requirement,model=ogc]
+====
+[%metadata]
+type:: class
+identifier:: /req/feature-part
+subject:: Web API
+inherit:: /req/sampling-features
+requirement:: /req/feature-part/type
+requirement:: /req/feature-part/attributes
+====
