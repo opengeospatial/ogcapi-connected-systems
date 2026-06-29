@@ -28,16 +28,19 @@ This scaffold pass establishes a standalone Part 4 draft entrypoint around the
 existing upstream `api/part4` source material.
 
 Currently wired:
+- a standalone references clause integrated from Alex Robin's delivered package
 - the existing sampling feature types clause from `../sections/`
 - the existing requirement-class source files from `../requirements/`
 - a placeholder encodings anchor to preserve the existing clause cross-reference
 
 Still pending in later passes:
-- extracted front matter, scope, conformance, references, and terms sections
+- extracted front matter, scope, conformance, terms, and overview sections
 - bibliography reconciliation
 - annex decisions and any remaining Part 1 extraction cleanup
 ==============================================================================
 ////
+
+include::sections/clause_3_references.adoc[]
 
 include::../sections/clause_13_sampling_feature_types.adoc[]
 

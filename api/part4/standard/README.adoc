@@ -12,23 +12,35 @@ This scaffold is intentionally minimal. It is designed to:
 Currently included:
 
 - `23-004r0.adoc` root draft entrypoint
+- `sections/clause_3_references.adoc` standalone references clause integrated from Alex Robin's delivered package
 - `build.sh` draft build helper
 - `metanorma.yml` minimal Metanorma configuration
 
 Current wiring notes:
 
 - The root entrypoint includes the existing `../sections/clause_13_sampling_feature_types.adoc`.
+- The root entrypoint now includes a standalone references clause before the extracted sampling-feature-types clause.
 - The existing clause expects requirement files under `../requirements/sampling/`.
 - To preserve the existing source subtree while enabling mechanical wiring,
   this scaffold pass adds that missing directory layout without deleting the
   pre-existing requirement files.
+- The `GeoPose` bibliography anchor was added in the standalone references
+  clause because the existing Part 4 text explicitly cites it.
 
 Known gaps intentionally left for later passes:
 
-- front matter, scope, conformance, references, terms, and overview sections
+- front matter, scope, conformance, terms, and overview sections
 - bibliography extraction and reconciliation
 - annex decisions
 - broader Part 1 provenance cleanup
+
+Open editorial questions intentionally left unresolved:
+
+- `text for annex C.txt` was reviewed but not promoted into the formal draft in
+  this pass because its annex status is still unclear.
+- Broader SensorML reference treatment remains open where the current Part 4
+  text refers to SensorML pose concepts without a standalone bibliography entry
+  equivalent to the direct `GeoPose` cross-reference.
 
 Build this draft with:
 
