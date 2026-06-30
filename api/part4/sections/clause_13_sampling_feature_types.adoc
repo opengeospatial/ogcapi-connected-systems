@@ -409,11 +409,11 @@ part:: All attributes marked as `Required` SHALL be present on an instance of th
 
 ==== Pose
 
-Every parametric sampling feature has a `pose` attribute that takes an instance of a `Pose` object based on the SensorML Pose model, itself derived from the <<GeoPose,GeoPose>> model.
+Every parametric sampling feature has a `pose` attribute that takes an instance of a `Pose` object based on the <<OGC-SML,SensorML>> pose model, itself derived from the <<GeoPose,GeoPose>> model.
 
 The `pose` property allows the specification of the feature location and orientation relatively to a frame of reference. More specifically, it provides the pose of the inner frame relative to the outer frame (the frame of reference).
 
-The allowed values for the `pose` attribute are "GeoPose Basic" instances or "SensorML Relative Pose" instances.
+The allowed values for the `pose` attribute are "GeoPose Basic" instances or "<<OGC-SML,SensorML Relative Pose>>" instances.
 
 [requirement,model=ogc]
 ====

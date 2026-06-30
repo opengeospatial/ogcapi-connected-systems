@@ -48,9 +48,9 @@ Open editorial questions intentionally left unresolved:
 
 - `text for annex C.txt` was reviewed but not promoted into the formal draft in
   this branch because its annex status is still unclear.
-- Broader SensorML reference treatment remains open where the current Part 4
-  text refers to SensorML pose concepts without a standalone bibliography entry
-  equivalent to the direct `GeoPose` cross-reference.
+- A direct `OGC-SML` bibliography entry is now included for the existing Part 4
+  pose discussion, but the broader extracted-from-Part-1 requirement-class
+  packaging remains unresolved.
 
 Verified build path:
 
@@ -80,15 +80,16 @@ This branch now has enough standalone wiring for a remote working-draft build:
 
 Remaining blockers and editorial gaps:
 
-- the Part 4 requirement-class files still inherit `/req/sampling-features`,
-  but the standalone Part 4 draft does not yet define that base requirement
-  class;
+- the Part 4 requirement-class files still inherit `/req/sampling-features`;
+  that identifier is present in earlier Part 1 source history and in Alex
+  Robin's delivered package, but it is not yet promoted into the current
+  standalone Part 4 draft;
 - the current standalone wrapper clauses explicitly document, rather than fully
   resolve, missing promoted Part 4 source for submitters, scope, conformance,
   and terms treatment;
 - annex treatment remains unresolved, including the status of
   `text for annex C.txt`;
-- broader SensorML reference treatment remains open where the current Part 4
-  text refers to SensorML pose concepts;
+- the current Part 4 draft still needs fuller requirements/conformance
+  packaging around the historical `/req/sampling-features` base class;
 - additional provenance and linkage cleanup remains needed before the branch
   should be treated as a fuller reviewer-ready standalone draft.
