@@ -1,0 +1,15 @@
+== Scope
+
+This working draft packages the existing Part 4 material for sampling feature
+types as a standalone part of the CS API Standard.
+
+The currently integrated source specifies requirements for several types of
+`Sampling Features` that can be used to document different sampling
+strategies. These include the sampling feature type requirements carried by the
+current `api/part4` source tree and the supporting figures and
+requirement-class includes already present in the repository.
+
+A fuller standalone Part 4 scope statement has not yet been promoted from
+source material available in this branch. Until that editorial cleanup is
+completed, this clause should be read as a bounded description of the source
+currently integrated into the working draft.

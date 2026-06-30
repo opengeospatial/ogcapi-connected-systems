@@ -19,34 +19,23 @@
 :sectanchors:
 :icons: font
 :source-highlighter: rouge
-//
-////
-==============================================================================
-DRAFT — work in progress
 
-This scaffold pass establishes a standalone Part 4 draft entrypoint around the
-existing upstream `api/part4` source material.
+include::sections/clause_0_front_material.adoc[]
 
-Currently wired:
-- a standalone references clause integrated from Alex Robin's delivered package
-- the existing sampling feature types clause from `../sections/`
-- the existing requirement-class source files from `../requirements/`
-- a placeholder encodings anchor to preserve the existing clause cross-reference
+include::sections/clause_1_scope.adoc[]
 
-Still pending in later passes:
-- extracted front matter, scope, conformance, terms, and overview sections
-- bibliography reconciliation
-- annex decisions and any remaining Part 1 extraction cleanup
-==============================================================================
-////
+include::sections/clause_2_conformance.adoc[]
 
 include::sections/clause_3_references.adoc[]
+
+include::sections/clause_4_terms_and_definitions.adoc[]
 
 include::../sections/clause_13_sampling_feature_types.adoc[]
 
 [[clause-encodings]]
 == Requirements Classes for Encodings
 
-This scaffold pass does not yet wire Part 4-specific encoding clauses into the
-standalone draft package. The anchor is provided so the existing Part 4 clause
-can remain intact while the extracted structure is reconciled in a later pass.
+This working-draft branch preserves the encodings anchor referenced by the
+integrated sampling-feature-types clause. Part 4-specific encoding requirements
+have not yet been promoted into this standalone draft from source material
+available in this branch.

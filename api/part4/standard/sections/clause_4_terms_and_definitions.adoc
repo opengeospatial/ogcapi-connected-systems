@@ -1,0 +1,10 @@
+== Terms and definitions
+
+All terms and definitions used by the integrated Part 4 source remain as
+defined by the referenced standards and related parts of the CS API Standard.
+
+A standalone Part 4 terms-and-definitions clause has not yet been promoted
+into this working draft from source material available in this branch. Until
+that work is completed, reviewers should read the integrated
+sampling-feature-types clause together with the referenced standards and
+related CS API parts it cites.

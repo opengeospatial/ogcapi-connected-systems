@@ -1,0 +1,9 @@
+== Conformance
+
+This working-draft branch preserves the extracted Part 4 requirement-class
+source and its supporting references as currently available in the repository.
+
+The standalone conformance packaging for Part 4 is not yet complete in this
+branch. Requirements and conformance-linkage cleanup remains an explicit
+follow-on task, and unresolved linkage warnings should be treated as editorial
+cleanup items rather than as silently resolved structure.

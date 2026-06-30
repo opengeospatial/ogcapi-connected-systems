@@ -1,8 +1,9 @@
-= OGC API - Connected Systems Part 4 Working Draft Scaffold
+= OGC API - Connected Systems Part 4 Working Draft Status
 
-This directory contains the initial standalone draft scaffold for Part 4.
+This directory contains the current standalone working-draft entrypoint for
+Part 4.
 
-This scaffold is intentionally minimal. It is designed to:
+This branch-scoped package is designed to:
 
 - preserve the existing upstream `api/part4` source material;
 - provide a root draft entrypoint for a dedicated working branch;
@@ -12,67 +13,82 @@ This scaffold is intentionally minimal. It is designed to:
 Currently included:
 
 - `23-004r0.adoc` root draft entrypoint
+- bounded front matter, scope, conformance, references, and terms wrapper
+  clauses for the standalone working draft
 - `sections/clause_3_references.adoc` standalone references clause integrated from Alex Robin's delivered package
 - `build.sh` draft build helper
 - `metanorma.yml` minimal Metanorma configuration
 
 Current wiring notes:
 
-- The root entrypoint includes the existing `../sections/clause_13_sampling_feature_types.adoc`.
-- The root entrypoint now includes a standalone references clause before the extracted sampling-feature-types clause.
+- The root entrypoint includes bounded standalone wrapper clauses ahead of the
+  extracted sampling-feature-types clause.
+- The root entrypoint includes the existing
+  `../sections/clause_13_sampling_feature_types.adoc`.
+- The root entrypoint includes a standalone references clause before the
+  extracted sampling-feature-types clause.
 - The existing clause expects requirement files under `../requirements/sampling/`.
 - To preserve the existing source subtree while enabling mechanical wiring,
-  this scaffold pass adds that missing directory layout without deleting the
+  this working branch adds that missing directory layout without deleting the
   pre-existing requirement files.
 - The `GeoPose` bibliography anchor was added in the standalone references
   clause because the existing Part 4 text explicitly cites it.
 
-Known gaps intentionally left for later passes:
+Known standalone-draft gaps intentionally left for later passes:
 
-- front matter, scope, conformance, terms, and overview sections
-- bibliography extraction and reconciliation
+- the current front matter, scope, conformance, and terms clauses are bounded
+  working-draft wrappers rather than fully promoted standalone Part 4 text
+- bibliography extraction and reconciliation beyond the currently integrated
+  references clause
+- fuller standalone conformance packaging
 - annex decisions
 - broader Part 1 provenance cleanup
 
 Open editorial questions intentionally left unresolved:
 
 - `text for annex C.txt` was reviewed but not promoted into the formal draft in
-  this pass because its annex status is still unclear.
+  this branch because its annex status is still unclear.
 - Broader SensorML reference treatment remains open where the current Part 4
   text refers to SensorML pose concepts without a standalone bibliography entry
   equivalent to the direct `GeoPose` cross-reference.
 
-Build this draft with:
+Verified build path:
+
+- GitHub Actions workflow `.github/workflows/part4-working-draft.yml`
+
+Local helper:
 
 `./build.sh`
 
+The local helper remains a minimal convenience script. The verified
+review-artifact path for this branch is the GitHub Actions workflow, which
+stages the existing Part 4 source tree into a remote Metanorma build
+workspace.
+
 == Build Validation Status
 
-This branch now has enough standalone wiring for a static validation pass:
+This branch now has enough standalone wiring for a remote working-draft build:
 
 - the root entrypoint resolves;
+- the bounded wrapper clauses resolve;
 - the included references clause resolves;
 - the included sampling-feature-types clause resolves;
 - the requirement include targets under `../requirements/sampling/` resolve;
-- the currently wired local and bibliography cross-references resolve within the
-  standalone Part 4 draft files.
-
-Local artifact generation was not possible on this host during this pass:
-
-- `metanorma` is not installed or not available on `PATH`;
-- `bash`/`sh` is not installed or not available on `PATH`, so `build.sh`
-  could not be executed as written.
-
-Because of these tooling gaps, no HTML or PDF review artifacts were generated
-or committed in this pass.
+- the figure assets resolve in the remote build workspace;
+- HTML, PDF, and XML review artifacts are generated successfully by the remote
+  workflow.
 
 Remaining blockers and editorial gaps:
 
-- the Part 4 requirement-class files inherit `/req/sampling-features`, but the
-  standalone Part 4 draft does not yet define that base requirement class;
-- front matter, scope, conformance, terms, and overview sections remain
-  unwired;
+- the Part 4 requirement-class files still inherit `/req/sampling-features`,
+  but the standalone Part 4 draft does not yet define that base requirement
+  class;
+- the current standalone wrapper clauses explicitly document, rather than fully
+  resolve, missing promoted Part 4 source for submitters, scope, conformance,
+  and terms treatment;
 - annex treatment remains unresolved, including the status of
   `text for annex C.txt`;
 - broader SensorML reference treatment remains open where the current Part 4
-  text refers to SensorML pose concepts.
+  text refers to SensorML pose concepts;
+- additional provenance and linkage cleanup remains needed before the branch
+  should be treated as a fuller reviewer-ready standalone draft.

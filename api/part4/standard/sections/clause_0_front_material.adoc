@@ -1,0 +1,32 @@
+.Preface
+
+The OGC API - Connected Systems Standard is part of the suite of OGC API
+Standards.
+
+This working-draft branch packages the current Part 4 sampling-features source
+material as a standalone draft for review while broader standalone-draft
+cleanup remains in progress.
+
+In the context of this document, the following phrases are used:
+
+- "this Standard" refers to "OGC API - Connected Systems - Part 4: Sampling
+  Features".
+- "CS API" or "CS API Standard" refers to the multi-part OGC API - Connected
+  Systems Standard.
+
+[abstract]
+== Abstract
+
+This working draft organizes the current Part 4 sampling-features source
+already present in the repository as a standalone draft entrypoint. The
+integrated source currently provides a references clause together with the
+requirements classes for sampling feature types and their supporting
+requirement files and figures. Additional standalone-draft elements, including
+fuller conformance packaging and annex treatment, remain under editorial
+cleanup on this branch.
+
+== Submitters
+
+This working-draft branch currently preserves editor metadata in the root
+document header. A complete Part 4 submitters table has not yet been promoted
+into the standalone draft from source material available in this branch.
