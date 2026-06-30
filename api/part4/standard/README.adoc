@@ -65,6 +65,16 @@ review-artifact path for this branch is the GitHub Actions workflow, which
 stages the existing Part 4 source tree into a remote Metanorma build
 workspace.
 
+Artifact-handling note:
+
+- this branch currently uses GitHub Actions artifacts as the review-artifact
+  delivery path rather than committing generated HTML/PDF/XML outputs into the
+  branch;
+- that differs from the current Part 3 working-draft branch, which versions
+  generated review artifacts in the branch, but it matches the current Part 4
+  branch workflow and keeps generated outputs decoupled from the extracted seed
+  content while the draft remains editorially open.
+
 == Build Validation Status
 
 This branch now has enough standalone wiring for a remote working-draft build:
@@ -78,12 +88,30 @@ This branch now has enough standalone wiring for a remote working-draft build:
 - HTML, PDF, and XML review artifacts are generated successfully by the remote
   workflow.
 
+Reviewer-circulation status:
+
+- this branch is suitable for reviewer circulation as a buildable working
+  draft;
+- it is not yet publication-ready and still carries explicit standalone-draft,
+  requirements-packaging, and annex-disposition gaps that reviewers should read
+  as open editorial issues rather than hidden build failures.
+
 Remaining blockers and editorial gaps:
 
 - the Part 4 requirement-class files still inherit `/req/sampling-features`;
   that identifier is present in earlier Part 1 source history and in Alex
   Robin's delivered package, but it is not yet promoted into the current
   standalone Part 4 draft;
+- the current remote build still emits requirements-linkage warnings because
+  the draft does not yet provide corresponding conformance classes/tests for
+  the extracted requirement classes and still points to prerequisites outside
+  this document;
+- the current remote build still emits bibliography-resolution warnings for
+  some inherited references, including `ISO 8601:2019`, `OGC/W3C`, and `IETF
+  JSON Schema`, which were not normalized in this branch by guesswork;
+- the current remote build still emits non-blocking rendering warnings,
+  including a hanging paragraph warning and a duplicate `Layer_1` anchor from
+  figure source material;
 - the current standalone wrapper clauses explicitly document, rather than fully
   resolve, missing promoted Part 4 source for submitters, scope, conformance,
   and terms treatment;
@@ -92,4 +120,4 @@ Remaining blockers and editorial gaps:
 - the current Part 4 draft still needs fuller requirements/conformance
   packaging around the historical `/req/sampling-features` base class;
 - additional provenance and linkage cleanup remains needed before the branch
-  should be treated as a fuller reviewer-ready standalone draft.
+  should be treated as a fuller standalone draft package.
