@@ -1,0 +1,65 @@
+name: Build Part 4 Working Draft
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - part4-working-draft
+    paths:
+      - .github/workflows/part4-working-draft.yml
+      - api/part4/**
+
+permissions:
+  contents: read
+
+jobs:
+  build-part4:
+    runs-on: ubuntu-latest
+    container:
+      image: metanorma/metanorma:latest
+    defaults:
+      run:
+        shell: sh
+        working-directory: api/part4/standard
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare OpenAPI Link
+        run: ln -sfn ../openapi openapi
+
+      - name: Compile Part 4 Draft
+        id: compile
+        continue-on-error: true
+        run: |
+          set +e
+          metanorma compile --agree-to-terms -t ogc -x html,pdf,xml 23-004r0.adoc > metanorma-build.log 2>&1
+          status=$?
+          echo "exit_code=$status" >> "$GITHUB_OUTPUT"
+          cat metanorma-build.log
+          exit 0
+
+      - name: List Generated Files
+        if: always()
+        run: |
+          ls -la
+
+      - name: Upload Part 4 Build Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: part4-working-draft-${{ github.sha }}
+          if-no-files-found: warn
+          path: |
+            api/part4/standard/23-004r0.html
+            api/part4/standard/23-004r0.pdf
+            api/part4/standard/23-004r0.xml
+            api/part4/standard/23-004r0.err
+            api/part4/standard/23-004r0.pdf.err
+            api/part4/standard/metanorma-build.log
+
+      - name: Fail If Compile Failed
+        if: steps.compile.outputs.exit_code != '0'
+        run: |
+          echo "Metanorma compile failed with exit code ${{ steps.compile.outputs.exit_code }}"
+          exit 1
