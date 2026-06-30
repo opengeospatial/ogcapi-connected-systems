@@ -28,6 +28,7 @@ jobs:
       - name: Prepare Build Workspace
         run: |
           ln -sfn ../openapi openapi
+          ln -sfn ../figures figures
           mkdir -p requirements/sampling
           cp ../requirements/sampling/*.adoc requirements/sampling/
           cp ../sections/clause_13_sampling_feature_types.adoc sections/clause_13_sampling_feature_types.adoc
@@ -64,6 +65,9 @@ jobs:
             api/part4/standard/23-004r0.xml
             api/part4/standard/23-004r0.err
             api/part4/standard/23-004r0.pdf.err
+            api/part4/standard/23-004r0.build.err.html
+            api/part4/standard/23-004r0.build.xml.abort
+            api/part4/standard/23-004r0.build.asciidoc.log.txt
             api/part4/standard/metanorma-build.log
 
       - name: Fail If Compile Failed
