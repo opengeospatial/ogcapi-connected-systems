@@ -5,7 +5,7 @@ identifier:: /req/batch-resource-events/event-properties
 
 part:: A Batch Resource Event SHALL set the CloudEvents context attributes as defined in <<batch-events-properties-table>>.
 
-part:: The `id` attribute SHALL be a UUID version 4 or version 7, formatted as defined in {rfc9562}.
+part:: The `id` attribute SHALL be a non-empty string. The combination of the `source` and `id` attributes SHALL uniquely identify each distinct Batch Resource Event. A retransmission of the same Batch Resource Event MAY reuse the same combination.
 
 part:: The `source` attribute SHALL be set to the CS API root URL of the server publishing the event.
 

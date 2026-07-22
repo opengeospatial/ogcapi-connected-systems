@@ -19,8 +19,6 @@ The following normative documents contain provisions that, through reference in 
 
 * [[[CloudEvents-JSON, CloudEvents JSON Event Format 1.0.2]]], _JSON Event Format for CloudEvents, version 1.0.2_. Cloud Native Computing Foundation. https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md
 
-* [[[RFC9562, IETF RFC 9562]]], _Universally Unique IDentifiers (UUIDs)_. https://www.rfc-editor.org/rfc/rfc9562
-
 * [[[RFC3339, IETF RFC 3339]]], _Date and Time on the Internet: Timestamps_. https://www.rfc-editor.org/rfc/rfc3339
 
 * [[[ISO8601, ISO 8601:2019]]], _Date and time — Representations for information interchange — Part 1: Basic rules_. International Organization for Standardization, Geneva (2019). https://www.iso.org/standard/70907.html

@@ -1,0 +1,59 @@
+name: Validate Part 3 issue 192
+
+on:
+  push:
+    branches:
+      - fix/192-cloudevent-id
+    paths:
+      - .github/workflows/validate-part3-192.yml
+      - api/part3/**
+
+permissions:
+  contents: read
+
+jobs:
+  build-part3:
+    runs-on: ubuntu-latest
+    container:
+      image: metanorma/metanorma:latest
+    defaults:
+      run:
+        shell: sh
+        working-directory: api/part3/standard
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Compile Part 3
+        id: compile
+        continue-on-error: true
+        run: |
+          ln -sfn ../examples examples
+          set +e
+          metanorma compile --agree-to-terms -t ogc -x html,pdf,xml 23-003r0.adoc > metanorma-build.log 2>&1
+          status=$?
+          echo "exit_code=$status" >> "$GITHUB_OUTPUT"
+          cat metanorma-build.log
+          exit 0
+
+      - name: Upload Part 3 build artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: part3-issue-192-${{ github.sha }}
+          if-no-files-found: warn
+          path: |
+            api/part3/standard/23-003r0.html
+            api/part3/standard/23-003r0.pdf
+            api/part3/standard/23-003r0.xml
+            api/part3/standard/23-003r0.err
+            api/part3/standard/23-003r0.pdf.err
+            api/part3/standard/23-003r0.presentation.xml
+            api/part3/standard/23-003r0.rxl
+            api/part3/standard/metanorma-build.log
+
+      - name: Fail if compilation failed
+        if: steps.compile.outputs.exit_code != '0'
+        run: |
+          echo "Metanorma compile failed with exit code ${{ steps.compile.outputs.exit_code }}"
+          exit 1
