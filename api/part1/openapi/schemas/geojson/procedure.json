@@ -11,6 +11,10 @@
           "properties": {
             "featureType": {
               "$ref": "../common/uris.json#/$defs/ProcedureTypeUris"
+            },
+            "validTime": {
+              "description": "Time period during which the procedure description is valid.",
+              "$ref": "../common/commonDefs.json#/$defs/TimePeriod"
             }
           }
         }
