@@ -9,7 +9,7 @@ The following table specifies the constraints on each CloudEvents context attrib
 | `type`            | A string identifying the affected resource type and the operation that took place. See <<resource-event-types-table>>.
 | `source`          | The CS API root URL of the server publishing the event.
 | `subject`         | The canonical URL of the CS API resource the event applies to.
-| `id`              | A UUID version 4 or version 7, as defined in {rfc9562}.
+| `id`              | A non-empty, producer-defined string that, together with `source`, uniquely identifies each distinct event. Producer-maintained counters and UUIDs are valid examples.
 | `parentId`        | _(extension)_ The canonical URL of the parent resource, when one exists (e.g. the parent `System` when a subsystem is created). Recommended whenever applicable.
 | `time`            | The timestamp of the resource operation. Ideally the moment the resource becomes visible to API clients; alternatively, the time the originating request was received or processed by the server.
 | `datacontenttype` | Required only when `data` is included. SHALL be `application/json`.

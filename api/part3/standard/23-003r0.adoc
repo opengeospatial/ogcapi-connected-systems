@@ -26,7 +26,6 @@
 // Each attribute expands to a cross-reference anchored in the normative
 // references clause (clause_3_references.adoc).
 //
-:rfc9562: <<RFC9562, RFC 9562>>
 :rfc3339: <<RFC3339, RFC 3339>>
 :cloudevents-json-format: <<CloudEvents-JSON, CloudEvents JSON Event Format 1.0.2>>
 :ogcapi-cs-1: <<OGCAPI-Consys-1, OGC API - Connected Systems - Part 1>>
