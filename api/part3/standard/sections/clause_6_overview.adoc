@@ -10,15 +10,15 @@ This Part of the CS API specifies how pub/sub protocols are used alongside the H
 
 === Message Categories
 
-This Standard defines two primary categories of pub/sub messages and an extended secondary class, each addressing a different use case:
+This Standard defines two primary categories of pub/sub messages, each addressing a different use case, plus a special-case sub-class of Resource Events for batched notifications:
 
 - *Resource Events* (<<clause-resource-events>>) are CloudEvents-formatted notifications of CS API resource lifecycle operations. They are emitted by the server when a resource is created, updated, or deleted. The notification carries a reference to the affected resource (and optionally a short summary) but not the resource itself.
 
-- *Batch Resource Events* (<<clause-batch-resource-events>>) CloudEvents-formatted extensions of Resource Events. They summarize a number of resource transactions of the same type that occurred on a single nested resource collection during a defined time window. They are intended primarily for high-frequency cases (for example, observation streams) where one event per transaction would be too verbose.
+- *Batch Resource Events* (<<clause-batch-resource-events>>) are a special case of Resource Events. They summarize a number of resource transactions of the same type that occurred on a single nested resource collection during a defined time window. They are intended primarily for high-frequency cases (for example, observation streams) where one event per transaction would be too verbose.
 
 - *Resource Data Messages* (<<clause-resource-data-messages>>) carry complete resource representations in the server's native CS API encodings (JSON, SWE Common JSON, SWE Common Text, SWE Common Binary, etc.). They are designed for low-latency streaming of observations, commands, command status, command results, and system events, as well as for "registration" use cases where a publishing client introduces new systems, datastreams, or controlstreams to the server.
 
-The three categories are designed to be used together though implementations are only required to implement one. A typical deployment exposes Resource Events for lifecycle notifications across resource types, Batch Resource Events for the highest-frequency nested collections, and Resource Data Messages for the dynamic data streams themselves.
+The message categories are designed to be used together though implementations are only required to implement one primary category. A typical deployment exposes Resource Events for lifecycle notifications across resource types, Batch Resource Events for the highest-frequency nested collections, and Resource Data Messages for the dynamic data streams themselves.
 
 
 === Protocol Bindings
@@ -34,6 +34,6 @@ Additional bindings (for example, AMQP, Apache Kafka, Server-Sent Events) may be
 
 === Relationship to OGC API – Pub/Sub
 
-This Standard extends {ogcapi-pubsub-1} by profiling its message-payload framework for the Connected Systems domain. The Resource Events and Batch Resource Events requirements classes both inherit from the OGC API – Pub/Sub `message-payload-cloudevents-json` requirements class.
+This Standard extends {ogcapi-pubsub-1} by profiling its message-payload framework for the Connected Systems domain. The Resource Events requirements class inherits from the OGC API – Pub/Sub `message-payload-cloudevents-json` requirements class; the Batch Resource Events sub-class inherits from Resource Events.
 
 Resource Data Messages do not inherit from any OGC API – Pub/Sub class, because the native CS API encodings (defined in {ogcapi-cs-1} and {ogcapi-cs-2}) are not among the payload formats covered by OGC API – Pub/Sub Part 1.

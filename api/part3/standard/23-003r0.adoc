@@ -64,8 +64,6 @@ include::sections/clause_6_overview.adoc[]
 
 include::sections/clause_12_requirements_class_resource_events.adoc[]
 
-include::sections/clause_13_requirements_class_batch_resource_events.adoc[]
-
 include::sections/clause_14_requirements_class_resource_data_messages.adoc[]
 
 // The MQTT binding section file (clause_31) uses level-3 (===)

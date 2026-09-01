@@ -1,0 +1,15 @@
+[requirement,model=ogc]
+====
+[%metadata]
+type:: class
+identifier:: /req/resource-events/batch-events
+subject:: Web API
+inherit:: /req/resource-events
+
+requirement:: /req/resource-events/batch-events/cloudevents-format
+requirement:: /req/resource-events/batch-events/event-properties
+requirement:: /req/resource-events/batch-events/event-types
+requirement:: /req/resource-events/batch-events/publisher-restriction
+requirement:: /req/resource-events/batch-events/batch-data-shape
+requirement:: /req/resource-events/batch-events/allowed-collections
+====

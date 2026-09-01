@@ -1,6 +1,6 @@
 A Batch Resource Event uses the same CloudEvents v1.0 JSON envelope as a regular Resource Event (see <<cloudevents-properties-table>>) with a few key differences:
 
-* The `subject` attribute identifies a *nested resource collection* (resources endpoint) that the batch summarizes, rather than an individual resource. The collection is nested under exactly one parent resource (e.g. observations under a single datastream). Top-level resource collections and collections that span multiple parent resources are not allowed; the permitted collections are enumerated in /req/batch-resource-events/allowed-collections.
+* The `subject` attribute identifies a *nested resource collection* (resources endpoint) that the batch summarizes, rather than an individual resource. The collection is nested under exactly one parent resource (e.g. observations under a single datastream). Top-level resource collections and collections that span multiple parent resources are not allowed; the permitted collections are enumerated in /req/resource-events/batch-events/allowed-collections.
 * The `data` member is *required* and carries summary statistics for the batched operations.
 
 [#batch-events-properties-table,reftext='{table-caption} {counter:table-num}']
@@ -8,7 +8,7 @@ A Batch Resource Event uses the same CloudEvents v1.0 JSON envelope as a regular
 [width="100%",options="header"]
 |====
 | *Attribute*       | *Value / Constraint*
-| `subject`         | The canonical URL of the nested resource collection (resources endpoint) summarized by the batch. SHALL be one of the collections enumerated in /req/batch-resource-events/allowed-collections.
+| `subject`         | The canonical URL of the nested resource collection (resources endpoint) summarized by the batch. SHALL be one of the collections enumerated in /req/resource-events/batch-events/allowed-collections.
 | `datacontenttype` | Required. SHALL be `application/json`.
 | `data`            | Required. JSON object carrying batch statistics; see <<batch-data-properties-table>>.
 |====

@@ -1,7 +1,7 @@
 [requirement,model=ogc]
 ====
 [%metadata]
-identifier:: /req/batch-resource-events/allowed-collections
+identifier:: /req/resource-events/batch-events/allowed-collections
 
 part:: A server SHALL publish Batch Resource Events only on resource collections that are nested under exactly one parent resource. Batch Resource Events SHALL NOT be published for top-level resource collections, nor for collections that span multiple parent resources.
 
