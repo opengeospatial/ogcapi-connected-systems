@@ -27,11 +27,13 @@ The message categories are designed to be used together though implementations a
 
 The message categories above are protocol-agnostic. To exchange these messages over a specific pub/sub transport, this Standard defines *protocol bindings*: requirements classes that specify how the abstract message categories map onto the concrete operations (subscribe, publish, topic structure, content negotiation, flow control) of each pub/sub transport.
 
-This Standard defines bindings for:
+The common requirements do not assume any particular transport. MQTT (v3.1.1 and v5) is the first planned binding in this document and the primary worked example; its normative binding is still under development.
 
-- *MQTT* (v3.1.1 and v5) — broker-based pub/sub commonly used in IoT (<<clause-protocol-mqtt>>).
+A binding specifies how its transport satisfies each applicable common requirement, including resource identity, message content, publication and subscription behavior, and representation selection. Additional bindings are encouraged and may be published separately without becoming official parts of this Standard. Technical compliance depends on satisfying the applicable requirements. Neither official publication of the binding nor MQTT support is a prerequisite.
 
-Additional bindings (for example, AMQP, Apache Kafka, Server-Sent Events) may be defined by future revisions or by extensions to this Standard.
+A binding that cannot satisfy a requirement applicable to its claimed capabilities needs adaptation or a defined conformance path through a standards extension or change. The requirement cannot simply be omitted. Each binding defines its transport-specific addressing and selection mechanisms while preserving the applicable common requirements.
+
+NOTE: The complete binding-independent conformance framework remains under development. Requirement-to-binding mappings, conformance dependencies and corresponding abstract tests remain to be specified and verified.
 
 
 === Relationship to OGC API – Pub/Sub

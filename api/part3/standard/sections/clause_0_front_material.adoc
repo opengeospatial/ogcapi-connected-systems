@@ -32,8 +32,7 @@ Two categories of pub/sub messages are defined. *Resource events* are CloudEvent
 CloudEvents provides a common, standardized notification envelope and does not require any cloud infrastructure. Resource Data Messages use native resource encodings without a CloudEvents envelope.
 
 Protocol bindings define how these messages are exchanged over specific pub/sub transports.
-This Standard defines bindings for MQTT (v3 and v5), including topic/channel structure, subscribe and publish operations, optional content negotiation, and optional flow control.
-Additional bindings (e.g., AMQP, Kafka, NATS, Server-Sent Events(SSE)) may be defined in extensions or future revisions.
+The common message requirements are independent of transport. MQTT is the first planned binding in this document and a primary worked example; its binding remains under development. Additional bindings may be published separately and need not become official parts of this Standard to satisfy its applicable requirements. Implementing another binding does not require implementing MQTT.
 
 == Security considerations
 
