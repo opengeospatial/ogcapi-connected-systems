@@ -10,7 +10,7 @@ This Standard defines the following requirements classes.
   {empty} +
 - <<clause-resource-data-messages,style=full%>> defines requirements for pub/sub messages carrying full CS API resource representations in their native encodings. +
   {empty} +
-- <<clause-resource-data-content-negotiation,style=full%>> defines an optional content-negotiation mechanism for Resource Data Messages, including a normalization rule for deriving channel-safe format-name suffixes from MIME types. +
+- <<clause-resource-data-content-negotiation,style=full%>> defines optional support for multiple Resource Data Message representations, including channel selection, transport content negotiation, and a normalization convention for bindings using format names. +
   {empty} +
 
 The standardization target for these requirements classes is an implementation of the Web API.

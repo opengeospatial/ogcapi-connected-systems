@@ -1,0 +1,11 @@
+[abstract_test]
+.Representation selection
+====
+[%metadata]
+identifier:: /conf/resource-data-messages/content-negotiation/representation-selection
+target:: /req/resource-data-messages/content-negotiation/representation-selection
+
+test-purpose:: Verify selection and delivery of advertised representations when multiple media types are offered for one stream.
+
+test-method:: For each stream offering multiple representations, inspect the binding and service description for separate selectable channels or an established transport negotiation mechanism. Select each offered representation, trigger publication, and verify that delivered data uses the selected media type and satisfies the corresponding encoding requirements. Request an unsupported representation and verify the binding-defined response. Where format names are used, verify that parameters or normalization collisions cannot make two offered representations indistinguishable. Verify that payload content-type metadata alone is not described as a negotiation exchange.
+====

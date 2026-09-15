@@ -48,4 +48,4 @@ A definition of how the abstract pub/sub message categories defined in this Stan
 
 
 === Format Name
-A short, channel-safe identifier derived from a resource encoding's MIME type, used to distinguish parallel pub/sub channels carrying the same resource in different encodings. The normalization rule is defined in /req/resource-data-messages/content-negotiation/format-name.
+An identifier for a resource encoding used by a protocol binding to distinguish pub/sub channels carrying different representations of the same resource. An optional normalization convention is defined in /req/resource-data-messages/content-negotiation/format-name.
