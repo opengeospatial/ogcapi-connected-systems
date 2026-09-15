@@ -10,6 +10,8 @@ Specifically, Part 3 of the CS API defines:
 
 * An optional content-negotiation mechanism allowing a server to expose the same resource in multiple encoding formats over parallel pub/sub channels.
 
+Resource Events may be provided without an associated CS API HTTP service, using the resource identifiers specified by the Resource Events requirements class. This does not waive the requirements of Parts 1 or 2 for implementations claiming conformance to their HTTP requirements classes.
+
 This Standard does not redefine resource models or HTTP operations defined in {ogcapi-cs-1} or {ogcapi-cs-2}. It builds on the message-payload framework defined in {ogcapi-pubsub-1}, extending it for the Connected Systems domain.
 
 {ogcapi-cs-1} defines the feature resources that pub/sub channels in this Part exchange notifications and data about. {ogcapi-cs-2} defines the dynamic data resource types (`Observation`, `Command`, `Command Status`, `Command Result`, `System Event`) that are most commonly streamed using the message categories defined here.

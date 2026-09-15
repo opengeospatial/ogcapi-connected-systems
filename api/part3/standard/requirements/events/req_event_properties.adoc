@@ -7,11 +7,15 @@ part:: A Resource Event SHALL set the CloudEvents context attributes as defined 
 
 part:: The `id` attribute SHALL be a non-empty string. The combination of the `source` and `id` attributes SHALL uniquely identify each distinct Resource Event. A retransmission of the same Resource Event MAY reuse the same combination.
 
-part:: The `source` attribute SHALL be set to the CS API root URL of the server publishing the event.
+part:: The `source` attribute SHALL be an absolute URI identifying the CS API context in which the resource operation occurred. When that context is exposed by an associated CS API HTTP service, `source` SHALL be its API root URL. Otherwise, the publisher SHALL assign a stable absolute URI to that context.
 
-part:: The `subject` attribute SHALL be set to the canonical URL of the CS API resource the event applies to.
+part:: The `subject` attribute SHALL be an absolute URI identifying the CS API resource the event applies to. When the resource is exposed by an associated CS API HTTP service, this URI SHALL be its canonical resource URL. Otherwise, the publisher SHALL assign a stable absolute URI to the resource.
 
-part:: When the resource the event applies to has a parent resource, the `parentId` extension attribute SHALL be set to the canonical URL of that parent resource.
+part:: When the resource the event applies to has a parent resource, the `parentId` extension attribute SHALL identify that parent using its canonical resource URL when exposed by an associated CS API HTTP service, or a stable absolute URI otherwise.
+
+part:: The publisher SHALL use each assigned resource URI consistently for the same resource, including references to it as a parent, and SHALL NOT assign that URI to a different resource. Distinct source contexts SHALL have distinct source URIs. A change of broker, channel address or publisher process alone SHALL NOT change these identifiers.
+
+part:: An implementation MAY provide Resource Events without operating an associated CS API HTTP service. The identifiers above are not required to be dereferenceable in such a deployment. This permission does not waive HTTP requirements of any other requirements class for which the implementation claims conformance.
 
 part:: When the event payload includes a `data` member, the `datacontenttype` attribute SHALL be set to `application/json`.
 

@@ -7,10 +7,10 @@ The following table specifies the constraints on each CloudEvents context attrib
 | *Attribute*       | *Value / Constraint*
 | `specversion`     | Fixed value `1.0`.
 | `type`            | A string identifying the affected resource type and the operation that took place. See <<resource-event-types-table>>.
-| `source`          | The CS API root URL of the server publishing the event.
-| `subject`         | The canonical URL of the CS API resource the event applies to.
+| `source`          | An absolute URI identifying the CS API context. Use the associated HTTP API root URL when available; otherwise use a stable context URI.
+| `subject`         | The canonical resource URL when exposed by an associated CS API HTTP service; otherwise a stable absolute URI identifying the resource.
 | `id`              | A non-empty, producer-defined string that, together with `source`, uniquely identifies each distinct event. Producer-maintained counters and UUIDs are valid examples.
-| `parentId`        | _(extension)_ The canonical URL of the parent resource, when one exists (e.g. the parent `System` when a subsystem is created). Recommended whenever applicable.
+| `parentId`        | _(extension)_ The parent resource identifier, using its canonical URL when exposed by an associated CS API HTTP service, or a stable absolute URI otherwise (e.g. the parent `System` when a subsystem is created). Recommended whenever applicable.
 | `time`            | The timestamp of the resource operation. Ideally the moment the resource becomes visible to API clients; alternatively, the time the originating request was received or processed by the server.
 | `datacontenttype` | Required only when `data` is included. SHALL be `application/json`.
 | `data`            | _Optional._ When present, a JSON object summarizing the affected resource. Contains at least the resource's `name` and `description` properties when those are defined on the resource. Additional properties MAY be included.
@@ -31,7 +31,7 @@ The `<resource>` token in the table above is replaced by the resource type ident
 [[example_resource_event_minimal]]
 .Resource Event for a `DataStream` creation, with no `data` member
 =================
-This is a minimal Resource Event notifying subscribers that a new `DataStream` resource has been created. The event carries only the canonical URL of the affected resource in the `subject` attribute. Subscribers may fetch the resource representation via HTTP directly, given the canonical url.
+This is a minimal Resource Event notifying subscribers that a new `DataStream` resource has been created. The event carries only the canonical URL of the affected resource in the `subject` attribute. In this HTTP-integrated example, subscribers may use that URL to retrieve the resource while it remains available.
 
 [source%autofit,json]
 ----
@@ -49,4 +49,32 @@ This Resource Event signals the creation of a new `System` resource and includes
 ----
 include::../examples/events/event-system-create-with-data.json[]
 ----
+=================
+
+[[resource-event-identity]]
+=== Resource identity in standalone deployments
+
+A CS API context identifies the logical resource service in which operations occur, independently of the broker or processes delivering its events. The `source` URI identifies that context, `subject` identifies the affected resource, and the parent extension identifies the parent resource. These identifiers are distinct from the event's `id`, transport channel addresses, and any UID identifying a real-world entity in a resource representation.
+
+An implementation can provide Resource Events without an associated CS API HTTP service. In that case, absolute URIs such as UUID URNs provide stable identifiers without implying an HTTP retrieval operation. When an associated HTTP service exposes a resource, its canonical resource URL is used instead. A resource URI used in a deletion event remains the identifier of the deleted resource even though it no longer resolves to a representation. The resource model and applicable encoding requirements still apply.
+
+[[example_resource_event_standalone]]
+.Resource Event from a standalone deployment without an HTTP service
+=================
+Consider a standalone CS API deployment that manages sensor resources and publishes their lifecycle events through a broker, without an HTTP service. During initial configuration, the deployment generates a UUID for its source context and stores it persistently. It uses that same source URI for events concerning all resources in that context.
+
+The following event announces a newly created top-level System. The System has no parent, and optional event data is omitted.
+
+[source%autofit,json]
+----
+include::../examples/events/event-system-create-standalone.json[]
+----
+
+In this example:
+
+* `source` identifies the logical CS API deployment, not the broker, a publisher process, or an individual sensor. Its configured value is retained across restarts and broker migrations; a new source UUID is not generated for each event.
+* `subject` identifies this particular System resource. Later update or deletion events for the same System use the same subject URI. Other resources have different subject URIs, even when their events share the same source.
+* `id` identifies this event within the source context. A different event receives a different event ID; retransmission of the same event may retain its ID.
+
+The UUIDs shown are illustrative. Each deployment assigns its own identifiers. These URNs require neither an HTTP server nor a service that resolves them to network locations.
 =================

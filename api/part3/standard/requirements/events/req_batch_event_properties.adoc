@@ -7,11 +7,11 @@ part:: A Batch Resource Event SHALL set the CloudEvents context attributes as de
 
 part:: The `id` attribute SHALL be a non-empty string. The combination of the `source` and `id` attributes SHALL uniquely identify each distinct Batch Resource Event. A retransmission of the same Batch Resource Event MAY reuse the same combination.
 
-part:: The `source` attribute SHALL be set to the CS API root URL of the server publishing the event.
+part:: The `source` attribute SHALL identify the CS API context according to /req/resource-events/event-properties.
 
-part:: The `subject` attribute SHALL be set to the canonical URL of the CS API resource collection (resources endpoint) that the batch summarizes. The collection SHALL be one of those enumerated in /req/resource-events/batch-events/allowed-collections.
+part:: The `subject` attribute SHALL identify the CS API resource collection that the batch summarizes, using its canonical collection URL when exposed by an associated CS API HTTP service, or a stable absolute URI otherwise. The publisher SHALL use the same URI consistently for that collection and SHALL NOT assign it to a different collection. The collection SHALL be one of those enumerated in /req/resource-events/batch-events/allowed-collections.
 
-part:: The `parentId` extension attribute SHOULD be set to the canonical URL of the parent resource under which the summarized collection is nested.
+part:: The `parentId` extension attribute SHOULD identify the parent resource under which the summarized collection is nested, using its canonical resource URL when exposed by an associated CS API HTTP service, or a stable absolute URI otherwise.
 
 part:: The `data` member SHALL be present.
 

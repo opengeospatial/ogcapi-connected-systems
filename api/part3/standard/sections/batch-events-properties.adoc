@@ -8,7 +8,7 @@ A Batch Resource Event uses the same CloudEvents v1.0 JSON envelope as a regular
 [width="100%",options="header"]
 |====
 | *Attribute*       | *Value / Constraint*
-| `subject`         | The canonical URL of the nested resource collection (resources endpoint) summarized by the batch. SHALL be one of the collections enumerated in /req/resource-events/batch-events/allowed-collections.
+| `subject`         | The canonical collection URL when exposed by an associated CS API HTTP service; otherwise a stable absolute URI identifying the nested collection summarized by the batch. SHALL be one of the collections enumerated in /req/resource-events/batch-events/allowed-collections.
 | `datacontenttype` | Required. SHALL be `application/json`.
 | `data`            | Required. JSON object carrying batch statistics; see <<batch-data-properties-table>>.
 |====
@@ -31,7 +31,7 @@ The `type` vocabulary is the same as for regular Resource Events; see <<resource
 [[example_batch_resource_event]]
 .Batch Resource Event summarizing one minute of observation creations
 =================
-This Batch Resource Event reports that 1254 `Observation` resources were created under datastream 132 during a one-minute window. Individual observations are not enumerated; subscribers wishing to retrieve them can use the HTTP API or subscribe to per-observation Resource Events.
+This Batch Resource Event reports that 1254 `Observation` resources were created under datastream 132 during a one-minute window. Individual observations are not enumerated; where an associated HTTP API is available, subscribers can query its observations collection for available resources. Per-observation Resource Events provide individual lifecycle notifications.
 
 [source%autofit,json]
 ----

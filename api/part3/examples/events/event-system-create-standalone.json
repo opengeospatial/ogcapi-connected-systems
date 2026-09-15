@@ -1,0 +1,8 @@
+{
+  "specversion": "1.0",
+  "id": "system-created-42",
+  "type": "org.ogc.api.csapi.system.create",
+  "source": "urn:uuid:a2295190-1422-4c4d-8fd9-91593873da76",
+  "subject": "urn:uuid:753f78b1-c270-4810-a1ba-66b35576a684",
+  "time": "2026-09-15T18:00:00Z"
+}
