@@ -5,14 +5,14 @@ The OGC API - Connected Systems (CS API) defines a unified set of resource types
 
 In many Connected Systems use cases, however, the request/response pattern of HTTP is not the most efficient way to exchange data. Sensors produce observations continuously; actuators must accept commands with low latency; subscribers want to know about new resources as soon as they appear, without polling. For these cases, an asynchronous publish/subscribe interaction model is more appropriate.
 
-This Part of the CS API specifies how pub/sub protocols deliver CS API resources and notifications about them asynchronously. A deployment can integrate with a CS API HTTP service or provide standalone Resource Events using stable URI identifiers. Where an HTTP interface is available, it provides retrieval of current resource state. The resource model and applicable encoding requirements remain the same.
+This Part of the CS API specifies how pub/sub protocols deliver CS API resources and notifications about them asynchronously. A deployment can integrate with a CS API HTTP service or provide standalone Resource Events using <<term-stable-uri,stable URI>> identifiers. Where an HTTP interface is available, it provides retrieval of current resource state. The resource model and applicable encoding requirements remain the same.
 
 
 === Message Categories
 
 This Standard defines two primary categories of pub/sub messages, each addressing a different use case, plus a special-case sub-class of Resource Events for batched notifications:
 
-- *Resource Events* (<<clause-resource-events>>) are CloudEvents-formatted notifications of CS API resource lifecycle operations. They are emitted by the server when a resource is created, updated, or deleted. The notification identifies the affected resource by its canonical URL when exposed through an associated CS API HTTP service, or by a stable absolute URI otherwise. Its optional JSON content is governed by the Resource Events requirements class; consumers may use that content without retrieving the resource again. Optional inline content does not change the lifecycle-notification purpose or guarantee complete resource delivery.
+- *Resource Events* (<<clause-resource-events>>) are CloudEvents-formatted notifications of CS API resource lifecycle operations. They are emitted by the server when a resource is created, updated, or deleted. The notification identifies the affected resource by its canonical URL when exposed through an associated CS API HTTP service, or by a <<term-stable-uri,stable URI>> otherwise. Its optional JSON content is governed by the Resource Events requirements class; consumers may use that content without retrieving the resource again. Optional inline content does not change the lifecycle-notification purpose or guarantee complete resource delivery.
 
 - *Batch Resource Events* (<<clause-batch-resource-events>>) are a special case of Resource Events. They summarize a number of resource transactions of the same type that occurred on a single nested resource collection during a defined time window. They are intended primarily for high-frequency cases (for example, observation streams) where one event per transaction would be too verbose.
 

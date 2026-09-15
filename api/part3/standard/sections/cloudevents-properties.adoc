@@ -7,10 +7,10 @@ The following table specifies the constraints on each CloudEvents context attrib
 | *Attribute*       | *Value / Constraint*
 | `specversion`     | Fixed value `1.0`.
 | `type`            | A string identifying the affected resource type and the operation that took place. See <<resource-event-types-table>>.
-| `source`          | An absolute URI identifying the CS API context. Use the associated HTTP API root URL when available; otherwise use a stable context URI.
-| `subject`         | The canonical resource URL when exposed by an associated CS API HTTP service; otherwise a stable absolute URI identifying the resource.
+| `source`          | An absolute URI identifying the CS API context. Use the associated HTTP API root URL when available; otherwise use a <<term-stable-uri,stable URI>> identifying the context.
+| `subject`         | The canonical resource URL when exposed by an associated CS API HTTP service; otherwise a <<term-stable-uri,stable URI>> identifying the resource.
 | `id`              | A non-empty, producer-defined string that, together with `source`, uniquely identifies each distinct event. Producer-maintained counters and UUIDs are valid examples.
-| `parentId`        | _(extension)_ The parent resource identifier, using its canonical URL when exposed by an associated CS API HTTP service, or a stable absolute URI otherwise (e.g. the parent `System` when a subsystem is created). Recommended whenever applicable.
+| `resourceparent` | _(extension, URI)_ Required when a direct parent exists; omitted otherwise. Use its canonical resource URL when exposed by an associated CS API HTTP service, or a <<term-stable-uri,stable URI>> otherwise. See <<resource-event-parent-relationships>>.
 | `time`            | The timestamp of the resource operation. Ideally the moment the resource becomes visible to API clients; alternatively, the time the originating request was received or processed by the server.
 | `datacontenttype` | Required when `data` is included. Identifies the actual JSON media type of the embedded content.
 | `data`            | _Optional._ A JSON summary or complete JSON resource representation permitted by the applicable CS API encoding. Embedded directly as a JSON value, not as a serialized document string or `data_base64`.
@@ -31,7 +31,7 @@ The `<resource>` token in the table above is replaced by the resource type ident
 [[example_resource_event_minimal]]
 .Resource Event for a `DataStream` creation, with no `data` member
 =================
-This is a minimal Resource Event notifying subscribers that a new `DataStream` resource has been created. The event carries only the canonical URL of the affected resource in the `subject` attribute. In this HTTP-integrated example, subscribers may use that URL to retrieve the resource while it remains available.
+This is a minimal Resource Event notifying subscribers that a new `DataStream` resource has been created. The event identifies the affected DataStream in `subject` and its direct parent System in `resourceparent`. In this HTTP-integrated example, subscribers may use that URL to retrieve the resource while it remains available.
 
 [source%autofit,json]
 ----
@@ -69,7 +69,7 @@ include::../examples/events/event-system-create-full-geojson.json[]
 
 A CS API context identifies the logical resource service in which operations occur, independently of the broker or processes delivering its events. The `source` URI identifies that context, `subject` identifies the affected resource, and the parent extension identifies the parent resource. These identifiers are distinct from the event's `id`, transport channel addresses, and any UID identifying a real-world entity in a resource representation.
 
-An implementation can provide Resource Events without an associated CS API HTTP service. In that case, absolute URIs such as UUID URNs provide stable identifiers without implying an HTTP retrieval operation. When an associated HTTP service exposes a resource, its canonical resource URL is used instead. A resource URI used in a deletion event remains the identifier of the deleted resource even though it no longer resolves to a representation. The resource model and applicable encoding requirements still apply.
+An implementation can provide Resource Events without an associated CS API HTTP service. In that case, absolute URIs such as UUID URNs provide <<term-stable-uri,stable identifiers>> without implying an HTTP retrieval operation. When an associated HTTP service exposes a resource, its canonical resource URL is used instead. A resource URI used in a deletion event remains the identifier of the deleted resource even though it no longer resolves to a representation. The resource model and applicable encoding requirements still apply.
 
 [[example_resource_event_standalone]]
 .Resource Event from a standalone deployment without an HTTP service
@@ -90,4 +90,53 @@ In this example:
 * `id` identifies this event within the source context. A different event receives a different event ID; retransmission of the same event may retain its ID.
 
 The UUIDs shown are illustrative. Each deployment assigns its own identifiers. These URNs require neither an HTTP server nor a service that resolves them to network locations.
+=================
+
+[[resource-event-parent-relationships]]
+==== Direct parent relationships
+
+`resourceparent` identifies a resource, not a collection endpoint or a topic prefix. Use the direct relationship defined by Parts 1 and 2; deployment membership, ultimate features of interest and other associations do not replace it.
+
+.Direct parent relationships for Resource Events
+[cols="1,2",options="header"]
+|====
+| Affected resource | Direct parent
+| `System` exposed as a subsystem | Its `parentSystem` from the Part 1 Subsystems class. A top-level System has no direct parent.
+| `Deployment` exposed as a subdeployment | Its `parentDeployment` from the Part 1 Subdeployments class. A top-level Deployment has no direct parent.
+| `Sampling Feature` | Its `parentSystem` from the Part 1 Sampling Features class.
+| `DataStream` | The System identified by its `system` association in Part 2.
+| `Observation` | The DataStream identified by its `datastream` association.
+| `ControlStream` | The System identified by its `system` association in Part 2.
+| `Command` | The ControlStream containing the command.
+| `Command Status`, `Command Result` | The Command to which the status or result belongs.
+| `System Event` | The System to which the Part 2 event relates.
+| `Feasibility` request | The ControlStream containing the request.
+| Feasibility status or result | The Feasibility request to which the status or result belongs.
+| `Procedure`, `Property` | No direct parent is defined by these resource classes.
+|====
+
+For deletion, retain the parent relationship immediately before deleting the resource. For creation and update, use the resulting relationship. A change of parent is not a history of both relationships; this attribute identifies only the resulting parent for an update. A separately defined resource type needs an explicit parent mapping; do not guess a parent from another association.
+
+These mappings do not add resource types to the Resource Data Messages allowlist or settle the pending event-type tokens. Batch Resource Events retain their collection-specific rules; their extension identifies the resource containing the summarized collection.
+
+[[example_subsystem_deletion]]
+.Subsystem deletion retaining its former direct parent
+=================
+The deleted System is identified by its canonical URL. Its parent System is retained in `resourceparent` even though the subsystem can no longer be fetched.
+
+[source%autofit,json]
+----
+include::../examples/events/event-subsystem-delete.json[]
+----
+=================
+
+[[example_observation_parent_standalone]]
+.Observation event identifying its direct parent without an HTTP service
+=================
+The source context, Observation and DataStream have distinct UUID URNs used as <<term-stable-uri,stable URIs>>. The parent identifier is the same URI used as `subject` in events about that DataStream. The Observation's parent is determined from its DataStream relationship, not from the spelling of either URN or its broker channel.
+
+[source%autofit,json]
+----
+include::../examples/events/event-observation-create-standalone.json[]
+----
 =================

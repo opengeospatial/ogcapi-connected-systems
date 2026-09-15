@@ -4,5 +4,6 @@
   "type": "org.ogc.api.csapi.datastream.create",
   "source": "https://example.org/csapi",
   "subject": "https://example.org/csapi/datastreams/458",
-  "time": "2025-08-27T12:36:33Z"
+  "time": "2025-08-27T12:36:33Z",
+  "resourceparent": "https://example.org/csapi/systems/87"
 }

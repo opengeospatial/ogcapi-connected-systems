@@ -7,6 +7,15 @@ All terms defined in {ogcapi-cs-1}, {ogcapi-cs-2}, and {ogcapi-pubsub-1} also ap
 An addressable path or topic through which messages of a particular kind are published and to which clients can subscribe. The exact syntax of a channel identifier depends on the protocol binding (for example, an MQTT topic).
 
 
+[[term-stable-uri]]
+=== Stable URI
+An absolute URI assigned to identify a particular source context, resource, or resource collection, whose value remains unchanged for that identity and is not reassigned to a different identity.
+
+NOTE: Stability concerns identity, not network location or availability. A stable URI is retained across publisher restarts, broker migrations, and channel-address changes. It continues to identify a deleted resource in historical events and does not require an HTTP endpoint or a resolution service.
+
+NOTE: A UUID URN generated once and retained in persistent configuration or resource metadata is one way to provide a stable URI. Generating a new UUID for each event or publisher restart does not provide stable identity.
+
+
 === CloudEvents
 A vendor-neutral specification for describing event data in a common way. CloudEvents are envelopes carrying context attributes (such as `id`, `type`, `source`, `subject`, `time`) and an optional payload (`data`).
 
