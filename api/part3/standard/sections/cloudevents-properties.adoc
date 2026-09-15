@@ -7,10 +7,10 @@ The following table specifies the constraints on each CloudEvents context attrib
 | *Attribute*       | *Value / Constraint*
 | `specversion`     | Fixed value `1.0`.
 | `type`            | A string identifying the affected resource type and the operation that took place. See <<resource-event-types-table>>.
-| `source`          | An absolute URI identifying the CS API context. Use the associated HTTP API root URL when available; otherwise use a <<term-stable-uri,stable URI>> identifying the context.
-| `subject`         | The canonical resource URL when exposed by an associated CS API HTTP service; otherwise a <<term-stable-uri,stable URI>> identifying the resource.
+| `source`          | The absolute API root URL of the associated CS API HTTP server in whose resource context the operation occurred.
+| `subject`         | The absolute canonical URL of the affected resource in the associated CS API HTTP service, retained after deletion.
 | `id`              | A non-empty, producer-defined string that, together with `source`, uniquely identifies each distinct event. Producer-maintained counters and UUIDs are valid examples.
-| `resourceparent` | _(extension, URI)_ Required when a direct parent exists; omitted otherwise. Use its canonical resource URL when exposed by an associated CS API HTTP service, or a <<term-stable-uri,stable URI>> otherwise. See <<resource-event-parent-relationships>>.
+| `resourceparent` | _(extension, URI)_ Required when a direct parent exists; omitted otherwise. Use its absolute canonical resource URL in the associated CS API HTTP service. See <<resource-event-parent-relationships>>.
 | `time`            | The timestamp of the resource operation. Ideally the moment the resource becomes visible to API clients; alternatively, the time the originating request was received or processed by the server.
 | `datacontenttype` | Required when `data` is included. Identifies the actual JSON media type of the embedded content.
 | `data`            | _Optional._ A JSON summary or complete JSON resource representation permitted by the applicable CS API encoding. Embedded directly as a JSON value, not as a serialized document string or `data_base64`.
@@ -65,32 +65,11 @@ include::../examples/events/event-system-create-full-geojson.json[]
 =================
 
 [[resource-event-identity]]
-=== Resource identity in standalone deployments
+=== Resource identity and the associated HTTP server
 
-A CS API context identifies the logical resource service in which operations occur, independently of the broker or processes delivering its events. The `source` URI identifies that context, `subject` identifies the affected resource, and the parent extension identifies the parent resource. These identifiers are distinct from the event's `id`, transport channel addresses, and any UID identifying a real-world entity in a resource representation.
+The `source` attribute identifies the associated CS API HTTP server's resource context through its absolute API root URL. The `subject` attribute identifies the affected resource through its absolute canonical URL, and `resourceparent` identifies its direct parent through that parent's absolute canonical URL. These identifiers come from the CS API resource model and HTTP interface; they are not broker addresses or channel names.
 
-An implementation can provide Resource Events without an associated CS API HTTP service. In that case, absolute URIs such as UUID URNs provide <<term-stable-uri,stable identifiers>> without implying an HTTP retrieval operation. When an associated HTTP service exposes a resource, its canonical resource URL is used instead. A resource URI used in a deletion event remains the identifier of the deleted resource even though it no longer resolves to a representation. The resource model and applicable encoding requirements still apply.
-
-[[example_resource_event_standalone]]
-.Resource Event from a standalone deployment without an HTTP service
-=================
-Consider a standalone CS API deployment that manages sensor resources and publishes their lifecycle events through a broker, without an HTTP service. During initial configuration, the deployment generates a UUID for its source context and stores it persistently. It uses that same source URI for events concerning all resources in that context.
-
-The following event announces a newly created top-level System. The System has no parent, and optional event data is omitted.
-
-[source%autofit,json]
-----
-include::../examples/events/event-system-create-standalone.json[]
-----
-
-In this example:
-
-* `source` identifies the logical CS API deployment, not the broker, a publisher process, or an individual sensor. Its configured value is retained across restarts and broker migrations; a new source UUID is not generated for each event.
-* `subject` identifies this particular System resource. Later update or deletion events for the same System use the same subject URI. Other resources have different subject URIs, even when their events share the same source.
-* `id` identifies this event within the source context. A different event receives a different event ID; retransmission of the same event may retain its ID.
-
-The UUIDs shown are illustrative. Each deployment assigns its own identifiers. These URNs require neither an HTTP server nor a service that resolves them to network locations.
-=================
+These URLs serve as <<term-stable-uri,stable identifiers>> across publisher restarts, broker migrations, and channel-address changes. A deletion event retains the deleted resource's canonical URL and its direct parent's canonical URL immediately before deletion. Retaining an identifier does not guarantee that an HTTP request will still retrieve a representation after deletion.
 
 [[resource-event-parent-relationships]]
 ==== Direct parent relationships
@@ -127,16 +106,5 @@ The deleted System is identified by its canonical URL. Its parent System is reta
 [source%autofit,json]
 ----
 include::../examples/events/event-subsystem-delete.json[]
-----
-=================
-
-[[example_observation_parent_standalone]]
-.Observation event identifying its direct parent without an HTTP service
-=================
-The source context, Observation and DataStream have distinct UUID URNs used as <<term-stable-uri,stable URIs>>. The parent identifier is the same URI used as `subject` in events about that DataStream. The Observation's parent is determined from its DataStream relationship, not from the spelling of either URN or its broker channel.
-
-[source%autofit,json]
-----
-include::../examples/events/event-observation-create-standalone.json[]
 ----
 =================

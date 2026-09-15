@@ -11,9 +11,9 @@ An addressable path or topic through which messages of a particular kind are pub
 === Stable URI
 An absolute URI assigned to identify a particular source context, resource, or resource collection, whose value remains unchanged for that identity and is not reassigned to a different identity.
 
-NOTE: Stability concerns identity, not network location or availability. A stable URI is retained across publisher restarts, broker migrations, and channel-address changes. It continues to identify a deleted resource in historical events and does not require an HTTP endpoint or a resolution service.
+NOTE: Stability concerns identity, not network location or availability. A stable URI is retained across publisher restarts, broker migrations, and channel-address changes. It continues to identify a deleted resource in historical events, even when no representation remains available at that URL.
 
-NOTE: A UUID URN generated once and retained in persistent configuration or resource metadata is one way to provide a stable URI. Generating a new UUID for each event or publisher restart does not provide stable identity.
+NOTE: In this Standard, event source, resource, and collection identifiers use the absolute API root and canonical URLs provided by the associated CS API HTTP server. This definition does not introduce an alternative URI scheme for those attributes.
 
 
 === CloudEvents

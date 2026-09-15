@@ -1,9 +1,0 @@
-{
-  "specversion": "1.0",
-  "id": "observation-created-43",
-  "type": "org.ogc.api.csapi.observation.create",
-  "source": "urn:uuid:a2295190-1422-4c4d-8fd9-91593873da76",
-  "subject": "urn:uuid:975dfb75-1c17-41e8-8454-ba1a85c8aac4",
-  "resourceparent": "urn:uuid:fcb436b1-223e-4a20-9836-9a66eb28795b",
-  "time": "2026-09-15T18:00:01Z"
-}

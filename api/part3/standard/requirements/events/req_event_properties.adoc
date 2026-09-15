@@ -7,17 +7,17 @@ part:: A Resource Event SHALL set the CloudEvents context attributes as defined 
 
 part:: The `id` attribute SHALL be a non-empty string. The combination of the `source` and `id` attributes SHALL uniquely identify each distinct Resource Event. A retransmission of the same Resource Event MAY reuse the same combination.
 
-part:: The `source` attribute SHALL be an absolute URI identifying the CS API context in which the resource operation occurred. When that context is exposed by an associated CS API HTTP service, `source` SHALL be its API root URL. Otherwise, the publisher SHALL assign a <<term-stable-uri,stable URI>> to that context.
+part:: Resource Events SHALL be provided in association with a CS API HTTP server exposing the applicable resources under {ogcapi-cs-1} and {ogcapi-cs-2}.
 
-part:: The `subject` attribute SHALL be an absolute URI identifying the CS API resource the event applies to. When the resource is exposed by an associated CS API HTTP service, this URI SHALL be its canonical resource URL. Otherwise, the publisher SHALL assign a <<term-stable-uri,stable URI>> to the resource.
+part:: The `source` attribute SHALL be the absolute API root URL of the associated CS API HTTP server in whose resource context the operation occurred.
 
-part:: When the resource identified by `subject` has a direct parent under the applicable CS API resource relationship, the event SHALL include the URI-valued `resourceparent` extension attribute. Its value SHALL be that parent's canonical resource URL when exposed by an associated CS API HTTP service, or a <<term-stable-uri,stable URI>> otherwise. The attribute SHALL be omitted when no direct parent exists. The relationship SHALL be determined as described in <<resource-event-parent-relationships>>, not inferred from a channel address or by truncating the `subject` URI.
+part:: The `subject` attribute SHALL be the absolute canonical URL of the affected CS API resource, as defined by the applicable CS API requirements. For a deletion event, it SHALL retain the resource's canonical URL immediately before deletion.
+
+part:: When the resource identified by `subject` has a direct parent under the applicable CS API resource relationship, the event SHALL include the URI-valued `resourceparent` extension attribute. Its value SHALL be that parent's absolute canonical resource URL in the associated CS API HTTP service. The attribute SHALL be omitted when no direct parent exists. The relationship SHALL be determined as described in <<resource-event-parent-relationships>>, not inferred from a channel address or by truncating the `subject` URI.
 
 part:: For a deletion event, `resourceparent` SHALL identify the direct parent immediately before deletion. For creation and update events, it SHALL identify the direct parent in the resulting resource state.
 
 part:: The publisher SHALL use each assigned resource URI consistently for the same resource, including references to it as a parent, and SHALL NOT assign that URI to a different resource. Distinct source contexts SHALL have distinct source URIs. A change of broker, channel address or publisher process alone SHALL NOT change these identifiers.
-
-part:: An implementation MAY provide Resource Events without operating an associated CS API HTTP service. The identifiers above are not required to be dereferenceable in such a deployment. This permission does not waive HTTP requirements of any other requirements class for which the implementation claims conformance.
 
 part:: The `data` member is optional. It MAY be omitted, contain a JSON summary of the affected resource, or contain a complete JSON-encoded description or definition of that resource using a representation permitted by the applicable CS API requirements.
 

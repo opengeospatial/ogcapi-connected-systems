@@ -14,5 +14,5 @@ A server implementing this requirements class SHALL only publish Batch Resource 
 * Results belonging to one Command.
 * System Events belonging to one System.
 
-part:: The collection identifier SHALL follow /req/resource-events/batch-events/event-properties. A standalone deployment without an associated CS API HTTP service is not required to expose an HTTP endpoint for the identified collection.
+part:: The collection identifier SHALL follow /req/resource-events/batch-events/event-properties.
 ====
