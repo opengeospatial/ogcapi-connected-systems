@@ -21,9 +21,9 @@ The following table specifies the constraints on each CloudEvents context attrib
 [width="100%",options="header"]
 |====
 | *Event Type*                                | *Description*
-| `org.ogc.api.consys.<resource>.create`      | A resource of the given type was created.
-| `org.ogc.api.consys.<resource>.update`      | A resource of the given type was replaced or updated.
-| `org.ogc.api.consys.<resource>.delete`      | A resource of the given type was deleted.
+| `org.ogc.api.csapi.<resource>.create`      | A resource of the given type was created.
+| `org.ogc.api.csapi.<resource>.update`      | A resource of the given type was replaced or updated.
+| `org.ogc.api.csapi.<resource>.delete`      | A resource of the given type was deleted.
 |====
 
 The `<resource>` token in the table above is replaced by the resource type identifier (for example `system`, `subsystem`, `datastream`, `observation`, `controlstream`, `command`, `commandstatus`, `commandresult`, `systemevent`, `deployment`, `procedure`, `property`, `samplingfeature`). The complete mapping of resource types to event-type tokens is given in #TODO# (Annex).
