@@ -12,8 +12,8 @@ The following table specifies the constraints on each CloudEvents context attrib
 | `id`              | A non-empty, producer-defined string that, together with `source`, uniquely identifies each distinct event. Producer-maintained counters and UUIDs are valid examples.
 | `parentId`        | _(extension)_ The parent resource identifier, using its canonical URL when exposed by an associated CS API HTTP service, or a stable absolute URI otherwise (e.g. the parent `System` when a subsystem is created). Recommended whenever applicable.
 | `time`            | The timestamp of the resource operation. Ideally the moment the resource becomes visible to API clients; alternatively, the time the originating request was received or processed by the server.
-| `datacontenttype` | Required only when `data` is included. SHALL be `application/json`.
-| `data`            | _Optional._ When present, a JSON object summarizing the affected resource. Contains at least the resource's `name` and `description` properties when those are defined on the resource. Additional properties MAY be included.
+| `datacontenttype` | Required when `data` is included. Identifies the actual JSON media type of the embedded content.
+| `data`            | _Optional._ A JSON summary or complete JSON resource representation permitted by the applicable CS API encoding. Embedded directly as a JSON value, not as a serialized document string or `data_base64`.
 |====
 
 [#resource-event-types-table,reftext='{table-caption} {counter:table-num}']
@@ -48,6 +48,19 @@ This Resource Event signals the creation of a new `System` resource and includes
 [source%autofit,json]
 ----
 include::../examples/events/event-system-create-with-data.json[]
+----
+=================
+
+[[example_resource_event_full_json]]
+.Resource Event for a `System` creation, with the complete GeoJSON resource
+=================
+This lifecycle notification includes the complete Part 1 GeoJSON System representation as optional `data`. The example uses the resource content from the Part 1 thermometer example without adding or moving fields. In particular, the resource's `name` and `description` remain inside its GeoJSON `properties` object; they are not copied to the top level of `data` to satisfy summary-specific conventions.
+
+The enclosing event uses `application/cloudevents+json`. Its `datacontenttype` is `application/geo+json`, identifying the embedded resource representation. Complete resource content is optional; implementations requiring complete resource delivery use Resource Data Messages.
+
+[source%autofit,json]
+----
+include::../examples/events/event-system-create-full-geojson.json[]
 ----
 =================
 
