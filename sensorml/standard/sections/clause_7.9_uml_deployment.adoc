@@ -13,7 +13,7 @@ The `Deployment` class is used to describe when, where, why and how physical or 
 
 In particular, the deployment metadata allows for the provision of:
 
-- Contact information (e.g., the organization operating/maintaining the deployed systems, the pilot of an unmanned vehicle, etc.);
+- Contact information (e.g., the organization operating/maintaining the deployed systems, the pilot of an unmanned aerial vehicle (UAV), etc.);
 - Domain specific identifiers and classifiers for the deployment (e.g., mission number, mission type, etc.); and
 - Characteristics of the deployment (e.g., sensor is mounted under shelter at 2m above ground).
 
