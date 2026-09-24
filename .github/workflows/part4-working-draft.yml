@@ -5,7 +5,6 @@ on:
   push:
     branches:
       - part4-working-draft
-      - fix/part4-direct-build
     paths:
       - .github/workflows/part4-working-draft.yml
       - api/part4/**
