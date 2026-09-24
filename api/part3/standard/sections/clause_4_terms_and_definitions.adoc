@@ -7,6 +7,15 @@ All terms defined in {ogcapi-cs-1}, {ogcapi-cs-2}, and {ogcapi-pubsub-1} also ap
 An addressable path or topic through which messages of a particular kind are published and to which clients can subscribe. The exact syntax of a channel identifier depends on the protocol binding (for example, an MQTT topic).
 
 
+[[term-stable-uri]]
+=== Stable URI
+An absolute URI assigned to identify a particular source context, resource, or resource collection, whose value remains unchanged for that identity and is not reassigned to a different identity.
+
+NOTE: Stability concerns identity, not network location or availability. A stable URI is retained across publisher restarts, broker migrations, and channel-address changes. It continues to identify a deleted resource in historical events, even when no representation remains available at that URL.
+
+NOTE: In this Standard, event source, resource, and collection identifiers use the absolute API root and canonical URLs provided by the associated CS API HTTP server. This definition does not introduce an alternative URI scheme for those attributes.
+
+
 === CloudEvents
 A vendor-neutral specification for describing event data in a common way. CloudEvents are envelopes carrying context attributes (such as `id`, `type`, `source`, `subject`, `time`) and an optional payload (`data`).
 
@@ -39,4 +48,4 @@ A definition of how the abstract pub/sub message categories defined in this Stan
 
 
 === Format Name
-A short, channel-safe identifier derived from a resource encoding's MIME type, used to distinguish parallel pub/sub channels carrying the same resource in different encodings. The normalization rule is defined in /req/resource-data-messages/content-negotiation/format-name.
+An identifier for a resource encoding used by a protocol binding to distinguish pub/sub channels carrying different representations of the same resource. An optional normalization convention is defined in /req/resource-data-messages/content-negotiation/format-name.

@@ -7,13 +7,13 @@ The following table specifies the constraints on each CloudEvents context attrib
 | *Attribute*       | *Value / Constraint*
 | `specversion`     | Fixed value `1.0`.
 | `type`            | A string identifying the affected resource type and the operation that took place. See <<resource-event-types-table>>.
-| `source`          | The CS API root URL of the server publishing the event.
-| `subject`         | The canonical URL of the CS API resource the event applies to.
+| `source`          | The absolute API root URL of the associated CS API HTTP server in whose resource context the operation occurred.
+| `subject`         | The absolute canonical URL of the affected resource in the associated CS API HTTP service, retained after deletion.
 | `id`              | A non-empty, producer-defined string that, together with `source`, uniquely identifies each distinct event. Producer-maintained counters and UUIDs are valid examples.
-| `parentId`        | _(extension)_ The canonical URL of the parent resource, when one exists (e.g. the parent `System` when a subsystem is created). Recommended whenever applicable.
+| `resourceparent` | _(extension, URI)_ Required when a direct parent exists; omitted otherwise. Use its absolute canonical resource URL in the associated CS API HTTP service. See <<resource-event-parent-relationships>>.
 | `time`            | The timestamp of the resource operation. Ideally the moment the resource becomes visible to API clients; alternatively, the time the originating request was received or processed by the server.
-| `datacontenttype` | Required only when `data` is included. SHALL be `application/json`.
-| `data`            | _Optional._ When present, a JSON object summarizing the affected resource. Contains at least the resource's `name` and `description` properties when those are defined on the resource. Additional properties MAY be included.
+| `datacontenttype` | Required when `data` is included. Identifies the actual JSON media type of the embedded content.
+| `data`            | _Optional._ A JSON summary or complete JSON resource representation permitted by the applicable CS API encoding. Embedded directly as a JSON value, not as a serialized document string or `data_base64`.
 |====
 
 [#resource-event-types-table,reftext='{table-caption} {counter:table-num}']
@@ -21,9 +21,9 @@ The following table specifies the constraints on each CloudEvents context attrib
 [width="100%",options="header"]
 |====
 | *Event Type*                                | *Description*
-| `org.ogc.api.consys.<resource>.create`      | A resource of the given type was created.
-| `org.ogc.api.consys.<resource>.update`      | A resource of the given type was replaced or updated.
-| `org.ogc.api.consys.<resource>.delete`      | A resource of the given type was deleted.
+| `org.ogc.api.csapi.<resource>.create`      | A resource of the given type was created.
+| `org.ogc.api.csapi.<resource>.update`      | A resource of the given type was replaced or updated.
+| `org.ogc.api.csapi.<resource>.delete`      | A resource of the given type was deleted.
 |====
 
 The `<resource>` token in the table above is replaced by the resource type identifier (for example `system`, `subsystem`, `datastream`, `observation`, `controlstream`, `command`, `commandstatus`, `commandresult`, `systemevent`, `deployment`, `procedure`, `property`, `samplingfeature`). The complete mapping of resource types to event-type tokens is given in #TODO# (Annex).
@@ -31,7 +31,7 @@ The `<resource>` token in the table above is replaced by the resource type ident
 [[example_resource_event_minimal]]
 .Resource Event for a `DataStream` creation, with no `data` member
 =================
-This is a minimal Resource Event notifying subscribers that a new `DataStream` resource has been created. The event carries only the canonical URL of the affected resource in the `subject` attribute. Subscribers may fetch the resource representation via HTTP directly, given the canonical url.
+This is a minimal Resource Event notifying subscribers that a new `DataStream` resource has been created. The event identifies the affected DataStream in `subject` and its direct parent System in `resourceparent`. In this HTTP-integrated example, subscribers may use that URL to retrieve the resource while it remains available.
 
 [source%autofit,json]
 ----
@@ -48,5 +48,63 @@ This Resource Event signals the creation of a new `System` resource and includes
 [source%autofit,json]
 ----
 include::../examples/events/event-system-create-with-data.json[]
+----
+=================
+
+[[example_resource_event_full_json]]
+.Resource Event for a `System` creation, with the complete GeoJSON resource
+=================
+This lifecycle notification includes the complete Part 1 GeoJSON System representation as optional `data`. The example uses the resource content from the Part 1 thermometer example without adding or moving fields. In particular, the resource's `name` and `description` remain inside its GeoJSON `properties` object; they are not copied to the top level of `data` to satisfy summary-specific conventions.
+
+The enclosing event uses `application/cloudevents+json`. Its `datacontenttype` is `application/geo+json`, identifying the embedded resource representation. Complete resource content is optional; implementations requiring complete resource delivery use Resource Data Messages.
+
+[source%autofit,json]
+----
+include::../examples/events/event-system-create-full-geojson.json[]
+----
+=================
+
+[[resource-event-identity]]
+=== Resource identity and the associated HTTP server
+
+The `source` attribute identifies the associated CS API HTTP server's resource context through its absolute API root URL. The `subject` attribute identifies the affected resource through its absolute canonical URL, and `resourceparent` identifies its direct parent through that parent's absolute canonical URL. These identifiers come from the CS API resource model and HTTP interface; they are not broker addresses or channel names.
+
+These URLs serve as <<term-stable-uri,stable identifiers>> across publisher restarts, broker migrations, and channel-address changes. A deletion event retains the deleted resource's canonical URL and its direct parent's canonical URL immediately before deletion. Retaining an identifier does not guarantee that an HTTP request will still retrieve a representation after deletion.
+
+[[resource-event-parent-relationships]]
+==== Direct parent relationships
+
+`resourceparent` identifies a resource, not a collection endpoint or a topic prefix. Use the direct relationship defined by Parts 1 and 2; deployment membership, ultimate features of interest and other associations do not replace it.
+
+.Direct parent relationships for Resource Events
+[cols="1,2",options="header"]
+|====
+| Affected resource | Direct parent
+| `System` exposed as a subsystem | Its `parentSystem` from the Part 1 Subsystems class. A top-level System has no direct parent.
+| `Deployment` exposed as a subdeployment | Its `parentDeployment` from the Part 1 Subdeployments class. A top-level Deployment has no direct parent.
+| `Sampling Feature` | Its `parentSystem` from the Part 1 Sampling Features class.
+| `DataStream` | The System identified by its `system` association in Part 2.
+| `Observation` | The DataStream identified by its `datastream` association.
+| `ControlStream` | The System identified by its `system` association in Part 2.
+| `Command` | The ControlStream containing the command.
+| `Command Status`, `Command Result` | The Command to which the status or result belongs.
+| `System Event` | The System to which the Part 2 event relates.
+| `Feasibility` request | The ControlStream containing the request.
+| Feasibility status or result | The Feasibility request to which the status or result belongs.
+| `Procedure`, `Property` | No direct parent is defined by these resource classes.
+|====
+
+For deletion, retain the parent relationship immediately before deleting the resource. For creation and update, use the resulting relationship. A change of parent is not a history of both relationships; this attribute identifies only the resulting parent for an update. A separately defined resource type needs an explicit parent mapping; do not guess a parent from another association.
+
+These mappings do not add resource types to the Resource Data Messages allowlist or settle the pending event-type tokens. Batch Resource Events retain their collection-specific rules; their extension identifies the resource containing the summarized collection.
+
+[[example_subsystem_deletion]]
+.Subsystem deletion retaining its former direct parent
+=================
+The deleted System is identified by its canonical URL. Its parent System is retained in `resourceparent` even though the subsystem can no longer be fetched.
+
+[source%autofit,json]
+----
+include::../examples/events/event-subsystem-delete.json[]
 ----
 =================

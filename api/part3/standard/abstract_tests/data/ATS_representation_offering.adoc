@@ -1,0 +1,11 @@
+[abstract_test]
+.Representation offering
+====
+[%metadata]
+identifier:: /conf/resource-data-messages/representation-offering
+target:: /req/resource-data-messages/representation-offering
+
+test-purpose:: Verify that every offered resource-data stream has at least one permitted representation and that publication honors the advertised behavior.
+
+test-method:: Inspect the service description. For each offered stream, verify that at least one media type is declared, that every offered type is permitted for its resource, and that applicable mandatory encoding obligations are met. Verify that channels or selection mechanisms are described. Subscribe using the advertised mechanism, trigger resource publication, and validate received representations against the applicable encoding and stream schema. Where several representations are offered, apply the representation-selection test. Do not require publication in encodings offered only outside Pub/Sub, or a particular subscriber-detection implementation.
+====

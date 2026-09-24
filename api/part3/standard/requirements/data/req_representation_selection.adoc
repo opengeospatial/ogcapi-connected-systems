@@ -1,0 +1,13 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/resource-data-messages/content-negotiation/representation-selection
+
+part:: When multiple media types are offered for the same resource-data stream, clients SHALL be able to select a representation through separate channels or through an established content-negotiation mechanism supported by the transport.
+
+part:: The protocol binding SHALL define the selection or negotiation mechanism, including the response to a requested representation that is not offered. The service description SHALL identify the offered media types and how clients select or negotiate them.
+
+part:: For channel-based selection, the service description SHALL map each selectable channel to its media type, including any parameters needed to distinguish the offered representation. If format names are used, their mapping to offered representations SHALL be unambiguous; distinct representations SHALL NOT be distinguished solely by format names that normalize to the same value.
+
+part:: Media-type metadata describing a published payload SHALL NOT, by itself, be treated as content negotiation. Messages delivered for a selection SHALL use the selected media type and satisfy its applicable encoding requirements.
+====

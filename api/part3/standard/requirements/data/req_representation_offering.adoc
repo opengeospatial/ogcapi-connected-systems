@@ -1,0 +1,13 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/resource-data-messages/representation-offering
+
+part:: For each resource-data stream offered through this requirements class, the server SHALL offer at least one media type permitted by the applicable CS API resource and encoding requirements. The server MAY offer additional permitted media types. This minimum does not waive any mandatory encoding obligations of other requirements classes implemented by the server.
+
+part:: The service description SHALL identify the media types offered for each resource-data stream and the corresponding channels or selection mechanisms. A format supported elsewhere by the server need not be offered through Pub/Sub.
+
+part:: A server offering multiple media types for the same resource-data stream SHALL satisfy /req/resource-data-messages/content-negotiation/representation-selection.
+
+part:: The server SHALL honor the advertised delivery behavior and negotiated representation selections. This requirements class does not require publication in every encoding supported elsewhere by the server, simultaneous generation of all offered representations, or detection of active subscribers. Publication optimizations SHALL preserve the advertised delivery behavior and negotiated selections.
+====

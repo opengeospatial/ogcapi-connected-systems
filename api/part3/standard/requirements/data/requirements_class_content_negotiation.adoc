@@ -6,5 +6,6 @@ identifier:: /req/resource-data-messages/content-negotiation
 subject:: Web API
 inherit:: /req/resource-data-messages
 
+requirement:: /req/resource-data-messages/content-negotiation/representation-selection
 requirement:: /req/resource-data-messages/content-negotiation/format-name
 ====

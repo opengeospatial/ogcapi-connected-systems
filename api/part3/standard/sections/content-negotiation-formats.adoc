@@ -1,6 +1,12 @@
-Content negotiation for Resource Data Messages is an *optional* extension to the Resource Data Messages requirements class. When a server supports more than one resource encoding format for the same resource type, it MAY expose each format on a separate pub/sub channel identified by a normalized format-name suffix.
+Support for multiple representations of a resource-data stream is optional. Each offered stream provides at least one permitted media type under /req/resource-data-messages/representation-offering. An implementation offering several representations provides explicit selection through separate channels or, where supported, an established transport content-negotiation mechanism.
 
-The actual channel-naming syntax (for example, an MQTT subtopic appended after `:data`) is defined by each protocol binding. This requirements class defines only the rule for deriving the format-name suffix from a MIME type. The rule is constrained primarily by MQTT, where the `+` character is a reserved single-level wildcard in topic filters and cannot appear inside a literal topic segment.
+The binding defines the concrete mechanism, and the service description tells clients which representations are offered and how to select them. Supporting an encoding elsewhere in the API does not automatically offer it through Pub/Sub. Implementations may optimize when they produce representations, but preserve the advertised channel behavior and negotiated selections. Subscriber-count detection is not required.
+
+Content-type metadata identifies a message's representation; it does not itself negotiate a representation. For example, MQTT's Content Type property describes the published payload. By contrast, SIP event subscriptions use `Accept` in `SUBSCRIBE` to specify permitted `NOTIFY` body formats (https://www.rfc-editor.org/rfc/rfc6665.html#section-3.1.3[RFC 6665, section 3.1.3]). This is a negotiation precedent, not a definition of a CS API SIP binding.
+
+For example, a service may advertise an Observation stream as `application/json` only. A service offering both `application/json` and `application/swe+binary` may advertise separate channels for the two representations. A client selects the advertised channel for its desired representation; support for another encoding on an HTTP endpoint does not add a Pub/Sub offering.
+
+Bindings may use the normalized format-name convention below for channel selection. Channel syntax remains a binding responsibility. Normalization discards media-type parameters and can collapse distinct types to the same name, so the service description and selection mechanism must still distinguish every offered representation unambiguously.
 
 [#resource-data-format-names-table,reftext='{table-caption} {counter:table-num}']
 .Normalized format names for common CS API encodings
@@ -10,11 +16,15 @@ The actual channel-naming syntax (for example, an MQTT subtopic appended after `
 | `application/json`        | {ogcapi-cs-1}, {ogcapi-cs-2} | `json`
 | `application/geo+json`    | {ogcapi-cs-1}                | `geo-json`
 | `application/sml+json`    | {ogcapi-cs-1}                | `sml-json`
-| `application/om+json`     | {ogcapi-cs-2}                | `om-json`
-| `application/cmd+json`    | {ogcapi-cs-2}                | `cmd-json`
 | `application/swe+json`    | {ogcapi-cs-2}                | `swe-json`
 | `application/swe+text`    | {ogcapi-cs-2}                | `swe-text`
 | `application/swe+binary`  | {ogcapi-cs-2}                | `swe-binary`
 |====
 
-NOTE: This table is informative. The normative rule for deriving format names is given by /req/resource-data-messages/content-negotiation/format-name; the table above illustrates the rule applied to the encoding MIME types defined by the current Parts of the CS API Standard. Future encoding MIME types defined by extensions or future Parts derive their format names by applying the same rule.
+NOTE: This table is informative. The normative rule for deriving format names is given by /req/resource-data-messages/content-negotiation/format-name; the table above illustrates the rule applied to the encoding MIME types defined by the current Parts of the CS API Standard. Bindings choosing this convention apply the same rule to additional permitted media types.
+
+[NOTE]
+.OM JSON and `application/json`
+====
+*OM JSON and Part 2 observation JSON are the same CS API encoding.* Older CS API examples label it `application/om+json` (`om-json`); the media type specified by {ogcapi-cs-2} is `application/json`, with normalized format name `json`. This Standard uses the Part 2 media type.
+====

@@ -1,0 +1,9 @@
+{
+  "specversion": "1.0",
+  "id": "subsystem-deleted-1",
+  "type": "org.ogc.api.csapi.system.delete",
+  "source": "https://example.org/csapi",
+  "subject": "https://example.org/csapi/systems/123",
+  "resourceparent": "https://example.org/csapi/systems/87",
+  "time": "2025-10-08T16:02:11Z"
+}

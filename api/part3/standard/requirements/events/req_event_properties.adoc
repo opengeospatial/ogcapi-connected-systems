@@ -7,13 +7,23 @@ part:: A Resource Event SHALL set the CloudEvents context attributes as defined 
 
 part:: The `id` attribute SHALL be a non-empty string. The combination of the `source` and `id` attributes SHALL uniquely identify each distinct Resource Event. A retransmission of the same Resource Event MAY reuse the same combination.
 
-part:: The `source` attribute SHALL be set to the CS API root URL of the server publishing the event.
+part:: Resource Events SHALL be provided in association with a CS API HTTP server exposing the applicable resources under {ogcapi-cs-1} and {ogcapi-cs-2}.
 
-part:: The `subject` attribute SHALL be set to the canonical URL of the CS API resource the event applies to.
+part:: The `source` attribute SHALL be the absolute API root URL of the associated CS API HTTP server in whose resource context the operation occurred.
 
-part:: When the resource the event applies to has a parent resource, the `parentId` extension attribute SHALL be set to the canonical URL of that parent resource.
+part:: The `subject` attribute SHALL be the absolute canonical URL of the affected CS API resource, as defined by the applicable CS API requirements. For a deletion event, it SHALL retain the resource's canonical URL immediately before deletion.
 
-part:: When the event payload includes a `data` member, the `datacontenttype` attribute SHALL be set to `application/json`.
+part:: When the resource identified by `subject` has a direct parent under the applicable CS API resource relationship, the event SHALL include the URI-valued `resourceparent` extension attribute. Its value SHALL be that parent's absolute canonical resource URL in the associated CS API HTTP service. The attribute SHALL be omitted when no direct parent exists. The relationship SHALL be determined as described in <<resource-event-parent-relationships>>, not inferred from a channel address or by truncating the `subject` URI.
 
-part:: When present, the `data` member SHALL be a JSON object containing at least the `name` and `description` properties of the resource, where those properties are defined on the resource.
+part:: For a deletion event, `resourceparent` SHALL identify the direct parent immediately before deletion. For creation and update events, it SHALL identify the direct parent in the resulting resource state.
+
+part:: The publisher SHALL use each assigned resource URI consistently for the same resource, including references to it as a parent, and SHALL NOT assign that URI to a different resource. Distinct source contexts SHALL have distinct source URIs. A change of broker, channel address or publisher process alone SHALL NOT change these identifiers.
+
+part:: The `data` member is optional. It MAY be omitted, contain a JSON summary of the affected resource, or contain a complete JSON-encoded description or definition of that resource using a representation permitted by the applicable CS API requirements.
+
+part:: When `data` is present, `datacontenttype` SHALL identify its actual media type, and the JSON value SHALL be embedded directly in accordance with {cloudevents-json-format}. Summary-specific fields SHALL NOT be required in a complete resource representation unless required by that representation's encoding.
+
+part:: Non-JSON resource representations SHALL NOT be embedded in Resource Events, including as encoded strings or through `data_base64`. Such representations SHALL be delivered using Resource Data Messages, subject to the applicable resource-type and encoding requirements.
+
+part:: Resource Events communicate lifecycle changes. Complete resource content is optional, and implementations SHOULD NOT rely on Resource Event channels as a substitute for Resource Data Message channels when complete resource delivery is required.
 ====

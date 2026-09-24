@@ -25,6 +25,8 @@ include::resource-data-properties.adoc[]
 
 === Requirements
 
+include::../requirements/data/req_representation_offering.adoc[]
+
 include::../requirements/data/req_payload_format.adoc[]
 
 include::../requirements/data/req_no_deletes.adoc[]
@@ -42,5 +44,7 @@ include::content-negotiation-formats.adoc[]
 
 
 ==== Requirements
+
+include::../requirements/data/req_representation_selection.adoc[]
 
 include::../requirements/data/req_format_name.adoc[]

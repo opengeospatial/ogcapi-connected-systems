@@ -10,13 +10,13 @@ This Standard defines the following requirements classes.
   {empty} +
 - <<clause-resource-data-messages,style=full%>> defines requirements for pub/sub messages carrying full CS API resource representations in their native encodings. +
   {empty} +
-- <<clause-resource-data-content-negotiation,style=full%>> defines an optional content-negotiation mechanism for Resource Data Messages, including a normalization rule for deriving channel-safe format-name suffixes from MIME types. +
-  {empty} +
-- <<clause-protocol-mqtt,style=full%>> defines requirements for using MQTT (v3.1.1 and v5) as a pub/sub transport for the message categories defined in this Standard. +
+- <<clause-resource-data-content-negotiation,style=full%>> defines optional support for multiple Resource Data Message representations, including channel selection, transport content negotiation, and a normalization convention for bindings using format names. +
   {empty} +
 
 The standardization target for these requirements classes is an implementation of the Web API.
 
-There is no _Core_ requirements class. An implementation target is expected to implement at least one message-category (Resource Events or Resource Data Messages) and at least one protocol-binding.
+There is no _Core_ requirements class. An implementation target is expected to implement at least one message-category (Resource Events or Resource Data Messages) and at least one protocol binding. The binding may be defined in this document or published separately; MQTT support is not a prerequisite for another binding. Each binding must satisfy the common requirements applicable to its claimed capabilities.
+
+NOTE: The MQTT binding and the complete binding-independent conformance framework are still under development.
 
 The conformance classes corresponding to these requirements classes are presented in <<annex_ats,Annex A (normative)>>. Conformance with this Standard shall be checked using all the relevant tests specified in Annex A. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing website.

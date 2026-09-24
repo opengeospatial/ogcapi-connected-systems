@@ -5,18 +5,20 @@ The OGC API - Connected Systems (CS API) defines a unified set of resource types
 
 In many Connected Systems use cases, however, the request/response pattern of HTTP is not the most efficient way to exchange data. Sensors produce observations continuously; actuators must accept commands with low latency; subscribers want to know about new resources as soon as they appear, without polling. For these cases, an asynchronous publish/subscribe interaction model is more appropriate.
 
-This Part of the CS API specifies how pub/sub protocols are used alongside the HTTP API to deliver the same resources and notifications about them asynchronously. The HTTP interface remains the authoritative way to retrieve current state; the pub/sub interface complements it with low-latency delivery and bidirectional streaming.
+This Part of the CS API specifies how pub/sub protocols deliver CS API resources and notifications about them asynchronously. The Pub/Sub interface is deployed alongside a CS API HTTP server and uses that server's resource model, API root URL, and canonical resource and collection URLs. The HTTP interface provides retrieval of current resource state, while Pub/Sub provides asynchronous delivery. The components may run on different hosts and communicate through a separate broker.
 
 
 === Message Categories
 
 This Standard defines two primary categories of pub/sub messages, each addressing a different use case, plus a special-case sub-class of Resource Events for batched notifications:
 
-- *Resource Events* (<<clause-resource-events>>) are CloudEvents-formatted notifications of CS API resource lifecycle operations. They are emitted by the server when a resource is created, updated, or deleted. The notification carries a reference to the affected resource (and optionally a short summary) but not the resource itself.
+- *Resource Events* (<<clause-resource-events>>) are CloudEvents-formatted notifications of CS API resource lifecycle operations. They are emitted by the server when a resource is created, updated, or deleted. The notification identifies the affected resource by its absolute canonical URL in the associated CS API HTTP service. Its optional JSON content is governed by the Resource Events requirements class; consumers may use that content without retrieving the resource again. Optional inline content does not change the lifecycle-notification purpose or guarantee complete resource delivery.
 
 - *Batch Resource Events* (<<clause-batch-resource-events>>) are a special case of Resource Events. They summarize a number of resource transactions of the same type that occurred on a single nested resource collection during a defined time window. They are intended primarily for high-frequency cases (for example, observation streams) where one event per transaction would be too verbose.
 
 - *Resource Data Messages* (<<clause-resource-data-messages>>) carry complete resource representations in the server's native CS API encodings (JSON, SWE Common JSON, SWE Common Text, SWE Common Binary, etc.). They are designed for low-latency streaming of observations, commands, command status, command results, and system events, as well as for "registration" use cases where a publishing client introduces new systems, datastreams, or controlstreams to the server.
+
+CloudEvents provides a common, standardized envelope for lifecycle notifications and does not require any cloud infrastructure. Resource Data Messages use their native encodings without a CloudEvents envelope. Consumers use the message category appropriate to their needs: lifecycle changes through Resource Events, or complete resource delivery through Resource Data Messages.
 
 The message categories are designed to be used together though implementations are only required to implement one primary category. A typical deployment exposes Resource Events for lifecycle notifications across resource types, Batch Resource Events for the highest-frequency nested collections, and Resource Data Messages for the dynamic data streams themselves.
 
@@ -25,11 +27,13 @@ The message categories are designed to be used together though implementations a
 
 The message categories above are protocol-agnostic. To exchange these messages over a specific pub/sub transport, this Standard defines *protocol bindings*: requirements classes that specify how the abstract message categories map onto the concrete operations (subscribe, publish, topic structure, content negotiation, flow control) of each pub/sub transport.
 
-This Standard defines bindings for:
+The common requirements do not assume any particular transport. MQTT (v3.1.1 and v5) is the first planned binding in this document and the primary worked example; its normative binding is still under development.
 
-- *MQTT* (v3.1.1 and v5) — broker-based pub/sub commonly used in IoT (<<clause-protocol-mqtt>>).
+A binding specifies how its transport satisfies each applicable common requirement, including resource identity, message content, publication and subscription behavior, and representation selection. Additional bindings are encouraged and may be published separately without becoming official parts of this Standard. Technical compliance depends on satisfying the applicable requirements. Neither official publication of the binding nor MQTT support is a prerequisite.
 
-Additional bindings (for example, AMQP, Apache Kafka, Server-Sent Events) may be defined by future revisions or by extensions to this Standard.
+A binding that cannot satisfy a requirement applicable to its claimed capabilities needs adaptation or a defined conformance path through a standards extension or change. The requirement cannot simply be omitted. Each binding defines its transport-specific addressing and selection mechanisms while preserving the applicable common requirements.
+
+NOTE: The complete binding-independent conformance framework remains under development. Requirement-to-binding mappings, conformance dependencies and corresponding abstract tests remain to be specified and verified.
 
 
 === Relationship to OGC API – Pub/Sub

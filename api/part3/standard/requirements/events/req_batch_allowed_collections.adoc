@@ -6,11 +6,13 @@ identifier:: /req/resource-events/batch-events/allowed-collections
 part:: A server SHALL publish Batch Resource Events only on resource collections that are nested under exactly one parent resource. Batch Resource Events SHALL NOT be published for top-level resource collections, nor for collections that span multiple parent resources.
 
 part::
-A server implementing this requirements class SHALL only publish Batch Resource Events whose `topic` is the canonical URL of one of the following nested resource collections:
+A server implementing this requirements class SHALL only publish Batch Resource Events whose `subject` identifies one of the following nested resource collections:
 
-* `{api_root}/datastreams/{dsId}/observations`
-* `{api_root}/controlstreams/{csId}/commands`
-* `{api_root}/controlstreams/{csId}/commands/{cmdId}/status`
-* `{api_root}/controlstreams/{csId}/commands/{cmdId}/result`
-* `{api_root}/systems/{sysId}/systemEvents`
+* Observations belonging to one DataStream.
+* Commands belonging to one ControlStream.
+* Status reports belonging to one Command.
+* Results belonging to one Command.
+* System Events belonging to one System.
+
+part:: The collection identifier SHALL follow /req/resource-events/batch-events/event-properties.
 ====

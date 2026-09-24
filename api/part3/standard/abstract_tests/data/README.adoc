@@ -1,0 +1,3 @@
+= Resource Data Message abstract-test drafts
+
+These tests accompany the representation-offering and representation-selection requirements added for issue #190. They are not yet included in the document: the complete Abstract Test Suite annex and conformance-class wiring remain follow-on framework work. These files do not establish a complete conformance suite or record a broker test run.

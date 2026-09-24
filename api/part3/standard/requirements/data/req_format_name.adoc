@@ -4,12 +4,12 @@
 identifier:: /req/resource-data-messages/content-negotiation/format-name
 
 part::
-The *format name* used to identify a specific resource encoding within a pub/sub channel SHALL be derived from the encoding's MIME type by applying the following normalization, in order:
+When a protocol binding uses normalized *format names* to identify resource encodings within pub/sub channels, each format name SHALL be derived from the encoding's MIME type by applying the following normalization, in order:
 
 1. Take the bare media type, discarding any parameters (everything from the first `;` character, if present, onward).
 2. Remove the `application/` prefix, if present.
 3. Replace every `+` character with a `-` character.
 4. Lowercase all remaining characters.
 
-part:: The normalized format name SHALL be used wherever a format identifier is required by a protocol binding, including MQTT topic segments and equivalent URL path segments in other bindings. The substitution of `+` with `-` is required because `+` is a reserved single-level wildcard in MQTT topic filters.
+part:: A protocol binding using this normalization convention SHALL define where the normalized format name is used in its channel addresses. This convention does not replace full media types used by a transport's content-negotiation mechanism. The substitution of `+` with `-` permits names to be used in MQTT topic segments, where `+` is reserved as a single-level wildcard.
 ====
