@@ -25,25 +25,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Prepare Build Workspace
-        run: |
-          ln -sfn ../openapi openapi
-          ln -sfn ../figures figures
-          mkdir -p requirements/sampling
-          cp ../requirements/sampling/*.adoc requirements/sampling/
-          cp ../sections/clause_13_sampling_feature_types.adoc sections/clause_13_sampling_feature_types.adoc
-          sed 's@include::\.\./sections/clause_13_sampling_feature_types\.adoc\[\]@include::sections/clause_13_sampling_feature_types.adoc[]@' 23-004r0.adoc > 23-004r0.build.adoc
-
       - name: Compile Part 4 Draft
         id: compile
         continue-on-error: true
         run: |
           set +e
-          metanorma compile --agree-to-terms -t ogc -x html,pdf,xml 23-004r0.build.adoc > metanorma-build.log 2>&1
+          metanorma compile --agree-to-terms -t ogc -x html,pdf,xml 23-004r0.adoc > metanorma-build.log 2>&1
           status=$?
-          for ext in html pdf xml err pdf.err presentation.xml rxl; do
-            if [ -f "23-004r0.build.$ext" ]; then mv "23-004r0.build.$ext" "23-004r0.$ext"; fi
-          done
           echo "exit_code=$status" >> "$GITHUB_OUTPUT"
           cat metanorma-build.log
           exit 0
@@ -65,9 +53,9 @@ jobs:
             api/part4/standard/23-004r0.xml
             api/part4/standard/23-004r0.err
             api/part4/standard/23-004r0.pdf.err
-            api/part4/standard/23-004r0.build.err.html
-            api/part4/standard/23-004r0.build.xml.abort
-            api/part4/standard/23-004r0.build.asciidoc.log.txt
+            api/part4/standard/23-004r0.err.html
+            api/part4/standard/23-004r0.xml.abort
+            api/part4/standard/23-004r0.asciidoc.log.txt
             api/part4/standard/metanorma-build.log
 
       - name: Fail If Compile Failed

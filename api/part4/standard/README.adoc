@@ -16,6 +16,10 @@ Currently included:
 - bounded front matter, scope, conformance, references, and terms wrapper
   clauses for the standalone working draft
 - `sections/clause_3_references.adoc` standalone references clause integrated from Alex Robin's delivered package
+- `sections/clause_13_sampling_feature_types.adoc` and its requirement files
+  packaged beneath this standalone `standard/` directory
+- `figures/` containing the PNG figures referenced by the sampling-feature-types
+  clause and their corresponding SVG source assets
 - `build.sh` draft build helper
 - `metanorma.yml` minimal Metanorma configuration
 
@@ -23,14 +27,17 @@ Current wiring notes:
 
 - The root entrypoint includes bounded standalone wrapper clauses ahead of the
   extracted sampling-feature-types clause.
-- The root entrypoint includes the existing
-  `../sections/clause_13_sampling_feature_types.adoc`.
+- The root entrypoint includes
+  `sections/clause_13_sampling_feature_types.adoc` from within the standalone
+  package.
 - The root entrypoint includes a standalone references clause before the
   extracted sampling-feature-types clause.
-- The existing clause expects requirement files under `../requirements/sampling/`.
-- To preserve the existing source subtree while enabling mechanical wiring,
-  this working branch adds that missing directory layout without deleting the
-  pre-existing requirement files.
+- The sampling-feature-types clause includes requirement files under
+  `../requirements/sampling/`, which resolves inside the standalone package.
+- Figure assets are stored under `standard/figures`, following the established
+  Part 1 and Part 2 package convention. The existing `image::./figures/...`
+  references therefore resolve when the committed root entrypoint is built
+  directly.
 - The `GeoPose` bibliography anchor was added in the standalone references
   clause because the existing Part 4 text explicitly cites it.
 
@@ -52,7 +59,7 @@ Open editorial questions intentionally left unresolved:
   pose discussion, but the broader extracted-from-Part-1 requirement-class
   packaging remains unresolved.
 
-Verified build path:
+Automated build path:
 
 - GitHub Actions workflow `.github/workflows/part4-working-draft.yml`
 
@@ -60,33 +67,34 @@ Local helper:
 
 `./build.sh`
 
-The local helper remains a minimal convenience script. The verified
-review-artifact path for this branch is the GitHub Actions workflow, which
-stages the existing Part 4 source tree into a remote Metanorma build
-workspace.
+The local helper remains a minimal convenience script. The GitHub Actions
+workflow compiles the committed `23-004r0.adoc` entrypoint directly and
+generates HTML, PDF, and XML review artifacts. It does not copy clauses or
+requirements, create a temporary figure link, or rewrite the entrypoint before
+compilation.
 
 Artifact-handling note:
 
-- this branch currently uses GitHub Actions artifacts as the review-artifact
-  delivery path rather than committing generated HTML/PDF/XML outputs into the
-  branch;
-- that differs from the current Part 3 working-draft branch, which versions
-  generated review artifacts in the branch, but it matches the current Part 4
-  branch workflow and keeps generated outputs decoupled from the extracted seed
-  content while the draft remains editorially open.
+- the branch contains HTML and PDF review snapshots committed during its
+  initial preparation;
+- current automated builds upload HTML, PDF, XML, diagnostics, and the build
+  log as commit-specific GitHub Actions artifacts;
+- a future SWG decision should establish whether generated review artifacts
+  remain committed or are retained only by CI and the OGC DRAFTS publication
+  process.
 
 == Build Validation Status
 
-This branch now has enough standalone wiring for a remote working-draft build:
+The direct-build acceptance criteria for this branch are:
 
 - the root entrypoint resolves;
 - the bounded wrapper clauses resolve;
 - the included references clause resolves;
 - the included sampling-feature-types clause resolves;
 - the requirement include targets under `../requirements/sampling/` resolve;
-- the figure assets resolve in the remote build workspace;
-- HTML, PDF, and XML review artifacts are generated successfully by the remote
-  workflow.
+- the figure assets resolve from the checked-in `standard/figures` directory;
+- the original `23-004r0.adoc` entrypoint generates HTML, PDF, and XML review
+  artifacts without a staged or rewritten document.
 
 Reviewer-circulation status:
 
