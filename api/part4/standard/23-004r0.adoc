@@ -5,6 +5,9 @@
 :status: swg-draft
 :committee: technical
 :docnumber: 23-004
+:received-date: yyyy-mm-dd
+:issued-date: yyyy-mm-dd
+:published-date: yyyy-mm-dd
 :fullname: Alexandre Robin
 :docsubtype: implementation
 :keywords: ogcdoc, OGC document, OpenAPI, REST, API, connected system, sampling feature, specimen, statistical sample, spatial sampling, parametric sampling

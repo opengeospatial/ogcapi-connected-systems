@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - part4-working-draft
+      - fix/part4-date-metadata
     paths:
       - .github/workflows/part4-working-draft.yml
       - api/part4/**
