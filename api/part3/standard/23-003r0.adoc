@@ -6,6 +6,9 @@
 :committee: technical
 :external-id: http://www.opengis.net/doc/IS/ogcapi-connectedsystems-3/1.0
 :docnumber: 23-003
+:received-date: yyyy-mm-dd
+:issued-date: yyyy-mm-dd
+:published-date: yyyy-mm-dd
 :fullname: Ian Patterson
 :docsubtype: implementation
 :keywords: ogcdoc, OGC document, OpenAPI, AsyncAPI, REST, MQTT, CloudEvents, publish, subscribe, pub/sub, event, notification, API, system, smart system, connected system, IoT, sensorweb, ssn, sensor, actuator, observation, command
