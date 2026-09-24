@@ -30,7 +30,7 @@ include::sections/clause_3_references.adoc[]
 
 include::sections/clause_4_terms_and_definitions.adoc[]
 
-include::../sections/clause_13_sampling_feature_types.adoc[]
+include::sections/clause_13_sampling_feature_types.adoc[]
 
 [[clause-encodings]]
 == Requirements Classes for Encodings
