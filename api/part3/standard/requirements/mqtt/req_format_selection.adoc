@@ -1,0 +1,12 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/mqtt/format-selection
+
+part:: The plain `:data` topic SHALL carry the advertised default representation for each supported direction.
+part:: If additional representations are offered, the implementation SHALL conform to the Content Negotiation requirements class and SHALL offer each additional representation on a `:data/{format}` subtopic.
+part:: The implementation MAY also offer the default representation on a format subtopic. It SHOULD NOT do so, because each default-representation message is then published twice.
+part:: The format token SHALL follow /req/resource-data-messages/content-negotiation/format-name and occupy one topic level. The service description SHALL map each token unambiguously to its media type, parameters and schema. A representation SHALL NOT use a format subtopic if its normalized name contains `/` (for example, `text/csv`) or matches the token of another offered representation. It MAY still be the default representation on the plain `:data` topic.
+part:: A format subtopic SHALL deliver or accept only its advertised representation. Publications and subscriptions using unknown or unsupported format tokens SHALL be rejected, without falling back to the default representation.
+part:: Each advertised representation topic SHALL provide the same logical resource stream, subject to its declared delivery behavior. This binding does not require every encoding, continuous publication on unadvertised topics, or detection of active subscribers.
+====

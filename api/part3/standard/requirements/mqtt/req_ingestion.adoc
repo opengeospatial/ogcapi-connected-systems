@@ -1,0 +1,10 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/mqtt/ingestion
+
+part:: If client publication is offered, the service SHALL advertise the writable Resource Data topics and the CS API create operation each performs. Before accepting an operation, it SHALL validate authorization, the representation and the target collection. Each client publication SHALL be a separate create operation; clients SHALL publish each resource on one topic only. Users SHALL NOT create resources through MQTT that they are not authorized to create through the associated CS API HTTP server.
+part:: Client publication SHALL NOT authorize deletion or other CS API operations. The service SHALL reject malformed, unsupported or unauthorized publications according to its advertised error behavior.
+part:: The deployment SHALL prevent unvalidated client input from reaching subscribers as accepted Resource Data messages. When input and output share a topic, the broker or an integration layer SHALL validate input before distribution and prevent republishing loops.
+part:: The service description SHALL distinguish MQTT delivery acknowledgement, CS API operation acceptance and command execution status. For asynchronous acceptance or rejection reports, it SHALL describe the topic, correlation and payload.
+====

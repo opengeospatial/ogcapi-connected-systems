@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/mqtt/delivery
+
+part:: The service description SHALL state publication QoS, supported subscription QoS levels, session expiry or persistence policy, and any ordering or replay guarantees beyond MQTT. It SHALL NOT claim that transport QoS alone guarantees exactly-once resource creation or command execution.
+part:: The service description SHALL state the retained-message behavior of Resource Data topics. A retained command SHALL NOT execute as a new command when a service reconnects. If retained state snapshots are offered, the description SHALL explain how they are distinguished from new observations or commands.
+part:: The service SHALL publish complete representations within its advertised message-size limits. Larger representations SHALL be rejected or handled by a separately described extension. This binding does not define fragmentation.
+====

@@ -1,0 +1,9 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/mqtt/subscriptions
+
+part:: The implementation SHALL accept authorized subscriptions to advertised topics and topic filters, subject to declared capacity limits. It SHALL report unsuccessful subscriptions using the applicable MQTT acknowledgement.
+part:: Topic filters SHALL follow the wildcard rules of the MQTT version in use. An accepted filter SHALL cover every authorized matching topic offered by the service, including topics for resources created later. The service description SHALL declare restrictions on wildcard subscriptions to Resource Data topics.
+part:: The service SHALL enforce resource access control for exact topics, topic filters, retained messages and resumed sessions. Users SHALL NOT receive resource information through MQTT that they are not authorized to retrieve through the associated CS API HTTP server.
+====

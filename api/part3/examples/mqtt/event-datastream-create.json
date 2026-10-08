@@ -1,0 +1,9 @@
+{
+  "specversion": "1.0",
+  "id": "ds-145-created-01",
+  "source": "https://example.org/api",
+  "type": "org.ogc.api.csapi.datastream.create",
+  "subject": "https://example.org/api/datastreams/145",
+  "resourceparent": "https://example.org/api/systems/134",
+  "time": "2026-09-15T14:00:00Z"
+}
