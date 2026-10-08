@@ -1,0 +1,9 @@
+[abstract_test]
+.Resource data messages
+====
+[%metadata]
+identifier:: /conf/mqtt/data-messages
+target:: /req/mqtt/data-messages
+test-purpose:: Verify resource data messages.
+test-method:: For each offered resource type and media type, decode captured messages using the advertised schema and framing. Verify that each message arrives on its designated topic under its most nested collection path: the plain `:data` topic for the advertised default representation, or the corresponding `:data/{format}` subtopic for an additional representation. Verify that the plain `:data` topic carries only the advertised default representation, and that any copy arrives only on an advertised additional topic that is valid for the resource and carries that representation. When binary and non-binary representations are both offered, verify that each arrives on its designated representation topic without mixing encodings on the plain `:data` topic. Check a binary payload byte for byte. Publish a message whose MQTT 5 Content Type contradicts its topic and verify that the Content Type does not change the representation selected by the topic.
+====

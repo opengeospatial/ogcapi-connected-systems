@@ -1,0 +1,9 @@
+[abstract_test]
+.Subscriptions and authorization
+====
+[%metadata]
+identifier:: /conf/mqtt/subscriptions
+target:: /req/mqtt/subscriptions
+test-purpose:: Verify subscriptions and authorization.
+test-method:: Subscribe to exact and advertised wildcard topics, then create a matching resource. Repeat with mixed authorized and unauthorized resources, including a resumed session and revoked access. Confirm unsupported filters are rejected rather than accepted with silently missing promised matches.
+====

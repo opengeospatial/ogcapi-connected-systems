@@ -1,0 +1,21 @@
+[abstract_test]
+.Optional client publication
+====
+[%metadata]
+identifier:: /conf/mqtt/ingestion
+target:: /req/mqtt/ingestion
+test-purpose:: Verify optional client publication.
+test-method:: If client publication is not offered, this test is not applicable.
+Otherwise, inspect the advertised writable Resource Data topics and their
+associated CS API create operations. For each offered resource type and
+representation, publish valid, authorized input to an advertised writable topic.
+Verify through the associated HTTP API that each accepted create operation
+creates one resource in the target collection according to the applicable
+CS API requirements.
+Publish malformed, unsupported and unauthorized input. Verify that rejected
+input creates no resource, follows the advertised error behavior, and never
+reaches subscribers as accepted Resource Data messages.
+Verify that valid input causes no publication loop. Check that MQTT delivery
+acknowledgement is distinguished from CS API operation acceptance and, for
+commands, execution status.
+====

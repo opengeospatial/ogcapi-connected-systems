@@ -1,0 +1,9 @@
+[abstract_test]
+.Capabilities and deployment
+====
+[%metadata]
+identifier:: /conf/mqtt/capabilities
+target:: /req/mqtt/capabilities
+test-purpose:: Verify capabilities and deployment.
+test-method:: Inspect the service description, connect using each advertised protocol version, and exercise one offered channel in each advertised direction. Compare actual capabilities with the declaration.
+====
