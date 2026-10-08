@@ -1,12 +1,19 @@
-[[rc_protocol-mqtt]]
-[cols="1,4",width="90%",options="header"]
-|===
-2+|*Requirements Class*
-2+|http://www.opengis.net/spec/ogcapi-connectedsystems-2/1.0/req/protocol/mqtt
-|Target type              |Web API
-|Dependency               |<<MQTT>>
-|Conditional Dependency   |<<clause-datastreams>>
-|Conditional Dependency   |<<clause-controlstreams>>
-|Conditional Dependency   |<<clause-system-events>>
-|Conditional Dependency   |<<clause-resource-events>>
-|===
+[requirement,model=ogc]
+====
+[%metadata]
+type:: class
+identifier:: /req/mqtt
+subject:: Web API
+indirect-dependency:: OASIS MQTT Version 3.1.1 Plus Errata 01, or OASIS MQTT Version 5.0
+indirect-dependency:: /req/resource-events
+indirect-dependency:: /req/resource-data-messages
+
+requirement:: /req/mqtt/capabilities
+requirement:: /req/mqtt/topic-mapping
+requirement:: /req/mqtt/event-messages
+requirement:: /req/mqtt/data-messages
+requirement:: /req/mqtt/format-selection
+requirement:: /req/mqtt/subscriptions
+requirement:: /req/mqtt/ingestion
+requirement:: /req/mqtt/delivery
+====

@@ -1,0 +1,8 @@
+{
+  "specversion": "1.0",
+  "id": "deployment-53-deleted-01",
+  "source": "https://example.org/api",
+  "type": "org.ogc.api.csapi.deployment.delete",
+  "subject": "https://example.org/api/deployments/53",
+  "time": "2026-10-08T16:02:11Z"
+}

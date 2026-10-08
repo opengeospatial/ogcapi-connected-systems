@@ -1,0 +1,9 @@
+[abstract_test]
+.Delivery and message limits
+====
+[%metadata]
+identifier:: /conf/mqtt/delivery
+target:: /req/mqtt/delivery
+test-purpose:: Verify delivery and message limits.
+test-method:: Exercise each advertised QoS and session policy, reconnect publishers and subscribers, and inspect duplicates and ordering against the declaration. Test retained command replay and payloads around the advertised size limit.
+====

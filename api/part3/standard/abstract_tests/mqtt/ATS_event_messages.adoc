@@ -1,0 +1,9 @@
+[abstract_test]
+.Resource event messages
+====
+[%metadata]
+identifier:: /conf/mqtt/event-messages
+target:: /req/mqtt/event-messages
+test-purpose:: Verify resource event messages.
+test-method:: Capture create, update, and delete notifications, including an event with JSON data and one without data. Validate the common event properties and MQTT 5 Content Type. Subscribe with a fresh session after publication and verify no retained lifecycle event is replayed. Attempt unauthorized publication.
+====

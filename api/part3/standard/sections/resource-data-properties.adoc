@@ -15,6 +15,6 @@ A Resource Data Message carries a complete representation of a single CS API res
 | `Controlstream`  | {ogcapi-cs-2} | Registering a new controlstream associated with a system.
 |====
 
-Resource Data Messages support both server-to-client and client-to-server message flows. The publish authority for each resource type and channel is defined by the protocol binding (for example, the MQTT Publish requirements class); the message-format class defined here is silent on who may publish.
+Resource Data Messages support both server-to-client and client-to-server message flows. The publish authority for each resource type and channel is defined by the protocol binding (for example, the <<clause-protocol-mqtt,MQTT Transport>> requirements class); the message-format class defined here is silent on who may publish.
 
 The encoding used for a given Resource Data Message is one of the formats supported by the server for the resource type being carried, as defined by the encoding requirements classes of {ogcapi-cs-1}, {ogcapi-cs-2}, or future Parts. The mechanism by which a client requests a specific encoding (when more than one is supported by the server) is a protocol binding concern; this Standard does not define a general content-negotiation mechanism for Resource Data Messages.

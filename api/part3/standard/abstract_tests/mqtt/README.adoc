@@ -1,0 +1,3 @@
+= MQTT Transport abstract-test drafts
+
+These tests accompany the MQTT Transport requirements class (`/req/mqtt`), one test per requirement. Like the Resource Data Message test drafts, they are not yet included in the document: the Abstract Test Suite annex and conformance-class wiring remain follow-on framework work. The proposed conformance class is `/conf/mqtt`, targeting `/req/mqtt`. These tests have not been run against a broker.

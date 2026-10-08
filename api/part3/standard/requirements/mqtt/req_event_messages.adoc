@@ -1,0 +1,10 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/mqtt/event-messages
+
+part:: Implementations offering Resource Events SHALL conform to the Resource Events requirements class. Each MQTT payload SHALL contain one complete CloudEvent in structured JSON format.
+part:: MQTT 5.0 publishers SHALL set Content Type to `application/cloudevents+json`. For MQTT 3.1.1, the service description SHALL identify this media type. The CloudEvents `datacontenttype`, when present, SHALL describe the event's `data` member.
+part:: Publishers SHALL set RETAIN to 0 for Resource Events. The service SHALL prevent retained lifecycle messages from being delivered as current notifications.
+part:: Only the associated CS API server SHALL publish Resource Events. Clients SHALL NOT be authorized to publish to Resource Event topics.
+====

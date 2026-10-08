@@ -6,7 +6,7 @@ Specifically, Part 3 of the CS API defines:
 
 * Two main categories of pub/sub message payloads: *Resource Events* (CloudEvents-formatted lifecycle notifications) and *Resource Data Messages* (full resource representations carried in their native CS API encodings). A subtype of Resource Events *Batch Resource Events* (aggregated lifecycle notifications for high-volume cases), exists for cases where implementers require fewer message publications due to highly frequent lifecycle updates.
 
-* Protocol bindings that specify how these message categories are exchanged over particular pub/sub transports. The MQTT binding (v3.1.1 and v5) is under development. Additional bindings may be published separately, as extensions, or in future revisions; MQTT support is not a prerequisite for them.
+* Protocol bindings that specify how these message categories are exchanged over particular pub/sub transports. This document defines the MQTT binding (v3.1.1 and v5). Additional bindings may be published separately, as extensions, or in future revisions; MQTT support is not a prerequisite for them.
 
 * Optional support for multiple resource representations, selected through separate pub/sub channels or an established content-negotiation mechanism supported by the transport.
 

@@ -1,23 +1,312 @@
 
 [[clause-protocol-mqtt]]
-=== Requirements Class "MQTT Transport"
+== Requirements Class "MQTT Transport"
 include::../requirements/mqtt/requirements_class_mqtt.adoc[]
 
 
-==== Overview
+=== Overview
 
-This requirements class defines how the MQTT protocol can be used to interact with certain resource types.
-
-MQTT can be used to:
-
-- Subscribe to resource events
-- Subscribe to system events
-- Subscribe to real-time observations
-- Publish observations
-- Subscribe to real-time commands
-- Publish commands
+This binding defines how to publish and subscribe to <<clause-resource-events,Resource Events>> and <<clause-resource-data-messages,Resource Data Messages>> using <<MQTT3,MQTT 3.1.1>> or <<MQTT5,MQTT 5.0>>. Implementations may support either message category or both.
 
 
-Use AsyncAPI to define asynchronous operations
+=== Capabilities and Deployment
 
-#TODO#
+include::../requirements/mqtt/req_capabilities.adoc[]
+
+The associated HTTP server provides resource URLs, schemas and resource retrieval. The MQTT broker may be hosted separately.
+
+The service description may use AsyncAPI or another format that expresses the required information.
+
+
+[[clause-mqtt-topic-hierarchy]]
+=== Topic Structure
+
+==== Construction Rule
+
+MQTT topics begin with `{nodeId}`, followed by a resource path using the collection names defined in {ogcapi-cs-1} and {ogcapi-cs-2}.
+
+A *designated topic* follows the resource's full ownership hierarchy. For Resource Data Messages, it also depends on the representation (see <<clause-mqtt-format-selection>>). Subsystems appear beneath their parent systems, and resources owned by a subsystem appear beneath that subsystem's full path. For example, `node1/systems/1/subsystems/7/datastreams/42` identifies DataStream 42 owned by Subsystem 7 of System 1.
+
+The node identifier distinguishes CS API HTTP servers sharing a broker. It occupies one topic level and contains no `/`, `+` or `#` characters.
+
+[#mqtt-topic-placeholders-table,reftext='{table-caption} {counter:table-num}']
+.MQTT Topic Placeholders
+[width="100%",options="header"]
+|====
+| *Placeholder*      | *Expands to*
+| `{nodeId}`         | The advertised node identifier (a single topic level).
+| `{systemPath}`     | The full system path: `systems/{id}`, followed by `/subsystems/{id}` for each subsystem level. Examples: `systems/134`, `systems/134/subsystems/7`.
+| `{deploymentPath}` | The full deployment path: `deployments/{id}`, followed by `/subdeployments/{id}` for each subdeployment level.
+| `{id}`             | The resource's local identifier in the CS API HTTP server, mapped to one topic level (see /req/mqtt/topic-mapping).
+|====
+
+A topic is *valid for a resource or collection* when its path follows the resource associations defined in {ogcapi-cs-1} and {ogcapi-cs-2}: the first collection is at the API root, each later collection represents an association of the preceding resource, and each identifier names a member of its collection.
+
+Servers may also publish copies on advertised additional topics that follow these associations, subject to /req/mqtt/topic-mapping and /req/mqtt/data-messages. Publication on each message's designated topic remains required, even when copies are published on additional topics.
+
+include::../requirements/mqtt/req_topic_mapping.adoc[]
+
+[[clause-mqtt-event-topics]]
+=== Resource Events
+
+This section applies when <<clause-resource-events,Resource Events>> are offered over MQTT.
+
+==== Topic Templates
+
+[#mqtt-event-topic-table,reftext='{table-caption} {counter:table-num}']
+.Resource Event Topics
+[width="100%",options="header"]
+|====
+| *Resource type*   | *Topic*
+| Top-level System  | `{nodeId}/systems/{id}`
+| Subsystem         | `{nodeId}/{systemPath}/subsystems/{id}`
+| DataStream        | `{nodeId}/{systemPath}/datastreams/{id}`
+| ControlStream     | `{nodeId}/{systemPath}/controlstreams/{id}`
+| Sampling Feature  | `{nodeId}/{systemPath}/samplingFeatures/{id}`
+| System Event      | `{nodeId}/{systemPath}/events/{id}`
+| Observation       | `{nodeId}/{systemPath}/datastreams/{id}/observations/{id}`
+| Command           | `{nodeId}/{systemPath}/controlstreams/{id}/commands/{id}`
+| Command Status    | `{nodeId}/{systemPath}/controlstreams/{id}/commands/{id}/status/{id}`
+| Command Result    | `{nodeId}/{systemPath}/controlstreams/{id}/commands/{id}/result/{id}`
+| Top-level Deployment | `{nodeId}/deployments/{id}`
+| Subdeployment     | `{nodeId}/{deploymentPath}/subdeployments/{id}`
+| Procedure         | `{nodeId}/procedures/{id}`
+| Property          | `{nodeId}/properties/{id}`
+|====
+
+Here, `{systemPath}` is the full path of the system that directly owns the resource.
+
+[#mqtt-event-topic-examples-table,reftext='{table-caption} {counter:table-num}']
+.Example Resource Event Topics
+[width="100%",options="header"]
+|====
+| *Receive Resource Events for*                          | *Topic*
+| A single top-level System                              | `node1/systems/134`
+| A single DataStream of System 134                      | `node1/systems/134/datastreams/145`
+| A single DataStream of Subsystem 7 of System 134       | `node1/systems/134/subsystems/7/datastreams/42`
+| A single Observation of a single DataStream            | `node1/systems/134/datastreams/145/observations/515669`
+| A single Procedure                                     | `node1/procedures/53`
+|====
+
+[#mqtt-event-topic-filters-table,reftext='{table-caption} {counter:table-num}']
+.Example Resource Event Topic Filters
+[width="100%",options="header"]
+|====
+| *Receive Resource Events for*                                | *Topic filter*
+| All top-level Systems                                        | `node1/systems/+`
+| Direct subsystems of all top-level Systems                   | `node1/systems/+/subsystems/+`
+| System 134 and all descendants        | `node1/systems/134/#`
+| The DataStreams owned directly by System 134                 | `node1/systems/134/datastreams/+`
+| The DataStreams owned directly by all top-level Systems      | `node1/systems/+/datastreams/+`
+| Observations from a single DataStream                        | `node1/systems/134/datastreams/145/observations/+`
+| Observations from all DataStreams owned directly by System 134 | `node1/systems/134/datastreams/+/observations/+`
+| All top-level Deployments                                    | `node1/deployments/+`
+| All Deployments and Subdeployments                           | `node1/deployments/#`
+| All Procedures                                               | `node1/procedures/+`
+|====
+
+Subscribe with wildcards to receive creation events for resources whose identifiers are not yet known.
+
+A filter ending in `#` includes the parent topic and all descendant topics, including any Resource Data topics. MQTT cannot select a resource type at every subsystem depth with one filter. To receive all DataStream events under System 134, subscribe to `node1/systems/134/#` and select the relevant events by topic or CloudEvents `type`.
+
+[[clause-mqtt-event-messages]]
+==== Resource Event Messages
+
+include::../requirements/mqtt/req_event_messages.adoc[]
+
+The event `data` member is optional, as specified by /req/resource-events/event-properties.
+
+[example%unnumbered]
+.A DataStream creation event published on `node1/systems/134/datastreams/145`
+====
+[source%autofit,json]
+----
+include::../examples/mqtt/event-datastream-create.json[]
+----
+====
+
+The `subject` identifies the DataStream by its canonical HTTP URL, independently of the nested MQTT topic.
+
+
+[[clause-mqtt-batch-topics]]
+==== Batch Resource Event Topics
+
+This subsection applies when <<clause-batch-resource-events,Batch Resource Events>> are offered over MQTT.
+
+A Batch Resource Event uses the corresponding collection topic, formed by removing the final resource identifier from the Resource Event topic. For example, a batch for DataStream 145's observations uses `node1/systems/134/datastreams/145/observations`.
+
+Each batch notification is one structured CloudEvent with media type `application/cloudevents+json`, as required by /req/mqtt/event-messages. It does not use the CloudEvents JSON batch format (`application/cloudevents-batch+json`).
+
+The filter `…/observations/+` matches individual observation events. The filter `…/observations/#` also matches batch notifications on the collection topic.
+
+[[clause-mqtt-deployment-topics]]
+==== Deployments
+
+A Deployment may involve multiple systems (see {ogcapi-cs-1}). Its designated topic follows the deployment hierarchy under `{nodeId}/deployments/…`, with subdeployments nested beneath their parent deployment. The HTTP endpoint `{api_root}/systems/{sysId}/deployments` provides a filtered view of those associations.
+
+To receive Deployment Resource Events, subscribe to `{nodeId}/deployments/#`.
+Selecting events relevant to a particular system requires deployment membership
+information. When the optional event `data` includes that information, clients
+can interpret it using the advertised media type and schema. Otherwise, clients
+can retrieve the deployment through its canonical HTTP URL while it remains
+available. Previously retrieved membership information can help clients process
+later updates or deletions. A deletion event may omit membership information,
+and the deleted resource may no longer be retrievable.
+
+Servers MAY also publish copies under `{nodeId}/systems/{id}/deployments/{id}` for each associated system (see <<clause-mqtt-topic-hierarchy>>).
+
+[example%unnumbered]
+.Using cached membership to process a Deployment deletion
+====
+A client subscribes to `node1/deployments/#`. It has previously retrieved
+`https://example.org/api/systems/134/deployments` and recorded that the top-level
+Deployment `https://example.org/api/deployments/53` involves System 134.
+In this example, that association remains unchanged until Deployment 53 is
+deleted. The server then publishes the following event on `node1/deployments/53`:
+
+[source%autofit,json]
+----
+include::../examples/mqtt/event-deployment-delete.json[]
+----
+
+The client matches `subject` to its cached membership and removes Deployment 53
+from its local view of System 134's deployments. It does not need to retrieve
+the deleted resource. A client without that membership information cannot
+determine from this event alone whether Deployment 53 involved System 134.
+====
+
+
+[[clause-mqtt-system-event-topics]]
+==== Resource Events and System Events
+
+A *Resource Event* notifies clients that an API resource was created, updated or deleted. Its `time` records the API operation.
+
+A *System Event*, defined in {ogcapi-cs-2}, is a stored resource describing an occurrence such as calibration, repair or deployment. Its time records when that occurrence happened.
+
+Creating a System Event therefore produces a Resource Event of type `org.ogc.api.csapi.systemevent.create` on `{nodeId}/{systemPath}/events/{id}`. This binding does not require a corresponding System Event record for every resource change.
+
+
+[[clause-mqtt-data-topics]]
+=== Resource Data Messages
+
+This section applies when <<clause-resource-data-messages,Resource Data Messages>> are offered over MQTT.
+
+==== Topic Templates
+
+Resource Data topics carry resource representations without a CloudEvents envelope. They use the collection path with `:data` appended to the final collection name. Clients may publish to these topics when client publication is advertised (see <<clause-mqtt-client-publication>>).
+
+The following table lists the supported resource types and their designated topics for the advertised default representation. Additional representations append a format subtopic as described in <<clause-mqtt-format-selection>>.
+
+[#mqtt-data-topic-table,reftext='{table-caption} {counter:table-num}']
+.Resource Data Topics
+[width="100%",options="header"]
+|====
+| *Resource type*   | *Topic*
+| Top-level Systems | `{nodeId}/systems:data`
+| Subsystems        | `{nodeId}/{systemPath}/subsystems:data`
+| DataStreams       | `{nodeId}/{systemPath}/datastreams:data`
+| ControlStreams    | `{nodeId}/{systemPath}/controlstreams:data`
+| System Events     | `{nodeId}/{systemPath}/events:data`
+| Observations      | `{nodeId}/{systemPath}/datastreams/{id}/observations:data`
+| Commands          | `{nodeId}/{systemPath}/controlstreams/{id}/commands:data`
+| Command Status    | `{nodeId}/{systemPath}/controlstreams/{id}/commands/{id}/status:data`
+| Command Result    | `{nodeId}/{systemPath}/controlstreams/{id}/commands/{id}/result:data`
+|====
+
+[#mqtt-data-topic-examples-table,reftext='{table-caption} {counter:table-num}']
+.Example Resource Data Topics and Topic Filters
+[width="100%",options="header"]
+|====
+| *Use case*                                                          | *Topic or topic filter*
+| Stream Observations from a single DataStream (subscribe)            | `node1/systems/134/datastreams/12/observations:data`
+| Stream Observations from all DataStreams owned directly by System 134 (subscribe) | `node1/systems/134/datastreams/+/observations:data`
+| Ingest Observations (publish)                                       | `node1/systems/134/datastreams/12/observations:data`
+| Register a new top-level System (publish)                           | `node1/systems:data`
+| Register a new Subsystem of System 15 (publish)                     | `node1/systems/15/subsystems:data`
+| Register a new DataStream of System 15 (publish)                    | `node1/systems/15/datastreams:data`
+| Send streaming Commands (publish)                                   | `node1/systems/134/controlstreams/3/commands:data`
+|====
+
+include::../requirements/mqtt/req_data_messages.adoc[]
+
+This binding does not provide a general mechanism for identifying duplicate Resource Data Messages. Publishing each representation only on its designated topic avoids duplicates caused by additional-topic publication.
+
+A receiving service may reject MQTT 5.0 publications that omit Content Type. This check requires knowing the publisher's MQTT version: messages published using MQTT 3.1.1 have no Content Type, even when received by an MQTT 5.0 subscriber.
+
+
+[[clause-mqtt-format-selection]]
+==== Representation Selection by Format Subtopic
+
+This subsection applies when <<clause-resource-data-messages,Resource Data Messages>> are offered over MQTT. Selection by format subtopic is subject to <<clause-resource-data-content-negotiation,Content Negotiation>>, as specified by /req/mqtt/format-selection.
+
+The plain `:data` topic carries the advertised default representation. Additional representations use `:data/{format}`, with format names defined by /req/resource-data-messages/content-negotiation/format-name. Clients may publish to advertised writable format subtopics.
+
+[#mqtt-format-subtopic-table,reftext='{table-caption} {counter:table-num}']
+.Example Format Subtopics for a Server Whose Default Observation Representation Is `application/json`
+[width="100%",options="header"]
+|====
+| *Topic*                                 | *Representation*
+| `…/observations:data`                   | The advertised default, here `application/json`
+| `…/observations:data/swe-json`          | `application/swe+json`, when offered
+| `…/observations:data/swe-binary`        | `application/swe+binary`, when offered
+| `…/observations:data/swe-text`          | `application/swe+text`, when offered
+|====
+
+Publishing the default representation on both the plain topic and a format subtopic, such as `…/observations:data/json`, creates duplicate messages. This is allowed but discouraged under /req/mqtt/format-selection.
+
+The filter `…/observations:data/#` matches the default topic and all format subtopics. Use an exact topic to select one representation.
+
+include::../requirements/mqtt/req_format_selection.adoc[]
+
+
+[[clause-mqtt-subscriptions]]
+=== Subscriptions
+
+This section outlines how a properly configured service should handle subscriptions.
+
+include::../requirements/mqtt/req_subscriptions.adoc[]
+
+A filter ending in `#` can match both Resource Event and Resource Data topics. Use a more specific filter to select one category. Retained or queued messages may describe an earlier resource state.
+
+
+[[clause-mqtt-client-publication]]
+=== Client Publication
+
+Services may allow clients to publish data on appropriate topics unless it is disallowed as in the case of <<clause-resource-events,Resource Events>>.
+
+include::../requirements/mqtt/req_ingestion.adoc[]
+
+Clients may publish to advertised writable Resource Data topics, such as `node1/systems/134/datastreams/145/observations:data`. Client publication is optional.
+
+When clients and the server publish on the same topic, the broker or an integration layer validates client input before forwarding it to subscribers. Separate input topics require an extension. This binding does not define a general request/reply protocol.
+
+
+[[clause-mqtt-delivery]]
+=== Delivery Behavior
+
+This section defines what a service should declare about QoS, session persistence, retained messages and message size.
+
+include::../requirements/mqtt/req_delivery.adoc[]
+
+MQTT subscriptions select messages by topic. This binding does not define payload or property filters, rate limiting or sampling. The following optional <<MQTT5,MQTT 5.0>> features help control delivery:
+
+[cols="1,3",options="header"]
+|===
+| Feature | Effect
+| Receive Maximum
+| Limits unacknowledged QoS 1 and QoS 2 messages; it does not limit QoS 0 traffic.
+| Maximum Packet Size
+| Limits the packet size a client accepts. The broker discards messages it cannot send within that limit.
+| Message Expiry Interval
+| Limits how long a message can wait for onward delivery, including while a subscriber is disconnected.
+| Session Expiry Interval and Clean Start
+| Control session persistence, including subscriptions and queued messages.
+| No Local and Retain Handling
+| Control delivery of a client's own publications and retained messages, respectively.
+| Topic Alias
+| Reduces topic-name overhead without changing the payload size.
+|===
+
+MQTT 3.1.1 provides topic selection, QoS and Clean Session. Batch Resource Events can reduce event volume with either MQTT version.
+
+This binding does not define application flow control using response topics and correlation data, automatic retries of non-idempotent operations, application-level deduplication, shared-subscription work distribution or fragmentation. Command acceptance and execution status follow the CS API command model.
