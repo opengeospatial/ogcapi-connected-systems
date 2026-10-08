@@ -1,0 +1,9 @@
+[abstract_test]
+.Topic mapping and resource identity
+====
+[%metadata]
+identifier:: /conf/mqtt/topic-mapping
+target:: /req/mqtt/topic-mapping
+test-purpose:: Verify the topic templates, the node identifier, identifier mapping, designated-topic publication and any additional topics.
+test-method:: Verify that the advertised `{nodeId}` is a single topic level without `/`, `+` or `#`. Create a top-level system, a subsystem at the second level, a datastream owned by that subsystem, an observation, a top-level deployment and a subdeployment. Subscribe to `{nodeId}/#` and verify that each Resource Event arrives on its designated topic, matching the templates with the full chain of parent resources, and that no subsystem or subdeployment event arrives on `{nodeId}/systems/{id}` or `{nodeId}/deployments/{id}`. Verify that any further copy arrives only on an additional topic that is advertised in the service description and valid for the resource, and carries the same `source` and `id` as the designated copy; if no additional topics are advertised, verify that no copies arrive. Create a command and verify that no message arrives on `{nodeId}/observations/…`, `{nodeId}/observations:data`, `{nodeId}/commands/…` or `{nodeId}/commands:data`. Create resources with ordinary and reserved-character identifiers and verify a reversible, collision-free identifier mapping. Verify `subject` and `resourceparent` against the canonical URLs of the HTTP server. Create two observations with equal phenomenonTime and distinct resource identifiers and verify that their event topics are distinct. If Batch Resource Events are offered, verify that each one arrives on the designated collection topic and never on a topic of a top-level collection.
+====

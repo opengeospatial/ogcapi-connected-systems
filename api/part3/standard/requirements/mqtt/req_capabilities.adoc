@@ -1,0 +1,29 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/mqtt/capabilities
+
+part:: The implementation SHALL support MQTT 3.1.1, MQTT 5.0, or both.
+part:: The MQTT service SHALL be associated with a CS API HTTP server. The service description SHALL identify:
++
+* The supported MQTT versions;
+* The broker connection addresses;
+* The transport security and authentication requirements;
+* The absolute HTTP API root;
+* The node identifier (`{nodeId}`);
+* The supported resource types and message categories.
+
+part:: The service description SHALL specify the following for each offered topic:
++
+* Publication or subscription direction;
+* Topic template;
+* Payload media types and schema information;
+* Available representations and, where applicable, the default representation;
+* Supported QoS levels;
+* Retained-message behavior;
+* Session persistence limits;
+* Wildcard subscription support;
+* Error reporting behavior.
+
+part:: Settings shared by multiple topics MAY be described once, provided their applicability is clear.
+====

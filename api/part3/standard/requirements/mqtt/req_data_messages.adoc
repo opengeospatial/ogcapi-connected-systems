@@ -1,0 +1,11 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/mqtt/data-messages
+
+part:: Implementations offering Resource Data Messages SHALL conform to the Resource Data Messages requirements class. Each MQTT payload SHALL contain one complete resource representation in the media type selected by the topic, without a CloudEvents envelope.
+part:: The implementation SHALL offer Resource Data topics only for resource types permitted by /req/resource-data-messages/allowed-resource-types. Topics SHALL append `:data` to the final collection name, as shown in <<mqtt-data-topic-table>>, followed by a format subtopic where applicable under /req/mqtt/format-selection.
+part:: The implementation SHALL publish each Resource Data message on its designated topic for the representation and direction: the `:data` topic of its most nested collection path for the advertised default representation, or that topic followed by `/{format}` for an additional representation. It SHOULD publish each representation only on its designated topic. It MAY also publish copies on additional valid Resource Data topics (see <<clause-mqtt-topic-hierarchy>>), subject to /req/mqtt/format-selection, except `{nodeId}/observations:data`, `{nodeId}/commands:data` and `:data` topics under `{nodeId}/commands/…`. The service description SHALL identify additional topics. The `{nodeId}/systems:data` topic SHALL carry top-level systems only.
+part:: MQTT 5.0 publishers SHALL set Content Type to the representation's media type, including parameters needed to interpret the payload. Content Type SHALL NOT override the representation selected by the topic. A receiving service SHOULD reject a publication whose declared media type conflicts with its topic's representation. It MAY reject an MQTT 5.0 publication without Content Type.
+part:: For binary representations, the service description SHALL identify the framing, how to retrieve the schema, and the schema version or other means of selecting the correct schema. The implementation SHALL carry the representation bytes unchanged. It SHALL NOT convert them to a JSON string or Base64 wrapper unless that wrapper is part of the advertised representation.
+====

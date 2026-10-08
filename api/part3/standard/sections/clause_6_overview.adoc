@@ -27,7 +27,7 @@ The message categories are designed to be used together though implementations a
 
 The message categories above are protocol-agnostic. To exchange these messages over a specific pub/sub transport, this Standard defines *protocol bindings*: requirements classes that specify how the abstract message categories map onto the concrete operations (subscribe, publish, topic structure, content negotiation, flow control) of each pub/sub transport.
 
-The common requirements do not assume any particular transport. MQTT (v3.1.1 and v5) is the first planned binding in this document and the primary worked example; its normative binding is still under development.
+The common requirements do not assume any particular transport. MQTT (v3.1.1 and v5) is the first binding in this document and the primary worked example; see <<clause-protocol-mqtt>>.
 
 A binding specifies how its transport satisfies each applicable common requirement, including resource identity, message content, publication and subscription behavior, and representation selection. Additional bindings are encouraged and may be published separately without becoming official parts of this Standard. Technical compliance depends on satisfying the applicable requirements. Neither official publication of the binding nor MQTT support is a prerequisite.
 

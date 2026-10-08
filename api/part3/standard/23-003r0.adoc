@@ -6,6 +6,9 @@
 :committee: technical
 :external-id: http://www.opengis.net/doc/IS/ogcapi-connectedsystems-3/1.0
 :docnumber: 23-003
+:received-date: yyyy-mm-dd
+:issued-date: yyyy-mm-dd
+:published-date: yyyy-mm-dd
 :fullname: Ian Patterson
 :docsubtype: implementation
 :keywords: ogcdoc, OGC document, OpenAPI, AsyncAPI, REST, MQTT, CloudEvents, publish, subscribe, pub/sub, event, notification, API, system, smart system, connected system, IoT, sensorweb, ssn, sensor, actuator, observation, command
@@ -39,11 +42,10 @@ DRAFT — work in progress
 This entry file currently wires in the front matter, the three
 message-type requirements classes (Resource Events, Batch Resource
 Events, Resource Data Messages), the Content Negotiation sub-class,
-the bibliography, and the revision history.
+the MQTT Transport binding (working draft), the bibliography, and the
+revision history.
 
-Still missing: the MQTT binding (the existing file in
-sections/ is a level-3 stub with broken include paths and is not
-wired in here yet), the abstract test suite annex, and the examples /
+Still missing: the abstract test suite annex, and the examples /
 relationships-with-standards annexes.
 ==============================================================================
 ////
@@ -66,13 +68,7 @@ include::sections/clause_12_requirements_class_resource_events.adoc[]
 
 include::sections/clause_14_requirements_class_resource_data_messages.adoc[]
 
-// The MQTT binding section file (clause_31) uses level-3 (===)
-// headings and references requirement files under
-// requirements/protocol/mqtt/ which don't exist (the actual files
-// live at requirements/mqtt/). It needs both heading promotion and
-// include-path fixes before it can be wired in here.
-//
-// include::sections/clause_31_requirements_class_mqtt.adoc[]
+include::sections/clause_31_requirements_class_mqtt.adoc[]
 
 include::sections/annex-history.adoc[]
 

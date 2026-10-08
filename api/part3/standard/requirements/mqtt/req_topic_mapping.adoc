@@ -1,0 +1,14 @@
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/mqtt/topic-mapping
+
+part:: The implementation SHALL use the topic templates in <<mqtt-event-topic-table>> and <<mqtt-data-topic-table>> for the resource types and message categories it offers over this binding.
+part:: The advertised `{nodeId}` SHALL be a nonempty, single MQTT topic level that contains no topic level separator (`/`) and no wildcard character (`+`, `#`). It SHALL be unique to the associated CS API HTTP server within the broker.
+part:: Resource identifiers SHALL occupy one MQTT topic level each. The service description SHALL specify a reversible mapping from HTTP path identifiers to topic levels. The mapping SHALL prevent identifier values from introducing topic level separators, wildcard characters or the `:data` marker, and SHALL distinguish a literal percent escape from the character that escape represents.
+part:: The implementation SHALL publish each Resource Event on its designated topic: the topic of the affected resource's most nested path, with `{systemPath}` and `{deploymentPath}` expanded to the full chain of parent resources. The `{nodeId}/systems/{id}` topic SHALL carry events of top-level systems only, and the `{nodeId}/deployments/{id}` topic SHALL carry events of top-level deployments only.
+part:: When Batch Resource Events are offered, the implementation SHALL publish each Batch Resource Event on the designated topic of the summarized collection, formed by removing the final `{id}` level from the corresponding Resource Event topic.
+part:: The implementation SHOULD publish each Resource Event and Batch Resource Event only on its designated topic. It MAY also publish it on additional topics that are valid for the resource or collection, as described in <<clause-mqtt-topic-hierarchy>>, except that it SHALL NOT publish a Batch Resource Event on a topic of a top-level collection, and SHALL NOT publish any message on a top-level Observations or Commands topic (`{nodeId}/observations/…`, `{nodeId}/observations:data`, `{nodeId}/commands/…` or `{nodeId}/commands:data`). Every copy SHALL carry the same CloudEvents `source` and `id`. The service description SHALL identify any additional topics on which copies are published.
+part:: The topic SHALL NOT replace the absolute canonical resource URL required in the CloudEvents `subject` and `resourceparent` attributes. Clients SHALL NOT be required to derive resource identity from a topic.
+part:: The identifier in a Resource Event topic SHALL identify the affected resource in the associated CS API HTTP server. A value that the HTTP server does not use as the resource identifier, such as an observation timestamp, SHALL NOT be substituted for it.
+====

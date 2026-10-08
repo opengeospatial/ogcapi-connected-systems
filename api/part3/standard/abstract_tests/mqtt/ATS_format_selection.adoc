@@ -1,0 +1,9 @@
+[abstract_test]
+.Selection by format subtopic
+====
+[%metadata]
+identifier:: /conf/mqtt/format-selection
+target:: /req/mqtt/format-selection
+test-purpose:: Verify that the default representation is carried on the plain `:data` topic and that additional representations are selected by format subtopic.
+test-method:: Subscribe to the plain `:data` topic and verify that it carries the advertised default representation. Subscribe to each advertised format subtopic and decode the same logical resource in each representation. If a subtopic for the default representation is advertised, verify that it carries the default representation. Subscribe and publish with an unknown token and with a token with unsupported parameters, and verify that they are rejected without falling back to the default. Inspect the advertised tokens and verify that each is a single topic level and that no two offered representations share a token.
+====
