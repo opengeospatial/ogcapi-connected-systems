@@ -34,5 +34,27 @@
         }
       }
     ]
+  },
+  "feasibilityResultSchema": {
+    "type": "DataRecord",
+    "fields": [
+      {
+        "name": "feasible",
+        "type": "Boolean",
+        "definition": "http://www.opengis.net/def/property/OGC/0/Feasibility",
+        "label": "Feasible",
+        "description": "Indicates whether the requested camera position can be reached."
+      },
+      {
+        "name": "earliestExecutionTime",
+        "type": "Time",
+        "definition": "http://www.opengis.net/def/property/OGC/0/EarliestExecutionTime",
+        "label": "Earliest Execution Time",
+        "description": "Earliest time at which the requested camera position can be reached.",
+        "uom": {
+          "code": "ISO8601"
+        }
+      }
+    ]
   }
 }

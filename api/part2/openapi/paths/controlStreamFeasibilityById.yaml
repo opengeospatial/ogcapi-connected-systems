@@ -1,0 +1,63 @@
+parameters:
+  - $ref: ../parameters/controlStreamId.yaml
+  - $ref: ../parameters/feasibilityId.yaml
+
+get:
+  summary: Get a feasibility request from a control stream
+  description: |-
+    Retrieve a feasibility request through its parent control stream. The response includes a canonical link to the equivalent `/feasibility/{feasibilityId}` resource.
+  tags:
+    - Command Feasibility
+  responses:
+    '200':
+      $ref: ../responses/feasibility.yaml
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
+
+put:
+  summary: Update a feasibility request from a control stream
+  tags:
+    - Command Feasibility
+  requestBody:
+    $ref: ../requests/feasibility.yaml
+  responses:
+    '204':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/204_PUT
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
+
+delete:
+  summary: Delete a feasibility request from a control stream
+  tags:
+    - Command Feasibility
+  responses:
+    '204':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/204_DELETE
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '409':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/409_DELETE
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX

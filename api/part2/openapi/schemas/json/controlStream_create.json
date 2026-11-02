@@ -1,18 +1,29 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "allOf": [
-    { "$ref": "controlStream.json" },
-    { 
+    { "$ref": "baseStream_create.json" },
+    {
       "properties": {
+        "inputName": {
+          "description": "Name of the system control input receiving data from this control stream",
+          "type": "string",
+          "minLength": 1
+        },
+        "live": {
+          "description": "Whether this control stream accepts new commands.",
+          "type": "boolean"
+        },
         "schema": {
           "description": "Schema describing the content of commands in this control stream. The exact syntax of the schema depends on the encoding format.",
-          "$ref": "commandSchema.json",
-          "writeOnly": true
+          "$ref": "commandSchema.json"
         }
       },
       "required": [
+        "inputName",
+        "live",
         "schema"
       ]
     }
-  ]
+  ],
+  "unevaluatedProperties": false
 }

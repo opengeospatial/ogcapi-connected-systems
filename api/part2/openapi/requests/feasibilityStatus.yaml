@@ -1,0 +1,9 @@
+description: A `CommandStatus` resource reporting feasibility-analysis progress or completion
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/json/commandStatus_create.json
+    examples:
+      completed:
+        summary: Completed PTZ feasibility analysis
+        externalValue: examples/feasibility/feasibility-status-completed-create.json

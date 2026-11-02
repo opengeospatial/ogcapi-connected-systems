@@ -8,7 +8,7 @@
 :docnumber: 23-002
 :received-date: 2025-03-19
 :issued-date: 2025-06-02
-:published-date: yyyy-mm-dd
+:published-date: 2025-07-16
 :fullname: Alexandre Robin
 :docsubtype: implementation
 :keywords: ogcdoc, OGC document, OpenAPI, REST, feature, API, system, smart system, connected system, IoT, sensorweb, ssn, sensor, actuator, transducer, sampling, platform, robot, drone, unmanned, autonomous, observation, measurement, datastream, command, control, trajectory, dynamic
@@ -32,7 +32,7 @@
 :ogcapi-features-1-spec-url: http://www.opengis.net/spec/ogcapi-features-1/1.0
 :ogcapi-features-4-spec-url: http://www.opengis.net/spec/ogcapi-features-4/1.0
 //
-:resources-endpoint: link:file:///home/alex/Projects/OGC/CONNSYS%20SWG/connected-systems/api/part1/standard/23-001r0.html#_endpoint_types[resources endpoint]
+:resources-endpoint: link:https://docs.ogc.org/is/23-001/23-001.html[resources endpoint]
 :datastream-resources-endpoint: <<clause-datastream-resources-endpoint,DataStream resources endpoint>>
 :observation-resources-endpoint: <<clause-observation-resources-endpoint,Observation resources endpoint>>
 :controlstream-resources-endpoint: <<clause-controlstream-resources-endpoint,ControlStream resources endpoint>>
@@ -45,22 +45,29 @@
 :json-schema-root: https://schemas.opengis.net/ogcapi/connected-systems/part2/1.0/openapi/schemas/json
 //:json-schema-root: ../openapi/schemas/json
 :json-datastream-schema: link:{json-schema-root}/dataStream.json[dataStream.json]
+:json-datastream-create-schema: link:{json-schema-root}/dataStream_create.json[dataStream_create.json]
 :json-datastream-collection-schema: link:{json-schema-root}/dataStreamCollection.json[dataStreamCollection.json]
 :json-observationschema-schema-json: link:{json-schema-root}/observationSchemaJson.json[observationSchemaJson.json]
 :json-observationschema-schema-swe: link:{json-schema-root}/observationSchemaSwe.json[observationSchemaSwe.json]
 :json-observation-schema: link:{json-schema-root}/observation.json[observation.json]
+:json-observation-create-schema: link:{json-schema-root}/observation_create.json[observation_create.json]
 :json-observation-collection-schema: link:{json-schema-root}/observationCollection.json[observationCollection.json]
 :json-controlstream-schema: link:{json-schema-root}/controlStream.json[controlStream.json]
+:json-controlstream-create-schema: link:{json-schema-root}/controlStream_create.json[controlStream_create.json]
 :json-controlstream-collection-schema: link:{json-schema-root}/controlStreamCollection.json[controlStreamCollection.json]
 :json-commandschema-schema-json: link:{json-schema-root}/commandSchemaJson.json[commandSchemaJson.json]
 :json-commandschema-schema-swe: link:{json-schema-root}/commandSchemaSwe.json[commandSchemaSwe.json]
 :json-command-schema: link:{json-schema-root}/command.json[command.json]
+:json-command-create-schema: link:{json-schema-root}/command_create.json[command_create.json]
 :json-command-collection-schema: link:{json-schema-root}/commandCollection.json[commandCollection.json]
 :json-commandstatus-schema: link:{json-schema-root}/commandStatus.json[commandStatus.json]
+:json-commandstatus-create-schema: link:{json-schema-root}/commandStatus_create.json[commandStatus_create.json]
 :json-commandstatus-collection-schema: link:{json-schema-root}/commandStatusCollection.json[commandStatusCollection.json]
 :json-commandresult-schema: link:{json-schema-root}/commandResult.json[commandResult.json]
+:json-commandresult-create-schema: link:{json-schema-root}/commandResult_create.json[commandResult_create.json]
 :json-commandresult-collection-schema: link:{json-schema-root}/commandResultCollection.json[commandResultCollection.json]
 :json-systemevent-schema: link:{json-schema-root}/systemEvent.json[systemEvent.json]
+:json-systemevent-create-schema: link:{json-schema-root}/systemEvent_create.json[systemEvent_create.json]
 :json-systemevent-collection-schema: link:{json-schema-root}/systemEventCollection.json[systemEventCollection.json]
 
 ////

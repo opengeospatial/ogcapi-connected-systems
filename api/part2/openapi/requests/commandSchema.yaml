@@ -6,13 +6,10 @@ content:
     examples:
       ptz-json:
         summary: PTZ Control - Command JSON
-        value:
-          $ref: ../examples/schemas/commandSchema-ptz-json.json
+        externalValue: examples/schemas/commandSchema-ptz-json.json
       ptz-swejson:
         summary: PTZ Control - SWE JSON
-        value:
-          $ref: ../examples/schemas/commandSchema-ptz-swejson.json
+        externalValue: examples/schemas/commandSchema-ptz-swejson.json
       ptz-swecsv:
         summary: PTZ Control - SWE CSV
-        value:
-          $ref: ../examples/schemas/commandSchema-ptz-swecsv.json
+        externalValue: examples/schemas/commandSchema-ptz-swecsv.json

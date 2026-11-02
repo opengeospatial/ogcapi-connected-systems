@@ -1,4 +1,6 @@
 {
+  "id": "result-003",
+  "command@id": "1125alnna75hafppknk9aefpvs",
   "datastream@link": {
     "href": "https://data.example.org/api/datastreams/445ssdf55",
     "title": "Plume Simulation Data",

@@ -3,3 +3,7 @@ content:
   application/json:
     schema:
       $ref: ../schemas/json/commandResultCollection.json
+    examples:
+      page:
+        summary: Command result collection page
+        externalValue: examples/commandResult/command-result-collection.json

@@ -1,0 +1,13 @@
+description: OK. Successful request
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/json/commandStatus.json
+      properties:
+        links:
+          description: Links to related resources
+          $ref: ../schemas/common/commonDefs.json#/$defs/Links
+    examples:
+      completed:
+        summary: Completed PTZ feasibility analysis
+        externalValue: examples/feasibility/feasibility-status-completed.json

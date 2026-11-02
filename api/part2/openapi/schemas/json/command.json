@@ -25,8 +25,7 @@
     },
     "issueTime": {
       "description": "Time at which the command was issued. If omitted on creation, the server sets it to the time the request was received.",
-      "$ref": "../common/commonDefs.json#/$defs/TimeInstant",
-      "readOnly": true
+      "$ref": "../common/commonDefs.json#/$defs/TimeInstant"
     },
     "executionTime": {
       "description": "Time period during which the command was executed",

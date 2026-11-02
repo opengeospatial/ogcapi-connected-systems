@@ -3,6 +3,7 @@
   "type": "object",
   "properties": {
     "commandFormat": {
+      "description": "Media type identifying the Protocol Buffers command encoding.",
       "const": "application/x-protobuf"
     },
     "messageSchema": {

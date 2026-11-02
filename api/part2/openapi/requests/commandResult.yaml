@@ -2,9 +2,8 @@ description: A single `CommandResult` resource
 content:
   application/json:
     schema:
-      allOf:
-      - $ref: ../schemas/json/commandResult.json
-      - properties:
-          links:
-            description: Links to related resources
-            $ref: ../schemas/common/commonDefs.json#/$defs/Links
+      $ref: ../schemas/json/commandResult_create.json
+    examples:
+      inline:
+        summary: Inline command result
+        externalValue: examples/commandResult/command-result-inline-create.json

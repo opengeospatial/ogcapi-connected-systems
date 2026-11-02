@@ -1,0 +1,63 @@
+parameters:
+  - $ref: ../parameters/feasibilityId.yaml
+  - $ref: ../parameters/statusId.yaml
+
+get:
+  summary: Get a feasibility status report by ID
+  tags:
+    - Command Feasibility
+  responses:
+    '200':
+      $ref: ../responses/feasibilityStatus.yaml
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
+
+put:
+  summary: Update a feasibility status report
+  description: |-
+    Replace a feasibility status report. Inline result data, when supplied, follows the parent ControlStream's `feasibilityResultSchema`.
+  tags:
+    - Command Feasibility
+  requestBody:
+    $ref: ../requests/feasibilityStatus.yaml
+  responses:
+    '204':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/204_PUT
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
+
+delete:
+  summary: Delete a feasibility status report
+  tags:
+    - Command Feasibility
+  responses:
+    '204':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/204_DELETE
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '409':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/409_DELETE
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX

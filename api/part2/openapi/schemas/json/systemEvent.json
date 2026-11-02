@@ -5,6 +5,7 @@
     {
       "properties": {
         "id": {
+          "description": "Server-assigned local identifier of the system event.",
           "readOnly": true
         },
         "links": {

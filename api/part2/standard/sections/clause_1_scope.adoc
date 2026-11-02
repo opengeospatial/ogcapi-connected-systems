@@ -8,11 +8,11 @@ The following types of resources are defined by Part 2 of the API.
 
   - *DataStream* resources represent data feeds coming out of `Systems` and are containers for `Observations`. They are used for receiving and ingesting real-time `Observations` as well as accessing historical `Observations`. A `DataStream` is a particular case of `sosa:ObservationCollection` where all `Observations` are coming from the same sensor.
 
-  - *Observation* resources record all information regarding an act of observation, whether it is made by an automated device or a human. In particular, they carry the observation result that is structured according to a well defined schema. `Observations` are grouped into `DataStreams`.
+  - *Observation* resources record all information regarding an act of observation, whether it is made by an automated device or a human. In particular, they carry the observation result that is structured according to a well-defined schema. `Observations` are grouped into `DataStreams`.
 
   - *ControlStream* resources represent data feeds going into `Systems` and are containers for `Commands`. They are used for receiving and ingesting real-time `Commands` as well as accessing historical `Commands`.
 
-  - *Command* resources represent messages sent to a `System` to control the parameters of feature of interest. In particular, a command includes parameters that are structured according to a well define schema.
+  - *Command* resources represent messages sent to a `System` to control the parameters of a feature of interest. In particular, a command includes parameters that are structured according to a well-defined schema.
 
   - *CommandStatus* resources provide status reports during the execution of a command.
 

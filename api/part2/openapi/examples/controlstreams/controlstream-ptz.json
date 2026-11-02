@@ -7,6 +7,22 @@
     "uid": "urn:x-ogc:systems:CAM001",
     "title": "Garage Video Camera 001"
   },
+  "procedure@link": {
+    "href": "https://data.example.org/api/procedures/ptz-control",
+    "title": "PTZ command processing procedure"
+  },
+  "deployment@link": {
+    "href": "https://data.example.org/api/deployments/garage-camera-001",
+    "title": "Garage camera deployment"
+  },
+  "featureOfInterest@link": {
+    "href": "https://data.example.org/api/features/garage-entrance",
+    "title": "Garage entrance"
+  },
+  "samplingFeature@link": {
+    "href": "https://data.example.org/api/samplingFeatures/garage-camera-field-of-view",
+    "title": "Garage camera field of view"
+  },
   "issueTime": [
     "2012-06-29T14:32:34Z",
     "2012-06-29T14:37:34Z"
@@ -37,7 +53,7 @@
   "links": [
     {
       "rel": "commands",
-      "href": "https://data.example.org/api/controls/hf62t0dotfd5k/commands"
+      "href": "https://data.example.org/api/controlstreams/hf62t0dotfd5k/commands"
     }
   ]
 }

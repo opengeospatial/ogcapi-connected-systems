@@ -3,6 +3,10 @@ content:
   application/json:
     schema:
       $ref: ../schemas/json/commandCollection.json
+    examples:
+      page:
+        summary: Command collection page
+        externalValue: examples/commands/command-collection.json
   application/swe+json:
     schema:
       type: object

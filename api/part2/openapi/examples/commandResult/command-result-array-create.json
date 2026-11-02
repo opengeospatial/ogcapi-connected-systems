@@ -1,0 +1,16 @@
+[
+  {
+    "data": {
+      "pan": -10.0,
+      "tilt": 23.0,
+      "zoom": 0.4
+    }
+  },
+  {
+    "observation@link": {
+      "href": "https://data.example.org/api/observations/11g2s5ddggg7dogt5gs8949s",
+      "type": "application/json",
+      "title": "Image captured after the camera move"
+    }
+  }
+]

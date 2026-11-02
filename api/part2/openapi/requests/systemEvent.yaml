@@ -2,8 +2,8 @@ description: A single `SystemEvent` resource
 content:
   application/json:
     schema:
-      $ref: ../schemas/json/systemEvent.json
-      properties:
-        links:
-          description: Links to related resources
-          $ref: ../schemas/common/commonDefs.json#/$defs/Links
+      $ref: ../schemas/json/systemEvent_create.json
+    examples:
+      deployment:
+        summary: Deployment event
+        externalValue: examples/events/systemEvent-create.json

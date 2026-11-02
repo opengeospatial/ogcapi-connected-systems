@@ -37,6 +37,22 @@ The following constraints must be implemented by the server.
 [requirement,model=ogc]
 ====
 [%metadata]
+identifier:: /req/create-replace-delete/datastream-live
+
+conditions:: The server implements <<clause-datastreams,style=basic%>>
+
+part:: A `DataStream` CREATE or REPLACE request SHALL include the `live` property with a Boolean value. The server SHALL preserve the supplied value and include it in subsequent `DataStream` resource representations until a subsequent REPLACE request changes it.
+
+part:: If the parent `DataStream` has its `live` property set to `false`, the server SHALL reject an `Observation` CREATE request at `{api_root}/datastreams/{dsId}/observations` with HTTP status code 409.
+
+part:: If the parent `DataStream` has its `live` property set to `true`, the server SHALL process an `Observation` CREATE request according to the requirements applicable to that request.
+
+part:: The `live` property SHALL NOT prevent retrieval of the `DataStream` resource or of its existing `Observation` resources.
+====
+
+[requirement,model=ogc]
+====
+[%metadata]
 identifier:: /req/create-replace-delete/datastream-update-schema
 
 conditions:: The server implements <<clause-datastreams,style=basic%>>
@@ -117,6 +133,22 @@ part:: The `sysId` parameter is the local identifier of the `System` resource th
 ====
 
 The following constraints must be implemented by the server.
+
+[requirement,model=ogc]
+====
+[%metadata]
+identifier:: /req/create-replace-delete/controlstream-live
+
+conditions:: The server implements <<clause-controlstreams,style=basic%>>
+
+part:: A `ControlStream` CREATE or REPLACE request SHALL include the `live` property with a Boolean value. The server SHALL preserve the supplied value and include it in subsequent `ControlStream` resource representations until a subsequent REPLACE request changes it.
+
+part:: If the parent `ControlStream` has its `live` property set to `false`, the server SHALL reject a `Command` CREATE request at `{api_root}/controlstreams/{csId}/commands` with HTTP status code 409.
+
+part:: If the parent `ControlStream` has its `live` property set to `true`, the server SHALL process a `Command` CREATE request according to the requirements applicable to that request.
+
+part:: The `live` property SHALL NOT prevent retrieval of the `ControlStream` resource or of its existing `Command` resources.
+====
 
 [requirement,model=ogc]
 ====

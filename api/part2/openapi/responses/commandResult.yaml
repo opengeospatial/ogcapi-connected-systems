@@ -8,3 +8,10 @@ content:
           links:
             description: Links to related resources
             $ref: ../schemas/common/commonDefs.json#/$defs/Links
+    examples:
+      inline:
+        summary: Inline PTZ command result
+        externalValue: examples/commandResult/command-result-inline.json
+      observation:
+        summary: Command result linked to an observation
+        externalValue: examples/commandResult/command-result-single-obs.json

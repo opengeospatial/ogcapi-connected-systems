@@ -104,7 +104,7 @@ test-purpose:: Validate that `Sampling Features` associated to a given datastrea
 test-method::
 step::: Retrieve all `DataStream` resources by executing test {part1-specurl}/conf/api-common/canonical-resources with parameter `resource-type=datastreams`.
 step::: For each `DataStream` resource in the response:
-step:::: Validate that the server implements an Sampling Features resources endpoint at path `{api_root}/datastreams/{dsId}/samplingFeatures` using test {part1-specurl}/conf/sf/resources-endpoint, where `dsId` is the local ID of the `DataStream` resource.
+step:::: Validate that the server implements a Sampling Feature resources endpoint at path `{api_root}/datastreams/{dsId}/samplingFeatures` using test {part1-specurl}/conf/sf/resources-endpoint, where `dsId` is the local ID of the `DataStream` resource.
 ====
 
 [abstract_test]
@@ -224,9 +224,7 @@ test-method::
 step::: Retrieve all `DataStream` resources by executing test {part1-specurl}/conf/api-common/canonical-resources with parameter `resource-type=datastreams`.
 step::: For each `DataStream` resource in the response:
 step:::: Retrieve the list of supported observation formats listed in the `DataStream` resource.
-step:::: For each supported observation format:
-step::::: Issue an HTTP GET request at path `{api_root}/datastreams/{dsId}/schema?obsFormat={format}`, where `dsId` is the local ID of the `DataStream` resource, and `format` is one of the supported formats.
-step::::: Validate that a document was returned with a status code 200.
+step:::: For each supported observation format, issue an HTTP GET request at path `{api_root}/datastreams/{dsId}/schema?obsFormat={format}`, where `dsId` is the local ID of the `DataStream` resource and `format` is the supported format, and validate that a document is returned with a status code 200.
 ====
 
 // Observations
@@ -344,12 +342,12 @@ conformance-test:: /conf/controlstream/command-result-endpoint
 identifier:: /conf/controlstream/sf-ref-from-controlstream
 target:: /req/controlstream/sf-ref-from-controlstream
 
-test-purpose:: Validate that `Sampling Features` associated to a given control stream are available as sub-resources.
+test-purpose:: Validate that the common `Sampling Feature` associated to a given control stream is available as a sub-resource.
 
 test-method::
 step::: Retrieve all `ControlStream` resources by executing test {part1-specurl}/conf/api-common/canonical-resources with parameter `resource-type=controlstreams`.
 step::: For each `ControlStream` resource in the response:
-step:::: Validate that the server implements an Sampling Features resources endpoint at path `{api_root}/controlstreams/{dsId}/samplingFeatures` using test {part1-specurl}/conf/sf/resources-endpoint, where `dsId` is the local ID of the `ControlStream` resource.
+step:::: Validate that the server implements a Sampling Feature resources endpoint at path `{api_root}/controlstreams/{csId}/samplingFeatures` using test {part1-specurl}/conf/sf/resources-endpoint, where `csId` is the local ID of the `ControlStream` resource.
 ====
 
 [abstract_test]
@@ -358,12 +356,12 @@ step:::: Validate that the server implements an Sampling Features resources endp
 identifier:: /conf/controlstream/foi-ref-from-controlstream
 target:: /req/controlstream/foi-ref-from-controlstream
 
-test-purpose:: Validate that `Features of Interest` associated to a given control stream are available as sub-resources.
+test-purpose:: Validate that the common `Feature of Interest` associated to a given control stream is available as a sub-resource.
 
 test-method::
-step::: Retrieve all `controlstream` resources by executing test {part1-spec}/conf/api-common/canonical-resources with parameter `resource-type=controlstreams`.
+step::: Retrieve all `ControlStream` resources by executing test {part1-spec}/conf/api-common/canonical-resources with parameter `resource-type=controlstreams`.
 step::: For each `ControlStream` resource in the response:
-step:::: Issue an HTTP GET request at path `{api_root}/controlstreams/{dsId}/featuresOfInterest`, where `dsId` is the local ID of the `ControlStream` resource.
+step:::: Issue an HTTP GET request at path `{api_root}/controlstreams/{csId}/featuresOfInterest`, where `csId` is the local ID of the `ControlStream` resource.
 step:::: Validate that a document was returned with a status code 200.
 step:::: Iterate through the list of resources in the response, following `next` links as appropriate.
 step:::: If the response content type is `{geojson-mediatype}`, validate the response using the GeoJSON schema.
@@ -469,9 +467,7 @@ test-method::
 step::: Retrieve all `ControlStream` resources by executing test {part1-specurl}/conf/api-common/canonical-resources with parameter `resource-type=controlstreams`.
 step::: For each `ControlStream` resource in the response:
 step:::: Retrieve the list of supported command formats listed in the `ControlStream` resource.
-step:::: For each supported command format:
-step::::: Issue an HTTP GET request at path `{api_root}/controlstreams/{dsId}/schema?cmdFormat={format}`, where `dsId` is the local ID of the `ControlStream` resource, and `format` is one of the supported formats.
-step::::: Validate that a document was returned with a status code 200.
+step:::: For each supported command format, issue an HTTP GET request at path `{api_root}/controlstreams/{csId}/schema?cmdFormat={format}`, where `csId` is the local ID of the `ControlStream` resource and `format` is the supported format, and validate that a document is returned with a status code 200.
 ====
 
 // Commands
@@ -530,7 +526,7 @@ test-purpose:: Validate that `Command` resources associated to a `ControlStream`
 test-method::
 step::: Retrieve all `ControlStream` resources by executing test {part1-specurl}/conf/api-common/canonical-resources with parameter `resource-type=controlstreams`.
 step::: For each `ControlStream` resource in the response:
-step:::: Validate that the server implements a {command-resources-endpoint} at path `{api_root}/controlstreams/{dsId}/commands` using test xref:/conf/controlstream/cmd-resources-endpoint[style=id%], where `dsId` is the local ID of the `ControlStream` resource.
+step:::: Validate that the server implements a {command-resources-endpoint} at path `{api_root}/controlstreams/{csId}/commands` using test xref:/conf/controlstream/cmd-resources-endpoint[style=id%], where `csId` is the local ID of the `ControlStream` resource.
 ====
 
 [abstract_test]
@@ -657,7 +653,7 @@ test-purpose:: Validate that `Command` resources associated to a `ControlStream`
 test-method::
 step::: Retrieve all `ControlStream` resources by executing test {part1-specurl}/conf/api-common/canonical-resources with parameter `resource-type=controlstreams`.
 step::: For each `ControlStream` resource in the response:
-step:::: Validate that the server implements a {command-resources-endpoint} at path `{api_root}/controlstreams/{dsId}/commands` using test xref:/conf/controlstream/cmd-resources-endpoint[style=id%], where `dsId` is the local ID of the `ControlStream` resource.
+step:::: Validate that the server implements a {command-resources-endpoint} at path `{api_root}/controlstreams/{csId}/commands` using test xref:/conf/controlstream/cmd-resources-endpoint[style=id%], where `csId` is the local ID of the `ControlStream` resource.
 ====
 
 // Feasibility Status
@@ -769,7 +765,7 @@ target:: /req/system-event/canonical-endpoint
 
 test-purpose:: Validate that the server exposes the canonical `SystemEvent` resources endpoint.
 
-test-method:: Validate that the server implements a {systemevent-resources-endpoint} at path `{api_root}/systemEvents` using test xref:/conf/controlstream/resources-endpoint[style=id%].
+test-method:: Validate that the server implements a {systemevent-resources-endpoint} at path `{api_root}/systemEvents` using test xref:/conf/system-event/resources-endpoint[style=id%].
 ====
 
 [abstract_test]
@@ -783,7 +779,7 @@ test-purpose:: Validate that `SystemEvent` resources associated to a `System` ar
 test-method::
 step::: Retrieve all `System` resources by executing test {part1-specurl}/conf/api-common/canonical-resources with parameter `resource-type=systems`.
 step::: For each `System` resource in the response:
-step:::: Validate that the server implements a {systemevent-resources-endpoint} at path `{api_root}/systems/{sysId}/systemEvents` using test xref:/conf/system-event/resources-endpoint[style=id%], where `sysId` is the local ID of the `System` resource.
+step:::: Validate that the server implements a {systemevent-resources-endpoint} at path `{api_root}/systems/{sysId}/events` using test xref:/conf/system-event/resources-endpoint[style=id%], where `sysId` is the local ID of the `System` resource.
 ====
 
 [abstract_test]
@@ -898,7 +894,7 @@ step::: Issue an HTTP GET request at URL `{api_root}/datastreams?foi={idList}` w
 See test {part1-specurl}/conf/advanced-filtering/id-list-schema
 step::: Validate the response using the steps described in test xref:/conf/datastream/resources-endpoint[style=id%].
 step::: For each `DataStream` resource in the response:
-step:::: Retrieve the datastreams's sampling features by issuing an HTTP GET request at `{api_root}/datastreams/{dsId}/samplingFeatures`.
+step:::: Retrieve the `DataStream`'s sampling features by issuing an HTTP GET request at `{api_root}/datastreams/{dsId}/samplingFeatures`.
 step:::: For each `Sampling Feature` resource in the returned collection:
          . Follow the `sampleOf` links to retrieve the target features, recursively. If a link does not resolve or the link media type is not supported by the testing engine, use the link target as the identifier of the feature.
 step:::: Verify that at least one of the collected features has one of the identifiers included in `{idList}`.
@@ -1048,7 +1044,7 @@ step::: Issue an HTTP GET request at URL `{api_root}/controlstreams?foi={idList}
 See test {part1-specurl}/conf/advanced-filtering/id-list-schema
 step::: Validate the response using the steps described in test xref:/conf/controlstream/resources-endpoint[style=id%].
 step::: For each `ControlStream` resource in the response:
-step:::: Retrieve the control streams's sampling features by issuing an HTTP GET request at `{api_root}/controlstreams/{dsId}/samplingFeatures`.
+step:::: Retrieve the `ControlStream`'s sampling feature by issuing an HTTP GET request at `{api_root}/controlstreams/{csId}/samplingFeatures`.
 step:::: For each `Sampling Feature` resource in the returned collection:
          . Follow the `sampleOf` links to retrieve the target features, recursively. If a link does not resolve or the link media type is not supported by the testing engine, use the link target as the identifier of the feature.
 step:::: Verify that at least one of the collected features has one of the identifiers included in `{idList}`.
@@ -1072,7 +1068,7 @@ step::: For each `Command` resource in the response:
 step:::: Retrieve its `issueTime` property.
 step:::: Verify that the value of the property intersects the time specified in the request.
 
-step::: Repeat the steps above for every command resources endpoint nested under a `ControlStream` resource, that is at endpoints `{api_root}/controlstreams/{dsId}/commands` where `dsId` is the local ID of a `ControlStream` resource.
+step::: Repeat the steps above for every Command resources endpoint nested under a `ControlStream` resource, that is at endpoints `{api_root}/controlstreams/{csId}/commands` where `csId` is the local ID of a `ControlStream` resource.
 ====
 
 [abstract_test]
@@ -1090,7 +1086,7 @@ step::: For each `Command` resource in the response:
 step:::: Retrieve its `executionTime` property.
 step:::: Verify that the value of the property intersects the time specified in the request.
 
-step::: Repeat the steps above for every command resources endpoint nested under a `ControlStream` resource, that is at endpoints `{api_root}/controlstreams/{dsId}/commands` where `dsId` is the local ID of a `ControlStream` resource.
+step::: Repeat the steps above for every Command resources endpoint nested under a `ControlStream` resource, that is at endpoints `{api_root}/controlstreams/{csId}/commands` where `csId` is the local ID of a `ControlStream` resource.
 ====
 
 [abstract_test]
@@ -1108,7 +1104,7 @@ step::: For each `Command` resource in the response:
 step:::: Retrieve its `currentStatus` property
 step:::: Verify that the value of the property is equal to one of the status codes listed in the request.
 
-step::: Repeat the steps above for every command resources endpoint nested under a `ControlStream` resource, that is at endpoints `{api_root}/controlstreams/{dsId}/commands` where `dsId` is the local ID of a `ControlStream` resource.
+step::: Repeat the steps above for every Command resources endpoint nested under a `ControlStream` resource, that is at endpoints `{api_root}/controlstreams/{csId}/commands` where `csId` is the local ID of a `ControlStream` resource.
 ====
 
 [abstract_test]
@@ -1126,7 +1122,7 @@ step::: For each `Command` resource in the response:
 step:::: Retrieve its `sender` property
 step:::: Verify that the value of the property is equal to one of the IDs listed in the request.
 
-step::: Repeat the steps above for every command resources endpoint nested under a `ControlStream` resource, that is at endpoints `{api_root}/controlstreams/{dsId}/commands` where `dsId` is the local ID of a `ControlStream` resource.
+step::: Repeat the steps above for every Command resources endpoint nested under a `ControlStream` resource, that is at endpoints `{api_root}/controlstreams/{csId}/commands` where `csId` is the local ID of a `ControlStream` resource.
 ====
 
 [abstract_test]
@@ -1147,7 +1143,7 @@ step:::: Follow the `sampleOf` links to retrieve the sampled features, recursive
 step:::: Verify that at least one of the collected features has one of the identifiers included in `{idList}`.
 step::: Repeat the previous steps with the `foi` parameter set to a list of one or more UIDs of `Feature` resources.
 
-step::: Repeat the steps above for every commands resources endpoint nested under a `ControlStream` resource, that is at endpoints `{api_root}/controlstreams/{dsId}/commands` where `dsId` is the local ID of a `ControlStream` resource.
+step::: Repeat the steps above for every Command resources endpoint nested under a `ControlStream` resource, that is at endpoints `{api_root}/controlstreams/{csId}/commands` where `csId` is the local ID of a `ControlStream` resource.
 ====
 
 // CommandStatus
@@ -1179,7 +1175,7 @@ target:: /req/advanced-filtering/event-by-type
 test-purpose:: Validate that the `eventType` query parameter is processed correctly.
 
 test-method::
-step::: Issue an HTTP GET request at URL `{api_root}/systemevents?eventType={type}` where `{type}` is a list of one or more event types.
+step::: Issue an HTTP GET request at URL `{api_root}/systemEvents?eventType={type}` where `{type}` is a list of one or more event types.
 step::: Validate the response using the steps described in test xref:/conf/system-event/resources-endpoint[style=id%].
 step::: For each `SystemEvent` resource in the response:
 step:::: Retrieve its `type` property
@@ -1201,11 +1197,13 @@ inherit:: http://www.opengis.net/spec/ogcapi-features-4/1.0/conf/create-replace-
 classification:: Target Type:Web API
 
 conformance-test:: /conf/create-replace-delete/datastream
+conformance-test:: /conf/create-replace-delete/datastream-live
 conformance-test:: /conf/create-replace-delete/datastream-update-schema
 conformance-test:: /conf/create-replace-delete/datastream-delete-cascade
 conformance-test:: /conf/create-replace-delete/observation
 conformance-test:: /conf/create-replace-delete/observation-schema
 conformance-test:: /conf/create-replace-delete/controlstream
+conformance-test:: /conf/create-replace-delete/controlstream-live
 conformance-test:: /conf/create-replace-delete/controlstream-update-schema
 conformance-test:: /conf/create-replace-delete/controlstream-delete-cascade
 conformance-test:: /conf/create-replace-delete/command
@@ -1229,10 +1227,30 @@ target:: /req/create-replace-delete/datastream
 test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operations correctly for `DataStream` resources.
 
 test-method::
+step::: Validate each `DataStream` representation submitted in a CREATE or REPLACE request against the write schema {json-datastream-create-schema}.
 step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
 step:::: At resources endpoint `{api_root}/systems/{sysId}/datastreams` (for CREATE)
 step:::: At resource endpoint `{api_root}/systems/{sysId}/datastreams/{id}` (for REPLACE and DELETE)
 step:::: At resource endpoint `{api_root}/datastreams/{id}` (for REPLACE and DELETE)
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/datastream-live
+target:: /req/create-replace-delete/datastream-live
+
+test-purpose:: Validate that a client controls `DataStream` liveness and that disabled datastreams reject new observations without hiding existing resources.
+
+test-method::
+step::: Create a `DataStream` resource with a valid representation whose `live` property is `false`.
+step::: Retrieve the created resource and verify that its `live` property is `false`.
+step::: Submit a valid `Observation` CREATE request at the created resource's `{api_root}/datastreams/{dsId}/observations` endpoint and verify that the response has status code 409.
+step::: REPLACE the `DataStream` resource with the same valid representation except that its `live` property is `true`.
+step::: Retrieve the resource and verify that its `live` property is `true`.
+step::: Submit a valid `Observation` CREATE request and verify that it succeeds.
+step::: REPLACE the `DataStream` resource with the same valid representation except that its `live` property is `false`.
+step::: Retrieve the `DataStream` resource and the Observation created in the preceding step, and verify that both remain available.
 ====
 
 [abstract_test]
@@ -1276,6 +1294,7 @@ target:: /req/create-replace-delete/observation
 test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operations correctly for `Observation` resources.
 
 test-method::
+step::: Validate each `Observation` representation submitted in a CREATE or REPLACE request against the write schema {json-observation-create-schema}.
 step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
 step:::: At resources endpoint `{api_root}/datastreams/{dsId}/observations` (for CREATE)
 step:::: At resource endpoint `{api_root}/datastreams/{dsId}/observations/{id}` (for REPLACE and DELETE)
@@ -1307,10 +1326,30 @@ target:: /req/create-replace-delete/controlstream
 test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operations correctly for `ControlStream` resources.
 
 test-method::
+step::: Validate each `ControlStream` representation submitted in a CREATE or REPLACE request against the write schema {json-controlstream-create-schema}.
 step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
 step:::: At resources endpoint `{api_root}/systems/{sysId}/controlstreams` (for CREATE)
 step:::: At resource endpoint `{api_root}/systems/{sysId}/controlstreams/{id}` (for REPLACE and DELETE)
 step:::: At resource endpoint `{api_root}/controlstreams/{id}` (for REPLACE and DELETE)
+====
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/create-replace-delete/controlstream-live
+target:: /req/create-replace-delete/controlstream-live
+
+test-purpose:: Validate that a client controls `ControlStream` liveness and that disabled control streams reject new commands without hiding existing resources.
+
+test-method::
+step::: Create a `ControlStream` resource with a valid representation whose `live` property is `false`.
+step::: Retrieve the created resource and verify that its `live` property is `false`.
+step::: Submit a valid `Command` CREATE request at the created resource's `{api_root}/controlstreams/{csId}/commands` endpoint and verify that the response has status code 409.
+step::: REPLACE the `ControlStream` resource with the same valid representation except that its `live` property is `true`.
+step::: Retrieve the resource and verify that its `live` property is `true`.
+step::: Submit a valid `Command` CREATE request and verify that it succeeds.
+step::: REPLACE the `ControlStream` resource with the same valid representation except that its `live` property is `false`.
+step::: Retrieve the `ControlStream` resource and the Command created in the preceding step, and verify that both remain available.
 ====
 
 [abstract_test]
@@ -1322,8 +1361,8 @@ target:: /req/create-replace-delete/controlstream-update-schema
 test-purpose:: Validate that the server rejects `ControlStream` REPLACE requests with incompatible schemas.
 
 test-method:: 
-step::: Given a `ControlStream` resource with ID `dsId` that has associated commands:
-step:::: Issue an HTTP PUT request at URL `{api_root}/controlstreams/{dsId}` with a different observation schema.
+step::: Given a `ControlStream` resource with ID `csId` that has associated commands:
+step:::: Issue an HTTP PUT request at URL `{api_root}/controlstreams/{csId}` with a different command schema.
 step:::: Verify that the server responds with an error code 409.
 ====
 
@@ -1336,10 +1375,10 @@ target:: /req/create-replace-delete/controlstream-delete-cascade
 test-purpose:: Validate that the server implements the `cascade` query parameter correctly.
 
 test-method:: 
-step::: Given a `ControlStream` resource with ID `dsId` that has commands:
-step:::: Issue an HTTP DELETE request at URL `{api_root}/controlstreams/{dsId}?cascade=false`.
+step::: Given a `ControlStream` resource with ID `csId` that has commands:
+step:::: Issue an HTTP DELETE request at URL `{api_root}/controlstreams/{csId}?cascade=false`.
 step:::: Verify that the server responds with an error code 409.
-step:::: Issue an HTTP DELETE request at URL `{api_root}/controlstreams/{dsId}?cascade=true`.
+step:::: Issue an HTTP DELETE request at URL `{api_root}/controlstreams/{csId}?cascade=true`.
 step:::: Verify that the control stream and all its commands have been deleted.
 ====
 
@@ -1354,9 +1393,10 @@ target:: /req/create-replace-delete/command
 test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operations correctly for `Command` resources.
 
 test-method::
+step::: Validate each `Command` representation submitted in a CREATE or REPLACE request against the write schema {json-command-create-schema}.
 step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
-step:::: At resources endpoint `{api_root}/controlstreams/{dsId}/commands` (for CREATE)
-step:::: At resource endpoint `{api_root}/controlstreams/{dsId}/commands/{id}` (for REPLACE and DELETE)
+step:::: At resources endpoint `{api_root}/controlstreams/{csId}/commands` (for CREATE)
+step:::: At resource endpoint `{api_root}/controlstreams/{csId}/commands/{id}` (for REPLACE and DELETE)
 step:::: At resource endpoint `{api_root}/commands/{id}` (for REPLACE and DELETE)
 ====
 
@@ -1369,8 +1409,8 @@ target:: /req/create-replace-delete/command-schema
 test-purpose:: Validate that the server rejects commands with incompatible schemas.
 
 test-method:: 
-step::: Given a `ControlStream` resource with ID `dsId`:
-step:::: Issue an HTTP CREATE request at URL `{api_root}/controlstreams/{dsId}/commands` with a command whose result structure is incompatible with the command schema registered with the control stream.
+step::: Given a `ControlStream` resource with ID `csId`:
+step:::: Issue an HTTP CREATE request at URL `{api_root}/controlstreams/{csId}/commands` with a command whose result structure is incompatible with the command schema registered with the control stream.
 step:::: Verify that the server responds with an error code 400.
 ====
 
@@ -1385,6 +1425,7 @@ target:: /req/create-replace-delete/command-status
 test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operations correctly for `CommandStatus` resources.
 
 test-method::
+step::: Validate each `CommandStatus` representation submitted in a CREATE or REPLACE request against the write schema {json-commandstatus-create-schema}.
 step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
 step:::: At resources endpoint `{api_root}/commands/{cmdId}/status` (for CREATE)
 step:::: At resource endpoint `{api_root}/commands/{cmdId}/status/{id}` (for REPLACE and DELETE)
@@ -1401,6 +1442,7 @@ target:: /req/create-replace-delete/command-result
 test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operations correctly for `CommandResult` resources.
 
 test-method::
+step::: Validate each `CommandResult` representation submitted in a CREATE or REPLACE request against the write schema {json-commandresult-create-schema}.
 step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
 step:::: At resources endpoint `{api_root}/commands/{cmdId}/result` (for CREATE)
 step:::: At resource endpoint `{api_root}/commands/{cmdId}/result/{id}` (for REPLACE and DELETE)
@@ -1418,8 +1460,8 @@ test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operati
 
 test-method::
 step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
-step:::: At resources endpoint `{api_root}/controlstreams/{dsId}/feasibility` (for CREATE)
-step:::: At resource endpoint `{api_root}/controlstreams/{dsId}/feasibility/{id}` (for REPLACE and DELETE)
+step:::: At resources endpoint `{api_root}/controlstreams/{csId}/feasibility` (for CREATE)
+step:::: At resource endpoint `{api_root}/controlstreams/{csId}/feasibility/{id}` (for REPLACE and DELETE)
 step:::: At resource endpoint `{api_root}/feasibility/{id}` (for REPLACE and DELETE)
 ====
 
@@ -1466,6 +1508,7 @@ target:: /req/create-replace-delete/system-event
 test-purpose:: Validate that the server implements CREATE/REPLACE/DELETE operations correctly for `SystemEvent` resources.
 
 test-method::
+step::: Validate each `SystemEvent` representation submitted in a CREATE or REPLACE request against the write schema {json-systemevent-create-schema}.
 step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/create-replace-delete at the following endpoints:
 step:::: At resources endpoint `{api_root}/systems/{sysId}/events` (for CREATE)
 step:::: At resource endpoint `{api_root}/systems/{sysId}/events/{id}` (for REPLACE and DELETE)
@@ -1586,8 +1629,8 @@ target:: /req/update/controlstream-update-schema
 test-purpose:: Validate that the server rejects `ControlStream` UPDATE requests with incompatible schemas.
 
 test-method:: 
-step::: Given a `ControlStream` resource with ID `dsId` that has associated observations:
-step:::: Issue HTTP UPDATE request at URL `{api_root}/controlstreams/{dsId}` with a different command schema.
+step::: Given a `ControlStream` resource with ID `csId` that has associated commands:
+step:::: Issue an HTTP UPDATE request at URL `{api_root}/controlstreams/{csId}` with a different command schema.
 step:::: Verify that the server responds with an error code 409.
 ====
 
@@ -1603,7 +1646,7 @@ test-purpose:: Validate that the server implements the UPDATE operation correctl
 
 test-method::
 step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/update at the following endpoints:
-step:::: At resource endpoint `{api_root}/controlstreams/{dsId}/commands/{id}`
+step:::: At resource endpoint `{api_root}/controlstreams/{csId}/commands/{id}`
 step:::: At resource endpoint `{api_root}/commands/{id}`
 ====
 
@@ -1616,8 +1659,8 @@ target:: /req/update/command-schema
 test-purpose:: Validate that the server rejects commands with incompatible schemas.
 
 test-method:: 
-step::: Given a `ControlStream` resource with ID `dsId`:
-step:::: Issue an HTTP PATCH request at URL `{api_root}/controlstreams/{dsId}/commands/{id}` changing the command's parameters to something incompatible with the command schema registered with the control stream.
+step::: Given a `ControlStream` resource with ID `csId`:
+step:::: Issue an HTTP PATCH request at URL `{api_root}/controlstreams/{csId}/commands/{id}` changing the command's parameters to something incompatible with the command schema registered with the control stream.
 step:::: Verify that the server responds with an error code 400.
 ====
 
@@ -1663,7 +1706,7 @@ test-purpose:: Validate that the server implements the UPDATE operation correctl
 
 test-method::
 step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/conf/update at the following endpoints:
-step:::: At resource endpoint `{api_root}/controlstreams/{dsId}/feasibility/{id}`
+step:::: At resource endpoint `{api_root}/controlstreams/{csId}/feasibility/{id}`
 step:::: At resource endpoint `{api_root}/feasibility/{id}`
 ====
 
@@ -1900,7 +1943,7 @@ step::: Request multiple `Command` resources.
 step:::: Issue an HTTP GET request at `{api_root}/commands` with the `Accept` header set to `{json-mediatype}`.
 step:::: Validate that a document was returned with a status code 200.
 step:::: Validate the document against the schema {json-command-collection-schema} using a JSON Schema validator.
-step:::: Repeat the steps above for nested `Command` resources endpoints `{api_root}/controlstreams/{dsId}/commands`.
+step:::: Repeat the steps above for nested `Command` resources endpoints `{api_root}/controlstreams/{csId}/commands`.
 ====
 
 [abstract_test]
@@ -1966,11 +2009,11 @@ step:::: Validate the document against the schema {json-commandresult-collection
 identifier:: /conf/json/commandresult-constraints
 target:: /req/json/commandresult-constraints
 
-test-purpose:: Validate that `CommandResult` results are encoded properly.
+test-purpose:: Validate that `CommandResult` data are encoded properly.
 
 test-method:: 
 step::: Retrieve the schema from the parent `ControlStream` resource.
-step::: Validate that the `CommandResult` `result` field is valid according to the `resultSchema`.
+step::: Validate that the `CommandResult` `data` field is valid according to the `resultSchema`.
 ====
 
 // SystemEvent
@@ -2077,7 +2120,7 @@ test-purpose:: Verify that the mandatory fields are present in the schema.
 
 test-method::
 step::: Scan the schema and validate that at least one Time data component is present
-step::: Validate the the definition field of the Time component is one of: +
+step::: Validate the definition field of the Time component is one of: +
         - `http://www.w3.org/ns/sosa/phenomenonTime`
         - `http://www.opengis.net/def/property/OGC/0/SamplingTime`
         - `http://www.w3.org/ns/sosa/resultTime`
@@ -2125,7 +2168,7 @@ test-purpose:: Verify that the mandatory fields are present in the schema.
 
 test-method::
 step::: Scan the schema and validate that at least one Time data component is present
-step::: Validate the the definition field of the Time component is one of: +
+step::: Validate the definition field of the Time component is one of: +
         - `http://www.opengis.net/def/property/OGC/0/IssueTime`
 ====
 
@@ -2139,7 +2182,7 @@ test-purpose:: Validate that the JSON representation of `Command` resources is v
 
 test-method::
 step::: For every `ControlStream` that advertises support for the `{swe-json-mediatype}` format:
-step:::: Issue an HTTP GET request at `{api_root}/controlstreams/{dsId}/commands` with the `Accept` header set to `{swe-json-mediatype}`.
+step:::: Issue an HTTP GET request at `{api_root}/controlstreams/{csId}/commands` with the `Accept` header set to `{swe-json-mediatype}`.
 step:::: Validate that a document was returned with a status code 200. 
 step:::: Validate the response using a SWE Common validator implementing the JSON encoding rules.
 ====
@@ -2178,7 +2221,7 @@ test-purpose:: Verify that the server supports the SWE Common Text format on ret
 
 test-method::
 step::: For at least one of the `Observation` and/or `Command` resources endpoint:
-step:::: Verify that the server advertises support for media type `{swe-binary-mediatype}` in the API definition for retrieval operations.
+step:::: Verify that the server advertises support for media type `{swe-text-mediatype}` in the API definition for retrieval operations.
 step:::: Request resources from the resources endpoint with media type `{swe-text-mediatype}`.
 step:::: Verify that the server responds with HTTP code 200.
 step:::: Verify that the `Content-Type` header of the response is set to `{swe-text-mediatype}`.
@@ -2278,7 +2321,7 @@ test-purpose:: Validate that the Text (DSV) representation of `Command` resource
 
 test-method::
 step::: For every `ControlStream` that advertises support for the `{swe-text-mediatype}` format:
-step:::: Issue an HTTP GET request at `{api_root}/controlstreams/{dsId}/commands` with the `Accept` header set to `{swe-text-mediatype}`.
+step:::: Issue an HTTP GET request at `{api_root}/controlstreams/{csId}/commands` with the `Accept` header set to `{swe-text-mediatype}`.
 step:::: Validate that a document was returned with a status code 200. 
 step:::: Validate the response using a SWE Common validator implementing the Text encoding rules.
 ====
@@ -2376,7 +2419,7 @@ test-method::
 step::: For every `DataStream` that advertises support for the `{swe-binary-mediatype}` format:
 step:::: Issue an HTTP GET request at `{api_root}/datastreams/{dsId}/observations` with the `Accept` header set to `{swe-binary-mediatype}`.
 step:::: Validate that a document was returned with a status code 200. 
-step:::: Validate the response using a SWE Common validator implementing the Text encoding rules.
+step:::: Validate the response using a SWE Common validator implementing the Binary encoding rules.
 ====
 
 // Commands
@@ -2417,7 +2460,7 @@ test-purpose:: Validate that the binary representation of `Command` resources is
 
 test-method::
 step::: For every `ControlStream` that advertises support for the `{swe-binary-mediatype}` format:
-step:::: Issue an HTTP GET request at `{api_root}/controlstreams/{dsId}/commands` with the `Accept` header set to `{swe-binary-mediatype}`.
+step:::: Issue an HTTP GET request at `{api_root}/controlstreams/{csId}/commands` with the `Accept` header set to `{swe-binary-mediatype}`.
 step:::: Validate that a document was returned with a status code 200. 
-step:::: Validate the response using a SWE Common validator implementing the Text encoding rules.
+step:::: Validate the response using a SWE Common validator implementing the Binary encoding rules.
 ====

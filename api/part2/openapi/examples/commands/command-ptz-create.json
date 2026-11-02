@@ -1,4 +1,10 @@
 {
+  "samplingFeature@id": "garage-camera-field-of-view",
+  "procedure@link": {
+    "href": "https://data.example.org/api/procedures/ptz-control",
+    "title": "PTZ command processing procedure"
+  },
+  "issueTime": "2021-03-15T04:53:34.023Z",
   "parameters": {
     "pan": -10.0,
     "tilt": 23.0,

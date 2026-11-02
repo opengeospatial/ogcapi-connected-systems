@@ -3,12 +3,14 @@
   "type": "object",
   "properties": {
     "commandFormat": {
+      "description": "Media type used to encode command resources for this schema.",
       "type": "string",
       "not": {
         "enum": [
           "application/json",
           "application/swe+json",
           "application/swe+text",
+          "application/swe+csv",
           "application/swe+binary",
           "application/x-protobuf"
         ]

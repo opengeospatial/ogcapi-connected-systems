@@ -3,6 +3,7 @@
   "type": "object",
   "properties": {
     "items": {
+      "description": "System events returned by this page of the collection.",
       "type": "array",
       "items": {
         "$ref": "systemEvent.json"

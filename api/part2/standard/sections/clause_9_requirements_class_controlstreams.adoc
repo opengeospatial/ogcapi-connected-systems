@@ -7,9 +7,9 @@ include::../requirements/controlstream/requirements_class_controlstream.adoc[]
 
 This requirements class specifies how `ControlStream`, `Command`, and `CommandStatus` resources are provided using the CS API.
 
-A `ControlStream` resource represents a control channel that is used to change the state of (or affect) a feature of interest (which can be a `System` itself). The state is changed by sending the desired values of certain controllable properties of the feature of interest, but note that the resulting state will not necessarily reflect the exact values requested (If the exact result state must be known, it can be monitored separately using an associated `DataStream` resource).
+A `ControlStream` resource represents a control channel that is used to change the state of (or affect) a feature of interest (which can be a `System` itself). The state is changed by sending the desired values of certain controllable properties of the feature of interest, but note that the resulting state will not necessarily reflect the exact values requested (if the exact result state must be known, it can be monitored separately using an associated `DataStream` resource).
 
-A `ControlStream` resource represents the real-time stream of command messages sent to the system, as well as all historical commands received through the channel. It can be used to provide access to real-time commands only, archived commands only, or both. The metadata in the `ControlStream` description can used to disambiguate between these cases.
+A `ControlStream` resource represents the real-time stream of command messages sent to the system, as well as all historical commands received through the channel. It can be used to provide access to real-time commands only, archived commands only, or both. The metadata in the `ControlStream` description can be used to disambiguate between these cases.
 
 `Command` resources are available through their parent `ControlStream` resource, and each command can lead to the creation of one or more status reports (i.e., `CommandStatus` resources).
 
@@ -26,6 +26,10 @@ In the CS API Standard, `ControlStream` resources are a special kind of resource
 
 - All commands in a `ControlStream` are received by the same `System`; and
 - All commands in a `ControlStream` share the same controlled properties and the same parameter schema.
+
+When all commands in a `ControlStream` share a sampling feature or an ultimate feature of interest, that common target can be associated with the `ControlStream`.
+
+In a JSON resource representation, the optional `procedure@link`, `deployment@link`, `samplingFeature@link`, and `featureOfInterest@link` attributes are server-provided associations shared by all commands in the `ControlStream`. A client SHALL NOT provide these attributes in a resource CREATE or REPLACE request. The server SHALL include such an attribute in a GET response only when the corresponding association is common to all commands in the `ControlStream`.
 
 This section defines the attributes and associations composing a `ControlStream` resource, but the exact way they are encoded in the payload is defined by each encoding. For encodings defined in this document, please see:
 
@@ -49,14 +53,19 @@ The following tables describe the attributes and associations of the `ControlStr
 | `name`                 | `rdfs:label` | The human readable name of the control stream. | String | Required
 | `description`          | `rdfs:comment` | A human readable description for the control stream. | String | Optional
 | `type`                 | - | The type of control stream (see <<controlstream-types>>). | Enum | Optional
+| `inputName`            | - | The name of the system control input receiving data from the control stream. | String | Required
 | `validTime`            | `sosa:validTime` | The validity period of the control stream's description. | TimeExtent | Optional
 | `issueTime`            | - | The time period spanned by the issue times of all commands in the control stream. | TimeExtent | Required
 | `executionTime`        | `sosa:phenomenonTime` | The time period spanned by the execution times of all commands in the control stream. | TimeExtent | Required
-| `controlledProperties` | `sosa:actsOnProperty` | Properties whose value can be changed by commands in the control stream. | List<URI> | Required
+| `controlledProperties` | `sosa:actsOnProperty` | Properties whose value can be changed by commands in the control stream. | List<Property> | Required
 | `live`                 | - | Indicates whether the control stream currently accepts commands. | Boolean | Required
 | `async`                | - | Indicates whether commands are processed asynchronously in the control stream. | Boolean | Required
 | `formats`              | - | The list of formats that the commands in the control stream can be encoded to. | List<String> | Required
 |====
+
+The values for the properties `controlledProperties`, `issueTime`, and `executionTime` SHALL be automatically generated by the server based on the `Commands` that are linked to the `ControlStream`. If there are no linked `Commands`, the properties SHALL be set to `null`.
+The `controlledProperties` list contains `Property` values. In the JSON encoding, each value is represented by a compact object that can include a property's `definition` URI, `label`, and `description`; this object is not an embedded `Property` resource.
+The `live` property is client-controlled state that governs whether the `ControlStream` accepts new `Command` resources. It does not affect retrieval of the `ControlStream` or its existing `Command` resources. The `async` property SHALL be generated by the server and SHALL be treated as read-only in resource write representations.
 
 [#controlstream-types,reftext='{table-caption} {counter:table-num}']
 .ControlStream Types
@@ -76,13 +85,13 @@ The following tables describe the attributes and associations of the `ControlStr
 | `commands`           | `sosa:hasMember` | The `Commands` that were sent to the control channel. | A list of `Command` resources. | Required
 | `procedure` | `sosa:usedProcedure` | The procedure used to process commands received in the control stream. | A single `Procedure` resource. | Optional
 | `deployment` | - | The deployment during which the control stream was used. | A single `Deployment` resource. | Optional
-| `samplingFeatures`   | `sosa:hasFeatureOfInterest` | The `Sampling Features` that are the target of commands in this control stream. | A list of `SamplingFeature` resources. | Optional
-| `featuresOfInterest` | `sosa:hasUltimateFeatureOfInterest` | The ultimate features of interest that are affected by the commands in this control stream. | A list of `Feature` resources. | Optional
+| `samplingFeature`    | `sosa:hasFeatureOfInterest` | The common `Sampling Feature` targeted by commands in this control stream, if any. | A single `SamplingFeature` resource. | Optional
+| `featureOfInterest`  | `sosa:hasUltimateFeatureOfInterest` | The common ultimate feature of interest affected by commands in this control stream, if any. | A single `Feature` resource. | Optional
 |====
 
 NOTE: In the case of commands/actuations, the `sampling feature` is used to describe where the effector interacts with the feature of interest (e.g., the vent of an A/C system, the part of a larger system, etc.).
 
-When sampling features and ultimate features of interest are hosted on the same server, they are made accessible through sub-endpoints of the `DataStream` resource.
+When a common sampling feature or ultimate feature of interest is hosted on the same server, it is made accessible through a sub-endpoint of the `ControlStream` resource.
 
 [requirement,model=ogc]
 ====
@@ -91,9 +100,9 @@ identifier:: /req/controlstream/sf-ref-from-controlstream
 
 conditions:: The server implements `http://www.opengis.net/spec/ogcapi-connectedsystems-1/1.0/req/sampling`
 
-part:: The server SHALL implement a <<clause-sf-endpoint,Sampling Feature resources endpoint>> at path `{api_root}/controlstreams/{dsId}/samplingFeatures` for each available `DataStream` resource.
+part:: The server SHALL implement a <<clause-sf-endpoint,Sampling Feature resources endpoint>> at path `{api_root}/controlstreams/{csId}/samplingFeatures` for each available `ControlStream` resource.
 
-part:: The endpoint SHALL only expose the `Sampling Feature` resources that are associated to observations in the parent `DataStream` with ID `dsId`.
+part:: The endpoint SHALL only expose the `Sampling Feature` resource that is the common target of commands in the parent `ControlStream` with ID `csId`, if any.
 ====
 
 [requirement,model=ogc]
@@ -102,12 +111,12 @@ part:: The endpoint SHALL only expose the `Sampling Feature` resources that are 
 identifier:: /req/controlstream/foi-ref-from-controlstream
 
 conditions:: 
-  - The server provides the `featuresOfInterest` association as part of `ControlStream` resource representations.
+  - The server provides the `featureOfInterest` association as part of `ControlStream` resource representations.
   - The server hosts the features of interest descriptions locally.
 
-part:: The server SHALL implement a <<clause-features-endpoint,Feature resources endpoint>> at path `{api_root}/controlstreams/{dsId}/featuresOfInterest` for each available `ControlStream` resource.
+part:: The server SHALL implement a <<clause-features-endpoint,Feature resources endpoint>> at path `{api_root}/controlstreams/{csId}/featuresOfInterest` for each available `ControlStream` resource.
 
-part:: The endpoint SHALL only expose the `Feature` resources that are the ultimate features of interest of commands in the parent `ControlStream` with ID `dsId`.
+part:: The endpoint SHALL only expose the `Feature` resource that is the common ultimate feature of interest of commands in the parent `ControlStream` with ID `csId`, if any.
 ====
 
 
@@ -125,11 +134,11 @@ include::../requirements/controlstream/req_canonical_url.adoc[]
 
 ==== Definition
 
-A `DataStream` {resources-endpoint} is an endpoint exposing a set of `ControlStream` resources that can be further filtered using query parameters.
+A `ControlStream` {resources-endpoint} is an endpoint exposing a set of `ControlStream` resources that can be further filtered using query parameters.
 
 include::../requirements/controlstream/req_resources_endpoint.adoc[]
 
-<<clause-datastream-query-params>> defines additional query parameters applicable to `ControlStream` resources endpoint.
+<<clause-controlstream-query-params>> defines additional query parameters applicable to `ControlStream` resources endpoint.
 
 ==== Canonical ControlStream Resources Endpoint
 
@@ -194,7 +203,7 @@ include::../requirements/controlstream/req_collections.adoc[]
 [[clause-command-schemas]]
 === Command Schemas
 
-A different command schema is needed for each individual control stream because the exact content of the command parameters changes according to the the properties being controlled. Moreover, multiple command formats can be offered for any given control stream, and each format may express the schema in a different manner.
+A different command schema is needed for each individual control stream because the exact content of the command parameters changes according to the properties being controlled. Moreover, multiple command formats can be offered for any given control stream, and each format may express the schema in a different manner.
 
 Thus, for each `ControlStream` resource, the CS API provides a way for the server to communicate a command schema (_not necessarily a JSON schema_) for each supported command format. The exact content of a schema resource is defined by each encoding. See section <<clause-json-commandschema>> for example schemas used for commands encoded using the default JSON format.
 
@@ -221,7 +230,7 @@ include::../openapi/parameters/cmdFormat.yaml[]
 
 [.component,class=part]
 --
-A successful execution of the operation SHALL be reported as a response with a HTTP status code 200. The server SHALL return a single schema corresponding to the format identified by the `cmdFormat` parameter.
+A successful execution of the operation SHALL be reported as a response with an HTTP status code 200. The server SHALL return a single schema corresponding to the format identified by the `cmdFormat` parameter.
 --
 
 [.component,class=part]
@@ -334,7 +343,7 @@ The set of commands received within a specific control stream is available at a 
 [%metadata]
 identifier:: /req/controlstream/cmd-ref-from-controlstream
 
-part:: The server SHALL implement a <<clause-commands-endpoint,Command resources endpoint>> at path `{api_root}/controlstream/{csId}/commands` for each available `ControlStream` resource.
+part:: The server SHALL implement a <<clause-commands-endpoint,Command resources endpoint>> at path `{api_root}/controlstreams/{csId}/commands` for each available `ControlStream` resource.
 
 part:: The endpoint SHALL only expose the `Command` resources that are part of the parent `ControlStream` with ID `csId`.
 ====
@@ -354,7 +363,7 @@ Any number of resources collections containing `Command` resources can be availa
 - All commands received from user A `{api_root}/collections/userA_commands` (would likely be visible only to this user)
 - All commands that targeted a specific feature of interest B `{api_root}/collections/featureB_commands`
 
-_Note that a given commands can be part of multiple collections at the same time._
+_Note that a given command can be part of multiple collections at the same time._
 ====
 
 include::../requirements/controlstream/command/req_collections.adoc[]
@@ -441,7 +450,7 @@ The set of status reports associated to a given command is available at a nested
 [%metadata]
 identifier:: /req/controlstream/command-status-endpoint
 
-part:: The server SHALL implement a <<clause-commandstatus-resources-endpoint,Command Status resources endpoint>> at path `{api_root}/command/{cmdId}/status` for every `Command` resource.
+part:: The server SHALL implement a <<clause-commandstatus-resources-endpoint,Command Status resources endpoint>> at path `{api_root}/commands/{cmdId}/status` for every `Command` resource.
 
 part:: The endpoint SHALL only expose the `CommandStatus` resources that are related to the `Command` resource with local ID `cmdId`.
 ====
@@ -472,7 +481,7 @@ The following examples describe how command results are used in various use case
 A command is used to trigger a new run of a chemical plume dispersion model with certain parameters. The output of the model is a time series of observations where each observation provides the location of all particles for a given time (phenomenonTime). Each processed command leads to the creation of a new datastream that will contain all observations resulting for the model run. When the run is completed, a last progress report is provided with a reference to the datastream.
 
 *Example 2: UAV video footage task* +
-A command is used to task a UAV to collect video data while orbiting around a building. The output is a set of may observations (i.e., video frames) that are appended to the existing video datastream of the UAV. When the task is completed, a last status report is provided with a reference to the video datastream with a time range selecting the portion of the video stream that is relevant to the task.
+A command is used to task a UAV to collect video data while orbiting around a building. The output is a set of many observations (i.e., video frames) that are appended to the existing video datastream of the UAV. When the task is completed, a last status report is provided with a reference to the video datastream with a time range selecting the portion of the video stream that is relevant to the task.
 
 *Example 3: UAV picture task* +
 A command is used to task a UAV to collect an image at a specific location. The output is a single observation that is appended to the existing image datastream of the UAV. When the task is completed, a last progress report is provided with a reference to the image observation.
@@ -506,7 +515,7 @@ The following tables describe the attributes and associations of the `CommandRes
 [width="100%",options="header"]
 |====
 | *Name*              | *Definition* | *Data Type* | *Usage*
-| `inline`            | The result data provided inline (encoded according to the `ControlStream` result schema). | Any | Optional
+| `data`              | The result data provided inline (encoded according to the `ControlStream` result schema). | Any | Optional
 |====
 
 [#commandresult-assocs,reftext='{table-caption} {counter:table-num}']
@@ -539,7 +548,7 @@ The set of result items associated to a given command is available at a nested e
 [%metadata]
 identifier:: /req/controlstream/command-result-endpoint
 
-part:: The server SHALL implement a <<clause-commandresult-resources-endpoint,Command Result resources endpoint>> at path `{api_root}/command/{cmdId}/result` for every `Command` resource that can be associated to a result.
+part:: The server SHALL implement a <<clause-commandresult-resources-endpoint,Command Result resources endpoint>> at path `{api_root}/commands/{cmdId}/result` for every `Command` resource that can be associated to a result.
 
 part:: The endpoint SHALL only expose the `CommandResult` resources that are related to the `Command` resource with local ID `cmdId`.
 ====

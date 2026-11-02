@@ -6,5 +6,4 @@ content:
     examples:
       simple:
         summary: PTZ Control
-        value:
-          $ref: ../examples/controlstreams/controlstream-ptz.json
+        externalValue: examples/controlstreams/controlstream-ptz.json

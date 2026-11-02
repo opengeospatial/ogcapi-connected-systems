@@ -192,7 +192,7 @@ part:: The HTTP GET operation at an {controlstream-resources-endpoint} SHALL sup
 
 part:: The parameter SHALL fulfill the same requirements as the parameter `datetime` defined in https://docs.ogc.org/is/17-069r4/17-069r4.html#_parameter_datetime[Clause 7.15.4] of {ogcapi-features-1}. All references to the term “features” or “feature” in these requirements SHALL be replaced by the terms “resources” or “resource”, respectively.
 
-part:: Only the `issueTime` property of `CommandStream` resources SHALL be used to determine the temporal extent evaluated against the parameter.
+part:: Only the `issueTime` property of `ControlStream` resources SHALL be used to determine the temporal extent evaluated against the parameter.
 ====
 
 ==== Execution Time Filter
@@ -208,7 +208,7 @@ part:: The HTTP GET operation at an {controlstream-resources-endpoint} SHALL sup
 
 part:: The parameter SHALL fulfill the same requirements as the parameter `datetime` defined in https://docs.ogc.org/is/17-069r4/17-069r4.html#_parameter_datetime[Clause 7.15.4] of {ogcapi-features-1}. All references to the term “features” or “feature” in these requirements SHALL be replaced by the terms “resources” or “resource”, respectively.
 
-part:: Only the `executionTime` property of `CommandStream` resources SHALL be used to determine the temporal extent evaluated against the parameter.
+part:: Only the `executionTime` property of `ControlStream` resources SHALL be used to determine the temporal extent evaluated against the parameter.
 ====
 
 ==== Controlled Property Filter
@@ -236,7 +236,7 @@ identifier:: /req/advanced-filtering/controlstream-by-foi
 
 part:: The HTTP GET operation at an {controlstream-resources-endpoint} SHALL support a parameter `foi` of type {filter-idlist-schema}.
 
-part:: Only `CommandStream` resources that are associated to a feature of interest that has one of the requested identifiers SHALL be part of the result set.
+part:: Only `ControlStream` resources that are associated to a feature of interest that has one of the requested identifiers SHALL be part of the result set.
 
 part:: Both sampling features and domain features of interest SHALL be included in the search.
 ====

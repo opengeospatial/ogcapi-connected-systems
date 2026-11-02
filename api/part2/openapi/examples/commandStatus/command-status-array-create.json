@@ -1,0 +1,17 @@
+[
+  {
+    "reportTime": "2021-03-15T04:53:34.348Z",
+    "statusCode": "ACCEPTED",
+    "message": "Command accepted for processing."
+  },
+  {
+    "reportTime": "2021-03-15T04:53:36.021Z",
+    "statusCode": "COMPLETED",
+    "percentCompletion": 100,
+    "executionTime": [
+      "2021-03-15T04:53:34.543Z",
+      "2021-03-15T04:53:36.021Z"
+    ],
+    "message": "Camera moved to the requested position."
+  }
+]

@@ -1,0 +1,9 @@
+description: A `CommandResult` resource for a feasibility analysis. Inline `data` follows the parent ControlStream's `feasibilityResultSchema`.
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/json/commandResult_create.json
+    examples:
+      inline:
+        summary: Inline PTZ feasibility result
+        externalValue: examples/feasibility/feasibility-result-inline-create.json

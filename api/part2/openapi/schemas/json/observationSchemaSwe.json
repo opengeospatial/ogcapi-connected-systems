@@ -3,12 +3,16 @@
   "type": "object",
   "properties": {
     "obsFormat": {
+      "description": "Media type selecting the SWE Common observation encoding.",
       "type": "string"
     },
     "recordSchema": {
+      "description": "SWE Common component defining the structure of each observation record.",
       "$ref": "../common/sweCommonDefs.json#/$defs/AnyComponent"
     },
-    "encoding": {}
+    "encoding": {
+      "description": "SWE Common encoding rules used to serialize observation records."
+    }
   },
   "required": [
     "obsFormat", "recordSchema", "encoding"
@@ -18,9 +22,11 @@
       "title": "SWE JSON",
       "properties": {
         "obsFormat": {
+          "description": "Media type identifying the SWE JSON observation encoding.",
           "const": "application/swe+json"
         },
         "encoding": {
+          "description": "JSON encoding rules for observation records.",
           "$ref": "../common/sweCommonDefs.json#/$defs/JSONEncoding"
         }
       }
@@ -29,9 +35,11 @@
       "title": "SWE Text",
       "properties": {
         "obsFormat": {
+          "description": "Media type identifying the SWE Text observation encoding.",
           "const": "application/swe+text"
         },
         "encoding": {
+          "description": "Text encoding rules for observation records.",
           "$ref": "../common/sweCommonDefs.json#/$defs/TextEncoding"
         }
       }
@@ -40,17 +48,21 @@
       "title": "SWE CSV",
       "properties": {
         "obsFormat": {
+          "description": "Media type identifying the SWE CSV observation encoding.",
           "const": "application/swe+csv"
         },
         "encoding": {
+          "description": "CSV encoding rules for observation records.",
           "allOf": [
             { "$ref": "../common/sweCommonDefs.json#/$defs/TextEncoding" },
             {
               "properties": {
                 "tokenSeparator": {
+                  "description": "Character separating fields within a CSV observation record.",
                   "const": ","
                 },
                 "blockSeparator": {
+                  "description": "Character sequence separating CSV observation records.",
                   "const": "\n"
                 }
               }
@@ -64,9 +76,11 @@
       "title": "SWE Binary",
       "properties": {
         "obsFormat": {
+          "description": "Media type identifying the SWE Binary observation encoding.",
           "const": "application/swe+binary"
         },
         "encoding": {
+          "description": "Binary encoding rules for observation records.",
           "$ref": "../common/sweCommonDefs.json#/$defs/BinaryEncoding"
         }
       }

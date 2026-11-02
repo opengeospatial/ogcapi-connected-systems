@@ -16,22 +16,27 @@
           "type": "string"
         },
         "procedure@link": {
-          "description": "Link to the procedure used to execute commands (only provided if all commands in the control stream share the same procedure)",
-          "$ref": "../common/commonDefs.json#/$defs/Link"
+          "description": "Server-provided link to the procedure shared by all commands in this control stream. Omitted when no common procedure can be represented.",
+          "$ref": "../common/commonDefs.json#/$defs/Link",
+          "readOnly": true
         },
         "deployment@link": {
-          "description": "Link to the deployment during which the commands are/were received (only provided if all commands in the control stream share the same deployment)",
-          "$ref": "../common/commonDefs.json#/$defs/Link"
+          "description": "Server-provided link to the deployment shared by all commands in this control stream. Omitted when no common deployment can be represented.",
+          "$ref": "../common/commonDefs.json#/$defs/Link",
+          "readOnly": true
         },
         "featureOfInterest@link": {
-          "description": "Link to the ultimate feature of interest (only provided if all commands in the control stream share the same feature of interest)",
-          "$ref": "../common/commonDefs.json#/$defs/Link"
+          "description": "Server-provided link to the ultimate feature of interest shared by all commands in this control stream. Omitted when no common target can be represented.",
+          "$ref": "../common/commonDefs.json#/$defs/Link",
+          "readOnly": true
         },
         "samplingFeature@link": {
-          "description": "Link to the sampling feature (only provided if all commands in the control stream share the same sampling feature)",
-          "$ref": "../common/commonDefs.json#/$defs/Link"
+          "description": "Server-provided link to the sampling feature shared by all commands in this control stream. Omitted when no common target can be represented.",
+          "$ref": "../common/commonDefs.json#/$defs/Link",
+          "readOnly": true
         },
         "controlledProperties": {
+          "description": "Server-derived descriptions of properties controllable through this control stream. `null` indicates that no common property list is available.",
           "oneOf": [
             {
               "type": "null"
@@ -44,13 +49,16 @@
                 "type": "object",
                 "properties": {
                   "definition": {
+                    "description": "Identifier for the controllable property, normally a resolvable URI.",
                     "type": "string",
                     "format": "uri"
                   },
                   "label": {
+                    "description": "Human-readable name of the controllable property.",
                     "type": "string"
                   },
                   "description": {
+                    "description": "Human-readable explanation of the controllable property.",
                     "type": "string"
                   }
                 }
@@ -60,44 +68,39 @@
           "readOnly": true
         },
         "issueTime": {
+          "description": "Server-derived time extent spanning the issue times of commands in this control stream. `null` indicates that no extent is available.",
           "oneOf": [
             {
               "type": "null"
             },
             {
               "description": "Time extent spanning all issue times of commands in this control stream",
-              "$ref": "../common/commonDefs.json#/$defs/TimePeriod",
-              "readOnly": true
+              "$ref": "../common/commonDefs.json#/$defs/TimePeriod"
             }
-          ]
+          ],
+          "readOnly": true
         },
         "executionTime": {
+          "description": "Server-derived time extent spanning the execution times of commands in this control stream. `null` indicates that no extent is available.",
           "oneOf": [
             {
               "type": "null"
             },
             {
               "description": "Time extent spanning all execution times of commands in this control stream",
-              "$ref": "../common/commonDefs.json#/$defs/TimePeriod",
-              "readOnly": true
+              "$ref": "../common/commonDefs.json#/$defs/TimePeriod"
             }
-          ]
+          ],
+          "readOnly": true
         },
         "live": {
-          "oneOf": [
-            {
-              "type": "null"
-            },
-            {
-              "description": "Flag indicating if the command channel can currently accept commands",
-              "type": "boolean",
-              "readOnly": true
-            }
-          ]
+          "description": "Whether this control stream accepts new commands.",
+          "type": "boolean"
         },
         "async": {
           "description": "Flag indicating if the command channel processes commands asynchronously",
-          "type": "boolean"
+          "type": "boolean",
+          "readOnly": true
         },
         "schema": {
           "description": "Schema describing the content of commands in this control stream. The exact syntax of the schema depends on the encoding format.",
@@ -114,6 +117,7 @@
   "required": [
     "name",
     "system@link",
+    "inputName",
     "controlledProperties",
     "issueTime",
     "executionTime",

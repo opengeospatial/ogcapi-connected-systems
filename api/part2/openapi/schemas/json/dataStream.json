@@ -16,22 +16,27 @@
           "type": "string"
         },
         "procedure@link": {
-          "description": "Link to the procedure used to acquire observations (only provided if all observations in the datastream share the same procedure)",
-          "$ref": "../common/commonDefs.json#/$defs/Link"
+          "description": "Server-provided link to the procedure shared by all observations in this datastream. Omitted when no common procedure can be represented.",
+          "$ref": "../common/commonDefs.json#/$defs/Link",
+          "readOnly": true
         },
         "deployment@link": {
-          "description": "Link to the deployment during which the observations are/were collected (only provided if all observations in the datastream share the same deployment)",
-          "$ref": "../common/commonDefs.json#/$defs/Link"
+          "description": "Server-provided link to the deployment shared by all observations in this datastream. Omitted when no common deployment can be represented.",
+          "$ref": "../common/commonDefs.json#/$defs/Link",
+          "readOnly": true
         },
         "featureOfInterest@link": {
-          "description": "Link to the ultimate feature of interest (only provided if all observations in the datastream share the same feature of interest)",
-          "$ref": "../common/commonDefs.json#/$defs/Link"
+          "description": "Server-provided link to the ultimate feature of interest shared by all observations in this datastream. Omitted when no common target can be represented.",
+          "$ref": "../common/commonDefs.json#/$defs/Link",
+          "readOnly": true
         },
         "samplingFeature@link": {
-          "description": "Link to the sampling feature (only provided if all observations in the datastream share the same sampling feature)",
-          "$ref": "../common/commonDefs.json#/$defs/Link"
+          "description": "Server-provided link to the sampling feature shared by all observations in this datastream. Omitted when no common target can be represented.",
+          "$ref": "../common/commonDefs.json#/$defs/Link",
+          "readOnly": true
         },
         "observedProperties": {
+          "description": "Server-derived descriptions of properties observed by this datastream. `null` indicates that no common property list is available.",
           "oneOf": [
             {
               "type": "null"
@@ -44,13 +49,16 @@
                 "type": "object",
                 "properties": {
                   "definition": {
+                    "description": "Identifier for the observed property, normally a resolvable URI.",
                     "type": "string",
                     "format": "uri"
                   },
                   "label": {
+                    "description": "Human-readable name of the observed property.",
                     "type": "string"
                   },
                   "description": {
+                    "description": "Human-readable explanation of the observed property.",
                     "type": "string"
                   }
                 }
@@ -60,6 +68,7 @@
           "readOnly": true
         },
         "phenomenonTime": {
+          "description": "Server-derived time extent spanning the phenomenon times of observations in this datastream. `null` indicates that no extent is available.",
           "oneOf": [
             {
               "type": "null"
@@ -72,11 +81,12 @@
           "readOnly": true
         },
         "phenomenonTimeInterval": {
-          "description": "An indication of how often feature of interest properties are observed",
+          "description": "Expected interval between observations of feature-of-interest properties.",
           "type": "string",
           "format": "duration"
         },
         "resultTime": {
+          "description": "Server-derived time extent spanning the result times of observations in this datastream. `null` indicates that no extent is available.",
           "oneOf": [
             {
               "type": "null"
@@ -89,11 +99,12 @@
           "readOnly": true
         },
         "resultTimeInterval": {
-          "description": "An indication of how often observation results are produced",
+          "description": "Expected interval between production of observation results.",
           "type": "string",
           "format": "duration"
         },
         "type": {
+          "description": "Kind of data carried by this datastream.",
           "type": "string",
           "enum": [
             "status",
@@ -101,6 +112,7 @@
           ]
         },
         "resultType": {
+          "description": "Server-derived structural category of observation results in this datastream. `null` indicates that no common category is available.",
           "oneOf": [
             {
               "type": "null"
@@ -119,15 +131,8 @@
           "readOnly": true
         },
         "live": {
-          "oneOf": [
-            {
-              "type": "null"
-            },
-            {
-              "description": "Flag indicating if the datastream is currently streaming data",
-              "type": "boolean"
-            }
-          ]
+          "description": "Client-controlled state indicating whether this datastream accepts new observations.",
+          "type": "boolean"
         },
         "schema": {
           "description": "Schema describing the content of observations in this datastream. The exact syntax of the schema depends on the encoding format.",
@@ -144,6 +149,7 @@
   "required": [
     "name",
     "system@link",
+    "outputName",
     "observedProperties",
     "phenomenonTime",
     "resultTime",

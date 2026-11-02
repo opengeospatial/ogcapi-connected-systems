@@ -7,3 +7,7 @@ content:
         links:
           description: Links to related resources
           $ref: ../schemas/common/commonDefs.json#/$defs/Links
+    examples:
+      completed:
+        summary: Completed PTZ command status report
+        externalValue: examples/commandStatus/command-status-completed.json

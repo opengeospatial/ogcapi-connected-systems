@@ -1,0 +1,21 @@
+{
+  "id": "feas-ptz-001",
+  "controlstream@id": "hf62t0dotfd5k",
+  "samplingFeature@id": "garage-camera-field-of-view",
+  "procedure@link": {
+    "href": "https://data.example.org/api/procedures/ptz-control",
+    "title": "PTZ feasibility analysis procedure"
+  },
+  "sender": "user01",
+  "issueTime": "2021-03-15T04:53:34.023Z",
+  "executionTime": [
+    "2021-03-15T04:53:34.543Z",
+    "2021-03-15T04:53:34.780Z"
+  ],
+  "currentStatus": "COMPLETED",
+  "parameters": {
+    "pan": -10.0,
+    "tilt": 23.0,
+    "zoom": 0.4
+  }
+}

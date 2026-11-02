@@ -1,0 +1,7 @@
+name: feasibilityId
+in: path
+description: Local identifier of a Feasibility resource
+required: true
+schema:
+  type: string
+  minLength: 1

@@ -1,6 +1,11 @@
 {
   "id": "1125alnna75hafppknk9aefpvs",
   "controlstream@id": "hf62t0dotfd5k",
+  "samplingFeature@id": "garage-camera-field-of-view",
+  "procedure@link": {
+    "href": "https://data.example.org/api/procedures/ptz-control",
+    "title": "PTZ command processing procedure"
+  },
   "sender": "user01",
   "issueTime": "2021-03-15T04:53:34.248Z",
   "executionTime": [

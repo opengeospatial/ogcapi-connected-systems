@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "$ref": "../common/sensormlDefs.json#/$defs/Event"
+    },
+    {
+      "properties": {
+        "id": false
+      },
+      "required": [
+        "definition",
+        "label",
+        "time"
+      ]
+    }
+  ],
+  "unevaluatedProperties": false
+}

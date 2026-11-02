@@ -1,0 +1,9 @@
+description: OK. Successful request
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/json/commandStatusCollection.json
+    examples:
+      page:
+        summary: Feasibility status-report collection page
+        externalValue: examples/feasibility/feasibility-status-collection.json

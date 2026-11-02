@@ -3,3 +3,7 @@ content:
   application/json:
     schema:
       $ref: ../schemas/json/dataStreamCollection.json
+    examples:
+      page:
+        summary: Datastream collection page
+        externalValue: examples/datastreams/datastream-collection.json

@@ -1,0 +1,57 @@
+parameters:
+  - $ref: ../parameters/controlStreamId.yaml
+
+get:
+  summary: List feasibility requests from a specific control stream
+  description: |-
+    List or search feasibility requests received for a specific control stream.
+  tags:
+    - Command Feasibility
+  parameters:
+    - $ref: ../../../part1/openapi/parameters/idList.yaml
+    - $ref: ../parameters/issueTime.yaml
+    - $ref: ../parameters/executionTime.yaml
+    - $ref: ../parameters/statusCodeList.yaml
+    - $ref: ../parameters/senderList.yaml
+    - $ref: ../../../part1/openapi/parameters/foiIdList.yaml
+    - $ref: ../../../part1/openapi/parameters/controlPropIdList.yaml
+    - $ref: ../../../part1/openapi/parameters/limit.yaml
+  responses:
+    '200':
+      $ref: ../responses/feasibilityCollection.yaml
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
+
+post:
+  summary: Submit a feasibility request
+  description: |-
+    Submit a proposed command for feasibility analysis without sending the command to the controlled system.
+  tags:
+    - Command Feasibility
+  requestBody:
+    $ref: ../requests/feasibility.yaml
+  responses:
+    '200':
+      $ref: ../../../part1/openapi/responses/resourceLinks.yaml
+    '201':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/201
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '409':
+      $ref: ../responses/streamDisabled.yaml
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
