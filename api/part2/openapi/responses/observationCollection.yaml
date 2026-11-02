@@ -3,6 +3,10 @@ content:
   application/json:
     schema:
       $ref: ../schemas/json/observationCollection.json
+    examples:
+      page:
+        summary: Observation collection page
+        externalValue: examples/observations/observation-collection.json
   application/swe+json:
     schema:
       type: object

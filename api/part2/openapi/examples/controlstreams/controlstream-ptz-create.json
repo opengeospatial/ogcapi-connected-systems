@@ -1,7 +1,11 @@
 {
   "name": "Garage Video Camera 001 - PTZ Control",
   "inputName": "ptz",
-  "async": false,
+  "description": "Pan, tilt, and zoom control for the garage video camera.",
+  "validTime": [
+    "2024-01-01T00:00:00Z",
+    "2025-01-01T00:00:00Z"
+  ],
   "schema": {
     "commandFormat": "application/json",
     "parametersSchema": {

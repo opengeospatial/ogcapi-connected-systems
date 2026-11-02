@@ -2,18 +2,14 @@ description: A single `Observation` resource
 content:
   application/json:
     schema:
-      $ref: ../schemas/json/observation.json
+      $ref: ../schemas/json/observation_create.json
     examples:
       inline:
-        id: "1"
-        resultTime: "2023-01-01T12:45:56Z"
-        result: 123
+        summary: Inline temperature observation
+        externalValue: examples/observations/obs-simple-create.json
       external:
-        id: "2"
-        resultTime: "2024-01-01T12:45:56Z"
-        result@link: 
-          href: "https://data.example.com/link/to/result"
-          uid: "bbf3623c-8ec0-444e-bc7c-7f51d2a046e1"
+        summary: Observation with an external result
+        externalValue: examples/observations/obs-link-create.json
   application/swe+json:
     schema:
       type: object

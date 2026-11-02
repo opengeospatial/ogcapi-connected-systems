@@ -3,6 +3,7 @@
   "type": "object",
   "properties": {
     "obsFormat": {
+      "description": "Media type identifying the Protocol Buffers observation encoding.",
       "const": "application/x-protobuf"
     },
     "messageSchema": {

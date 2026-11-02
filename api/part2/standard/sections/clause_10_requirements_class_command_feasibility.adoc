@@ -31,7 +31,8 @@ include::../requirements/feasibility/req_canonical_url.adoc[]
 
 
 
-=== Feasibility Endpoint
+[[clause-feasibility-endpoint]]
+=== Feasibility Resources Endpoint
 
 The set of feasibility requests received for a specific control stream is available at a nested endpoint under the corresponding `ControlStream` resource:
 
@@ -40,7 +41,7 @@ The set of feasibility requests received for a specific control stream is availa
 [%metadata]
 identifier:: /req/feasibility/ref-from-controlstream
 
-part:: The server SHALL implement a <<clause-command-endpoint,Command resources endpoint>> at path `{api_root}/controlstream/{csId}/feasibility` for each available `ControlStream` resource.
+part:: The server SHALL implement a <<clause-feasibility-endpoint,Feasibility resources endpoint>> at path `{api_root}/controlstreams/{csId}/feasibility` for each available `ControlStream` resource.
 
 part:: The endpoint SHALL only expose the `Feasibility` resources that are part of the parent `ControlStream` with ID `csId`.
 ====

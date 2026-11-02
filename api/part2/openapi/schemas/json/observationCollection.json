@@ -3,6 +3,7 @@
   "type": "object",
   "properties": {
     "items": {
+      "description": "Observations returned by this page of the collection.",
       "type": "array",
       "items": {
         "$ref": "observation.json"

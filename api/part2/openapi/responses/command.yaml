@@ -10,8 +10,7 @@ content:
     examples:
       ptz:
         summary: PTZ Command
-        value:
-          $ref: ../examples/commands/command-ptz.json
+        externalValue: examples/commands/command-ptz.json
         
   application/swe+csv:
     example: '2021-03-15T04:53:34.248Z,-10,23,0.4'

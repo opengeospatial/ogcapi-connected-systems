@@ -3,6 +3,7 @@
   "type": "object",
   "properties": {
     "commandFormat": {
+      "description": "Media type identifying the default JSON command encoding.",
       "type": "string",
       "const": "application/json"
     },

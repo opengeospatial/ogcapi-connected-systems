@@ -1,10 +1,10 @@
 {
   "id": "7dogt5gs8949s",
   "name": "Radiological Sensor RADIO003 - Wireless Link Status",
+  "outputName": "radio",
   "system@link": {
     "href": "https://data.example.org/api/systems/958tf25kjm2f6",
-    "uid": "urn:x-ogc:systems:FF465",
-    "outputName": "radio"
+    "uid": "urn:x-ogc:systems:FF465"
   },
   "featureOfInterest@link": {
     "href": "https://data.example.org/api/systems/4578",

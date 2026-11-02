@@ -5,9 +5,16 @@ content:
     schema:
       oneOf:
       - title: Single Result Item
-        $ref: ../schemas/json/commandResult.json
+        $ref: ../schemas/json/commandResult_create.json
       - title: Multiple Items
         type: array
         minItems: 1
         items:
-          $ref: ../schemas/json/commandResult.json
+          $ref: ../schemas/json/commandResult_create.json
+    examples:
+      inline:
+        summary: Inline command result
+        externalValue: examples/commandResult/command-result-inline-create.json
+      batch:
+        summary: Inline and observation-linked command results
+        externalValue: examples/commandResult/command-result-array-create.json

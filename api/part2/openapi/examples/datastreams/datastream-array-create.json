@@ -1,0 +1,39 @@
+[
+  {
+    "name": "Indoor Thermometer 001 - Living Room Temperature",
+    "outputName": "temperature",
+    "description": "Indoor temperature measured on the south wall of the living room at 1.5m above the floor",
+    "phenomenonTimeInterval": "PT5M",
+    "resultTimeInterval": "PT5M",
+    "type": "observation",
+    "schema": {
+      "obsFormat": "application/json",
+      "resultSchema": {
+        "name": "temp",
+        "type": "Quantity",
+        "definition": "http://mmisw.org/ont/cf/parameter/air_temperature",
+        "label": "Room Temperature",
+        "uom": {
+          "code": "Cel"
+        }
+      }
+    }
+  },
+  {
+    "name": "Indoor Thermometer 001 - Humidity",
+    "outputName": "humidity",
+    "type": "observation",
+    "schema": {
+      "obsFormat": "application/json",
+      "resultSchema": {
+        "name": "humidity",
+        "type": "Quantity",
+        "definition": "http://mmisw.org/ont/cf/parameter/relative_humidity",
+        "label": "Relative Humidity",
+        "uom": {
+          "code": "%"
+        }
+      }
+    }
+  }
+]

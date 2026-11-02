@@ -1,6 +1,6 @@
 description: OK. Successful request
 content:
-  application/sml+json:
+  application/json:
     schema:
       $ref: ../schemas/json/systemEvent.json
       properties:
@@ -9,6 +9,5 @@ content:
           $ref: ../schemas/common/commonDefs.json#/$defs/Links
     examples:
       simple:
-        summary: Scalar Observation (Measure)
-        value:
-          $ref: ../examples/events/systemEvent.json
+        summary: Deployment event
+        externalValue: examples/events/systemEvent.json

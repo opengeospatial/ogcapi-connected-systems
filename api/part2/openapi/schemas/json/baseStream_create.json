@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Human readable name of the resource",
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "description": "Human readable description of the resource",
+      "type": "string",
+      "minLength": 1
+    },
+    "validTime": {
+      "description": "Validity period of the resource",
+      "$ref": "../common/commonDefs.json#/$defs/TimePeriod"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

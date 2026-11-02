@@ -3,3 +3,7 @@ content:
   application/json:
     schema:
       $ref: ../schemas/json/systemEventCollection.json
+    examples:
+      page:
+        summary: System event collection page
+        externalValue: examples/events/systemEvent-collection.json

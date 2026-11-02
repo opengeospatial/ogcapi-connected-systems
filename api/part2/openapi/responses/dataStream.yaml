@@ -6,5 +6,4 @@ content:
     examples:
       simple:
         summary: Simple Datastream (1 observed property)
-        value:
-          $ref: ../examples/datastreams/datastream-simple.json
+        externalValue: examples/datastreams/datastream-simple.json

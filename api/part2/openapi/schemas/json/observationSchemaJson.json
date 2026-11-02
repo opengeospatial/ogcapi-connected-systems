@@ -3,6 +3,7 @@
   "type": "object",
   "properties": {
     "obsFormat": {
+      "description": "Media type identifying the default JSON observation encoding.",
       "const": "application/json"
     },
     "parametersSchema": {

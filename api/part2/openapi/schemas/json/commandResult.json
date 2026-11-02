@@ -22,8 +22,12 @@
     {
       "title": "Inline result",
       "properties": {
-        "id": {},
-        "command@id": {},
+        "id": {
+          "description": "Server-assigned local identifier of the result resource."
+        },
+        "command@id": {
+          "description": "Local identifier of the command that this result is associated to."
+        },
         "data": {
           "description": "Inline JSON data encoded according to the control stream result schema"
         }
@@ -33,8 +37,12 @@
     {
       "title": "Link to a single observation",
       "properties": {
-        "id": {},
-        "command@id": {},
+        "id": {
+          "description": "Server-assigned local identifier of the result resource."
+        },
+        "command@id": {
+          "description": "Local identifier of the command that this result is associated to."
+        },
         "observation@link": {
           "description": "Link to an observation resulting from the execution of the command",
           "$ref": "../common/commonDefs.json#/$defs/Link"
@@ -45,8 +53,12 @@
     {
       "title": "Link to a set of observations",
       "properties": {
-        "id": {},
-        "command@id": {},
+        "id": {
+          "description": "Server-assigned local identifier of the result resource."
+        },
+        "command@id": {
+          "description": "Local identifier of the command that this result is associated to."
+        },
         "observationSet@link": {
           "description": "Link to a set of observations resulting from the execution of the command",
           "$ref": "../common/commonDefs.json#/$defs/Link"
@@ -57,8 +69,12 @@
     {
       "title": "Link to a datastream",
       "properties": {
-        "id": {},
-        "command@id": {},
+        "id": {
+          "description": "Server-assigned local identifier of the result resource."
+        },
+        "command@id": {
+          "description": "Local identifier of the command that this result is associated to."
+        },
         "datastream@link": {
           "description": "Link to a datastream containing observations resulting from the execution of the command",
           "allOf": [
@@ -79,8 +95,12 @@
     {
       "title": "Link to an external dataset",
       "properties": {
-        "id": {},
-        "command@id": {},
+        "id": {
+          "description": "Server-assigned local identifier of the result resource."
+        },
+        "command@id": {
+          "description": "Local identifier of the command that this result is associated to."
+        },
         "external@link": {
           "description": "Link to an external dataset containing the result(s) of the command",
           "$ref": "../common/commonDefs.json#/$defs/Link"

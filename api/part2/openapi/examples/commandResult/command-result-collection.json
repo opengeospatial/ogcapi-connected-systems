@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "id": "result-001",
+      "command@id": "1125alnna75hafppknk9aefpvs",
+      "data": {
+        "pan": -10.0,
+        "tilt": 23.0,
+        "zoom": 0.4
+      }
+    }
+  ],
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://data.example.org/api/commands/1125alnna75hafppknk9aefpvs/result"
+    }
+  ]
+}

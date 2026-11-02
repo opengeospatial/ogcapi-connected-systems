@@ -5,9 +5,16 @@ content:
     schema:
       oneOf:
       - title: Single Report
-        $ref: ../schemas/json/commandStatus.json
+        $ref: ../schemas/json/commandStatus_create.json
       - title: Multiple Reports
         type: array
         minItems: 1
         items:
-          $ref: ../schemas/json/commandStatus.json
+          $ref: ../schemas/json/commandStatus_create.json
+    examples:
+      completed:
+        summary: Completed PTZ command status report
+        externalValue: examples/commandStatus/command-status-completed-create.json
+      batch:
+        summary: Accepted and completed status reports
+        externalValue: examples/commandStatus/command-status-array-create.json

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "samplingFeature@id": {
+      "description": "Local ID of the sampling feature that is the target of the observation",
+      "type": "string",
+      "minLength": 1
+    },
+    "procedure@link": {
+      "description": "Link to the procedure/method used to make the observation",
+      "$ref": "../common/commonDefs.json#/$defs/Link"
+    },
+    "phenomenonTime": {
+      "description": "Time at which the observation result is a valid estimate of the sampling feature property(ies). Defaults to the same value as `resultTime`.",
+      "$ref": "../common/commonDefs.json#/$defs/TimeInstant"
+    },
+    "resultTime": {
+      "description": "Time at which the observation result was generated.",
+      "$ref": "../common/commonDefs.json#/$defs/TimeInstant"
+    },
+    "parameters": {
+      "description": "Parameters of the observation. Must be valid according to the parameters schema provided in the datastream metadata.",
+      "type": "object"
+    },
+    "result": {
+      "description": "Result of the observation. Must be valid according to the result schema provided in the datastream metadata."
+    },
+    "result@link": {
+      "description": "Link to external result data (e.g., a large raster dataset served by a tiling service)",
+      "$ref": "../common/commonDefs.json#/$defs/Link"
+    }
+  },
+  "required": [
+    "resultTime"
+  ],
+  "oneOf": [
+    {
+      "title": "Inline result",
+      "required": [
+        "result"
+      ]
+    },
+    {
+      "title": "Link to external result",
+      "required": [
+        "result@link"
+      ]
+    }
+  ],
+  "unevaluatedProperties": false
+}

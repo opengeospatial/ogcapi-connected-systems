@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Garage Video Camera 001 - PTZ Control",
+    "inputName": "ptz",
+    "description": "Pan, tilt, and zoom control for the garage video camera.",
+    "schema": {
+      "commandFormat": "application/json",
+      "parametersSchema": {
+        "type": "DataRecord",
+        "fields": [
+          {
+            "name": "pan",
+            "type": "Quantity",
+            "definition": "http://sensorml.com/ont/swe/property/PanAngle",
+            "label": "Pan Angle",
+            "uom": {
+              "code": "deg"
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "Garage Video Camera 001 - Preset Control",
+    "inputName": "preset",
+    "schema": {
+      "commandFormat": "application/json",
+      "parametersSchema": {
+        "type": "DataRecord",
+        "fields": [
+          {
+            "name": "preset",
+            "type": "Count",
+            "definition": "https://data.example.org/def/property/camera-preset",
+            "label": "Preset number"
+          }
+        ]
+      }
+    }
+  }
+]

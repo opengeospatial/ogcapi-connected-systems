@@ -1,0 +1,20 @@
+[
+  {
+    "label": "Deployment",
+    "definition": "https://vocab.nerc.ac.uk/collection/W03/current/W030002/",
+    "time": "2015-10-12T12:02:00.000Z",
+    "documentation": [
+      {
+        "name": "log",
+        "link": {
+          "href": "https://data.example.org/logs/deployment.log"
+        }
+      }
+    ]
+  },
+  {
+    "label": "Calibration",
+    "definition": "https://vocab.nerc.ac.uk/collection/W03/current/W030001/",
+    "time": "2015-10-13T09:00:00.000Z"
+  }
+]

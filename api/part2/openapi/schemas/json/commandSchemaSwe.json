@@ -3,12 +3,16 @@
   "type": "object",
   "properties": {
     "commandFormat": {
+      "description": "Media type selecting the SWE Common command encoding.",
       "type": "string"
     },
     "recordSchema": {
+      "description": "SWE Common component defining the structure of each command record.",
       "$ref": "../common/sweCommonDefs.json#/$defs/AnyComponent"
     },
-    "encoding": {}
+    "encoding": {
+      "description": "SWE Common encoding rules used to serialize command records."
+    }
   },
   "required": [
     "commandFormat", "recordSchema", "encoding"
@@ -18,9 +22,11 @@
       "title": "SWE JSON",
       "properties": {
         "commandFormat": {
+          "description": "Media type identifying the SWE JSON command encoding.",
           "const": "application/swe+json"
         },
         "encoding": {
+          "description": "JSON encoding rules for command records.",
           "$ref": "../common/sweCommonDefs.json#/$defs/JSONEncoding"
         }
       }
@@ -29,9 +35,11 @@
       "title": "SWE Text",
       "properties": {
         "commandFormat": {
+          "description": "Media type identifying the SWE Text command encoding.",
           "const": "application/swe+text"
         },
         "encoding": {
+          "description": "Text encoding rules for command records.",
           "$ref": "../common/sweCommonDefs.json#/$defs/TextEncoding"
         }
       }
@@ -40,17 +48,21 @@
       "title": "SWE CSV",
       "properties": {
         "commandFormat": {
+          "description": "Media type identifying the SWE CSV command encoding.",
           "const": "application/swe+csv"
         },
         "encoding": {
+          "description": "CSV encoding rules for command records.",
           "allOf": [
             { "$ref": "../common/sweCommonDefs.json#/$defs/TextEncoding" },
             {
               "properties": {
                 "tokenSeparator": {
+                  "description": "Character separating fields within a CSV command record.",
                   "const": ","
                 },
                 "blockSeparator": {
+                  "description": "Character sequence separating CSV command records.",
                   "const": "\n"
                 }
               }
@@ -64,9 +76,11 @@
       "title": "SWE Binary",
       "properties": {
         "commandFormat": {
+          "description": "Media type identifying the SWE Binary command encoding.",
           "const": "application/swe+binary"
         },
         "encoding": {
+          "description": "Binary encoding rules for command records.",
           "$ref": "../common/sweCommonDefs.json#/$defs/BinaryEncoding"
         }
       }

@@ -1,0 +1,23 @@
+[
+  {
+    "samplingFeature@id": "garage-camera-field-of-view",
+    "procedure@link": {
+      "href": "https://data.example.org/api/procedures/ptz-control"
+    },
+    "issueTime": "2021-03-15T04:53:34.023Z",
+    "parameters": {
+      "pan": -10.0,
+      "tilt": 23.0,
+      "zoom": 0.4
+    }
+  },
+  {
+    "samplingFeature@id": "garage-camera-field-of-view",
+    "issueTime": "2021-03-15T04:54:34.023Z",
+    "parameters": {
+      "pan": 0.0,
+      "tilt": 0.0,
+      "zoom": 0.0
+    }
+  }
+]

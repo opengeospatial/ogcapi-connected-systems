@@ -1,0 +1,11 @@
+description: A single feasibility request represented as a `Command` resource
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/json/command_create.json
+    examples:
+      ptz:
+        summary: PTZ feasibility request
+        externalValue: examples/feasibility/feasibility-ptz-create.json
+  application/swe+csv:
+    example: '2021-03-15T04:53:34.023Z,-10,23,0.4'

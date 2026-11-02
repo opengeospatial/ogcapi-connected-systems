@@ -2,8 +2,8 @@ description: A single `CommandStatus` resource
 content:
   application/json:
     schema:
-      $ref: ../schemas/json/commandStatus.json
-      properties:
-        links:
-          description: Links to related resources
-          $ref: ../schemas/common/commonDefs.json#/$defs/Links
+      $ref: ../schemas/json/commandStatus_create.json
+    examples:
+      completed:
+        summary: Completed PTZ command status report
+        externalValue: examples/commandStatus/command-status-completed-create.json

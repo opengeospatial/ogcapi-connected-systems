@@ -3,7 +3,7 @@
   "type": "object",
   "properties": {
     "id": {
-      "description": "Local resource ID. If set on creation, the server may ignore it.",
+      "description": "Local resource ID assigned by the server.",
       "type": "string",
       "minLength": 1,
       "readOnly": true

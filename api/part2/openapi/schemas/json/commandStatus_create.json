@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "reportTime": {
+      "description": "Time at which this report was generated. If omitted, the server sets it to the time the request was received.",
+      "$ref": "../common/commonDefs.json#/$defs/TimeInstant"
+    },
+    "statusCode": {
+      "description": "Current status code",
+      "$ref": "commandStatusCode.json"
+    },
+    "percentCompletion": {
+      "description": "Current progress expressed as a percentage of total task execution",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "executionTime": {
+      "description": "Time period during which the command was executed or is scheduled to be executed, depending on the status code",
+      "$ref": "../common/commonDefs.json#/$defs/TimePeriod"
+    },
+    "message": {
+      "description": "Human readable message providing details of the current status",
+      "type": "string",
+      "minLength": 1
+    },
+    "results": {
+      "description": "New result(s) of the command available at the time of the progress report",
+      "type": "array",
+      "items": {
+        "$ref": "commandResult_create.json"
+      }
+    }
+  },
+  "required": [
+    "statusCode"
+  ],
+  "unevaluatedProperties": false
+}

@@ -1,0 +1,21 @@
+description: OK. Successful request
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/json/commandCollection.json
+    examples:
+      page:
+        summary: Feasibility request collection page
+        externalValue: examples/feasibility/feasibility-collection.json
+  application/swe+json:
+    schema:
+      type: object
+      required: items
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+        links:
+          description: Links to related resources (including paging)
+          $ref: ../schemas/common/commonDefs.json#/$defs/Links

@@ -45,9 +45,13 @@ part:: The resource representation provided in the request SHALL be encoded as s
 [%metadata]
 identifier:: /req/json/datastream-schema
 
-part:: A JSON document containing a single `DataStream` resource SHALL be valid against the JSON schema {json-datastream-schema}.
+part:: A JSON document returned by the server containing a single `DataStream` resource SHALL be valid against the JSON schema {json-datastream-schema}.
 
-part:: A JSON document containing a collection of `DataStream` resources SHALL be valid against the JSON schema {json-datastream-collection-schema}.
+part:: A JSON document supplied in a CREATE or REPLACE request, either as a single `DataStream` resource or as an array of `DataStream` resources, SHALL contain only resources valid against the JSON schema {json-datastream-create-schema}.
+
+part:: The `live` property SHALL be included with a Boolean value or `null` in every JSON `DataStream` resource returned by the server. A JSON `DataStream` resource supplied in a CREATE or REPLACE request MAY include the `live` property with a Boolean value.
+
+part:: A JSON document returned by the server containing a collection of `DataStream` resources SHALL be valid against the JSON schema {json-datastream-collection-schema}.
 ====
 
 [[example_json_datastream1]]
@@ -111,9 +115,11 @@ NOTE: All other observation properties are the same for all datastreams and thus
 [%metadata]
 identifier:: /req/json/observation-schema
 
-part:: A JSON document containing a single `Observation` resource SHALL be valid against the JSON schema {json-observation-schema}.
+part:: A JSON document returned by the server containing a single `Observation` resource SHALL be valid against the JSON schema {json-observation-schema}.
 
-part:: A JSON document containing a collection of `Observation` resources SHALL be valid against the JSON schema {json-observation-collection-schema}.
+part:: A JSON document supplied in a CREATE or REPLACE request, either as a single `Observation` resource or as an array of `Observation` resources, SHALL contain only resources valid against the JSON schema {json-observation-create-schema}.
+
+part:: A JSON document returned by the server containing a collection of `Observation` resources SHALL be valid against the JSON schema {json-observation-collection-schema}.
 ====
 
 [requirement,model=ogc]
@@ -149,7 +155,7 @@ This second observation has a vector result type:
 include::../openapi/examples/observations/obs-location.json[]
 ----
 
-This third observation has PNG image as a result type that is a PNG image encoded inline as a `data:` URL
+This third observation has a PNG image as its result, encoded inline as a `data:` URL.
 [source%autofit,json]
 ----
 include::../openapi/examples/observations/obs-link-inline-image.json[]
@@ -166,9 +172,13 @@ include::../openapi/examples/observations/obs-link-inline-image.json[]
 [%metadata]
 identifier:: /req/json/controlstream-schema
 
-part:: A JSON document containing a single `ControlStream` resource SHALL be valid against the JSON schema {json-controlstream-schema}.
+part:: A JSON document returned by the server containing a single `ControlStream` resource SHALL be valid against the JSON schema {json-controlstream-schema}.
 
-part:: A JSON document containing a collection of `ControlStream` resources SHALL be valid against the JSON schema {json-controlstream-collection-schema}.
+part:: A JSON document supplied in a CREATE or REPLACE request, either as a single `ControlStream` resource or as an array of `ControlStream` resources, SHALL contain only resources valid against the JSON schema {json-controlstream-create-schema}.
+
+part:: The `live` property SHALL be included with a Boolean value or `null` in every JSON `ControlStream` resource returned by the server. A JSON `ControlStream` resource supplied in a CREATE or REPLACE request MAY include the `live` property with a Boolean value.
+
+part:: A JSON document returned by the server containing a collection of `ControlStream` resources SHALL be valid against the JSON schema {json-controlstream-collection-schema}.
 ====
 
 [[example_json_controlstream1]]
@@ -220,9 +230,11 @@ NOTE: All other command properties are the same for all control streams and thus
 [%metadata]
 identifier:: /req/json/command-schema
 
-part:: A JSON document containing a single `Command` resource SHALL be valid against the JSON schema {json-command-schema}.
+part:: A JSON document returned by the server containing a single `Command` resource SHALL be valid against the JSON schema {json-command-schema}.
 
-part:: A JSON document containing a collection of `Command` resources SHALL be valid against the JSON schema {json-command-collection-schema}.
+part:: A JSON document supplied in a CREATE or REPLACE request, either as a single `Command` resource or as an array of `Command` resources, SHALL contain only resources valid against the JSON schema {json-command-create-schema}.
+
+part:: A JSON document returned by the server containing a collection of `Command` resources SHALL be valid against the JSON schema {json-command-collection-schema}.
 ====
 
 [requirement,model=ogc]
@@ -260,9 +272,11 @@ include::../openapi/examples/commands/command-ptz.json[]
 [%metadata]
 identifier:: /req/json/commandstatus-schema
 
-part:: A JSON document containing a single `CommandStatus` resource SHALL be valid against the JSON schema {json-commandstatus-schema}.
+part:: A JSON document returned by the server containing a single `CommandStatus` resource SHALL be valid against the JSON schema {json-commandstatus-schema}.
 
-part:: A JSON document containing a collection of `CommandStatus` resources SHALL be valid against the JSON schema {json-commandstatus-collection-schema}.
+part:: A JSON document supplied in a CREATE or REPLACE request, either as a single `CommandStatus` resource or as an array of `CommandStatus` resources, SHALL contain only resources valid against the JSON schema {json-commandstatus-create-schema}.
+
+part:: A JSON document returned by the server containing a collection of `CommandStatus` resources SHALL be valid against the JSON schema {json-commandstatus-collection-schema}.
 ====
 
 [[example_json_command_status]]
@@ -291,9 +305,11 @@ include::../openapi/examples/commandStatus/command-status-completed.json[]
 [%metadata]
 identifier:: /req/json/commandresult-schema
 
-part:: A JSON document containing a single `CommandResult` resource SHALL be valid against the JSON schema {json-commandresult-schema}.
+part:: A JSON document returned by the server containing a single `CommandResult` resource SHALL be valid against the JSON schema {json-commandresult-schema}.
 
-part:: A JSON document containing a collection of `CommandResult` resources SHALL be valid against the JSON schema {json-commandresult-collection-schema}.
+part:: A JSON document supplied in a CREATE or REPLACE request, either as a single `CommandResult` resource or as an array of `CommandResult` resources, SHALL contain only resources valid against the JSON schema {json-commandresult-create-schema}.
+
+part:: A JSON document returned by the server containing a collection of `CommandResult` resources SHALL be valid against the JSON schema {json-commandresult-collection-schema}.
 ====
 
 [requirement,model=ogc]
@@ -303,9 +319,9 @@ identifier:: /req/json/commandresult-constraints
 
 part:: If a `CommandResult` resource includes inline data, the content of the `data` property SHALL be encoded according to the schema provided by the parent `ControlStream`:
 
-part:: For regular commands, the schema is provided by the the `resultSchema` property of the schema resource.
+part:: For regular commands, the schema is provided by the `resultSchema` property of the schema resource.
 
-part:: For feasibility requests (i.e., commands received on a feasibility channel), the schema is provided by the the `feasibilityResultSchema` property of the schema resource.
+part:: For feasibility requests (i.e., commands received on a feasibility channel), the schema is provided by the `feasibilityResultSchema` property of the schema resource.
 
 part:: See {json-commandschema-schema-json}.
 ====
@@ -340,7 +356,9 @@ include::../openapi/examples/commandResult/command-result-datastream.json[]
 [%metadata]
 identifier:: /req/json/systemevent-schema
 
-part:: A JSON document containing a single `SystemEvent` resource SHALL be valid against the JSON schema {json-systemevent-schema}.
+part:: A JSON document returned by the server containing a single `SystemEvent` resource SHALL be valid against the JSON schema {json-systemevent-schema}.
 
-part:: A JSON document containing a collection of `SystemEvent` resources SHALL be valid against the JSON schema {json-systemevent-collection-schema}.
+part:: A JSON document supplied in a CREATE or REPLACE request, either as a single `SystemEvent` resource or as an array of `SystemEvent` resources, SHALL contain only resources valid against the JSON schema {json-systemevent-create-schema}.
+
+part:: A JSON document returned by the server containing a collection of `SystemEvent` resources SHALL be valid against the JSON schema {json-systemevent-collection-schema}.
 ====

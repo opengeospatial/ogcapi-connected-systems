@@ -1,0 +1,50 @@
+parameters:
+  - $ref: ../parameters/feasibilityId.yaml
+
+get:
+  summary: List feasibility status reports
+  description: |-
+    List or search all status reports associated with a feasibility request.
+    Status codes have the feasibility-specific meanings defined by the Command Feasibility requirements class; `SCHEDULED` and `UPDATED` are not used for feasibility requests.
+  tags:
+    - Command Feasibility
+  parameters:
+    - $ref: ../../../part1/openapi/parameters/idList.yaml
+    - $ref: ../parameters/reportTime.yaml
+    - $ref: ../parameters/statusCodeList.yaml
+    - $ref: ../../../part1/openapi/parameters/limit.yaml
+  responses:
+    '200':
+      $ref: ../responses/feasibilityStatusCollection.yaml
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
+
+post:
+  summary: Add a feasibility status report
+  description: |-
+    Add a status report for a feasibility analysis. Inline result data, when supplied, follows the parent ControlStream's `feasibilityResultSchema`.
+  tags:
+    - Command Feasibility
+  requestBody:
+    $ref: ../requests/feasibilityStatus.yaml
+  responses:
+    '201':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/201
+    '400':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/400
+    '401':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/401
+    '403':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
+    '404':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
+    '5XX':
+      $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX

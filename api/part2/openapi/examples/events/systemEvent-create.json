@@ -1,0 +1,13 @@
+{
+  "label": "Deployment",
+  "definition": "https://vocab.nerc.ac.uk/collection/W03/current/W030002/",
+  "time": "2015-10-12T12:02:00.000Z",
+  "documentation": [
+    {
+      "name": "log",
+      "link": {
+        "href": "http://trios.de/lisa3075_installation.log"
+      }
+    }
+  ]
+}

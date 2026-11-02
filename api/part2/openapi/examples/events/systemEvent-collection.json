@@ -1,0 +1,16 @@
+{
+  "items": [
+    {
+      "id": "e5ce3b97-0fe2-4f92-a631-4bba0bd82fb1",
+      "label": "Deployment",
+      "definition": "https://vocab.nerc.ac.uk/collection/W03/current/W030002/",
+      "time": "2015-10-12T12:02:00.000Z"
+    }
+  ],
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://data.example.org/api/systemEvents"
+    }
+  ]
+}

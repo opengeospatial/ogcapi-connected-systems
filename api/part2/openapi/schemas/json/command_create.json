@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "samplingFeature@id": {
+      "description": "Local ID of the sampling feature that is the target of the command",
+      "type": "string",
+      "minLength": 1
+    },
+    "procedure@link": {
+      "description": "Link to the procedure/method used to process the command",
+      "$ref": "../common/commonDefs.json#/$defs/Link"
+    },
+    "issueTime": {
+      "description": "Time at which the command was issued. If omitted, the server sets it to the time the request was received.",
+      "$ref": "../common/commonDefs.json#/$defs/TimeInstant"
+    },
+    "parameters": {
+      "description": "Command parameters. Must be valid according to the schema provided in the control stream metadata."
+    }
+  },
+  "required": [
+    "parameters"
+  ],
+  "unevaluatedProperties": false
+}

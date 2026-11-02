@@ -3,3 +3,7 @@ content:
   application/json:
     schema:
       $ref: ../schemas/json/controlStreamCollection.json
+    examples:
+      page:
+        summary: Control stream collection page
+        externalValue: examples/controlstreams/controlstream-collection.json

@@ -1,0 +1,21 @@
+{
+  "items": [
+    {
+      "id": "feas-ptz-001",
+      "controlstream@id": "hf62t0dotfd5k",
+      "issueTime": "2021-03-15T04:53:34.023Z",
+      "currentStatus": "COMPLETED",
+      "parameters": {
+        "pan": -10.0,
+        "tilt": 23.0,
+        "zoom": 0.4
+      }
+    }
+  ],
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://data.example.org/api/controlstreams/hf62t0dotfd5k/feasibility"
+    }
+  ]
+}

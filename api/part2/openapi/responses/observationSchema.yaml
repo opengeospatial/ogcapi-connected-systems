@@ -6,41 +6,32 @@ content:
     examples:
       scalar-omjson:
         summary: Scalar Result - JSON encoding
-        value:
-          $ref: ../examples/schemas/observationSchema-scalar-json.json
+        externalValue: examples/schemas/observationSchema-scalar-json.json
       scalar-omproto:
         summary: Scalar Result - Protobuf encoding
-        value:
-          $ref: ../examples/schemas/observationSchema-scalar-proto.json
+        externalValue: examples/schemas/observationSchema-scalar-proto.json
       scalar-swejson:
         summary: Scalar Result - SWE Common Schema with JSON encoding
-        value:
-          $ref: ../examples/schemas/observationSchema-scalar-swejson.json
+        externalValue: examples/schemas/observationSchema-scalar-swejson.json
       scalar-swecsv:
         summary: Scalar Result - SWE Common Schema with CSV encoding
-        value:
-          $ref: ../examples/schemas/observationSchema-scalar-swecsv.json
+        externalValue: examples/schemas/observationSchema-scalar-swecsv.json
       geopose-omjson:
         summary: GeoPose Result - JSON encoding
-        value:
-          $ref: ../examples/schemas/observationSchema-geopose-json.json
+        externalValue: examples/schemas/observationSchema-geopose-json.json
       geopose-swejson:
         summary: GeoPose Result - SWE Common Schema with JSON encoding
-        value:
-          $ref: ../examples/schemas/observationSchema-geopose-swejson.json
+        externalValue: examples/schemas/observationSchema-geopose-swejson.json
   application/schema+json:
     examples:
       scalar-omjson:
         summary: Scalar Result - JSON Schema
-        value:
-          $ref: ../examples/schemas/observationSchema-scalar-json-jsonschema-byref.json
+        externalValue: examples/schemas/observationSchema-scalar-json-jsonschema-byref.json
   text/plain:
     examples:
       scalar-proto:
         summary: Scalar Result - Protobuf Schema
-        value:
-          $ref: ../examples/schemas/observationSchema-scalar.proto
+        externalValue: examples/schemas/observationSchema-scalar.proto
       geopose-proto:
         summary: GeoPose Result - Protobuf Schema
-        value:
-          $ref: ../examples/schemas/observationSchema-geopose.proto
+        externalValue: examples/schemas/observationSchema-geopose.proto

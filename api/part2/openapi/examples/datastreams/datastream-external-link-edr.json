@@ -1,10 +1,10 @@
 {
   "id": "958tf25kjm2f6",
   "name": "Outdoor Thermometer 001 - Air Temperature",
+  "outputName": "temp",
   "system@link": {
     "href": "https://data.example.org/api/systems/123",
-    "uid": "urn:x-ogc:systems:001",
-    "outputName": "temp"
+    "uid": "urn:x-ogc:systems:001"
   },
   "phenomenonTime": [
     "2020-06-29T14:32:00Z",
@@ -24,6 +24,7 @@
   "formats": [
     "application/json"
   ],
+  "live": false,
   "links": [
     {
       "rel" : "self",

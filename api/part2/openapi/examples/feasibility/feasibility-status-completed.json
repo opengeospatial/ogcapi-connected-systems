@@ -1,0 +1,22 @@
+{
+  "id": "feas-status-001",
+  "command@id": "feas-ptz-001",
+  "reportTime": "2021-03-15T04:53:34.780Z",
+  "statusCode": "COMPLETED",
+  "percentCompletion": 100,
+  "executionTime": [
+    "2021-03-15T04:53:34.543Z",
+    "2021-03-15T04:53:34.780Z"
+  ],
+  "message": "The requested camera position is reachable.",
+  "results": [
+    {
+      "id": "feas-result-001",
+      "command@id": "feas-ptz-001",
+      "data": {
+        "feasible": true,
+        "earliestExecutionTime": "2021-03-15T04:54:00Z"
+      }
+    }
+  ]
+}

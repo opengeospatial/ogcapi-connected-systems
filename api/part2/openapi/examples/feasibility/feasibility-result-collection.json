@@ -1,0 +1,18 @@
+{
+  "items": [
+    {
+      "id": "feas-result-001",
+      "command@id": "feas-ptz-001",
+      "data": {
+        "feasible": true,
+        "earliestExecutionTime": "2021-03-15T04:54:00Z"
+      }
+    }
+  ],
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://data.example.org/api/feasibility/feas-ptz-001/result"
+    }
+  ]
+}

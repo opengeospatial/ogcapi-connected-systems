@@ -47,13 +47,17 @@ tags:
     description: |-
       Access to historical and real-time commands.
 
+  - name: Command Feasibility
+    description: |-
+      Evaluate whether a proposed command can be carried out without sending the command to the controlled system.
+
   - name: System Events
     description: |-
       System events are used to notify users of changes to one or more systems.
 
-  - name: System History
-    description: |-
-      Advanced access to historical system descriptions.
+  # - name: System History
+  #   description: |-
+  #     Advanced access to historical system descriptions.
       
 
 paths:
@@ -116,6 +120,28 @@ paths:
   /commands/{cmdId}/result/{resultId}:
     $ref: paths/commandResultById.yaml
 
+  # Command Feasibility
+  /controlstreams/{controlStreamId}/feasibility:
+    $ref: paths/controlStreamFeasibility.yaml
+
+  /controlstreams/{controlStreamId}/feasibility/{feasibilityId}:
+    $ref: paths/controlStreamFeasibilityById.yaml
+
+  /feasibility/{feasibilityId}:
+    $ref: paths/feasibilityById.yaml
+
+  /feasibility/{feasibilityId}/status:
+    $ref: paths/feasibilityStatuses.yaml
+
+  /feasibility/{feasibilityId}/status/{statusId}:
+    $ref: paths/feasibilityStatusById.yaml
+
+  /feasibility/{feasibilityId}/result:
+    $ref: paths/feasibilityResults.yaml
+
+  /feasibility/{feasibilityId}/result/{resultId}:
+    $ref: paths/feasibilityResultById.yaml
+
   # System Events
   /systemEvents:
     $ref: paths/systemEventsAll.yaml
@@ -126,9 +152,9 @@ paths:
   /systems/{systemId}/events/{eventId}:
     $ref: paths/systemEventById.yaml
 
-  # System History
-  /systems/{systemId}/history:
-    $ref: paths/systemHistory.yaml
+  # System History (not part of Part 2)
+  # /systems/{systemId}/history:
+  #   $ref: paths/systemHistory.yaml
 
-  /systems/{systemId}/history/{revId}:
-    $ref: paths/systemHistoryById.yaml
+  # /systems/{systemId}/history/{revId}:
+  #   $ref: paths/systemHistoryById.yaml

@@ -32,7 +32,7 @@ get:
 post:
   summary: Add an observation
   description: |-
-    Add a new observation to an existing datastream.
+    Add a new observation to an existing datastream that accepts observations.
   tags:
     - Observations
   requestBody:
@@ -50,4 +50,3 @@ post:
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
     '5XX':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX
-  

@@ -1,0 +1,22 @@
+{
+  "items": [
+    {
+      "id": "feas-status-001",
+      "command@id": "feas-ptz-001",
+      "reportTime": "2021-03-15T04:53:34.780Z",
+      "statusCode": "COMPLETED",
+      "percentCompletion": 100,
+      "executionTime": [
+        "2021-03-15T04:53:34.543Z",
+        "2021-03-15T04:53:34.780Z"
+      ],
+      "message": "The requested camera position is reachable."
+    }
+  ],
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://data.example.org/api/feasibility/feas-ptz-001/status"
+    }
+  ]
+}
