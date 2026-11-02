@@ -28,7 +28,7 @@
           ]
         },
         "live": {
-          "description": "Whether this datastream accepts new observations.",
+          "description": "Optional client-supplied indication that live data is currently available. A server MAY generate the effective status and MAY ignore this value or a later update.",
           "type": "boolean"
         },
         "schema": {
@@ -38,7 +38,6 @@
       },
       "required": [
         "outputName",
-        "live",
         "schema"
       ]
     }

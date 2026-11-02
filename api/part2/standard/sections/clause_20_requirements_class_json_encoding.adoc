@@ -49,7 +49,7 @@ part:: A JSON document returned by the server containing a single `DataStream` r
 
 part:: A JSON document supplied in a CREATE or REPLACE request, either as a single `DataStream` resource or as an array of `DataStream` resources, SHALL contain only resources valid against the JSON schema {json-datastream-create-schema}.
 
-part:: The `live` property SHALL be included with a Boolean value in a JSON `DataStream` resource supplied in a CREATE or REPLACE request and in every JSON `DataStream` resource returned by the server.
+part:: The `live` property SHALL be included with a Boolean value or `null` in every JSON `DataStream` resource returned by the server. A JSON `DataStream` resource supplied in a CREATE or REPLACE request MAY include the `live` property with a Boolean value.
 
 part:: A JSON document returned by the server containing a collection of `DataStream` resources SHALL be valid against the JSON schema {json-datastream-collection-schema}.
 ====
@@ -176,7 +176,7 @@ part:: A JSON document returned by the server containing a single `ControlStream
 
 part:: A JSON document supplied in a CREATE or REPLACE request, either as a single `ControlStream` resource or as an array of `ControlStream` resources, SHALL contain only resources valid against the JSON schema {json-controlstream-create-schema}.
 
-part:: The `live` property SHALL be included with a Boolean value in a JSON `ControlStream` resource supplied in a CREATE or REPLACE request and in every JSON `ControlStream` resource returned by the server.
+part:: The `live` property SHALL be included with a Boolean value or `null` in every JSON `ControlStream` resource returned by the server. A JSON `ControlStream` resource supplied in a CREATE or REPLACE request MAY include the `live` property with a Boolean value.
 
 part:: A JSON document returned by the server containing a collection of `ControlStream` resources SHALL be valid against the JSON schema {json-controlstream-collection-schema}.
 ====

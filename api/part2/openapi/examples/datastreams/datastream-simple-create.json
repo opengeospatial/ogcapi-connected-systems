@@ -9,7 +9,6 @@
   "phenomenonTimeInterval": "PT5M",
   "resultTimeInterval": "PT5M",
   "type": "observation",
-  "live": true,
   "schema": {
     "obsFormat": "application/json",
     "resultSchema": {

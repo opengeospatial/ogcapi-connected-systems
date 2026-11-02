@@ -6,7 +6,6 @@
     "phenomenonTimeInterval": "PT5M",
     "resultTimeInterval": "PT5M",
     "type": "observation",
-    "live": true,
     "schema": {
       "obsFormat": "application/json",
       "resultSchema": {
@@ -24,7 +23,6 @@
     "name": "Indoor Thermometer 001 - Humidity",
     "outputName": "humidity",
     "type": "observation",
-    "live": false,
     "schema": {
       "obsFormat": "application/json",
       "resultSchema": {

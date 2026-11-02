@@ -6,7 +6,6 @@
     "2024-01-01T00:00:00Z",
     "2025-01-01T00:00:00Z"
   ],
-  "live": true,
   "schema": {
     "commandFormat": "application/json",
     "parametersSchema": {

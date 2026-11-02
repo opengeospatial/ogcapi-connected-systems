@@ -10,7 +10,7 @@
           "minLength": 1
         },
         "live": {
-          "description": "Whether this control stream accepts new commands.",
+          "description": "Optional client-supplied indication that the command channel can currently accept commands. A server MAY generate the effective status and MAY ignore this value or a later update.",
           "type": "boolean"
         },
         "schema": {
@@ -20,7 +20,6 @@
       },
       "required": [
         "inputName",
-        "live",
         "schema"
       ]
     }

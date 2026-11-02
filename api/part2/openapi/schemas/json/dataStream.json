@@ -131,8 +131,16 @@
           "readOnly": true
         },
         "live": {
-          "description": "Client-controlled state indicating whether this datastream accepts new observations.",
-          "type": "boolean"
+          "description": "Whether live data is currently available from this datastream. A server MAY generate the effective status and MAY ignore client-supplied values or updates.",
+          "oneOf": [
+            {
+              "description": "The server does not expose an availability determination.",
+              "type": "null"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
         },
         "schema": {
           "description": "Schema describing the content of observations in this datastream. The exact syntax of the schema depends on the encoding format.",

@@ -51,7 +51,5 @@ post:
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/403
     '404':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/404
-    '409':
-      $ref: ../responses/streamDisabled.yaml
     '5XX':
       $ref: ../../../part1/openapi/responses/StandardResponses.yaml#/5XX

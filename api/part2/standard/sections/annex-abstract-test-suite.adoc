@@ -1197,13 +1197,11 @@ inherit:: http://www.opengis.net/spec/ogcapi-features-4/1.0/conf/create-replace-
 classification:: Target Type:Web API
 
 conformance-test:: /conf/create-replace-delete/datastream
-conformance-test:: /conf/create-replace-delete/datastream-live
 conformance-test:: /conf/create-replace-delete/datastream-update-schema
 conformance-test:: /conf/create-replace-delete/datastream-delete-cascade
 conformance-test:: /conf/create-replace-delete/observation
 conformance-test:: /conf/create-replace-delete/observation-schema
 conformance-test:: /conf/create-replace-delete/controlstream
-conformance-test:: /conf/create-replace-delete/controlstream-live
 conformance-test:: /conf/create-replace-delete/controlstream-update-schema
 conformance-test:: /conf/create-replace-delete/controlstream-delete-cascade
 conformance-test:: /conf/create-replace-delete/command
@@ -1232,25 +1230,6 @@ step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/co
 step:::: At resources endpoint `{api_root}/systems/{sysId}/datastreams` (for CREATE)
 step:::: At resource endpoint `{api_root}/systems/{sysId}/datastreams/{id}` (for REPLACE and DELETE)
 step:::: At resource endpoint `{api_root}/datastreams/{id}` (for REPLACE and DELETE)
-====
-
-[abstract_test]
-====
-[%metadata]
-identifier:: /conf/create-replace-delete/datastream-live
-target:: /req/create-replace-delete/datastream-live
-
-test-purpose:: Validate that a client controls `DataStream` liveness and that disabled datastreams reject new observations without hiding existing resources.
-
-test-method::
-step::: Create a `DataStream` resource with a valid representation whose `live` property is `false`.
-step::: Retrieve the created resource and verify that its `live` property is `false`.
-step::: Submit a valid `Observation` CREATE request at the created resource's `{api_root}/datastreams/{dsId}/observations` endpoint and verify that the response has status code 409.
-step::: REPLACE the `DataStream` resource with the same valid representation except that its `live` property is `true`.
-step::: Retrieve the resource and verify that its `live` property is `true`.
-step::: Submit a valid `Observation` CREATE request and verify that it succeeds.
-step::: REPLACE the `DataStream` resource with the same valid representation except that its `live` property is `false`.
-step::: Retrieve the `DataStream` resource and the Observation created in the preceding step, and verify that both remain available.
 ====
 
 [abstract_test]
@@ -1331,25 +1310,6 @@ step::: Execute all tests from conformance class {ogcapi-features-4-spec-url}/co
 step:::: At resources endpoint `{api_root}/systems/{sysId}/controlstreams` (for CREATE)
 step:::: At resource endpoint `{api_root}/systems/{sysId}/controlstreams/{id}` (for REPLACE and DELETE)
 step:::: At resource endpoint `{api_root}/controlstreams/{id}` (for REPLACE and DELETE)
-====
-
-[abstract_test]
-====
-[%metadata]
-identifier:: /conf/create-replace-delete/controlstream-live
-target:: /req/create-replace-delete/controlstream-live
-
-test-purpose:: Validate that a client controls `ControlStream` liveness and that disabled control streams reject new commands without hiding existing resources.
-
-test-method::
-step::: Create a `ControlStream` resource with a valid representation whose `live` property is `false`.
-step::: Retrieve the created resource and verify that its `live` property is `false`.
-step::: Submit a valid `Command` CREATE request at the created resource's `{api_root}/controlstreams/{csId}/commands` endpoint and verify that the response has status code 409.
-step::: REPLACE the `ControlStream` resource with the same valid representation except that its `live` property is `true`.
-step::: Retrieve the resource and verify that its `live` property is `true`.
-step::: Submit a valid `Command` CREATE request and verify that it succeeds.
-step::: REPLACE the `ControlStream` resource with the same valid representation except that its `live` property is `false`.
-step::: Retrieve the `ControlStream` resource and the Command created in the preceding step, and verify that both remain available.
 ====
 
 [abstract_test]

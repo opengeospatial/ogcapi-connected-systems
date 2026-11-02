@@ -94,8 +94,16 @@
           "readOnly": true
         },
         "live": {
-          "description": "Whether this control stream accepts new commands.",
-          "type": "boolean"
+          "description": "Whether this control stream's command channel can currently accept commands. A server MAY generate the effective status and MAY ignore client-supplied values or updates.",
+          "oneOf": [
+            {
+              "description": "The server does not expose a command-channel availability determination.",
+              "type": "null"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
         },
         "async": {
           "description": "Flag indicating if the command channel processes commands asynchronously",
